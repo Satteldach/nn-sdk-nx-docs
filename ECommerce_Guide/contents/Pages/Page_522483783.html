@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.2.1 Automatic Renewal | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.2.1 Automatic Renewal -->
+<div class="pagetitle" id="PageId_522483783">7.2.1 Automatic Renewal</div>
+<div class="text_separate">
+<h1 id="Anchor_522483783_h1_1">Overview</h1>
+<p>Automatic renewal for subscription service items is a system for automatically purchasing subscription service items before the expiration date. It is provided to users who have an automatic renewal agreement. This mechanism has the following advantages.</p>
+<ul>
+  <li>For users, there is no need to worry about their rights to the service expiring.</li>
+  <li>For the service provider, it reduces the likelihood of users deciding to stop using the service after their subscriptions have expired.</li>
+</ul>
+<p>You can implement automatic renewal by providing initial purchase items (for automatic renewal) and recurring subscription service items (for automatic renewal) for sale. The user agrees to automatic renewal by purchasing the initial purchase item, and subsequent purchases of the item are made automatically.<br />In addition, the pair of an initial purchase item and standing purchase item is called an <em>automatic renewal item</em>. Subscription service items that are not automatic renewal items are called <em>non-automatic renewal items</em>.</p>
+<p>This page describes automatic renewal of fixed-duration subscription service items. For automatic renewal of monthly subscription service items, see <a href="../Pages/Page_844599127.html">7.2.2 Monthly Format</a>.</p>
+<h1 id="Anchor_522483783_h1_2">Automatic Renewal Specifications</h1>
+<h2 id="Anchor_522483783_h2_1">Starting an Agreement</h2>
+<p>When a user purchases an automatic renewal item, they enter into an automatic renewal agreement. As described later, the user can purchase offered standard items and offered automatic renewal items regardless of whether the user has already purchased such items. However, the user cannot purchase items that would extend the validity period beyond the maximum number of service days.</p>
+<p>This automatic renewal agreement can be canceled using the method described later in Canceling an Agreement.</p>
+<h3 id="Anchor_522483783_h3_1">Additional Purchases</h3>
+<p>As described below, even when the user purchases the item and it is within the validity period, they can still additionally purchase non-automatic renewal items and automatic renewal items. If an additional purchase is made, the validity period will be updated. However, items cannot be purchased if the validity period exceeds the maximum service period after update.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>First Purchase</th>
+      <th>Additional Purchase</th>
+      <th>Automatic Renewal Agreement</th>
+    </tr>
+    <tr>
+      <td>Non-automatic renewal item</td>
+      <td>Non-automatic renewal item</td>
+      <td>(No automatic renewal agreement.)</td>
+    </tr>
+    <tr>
+      <td>Non-automatic renewal item</td>
+      <td>Automatic renewal item</td>
+      <td>Begins on the day that the automatic renewal item is purchased.</td>
+    </tr>
+    <tr>
+      <td>Automatic renewal item</td>
+      <td>Non-automatic renewal item</td>
+      <td>Begins on the day that the automatic renewal item is purchased.</td>
+    </tr>
+    <tr>
+      <td>Automatic renewal item</td>
+      <td>Automatic renewal item</td>
+      <td>The existing automatic renewal agreement is overwritten by the agreement associated with the newly purchased automatic renewal item.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_522483783_h2_2">Automatic Purchase Processing</h2>
+<p>During the automatic renewal agreement, if the remaining validity period is two days or less, purchase processing is performed automatically for the automatic renewal item that was set in the agreement. For example, if the expiration date is 3/31 0:00, the automatic purchase process occurs after 3/29 0:00 and the expiration date is extended if the operation succeeds. This renewal process is repeated unless the user cancels the automatic renewal agreement.</p>
+<p>Automatic purchase for automatic renewal items uses the user's available balance. If the user has selected credit card or PayPal as their payment method, automatic purchase processing uses the selected payment method to add to the user's balance if the balance is insufficient when making the automatic purchase.</p>
+<p>If the automatic purchase process fails and the failure is caused by the Nintendo eShop server, the process is retried periodically. If retrying does not succeed within two days and the item expires, the user enters the grace period described later. If the failure is caused by a user issue, such as insufficient balance or expired credit card, the automatic renewal item agreement is canceled.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Because users under the age of 18 cannot save credit card information or link a PayPal account, funds are not added to the user's Nintendo eShop account, and the automatic purchase fails.</p>
+  </div>
+</div>
+<h2 id="Anchor_522483783_h2_3">Automatic Renewal Grace Periods</h2>
+<p>At Christmas and other busy times, there is a heavy load on the Nintendo eShop servers and the automatic renewal processing may not complete before the expiration date. For these times, there is a grace period.<br />This grace period has the following specifications.</p>
+<ul>
+  <li>During the grace period, the Nintendo eShop server returns a validity period of the confirmed time plus one day.</li>
+  <li>During this grace period, the <code>temporary</code> flag of the API used by independent servers to check the subscription period is <code>true</code>.</li>
+  <li>After the agreement renewal process is completed, the validity period is updated to the new time duration.</li>
+</ul>
+<p>If you are using the automatic renewal system, continue to provide services during these grace periods. Users do not need to be shown that they are in a grace period.</p>
+<h2 id="Anchor_522483783_h2_4">Canceling an Agreement</h2>
+<p>A user can cancel an automatic renewal agreement in the following ways.</p>
+<ul>
+  <li>Cancel from Account Information in the Switch Nintendo eShop.</li>
+  <li>Cancel from Shop Menu on the Nintendo Account website.</li>
+</ul>
+<p>To start the auto-renewal agreement again after canceling the agreement, the user must repurchase an automatic renewal item.</p>
+<h1 id="Anchor_522483783_h1_3">Selling Automatic Renewal Items</h1>
+<p>Like non-automatic renewal items, automatic renewal items can also be sold on Nintendo eShop.<br />You can add automatic renewal items to Nintendo eShop though NCMS.</p>
+<h2 id="Anchor_522483783_h2_5">Automatic Renewal of Free Trials</h2>
+<p>You can sell automatic renewal for free trials. For more information, see Free Trial Flags and Purchase Restrictions in <a href="../Pages/Page_528451459.html">7.1 Overview</a>.</p>
+<p>Note that the duration displayed in Nintendo eShop for automatic renewal items for free trials is shorter by two days (the renewal period) due to technical reasons. The following are a few examples.</p>
+<table class="relative-table wrapped" style="width: 49.0196%;">
+  <colgroup> <col style="width: 27.6531%;" /> <col style="width: 12.4687%;" /> <col style="width: 20.6231%;" /> <col style="width: 11.8331%;" /> <col style="width: 27.422%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Item for Purchase</th>
+      <th>Set Duration</th>
+      <th>Displayed Duration</th>
+      <th>Price</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>First-time purchase items (for automatic renewal)</td>
+      <td>9 days</td>
+      <td>7 days</td>
+      <td>0 yen</td>
+      <td>The free trial flag is enabled.</td>
+    </tr>
+    <tr>
+      <td>Subscription service items (for automatic renewal)</td>
+      <td>30 days</td>
+      <td>30 days</td>
+      <td>1000 yen</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_522483783_h2_6">Limitations on Automatic Renewal Items</h2>
+<p>The following restrictions apply to subscription service items registered as automatic renewal items.</p>
+<table class="relative-table wrapped" style="width: 97.8788%;">
+  <colgroup> <col style="width: 21.7054%;" /> <col style="width: 17.6744%;" /> <col style="width: 60.6202%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Limitation</th>
+      <th>Limitation Value/Description</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Minimum subscription term that can be set for automatic renewal items</td>
+      <td>7 days</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Maximum subscription term that can be set for automatic renewal items</td>
+      <td>
+        <p>Half of the maximum service period</p>
+      </td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Changing prices for automatic renewal items</p>
+      </td>
+      <td>
+        <p>Required to change prices in NCMS and to contact Nintendo no later than 45 days in advance of the go-live date.</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>For technical reasons we require that price changes must be submitted in NCMS and that you contact Nintendo no later than 45-days prior to their go-live date. This enables us to distribute an automated email to all current subscribers that a price change is scheduled to occur. It is not possible to change the price on NCMS within the 45 days.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Discounts for automatic renewal items</td>
+      <td>Not possible</td>
+      <td>Due to technical reasons, regardless of whether the item is an automatic renewal item, subscription service items cannot be temporarily discounted.</td>
+    </tr>
+    <tr>
+      <td>Discounts based on the continuous subscription term</td>
+      <td>Not possible</td>
+      <td>Due to technical reasons, discounts based on the amount of time a user has continued automatic renewal cannot be applied to purchases to update the automatic subscription.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_522483783_h3_2">Conditions Under Which Automatic Renewal Items Cannot Be Sold</h3>
+<p>Automatic renewal items cannot be sold on Nintendo eShop to certain age groups in the following countries and regions. These restrictions are subject to change in the future, so do not implement your application in a way that relies on these specifications.</p>
+<table class="relative-table wrapped" style="width: 19.5961%;">
+  <colgroup> <col style="width: 61.3027%;" /> <col style="width: 38.6973%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Country, Region</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>European Region</td>
+      <td>Under 18</td>
+    </tr>
+    <tr>
+      <td>Canada, Quebec Province</td>
+      <td>All Ages</td>
+    </tr>
+    <tr>
+      <td>Korea</td>
+      <td>All Ages</td>
+    </tr>
+  </tbody>
+</table>
+<p>For Nintendo Accounts that fall under these conditions, Nintendo eShop has the following behavior.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Sales Structure</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Both nonautomatic renewal and automatic renewal items</td>
+      <td>Automatic renewal items are hidden and only the nonautomatic renewal items are displayed.</td>
+    </tr>
+    <tr>
+      <td>Automatic renewal items only</td>
+      <td>These items will not be automatic renewal items and are automatically changed to nonautomatic renewal items.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_522483783_h3_3">Limitations While the Agreement Is Valid</h3>
+<p>Users with an active automatic renewal agreement are not permitted to change their country of residence or region. If the user cancels the automatic renewal agreement, they can change their country of residence or region even if there is still subscription time remaining for the subscription service item.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

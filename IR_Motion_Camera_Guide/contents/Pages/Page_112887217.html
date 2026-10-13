@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 What the IR Motion Camera Can Do | Nintendo Switch IR Motion Camera Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 What the IR Motion Camera Can Do -->
+<div class="pagetitle" id="PageId_112887217">3 What the IR Motion Camera Can Do</div>
+<div class="text_separate">
+<h1 id="Anchor_112887217_h1_1">Features Provided by the Library</h1>
+<p>The following features are provided by the IR Motion Camera library.<br />Details of each feature will be documented later.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Feature</th>
+      <th>Overview</th>
+    </tr>
+    <tr>
+      <td>Moment Mode</td>
+      <td>Performs a moment calculation on the image captured by the IR Camera as part of the image processing, and displays the result.</td>
+    </tr>
+    <tr>
+      <td>Hand Analysis Mode</td>
+      <td>
+        <p>Outputs information about the image of a hand captured by the IR Camera, including information about the external shape, outline, and surface area.<br />A compressed 40 &times; 30 image is displayed at the same time as the hand data.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Clustering Mode</td>
+      <td>Detects clusters of objects captured by the IR Camera.</td>
+    </tr>
+    <tr>
+      <td>Adaptive Clustering Mode</td>
+      <td>Detects clusters while changing the camera settings such as exposure time and LED intensity for each frame according to the capture target.<br />Compared with clustering mode, detailed settings cannot be configured, but precise data can be obtained.</td>
+    </tr>
+    <tr>
+      <td>Pointing Mode</td>
+      <td>Detects the reflective bar, with the three retroreflector points aligned, and displays the center of those points as the pointing coordinates.</td>
+    </tr>
+    <tr>
+      <td>Image Transfer Mode</td>
+      <td>Transfers images captured by the IR Camera at a low frame rate.</td>
+    </tr>
+    <tr>
+      <td>IR LED Mode</td>
+      <td>Handles the IR Motion Camera not as an IR camera, but as an LED that can control IR illumination, and controls the camera.</td>
+    </tr>
+    <tr>
+      <td>Pulse Rate Measurement Mode</td>
+      <td>Measures the player's approximate pulse rate when they cover the IR Motion Camera with their thumb.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_112887217_h1_2">Sample Uses</h1>
+<p>The features provided by the IR Motion Camera library have many supported use cases.<br />This section reviews some practical examples.</p>
+<h2 id="Anchor_112887217_h2_1">Using Fast Hand Movement as Input</h2>
+<p>With moment mode, you can find the coordinates for the center of luminosity for an entire image.<br />Using changes to those coordinates as input enables you to recognize fast hand movement.<br />For example, the changes to the brightness focus coordinates shown in the following image can, when rotated, show that the hand is spinning.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/113972573.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<p>For another example, the changes to the coordinates for the center of luminosity shown in the following image can, when translated up and down, show that the hand is flapping.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/113972574.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<p>Although the image processing is simple, changes to luminosity coordinates can be used for various purposes.</p>
+<h2 id="Anchor_112887217_h2_2">Using Hand Shape as Input</h2>
+<p>In hand analysis mode, you can recognize information about the shape of the hand and use it as input. For example, you can count the number of fingers to play rock-paper-scissors.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/113972575.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_112887217_h2_3">Using With Attachments</h2>
+<p>By using the clustering mode that can recognize objects of specified brightness and size, you can detect movements of specific objects that reflect IR light and use them in game software.<br />For example, with Nintendo Labo you can use the Toy-Con attachments to watch the movement of retroreflectors within the Toy-Con and apply them in the game.<br />The following example demonstrates the punch mechanism of the Toy-Con Robot.<br />The Toy-Con Robot is shown equipped in the left image, and the back is shown in the right image without the part where the right Joy-Con is inserted.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/432410843.png" width="900" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<p>The retroreflector, circled in red, is recognized as an object marker.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/432411583.png" width="175" class="embedded-image" />
+  </span>
+</p>
+<p>Viewing the object move up and down in the game enables actions such as punching and walking.<br />By detecting the movement of retroreflectors such as by using clustering mode this way, you can materialize various types of attachments without electrical parts.</p>
+<p>
+  <strong>Note:</strong> When using an existing Nintendo Switch Toy-Con in game software, see the Nintendo Switch Toy-Con Application Planning Guide.</p>
+<h2 id="Anchor_112887217_h2_4">Recognizing External IR Light</h2>
+<p>In principle, the IR Motion Camera emits IR light and captures that light when it is reflected. However, you can also detect external IR light with a wavelength of 850 nm.<br />For example, by enabling or disabling external IR light that the IR Motion Camera recognizes, you can send information from the device that emits the IR light to the Joy-Con.<br />In addition, the Joy-Con (R) itself can emit IR light when using the IR LED mode, which can be detected by the IR Motion Camera on another Joy-Con (R).</p>
+<p>Properties such as the recommended brightness of the external IR light depend on the plans for the game such as the assumed play environment, the distance between the IR light and IR Motion Camera, and the degree of surrounding noise. Adjust these properties based on your needs.</p>
+<p>
+  <strong>Note:</strong> Depending on the wavelength band and IR Motion Camera hardware specifications in use, it may not be possible to support IrDA.</p>
+<h2 id="Anchor_112887217_h2_5">Pointing</h2>
+<p>You can use pointing mode to use the Joy-Con as a pointer.<br />However, the retroreflector bar is required for pointing. It has the following specifications.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/438671007.png" width="640" class="embedded-image" />
+  </span>
+</p>
+<p>The black area is the retroreflector.<br />Place this bar near the screen (such as on top of it) that you target when pointing.<br />For the gray areas of the figure, to minimize light noise, use materials that reflect as little light as possible.</p>
+<p>The recognized distance and range you can use when pointing, depends on the performance of the retroreflector.<br />The following are actual examples.</p>
+<ul>
+  <li>Left Photo: The retroreflector bar is made of plastic. (The black areas are the retroreflectors.)</li>
+  <li>Right Photo: The retroreflector bar is placed on top of a monitor.</li>
+</ul>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/450966888.JPG" width="350" class="embedded-image" />
+  </span>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/450966894.JPG" width="350" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<p>This is just an example. When planning for specific game software, the requirements, such as the material for the retroreflector, change depending on the distance and range.<br />For this reason, make sure that you contact Nintendo in advance if you want to use this feature in your application.</p>
+<h2 id="Anchor_112887217_h2_6">Measuring Pulse Rate</h2>
+<p>As pictured in the following figures, if you press the ball of your thumb lightly against the IR Motion Camera and hold still for a while, the IR Motion Camera emits an infrared signal toward the tip of your thumb, and this signal reflects off of the hemoglobin in the blood and returns this information to the camera.<br /><br />Depending on the changes in the amount of light that is returned, the images obtained by the IR Motion Camera also change slightly in brightness, and this information can be used to obtain an approximate pulse rate.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887217/1267034050.JPG" height="250" class="embedded-image" />
+  </span> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_112887217/1291072936.jpg" height="250" class="embedded-image" /></span></p>
+<p>To obtain an approximate pulse rate, you must measure the pulse while the user is being still for anywhere from several seconds to around 10 seconds.<br />We do not recommend measuring the pulse rate while making the user perform some other action.<br />We recommend giving the user thorough guidance about the appropriate measurement method, such as by using the pulse rate measurement information obtained from the library.</p>
+<p>Also note that this feature is only for obtaining the user's approximate pulse rate during a certain period of time, and is not suitable for uses such as detecting real-time changes in pulse rate.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Nintendo Switch is not a medical device. <br />The pulse rate obtained in pulse rate measurement mode is only an estimate. Do not use it for medical diagnosis, treatment, or prevention.<br />Consider these limitations when using this feature.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>We have not tested pulse rate measurement using any part of the body other than the surface of the thumb, and pulse rate measurement with other body parts is not supported. </p>
+  </div>
+</div>
+<h3 id="Anchor_112887217_h3_1">Displaying Cautionary Text</h3>
+<p>If you are using this feature and showing users the progress or results of pulse rate measurement or an evaluation of the measurement results, you must convey the important information described in the preceding Note blocks to users.<br />When you do this, display cautionary text in the application that clearly conveys to users the fact that measurements obtained using this feature are only estimates and are not for medical diagnosis, treatment, or prevention.<br />The following is an example. You can reword the text as long as the meaning is preserved.</p>
+<div style="border-width: 1px;" class="preformatted panel">
+  <div class="preformattedContent panelContent">
+    <pre>The pulse rate measurements and functions are estimates only. They are not to be used for medical diagnoses, treatment, or prevention.</pre>
+  </div>
+</div>
+<p>To ensure that users read the cautionary text, display it in a scene that users are certain to view when performing measurements, rather than within a settings dialog box or a menu.</p>
+<p>In addition, although there is no specific requirement for how long to display the cautionary text, it must be displayed long enough for users to read and comprehend it.<br />We recommend displaying the text for about five seconds, but a specification where the user does something like press a confirmation button to move forward is acceptable.</p>
+<h3 id="Anchor_112887217_h3_2">Displaying Guidance About How to Use the Feature</h3>
+<p>In order to use the pulse rate measurement feature, the user must hold the controller in a particular way.<br />If they do not hold the controller correctly, it can result in the measurement failing, requiring another attempt, or in the measurement taking a long time. This can degrade the user experience.</p>
+<p>In order to encourage correct use of the pulse rate measurement feature, we recommend displaying guidance about how to use it within the application.<br />When displaying guidance about how to use the feature, display it after the cautionary text described earlier.</p>
+<h2 id="Anchor_112887217_h2_7">Displaying IR Images</h2>
+<p>You can check IR images by using image transfer mode, although this check does not occur in real time.<br />It is possible to check the compressed 40 &times; 30 images in real time by using hand analysis mode.</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

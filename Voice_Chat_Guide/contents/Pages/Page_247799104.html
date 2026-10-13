@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.1 About Matchmaking Voice Chat | Nintendo Switch Voice Chat Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.1 About Matchmaking Voice Chat -->
+<div class="pagetitle" id="PageId_247799104">2.1 About Matchmaking Voice Chat</div>
+<div class="text_separate">
+<h1 id="Anchor_247799104_h1_1">Overview</h1>
+<p>Matchmaking Voice Chat is a feature of the Switch Online app. With this feature, players participating in network matches in Switch applications can use voice chat on their smart devices.<br />Matchmaking Voice Chat is displayed as <strong>Voice Chat</strong> in the Switch Online app.<br />For a Switch application to use the Matchmaking Voice Chat feature, the application must be implemented in a special way, and application-specific information must be registered to the Voice Chat server, which is the server that provides the Matchmaking Voice Chat functionality.</p>
+<h2 id="Anchor_247799104_h2_1">Supporting Parental Controls</h2>
+<p>Matchmaking Voice Chat is not subject to the parental control restrictions in communicating with others.<br />Avoid implementations where an application obtains the parental control settings and determines whether to enable or disable Matchmaking Voice Chat.</p>
+<h1 id="Anchor_247799104_h1_2">Client Libraries</h1>
+<p>Matchmaking Voice Chat can be used for matchmaking using Nintendo's game server (the server that NEX or NPLN provides) and for independent matchmaking using an independent server.<br />Libraries from the NEX library (the <code>nn::nex::SmartDeviceVoiceChatClient</code> class) and the <code>SmartDeviceVoiceChat</code> library provided as part of NintendoSDK are provided as client libraries.<br />Matchmaking that uses NPLN or an independent server has the advantage of using the <code>SmartDeviceVoiceChat</code> library to make it unnecessary to link to the NEX library.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>NPLN is a mechanism for adding online functionality, and is the successor to NEX. For more information about NPLN, see the NPLN Manual.</p>
+  </div>
+</div>
+<h2 id="Anchor_247799104_h2_2">NEX Library</h2>
+<p>The NEX library is an expanded communication library for the NintendoSDK. It includes features such as matchmaking, ranking, and data stores.<br />The Matchmaking Voice Chat feature is provided as a part of the NEX library in NEX 4.6.0 and later.<br />For more information about NEX, see the Nintendo Switch NEX Guide and NX NEX Manual.</p>
+<h2 id="Anchor_247799104_h2_3">SmartDeviceVoiceChat Library</h2>
+<p>
+  <code>SmartDeviceVoiceChat</code> is a library for using the Matchmaking Voice Chat feature. The features it provides are identical to those of the NEX library's Matchmaking Voice Chat feature.<br />Using the <code>SmartDeviceVoiceChat</code> library when implementing matchmaking and other online functionality through NPLN or an independent server makes it no longer necessary to link to the NEX library.<br />It is provided as a private package (<code>SmartDeviceVoiceChatKit</code>) starting in NintendoSDK 12.3.6, and is included in the standard NintendoSDK package starting in NintendoSDK 16.2.0.<br />If you need a private package, contact your Nintendo support representative.</p>
+<h1 id="Anchor_247799104_h1_3">Glossary</h1>
+<p>The following section explains terms related to Matchmaking Voice Chat.</p>
+<h2 id="Anchor_247799104_h2_4">Matchmaking Voice Chat Terminology</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Glossary</th>
+      <th />
+    </tr>
+    <tr>
+      <td>Nintendo Switch Online App</td>
+      <td>
+        <p>The smart device application that provides services linked to Switch games. It is referred to as the <em>Switch Online app</em> in this document.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="with-breadcrumbs">
+          <span class="sv-ti-done">
+            <span class="sv-ti-title-text">Matchmaking Voice Chat</span>
+          </span>
+        </p>
+      </td>
+      <td>
+        <p>Matchmaking Voice Chat is a feature that performs matchmaking for online matches in Switch applications and enables the gathered users to voice chat.</p>
+        <p>Notifications are sent to smart devices when the online match in the Switch application begins. Voice chat then begins for users who have the smart device application running.</p>
+        <p>Matchmaking Voice Chat is displayed as <strong>Voice Chat</strong> in the Switch Online app.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Voice Chat Server</td>
+      <td>
+        <p>The server that provides the Matchmaking Voice Chat functionality.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Title Group</td>
+      <td>
+        <p>Matchmaking Voice Chat is handled in units of title groups.<br />Multiple application IDs can be linked to a single title group.<br />Voicing chat can take place among applications that belong to the same title group.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Room</td>
+      <td>
+        <p>A place created on the Voice Chat server where users can gather together.<br />Members participating in a room can voice chat with each other.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Game Mode</td>
+      <td>
+        <p>The game mode indicates the kind of online play during which voice chat occurs.<br />For example, if an application has voice chat for both individual matches and tag matches online and voice chat occurs in both, they can be set as separate game modes.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Channel</td>
+      <td>
+        <p>By setting separate channels, the users participating in the same room can be divided into separate groups for communication.<br />For example, if the members in a room are divided into the A team and the B team for battle, you can prepare one channel for the A team and a separate channel for the B team.<br />In this way, the team members using the same channel can communicate with each other, but the members of the other team using the other channel cannot.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_247799104_h2_5">Management Tool Terminology</h2>
+<h3 id="Anchor_247799104_h3_1">Nintendo Developer Portal</h3>
+<p>This website is specifically intended for game developers working on the Nintendo platforms.<br />You can review development manuals and add the applications or products you are working on.<br />If your product will use the voice chat feature, open MY PRODUCTS, select the product, select <strong>Releases</strong> &gt; <strong>Features</strong> &gt; <strong>Program Specifications</strong> &gt; <strong>Supports voice chat</strong>, and then register the necessary information.</p>
+<h3 id="Anchor_247799104_h3_2">OMAS</h3>
+<p>OMAS (Online Title Management System) is a Web management tool used to submit applications for the network features that your application will use. OMAS can be accessed from the Nintendo Developer Portal link.<br />Make an OMAS request to use network features for setting up and configuring a server and to enable network feature development.</p>
+<p>If you plan to use Matchmaking Voice Chat, you must request its use in each title on OMAS.<br />If you plan to implement the voice chat feature without using Matchmaking Voice Chat, you do not need to make a request to use the feature on OMAS.</p>
+<p>
+  <br />
+</p>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

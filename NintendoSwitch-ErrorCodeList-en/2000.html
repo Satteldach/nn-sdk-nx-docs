@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google" value="notranslate" />
+<title>N/A [2000-xxxx]</title>
+<link rel="stylesheet" href="ext/css/default.css" /><script src="ext/jquery.min.js"></script>
+<link rel="stylesheet" href="ext/jquery-ui/jquery-ui.min.css" />
+<link rel="stylesheet" href="ext/jquery-ui/theme.css" />
+<script src="ext/jquery-ui/jquery-ui.min.js"></script>
+<script src="ext/jsconf.js"></script>
+<script src="ext/default.js"></script>
+<script>document.write('<style>.jnone{display:none;}</style>');</script>
+</head>
+<body>
+<div class="header_wrap">
+<div class="header">
+<div id="tool_name"><a href="NintendoSwitch-ErrorCodeList-en.html">Error Code Search<br />Nintendo Switch</a></div>
+<div id="headnav" class="none">
+<div class="search">
+<input id="searchcode" class="searchcode" type="text" maxlength="12" placeholder=" -" />
+<input type="button" value="Search" for="searchcode" class="btn_search" />
+</div>
+</div>
+</div>
+</div>
+<div id="body" class="container init1st jnone">
+<div class="sticky_wrap">
+<div class="sticky_left">
+<h1 class="title fixleft">N/A [2000-xxxx]</h1>
+</div>
+</div>
+
+
+<div class="content" id="codetable">
+<div id="codeinfo" style="display:none">
+<div class="controls">
+Display Language:
+<select name="lang[name]" id="lang_name"></select>
+</div>
+
+<style>
+	table#codelisttable td,
+	table#codeinfotable tbody tr p { font-family: NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+</style>
+<style>
+	
+</style>
+
+<div id="codeinfobody"></div>
+</div>
+
+<table id="codelisttable" class="margin-bottom-1">
+<thead>
+<tr>
+<th class="di_code tbpre fixleft fixtop">Error Code <span id="exp_codeinfo" class="init1st none" title="Double-clicking an error code cell switches it to only show that error code." alt="">?</span></th>
+<th class="di_f53 tbstr fixtop">Result</th>
+<th class="di_f52 tbstr fixtop">Description</th>
+<th class="di_f57 tbstr fixtop">Solution(for developer)</th>
+<th class="di_f55 tbstr fixtop">How to reproduce</th>
+<th class="di_f51 tbstr fixtop">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="CODE-2000-0000 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2000-0000"></a>2000-0000</td>
+<td class="di_f53 tbstr even cellok">nn::ResultSuccess</td>
+<td class="di_f52 tbstr even cellok">This error code indicates success.</td>
+<td class="di_f57 tbstr even cellok">1.<br />This error code might be displayed in the error viewer applet if the following two conditions are met.<br />• The build type of the application is the release build.<br />• nn::err::ShowError(nn::ResultSuccess()) was called by the application.<br />Do not display this error code in the error viewer applet.<br /><br />2.<br />This error code might be displayed when CrashReport.exe is run if the following two conditions are met.<br />• NN_ABORT() was called by the application.<br />• The crash report created by NN_ABORT() was uploaded to the server by a Switch console with system version 7.0.0 or earlier.</td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footer fixleft"></div>
+</body>
+</html>

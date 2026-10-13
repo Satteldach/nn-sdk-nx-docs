@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7 Using NsrarConverter | Nintendo Switch Save Data Report Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7 Using NsrarConverter -->
+<div class="pagetitle" id="PageId_966866646">7 Using NsrarConverter</div>
+<div class="text_separate">
+<h1 id="Anchor_966866646_h1_1">Extracting NSRAR Files</h1>
+<h2 id="Anchor_966866646_h2_1">Command</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>NsrarConverter.exe dearchive &lt;extraction source NSRAR file&gt; &lt;extraction target directory&gt;</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped">
+  <colgroup> <col style="width: 16.2791%;" /> <col style="width: 83.7209%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <code class="plain plain">&lt;extraction source NSRAR file&gt;</code>
+      </td>
+      <td>Specify the NSRAR file obtained from the web tool.</td>
+    </tr>
+    <tr>
+      <td>
+        <code class="plain plain">&lt;extraction target directory&gt;</code>
+      </td>
+      <td>Specify the directory to which to extract the NSRAR file.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_966866646_h2_2">Export</h2>
+<table class="relative-table wrapped" style="width: 70.4472%;">
+  <colgroup> <col style="width: 2.30203%;" /> <col style="width: 2.30203%;" /> <col style="width: 4.9623%;" /> <col style="width: 14.6064%;" /> <col style="width: 33.3823%;" /> <col style="width: 42.445%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;" colspan="4">Summary</th>
+      <th style="text-align: center;">File/Directory Name</th>
+      <th style="text-align: center;">Comments</th>
+    </tr>
+    <tr>
+      <td style="text-align: left;" colspan="4">Extraction target directory</td>
+      <td style="text-align: left;">The extraction target directory specified when <code>dearchive</code> was run.</td>
+      <td style="text-align: left;">
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <br />
+      </td>
+      <td style="text-align: left;" colspan="3">Save data directory</td>
+      <td>&lt;SDA ID&gt;</td>
+      <td style="text-align: left;">
+        <p>When collecting save data from multiple user accounts, the number of pieces of save data is equivalent to the number of pieces of data in the user environment.<br />SDA ID is a unique ID assigned to each piece of save data.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <br />
+      </td>
+      <td style="text-align: left;">
+        <br />
+      </td>
+      <td style="text-align: left;" colspan="2">Save data system directory</td>
+      <td>&lt;SDA ID&gt;_data</td>
+      <td style="text-align: left;">The directory to which one piece of save data is extracted.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <br />
+      </td>
+      <td style="text-align: left;" colspan="3">Metadata</td>
+      <td>&lt;report number&gt;_&lt;date/time obtained&gt;.csv</td>
+      <td style="text-align: left;">
+        <p>The following information is included as reference information.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Metadata Content Description</strong>
+</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Item Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>survey_request_id</td>
+      <td>Report number.</td>
+    </tr>
+    <tr>
+      <td>device_serial</td>
+      <td>Serial number.</td>
+    </tr>
+    <tr>
+      <td>application_id</td>
+      <td>Application ID.</td>
+    </tr>
+    <tr>
+      <td>user_uploaded_at</td>
+      <td>Date and time when the user uploaded the data (UTC).</td>
+    </tr>
+    <tr>
+      <td>save_data_archive_id</td>
+      <td>Save data archive ID.</td>
+    </tr>
+    <tr>
+      <td>local_user_id</td>
+      <td>User ID of the user on Switch.</td>
+    </tr>
+    <tr>
+      <td>local_user_name</td>
+      <td>User name of the user on Switch.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>save_data_type</p>
+      </td>
+      <td>
+        <p>
+          <code>account</code> (fixed value).</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_966866646_h2_3">Extraction Example</h2>
+<p>In this example, the application creates a file like the following within the save data.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>MountSaveData(&quot;save:/&quot;, userId);
+CreateFile(&quot;save:/file.bin&quot;, 0);</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>If you run <code>dearchive</code> on an NSRAR file containing the save data of two users, it is extracted as follows.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>NsrarConverter.exe dearchive 70259573_20210427014316.nsrar dearchived_dir</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>dearchived_dir/
+dearchived_dir/146009606483030242/
+dearchived_dir/146009606483030242/146009606483030242_data/
+dearchived_dir/146009606483030242/146009606483030242_data/file.bin
+dearchived_dir/164691363703859368/
+dearchived_dir/164691363703859368/164691363703859368_data/
+dearchived_dir/164691363703859368/164691363703859368_data/file.bin
+dearchived_dir/70259573_20210427014316.csv</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>In this case, <code>146009606483030242</code> and <code>164691363703859368</code> are the SDA IDs that correspond to the save data for each of the two users.</p>
+<p>The correlation between the SDA ID and the user is described in the CSV file.</p>
+<h1 id="Anchor_966866646_h1_2">Importing Save Data to Development Hardware</h1>
+<p>If you want to import the content of the extracted save data from the NSRAR file to the development hardware for testing or repairs, use the save data backup and restore functionality of DevMenu or DevMenuCommand alongside this tool.</p>
+<p>For more information about DevMenu and DevMenuCommand, see NintendoSDK Documents.</p>
+<p>The following procedure is an example.</p>
+<ol>
+  <li>Start the application and create save data.</li>
+  <li>In DevMenu, use the feature in the Save Data tab to back up the save data to a microSD card.</li>
+  <li>
+    <p>Replace the content of the save data backed up to the microSD card with the content extracted from the NSRAR file.<br />Example: Replace <code>sd:/NintendoSDK/BackupSaveData/&lt;yyyymmddhhmmss&gt;_&lt;applicationId&gt;/&lt;type&gt;/&lt;applicationId&gt;/&lt;xxxx&gt;/file.bin</code><span style="letter-spacing: 0.0px;"> with </span><code style="letter-spacing: 0.0px;">dearchived_dir/146009606483030242/146009606483030242_data/file.bin</code>.<br /></p>
+    <div class="note_new">
+      <div class="note_new_left">Note</div>
+      <div class="note_new_right">
+        <p>At this time, make sure that you do not change or delete <code>sd:/NintendoSDK/BackupSaveData/&lt;yyyymmddhhmmss&gt;_&lt;applicationId&gt;/&lt;type&gt;/&lt;applicationId&gt;/&lt;xxxx&gt;/__BackupSaveDataInfo.xml</code>.</p>
+      </div>
+    </div>
+  </li>
+  <li>In DevMenu, use the feature in the <strong>Save Data</strong> tab to restore the replaced save data from the microSD card.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can also use the feature to emulate the save data location (<code>nn::fs::SetSaveDataRootPath()</code>).</p>
+  </div>
+</div>
+<h1 id="Anchor_966866646_h1_3">Archiving Repaired Save Data as an NSRAR File</h1>
+<p>If you want to restore the repaired save data for the user, you must archive the repaired data as an NSRAR file and upload it.</p>
+<p>Typically, the process involves repairing and changing the files in the <code>&lt;SDA ID&gt;_data</code> directories in the directory for the extracted NSRAR file, and then specifying this extraction directory and archiving it as an NSRAR file.</p>
+<h2 id="Anchor_966866646_h2_4">Command</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>NsrarConverter.exe archive &lt;extraction source NSRAR file&gt; &lt;repaired extraction target directory&gt; &lt;export target directory&gt;</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped" style="width: 81.9183%;">
+  <colgroup> <col style="width: 17.7826%;" /> <col style="width: 82.2174%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Argument</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <code class="plain plain">&lt;extraction source NSRAR file&gt;</code>
+      </td>
+      <td>Specify the same file as the extraction source NSRAR file specified when <code>dearchive</code> was run.</td>
+    </tr>
+    <tr>
+      <td>
+        <code class="plain plain">&lt;repaired extraction target directory&gt;</code>
+      </td>
+      <td>
+        <p>Specify the extraction target directory specified when <code>dearchive</code> was run after overwriting the contents of that directory with the repaired save data.</p>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th colspan="3">Summary</th>
+              <th>File/Directory Name</th>
+              <th>Comments</th>
+            </tr>
+            <tr>
+              <td colspan="3">&lt;repaired extraction target directory&gt;</td>
+              <td>Any (The extraction target directory that was specified when <code>dearchive</code> was run.)</td>
+              <td>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <br />
+              </td>
+              <td colspan="2">Save data directory</td>
+              <td>&lt;SDA ID&gt;</td>
+              <td>Do not delete or rename the directory.</td>
+            </tr>
+            <tr>
+              <td>
+                <br />
+              </td>
+              <td>
+                <br />
+              </td>
+              <td>Save data system directory</td>
+              <td>&lt;SDA ID&gt;_data</td>
+              <td>
+                <p>Do not delete or rename the directory.</p>
+                <p>All of the content in this directory is restored to the user's save data. </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code class="plain plain">&lt;export target directory&gt;</code>
+      </td>
+      <td>Specify the directory to which to export the repaired NSRAR file.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Make sure that you do not leave any unnecessary files (such as <code>__BackupSaveDataInfo.xml</code> files and BAK files).</p>
+    <p>If you collected save data from multiple users, make sure that you do not mix up the users.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_966866646_h2_5">Export</h2>
+<table class="relative-table wrapped" style="width: 54.6488%;">
+  <colgroup> <col style="width: 2.08178%;" /> <col style="width: 2.52788%;" /> <col style="width: 6.24535%;" /> <col style="width: 8.57497%;" /> <col style="width: 37.72%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;" colspan="4">Summary</th>
+      <th style="text-align: center;">Filename</th>
+    </tr>
+    <tr>
+      <td style="text-align: left;" colspan="4">Repaired NSRAR file</td>
+      <td style="text-align: left;">&lt;extraction source NSRAR file base name&gt;_fixed.nsrar</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<h1 id="Anchor_966866646_h1_4">Notes</h1>
+<ul>
+  <li>If the tool crashes, a working directory called <code>NsrarConverterTemporary</code> is sometimes left in the same directory as the NSRAR file. In this case, delete the working directory.</li>
+</ul>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

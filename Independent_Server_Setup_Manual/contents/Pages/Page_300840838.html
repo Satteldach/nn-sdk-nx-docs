@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.6 Associating a Network Service Account | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.6 Associating a Network Service Account -->
+<div class="pagetitle" id="PageId_300840838">3.6 Associating a Network Service Account</div>
+<div class="text_separate">
+<p>By decoding the NSA ID token, the independent server can get the internal ID of the network service account of the user that is trying to log in.</p>
+<p>By associating the user IDs, which are managed by the independent server, with the internal IDs of network service accounts, the independent server can provide services on a per-network service account basis. With consideration to connecting with Nintendo servers in multiple environments, use the <code>iss</code> value in the NSA ID token (or its fully qualified domain name) and the internal ID, in combination, as the user identifier for network service accounts. For more information, see the Managing Users on the Independent Server section in <a href="../Pages/Page_115344118.html">8 Independent Server Development</a>.</p>
+<p>While verifying the NSA ID token is not mandatory, we strongly recommend that your application perform verification when using the token information on independent servers. Note that the validity of network service accounts, applications, and devices via Nintendo authentication is not ensured when token verification does not occur.</p>
+<p>Do not provide server services linked to the network service account if token verification fails.<br /></p>
+<p>Association with a network service account is not required when services are provided without differentiating users, or when providing services using a proprietary account system. However, even in this case, make sure to get the NSA ID token on the Switch application. This is because Nintendo may ban illegal users from using network features, and that determination is made when the NSA ID token is obtained in the application.</p>
+<p>In addition, we recommend that your Switch application send the token to the independent server even when the NSA ID token is not used by the independent server. This way, the Switch application will not require a patch if the specification is changed in the future to have the independent server use the NSA ID token.<br /></p>
+<h2 id="Anchor_300840838_h2_1"> Network Service Account Attributes</h2>
+<p>The following network service account attributes can be accessed by the independent server.<br />They are all included in the <code>Claims</code> object of the NSA ID token.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <p>Attribute</p>
+      </th>
+      <th>
+        <p>Description</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Internal ID</td>
+      <td>
+        <p>A unique ID for each network service account.</p>
+        <p>This never changes.</p>
+        <p>It is treated as a user identifier in Switch for NEX/NPLN and the Friend system.</p>
+        <p>It is not displayed to users.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Login ID</td>
+      <td>
+        <p>An ID that is automatically assigned the first time you access the Nintendo authentication server using the user and network service accounts that were associated using Switch.</p>
+        <p>Values for this ID are assigned separately for each Switch console when the same network service account is associated with several Switch consoles.</p>
+        <p>As a result, it can be used for identification between Switch consoles using the same network service account. For more information, see Handling Simultaneous Login From Multiple Systems later in this document.</p>
+        <p>The login ID is not changed by user operations like powering off the console or quitting the application, but a different login ID might be assigned due to repair or customer support.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_300840838_h2_2">Handling Simultaneous Logins From Multiple Systems</h2>
+<p>One network service account can be associated with multiple Switch user accounts. There might be cases where that internal ID is the same for NSA ID tokens sent from multiple Switch systems at the same time. Make sure that problems do not occur when such simultaneous logins are requested on the independent server.</p>
+<p>Consider the following types of implementation when handling simultaneous logins. There is no requirement to implement any of this support.</p>
+<ol>
+  <li>Provide services for each of the multiple Switch systems, and support simultaneous login.</li>
+  <li>Provide services only to the Switch that first logs in, without supporting simultaneous login. Do not allow Switch systems that try to log in afterward to log in.</li>
+  <li>Provide services only to Switch systems that try to log in afterward, without supporting simultaneous login. The Switch that logged in first is kicked off.</li>
+</ol>
+<p>
+  <br />
+</p>
+<p>Use the login IDs to identify Switch systems using the same network service account. A different login ID is issued for each Switch that retrieves a token even when the same network service account is used.</p>
+<p>The login ID itself cannot be used as a value to identify the user account or Switch. Use it with the internal ID as a set.</p>
+<h2 id="Anchor_300840838_h2_3">Network Service Account State Changes by User Operations</h2>
+<p>As detailed in the Nintendo Switch Account Guide, the following three types of accounts are used on the Switch system.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Overview</th>
+    </tr>
+    <tr>
+      <td>User Account</td>
+      <td>
+        <p>Account to differentiate users on the Switch system.</p>
+        <p>User accounts can also be created in an offline environment. This type of account is the unit for managing save data and other accumulated assets on the Switch system.</p>
+        <p>You can create multiple user accounts on a single Switch.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Network Service Account</td>
+      <td>
+        <p>Account to identify users in network services provided for Switch.</p>
+        <p>NEX and NPLN (the libraries of extended communications features provided by Nintendo) and the Friend system run using the internal ID of this network service account as the user identifier.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Nintendo Account</td>
+      <td>
+        <p>Account to identify users across web services, including not only Switch, but also smart device applications and My Nintendo.</p>
+        <p>There is a 1:1 relationship between this account and the network service account.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>For more information about the operations that users can perform for each type of account, and about how the state of the network service account changes as a result, see the Nintendo Switch Account Guide. Note that the independent server does not need to provide a measure for the user operations that, depending on the system, are certain not to work.</p>
+<h2 id="Anchor_300840838_h2_4">Notes When Linking</h2>
+<p>The relationship between network service accounts and the save data in Switch, which are assets of the user account, cannot be changed by user operations. However, it is possible for these to change in repair or customer support.</p>
+<p>For this reason, if the game's save data will store the network service account internal ID and data inherited from that ID (the session issued by the NSA ID token or the independent server), make sure that the application appropriately deals with changes to the network service account. For more information, see the Nintendo Switch Account Guide.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.3 Patch Distribution | Nintendo Switch Patch Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.3 Patch Distribution -->
+<div class="pagetitle" id="PageId_1116983724">3.3 Patch Distribution</div>
+<div class="text_separate">
+<p>Configure the distribution settings on NCMS after the patch has passed Lotcheck.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Nintendo Content Management System (NCMS) is a web tool for registering products to sell on Nintendo eShop. You can access it from the link in the Nintendo Developer Portal.</p>
+  </div>
+</div>
+<p>For more information about using NCMS, see the manual in NCMS.</p>
+<h1 id="Anchor_1116983724_h1_1">Distribution Settings</h1>
+<p>In NCMS, on the Distribution Data Settings page, set the distribution time and click <strong>Distribute to Users</strong> to distribute the patch at the specified time.<br />However, if any of the following conditions apply, the settings must also be verified and approved by Nintendo. In NCMS, on the Distribution Data Settings page, set the distribution time and click <strong>Submit</strong>.</p>
+<ul>
+  <li style="list-style-type: disc;">Downloadable content or service items will be distributed at the same time as the patch.</li>
+  <li>A patch corresponding to a compacted application will be distributed.</li>
+  <li>The patch has a Disable Download flag.</li>
+</ul>
+<h2 id="Anchor_1116983724_h2_1">Settings</h2>
+<p>This section describes the items that must be configured when setting the distribution of a patch on NCMS.</p>
+<h3 id="Anchor_1116983724_h3_1">Block Earlier Releases From Connecting to NEX/NPLN Server</h3>
+<p>Selecting this option blocks earlier releases, when the patch is released, from connecting to the NEX/NPLN server. For more information, see the following documentation.</p>
+<ul>
+  <li>
+    <span style="letter-spacing: 0.0px;">NEX<br />Nintendo Switch NEX Guide &gt; Tips and Tricks &gt; Patches and Compatibility</span>
+  </li>
+  <li>
+    <span style="letter-spacing: 0.0px;">NPLN<br />In the NPLN Documentation included in the NPLN package, NPLN Guide &gt; Patch Distribution and Compatibility</span>
+  </li>
+</ul>
+<p>This item is automatically selected based on the content of the OMAS application.</p>
+<p>If this item is selected, click <strong>Distribute to Users</strong> in NCMS at least 2 hours before the scheduled patch distribution time.</p>
+<p>If you need to reconfigure the distribution settings again after selecting <strong>Distribute to Users</strong>, such as due to needing to change the distribution time, contact Nintendo via the NCMS forum. <br />Even if you change the distribution time, the initial distribution time would still be the time when the game servers switch compatibilities, and this setting needs to be manually changed by Nintendo.</p>
+<h3 id="Anchor_1116983724_h3_2">Update Notification Flag</h3>
+<p>If you clear the check box for this item, the system does not get the patch automatically and the patch update notification does not appear when the application starts.<br />Clear this check box if you do not want to notify users of updates, such as when implementing trivial fixes. For more information, see <a href="../Pages/Page_181909178.html">2.3 Update Processing via Patches</a>.</p>
+<h3 id="Anchor_1116983724_h3_3">Force Update Flag (Block Earlier Releases From Connecting to the Authentication Server)</h3>
+<p>Select this flag to force a patch update when network services are used in an application that uses network services provided by NEX/NPLN or an independent server. This feature is enabled at the time the patch is distributed.<br />However, users may continue to use network services without patching for up to 24 hours after patch distribution. For more information, see Nintendo Switch Online Play Guide &gt; Compatibility With Earlier Versions of an Application.</p>
+<h3 id="Anchor_1116983724_h3_4">Disable Download Flag</h3>
+<p>Set this flag to stop distribution of the patch. Use this feature in situations like when a serious bug is discovered in the application after the patch has been applied. Contact Nintendo via the NCMS forum if you set this flag.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>When you set the Disable Download flag, incremental patch updates between release versions are no longer possible. For example, if you set the Disable Download flag for the patch for release version 4, you cannot incrementally update from release version 3 to release version 5. The user must download the entirety of the release version 5 patch. They can update with incremental data from release version 5 to release version 6.</p>
+  </div>
+</div>
+<h1 id="Anchor_1116983724_h1_2">Distribution Targets and Timing</h1>
+<p>You cannot specify certain users or certain Switch consoles as the distribution targets for the patch. In addition, you cannot distribute patches at different times in different countries or regions.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Patches can be distributed even in countries where there is no established Nintendo eShop.</p>
+  </div>
+</div>
+<h1 id="Anchor_1116983724_h1_3">Important Information for Distributing Patches for Applications That Support Pre-Orders</h1>
+<p>When selling an application that supports pre-orders, the user can download the patch prior to the distribution date (play start date). However, the following problems might occur if you distribute the patch. For more information about pre-orders, see Nintendo Switch E-Commerce Guide &gt; Sales Using Nintendo eShop &gt; Nintendo eShop Sales Options (Discounts, Buyer Benefits, Download Codes, Pre-Orders, Season Passes).</p>
+<ul>
+  <li>A malicious user can dig into the patch and leak information.</li>
+  <li>Players can apply the patch to a game card obtained prior to the release date, and play the game.</li>
+</ul>
+<p>To prevent these issues, we provide features to distribute the patch securely and disable playing applications that have been patched until the release date. To use these features, contact Nintendo.</p>
+<h2 id="Anchor_1116983724_h2_2">Handling Gameplay With Patched Applications Even Before the Release Date</h2>
+<p>Even if you use the feature that prevents patched applications from being played until the release date, it is possible for users to play patched application early if they start a version of the application obtained through a dedicated download code. For example, you can use this feature when requesting game previews from media.<br />However, applications downloaded through dedicated download codes are subject to the following restrictions.</p>
+<ul>
+  <li>If you restart Switch and it is not connected to the internet when starting the application, you cannot play the application with the patch applied.</li>
+  <li>You cannot use local communication to distribute the patch to another Switch.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

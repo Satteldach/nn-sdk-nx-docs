@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>9.1.1 Solutions to Frequently Seen Errors | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 9.1.1 Solutions to Frequently Seen Errors -->
+<div class="pagetitle" id="PageId_491448839">9.1.1 Solutions to Frequently Seen Errors</div>
+<div class="text_separate">
+<h1 id="Anchor_491448839_h1_1">General</h1>
+<h2 id="Anchor_491448839_h2_1">The API returns HTTP status code 401.</h2>
+<div class="expand-container" id="expander-491448839-1">
+  <div class="expand-control" id="expander-control-491448839-1">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-1">
+    <p>Check whether the client ID and secret are specified correctly.</p>
+    <p>The client ID and secret are different values in each environment. Consider this fact when submitting content to Lotcheck and when releasing services in the production environment.</p>
+  </div>
+</div>
+<h2 id="Anchor_491448839_h2_2">The API fails for some accounts.</h2>
+<div class="expand-container" id="expander-491448839-2">
+  <div class="expand-control" id="expander-control-491448839-2">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-2">
+    <p>Check that the account is sending the request to a subscription or consumable service item API endpoint corresponding to an existing Nintendo platform server environment.</p>
+    <p>Also note that when handling the internal ID (the <code>sub</code> value) included in an NSA ID token as a number, if the ID contains any leading zeros, those zeros may be deleted. The API fails if the leading zeros have been deleted from the NSA ID specified for the parameter in the API request. For this reason, we recommend handling internal IDs (<code>sub</code> values) as strings.</p>
+  </div>
+</div>
+<h2 id="Anchor_491448839_h2_3">Error 2811-6200 occurs when opening Nintendo eShop in the development environment.</h2>
+<div class="expand-container" id="expander-491448839-3">
+  <div class="expand-control" id="expander-control-491448839-3">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-3">
+    <p>Error 2811-6200 occurs if the firmware version of the development hardware does not meet the version requirement for opening Nintendo eShop.</p>
+    <p>If you are using Nintendo eShop, use the latest version of the firmware as shown on the Nintendo Developer Portal in <strong>Master ROM Submission Information</strong> &gt; <strong>Firmware Version Required for Testing</strong>.</p>
+  </div>
+</div>
+<h2 id="Anchor_491448839_h2_4">Error 2811-6001 occurs when jumping to eShop.</h2>
+<div class="expand-container" id="expander-491448839-4">
+  <div class="expand-control" id="expander-control-491448839-4">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-4">
+    <p>This problem may occur for the following reasons.</p>
+    <ul>
+      <li>The jump accessed an unpublished product page.</li>
+      <li>The jump accessed the page for a product that is not available in the country/region of the user (the Nintendo Account) that made the eShop jump.</li>
+      <li>The jump accessed nonexistent NsUid product information.</li>
+    </ul>
+    <p>If necessary, rework the implementation of the application or change the NCMS settings.</p>
+  </div>
+</div>
+<h1 id="Anchor_491448839_h1_2">Subscription Service Items</h1>
+<h2 id="Anchor_491448839_h2_5">Error 1230 is returned when the API is called to activate a subscription service item license.</h2>
+<div class="expand-container" id="expander-491448839-5">
+  <div class="expand-control" id="expander-control-491448839-5">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-5">
+    <p>Check whether the Nintendo Account associated with the <code>nsa_id</code> specified in the API request has registered the Switch console that sent the request as the primary console.</p>
+    <p>For more information about adding a primary console, see <a href="../Pages/Page_483854071.html">9.2 Relationship Between Nintendo Accounts and Licenses</a>.</p>
+  </div>
+</div>
+<h2 id="Anchor_491448839_h2_6">Error 2811-6001 occurs when jumping to eShop in the development environment.</h2>
+<div class="expand-container" id="expander-491448839-6">
+  <div class="expand-control" id="expander-control-491448839-6">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-6">
+    <p>It is possible that one or both of the following NCMS settings are not configured correctly.</p>
+    <ul>
+      <li>The <strong>Platform</strong> of the dd1 title is not set to <strong>Nintendo Switch downloadable software</strong> or <strong>Nintendo Switch game card/downloadable software</strong>.</li>
+      <li>The Distributing Countries Reference Type of the subscription item is not set to <strong>Refer Main Title</strong>.</li>
+    </ul>
+    <p>Make changes to correct the settings, and then distribute again. For more information about these settings, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</p>
+  </div>
+</div>
+<h1 id="Anchor_491448839_h1_3">Consumable Service Items Using the Independent Server Controlled Method</h1>
+<h2 id="Anchor_491448839_h2_7">The API returns error 1503 (unauthorized).</h2>
+<div class="expand-container" id="expander-491448839-7">
+  <div class="expand-control" id="expander-control-491448839-7">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-7">
+    <p>The network service account specified for the NSA ID token included in the request header, might be different from the network service account specified for the network service account internal ID token configured for the request path.</p>
+    <p>Make sure that the same network service account is specified.</p>
+  </div>
+</div>
+<h2 id="Anchor_491448839_h2_8">Error 9510 is returned when an API call is made.</h2>
+<div class="expand-container" id="expander-491448839-8">
+  <div class="expand-control" id="expander-control-491448839-8">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">See solution.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-491448839-8">
+    <p>There may be a problem with the NSA ID token included in the request header, or the request may have been configured incorrectly.</p>
+    <p>X-NINTENDO-NSA-ID-TOKEN: Bearer {nsaIdToken}</p>
+    <p>Make sure the token includes &quot;Bearer&quot; as shown in the preceding example.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

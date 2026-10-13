@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Generating Matchmaking Voice Chat Errors | Nintendo Switch Network Error Simulation Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Generating Matchmaking Voice Chat Errors -->
+<div class="pagetitle" id="PageId_497212535">5 Generating Matchmaking Voice Chat Errors</div>
+<div class="text_separate">
+<p>When the cause of an error is Matchmaking Voice Chat, the error codes differ depending on the library being used for that feature.</p>
+<ul>
+  <li>When the NEX library is used (the <code>nn::nex::SmartDeviceVoiceChatClient</code> class), the errors are 2307-XXXX error codes.</li>
+  <li>When the SmartDeviceVoiceChat library provided as part of NintendoSDK is used (the <code>nn::ens::SmartDeviceVoiceChatClient</code> class), the errors are 2219-XXXX error codes.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about Matchmaking Voice Chat, see Nintendo Switch Voice Chat Guide.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<table class="wrapped relative-table" style="width: 97.6974%;">
+  <colgroup>
+    <col style="width: 10.118%;" />
+    <col style="width: 89.882%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Error Code</th>
+      <th>Description of Errors and Generation Procedure</th>
+    </tr>
+    <tr>
+      <td>2307-2115</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <strong>Generated while the Matchmaking Voice Chat service is closed.</strong>
+          </p>
+          <p>
+            <strong>Occurs when the NEX library is used (the <code>nn::nex::SmartDeviceVoiceChatClient</code> class).</strong>
+          </p>
+          <p>Set the development hardware to <a href="../Pages/Page_543795018.html">5.1 Matchmaking Voice Chat Service Closed Mode</a> to return the pertinent error when the target functions are called.</p>
+          <p>For more information about the target functions, see NEX API Reference. The target functions are those member functions of the <code>nn::nex::SmartDeviceVoiceChatClient</code> class that return QERROR(SmartDeviceVoiceChat, ServiceNoLongerAvailable), as stated in the API Reference.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>2219-6499</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <strong>Generated while the Matchmaking Voice Chat service is closed.</strong>
+          </p>
+          <p>
+            <strong>Occurs when the SmartDeviceVoiceChat library provided as part of NintendoSDK is used (the <code>nn::ens::SmartDeviceVoiceChatClient</code> class).</strong>
+          </p>
+          <p>Set the development hardware to <a href="../Pages/Page_543795018.html">5.1 Matchmaking Voice Chat Service Closed Mode</a> to return the pertinent error when the target functions are called.</p>
+          <p>For more information about the target functions, see the NintendoSDK API Reference. The target functions are those member functions of the <code>nn::ens::SmartDeviceVoiceChatClient</code> class that return <code>nn::ens::ResultSmartDeviceVoiceChatErrorServiceNoLongerAvailable</code>.</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Make sure in your application design that online play itself does not become unavailable when the error 2307-2115 or 2219-6499 occurs.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When Lotcheck (the final testing process for applications, performed by Nintendo) checks the Nintendo Switch Guidelines in 0182: Supporting matchmaking when matchmaking voice chat is not available, they also check the handling of this error.</p>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

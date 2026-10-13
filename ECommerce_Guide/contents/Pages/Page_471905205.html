@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2.2.2.1 Overview | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2.2.2.1 Overview -->
+<div class="pagetitle" id="PageId_471905205">6.2.2.2.1 Overview</div>
+<div class="text_separate">
+<div>
+  <h1 id="Anchor_471905205_h1_1">Overview</h1>
+  <p>The following two types of Nintendo eShop server APIs are used for consumable service items.</p>
+  <ul>
+    <li>APIs for getting available license information from the independent server and updating license information</li>
+    <li>Debugging APIs that are also available from a PC or other device, such as for setting and clearing errors</li>
+  </ul>
+  <p>Add the path described in the reference to the fully qualified domain name (FQDN) of the consumable service item API endpoint, and send an HTTP request.</p>
+  <h1 id="Anchor_471905205_h1_2">API Endpoint FQDN</h1>
+  <p>The FQDN of the API endpoint depends on the environment. For more information, see <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a> &gt; Correspondence Between Environment Identifiers and FQDNs of Consumable Service Item API Endpoints.</p>
+  <h1 id="Anchor_471905205_h1_3">Authentication</h1>
+  <p>To use the various APIs, you must use Basic Authentication with a client ID and secret. For more information about issuing a client ID and secret, see <a href="../Pages/Page_525143415.html">4.1 Usage Request on OMAS</a>.</p>
+  <p>The APIs for getting and updating license information must include the NSA ID token (obtained from the Switch application) in the header.</p>
+  <div class="note_new">
+    <div class="note_new_left">Note</div>
+    <div class="note_new_right">
+      <p>When an NSA ID token that cannot be verified (because the token has expired, for example) is passed, the server returns a 401 (Unauthorized) response.</p>
+    </div>
+  </div>
+  <p>Before using the server API, you must add trust for the private Nintendo CA. For more information, see <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+  <h1 id="Anchor_471905205_h1_4">Limitations on the Volume of API Requests</h1>
+  <p>Although there is currently no explicit limit on the volume of calls you can make, avoid implementations such as the following that would lead to high load on the Nintendo eShop server.</p>
+  <ul>
+    <li>A system where many consoles access the Nintendo eShop server simultaneously after maintenance, such as when checking for licenses immediately after the application starts</li>
+    <li>High frequency API calls, such as when the application periodically obtains transactions after startup</li>
+  </ul>
+  <p>We recommend that you either only get license information and send purchase notifications when the user uses an item or service (that is, when it is necessary to check for a license). For more information about purchase notifications, see <a href="../Pages/Page_491448020.html">2.4 Service Item Purchase Notification Feature</a>.</p>
+  <div class="note_new">
+    <div class="note_new_left">Note</div>
+    <div class="note_new_right">
+      <p>If the Nintendo eShop server is subjected to a high load, it may not be able to provide stable service.</p>
+    </div>
+  </div>
+  <h1 id="Anchor_471905205_h1_5">Character Encoding</h1>
+  <p>Responses are created using UTF-8 as the character encoding.</p>
+  <h1 id="Anchor_471905205_h1_6">Error Response</h1>
+  <p>Use the HTTP status code of the response to determine whether API calls for consumable service items succeeded. If a HTTP status code other than 2xx is returned, the request failed.</p>
+  <p>When an error occurs, the error description is generally  in the following format.</p>
+  <table class="codeblock">
+    <tbody>
+      <tr>
+        <td class="code">
+          <div class="codeblock"><pre><span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="s2">&quot;1530&quot;</span><span class="p">,</span><span class="s2">&quot;message&quot;</span><span class="o">:</span><span class="s2">&quot;invalid item id&quot;</span><span class="p">}}</span></pre></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>However, some errors are returned with different (or blank) response bodies. Make sure that no issues occur in these cases, such as the application stopping.</p>
+  <p>For more information about handling and displaying errors in Switch clients, see <a href="../Pages/Page_471905199.html">6.2.2 For Developers</a>.</p>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

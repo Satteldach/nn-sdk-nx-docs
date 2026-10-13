@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1 Authentication Mechanism | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1 Authentication Mechanism -->
+<div class="pagetitle" id="PageId_300840722">3.1 Authentication Mechanism</div>
+<div class="text_separate">
+<p>When connecting to an independent server, authentication is performed using the NSA ID token issued from the Nintendo authentication server.</p>
+<p>NSA ID tokens assure external servers that not only the network service account but also the device and the application have been properly authenticated. In addition, you can provide services to users by decoding these NSA ID tokens to get the IDs that identify the network service accounts (the network service account internal IDs).</p>
+<p>When an application requests an NSA ID token, that NSA ID token must pass through Nintendo authentication before it is issued. As a result, the application can handle the result of authentication based on the response to the NSA ID token issue request.</p>
+<p>In addition, NSA ID tokens are signed by Nintendo, so the independent server can verify that the connecting party is a properly authenticated client by verifying the NSA ID token sent from the connecting application.</p>
+<h2 id="Anchor_300840722_h2_1">Conditions for Obtaining NSA ID Tokens</h2>
+<p>For an application to obtain an NSA ID token, it must satisfy the following conditions. If the conditions are not satisfied, an error occurs and you cannot obtain the NSA ID token.</p>
+<ul>
+  <li>A request for the relevant application was sent through OMAS, and that request was approved.<ul><li>If this condition is not satisfied, Error 2124-4606 occurs.</li></ul></li>
+  <li>The target sales region set for the applicable release in Nintendo Developer Portal and Nintendo Switch console platform region are an acceptable combination.<br /><ul><li>If this condition is not satisfied, the following errors occur.<br /><ul><li>2124-4621 (for system version 9.1.0 and later)</li><li>2124-7400 (for system version prior to 9.1.0)</li></ul></li></ul></li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The platform region is the region where the system is used, set for the system itself. There are currently two platform regions: <strong>Global</strong> and <strong>China</strong>. For more information, see NintendoSDK Documents.<br />In the production environment, Nintendo Switch consoles sold for China are configured with China as the platform region, and Nintendo Switch systems sold for other regions are set to Global.</p>
+  </div>
+</div>
+<div class="table">
+  <a name="AutoAnchor_300840722_table001"></a>Table 3-1  Acceptable Combinations for Nintendo Developer Portal Settings and Nintendo Switch Console Platform Region</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Sales Region Set for the Applicable Release in Nintendo Developer Portal</th>
+      <th>Platform Region for the Nintendo Switch Console</th>
+      <th>Acceptable Combination?</th>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <p>The target sales region is set to one or more of the following regions.</p>
+        <ul>
+          <li>The Americas</li>
+          <li>Europe + Australia<br /></li>
+          <li>Japan<br /></li>
+          <li>Asia (Hong Kong, Taiwan, and Korea)<br /></li>
+        </ul>
+      </td>
+      <td>Global </td>
+      <td>Acceptable</td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>Not acceptable</td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <p>The target sales region is set to the following region.</p>
+        <ul>
+          <li>China<br class="_mce_tagged_br" /></li>
+        </ul>
+      </td>
+      <td>Global </td>
+      <td>Not acceptable</td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>Acceptable</td>
+    </tr>
+    <tr>
+      <td rowspan="2">The target sales region is not configured.</td>
+      <td>Global </td>
+      <td>Not acceptable</td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>Not acceptable</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_300840722_h2_2">Information About Nintendo Switch Applications for China</h2>
+<p>The network service account internal ID linked to Nintendo Switch consoles for China does not overlap with any network service account internal ID linked to Nintendo Switch consoles for other regions. As a result, the network service account internal ID is unique across Nintendo Switch consoles for China and other regions.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

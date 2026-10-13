@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 Support Recommendations | Nintendo Switch Sound Design Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 Support Recommendations -->
+<div class="pagetitle" id="PageId_166509147">2 Support Recommendations</div>
+<div class="text_separate">
+<p>This page describes support recommendations for sound development.</p>
+<h1 id="Anchor_166509147_h1_1">Volume Adjustment for Each Audio Output Device</h1>
+<p>There are five device types that output sound from the Switch: audio devices connected via HDMI, the console speakers, headphones, USB audio output devices, and Bluetooth audio output devices.</p>
+<p>When HDMI output is connected to a TV and equipment such as an audio amplifier, users may experience discomfort if the volume is different from TV broadcasts and may need to adjust the TV's volume for each item of content that is played. To avoid this situation and improve usability, you must use a volume that conforms to loudness standards.</p>
+<p>The volume level must also be high enough to be heard in environments with a lot of ambient noise, such as when playing speakers outside and when listening on headphones while on a train.</p>
+<p>Because the environment used is assumed to vary depending on the device that outputs the audio for Switch, we recommend configuring volume settings appropriate to each output device.</p>
+<h2 id="Anchor_166509147_h2_1">Volume Adjustment When Connected via HDMI</h2>
+<p>Consider the average loudness target value and average loudness target value using the following methods, and configure the volume output level of sound used by the application to fall within the recommended range and allowable range for each method.</p>
+<h3 id="Anchor_166509147_h3_1">Average Loudness Target Value</h3>
+<p>When designing the volume levels of an application, we recommend configuring the average loudness target value (target loudness value) and adjusting the volume.</p>
+<p>For the basic target value, use <span style="color: rgb(255,0,0);">-24 LKFS</span>. (This value conforms to the target loudness value in operating guidelines for the broadcasting industry.)</p>
+<p>Some applications, however, may have quiet scenes and intense scenes where the difference in volume easily becomes large, or may require expression that uses a wide dynamic range. It is fine to set the target loudness value on the low end and then adjust the volume according to the application's attributes. In this case, set the recommended range of the target value with a lower limit down to <span style="color: rgb(255,0,0);">-28 LKFS</span>.</p>
+<h3 id="Anchor_166509147_h3_2">Measuring Average Loudness</h3>
+<h4 id="Anchor_166509147_h4_1">Measurement Method</h4>
+<p>Measure the following channels using a loudness meter that conforms to a general algorithm for measuring loudness (such as ITU-R BS.1770-2).</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Titles Supporting Surround</th>
+      <td>All channels except the LFE channel</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>Two channels (L and R)</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="Anchor_166509147_h4_2">Measurement Segment</h4>
+<p>When measuring average loudness, measure using gameplay samples from many different scenes in the game. If possible, including a small climax scene such as a boss battle in the measurement segment helps to provide a more effective measurement result.</p>
+<p>Samples that are very inconsistent in average loudness are deemed inappropriate as representative samples for measuring average loudness for the application. In such cases, set the measurement segment using scenes that a general user experiences as samples.</p>
+<p>A guideline for measurement length is about 30 minutes to 2 hours.</p>
+<h4 id="Anchor_166509147_h4_3">Allowable Measurement Result Range</h4>
+<p>Depending on the application, a certain level of measurement error in the measurement result may occur due to the play content during measuring and conditions such as the segment settings.</p>
+<p>Based on these attributes, set the allowable range of measurement error for the average loudness target value to <span style="color: rgb(255,0,0);">+2 LK</span>.</p>
+<h3 id="Anchor_166509147_h3_3">Measuring Peak Value</h3>
+<p>To avoid the occurrence of distortion and noise due to overloading after converting the digital signal output from HDMI to an analog signal, adjust the volume for the output level of all channels to within <span style="color: rgb(255,0,0);">-1 dBTP/-3 dBFS</span> or lower.</p>
+<h3 id="Anchor_166509147_h3_4">Summary</h3>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_166509147_table001"></a>Table 2-1  Recommended Values for Audio Output Levels</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Recommended Range of Average Loudness Target Value</th>
+      <td>-24 LKFS to -28 LKFS</td>
+    </tr>
+    <tr>
+      <th>Allowable Range of Average Loudness Measurement Value</th>
+      <td>-22 LKFS to -28 LKFS</td>
+    </tr>
+    <tr>
+      <th>Allowable Range of Peak Value</th>
+      <td>
+        <p>-1 dBTP/-3 dBFS or lower</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the average loudness value falls outside the recommended range, make a determination after fully considering the application's attributes.</p>
+<p>In general, loud volume that stands out is apt to cause users discomfort. In cases where the average loudness exceeds -22 LFKS, carefully consider the volume including the necessity of the expression.</p>
+<h2 id="Anchor_166509147_h2_2">Volume Adjustment During Speaker Output</h2>
+<p>Generally speaking, a guideline for volume balance during output from the speakers is setting the volume level approximately +6 dB louder than the volume level during HDMI output.</p>
+<p>However, simply increasing the output audio level may result in audio cutoff and noise occurring due to the peaks getting clipped.</p>
+<h2 id="Anchor_166509147_h2_3">Adjustment of Volume When Outputting Sound Externally</h2>
+<p>Headphones, USB audio output devices, and Bluetooth audio output devices are treated collectively as external audio output.<br />Similar to output from the speakers, a guideline for volume balance during output from an audio output device is setting the volume approximately +6dB louder than the volume level during HDMI output.</p>
+<p>However, simply increasing the output audio level may result in audio cutoff and noise occurring due to the peaks getting clipped.</p>
+<h2 id="Anchor_166509147_h2_4">Examples of Adjustments Using Switch System Features</h2>
+<p>The NintendoSDK provides the <code>nn::audio::SetAudioDeviceOutputVolume</code> function as one way to adjust the output volume of each device.<br />Switch system features use this function to adjust the output volume level for each device as follows.</p>
+<!--table002-->
+<div class="table">
+  <a name="AutoAnchor_166509147_table002"></a>Table 2-2  Loudness Target Value and nn::audio::SetAudioDeviceOutputVolume Setting Value for Each Output Device</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Audio Output Device</th>
+      <th>Argument (pDeviceName) (See Info)</th>
+      <th>Argument (volume)</th>
+      <th>Loudness Target Value</th>
+    </tr>
+    <tr>
+      <td>HDMI</td>
+      <td>AudioTvOutput</td>
+      <td>0.5</td>
+      <td>-24 LKFS</td>
+    </tr>
+    <tr>
+      <td>System speaker</td>
+      <td>AudioBuiltInSpeakerOutput</td>
+      <td>1.0</td>
+      <td>-18 LKFS</td>
+    </tr>
+    <tr>
+      <td>External audio output</td>
+      <td>AudioExternalOutput</td>
+      <td>1.0</td>
+      <td>-18 LKFS</td>
+    </tr>
+  </tbody>
+</table>
+<p>For more information about <code>nn::audio::SetAudioDeviceOutputVolume</code>, see NintendoSDK Documents.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>
+      <strong>Note:</strong> The parameter values in this table, except for <code>AudioExternalOutput</code>, will be available in NintendoSDK NX Add-On 13.1.x and later.<br /><br />In SDKs before 13.1.x, use <span style="color: rgb(23,43,77);"><code>AudioStereoJackOutput(<em>headphone</em>)</code> and <code>AudioUsbDeviceOutput(<em>USB audio output device</em>)</code></span> instead of <code>AudioExternalOutput</code>.<br /><span style="color: rgb(23,43,77);">Additionally, in SDKs prior to NX Add-On 13.1.x, if a value is not set for <code>nn::audio::SetAudioDeviceOutputVolume</code> for the USB audio output device, the value set is always the same as for the headphones.</span></p>
+  </div>
+</div>
+<h5 id="Anchor_166509147_h5_1">Related Documents</h5>
+<ul>
+  <li>NintendoSDK Documents<ul><li><span class="sv-ti-done">Features &gt; audio Library &gt; Manual &gt; Features &gt; Other</span></li><li><span class="sv-ti-done">Audio Library API Reference</span></li></ul></li>
+</ul>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

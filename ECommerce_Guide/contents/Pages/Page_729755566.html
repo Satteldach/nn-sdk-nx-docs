@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.3.1.1 Compensation API | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.3.1.1 Compensation API -->
+<div class="pagetitle" id="PageId_729755566">6.3.1.1 Compensation API</div>
+<div class="text_separate">
+<p>A client ID/secret for compensation is required for using this API. For more information, see <a href="../Pages/Page_494249216.html">6.3.1 Compensation Method</a>.</p>
+<h1 id="Anchor_729755566_h1_1">API for Checking Transactions</h1>
+<h2 id="Anchor_729755566_h2_1">Request</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>GET /v1/recompense/transactions?nsa_id={nsa_id}&amp;application_id={application_id}&amp;item_id={item_id}&amp;page={page}&amp;per_page={per_page}
+Authorization: Basic {base64(clientId:clientSecret)}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped" style="width: 90.5104%;">
+  <colgroup> <col style="width: 10.2111%;" /> <col style="width: 6.44189%;" /> <col style="width: 10.2796%;" /> <col style="width: 72.8481%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>PARAMETER</th>
+      <th>REQUIRED</th>
+      <th>VALIDATION</th>
+      <th>DESCRIPTION</th>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Required</td>
+      <td>Alphanumeric<br />16 characters</td>
+      <td>The NSA ID of the user being compensated.</td>
+    </tr>
+    <tr>
+      <td>application_id</td>
+      <td>Required</td>
+      <td>Alphanumeric<br />16 characters</td>
+      <td>Application ID of the title to be compensated.</td>
+    </tr>
+    <tr>
+      <td>item_id</td>
+      <td>Optional</td>
+      <td>Alphanumeric<br />Between 1 and 16 characters</td>
+      <td>Item ID of the item to be compensated.</td>
+    </tr>
+    <tr>
+      <td>page</td>
+      <td>Options</td>
+      <td>Integer</td>
+      <td>
+        <p>The page number to get. Pages are sorted by date and time, and can be obtained starting from the newest.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>per_page</td>
+      <td>Optional</td>
+      <td>Integer</td>
+      <td>The number of transactions that can be received per page.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_729755566_h2_2">Response</h2>
+<table class="relative-table wrapped" style="width: 48.8755%;">
+  <colgroup> <col style="width: 13.9987%;" /> <col style="width: 85.9168%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>STATUS CODE</th>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>BODY</th>
+      <td>
+        <div class="content-wrapper">
+          <table class="codeblock">
+            <tbody>
+              <tr>
+                <td class="code">
+                  <div class="codeblock"><pre><span class="nx">transactions</span><span class="o">:</span>
+<span class="p">[</span>
+<span class="p">{</span>
+&nbsp;<span class="s2">&quot;transaction_datetime&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;contract_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;application_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;item_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;reason_code&quot;</span><span class="o">:</span> <span class="s2">&quot;RECOMPENSE&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;reason_description&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="p">]</span></pre></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped" style="width: 69.5404%;">
+  <colgroup> <col style="width: 19.4043%;" /> <col style="width: 80.5316%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+    </tr>
+    <tr>
+      <td>transaction_datetime</td>
+      <td>Transaction date (in epoch milliseconds).</td>
+    </tr>
+    <tr>
+      <td>contract_id</td>
+      <td>A value that serves as the identifier for the transaction.<br />Used to check that a value specified by the compensation API is entered.</td>
+    </tr>
+    <tr>
+      <td>application_id</td>
+      <td>Application ID of the title to be compensated.</td>
+    </tr>
+    <tr>
+      <td>item_id</td>
+      <td>Item ID of the item to be compensated.</td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>The NSA ID of the user being compensated.</td>
+    </tr>
+    <tr>
+      <td>reason_code</td>
+      <td>Fixed to <code>RECOMPENSE</code>.</td>
+    </tr>
+    <tr>
+      <td>reason_description</td>
+      <td>Special Notes</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_729755566_h2_3">Error Codes (Some)</h2>
+<table class="relative-table wrapped" style="width: 74.56%;">
+  <colgroup> <col style="width: 8.04024%;" /> <col style="width: 14.4226%;" /> <col style="width: 77.4759%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Error Code</th>
+      <th>Name</th>
+      <th>Reason for Occurrence</th>
+    </tr>
+    <tr>
+      <td>1503</td>
+      <td>unauthorized</td>
+      <td>
+        <ul>
+          <li>Occurs if the <code>client_id/secret</code> is not valid.</li>
+          <li>Occurs if an attempt was made by a client without permission to check the license for the title specified by <code>application_id</code>.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1520</td>
+      <td>invalid application id</td>
+      <td>
+        <ul>
+          <li>Occurs if the specified <code>application_id</code> does not exist.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1530</td>
+      <td>invalid item id</td>
+      <td>
+        <ul>
+          <li>Occurs if the specified <code>item_id</code> does not exist.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_729755566_h1_2">Compensation API</h1>
+<h2 id="Anchor_729755566_h2_4">Request</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>POST /v1/recompense/transactions
+Authorization: Basic {base64(clientId:clientSecret)}
+Content-Type:application/json
+
+
+{
+&nbsp;&nbsp;&quot;contract_id&quot;: &quot;string&quot;,
+&nbsp;&nbsp;&quot;nsa_id&quot;: &quot;string&quot;,
+&nbsp;&nbsp;&quot;application_id&quot;: &quot;string&quot;,
+&nbsp;&nbsp;&quot;item_id&quot;: &quot;string&quot;,
+&nbsp;&nbsp;&quot;reason_description&quot;: &quot;string&quot;
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped" style="letter-spacing: 0.0px; width: 83.5696%;">
+  <colgroup> <col style="width: 14.5854%;" /> <col style="width: 9.69031%;" /> <col style="width: 11.1888%;" /> <col style="width: 64.5355%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>PARAMETER</th>
+      <th>REQUIRED</th>
+      <th>VALIDATION</th>
+      <th>DESCRIPTION</th>
+    </tr>
+    <tr>
+      <td>contract_id</td>
+      <td>Required</td>
+      <td>Alphanumeric<br />Between 1 and 24 characters</td>
+      <td>
+        <p>A value that serves as the identifier for the transaction.</p>
+        <ul>
+          <li>The request cannot specify a <code>contract_id</code> for which a request has already been made. Create a new <code>contract_id</code> for every act of compensation. Specify the value as shown in the following example.<ul><li>{nsa_id}{<em>sequence number</em>}</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Required</td>
+      <td>Alphanumeric<br />16 characters</td>
+      <td>The NSA ID of the user being compensated.</td>
+    </tr>
+    <tr>
+      <td>application_id</td>
+      <td>Required</td>
+      <td>Alphanumeric<br />16 characters</td>
+      <td>Application ID of the title to be compensated.</td>
+    </tr>
+    <tr>
+      <td>item_id</td>
+      <td>Required</td>
+      <td>Alphanumeric<br />Between 1 and 16 characters</td>
+      <td>Item ID of the item to be compensated.</td>
+    </tr>
+    <tr>
+      <td>reason_description</td>
+      <td>Optional</td>
+      <td>
+        <br />
+      </td>
+      <td>Special Notes</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_729755566_h2_5">Response</h2>
+<table class="relative-table wrapped" style="width: 48.8103%;">
+  <colgroup> <col style="width: 14.0174%;" /> <col style="width: 85.898%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>STATUS CODE</th>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>BODY</th>
+      <td>
+        <div class="content-wrapper">
+          <table class="codeblock">
+            <tbody>
+              <tr>
+                <td class="code">
+                  <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;<span class="s2">&quot;transaction_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;transaction_type&quot;</span><span class="o">:</span> <span class="s2">&quot;ADD_RIGHT&quot;</span>
+&nbsp;<span class="s2">&quot;transaction_datetime&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;contract_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;application_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;item_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;reason_code&quot;</span><span class="o">:</span> <span class="s2">&quot;RECOMPENSE&quot;</span><span class="p">,</span>
+&nbsp;<span class="s2">&quot;reason_description&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="p">}</span></pre></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped" style="width: 69.41%;">
+  <colgroup> <col style="width: 19.4408%;" /> <col style="width: 80.495%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+    </tr>
+    <tr>
+      <td>
+        <p>transaction_id<br />(To be removed.)</p>
+      </td>
+      <td>
+        <p>Transaction ID<br />Example: 5b6d2d99-a470-4119-9d4a-3cd4870951ee</p>
+      </td>
+    </tr>
+    <tr>
+      <td>transaction_type</td>
+      <td>Fixed to <code>ADD_RIGHT</code>.</td>
+    </tr>
+    <tr>
+      <td>transaction_datetime</td>
+      <td>Transaction date (in epoch milliseconds).</td>
+    </tr>
+    <tr>
+      <td>contract_id</td>
+      <td>The <code>contract_id</code> specified in the request.</td>
+    </tr>
+    <tr>
+      <td>application_id</td>
+      <td>Application ID of the title to be compensated.</td>
+    </tr>
+    <tr>
+      <td>item_id</td>
+      <td>Item ID of the item to be compensated.</td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>The NSA ID of the user being compensated.</td>
+    </tr>
+    <tr>
+      <td>reason_code</td>
+      <td>Fixed to <code>RECOMPENSE</code>.</td>
+    </tr>
+    <tr>
+      <td>reason_description</td>
+      <td>Special Notes</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_729755566_h2_6">Error Codes (Some)</h2>
+<table class="relative-table wrapped" style="width: 74.75%;">
+  <colgroup> <col style="width: 8.03347%;" /> <col style="width: 14.3933%;" /> <col style="width: 77.5732%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Error Code</th>
+      <th>Name</th>
+      <th>Reason for Occurrence</th>
+    </tr>
+    <tr>
+      <td>1503</td>
+      <td>unauthorized</td>
+      <td>
+        <ul>
+          <li>Occurs if the client ID/secret is not valid.</li>
+          <li>Occurs if an attempt was made by a client without permission to grant a license to <code>application_id</code>.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1520</td>
+      <td>invalid application id</td>
+      <td>
+        <ul>
+          <li>Occurs if the specified <code>application_id</code> does not exist.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1530</td>
+      <td>invalid item id</td>
+      <td>
+        <ul>
+          <li>Occurs if the specified <code>item_id</code> does not exist.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1551</td>
+      <td>duplicate contract id</td>
+      <td>
+        <ul>
+          <li>Occurs if the request uses a <code>contract_id</code> that has been used already.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1552</td>
+      <td>no purchase history</td>
+      <td>
+        <ul>
+          <li>Occurs when an attempt is made using the client ID for compensation to grant rights to an <code>nsa_id</code> for which there is no purchase information in the past via the <code>_RECOMPENSE</code> client.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_729755566_h2_7">Curl Example</h2>
+<h3 id="Anchor_729755566_h3_1">API Call</h3>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -X POST --header 'Content-Type: application/json' --header &quot;Authorization:Basic xxx&quot; --header 'Accept: application/json' -d '{
+&quot;contract_id&quot;:&quot;998f3510646ddd3900000001&quot;,
+&nbsp;&nbsp;&quot;nsa_id&quot;: &quot;998f3510646ddd39&quot;,
+&nbsp;&nbsp;&quot;application_id&quot;: &quot;010005f004722000&quot;,
+&nbsp;&nbsp;&quot;item_id&quot;: &quot;itemid0001&quot;,
+&nbsp;&nbsp;&quot;reason_description&quot;: &quot;recompence by request&quot;
+}' 'https://sugar.ws.dd1.ss.nintendo.net:443/v1/recompense/transactions'</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_729755566_h3_2">Success (Response 200)</h3>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>{
+&nbsp;&nbsp;&quot;transaction_id&quot;: &quot;f6abb1c4-a8ae-4cbd-a453-995c5cab98ed&quot;,
+&nbsp;&nbsp;&quot;contract_id&quot;: &quot;998f3510646ddd3900000001&quot;,
+&nbsp;&nbsp;&quot;transaction_datetime&quot;: 1553069411039,
+&nbsp;&nbsp;&quot;application_id&quot;: &quot;010005f004722000&quot;,
+&nbsp;&nbsp;&quot;item_id&quot;: &quot;itemid0001&quot;,
+&nbsp;&nbsp;&quot;nsa_id&quot;: &quot;998f3510646ddd39&quot;,
+&nbsp;&nbsp;&quot;transaction_type&quot;: &quot;ADD_RIGHT&quot;,
+&nbsp;&nbsp;&quot;reason_code&quot;: &quot;RECOMPENSE&quot;,
+&nbsp;&nbsp;&quot;reason_description&quot;: &quot;recompence by request&quot;
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_729755566_h3_3">Failure (Response 400)</h3>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>{
+&nbsp;&nbsp;&quot;error&quot;: {
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;code&quot;: &quot;1551&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;message&quot;: &quot;duplicate contract id&quot;
+&nbsp;&nbsp;}
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

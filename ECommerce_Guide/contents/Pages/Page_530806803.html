@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>8.2 Titles and Bundles That Include Titles | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 8.2 Titles and Bundles That Include Titles -->
+<div class="pagetitle" id="PageId_530806803">8.2 Titles and Bundles That Include Titles</div>
+<div class="text_separate">
+<p>This section describes the use of the feature for getting information within the application to get information about titles and about bundles that include titles.</p>
+<h1 id="Anchor_530806803_h1_1">Overview</h1>
+<p>A feature is available for getting price information for titles.<br />Getting information for bundles that include titles is essentially the same as getting information for titles. <em>Bundles that include titles</em> is a general term for the following products.</p>
+<ul>
+  <li>A bundle of a title and downloadable content</li>
+  <li>A bundle of a title and a consumable service item</li>
+  <li>A bundle of multiple titles</li>
+  <li>A bundle of multiple titles and DLC</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The feature described later for getting lists of title information cannot be used to get information about bundles that do not include titles, such as bundles that combine two pieces of downloadable content.</p>
+  </div>
+</div>
+<h2 id="Anchor_530806803_h2_1">Implementation</h2>
+<p>Get information about titles using the following feature.</p>
+<h1 id="Anchor_530806803_h1_2">URL Path Specifications</h1>
+<h2 id="Anchor_530806803_h2_2">Feature for Getting Lists of Title Information</h2>
+<p>This function gets information about titles associated with an application ID.</p>
+<h3 id="Anchor_530806803_h3_1">Request</h3>
+<h4 id="Anchor_530806803_h4_1">URL Path</h4>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <p>/v1/applications/{applicationId}/titles/items</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="Anchor_530806803_h4_2">Parameter</h4>
+<table class="wrapped relative-table" style="width: 89.3261%;">
+  <colgroup> <col style="width: 6.12969%;" /> <col style="width: 16.2614%;" /> <col style="width: 3.69807%;" /> <col style="width: 4.25532%;" /> <col style="width: 5.16717%;" /> <col style="width: 2.83688%;" /> <col style="width: 6.12969%;" /> <col style="width: 55.5218%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>Required/Optional</th>
+      <th>Default</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>
+        <p>Application ID.</p>
+      </td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>0100123456789abc</td>
+      <td>
+        <p>The application ID of the application with the information you are getting.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>include_bundle</td>
+      <td>
+        <p>Whether to also get information about bundles.</p>
+      </td>
+      <td>boolean</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>true</td>
+      <td>true</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>
+        <p>Nintendo Account country code.</p>
+      </td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>{country}</p>
+      </td>
+      <td>
+        <p>Use the ShopServiceAccessor alias replacement feature.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>onsale_only</td>
+      <td>
+        <p>Whether to only get items that have the <code>onsale</code> sales status.</p>
+      </td>
+      <td>boolean</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>true</td>
+      <td>true</td>
+      <td>
+        <div class="content-wrapper">
+          <p>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; onsale_only Parameter.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>
+        <p>Language Codes in IETF language tag format.</p>
+      </td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>en-US</td>
+      <td>
+        <p>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>/v1/applications/0100123456789abc/titles/items?country={country}&amp;lang=ja&amp;include_bundle=false&amp;onsale_only=false</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If the specified application ID is for a demo title, the function returns title information for products associated with that demo title. Demo titles cannot be set in the development environment.</p>
+  </div>
+</div>
+<h3 id="Anchor_530806803_h3_2">Response</h3>
+<h4 id="Anchor_530806803_h4_3">Body</h4>
+<table class="wrapped relative-table" style="width: 98.7302%;">
+  <colgroup> <col style="width: 1.9761%;" /> <col style="width: 2.57353%;" /> <col style="width: 6.15809%;" /> <col style="width: 23.2537%;" /> <col style="width: 3.99816%;" /> <col style="width: 10.7077%;" /> <col style="width: 11.489%;" /> <col style="width: 8.77757%;" /> <col style="width: 24.4945%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="3">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="3">lang</td>
+      <td>The Nintendo eShop display language.</td>
+      <td>string</td>
+      <td>Language code in IETF language tag format</td>
+      <td>&quot;en-US&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <div class="content-wrapper">
+          <p>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">length</td>
+      <td>The number of items obtained.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>2</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">title_items</td>
+      <td>Title information.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">ns_uid</td>
+      <td>The NS_UID for jumping to eShop.</td>
+      <td>number</td>
+      <td>
+        <p>Integer value</p>
+      </td>
+      <td>70010000000001</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">ns_uid_title</td>
+      <td>
+        <p>The <code>NS_UID</code> of the bundle's parent title. (This value is the same as <code>ns_uid</code> if <code>content_type</code> is <strong>title</strong>.)</p>
+      </td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>70010000000001</td>
+      <td>Cannot be null</td>
+      <td>
+        <p>If <code>content_type</code> = <code>&quot;title&quot;</code>, this will be the same value as <code>ns_uid</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">Name</td>
+      <td>The title name of the application.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;Great Adventure&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">description</td>
+      <td>The description of the application.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;Great Adventure RPG&quot;</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">disclaimer</td>
+      <td>
+        <p>Application legal information</p>
+        <p>Disclaimers</p>
+        <p>etc.</p>
+      </td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;Disclaimers, etc.&quot;</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">content_type</td>
+      <td>
+        <p>The type of the application.</p>
+      </td>
+      <td>string</td>
+      <td>Text</td>
+      <td>
+        <p>&quot;title&quot;</p>
+      </td>
+      <td>Cannot be null</td>
+      <td>
+        <p>The strings have the following meanings.</p>
+        <ul style="list-style-type: square;">
+          <li>&quot;title&quot; : Title</li>
+          <li>&quot;bundle&quot;: Bundle that includes titles</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">item_tags</td>
+      <td>Array of user-defined attributes.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Cannot be null</td>
+      <td>Empty when not configured.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>key</td>
+      <td>User-defined attribute key name.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;variation&quot;</td>
+      <td>Cannot be null</td>
+      <td>Duplicate keys do not exist.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Value</td>
+      <td>User-defined attribute value.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;normal_title&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>{
+&nbsp;&nbsp;&quot;lang&quot;: &quot;ja&quot;,
+&nbsp;&nbsp;&quot;length&quot;: 2,
+&nbsp;&nbsp;&quot;title_items&quot;: [
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ns_uid&quot;: 70010000000001,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ns_uid_title&quot;: 70010000000001,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;: &quot;Great Adventure&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;description&quot;: &quot;Great Adventure RPG&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;disclaimer&quot;: &quot;Disclaimers, etc.&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_type&quot;: &quot;title&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;item_tags&quot;: [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;variation&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;value&quot;: &quot;normal_title&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ns_uid&quot;: 70070000000010,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ns_uid_title&quot;: 70010000000001,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;: &quot;Great Adventure Warrior Set&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;description&quot;: &quot;A set of Great Adventure title and Warrior Pack&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;disclaimer&quot;: &quot;Disclaimers, etc.&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;content_type&quot;: &quot;bundle&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;item_tags&quot;: [
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;variation&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;value&quot;: &quot;normal_aoc_bundle_1&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;]
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_530806803_h3_3">Getting Information For Multiple Products</h3>
+<p>The feature for getting lists of title information can get all of the products associated with the specified application ID in a single request. For example, consider an application ID that has the following product mix.</p>
+<ul>
+  <li>Title (normal version)<ul><li>A bundle of the title plus downloadable content #1</li><li>A bundle of the title plus downloadable content #2</li><li>A bundle of the title plus a consumable service item</li></ul></li>
+</ul>
+<ul>
+  <li>Title (deluxe version) with bonus promotional code<ul><li>A bundle of the title plus downloadable content #1</li><li>A bundle of the title plus downloadable content #2</li><li>A bundle of the title plus a consumable service item</li></ul></li>
+</ul>
+<p>In this case, the following information is included in the response of the feature for getting lists of title information. Note that each individual product has both an <code>ns_uid_title</code> and an <code>ns_uid</code>. The <code>ns_uid_title</code> value is the ID that identifies the title, and <code>ns_uid</code> is the ID that identifies the item associated with the title. It is the <code>ns_uid</code> that you must specify for the ID when you use the API for jumping to eShop. The item tag information that has been set for each individual product can be obtained as <code>item_tag</code>. In the following example, item tag information has been set for every product, and the application can use the values to differentiate the product information.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="2">Product</th>
+      <th>ns_uid_title</th>
+      <th>ns_uid</th>
+      <th>item_tag</th>
+    </tr>
+    <tr>
+      <td rowspan="4">Title (normal version)</td>
+      <td>Title</td>
+      <td>70010000000001</td>
+      <td>70010000000001</td>
+      <td>key = &quot;variation&quot;, value = &quot;normal_title&quot;</td>
+    </tr>
+    <tr>
+      <td>Title + downloadable content #1</td>
+      <td>70010000000001</td>
+      <td>70070000000001</td>
+      <td>key = &quot;variation&quot;, value = &quot;normal_aoc_bundle_1&quot;</td>
+    </tr>
+    <tr>
+      <td>Title + downloadable content #2</td>
+      <td>70010000000001</td>
+      <td>70070000000002</td>
+      <td>key = &quot;variation&quot;, value = &quot;normal_aoc_bunde_2&quot;</td>
+    </tr>
+    <tr>
+      <td>Title + consumable service item</td>
+      <td>70010000000001</td>
+      <td>70070000000003</td>
+      <td>key = &quot;variation, value = &quot;normal_consumable_bundle&quot;</td>
+    </tr>
+    <tr>
+      <td rowspan="4">Title (deluxe version)</td>
+      <td>Title</td>
+      <td>70010000000002</td>
+      <td>70010000000002</td>
+      <td>key = &quot;variation&quot;, value = &quot;deluxe_title&quot;</td>
+    </tr>
+    <tr>
+      <td>Title + downloadable content #1</td>
+      <td>70010000000002</td>
+      <td>70070000000004</td>
+      <td>key = &quot;variation&quot;, value = &quot;deluxe_aoc_bundle_1&quot;</td>
+    </tr>
+    <tr>
+      <td>Title + downloadable content #2</td>
+      <td>70010000000002</td>
+      <td>70070000000005</td>
+      <td>key = &quot;variation&quot;, value = &quot;deluxe_aoc_bunde_2&quot;</td>
+    </tr>
+    <tr>
+      <td>Title + consumable service item</td>
+      <td>70010000000002</td>
+      <td>70070000000006</td>
+      <td>key = &quot;variation, value = &quot;deluxe_consumable_bundle&quot;</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>As the preceding example demonstrates, you can set multiple products for a single application ID (in this case, a normal version and a deluxe version). However, contact Nintendo if you are considering using this approach.</p>
+    <p>In addition, if you are using the feature to get information about downloadable content or consumable service items within the application, note that you can only get information for items associated with a single product (in the preceding example, the normal version of the title). You cannot get items associated with other products (in the preceding example, the deluxe version of the title).</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

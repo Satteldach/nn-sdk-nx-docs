@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.2 Preventing users from spreading inappropriate UGC</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="border: 4px double black; margin: 4px; padding: 2px; font-weight: bold; background-color: #FFFFCC;">
+<p>Some features in this documentation are unavailable because JavaScript is not enabled in your browser. The table of contents is available only if JavaScript is enabled. Enable JavaScript and reload this page.</p>
+</div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.2 Preventing users from spreading inappropriate UGC -->
+<div class="pagetitle" id="PageId_124921526">4.2 Preventing users from spreading inappropriate UGC</div>
+<div class="text_separate">
+<p>If users can receive UGC and easily pass it on to other users, this may lead to inappropriate UGC being spread widely in a way that becomes impossible to suppress. To avoid this, some released applications restrict redistribution so that UGC cannot be easily spread.</p>
+<h1 id="Anchor_124921526_h1_1">What to do</h1>
+<h2 id="Anchor_124921526_h2_1">Restricting redistribution</h2>
+<p>
+  <em>Redistribution</em> refers to the act of receiving UGC from another user, and then sending it on to a third user.</p>
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_124921526_figure001"></a>Figure 4-1 Redistribution</div>
+<p>
+  <img src="../Attachments/Attach_124921526/125181589.png" width="500" />
+</p>
+<p>In the figure showing <a href="#AutoAnchor_124921526_figure001">Figure 4-1 Redistribution</a>, User A creates UGC A and sends it to User B, and User B sends it on to User C.</p>
+<p>It also counts as redistribution if User B modifies UGC A into UGC A', and then sends the modified UGC A' to User C.</p>
+<p />
+<p>If UGC that one user has made is distributed by someone else without the original user's permission, it could lead to copyright infringement or to inappropriate content being spread widely by repeated redistribution. In the following cases, however, it is considered unlikely that such unintended outcomes would arise.</p>
+<ul>
+  <li>Cases where peers have either already gotten consent from the original creator to redistribute their UGC, or it is easy for peers to get the original creator's consent.</li>
+  <li>Cases where UGC is made publicly available on a server only after the publisher has checked that the content of the uploaded UGC is appropriate. (Also called <em>pre-moderated</em> UGC.)</li>
+</ul>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+        <!--figure003-->
+        <div class="figure">
+          <a name="AutoAnchor_124921526_figure003"></a>Figure 4-2 Redistribution of UGC made publicly available on a server only after the publisher has checked that the content of the uploaded UGC is appropriate (Pre-moderated UGC)</div>
+        <p>
+          <img src="../Attachments/Attach_124921526/125181588.png" width="1100" />
+        </p>
+        <p>Here, User A creates UGC A, and the publisher confirms that it will cause no unintended outcomes to redistribute UGC A. Only after this pre-moderation is it made available as redistributable content for User B to send to User C. This means that when User B distributes UGC A to User C, they are distributing pre-moderated content. In this kind of distribution, the likelihood of unintended outcomes is relatively low in comparison to the case shown in <a href="#AutoAnchor_124921526_figure001">Figure 4-1 Redistribution</a>.</p>
+        <p>On the other hand, if User B modifies UGC A into UGC A', then UGC A' has the same possibility of being inappropriate as if User B had created new UGC B. This means that when User B distributes UGC A' to User D, it is essentially the same as creating new UGC B and distributing it for the first time. Similarly, when User D sends UGC B to User E, it counts as redistribution of content that has not been moderated by the publisher.</p>
+        <p>If your application permits redistribution of pre-moderated UGC, you must not allow redistribution of UGC that was modified after being pre-moderated (in this case, UGC B). <br />A real-world example of this kind of handling of UGC is an application that accepts contest submissions for coloring book drawing templates, then makes the winning creations publicly available to all users. Let's say that one of these coloring book templates (UGC A) is colored in (becoming UGC B), and is then distributed to User D. If User D is able to further distribute UGC B to others, then it becomes redistribution.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>In cases where prohibiting redistribution would drastically decrease the user's enjoyment of the game or have similar adverse consequences, some applications support redistribution but include countermeasures (for example, taking down UGC found to be inappropriate from the server to prevent it being spread any further). There are no means to suppress the spread of UGC if your application allows it to be redistributed via local communication, but if your application redistributes UGC via Internet communication, you can both implement redistribution and avoid unintended outcomes by designing your application with the handling and countermeasures above.</p>
+<p>Additionally, to prevent UGC being spread without its creator's knowledge, Nintendo recommends having users select whether to allow their UGC to be redistributed, and prohibiting redistribution by default.</p>
+<h1 id="Anchor_124921526_h1_2">Examples of this handling</h1>
+<h2 id="Anchor_124921526_h2_2">Examples of restricting redistribution</h2>
+<p>The following examples show explanations given to the user in applications that allow redistribution of UGC. These explanations ensure that before sending UGC, users understand that the content they have created may be further redistributed to others.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description of example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Types of UGC</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>
+          <em>Flipnote Studio 3D</em> for Nintendo 3DS</p>
+        <p>Scene where users are exchanging flipnotes over local communication</p>
+        <p>
+          <img src="../Attachments/Attach_124921526/125184535.bmp" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>In this scene, the application sends a flipnote to peers via local communication. The following message notifies the user that their creation may be redistributed, and gets their consent.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center;">Do not send flipnotes that are offensive. By sending a flipnote, you confirm that you have obtained all necessary rights to transmit the images, music, or other material that may be contained in this flipnote. You also agree that unlocked flipnotes may be edited or posted to the Internet by the receiver or by a third party.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>In this scene, the application sends UGC via local communication where peers can be identified beforehand. Redistribution is acceptable here because the peers and the UGC creator are right next to each other, and the peers can simply ask the creator whether redistributing their UGC is okay.</p>
+      </td>
+      <td>Video (flipnotes can use photos, so they may contain camera data)</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Mii Maker</em> for Nintendo 3DS</p>
+        <p>Scene where the user creates a Mii character</p>
+        <p>
+          <img src="../Attachments/Attach_124921526/175843005.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>In this scene, the application asks the user whether to allow other users to copy and modify the Mii character after the user sends it.</p>
+        <p>If the user tries to change this setting, the application displays the following message to confirm whether to allow other users to copy the Mii character.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center;">Mii characters that can be copied </p>
+                <p style="text-align: center;">by the recipient can also be edited </p>
+                <p style="text-align: center;">and then sent on to other people.</p>
+                <p style="text-align: center;" />
+                <p style="text-align: center;">Refer to your system's Operations Manual for details.</p>
+                <p style="text-align: center;" />
+                <hr />
+                <p style="text-align: center;" />
+                <p style="text-align: center;">When sending this Mii to other people,</p>
+                <p style="text-align: center;"> do you want to allow them </p>
+                <p style="text-align: center;">to make a copy of it?</p>
+                <p style="text-align: center;" />
+                <p style="text-align: center;">Allow</p>
+                <p style="text-align: center;">Don't Allow</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The default setting is to not allow copying (&quot;Don't Allow&quot;).</p>
+      </td>
+      <td>Mii characters</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

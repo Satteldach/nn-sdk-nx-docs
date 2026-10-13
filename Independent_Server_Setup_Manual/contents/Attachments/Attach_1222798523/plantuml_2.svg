@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="336px" preserveAspectRatio="none" style="width:533px;height:336px;background:#FFFFFF;" version="1.1" viewBox="0 0 533 336" width="533px" zoomAndPan="magnify"><defs><filter height="300%" id="ffg9svnjynz9r" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#F7F7F7" height="324.6797" style="stroke:#A80036;stroke-width:1.0;" width="264" x="1" y="6"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="158" x="54" y="19.4951">Nintendo Account Server</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="30.3516" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="58.5" y="95.3125"/><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="30.3516" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="191.5" y="199.3672"/><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="193.1094" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="336.5" y="72.9609"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="63" x2="63" y1="62.9609" y2="291.0703"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="196" x2="196" y1="62.9609" y2="291.0703"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="341" x2="341" y1="62.9609" y2="291.0703"/><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="113" x="5" y="26.3516"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="99" x="12" y="47.8848">Token endpoint</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="113" x="5" y="290.0703"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="99" x="12" y="311.6035">Token endpoint</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="125" x="132" y="26.3516"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="111" x="139" y="47.8848">ID conversion API</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="125" x="132" y="290.0703"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="111" x="139" y="311.6035">ID conversion API</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="137" x="271" y="26.3516"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="123" x="278" y="47.8848">Independent server</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="137" x="271" y="290.0703"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="123" x="278" y="311.6035">Independent server</text><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="30.3516" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="58.5" y="95.3125"/><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="30.3516" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="191.5" y="199.3672"/><rect fill="#F7F7F7" filter="url(#ffg9svnjynz9r)" height="193.1094" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="336.5" y="72.9609"/><polygon fill="#2C2918" points="79.5,91.3125,69.5,95.3125,79.5,99.3125,75.5,95.3125" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="73.5" x2="335.5" y1="95.3125" y2="95.3125"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="85.5" y="90.4561">1</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="183" x="96.5" y="90.4561">Token client (client_credentials)</text><polygon fill="#2C2918" points="324.5,121.6641,334.5,125.6641,324.5,129.6641,328.5,125.6641" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="63.5" x2="330.5" y1="125.6641" y2="125.6641"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="70.5" y="120.8076">2</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="92" x="81.5" y="120.8076">Token response</text><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="304.5" x2="346.5" y1="156.0156" y2="156.0156"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="304.5" x2="304.5" y1="156.0156" y2="169.0156"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="304.5" x2="345.5" y1="169.0156" y2="169.0156"/><polygon fill="#2C2918" points="337.5,165.0156,347.5,169.0156,337.5,173.0156,341.5,169.0156" style="stroke:#2C2918;stroke-width:1.0;"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="261.5" y="151.1592">3</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="74" x="272.5" y="151.1592">Token cache</text><polygon fill="#2C2918" points="212.5,195.3672,202.5,199.3672,212.5,203.3672,208.5,199.3672" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="206.5" x2="335.5" y1="199.3672" y2="199.3672"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="218.5" y="194.5107">4</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="92" x="229.5" y="194.5107">Convert to PPID</text><polygon fill="#2C2918" points="324.5,225.7188,334.5,229.7188,324.5,233.7188,328.5,229.7188" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="196.5" x2="330.5" y1="229.7188" y2="229.7188"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="203.5" y="224.8623">5</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="30" x="214.5" y="224.8623">PPID</text><line style="stroke:#2C2918;stroke-width:1.0;" x1="346.5" x2="388.5" y1="265.0703" y2="265.0703"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="388.5" x2="388.5" y1="265.0703" y2="278.0703"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="341.5" x2="388.5" y1="278.0703" y2="278.0703"/><polygon fill="#2C2918" points="351.5,274.0703,341.5,278.0703,351.5,282.0703,347.5,278.0703" style="stroke:#2C2918;stroke-width:1.0;"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="353.5" y="260.2139">6</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="162" x="364.5" y="260.2139">Update linked NAID to PPID</text><!--MD5=[70c208ee8aea23e1c9cc8858266d541e]
+@startuml
+ 
+skinparam default {
+  FontName "VL P Gothic"
+}
+
+skinparam sequence {
+  ArrowColor #2C2918
+
+  ActorBorderColor #3E3F41   
+  ActorBackgroundColor #F7F7F7
+  ActorFontColor #3E3F41
+  ActorFontSize 14
+
+  LifeLineBorderColor #A19B88
+  LifeLineBackgroundColor #F7F7F7
+     
+  ParticipantBorderColor #3E3F41
+  ParticipantBackgroundColor #F7F7F7
+  ParticipantFontSize 14
+  ParticipantFontColor #3E3F41
+   
+  BoxLineColor #A19B88
+  BoxBackgroundColor #F7F7F7
+}
+
+ 
+box "Nintendo Account Server"
+  participant "Token endpoint" as TokenEP
+  participant "ID conversion API" as encodeAPI
+end box
+
+
+participant "Independent server" as LoginEP
+ 
+autonumber 1
+
+activate LoginEP
+
+LoginEP -> TokenEP : Token client (client_credentials)
+activate TokenEP
+
+LoginEP <- - TokenEP : Token response
+ 
+deactivate TokenEP
+LoginEP <- - LoginEP : Token cache
+
+
+LoginEP -> encodeAPI : Convert to PPID
+activate encodeAPI
+
+LoginEP <- - encodeAPI : PPID
+deactivate encodeAPI
+
+LoginEP -> LoginEP : Update linked NAID to PPID
+
+deactivate LoginEP
+
+@enduml
+
+PlantUML version 1.2021.16(Thu Dec 09 02:25:22 JST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Appendix | Nintendo Switch HD Rumble Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Appendix -->
+<div class="pagetitle" id="PageId_112891040">5 Appendix</div>
+<div class="text_separate">
+<h1 id="Anchor_112891040_h1_1">FAQ</h1>
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_112891040_h1_1">FAQ</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_112891040_h2_1">Isn't creating a vibration binary file a lot of work?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_2">What do I have to watch out for when creating vibration binary files?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_3">What must I watch out for when porting vibration patterns from the eccentric rotating mass?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_4">How can I create strong vibrations?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_5">Are there any considerations when creating applications that use the vibration feature?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_6">How do I handle users who dislike the vibration feature?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_7">How do I determine an appropriate vibration strength?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_8">What can happen when there is signal interference?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_9">Is it possible to get the actual vibration value?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_10">Does using the vibration feature affect battery life?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_11">Is there any variation in the feel of the vibration feature between different devices?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_12">There seems to be disparity between the feel of the vibrations in the left and right Joy-Con. Is this a hardware specification?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891040_h2_13">Considerations for Each Play Mode</a>
+      </li>
+      <ul>
+        <ul>
+          <li>
+            <a href="#Anchor_112891040_h4_1">TV Mode</a>
+          </li>
+          <li>
+            <a href="#Anchor_112891040_h4_2">Tabletop Mode</a>
+          </li>
+          <li>
+            <a href="#Anchor_112891040_h4_3">Handheld Mode</a>
+          </li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</p>
+<h2 id="Anchor_112891040_h2_1">Isn't creating a vibration binary file a lot of work?</h2>
+<p>For the vibration binary files, Nintendo provides vibration samples in the Vibration Collection that can be quickly used in applications, and a vibration converter for converting audio data to vibration data. These can help bring down production costs.</p>
+<p>Although people expect to need to generate individual vibration binary files for each audio file, it is not always necessary. You can get a different sensation when you use the same vibration pattern with different audio. You can bring production costs down by assigning a single vibration binary file for all actions of the same type. In addition, you can produce multiple effects with the same vibration binary file by changing playback parameters such as the volume, pitch, and playback speed when you play the file.</p>
+<h2 id="Anchor_112891040_h2_2">What do I have to watch out for when creating vibration binary files?</h2>
+<p>Make sure to consider not only the vibration feature by itself, but also how it works with user operations, video, and audio to produce a better experience. When you create a vibration binary file, we recommend that you avoid testing only the vibration feature, and instead test the overall sensation within the context of the actual application. It might be better to treat the Switch HD rumble feature not primarily for the vibrations, but for the sound effects and other effects that affect gameplay.</p>
+<p>Even if you want to express something using only the vibration feature, make sure that users recognize beforehand what they are doing with the controller. Adding this step allows users to understand what the vibration represents.</p>
+<p>Consider the following specific example. In the Ball Count minigame in 1-2-Switch, a video is run before gameplay that shows balls moving inside a box. (<a href="https://www.nintendo.co.jp/switch/aacca/sp/movie/countball.html" target="_blank" rel="noopener noreferrer">https://www.nintendo.co.jp/switch/aacca/sp/movie/countball.html</a>) By viewing this video, the user becomes aware that the Joy-Con is treated as a box, and the balls are within the box. As a result, the user can naturally interpret the vibrations that occur when moving the Joy-Con as ball collisions. Next we turn to a description of the vibrations when balls collide. If there is only one ball, the collision is straightforward, but if there are multiple balls, there are multiple collisions. If vibration 1 and vibration 2 occur at nearly the same time, this could be presented as a single, strong vibration, or as two vibrations one right after the next. By reproducing these kinds of detailed vibrations, you can convey changes in the number of balls. Overlapping vibrations can be easily expressed using the vibration API. In addition to considering how to create the vibration file, it is important to consider how to play it.</p>
+<h2 id="Anchor_112891040_h2_3">What must I watch out for when porting vibration patterns from the eccentric rotating mass?</h2>
+<p>For example, consider the case where you want to generate vibrations at half the maximum strength. The eccentric rotating mass did not have an API for specifying the intensity of the vibration. To halve the strength, most applications would have repeatedly turned on and turned off the eccentric rotating mass to yield the intended intensity. On the other hand, because amplitude can be directly specified with the Switch, all you need to do to halve the strength is to specify a half-strength value for the amplitude variable.</p>
+<p>There is one point worthy of note. Repeating a series of start and stop commands for the linear resonant actuator might not result in half the intensity as it would for the eccentric rotating mass. The vibrations linger instead of stopping when you stop the eccentric rotating mass, and because of this characteristic, you can express vibration intensity using a series of start and stop commands. Because the linear resonant actuator is so responsive, the vibrations actually start and stop when you repeat start and stop commands, creating the sensation of intermittent vibrations.</p>
+<h2 id="Anchor_112891040_h2_4">How can I create strong vibrations?</h2>
+<p>Increasing the amplitude to the maximum of 1.0 is not the only method for increasing the subjective strength of the vibration. Increasing the length of time that the controller is vibrating also increases the vibration strength.</p>
+<p>The user becomes accustomed to vibrations, so changing the vibration pattern from those immediately before and after is also an important element. For example, you can make a vibration seem stronger by reducing the amplitude to 0.0 temporarily and then changing it to 1.0. The difference between when the controller is vibrating and when it is not vibrating is important.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Instead of setting both the high-frequency band and low-frequency band to amplitude 1.0, using only one of these bands produces a stronger vibration amplitude.</p>
+    <p>For more information, see NintendoSDK Documents &gt; Features &gt; Input Devices &gt; hid Library &gt; Manual &gt; Features &gt; Vibration  &gt; Vibration Value.</p>
+  </div>
+</div>
+<h2 id="Anchor_112891040_h2_5">
+  <br />Are there any considerations when creating applications that use the vibration feature?</h2>
+<p>Nintendo encourages developers to actively create scenarios on the Switch platform that use the vibration feature.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>An example of a scenario that uses the vibration feature is the Ball Count minigame in 1-2-Switch, which relies on the vibration feature to guess the number of balls.</p>
+    <p>
+      <a href="https://www.nintendo.co.jp/switch/aacca/sp/movie/countball.html" target="_blank" rel="noopener noreferrer">https://www.nintendo.co.jp/switch/aacca/sp/movie/countball.html</a>
+    </p>
+  </div>
+</div>
+<p>However, in cases like the following, the user's controller does not vibrate.</p>
+<ol>
+  <li>When the user is using a system such as the Switch Lite that does not support the vibration feature</li>
+  <li>When the user turns off <strong>Controller Vibration</strong> in the <strong>Settings</strong> in the HOME Menu</li>
+  <li>When the user is using something like the SNES controller that does not support the vibration feature</li>
+</ol>
+<p>
+  <br />
+</p>
+<p>In general, the application is not required to have countermeasures for these cases. However, the following are examples of countermeasures that can be adopted for the user's convenience.</p>
+<ul>
+  <li>Adding an announcement before entering an area that uses the vibration feature<ul><li>Example: Indicate on the physical package and the Nintendo eShop description that HD rumble can be enjoyed with a separately sold Joy-Con or Pro Controller.</li><li>Example: Prompt the user to enable <strong>Controller Vibration</strong> in the application. (You can use a function to get the <strong>Controller Vibration</strong> status.)</li><li>Example: Prompt the user in the application to play using a controller, such as the Joy-Con or the Pro Controller, that supports the vibration feature.</li></ul></li>
+  <li>Considerations to prevent the user from getting stuck in a situation that uses the vibration feature<ul><li>Example: Progress to the next scene if the user does not clear the operation in a certain amount of time.</li><li>Example: Make it possible to revert to the previous scene if the user performs a certain operation.</li></ul></li>
+</ul>
+<p>From an implementation perspective, the Nintendo SDK vibration API does not return an error based on whether the operating system supports the vibration feature.<br />As a result, Switch applications still run on the Switch Lite, just without vibration, and you do not need to perform special implementation for Switch Lite.<br />In addition, there is a feature on SDEV and EDEV to emulate the state where the vibration feature is not supported. This functionality can be used for testing and debugging.<br />For more information, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenuCommand &gt; Managing Controllers &gt; Disabling Built-In Controller Features.</p>
+<h2 id="Anchor_112891040_h2_6">How do I handle users who dislike the vibration feature?</h2>
+<p>The user can enable or disable the <strong>Controller Vibration</strong> feature in the HOME Menu &gt; <strong>Settings</strong>. If the option is disabled, all controllers connected to that system no longer vibrate. For this reason, the application does not need to implement turning off the vibration feature.</p>
+<p>Normally, users may find it unpleasant when the controller vibrates strongly for an extended period of time. For user convenience, we recommend setting a restriction internally in the application for the accumulated vibration values over a specific period of time. In addition, it is important to use the vibration feature in important scenes and not just arbitrarily.</p>
+<p>It is also effective to include vibration volume in the application. For example, in Super Mario Odyssey, you can set the vibration strength to one of three levels: Weak, Normal, and Strong. However, note that the volume settings may change the gameplay difficulty for applications with scenes that use the vibration feature.</p>
+<h2 id="Anchor_112891040_h2_7">How do I determine an appropriate vibration strength?</h2>
+<p>The appropriate vibration strength changes depending on the duration of the controller's vibration. For example, a strong vibration over a short duration may surprise the user, but would be uncomfortable over a long period of time. For this reason, you must determine the appropriate vibration strength after considering how often the vibration would actually occur. Although developers tend to use stronger vibrations for emphasis when first using vibrations in an application, <strong>we recommend using milder settings</strong>, considering that users might continuously play the application for as long as 30 or 60 minutes. We recommend asking users about the strength of the vibration over long periods of gameplay, such as during test play, and take their feedback into consideration.</p>
+<h2 id="Anchor_112891040_h2_8">What can happen when there is signal interference?</h2>
+<p>In some situations, unintended vibration patterns might occur due to the wireless environment.</p>
+<p>If a nearby device is causing signal interference, data communication can fail for the controller. When that happens, unintended vibrations patterns might occur. (For example, the vibrations might last longer or feel stronger, or they might not occur at all.)</p>
+<p>The same thing can happen in the following situations.<br />&bull; Multiple controllers are connected wirelessly.<br />&bull; A Bluetooth audio device is connected.</p>
+<p>As a workaround, do not place devices that could cause signal interference in the vicinity of the Nintendo Switch console.</p>
+<h2 id="Anchor_112891040_h2_9">Is it possible to get the actual vibration value?</h2>
+<p>Use the <code>nn::hid::GetActualVibrationValue</code> function to get the actual vibration value that occurs in the vibration motor. However, the vibration value generated by the program is sent in an encoded state to the vibration motor, so it may not be identical to the actual vibration value generated by the program. In addition, the vibration value generated by the program may be adjusted depending on the system settings.</p>
+<h2 id="Anchor_112891040_h2_10">Does using the vibration feature affect battery life?</h2>
+<p>The standard operating time for the Joy-Con controllers is approximately 20 hours. Setting the controller to vibration for 10% of the gameplay time at maximum strength reduces the battery life by approximately 10%. For this reason, you can consider it to not have much effect on the battery life.</p>
+<h2 id="Anchor_112891040_h2_11">Is there any variation in the feel of the vibration feature between different devices?</h2>
+<p>The Joy-Con is subject to some disparities in individual hardware, so the vibration sensation is not strictly identical across all cases. To make subtle adjustments, we recommend acquiring multiple Joy-Con controllers and making adjustments considering the variations among them.</p>
+<h2 id="Anchor_112891040_h2_12">There seems to be disparity between the feel of the vibrations in the left and right Joy-Con. Is this a hardware specification?</h2>
+<p>The motors incorporated in the left and right Joy-Con controllers are identical. In addition, they weigh nearly the same, so there is no major difference in the feel of the vibrations between the left and right controller. However, human musculature is not identical in the left and right hands. The weight of objects feels different in the dominant hand and the non-dominant hand. For this reason, we recommend switching which hand holds which Joy-Con and checking again if it seems as though there is a difference between the left and right Joy-Con controllers. In addition, vibrations tend to feel weaker when the hand holding the controller is moving as opposed to when it is still, so differences in vibration may be felt depending on what kind of operations are being performed.</p>
+<h2 id="Anchor_112891040_h2_13">Considerations for Each Play Mode</h2>
+<p>In addition to the three play modes, Switch also includes various accessories and supports many styles of gameplay. We recommend adjusting the vibration feature with consideration of what styles are supported.</p>
+<h4 id="Anchor_112891040_h4_1">TV Mode</h4>
+<p>When the Joy-Con controllers are connected to the grip, both the left and right Joy-Con controllers are attached to and incorporated as one entity with the grip, so it is difficult to identify when only the left or right Joy-Con is vibrating. If you want to emphasize the difference between the right and left vibrations, advise the user to remove the Joy-Con controllers from the grip during use.</p>
+<h4 id="Anchor_112891040_h4_2">Tabletop Mode</h4>
+<p>For tabletop mode, we recommend that you use the vibration feature only on controllers connected wirelessly.</p>
+<p>You must be cautious when enabling NpadStyleHandheld and getting input from Joy-Con controllers connected to the console. In this state, it is impossible to tell whether the user is operating the system with wireless controllers or with the controllers attached to the console. For this reason, you must consider which controller to vibrate when using vibration. For example, you must determine which controller was last used for input and consider that controller as the one being used.</p>
+<h4 id="Anchor_112891040_h4_3">Handheld Mode</h4>
+<p>In handheld mode, both the left and right Joy-Con controllers are attached to and incorporated as one entity with the console, so it is difficult for the user to identify when only the left or right Joy-Con is vibrating. In addition, some of the vibrations feel different, so you must adjust the amplitude. There is a compressor feature in the vibration API for damping strong vibrations. Use that feature.</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

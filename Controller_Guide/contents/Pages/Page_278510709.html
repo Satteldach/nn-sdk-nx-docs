@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.3 Implementation With Consideration of When Various Devices Are Not Included (Required) | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.3 Implementation With Consideration of When Various Devices Are Not Included (Required) -->
+<div class="pagetitle" id="PageId_278510709">3.3 Implementation With Consideration of When Various Devices Are Not Included (Required)</div>
+<div class="text_separate">
+<p>The Pro Controller and Switch Lite are not equipped with the following devices.</p>
+<ul>
+  <li>Pro Controller<ul><li>IR Motion Camera</li></ul></li>
+  <li>Switch Lite<ul><li>IR Motion Camera</li><li>HD rumble</li></ul></li>
+</ul>
+<p>The Switch Lite cannot be used in TV mode, where the Joy-Con controllers are detached from the rails and the console is set in the dock. In addition, the Switch Lite does not come with Joy-Con as standard equipment.</p>
+<p>Similarly, it is possible that future controllers and consoles will be offered that are not equipped with the various devices included with the current Switch, such as the accelerometers and gyroscopes. Design your application so it does not get stuck in a sequence and become inoperable, waiting for a value that will never come because some device is not present.<br />Consider implementing measures like the following so your application can proceed unobstructed.</p>
+<ul>
+  <li>Prepare a back button so users can escape from sequences that are waiting for values from devices.</li>
+  <li>Prepare a way for the application to advance even if a particular device is missing.</li>
+</ul>
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>The Switch Lite system features (system version 9.0.0 and later) include a user-operated feature to set the system as if the Joy-Con were removed. (The user sets this feature by selecting <strong>System Settings</strong> &gt; <strong>Controllers and Sensors</strong> and clearing the selection for <strong>Console Button Input</strong>. The HOME Button and the Capture Button will remain enabled even when Console Button Input is disabled.) It is fine to ask customers to contact customer support when necessary.</li>
+      <li>There is functionality planned for the SDEV and EDEV that emulates a state where the Joy-Con controllers are not removed. This functionality can be used for testing and debugging.</li>
+    </ul>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>
+      <span style="color: rgb(29,28,29);">Do not implement sequences that presume the console is a Switch Lite based on the return values from devices like the IR Motion Camera. For example, having separate illustrations of the systems when showing users how to operate the application. It is fine to display a picture of Switch with the Joy-Con attached.</span>
+    </p>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

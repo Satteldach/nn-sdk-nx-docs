@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="tocData.js"></script>
+<script type="text/javascript" src="tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="template/css/template.css" />
+<title>Revision History | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- Revision History -->
+<div class="pagetitle" id="GuidelineHistoryLabel">Revision History</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Version</th>
+      <th>Update Date</th>
+      <th>Category</th>
+      <th>Revisions </th>
+    </tr>
+    <tr>
+      <td>25.0</td>
+      <td>2023-07-26</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>
+            <a href="Pages/Page_115067985.html">2.1 Flow From Development to Operation</a>
+            <br />Added NPLN to the table in Planning. Added information about the situation with NEX.</li>
+          <li>
+            <a href="Pages/Page_300840824.html">3.5 NSA ID Token Specifications</a>
+            <br />In the table in Verification Procedure &gt; JSON Web Key Set (JWKs), added <code>usage</code> to the key strings to be included.</li>
+          <li>
+            <a href="Pages/Page_1222798523.html">4.6 Migration From NAID to PPID</a>
+            <br />Added an Info block at the top of the page noting that the period of migration from NAID to PPID has ended.<br />Removed outdated information about migration from Migration Procedure.</li>
+          <li>
+            <a href="Pages/Page_1222798539.html">4.7 API Reference</a>
+            <br />Removed outdated information about migration from the Provided APIs table, now that the period of migration from NAID to PPID has ended.</li>
+          <li>
+            <a href="Pages/Page_238690855.html">4.7.3 ID Tokens</a>
+            <br />Removed outdated information about migration from the table in ID Token Format &gt; Claims, now that the period of migration from NAID to PPID has ended.<br />In ID Token Format &gt; Sample, added the <code>ac:sid</code> element, which was missing even though the Nintendo Account identifier is PPID.</li>
+          <li>
+            <a href="Pages/Page_238691342.html">4.7.4 Account API</a>
+            <br />Removed outdated information about migration from the Response Specification table, now that the period of migration from NAID to PPID has ended.</li>
+          <li>
+            <a href="Pages/Page_1222800966.html">4.7.5 API for getting the history for canceling user authorization</a>
+            <br />Removed outdated information about migration from the Response Specification table and changed the references, now that the period of migration from NAID to PPID has ended.</li>
+          <li>
+            <a href="Pages/Page_115067988.html">6 Server Environments</a>
+            <br />Added a description of compatibility testing by Nintendo to the description of jd1 in the Nintendo Platform Server Environments table.</li>
+          <li>
+            <a href="Pages/Page_297040389.html">10.4 Countries of Residence Allowed for Nintendo Accounts</a>
+            <br />Updated the Countries of Residence table (by removing a row for AN, and adding rows for IS and VI).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>24.0</td>
+      <td>2022-05-13</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>NSA ID Token Specifications<br />In NSA ID Token Format, changed Sample to access the URL for the development environment (dd1).<br />In Verification Procedure, in the table, changed the note for Number 3 to make it clear that there are currently three generations of JSON objects.</li>
+          <li>Usage Requests<br />At the beginning of Making a Request, added the timing when the contents of the request are updated.</li>
+          <li>Presentation of the Nintendo Account<br />Added the heading Presentation of Nintendo Account (in Switch Applications).<br />Added the heading Presentation of Nintendo Account (in External Services) and moved the existing text to there.</li>
+          <li>Migration From NAID to PPID<br />In About PPID, in the table, added that the actions of canceling authorization and of reconsenting do not change the PPID.</li>
+          <li>Linking With Accounts for China<br />Added a Note block noting that Nintendo has temporarily stopped accepting usage requests for linking with accounts for China.</li>
+          <li>Usage Requests<br />Added a Note block noting that Nintendo has temporarily stopped accepting usage requests for linking with accounts for China.</li>
+          <li>Independent Server Development<br />In Compatibility With Earlier Versions of an Application &gt; Breaking Compatibility Immediately, in the Info block, added information about NPLN.</li>
+          <li>Samples of Network Service Account ID Token Verification Processes<br />Made changes to the Ruby and Perl sample code so that the <code>jku</code> value in <code>Header</code>, including the path, is checked against the URL provided by the Nintendo authentication server to see whether they match.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">23.0</td>
+      <td rowspan="2">2021-12-07</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Requirements and Recommendations<br />Moved the text in the Requirements section and the Recommendations section from Usage Requests to this page.<br />Renamed a section to &quot;Avoid Specifications Where the Application Cannot Progress If User Authorization Is Not Obtained&quot; and made it a requirement. (It was previously a recommendation, and the subsection was named &quot;Avoid Designs That Prevent an Application From Proceeding Without Consent to Authorization.&quot;)</li>
+          <li>Migration From NAID to PPID</li>
+          <li>API Reference<br />Moved the child pages from Linking With Nintendo Accounts.</li>
+          <li>API for Getting the History for Canceling User Authorization</li>
+          <li>ID Conversion API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Required and Recommended Support<br />In the Support Items for Switch Applications table, in the first row (labeled Required), revised the wording in the <strong>Description</strong> column and added an example to the <strong>Reasons and Additional Information</strong> column.</li>
+          <li>Linking With Nintendo Accounts<br />Changed the structure of the child pages. Moved the following pages to be child pages of API Reference.<ul><li>Authorization Requests</li><li>Token Requests<br /></li><li>ID Tokens</li><li>Account API</li></ul></li>
+          <li>Implementable Plans<br />Deleted the table and moved the contents to the Signing In Using Nintendo Accounts section and the Using APIs Provided by Nintendo Accounts section.<br />Moved the contents of the Plans for Which the Nintendo Account Linking Feature Is Not Provided section to Usage Requests.</li>
+          <li>Usage Requests<br />In the table in Making a Request &gt; Request Items, noted that <strong>Switch</strong> must be selected for <strong>Application Type</strong>.<br />In the table in Making a Request &gt; Request Items, simplified the description in <strong>Scope of Permissions to Get (scope)</strong> because the information is all collected in the subsection with the same name.<br />Added <code>user.country</code> to the table in <strong>Scope of Permissions to Get (scope)</strong>. Added <code>user.basic</code> and <code>user.birthday</code> to the Note block in the table (because new scope requests for these are no longer being accepted).<br />Deleted the Info block in Scope of Permissions to Get (scope).<br />Moved the text that was in the Prohibitions section and the Recommendations section to Requirements and Recommendations.<br />Added the Review and Approval section, and moved text there from Implementable Plans &gt; Plans for Which the Nintendo Account Linking Feature Is Not Provided.<br />Moved the About the Client ID and Client Secret section under the Review and Approval section.</li>
+          <li>Authentication and Authorization Sequence<br />In Notes When Linking, changed the term &quot;internal ID&quot; to &quot;identifier&quot; based on a change in the ID specifications.<br />Deleted the When the Requested Scope Is Not Authorized section because there are no longer any optional scopes.</li>
+          <li>Authorization Requests<br />Moved Requested Domains to API Reference.<br />In Request Specification, deleted the <code>prompt</code> parameter (because it can no longer be specified as a no option) from the table in Request Parameters and the table in For Switch Applications.</li>
+          <li>Token Requests<br />Moved Requested Domains to API Reference.</li>
+          <li>ID Tokens<br />In the table in ID Token Format &gt; Claims, added a Note block to the description for <code>sub</code>, noting that the Nintendo Account identifier is changing to PPID.<br />In the table in ID Token Format &gt; Claims, added a row for <code>ac:sid</code>, which provides information indicating that the identifier type is PPID.</li>
+          <li>Account API<br />Deleted the User API section because it is unnecessary.<br />Moved Requested Domains to API Reference.<br />In the table in Response Specification, added a Note block to the description for <code>id</code>, noting that the Nintendo Account identifier is changing to PPID.<br />In the table in Response Specification, added Note blocks to the descriptions in the rows for <code>country</code>, <code>language</code>, <code>timezone</code>, <code>gender</code>, and <code>birthday</code>.</li>
+          <li>Authorization Page: Sample of the Authorization Management Page<br />Moved the location from a child page of Linking With Nintendo Accounts to a child page of Appendix.</li>
+          <li>Authorization Procedures for Child Accounts<br />Moved the location from a child page of Authentication and Authorization Sequence to a child page of Appendix.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>22.0</td>
+      <td>2021-07-20</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>NSA ID Token Specifications<br />Added information about the format to the descriptions of the <code>sub</code> parameter, <code>bs:did</code> parameter, and <code>nintendo.ai</code> parameter in the table in NSA ID Token Format &gt; Claims.<br />Clearly stated that the <code>nintendo.ai</code> parameter is an application ID.</li>
+          <li>Implementable Plans<br />Changed the linking diagrams for the various usage examples in the table.<br />Deleted the usage example, Linking With a Nintendo Network ID.<br />Added a new section entitled Plans for Which the Nintendo Account Linking Feature Is Not Provided.</li>
+          <li>Usage Requests ~ GSCM ~<br />Added information to the table in Scope of Permissions to Get (scope), noting in the description for <code>user.email</code> that you cannot get the email address for a child account.<br />Added a <strong>Note</strong> block to Scope of Permissions to Get (scope), noting that new scope requests are not being accepted for <code>user.email</code> and <code>user.links.nintendoNetwork.id</code>.<br />Added a Notes section and included the note about avoiding design that prevents an application from proceeding without consent to authorization.</li>
+          <li>Authorization Procedures for Child Accounts<br />Changed the page title from Method to Authorize Child Accounts in European Region in Development Environment.<br />Added the Authorization in Child Accounts section, and added descriptions for regions other than Europe.<br />Renamed Authorization Procedure in the Development Environment, changing it to Procedure For Verifying Authorization From a Parent or Guardian Account.</li>
+          <li>ID Tokens<br />Added information about the format to the description of the <code>sub</code> parameter in the table in ID Token Format &gt; Claims.</li>
+          <li>Account API<br />Added a <strong>Note</strong> block to the table in User API &gt; Response Specification, noting that new scope requests are not being accepted for <code>user.email</code> and <code>user.links.nintendoNetwork.id</code>.</li>
+          <li>(New Issuance Ended) Issuing Nintendo Private CA Server Certificates<br />The issuance of new server certificates on OMAS has ended, so the title of this page was changed accordingly and the content was updated.<br />Deleted the Private Certificate Authority section and the Submitting a Request section.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>21.0</td>
+      <td>2021-01-08</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Usage Requests<br />Added Making a Request and Request Items, and moved the introductory text to those sections. Updated tables and changed the text based on the fact that OMAS is now used to make Nintendo Account linking requests.<br />Changed the name of the section from &quot;Scope of Permissions&quot; to &quot;Scope of Permissions to Get (scope).&quot; Deleted the table column named &quot;Whether Authorization Can Be Required (See Note)&quot; and also deleted the accompanying note.<br />Moved the Info block about the client ID and client secret to Making a Request. Added an Info block about checking the request information.</li>
+          <li>Usage Requests<br />Added Making a Request and Request Items, and moved the introductory text to those sections. Added an Info block noting that unlike the requests for Nintendo Account linking, the requests to link accounts for China are not supported on OMAS.</li>
+          <li>Independent Server Operation<br />In User Support, renamed the Use the Support Number Displayed on the Switch section to Using the Number for Customer Support That Can Be Checked in the Switch System.<br />Added the About Support Numbers section and Viewing the Support Number on the Switch System section to Using the Number for Customer Support That Can Be Checked in the Switch System. Added a definition of the number for customer support to About Support Numbers.<br />Renamed the Provide Unique Identifiers for Support section to Preparing an Unique User Identifier for Display Inside the Application.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>20.0</td>
+      <td>
+        <p>2020-11-27</p>
+      </td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Usage Requests<br />Added to the note in Scope of Permissions that a method to obtain the Nintendo Account user name (name) is not provided.</li>
+          <li>(Issuance Scheduled to End) Issuing Nintendo Private CA Server Certificates<br />Added (Issuance Scheduled to End) to the page title.<br />Added &quot;Issuing Nintendo private CA server certificates is scheduled to end&quot; to the important information section at the top of the page.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">19.0</td>
+      <td rowspan="2">2020-10-09</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Presentation of the Nintendo Account</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Nintendo Switch Online Support<br />Added supplemental information about how to handle changes in the Nintendo Switch Online membership status to Some Features Require Membership &gt; Handling in Applications &gt; Confirming Purchase Success (nn::ResultSuccess).</li>
+          <li>Independent Server Operation<br />Added information that the display of the support number inside the application is prohibited to User Support &gt; Use the Support Number Displayed on the Switch &gt; Converting Support Numbers to Network-Service Account Internal IDs.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>18.0</td>
+      <td>
+        <p>2020-07-20</p>
+      </td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Overview<br />Removed the note from Services for Independent Servers.<br />Renamed the section title from &quot;Nintendo Account Linking Service&quot; to &quot;Linking Service for Nintendo Accounts and Accounts for China&quot; and revised the description to include the feature for linking with accounts for China.</li>
+          <li>Flow From Development to Operation<br />Changed the description in Usage Requests about OMAS because independent server requests are now done on OMAS2.</li>
+          <li>Issuing Nintendo Private CA Server Certificates<br />Changed the description in Submitting a Request because the request process is now done on OMAS2.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>17.1</td>
+      <td>2020-06-12</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Account API<br />Added to the table in the Response Specification, describing that the date portion of the user's birthday for accounts for China that can be obtained by the account API contains dummy information.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">17.0</td>
+      <td rowspan="2">2020-06-08</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Linking With Accounts for China</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Usage Requests<br />Added details in the introduction about who to submit the request to.</li>
+          <li>Authorization Requests<br />Deleted the text about specifying <code>none</code> for the <code>prompt</code> parameter of the authorization request from the table in Request Specification &gt; Request Parameters. (The text was deleted because the <code>prompt=none</code> option is never used normally.)<br />Deleted the text about <code>prompt=none</code> from the second table in Request Specification.</li>
+          <li>Server Environments<br />Added recommendations for embedding the development server hostname and IP address into an application to Independent Server Environment &gt; Switching Server Environments &gt; Switching the Connected Environment Using Settings in the Application.<br /></li>
+          <li>Independent Server Development<br />Renamed subsections in Compatibility With Earlier Versions of Applications. &quot;When Access From Earlier Versions of Applications Is Permitted&quot; was changed to &quot;Breaking Compatibility Gradually Using the Nintendo Authentication Server,&quot; and &quot;Breaking Compatibility With Past Versions&quot; was changed to &quot;Breaking Compatibility Immediately.&quot; (The description in Breaking Compatibility Gradually Using the Nintendo Authentication Server was changed to refer to the Nintendo Switch Online Play Guide for more information.)<br /></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>16.0</td>
+      <td>2020-01-20</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Token Requests<br />Added a note about the possibility of the refresh token being invalidated to Request Specification &gt; Refreshing Access Tokens.</li>
+          <li>Server Environments<br />Rewrote the content of Independent Server Environment &gt; Switching Server Environments &gt; Switching the Connected Environment Using Settings in the Application, turning this section into a description of ApplicationServerEnvironmentKit.</li>
+          <li>Independent Server Development<br />Moved the description of how to gradually break compatibility using the settings of the Nintendo authentication server to the Nintendo Switch Online Play Guide, and added a reference to that description.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>15.0</td>
+      <td>2019-11-13</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Overview<br />Added the Information About Nintendo Switch Applications for China section to Network Service Accounts and Nintendo Accounts.<br />Added important information about Nintendo Switch applications for China to Services for Independent Servers.</li>
+          <li>Flow From Development to Operation<br />Added reference information about Nintendo Switch applications for China to Applying for Use.</li>
+          <li>Authentication Mechanism<br />Added Conditions for Obtaining NSA ID Tokens. Added that an acceptable combination must be used for the sales region settings in Nintendo Developer Portal and the Nintendo Switch console platform region.<br />Added Information About Nintendo Switch Applications for China.<br /></li>
+          <li>Required and Recommended Support<br />The Support Items for Switch Applications table now shows that Nintendo Switch Online notices do not apply to the China platform region.</li>
+          <li>Nintendo Switch Online Support<br />Added the Information About Nintendo Switch Applications for China section to Nintendo Switch Online.</li>
+          <li>Linking With Nintendo Accounts<br />Added that no equivalent to the Nintendo Account linking service is provided for Nintendo Switch consoles for China.<br /></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>14.0</td>
+      <td>2019-09-12</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>NSA ID Token Specifications<br />Adding a note at the beginning, saying that it is prohibited to decode tokens within a Switch application and then use that information.</li>
+          <li>Usage Requests<br />Added Smart Device Application to the Application Type row. Revised the description of the Redirect URI option.<br />Added Prohibition of Saving Client IDs and Client Secrets to a Switch Application to Prohibitions, noting that it is prohibited to save client IDs and client secrets to a Switch application.</li>
+          <li>Authentication and Authorization Sequence<br />Removed the note and table specific to when scopes for <code>user.birthday</code> and <code>user.email</code> cannot be made mandatory in When the Requested Scope Is Not Authorized.</li>
+          <li>Token Requests<br />Noted in the introductory paragraph that you always have to run token requests from an independent server.<br />Added Refreshing Access Tokens to Request Specification.<br />Noted in the Request Parameters table that <code>refresh_token</code> and <code>id_token</code> are not included when <code>grant_type</code>=<code>refresh_token</code>.</li>
+          <li>ID Tokens<br />Adding a note at the beginning, saying that it is prohibited to decode tokens within a Switch application and then use that information.<br />Added the <code>country</code> property to the Claims table in ID Token Format.</li>
+          <li>Account API<br />Added an introductory paragraph stating that you must always run account functions from an independent server.</li>
+          <li>Independent Server Operation<br />Revised the description in User Support &gt; Using the Support Number Displayed on the Switch, because the display location for the support number changed in system version 9.0.0 and later.<br /></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">13.0</td>
+      <td rowspan="2">2019-06-26</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Issuing Server Certificates by Nintendo's Private CA</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Nintendo Switch Online Support<br />Added information to Handling in Applications stating that the Switch Online subscription information screen is not displayed if <code>nn::account::ShowLicenseRequirementsForNetworkService()</code> is called while the user is a member of Nintendo Switch Online.</li>
+          <li>Usage Requests<br />In the introduction, added the URL for inquiries about making a request. Added that if <strong>Switch</strong> is selected as the application type, you must submit a request in advance in OMAS for the target title.<br />Added <strong>ko-KR</strong> and <strong>zh-TW</strong> as supported languages in <strong>Locale</strong> in the table in the description. Added that only one option may be configured for each of the logo image, end-user licensing agreement URI, and privacy policy URI.<br />Added a description of Nintendo Network IDs to the description of <code>user.links.nintendoNetwork.id</code> in the Scope of Permissions table.</li>
+          <li>Token Requests<br />Deleted the <code>client_id</code> request parameter from Request Specification because it was unnecessary.</li>
+          <li>Independent Server Operation<br />In Converting Support Numbers to Network-Service Account Internal IDs, added that it is possible to convert support numbers to Network Service Account internal IDs within BMAS as reference.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>12.0</td>
+      <td>2018-12-18</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Usage Requests<br />In the <strong>Scope of Permissions</strong> table, changed <strong>Whether Authorization Can be Required</strong> from No to Yes for <strong>user.birthday</strong> and <strong>user.email</strong>. Deleted the note below the table that said that authorization could not be required for these scopes.</li>
+          <li>Authorization Requests<br />Corrected the example request presented in <strong>Response Specification</strong> to change the URL encoding of the single-byte space character from the plus sign (<code>+</code>) to <code>%20</code>.<br />Added to the description of the <code>redirect_uri</code> parameter.</li>
+          <li>Independent Server Operation<br />Added the section <strong>Supporting Bans (Measure for Stopping Use of Network Services)</strong>.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">11.0</td>
+      <td rowspan="2">2018-10-11</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Method to Authorize Child Accounts in European Region in Development Environment</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Standardized terminology.<br />Updated the names of referenced guidelines to the latest names.</li>
+          <li>Flow From Development to Operation<br />In the table in the Planning section, Consumable Service Items, under Configure an independent server, has been changed to Consumable Service Items Using the Independent Server Controlled Method. Added User Save Data Controlled Consumable Service Items to Only use the server provided by Nintendo.<br />Noted in Development that <span class="sv-ti-done"><span class="sv-ti-title-text">Nintendo Switch Guidelines</span></span> must be checked at the beginning of development.</li>
+          <li>Required and Recommended Support<br />Changed Recommended, within the Items to Support for Independent Servers table, to Optional. Noted in Reasons and Additional Information, that a Login ID is only necessary when executing a ban and supposing a Device App ban.</li>
+          <li>Nintendo Switch Online Support<br />Changed it so that the application policy classification is called <em>application policy</em>, in accordance with the Nintendo Switch Online Play Guide.<br />Deleted the description for NSA ID Token Specifications and Handling by the Independent Server, in Subscription Required for Some Features (Applies to Some), from before the start of Nintendo Switch Online.</li>
+          <li>Associating a Network Service Account<br />Changed the descriptions for Login ID, in the Network Service Account Attributes table, and Notes When Linking, because it is no longer possible to remove the link between user accounts and Nintendo Accounts.</li>
+          <li>Usage Requests<br />Added Prohibitions.</li>
+          <li>Lotcheck<br />Added a reference to Nintendo Switch Lotcheck Procedures to About Lotcheck.<br />Deleted the reference in Preparing an Independent Server For Lotcheck indicating that until Nintendo Switch Online starts, some guideline checks are performed in the <code>dd1</code> environment.<br />The content in Providing Access to Independent Servers When Switching Environments With DNS, indicating to submit information to a contact at Nintendo, has been changed to submitting the information in the Nintendo Developer Portal.<br />Added &quot;Is the prepared DNS server recursive query set to a Public DNS?&quot; to Preparing a DNS Server Available Using Lotcheck. Posted that a recursive query to a public DNS is necessary when preparing a DNS for a particular application.<br />Deleted Checking the Nintendo Switch Online Guidelines.</li>
+          <li>Independent Server Operation<br />Deleted a reference in Use the Support Number Displayed on Switch about environments prior to NX Add-On 1.0.0.</li>
+          <li>Countries of Residence Allowed for Nintendo Accounts<br />Added a reference that when an application policy is <strong>No features require membership</strong> or <strong>Some features require membership</strong>, there is access to independent servers, even from countries where Nintendo Switch Online memberships are not possible.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>10.0</td>
+      <td>2018-07-05</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Standardized terminology.<br />Changed the wording around target features and policies to match the changes to OMAS.</li>
+          <li>Overview<br />Added that there is no way to ensure that network service accounts and Nintendo Accounts are held by the same individual, and changed the structure of Network Service Accounts and Nintendo Accounts.</li>
+          <li>Nintendo Switch Online Support<br />Added information to the schedule table in NSA ID Token Specifications about when data will be included in tokens in Lotcheck environments.<br />Added information to Handling in Applications about checking using DummyShop.</li>
+          <li>Authentication and Authorization Sequence<br />Added the section When the requested scope is not authorized.</li>
+          <li>Lotcheck<br />Added a reference to Preparing an Independent Server For Lotcheck that Lotcheck will temporarily occur in the dd1 environment.<br />Added Checking the Nintendo Switch Online Guidelines.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>9.0</td>
+      <td>2018-03-28</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Standardized terminology.</li>
+          <li style="color: rgb(51,51,51);">Required and Recommended Support<br />Added that server certificate verification is strongly recommended to the Support Items for Switch Applications table.<br />Added that communication route encryption is strongly recommended to the Items to Support for Independent Servers table.</li>
+          <li>Nintendo Switch Online Support<br />Added information about the handling method in some target applications.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">8.0</td>
+      <td rowspan="2">2018-01-19</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Implementable Plans</li>
+          <li>Countries of Residence Allowed for Nintendo Accounts</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Connecting to an Independent Server<br />Moved content posted to a separate child page.</li>
+          <li>Nintendo Switch Online Support<br />Updated information in the notes section of Some Services for Members Only.</li>
+          <li>NSA ID Token Specifications<br />Added to the Verification Procedure table that JWKs are discarded when new JWKs are obtained.</li>
+          <li>Linking With Nintendo Accounts<br />Moved the table to Implementable Designs.</li>
+          <li>Usage Requests<br />Added information to About the Client ID and Client Secret, stating that a request must be made well in advance because issuing them takes time.</li>
+          <li>Samples of Network Service Account ID Token Verification Processes<br />Added the process for breaking compatibility with previous versions as an option.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">7.0</td>
+      <td rowspan="2">
+        <p>2017-11-08</p>
+      </td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Overview</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Flow From Development to Operation<br />Moved to Overview.</li>
+          <li>Connecting to an Independent Server<br />Added Nintendo Switch Online Support.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>6.0</td>
+      <td>2017-09-21</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Updated the name of documentation that is referenced to the latest name. Removed the indication that documentation would be provided if it already has been.</li>
+          <li>Usage Requests<br />The application item table has been revised as follows.<ul><li>Added a note about <strong>Company/Developer Name</strong> that a reason must be indicated if the publisher of an application is different.</li><li>Added the <strong>Country</strong> row.</li></ul>Added the <strong>Sharing Link Settings</strong> item.</li>
+          <li>Account API<br />Mentioned that the types of country of residence for <strong>Nintendo Accounts</strong> in the <strong>Country</strong> row of the <strong>Response Specification</strong> table may increase in the future. Corrected a mistake in the table.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">5.0</td>
+      <td rowspan="2">2017-06-15</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Linking With Nintendo Accounts</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Flow From Development to Operation<br />In the table under Planning, added consumable service items to the services that are required when configuring an independent server.<br />Reorganized the section that was previously entitled Updating Applications With Patches, turning it into the two separate sections Developing Patches and Distributing Patches, and updated the content.<br />Updated the content of Independent Server Maintenance. Limited the targets of periodic maintenance to the Nintendo authentication service and Nintendo eShop.</li>
+          <li>Connecting to an Independent Server<br />Revised the Support Items for Switch Applications table in Required and Recommended Support to state the requirement to appropriately handle cases where information inherited from network service accounts is stored in the save data.<br />Added the recommendation to store the login ID in the independent server to the Items to Support for Independent Servers table in Required and Recommended Support.<br />Noted that the format of the token expiration period is a UNIX timestamp in the Claims table in NSA ID Token Format.<br />Added a description of the requested URL when getting the JWKs using a periodic batch job to the table in Verification Procedure.</li>
+          <li>Server Environments<br />Noted in Nintendo Platform Server Environments that Switch applications do not need to switch processing based on the Nintendo platform server environment.<br />Moved the content that had been in Considerations When Developing Applications and Independent Servers to <span class="sv-ti-done"><span class="sv-ti-title-text">Independent Server Development</span></span> and Lotcheck.<br />Added supplemental information about the requested URL when getting JWKs using a periodic batch job to List of Base URLs on the Nintendo Authentication Server.</li>
+          <li>Lotcheck<br />Added About Lotcheck.<br />Moved the content about supporting the Lotcheck server environments from Server Environments to this page.</li>
+          <li>Independent Server Development<br />Moved the content about accessing the Nintendo servers from Server Environments to this page.<br />Added to Managing Users on the Independent Server a description of how to identify the server environment.<br />Added to Notifications for Errors Occurring With Independent Servers a description of displaying errors when earlier versions of the application are restricted from accessing the independent server.<br />Revised the wording in Settings to Produce Errors in the NintendoSDK API because it could be misunderstood.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>4.0</td>
+      <td>2016-12-26</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Independent Server Operation</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">3.0</td>
+      <td rowspan="2">2016-12-01</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Example of Retaining Data When Managing Users on an Independent Server</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Updated</td>
+      <td>
+        <ul>
+          <li>General<br />Standardized terminology.</li>
+          <li>Connecting to an Independent Server<br />Added the Required and Recommended Support section.<br />In the Authentication Sequence diagram, deleted the error applet descriptions that are not used.<br />Revised the content of the Associating a Network Service Account section.<br />Added details about the NSA ID token format.</li>
+          <li>Server Environments<br />Changed the description for the jd1 environment in the Nintendo Platform Server Environments section, and added that accounts using that environment will access independent servers.</li>
+          <li>Independent Server Development<br />Added Managing Users to the Independent Server section.<br />Revised the wording in the Settings to Produce Errors in the NintendoSDK API section.</li>
+          <li>Appendix<br />Changed the structure with the addition of Example of Retaining Data When Managing Users on an Independent Server. Divided up the page.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>2016-10-19</td>
+      <td>Updated</td>
+      <td>
+        <ul>
+          <li>Independent Server Development<br />Added the Compatibility With Past Applications section.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1.0</td>
+      <td>2016-09-20</td>
+      <td>-</td>
+      <td>Initial version.</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

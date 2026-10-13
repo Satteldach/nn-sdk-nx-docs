@@ -1,0 +1,2330 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Safety | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Safety -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367451968" data-tags="revision-updated-20240206 revision-updated-0.8">Safety</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements for application design and development to promote a fun and safe experience for users. Developers of all applications must read this chapter.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Applications that are played using Joy-Con -->
+<h1 class="general" id="GuidelineLabel_2367451970" data-tags="revision-updated-10.0 revision-updated-20240206 revision-updated-0.8">Applications that are played using Joy-Con</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements that apply to applications played using Joy-Con controllers.</p>
+<p>It is possible to create a Switch application that can be played by moving the Joy-Con controllers, using the accelerometers and gyroscopes built into the Joy-Con controllers to detect movement.</p>
+<p>On the other hand, it is possible that users may perform unintentional operations in such applications. To avoid users accidentally performing unintended operations, follow the guidelines from this subchapter when designing applications.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0098: Prohibited motions of Joy-Con controllers -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451972" data-tags="revision-updated-1.0 function-振り回し revision-updated-7.0 revision-updated-17.0 revision-updated-0.8" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451972" title="Right-click and copy link to copy a permalink to this guideline">0098: Prohibited motions of Joy-Con controllers</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Do not require or prompt users to perform any of the prohibited motions listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that are played by moving the Joy-Con controllers</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The following motions are potentially unsafe. Applications therefore must not require or prompt users to perform any of these motions within the application.</p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <!--Remove - p.auto-cursor-target-->
+      <table class="fixed-table wrapped" data-mce-resize="false">
+        <tbody>
+          <tr>
+            <th>Prohibited motion</th>
+            <th>Why is this prohibited?</th>
+            <th>Illustration</th>
+          </tr>
+          <tr>
+            <td>
+              <p>Operations where the user releases all buttons while shaking or waving a Joy-Con, and is then no longer touching any buttons</p>
+            </td>
+            <td>
+              <p>If the user takes all their fingers off the buttons, the user may accidentally throw the Joy-Con.</p>
+            </td>
+            <td>
+              <div class="content-wrapper">
+                <p>
+                  <span class="embedded-file-wrapper ">
+                    <img src="../Attachments/Attach_2367451972/2367451973.jpg" width="100" class="embedded-image" />
+                  </span>
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Any motion which includes competing to attach or detach the Joy-Con controllers quickly</td>
+            <td>It is prohibited to use attaching/detaching the Joy-Con controllers as input.<br /></td>
+            <td>
+              <div class="content-wrapper">
+                <span class="embedded-file-wrapper image-center-wrapper">
+                  <img src="../Attachments/Attach_2367451972/2367451974.jpg" width="100" class="embedded-image image-center" />
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--Remove - p.auto-cursor-target-->
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Use the Joy-Con controllers to play through all modes of the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not require or prompt users to perform any of the prohibited motions listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451972_0" data-tag="function-振り回し">
+<label for="tagfilter_2367451972_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451972_1" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451972_1">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451972_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451972_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451972_3" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451972_3">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451972_4" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367451972_4">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0099: Motions of Joy-Con controllers for which you must get approval from Nintendo in advance -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451977" data-tags="revision-updated-10.0 revision-updated-8.0 revision-updated-1.0 function-振り回し function-事前承認が必要 revision-updated-20240206 revision-updated-17.0 revision-updated-0.8 revision-updated-15.0 revision-updated-7.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451977" title="Right-click and copy link to copy a permalink to this guideline">0099: Motions of Joy-Con controllers for which you must get approval from Nintendo in advance</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+You must get approval from Nintendo in advance if you want to have users perform any motions or operations listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that are played by moving the Joy-Con controllers</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>For &quot;operations where the user makes large swinging motions of the Joy-Con controllers,&quot; you do not need to get approval from Nintendo in advance if your application meets any of the following conditions.</p>
+<ul>
+  <li>Your application displays a Joy-Con Strap Usage screen provided by Nintendo, which includes the explanation cautioning users about their surroundings</li>
+  <li>Your application does not use a Joy-Con strap usage screen provided by Nintendo, but does display a screen of your own design that includes both the explanation about using the strap and the explanation cautioning users about their surroundings</li>
+</ul>
+<p>You must handle this display in a way that complies with the following guideline.</p>
+<ul>
+  <li>
+    <a href="../Pages/Page_2367451968.html#GuidelineDescLabel_2367451984">0100: Explaining how to attach the Joy-Con strap</a>
+  </li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>You must get approval from Nintendo in advance if you want to have users perform any motions or operations similar to those shown below. It is prohibited to create applications that require or prompt users to perform the following motions or operations without getting approval from Nintendo in advance.</p>
+  <table class="wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <th>Motions that must get approval in advance</th>
+        <th>Reason why you must get approval in advance</th>
+        <th>Illustration</th>
+      </tr>
+      <tr>
+        <td>Operations where the user releases a button while shaking or waving a Joy-Con, but continues to hold down at least one other button</td>
+        <td>Depending on which fingers are taken off the buttons, the user may accidentally throw the Joy-Con.</td>
+        <td style="text-align: center;">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_2367451977/2367451978.jpg" width="100" height="70" class="embedded-image" />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Operations where the user makes large swinging motions of the Joy-Con controllers</p>
+        </td>
+        <td>
+          <p>Making large swinging motions with a Joy-Con may cause the Joy-Con or the user's hand or arm to hit nearby people or objects.</p>
+        </td>
+        <td style="text-align: center;">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367451977/2367451979.jpg" width="100" height="70" class="embedded-image" />
+            </span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Hitting or striking the Joy-Con controllers</p>
+        </td>
+        <td>This could damage the Joy-Con controllers or hurt the user depending on how they are hit.</td>
+        <td style="text-align: center;">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367451977/2367451980.jpg" width="100" class="embedded-image" />
+            </span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Any motion which requires turning a Joy-Con (with Joy-Con strap attached) continuously in the same direction</p>
+        </td>
+        <td>
+          <p>The Joy-Con strap cord may squeeze the user's wrist due to twisting.</p>
+          <p>This could damage the Joy-Con strap cord due to twisting.</p>
+        </td>
+        <td style="text-align: center;">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_2367451977/2367451982.jpg" width="100" class="embedded-image" />
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>In addition to the motions listed above, motions or operations that pose safety concerns or that may damage the Joy-Con controllers</p>
+        </td>
+        <td>
+          <p>This could damage the Joy-Con controllers or harm users depending on the motion or operation.</p>
+        </td>
+        <td style="text-align: center;">-</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Additional notes regarding getting approval from Nintendo in advance</p>
+  <ul>
+    <li>When getting approval from Nintendo in advance, include the following information.<ul><li>An overview of your game. (Including its number of players.)<ul><li>If multiple users can play your application at the same time, include a brief description of how they play together.</li></ul></li><li>Rating information<ul><li>If you have not yet received all ratings, provide the ratings you expect to receive.</li></ul></li><li>An overview of the motion you want to have users perform.</li><li>Any investigations or discussions you have had regarding considerations of the safety of this motion.</li><li>ROM data that Nintendo can use to check the issue that you want Nintendo to approve in advance.<ul><li>This does not have to be your finished full retail ROM, but the issue you want Nintendo to approve in advance must be exactly the same in this ROM as in the full retail ROM that you plan to release.</li></ul></li></ul></li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Use the Joy-Con controllers to play through all modes of the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if at least one of the following conditions is met.</p>
+<ul>
+  <li>Passes if the application does not have the user perform any motion or operation listed in the Backgrounder.</li>
+  <li>Passes if you got approval from Nintendo in advance for any motion or operation listed in the Backgrounder that the application has the user perform.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451977_0" data-tag="function-振り回し">
+<label for="tagfilter_2367451977_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451977_1" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367451977_1">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451977_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_3" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451977_3">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_4" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451977_4">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_5" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367451977_5">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_6" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451977_6">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_7" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451977_7">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_8" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451977_8">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451977_9" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367451977_9">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0100: Explaining how to attach the Joy-Con strap -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451984" data-tags="revision-updated-20240206 revision-updated-17.0 revision-updated-20240626 revision-updated-6.0 revision-updated-1.0 revision-updated-10.0 revision-updated-18.0 revision-updated-7.0 revision-updated-19.0 revision-updated-8.0 revision-updated-4.0 revision-updated-3.0 function-振り回し revision-updated-0.8 revision-updated-15.0 revision-updated-21.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451984" title="Right-click and copy link to copy a permalink to this guideline">0100: Explaining how to attach the Joy-Con strap</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If your application could lead users to move Joy-Con controllers in rapid, wide, or forceful motions, your application must prompt the user to attach and use the Joy-Con strap.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that could lead users to move Joy-Con controllers in rapid, wide, or forceful motions</p>
+  <p>For more information about applications for which Joy-Con strap usage is required, see the <em>Application Safety Improvement Guide</em> &gt; <strong>Motion Controls Using the Joy-Con and the Console</strong> &gt; <strong>Joy-Con Strap Usage Standards</strong> and refer to &quot;Category I&quot; in the table.</p>
+  <div>
+    <p>
+      <strong>Note:</strong> Here, the phrase &quot;Joy-Con strap&quot; includes both the regular Joy-Con strap and the Joy-Con AA Battery Pack.</p>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If your application could lead users to move Joy-Con controllers in rapid, wide, or forceful motions, then Joy-Con strap usage is required and therefore your application must prompt the user to attach and use the Joy-Con strap. <br />Nintendo recommends using one of the Strap Usage screens provided by Nintendo when prompting the user, but you are also allowed to create your own explanation screen and incorporate it somewhere in your application's overall explanation of how to play, as long as your screen provides the same explanation.</p>
+  <h5 id="Anchor_2367451984_h5_1">Strap Usage screen provided by Nintendo</h5>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <ul>
+        <li>Application-embedded version<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451984/2367451987.png" width="350" class="embedded-image" /></span><br /><br /></li>
+        <li>Controller support applet version (provides a function that displays this screen when called by the application)<br /><div class="embeddedObject"><video src="../Attachments/Attach_2367451984/2367451985.mp4" controls="" width="350" height="auto" /></div></li>
+      </ul>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <ul>
+    <li>Display timing<ul><li>At least once per application startup, you must display the Strap Usage screen or the explanation at a time when it is appropriate to caution the user to use the strap (for example, immediately after application startup or immediately before your application enters a mode where motion controls are possible).</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li><li>If your application uses the controller support applet version of the Strap Usage screen, the screen will automatically be displayed in an appropriate language.</li></ul></li>
+  </ul>
+  <h5 id="Anchor_2367451984_h5_2">Strap Usage screen unique to your application</h5>
+  <p>If you create your own screen, it must meet the following conditions. </p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <ul>
+        <li>
+          <p>Illustration</p>
+          <ul>
+            <li>
+              <p>You must include an illustration of a Joy-Con controller being held in a user's hand, with the Joy-Con strap attached and the strap lock tightened on the user's wrist. (Your illustration must also include the circled numbers.)<br /><br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451984/2367451999.png" width="200" class="embedded-image" /></span> This illustration depicts the right Joy-Con controller.<br /><br />The circled numbers ① through ③ in the illustration do not have corresponding explanations in the standardized text, but you must not remove these circled numbers from the illustration.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>Standardized text</p>
+          <ul>
+            <li>You must include both of the following standardized texts set by Nintendo. You can reword the text as long as the meaning is preserved.<ul><li><p>Standardized text about using the strap</p><table class="wrapped" data-mce-resize="false"><tbody><tr><td>When you play with a Joy-Con controller, <br />attach the strap as shown. <br />Hold the Joy-Con controller securely and do not let go of it.</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li><li><p>Standardized text for cautioning users about their surroundings</p><table class="wrapped" data-mce-resize="false"><tbody><tr><td>Be aware of your surroundings.<br />Allow adequate room around you during game play.</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li></ul></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <ul>
+    <li>
+      <p>Display timing</p>
+      <ul>
+        <li>At least once per application startup, you must display the illustration, the standardized text about using the strap, and the standardized text for cautioning users about their surroundings at a time when it is appropriate to caution the user to use the strap (for example, immediately after application startup or immediately before your application enters a mode where motion controls are possible).</li>
+        <li>It is also possible to use separate screens to give the explanation about using the strap and the explanation cautioning users about their surroundings.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Display language</p>
+      <ul>
+        <li>
+          <p>Display it either in the language currently set in your application or in the language currently set in system settings.</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h5 style="text-align: left;" id="Anchor_2367451984_h5_3">Applications with a specification that intentionally asks the user to let go of a Joy-Con controller while the user is wearing the wrist strap during gameplay</h5>
+  <p>Nintendo recommends using the following Strap Usage screen provided by Nintendo below, but you are also allowed to create your own explanation screen and incorporate it somewhere in your application's overall explanation of how to play, as long as your screen provides the same explanation.</p>
+  <h6 style="text-align: left;" id="Anchor_2367451984_h6_1">Strap Usage screen provided by Nintendo</h6>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <ul>
+        <li>Application-embedded version<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451984/3036299789.png" width="350" class="embedded-image" /></span></li>
+      </ul>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <ul>
+    <li>Display timing<ul><li>At least once per application startup, you must display the Strap Usage screen or the explanation at a time when it is appropriate to caution the user to use the strap (for example, immediately after application startup or immediately before your application enters a mode where motion controls are possible).</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <h6 style="text-align: left;" id="Anchor_2367451984_h6_2">Strap Usage screen unique to your application</h6>
+  <p>If you create your own screen, it must meet the following conditions.</p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <ul>
+        <li>
+          <p>Illustration</p>
+          <ul>
+            <li>
+              <p>You must include an illustration of a Joy-Con controller being held in a user's hand, with the Joy-Con strap attached and the strap lock tightened on the user's wrist. (Your illustration must also include the circled numbers.)<br /><br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451984/2367451999.png" width="200" class="embedded-image" /></span> This illustration depicts the right Joy-Con controller.<br /><br />The circled numbers ① through ③ in the illustration do not have corresponding explanations in the standardized text, but you must not remove these circled numbers from the illustration.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>Standardized text</p>
+          <ul>
+            <li>You must include both of the following standardized texts set by Nintendo. You can reword the text as long as the meaning is preserved.<ul><li><p>Standardized text about using the strap</p><table class="wrapped" data-mce-resize="false"><tbody><tr><td>When you play with a Joy-Con controller, <br />attach the strap as shown.<br />Hold the Joy-Con controller securely and <br />do not let go of it unless otherwise instructed.</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li><li><p>Standardized text for cautioning users about their surroundings</p><table class="wrapped" data-mce-resize="false"><tbody><tr><td>Be aware of your surroundings.<br />Allow adequate room around you during game play.</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li></ul></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <ul style="text-align: left;">
+    <li>
+      <p>Display timing</p>
+      <ul>
+        <li>At least once per application startup, you must display the illustration, the standardized text about using the strap, and the standardized text for cautioning users about their surroundings at a time when it is appropriate to caution the user to use the strap (for example, immediately after application startup or immediately before your application enters a mode where motion controls are possible).</li>
+        <li>It is also possible to use separate screens to give the explanation about using the strap and the explanation cautioning users about their surroundings.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Display language</p>
+      <ul>
+        <li>
+          <p>Display it either in the language currently set in your application or in the language currently set in system settings.</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>For details, see the <em>Nintendo Switch Application Safety Improvement Guide</em>. </p>
+  <p>
+    <br />
+  </p>
+  <p>Note that you must comply with this guideline in order for your application to fall under the Exceptions in &quot;<a href="../Pages/Page_2367451968.html#GuidelineDescLabel_2367451977">0099: Motions of Joy-Con controllers for which you must get approval from Nintendo in advance</a>.&quot;</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+      <li>
+        <em>NintendoSDK API Reference</em>
+        <br />
+        <ul>
+          <li>
+            <code>void nn::hid::ShowControllerStrapGuide ()</code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start the application and progress to a scene where the user performs operations by moving the Joy-Con controllers.</li>
+  <li>If the application supports multiple languages, perform step 1 for all languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <ul>
+        <li>
+          <p>Passes if all of the following conditions are met.</p>
+          <ul>
+            <li>At least once per application startup, the application displays at least one of the following Strap Usage screens.<ul><li>A Strap Usage screen provided by Nintendo (the controller support applet version counts).</li><li>A screen explaining how to put on the strap containing a custom illustration that meets the criteria given in the Backgrounder, along with the standardized text given in the Backgrounder or text with equivalent meaning.</li></ul></li>
+            <li>The application displays the above screens either in the language currently set within the application or in the language currently set in system settings.</li>
+            <li>The application displays the above screens at some point before the user performs motion controls in the application.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451984_0" data-tag="function-振り回し">
+<label for="tagfilter_2367451984_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_1" data-tag="revision-updated-20240626">
+<label for="tagfilter_2367451984_1">
+<span class="revision-tag" title="Updated v20240626" data-tag="revision-updated-20240626">Updated v20240626</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451984_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_3" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451984_3">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_4" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367451984_4">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_5" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367451984_5">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_6" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451984_6">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_7" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451984_7">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_8" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367451984_8">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_9" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451984_9">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_10" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451984_10">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_11" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451984_11">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_12" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367451984_12">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_13" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451984_13">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_14" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451984_14">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451984_15" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367451984_15">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240626
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Changed &quot;Joy-Con strap usage screen&quot; to &quot;strap usage screen&quot;.</li>
+<li class="changelog">Applications with a specification that intentionally asks the user to let go of a Joy-Con controller while the user is wearing the wrist strap during gameplay<ul>
+  <li>Revised the description at the beginning of the section.</li>
+  <li>Strap Usage screen provided by Nintendo<ul><li>Added description of the controller support applet version.</li></ul></li>
+  <li>Strap Usage screen unique to your application<ul><li>Added conditions for creating your own Strap Usage screen.</li></ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Applications played by using the system or controller -->
+<h1 class="general" id="GuidelineLabel_2367452004" data-tags="revision-updated-10.0 revision-updated-20240206 revision-updated-0.8">Applications played by using the system or controller</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter contains several requirements for applications played by using the system or controller.</p>
+<p>It is possible to create a Switch application that can be played by moving the system or a controller, using the built-in accelerometers and gyroscopes to detect movement.</p>
+<p>On the other hand, it is possible that users may perform unintentional operations in such applications. To avoid users accidentally performing unintended operations, follow the guidelines from this subchapter when designing applications.</p>
+<p style="text-align: left;">
+  <strong>Note:</strong> Here, &quot;system&quot; refers both to the system with Joy-Con controllers attached and the system with Joy-Con controllers detached.</p>
+<p style="text-align: left;">
+  <strong>Note:</strong> Here, &quot;controller&quot; refers to the following controllers.</p>
+<ul style="text-align: left;">
+  <li style="list-style-type: disc;">Joy-Con grip</li>
+  <li style="list-style-type: disc;">Joy-Con charging grip</li>
+  <li style="list-style-type: disc;">Nintendo Switch Pro Controller</li>
+</ul>
+<!--Remove-->
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0096: Prohibited motions of system or controller -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452006" data-tags="revision-updated-1.0 function-振り回し revision-updated-20240206 revision-updated-0.8 revision-updated-7.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452006" title="Right-click and copy link to copy a permalink to this guideline">0096: Prohibited motions of system or controller</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Do not require or prompt users to perform any of the prohibited system or controller motions listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications played by moving the system or controller</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The following motions are potentially unsafe. Applications therefore must not require or prompt users to perform any of these motions within the application.</p>
+<table class="wrapped" data-mce-resize="false">
+  <tbody>
+    <tr>
+      <th>Prohibited motion</th>
+      <th>Why is this prohibited?</th>
+      <th style="text-align: center;">Illustration<br />(TV mode)</th>
+      <th style="text-align: center;">Illustration<br />(handheld mode)</th>
+    </tr>
+    <tr>
+      <td>Swinging the system or controller with one hand</td>
+      <td>
+        <p>The system or controller could slip out of the user's hand and/or bump into nearby people or objects.</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper image-center-wrapper">
+              <img src="../Attachments/Attach_2367452006/2367452007.jpg" width="100" class="embedded-image image-center" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_2367452006/2367452008.jpg" width="100" class="embedded-image" />
+          </span>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Use both the system and the controllers to play through all modes of the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if the application does not require or prompt users to perform any of the prohibited motions listed in the Backgrounder.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452006_0" data-tag="function-振り回し">
+<label for="tagfilter_2367452006_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452006_1" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452006_1">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452006_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452006_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452006_3" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367452006_3">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452006_4" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367452006_4">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0097: Motions of system or controller for which you must get approval from Nintendo in advance -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452010" data-tags="revision-updated-10.0 revision-updated-1.0 revision-updated-8.0 revision-updated-14.0 function-振り回し function-事前承認が必要 revision-updated-20240206 revision-updated-0.8 revision-updated-7.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452010" title="Right-click and copy link to copy a permalink to this guideline">0097: Motions of system or controller for which you must get approval from Nintendo in advance</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+You must get approval from Nintendo in advance if you want to have users perform any system or controller motions or operations listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications played by moving the system or controller</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>You must get approval from Nintendo in advance if you want to have users perform any motions or operations similar to those shown below. It is prohibited to create applications that require or prompt users to perform the following motions or operations without getting approval from Nintendo in advance.</p>
+  <table class="fixed-table wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <th>Motions that require you to get approval in advance</th>
+        <th>Reason why you must get approval in advance</th>
+        <th>
+          <p style="text-align: center;">Illustration<br />(TV mode)</p>
+        </th>
+        <th style="text-align: center;">Illustration<br />(handheld mode)</th>
+      </tr>
+      <tr>
+        <td>Vigorously shaking, waving, or swinging the system or controller</td>
+        <td>
+          <p>The system or controller could slip out of the user's hand and/or bump into nearby people or objects.</p>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper" style="text-align: center;">
+            <span class="embedded-file-wrapper image-center-wrapper">
+              <img src="../Attachments/Attach_2367452010/2367452015.jpg" width="100" class="embedded-image image-center" />
+            </span>
+          </div>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452023.jpg" width="100" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Having the user themselves walk around while holding the system</p>
+        </td>
+        <td>Users are likely to get too distracted to pay attention to their surroundings when their attention is focused on the screen.</td>
+        <td style="text-align: center;">
+          <p>-</p>
+        </td>
+        <td style="text-align: center;">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452011.jpg" width="100" class="embedded-image" />
+            </span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>Having the user turn around quickly while holding the system or controller</td>
+        <td>
+          <p>This motion could be unsafe depending on the speed at which the user turns around.</p>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452014.jpg" width="100" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452013.jpg" width="100" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Rapidly moving the system or controller from hand to hand</td>
+        <td>The user could drop the system or controller.</td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452016.jpg" width="100" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <p>
+              <span class="embedded-file-wrapper ">
+                <img src="../Attachments/Attach_2367452010/2367452022.jpg" width="100" class="embedded-image" />
+              </span>
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Quickly moving the system left and right while matching the timing of the game</td>
+        <td>Users are likely to get too distracted to pay attention to their surroundings when they are focused on matching the timing of the game.</td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452017.jpg" width="100" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <p>
+              <span class="embedded-file-wrapper ">
+                <img src="../Attachments/Attach_2367452010/2367452021.jpg" width="100" class="embedded-image" />
+              </span>
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Hitting or striking the system or controller</td>
+        <td>This could damage the LCD screen, or the system or controller itself, depending on how it is hit.</td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452010/2367452018.jpg" width="100" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+        <td style="text-align: center;">
+          <div class="content-wrapper">
+            <p>
+              <span class="embedded-file-wrapper ">
+                <img src="../Attachments/Attach_2367452010/2367452019.jpg" width="100" class="embedded-image" />
+              </span>
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>In addition to the motions listed above, motions or operations that pose safety concerns or that may damage the system or controllers</td>
+        <td>
+          <p>This could damage the system or controllers or harm users depending on the motion or operation.</p>
+        </td>
+        <td style="text-align: center;">-</td>
+        <td style="text-align: center;">-</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Additional notes regarding getting approval from Nintendo in advance</p>
+  <ul>
+    <li>When getting approval from Nintendo in advance, include the following information.<ul><li>An overview of your game. (Including its number of players.)<ul><li>If multiple users can play your application at the same time, include a brief description of how they play together.</li></ul></li><li>Rating information<ul><li>If you have not yet received all ratings, provide the ratings you expect to receive.</li></ul></li><li>An overview of the motion you want to have users perform.</li><li>Any investigations or discussions you have had regarding considerations of the safety of this motion.</li><li>ROM data that Nintendo can use to check the issue that you want Nintendo to approve in advance.<ul><li>This does not have to be your finished full retail ROM, but the issue you want Nintendo to approve in advance must be exactly the same in this ROM as in the full retail ROM that you plan to release.</li></ul></li></ul></li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Use both the system and the controllers to play through all modes of the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if at least one of the following conditions is met.</p>
+<ul>
+  <li>Passes if the application does not have the user perform any motion or operation listed in the Backgrounder.</li>
+  <li>Passes if you got approval from Nintendo in advance for any motion or operation listed in the Backgrounder that the application has the user perform.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452010_0" data-tag="function-振り回し">
+<label for="tagfilter_2367452010_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452010_1" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367452010_1">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452010_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_3" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452010_3">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_4" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367452010_4">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_5" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452010_5">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_6" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452010_6">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_7" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367452010_7">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452010_8" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367452010_8">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Applications that are played using Toy-Con -->
+<h1 class="general" id="GuidelineLabel_2367452025" data-tags="revision-updated-10.0 revision-updated-11.0 revision-updated-8.0">Applications that are played using Toy-Con</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements that apply to applications played using Toy-Con.</p>
+<p>For the full lineup of Toy-Con accessories, see the <em>Toy-Con Application Planning Guide</em>.</p>
+<p>
+  <br />
+</p>
+<p>By combining the Toy-Con with the system or with Joy-Con controllers, you can create applications that use the Toy-Con as a controller.</p>
+<p>On the other hand, it is possible that users may perform unintentional operations in such applications. To avoid users accidentally performing unintended operations, follow the guidelines from this subchapter when designing applications.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0172: Getting approval from Nintendo in advance if your application supports Toy-Con -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452044" data-tags="revision-updated-8.0 revision-updated-11.0 function-事前承認が必要 revision-updated-20240206 revision-updated-19.0 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452044" title="Right-click and copy link to copy a permalink to this guideline">0172: Getting approval from Nintendo in advance if your application supports Toy-Con</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If you plan to use Toy-Con in your application, you must get approval from Nintendo in advance as described in the &quot;Introduction &gt; Note for Developers Planning Applications That Support Toy-Con Accessories&quot; section of the <em>Nintendo Switch Toy-Con Application Planning Guide</em>.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that use Toy-Con<br /><strong>Note:</strong> This includes the Toy-Con VR Goggles.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Because of the characteristics of Toy-Con accessories, depending on how a user plays with them, it is possible for the Toy-Con to be damaged or for users to perform motions that have safety concerns. You must get approval from Nintendo in advance if you want to use Toy-Con in your application. It is prohibited for applications to use Toy-Con without getting approval from Nintendo in advance. Based on the results of Nintendo's check, Nintendo may recommend or require you to implement handling that is not described in these Guidelines.</p>
+<p>
+  <br />
+</p>
+<p>Additional notes regarding getting approval from Nintendo in advance</p>
+<ul>
+  <li>When getting approval from Nintendo in advance, include the following information.<br /><ul><li>An overview of your game. (Including its number of players.)<ul><li>If multiple users can play your application at the same time, include a brief description of how they play together.</li></ul></li><li>Rating information<ul><li>If you have not yet received all ratings, provide the ratings you expect to receive.</li></ul></li><li>An overview of the motion you want to have users perform.</li><li>Any investigations or discussions you have had regarding considerations of the safety of this motion.</li><li>ROM data that Nintendo can use to check the issue that you want Nintendo to approve in advance.<br /><ul><li>This does not have to be your finished full retail ROM, but the issue you want Nintendo to approve in advance must be exactly the same in this ROM as in the full retail ROM that you plan to release.</li></ul></li><li>The timing at which your game displays messages that prompt the user to take a break. (<strong>Note:</strong> Provide this only if your application supports the Toy-Con VR Goggles.)</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check whether the application has gotten approval to use Toy-Con from Nintendo in advance.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application has gotten approval from Nintendo in advance.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452044_0" data-tag="function-toycon">
+<label for="tagfilter_2367452044_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452044_1" data-tag="function-vr">
+<label for="tagfilter_2367452044_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452044_2" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367452044_2">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452044_3" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452044_3">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452044_4" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452044_4">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452044_5" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452044_5">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452044_6" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452044_6">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0173: Explanation cautioning users about their surroundings (for applications that support Toy-Con) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452046" data-tags="revision-updated-10.0 function-振り回し revision-updated-8.0 revision-updated-19.0 function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452046" title="Right-click and copy link to copy a permalink to this guideline">0173: Explanation cautioning users about their surroundings (for applications that support Toy-Con)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Applications which are required to caution users about their surroundings must do so.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that support any of the following Toy-Con accessories:</p>
+<ul>
+  <li>Toy-Con Fishing Rod</li>
+  <li>Toy-Con Robot</li>
+  <li>Toy-Con Piano (baton) (<strong>Note:</strong> This refers to applications that prompt the user to use the baton in-game.)</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>To promote a fun and safe experience, applications that have the user make large swinging motions of the Toy-Con are required to caution users to be aware of their surroundings.</p>
+  <ul>
+    <li>
+      <p>The caution screen must include the following standardized text set by Nintendo. You can reword the text as long as the meaning is preserved.</p>
+      <table class="wrapped" data-mce-resize="false">
+        <tbody>
+          <tr>
+            <td>Allow adequate room around you during game play.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Example Display</p>
+      <p>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_2367452046/2367452047.jpg" width="350" class="embedded-image" />
+        </span>
+      </p>
+    </li>
+    <li>Display timing<ul><li>At some point before the user actually uses the Toy-Con accessory in your application.</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <p>For details, see the <em>Nintendo Switch Toy-Con Application Planning Guide</em>. </p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Launch the application and progress to a scene that uses the Toy-Con accessory.</li>
+  <li>If the application supports multiple languages, perform step 1 for all supported languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>At least once per application startup, the application displays a screen cautioning the user, containing the standardized text that meets the criteria given in the Backgrounder or text with equivalent meaning.</li>
+  <li>The application displays the above screen either in the language currently set within the application or in the language currently set in system settings.</li>
+  <li>The application displays the above screen at some time before the user uses the Toy-Con accessory in the application.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452046_0" data-tag="function-振り回し">
+<label for="tagfilter_2367452046_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452046_1" data-tag="function-toycon">
+<label for="tagfilter_2367452046_1">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452046_2" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452046_2">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452046_3" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367452046_3">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452046_4" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452046_4">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0180: Explaining how to attach the Joy-Con strap (for applications that support Toy-Con) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452052" data-tags="revision-updated-10.0 revision-updated-21.0 revision-updated-11.0 revision-updated-19.0 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452052" title="Right-click and copy link to copy a permalink to this guideline">0180: Explaining how to attach the Joy-Con strap (for applications that support Toy-Con)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If users perform game operations in your application using the Toy-Con accessories listed in the Software to Be Tested, your application must prompt the user to attach and use the Joy-Con strap.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that support any of the following Toy-Con accessories:</p>
+<ul>
+  <li>Toy-Con Piano (baton)<ul><li>This refers to applications that prompt the user to use the baton in-game.</li></ul></li>
+  <li>Toy-Con VR Goggles<ul><li>This refers to applications that use Joy-Con controllers together with the Toy-Con VR Goggles, and that could lead users to move Joy-Con controllers in rapid, wide, or forceful motions.</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If users perform game operations in your application using the Toy-Con accessories listed in the Software to Be Tested, then Joy-Con strap usage is required and therefore your application must prompt the user to attach and use the Joy-Con strap.</p>
+  <p>For the Toy-Con Piano (baton):</p>
+  <ul>
+    <li>
+      <p>The caution screen must include an illustration depicting the steps used to attach the baton to the Joy-Con controller, and must also include the following standardized text set by Nintendo. You can reword the text as long as the meaning is preserved.</p>
+      <table class="fixed-table wrapped" data-mce-resize="false">
+        <tbody>
+          <tr>
+            <td>When you play with the baton,<br /> attach the strap as shown. Hold the baton securely and do not let go of it.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Example Display<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367452052/2367452056.jpg" width="350" class="embedded-image" /></span></p>
+    </li>
+    <li>The illustration that you create, depicting the steps used to attach the baton to the Joy-Con controller, must include the following:<br /><ul><li>Depiction of attaching the Joy-Con strap to the Joy-Con controller (steps ① and ②)</li><li>Depiction of how to insert the Joy-Con controller into the baton (step ③)</li><li>Depiction of how to hold it (step ④)</li></ul></li>
+    <li>Display timing<ul><li>At some point before the user actually uses the baton in your application.</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <p>
+    <br />
+  </p>
+  <p>For the Toy-Con VR Goggles:</p>
+  <ul>
+    <li>
+      <p>Contact Nintendo and include all the information requested in <a href="../Pages/Page_2367451968.html#GuidelineDescLabel_2367452044">0172: Getting approval from Nintendo in advance if your application supports Toy-Con</a>.</p>
+    </li>
+  </ul>
+  <p>For details, see the <em>Nintendo Switch Toy-Con Application Planning Guide</em>. </p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start the application and progress to a scene that uses the Toy-Con accessory.</li>
+  <li>If the application supports multiple languages, perform step 1 for all supported languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>For the Toy-Con Piano:</strong>
+</p>
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>At least once per application startup, the application displays a screen explaining how to put on the Joy-Con strap, containing a custom illustration that meets the criteria given in the Backgrounder, along with the standardized text given in the Backgrounder or text with equivalent meaning.</li>
+  <li>The application displays the above screen either in the language currently set within the application or in the language currently set in system settings.</li>
+  <li>The application displays the above screen at some time before the user uses the baton in the application.</li>
+</ul>
+<p>
+  <strong>For the Toy-Con VR Goggles:</strong>
+</p>
+<p>The application's design fulfills any requirements set by Nintendo when the developer got approval from Nintendo in advance.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452052_0" data-tag="function-toycon">
+<label for="tagfilter_2367452052_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452052_1" data-tag="function-vr">
+<label for="tagfilter_2367452052_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452052_2" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367452052_2">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452052_3" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452052_3">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452052_4" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452052_4">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452052_5" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367452052_5">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0181: Explaining how to put on the Toy-Con Robot -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452060" data-tags="revision-updated-10.0 revision-updated-19.0 function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452060" title="Right-click and copy link to copy a permalink to this guideline">0181: Explaining how to put on the Toy-Con Robot</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Applications that support the Toy-Con Robot must explain to the user how to put on and how to use the Toy-Con Robot.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that support the Toy-Con Robot
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>To promote a fun and safe experience, applications that support the Toy-Con Robot must explain how to put on and how to use the Toy-Con Robot.</p>
+  <ul>
+    <li>
+      <p>Nintendo recommends using the screen provided by Nintendo when explaining how to put on the Toy-Con Robot, but you are also allowed to create your own explanation screen and incorporate it somewhere in your application's overall explanation of how to play, as long as your screen provides the same explanation.<br /><br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367452060/2367452062.jpg" width="350" class="embedded-image" /></span></p>
+    </li>
+    <li>Display timing<ul><li>At an appropriate time (for example, at some point before the user actually uses the Toy-Con in your application).</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <p>If you make your own screen, your explanation must meet the following conditions.</p>
+  <ul>
+    <li>Illustrations<ul><li>Include an illustration depicting how to put on the Toy-Con.</li></ul></li>
+    <li>Text<ul><li><p>Include the following standardized text set by Nintendo. You can reword the text as long as the meaning is preserved.</p><table class="fixed-table wrapped" data-mce-resize="false"><tbody><tr><td>Put on the visor.<br />Put the Toy-Con Robot on your back and tighten the shoulder straps.<br />Put the robot shoes on your feet. Stand up straight and adjust the strings so that they extend the length of your leg when your leg is fully extended.<br />Grab the robot arms, and adjust the strings so that they extend the length of your arm when your arm is fully extended.</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li></ul></li>
+    <li>Display timing<ul><li>You must display it at some point before the user actually uses the Toy-Con Robot in your application.</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <p>For details, see the <em>Nintendo Switch Toy-Con Application Planning Guide</em>.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Launch the application and progress to a scene that has the user perform game operations with the Toy-Con Robot.</li>
+  <li>If the application supports multiple languages, perform step 1 for all supported languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>At least once per application startup, the application displays at least one of the following screens explaining how to put on the Toy-Con Robot.<ul><li>A screen provided by Nintendo explaining how to put on the Toy-Con Robot.</li><li>A screen explaining how to put on the Toy-Con Robot containing a custom illustration that meets the criteria given in the Backgrounder, along with the standardized text given in the Backgrounder or text with equivalent meaning.</li></ul></li>
+  <li>The application displays the above screen either in the language currently set within the application or in the language currently set in system settings.</li>
+  <li>The application displays the above screen at some time before the user uses the Toy-Con Robot in the application.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452060_0" data-tag="function-toycon">
+<label for="tagfilter_2367452060_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452060_1" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452060_1">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452060_2" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367452060_2">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Applications that are played using the leg strap -->
+<h1 class="general" id="GuidelineLabel_2367452066" data-tags="revision-updated-19.0">Applications that are played using the leg strap</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply to applications played using the leg strap. (See <strong>Note</strong>.)</p>
+<p>
+  <strong>Note:</strong> &quot;Applications played by using the leg strap&quot; refers to applications that are played with a Joy-Con controller that is inserted in the leg strap.</p>
+<p>It is possible to create a Switch application that users can play with their legs, using the accelerometers and gyroscopes built into the Joy-Con controller to detect movement.</p>
+<p>On the other hand, it is possible that users may perform unintentional operations in such applications. To avoid users accidentally performing unintended operations, follow the guidelines from this subchapter when designing applications.</p>
+<!--Remove-->
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0211: Getting approval from Nintendo in advance if your application supports the leg strap -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452069" data-tags="function-事前承認が必要 revision-updated-20240206 function-レッグバンド revision-updated-19.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452069" title="Right-click and copy link to copy a permalink to this guideline">0211: Getting approval from Nintendo in advance if your application supports the leg strap</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>If you plan to use the leg strap in your application, you must get approval from Nintendo in advance as described in the &quot;Introduction &gt; Note for Developers Planning Applications That Support the Leg Strap&quot; section of the <em>Nintendo Switch Application Safety Improvement Guide</em>.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that support the leg strap
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>It is possible, depending on the game design, for users to perform motions with the leg straps that could have safety concerns. You must get approval from Nintendo in advance if you want to use the leg strap in your application. It is prohibited for applications to use the leg strap without getting approval from Nintendo in advance. Based on the results of Nintendo's check, Nintendo may recommend or require you to implement handling that is not described in these Guidelines.</p>
+<p>
+  <br />
+</p>
+<p>Additional notes regarding getting approval from Nintendo in advance</p>
+<ul>
+  <li>When getting approval from Nintendo in advance, include the following information.<br /><ul><li>An overview of your game. (Including its number of players.)<ul><li>If multiple users can play your application at the same time, include a brief description of how they play together.</li></ul></li><li>Rating information<ul><li>If you have not yet received all ratings, provide the ratings you expect to receive.</li></ul></li><li>An overview of the motion you want to have users perform.</li><li>Any investigations or discussions you have had regarding considerations of the safety of this motion.</li><li>ROM data that Nintendo can use to check the issue that you want Nintendo to approve in advance.<br /><ul><li>This does not have to be your finished full retail ROM, but the issue you want Nintendo to approve in advance must be exactly the same in this ROM as in the full retail ROM that you plan to release.</li></ul></li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check whether the application has gotten approval to use the leg strap from Nintendo in advance.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application has gotten approval from Nintendo in advance.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452069_0" data-tag="function-レッグバンド">
+<label for="tagfilter_2367452069_0">
+<span class="function-tag" title="Leg strap" data-tag="function-レッグバンド">Leg strap</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452069_1" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367452069_1">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452069_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452069_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452069_3" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452069_3">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0212: Prohibited operations of the leg strap -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452071" data-tags="function-レッグバンド revision-updated-19.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452071" title="Right-click and copy link to copy a permalink to this guideline">0212: Prohibited operations of the leg strap</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Do not require or prompt users to perform any of the prohibited operations listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that support the leg strap
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The following operations are potentially unsafe. Applications therefore must not require or prompt users to perform any of these operations within the application.</p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <!--Remove - p.auto-cursor-target-->
+      <table class="wrapped" data-mce-resize="false">
+        <tbody>
+          <tr>
+            <th>Prohibited operation</th>
+            <th>Why is this prohibited?</th>
+            <th>Illustration</th>
+          </tr>
+          <tr>
+            <td>Operations where the user plays the application with the Joy-Con (R) inserted in the leg strap</td>
+            <td>
+              <p>Forcibly inserting the Joy-Con (R) into the leg strap may damage the Joy-Con (R) or leg strap.</p>
+            </td>
+            <td>
+              <div class="content-wrapper">
+                <p>
+                  <span class="embedded-file-wrapper ">
+                    <img src="../Attachments/Attach_2367452071/2367452073.jpg" width="100" height="70" class="embedded-image" />
+                  </span>
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Operations where the user plays the application with the leg strap attached to any of the following parts of the body:</p>
+              <ul>
+                <li>Ankle, arm, or anywhere else outside the thigh area</li>
+                <li>Anywhere that is lower than mid-thigh (closer to the knee)</li>
+                <li>Inner thigh</li>
+              </ul>
+            </td>
+            <td>
+              <p>Depending on what part of the body the leg strap is attached to, the Joy-Con may be damaged, or the leg strap may fall off during play and hit nearby people or objects.</p>
+            </td>
+            <td>
+              <div class="content-wrapper">
+                <p>
+                  <span class="embedded-file-wrapper ">
+                    <img src="../Attachments/Attach_2367452071/2367452072.jpg" width="100" height="70" class="embedded-image" />
+                  </span>
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Operations where the user plays the application with the leg strap attached upside-down (so that the Joy-Con (L) is pointing down)</td>
+            <td>The Joy-Con (L) may slip out during play and hit nearby people or objects.</td>
+            <td style="text-align: center;">
+              <div class="content-wrapper">
+                <span class="embedded-file-wrapper ">
+                  <img src="../Attachments/Attach_2367452071/2367452074.jpg" width="100" height="70" class="embedded-image" />
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--Remove - p.auto-cursor-target-->
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Use the leg strap to play through all modes of the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not require or prompt users to perform any of the prohibited operations listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452071_0" data-tag="function-レッグバンド">
+<label for="tagfilter_2367452071_0">
+<span class="function-tag" title="Leg strap" data-tag="function-レッグバンド">Leg strap</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452071_1" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452071_1">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0213: Explaining how to put on the leg strap -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452076" data-tags="function-レッグバンド revision-updated-19.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452076" title="Right-click and copy link to copy a permalink to this guideline">0213: Explaining how to put on the leg strap</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Applications that support the leg strap must explain to the user how to put on and how to use the leg strap.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that support the leg strap
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that support the leg strap must explain to the user how to put on the leg strap properly.</p>
+  <ul>
+    <li>Explaining how to put it on<ul><li>Nintendo recommends using the screens provided by Nintendo when explaining how to put on the leg strap, but you are also allowed to create your own explanation screens and incorporate them somewhere in your application's overall explanation of how to play.<ul><li><p>The screens provided by Nintendo include a screen where the leg strap is attached to the right leg, and a screen where the leg strap is attached to the left leg.</p><table class="fixed-table wrapped" data-mce-resize="false"><tbody><tr><td style="text-align: center;"><div class="content-wrapper"><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367452076/2367452080.png" width="350" class="embedded-image" /></span></div></td><td style="text-align: center;"><div class="content-wrapper"><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367452076/2367452079.png" width="350" class="embedded-image" /></span></div></td></tr><tr><td style="text-align: center;">Attached to right leg</td><td style="text-align: center;">Attached to left leg</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li></ul></li><li>If you create your own screen, it must meet the following conditions. <ul><li>Standardized text<ul><li><p>You must include the standardized text set by Nintendo. You can reword the text as long as the meaning is preserved.</p><table class="fixed-table wrapped" data-mce-resize="false"><tbody><tr><td><ol><li>Insert the Joy-Con (L) into the pocket on the leg strap.</li><li>Pass the strap through the hole, and wrap it around your right leg.</li><li>Position the leg strap at the center of your thigh, then stand still for a moment.</li></ol></td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li><li>Additional notes regarding the standardized text<ul><li>Change &quot;right leg&quot; to &quot;left leg&quot; or (for example) &quot;kicking leg&quot; or &quot;preferred leg&quot; in line with your application's design.</li></ul></li></ul></li><li>Illustration<ul><li>You must create illustrations that correspond to the standardized texts 1 through 3.</li></ul></li></ul></li></ul></li>
+    <li>Display timing<ul><li>At least once per application startup, you must display the explanation at some appropriate time before the user actually uses the leg strap in your application.</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <p>For more information, see the <em>Nintendo Switch Application Safety Improvement Guide</em>. </p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start the application and progress to a scene that uses the leg strap.</li>
+  <li>If the application supports multiple languages, perform step 1 for all supported languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>At least once per application startup, the application displays at least one of the following screens explaining how to put on the leg strap.<ul><li>A screen provided by Nintendo explaining how to put on the leg strap.</li><li>A screen explaining how to put on the leg strap containing a custom illustration that meets the criteria given in the Backgrounder, along with the standardized text given in the Backgrounder or text with equivalent meaning.</li></ul></li>
+  <li>The application displays the above screen either in the language currently set within the application or in the language currently set in system settings.</li>
+  <li>The application displays the above screen at some time before the user uses the leg strap in the application.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452076_0" data-tag="function-レッグバンド">
+<label for="tagfilter_2367452076_0">
+<span class="function-tag" title="Leg strap" data-tag="function-レッグバンド">Leg strap</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452076_1" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452076_1">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0214: Explanation cautioning users about their surroundings (for applications that support the leg strap) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452082" data-tags="function-レッグバンド revision-updated-19.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452082" title="Right-click and copy link to copy a permalink to this guideline">0214: Explanation cautioning users about their surroundings (for applications that support the leg strap)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must caution users about their surroundings.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that support the leg strap
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>To promote a fun and safe experience, applications that support the leg strap are required to caution users to be aware of their surroundings.</p>
+  <ul>
+    <li>Screen cautioning users about their surroundings<ul><li>Nintendo provides the following screens as examples, but you are also allowed to create your own caution screen. <br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367452082/2367452083.png" width="350" class="embedded-image" /></span></li><li>If you create your own screen, it must meet the following conditions.<ul><li>Standardized text<ul><li><p>The caution screen must include the following standardized text set by Nintendo. You can reword the text as long as the meaning is preserved.</p><table class="wrapped" data-mce-resize="false"><tbody><tr><td>Make sure you have enough space around you.</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></li></ul></li></ul></li></ul></li>
+    <li>Display timing<ul><li>At least once per application startup, you must display the explanation at some appropriate time before the user actually uses the leg strap in your application.</li></ul></li>
+    <li>Display language<ul><li>Display it either in the language currently set in your application or in the language currently set in system settings.</li></ul></li>
+  </ul>
+  <p>For more information, see the <em>Nintendo Switch Application Safety Improvement Guide</em>.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start the application and progress to a scene that uses the leg strap.</li>
+  <li>If the application supports multiple languages, perform step 1 for all supported languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>At least once per application startup, the application displays at least one of the following screens cautioning the user.<ul><li>A screen provided by Nintendo cautioning users about their surroundings</li><li>A screen cautioning the user containing the standardized text given in the Backgrounder or text with equivalent meaning.</li></ul></li>
+  <li>The application displays the above screen either in the language currently set within the application or in the language currently set in system settings.</li>
+  <li>The application displays the above screen at some time before the user uses the leg strap in the application.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452082_0" data-tag="function-レッグバンド">
+<label for="tagfilter_2367452082_0">
+<span class="function-tag" title="Leg strap" data-tag="function-レッグバンド">Leg strap</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452082_1" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452082_1">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

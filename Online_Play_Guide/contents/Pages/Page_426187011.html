@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 Selecting the Ban Method | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 Selecting the Ban Method -->
+<div class="pagetitle" id="PageId_426187011">5.3 Selecting the Ban Method</div>
+<div class="text_separate">
+<p>This section describes how to implement application-specific bans.</p>
+<h1 id="Anchor_426187011_h1_1">Application-Specific Bans</h1>
+<p>The following table shows the two types of application-specific bans. The usage restrictions can be applied to NEX, NPLN, and independent servers.<br />For more information, see <a href="../Pages/Page_244383144.html">5.1 Ban Overview</a>.</p>
+<table class="wrapped relative-table" style="width: 61.7091%;">
+  <colgroup>
+    <col style="width: 20.8%;" />
+    <col style="width: 79.2%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>BAN Name</th>
+      <th>Information Required for Bans</th>
+    </tr>
+    <tr>
+      <td>NSA App Ban</td>
+      <td>
+        <ul>
+          <li>NSA ID</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Device App Ban</td>
+      <td>
+        <ul>
+          <li>NSA ID (common to NEX, NPLN, and independent servers)</li>
+          <li>For NEX and NPLN:<br />The last login date and time (can be checked on BMAS)<br /></li>
+          <li>For independent servers:<br /><code>bs:did</code> value contained in the NSA ID token (written as the login ID in BMAS)<br />Or<br />The last login date and time (can be checked on BMAS)<br /></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>For more information about the <code>bs:did</code> value contained in the NSA ID token, see  <a href="../Pages/Page_245235773.html">5.2 Implementing Bans</a>.<br />For more information about using an independent server, see the Nintendo Switch Independent Server Setup Manual.</li>
+      <li>Authentication is shared across NEX, NPLN and independent servers. When a ban is implemented, all features on NEX, NPLN, and independent servers become unavailable.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_426187011_h1_2">Implementing Application-Specific Bans</h1>
+<p>When implementing application-specific bans, use one of the following two methods.</p>
+<h2 id="Anchor_426187011_h2_1">Recommended: Method That Only Applies an NSA App Ban</h2>
+<p class="inline-comment-marker">
+  <strong>We recommend using an NSA app ban for application-specific bans.</strong> This is because if you use both an NSA app ban and a device app ban (the method described below), there is a chance of banning Switch consoles that are not in the possession of the user you are banning.</p>
+<p class="inline-comment-marker">Implementing an NSA app ban restricts the network service account of the target from using the network features of the application.</p>
+<p>When the Nintendo Account is linked to user accounts on multiple Switch devices, the network service account for these accounts is the same, so the NSA app ban prevents using network features on multiple Switch devices.</p>
+<p>If the account that is the target of the ban has a Nintendo Switch Online membership, you can synchronize save data using the Save Data Cloud backup feature.</p>
+<h2 id="Anchor_426187011_h2_2">Method That Applies Both an NSA App Ban and a Device App Ban</h2>
+<p>With only an NSA app ban, you cannot prevent a user from creating a succession of new user accounts, linked to a Nintendo Account on a Switch, and using those accounts to continue the behavior that caused the ban. In addition, if the user creates a new Nintendo Account, it is possible for them to use the Nintendo Switch Online 7-day free trial with that account and use services that require a Nintendo Switch Online membership.</p>
+<p>To prevent these types of cases from occurring, consider using both an NSA app ban and device app ban.</p>
+<h3 id="Anchor_426187011_h3_1">Notes About Applying Device App Bans</h3>
+<p>When applying a device app ban, make sure that this ban does not apply to Switch devices that are no longer owned by the user whose activities caused the ban. All of the Switch devices that have been linked even one time with the applicable Nintendo Account are listed in BMAS. Some of these Switch devices may no longer be owned by the user to whom the NSA app ban was applied, and may be currently owned by other users.</p>
+<p>Use the following information to determine whether a Switch device is owned by the user targeted by the ban.</p>
+<ul>
+  <li>
+    <code>bs:did</code> value contained in the NSA ID token (written as the login ID in BMAS)<ul><li>On an independent server, you must get the target user's <code>bs:did</code> value from logs or other sources.</li></ul></li>
+  <li>The last login date and time (can be checked on BMAS)<br /><ul><li>You can use this information to determine whether the device has been used recently by the user who is the target of the ban.</li></ul></li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

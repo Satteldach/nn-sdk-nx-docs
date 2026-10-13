@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.1 Overview | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.1 Overview -->
+<div class="pagetitle" id="PageId_484511941">6.1 Overview</div>
+<div class="text_separate">
+<p>There are two methods for implementing consumable service items. The following section provides an overview and the specifications that are common to both methods.</p>
+<h1 id="Anchor_484511941_h1_1">Providing Consumable Service Items</h1>
+<p>There are two ways to provide consumable service items.</p>
+<ul>
+  <li>Independent Server Controlled Method</li>
+  <li>User Save Data Controlled Method</li>
+</ul>
+<p>The <em>independent server controlled method</em> is the mechanism for managing sold licenses on an independent server. If you want to sell consumable service items, first consider providing services with the independent server controlled method.</p>
+<p>The user save data controlled method is the mechanism for managing sold licenses in save data. You can use the user save data controlled method when selling consumable service items without using an independent server, but there are many restrictions. For more information about the user save data controlled method, see <a href="../Pages/Page_381563498.html">6.3 User Save Data Controlled Method</a>.</p>
+<h2 id="Anchor_484511941_h2_1">Overview of Consumable Service Items Using the Independent Server Controlled Method</h2>
+<p>The mechanism for managing consumable service items using the independent server controlled method provides services to the user via the following process.</p>
+<ol>
+  <li>Users purchase consumable service items on Nintendo eShop.</li>
+  <li>When providing services to users, the independent server gets user purchase data from the Nintendo eShop server.</li>
+  <li>The independent server then updates user license information based on the acquired purchase data.</li>
+  <li>The independent server provides services to users based on the user license information maintained on the independent server.</li>
+</ol>
+<div class="figure">
+  <a name="AutoAnchor_484511941_figure001"></a>Figure 6-1  Overview of the Independent Server Controlled Method</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_484511941/831139840.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>For a mechanism like this, which uses the independent server controlled method, you must configure an independent server. When developing an independent server, see Nintendo Switch Independent Server Setup Manual.</p>
+<h2 id="Anchor_484511941_h2_2">Overview of the User Save Data Controlled Method</h2>
+<p>The mechanism for managing consumable service items using the user save data controlled method provides services to the user via the following process.</p>
+<ol>
+  <li>Users purchase consumable service items on Nintendo eShop.</li>
+  <li>The Switch application gets the user purchase information from Nintendo eShop.</li>
+  <li>The Switch application references the purchase information and saves the license information to the user save data.</li>
+</ol>
+<div class="figure">
+  <a name="AutoAnchor_484511941_figure002"></a>Figure 6-2  Overview of the User Save Data Controlled Method</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_484511941/831139841.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<p>Although an internet connection is required for applying the consumable service item license purchased on Nintendo eShop to the user save data, the items can be used offline after this data has been saved.</p>
+<p>This method does not require the use of an independent server. However, it does require the use of the libraries made available in the NintendoSDK. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Consumable Service Items Client Libraries.</p>
+<h2 id="Anchor_484511941_h2_3">Comparison Between the Independent Server Controlled Method and User Save Data Controlled Method</h2>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <br />
+      </th>
+      <th>Independent Server Controlled Method</th>
+      <th>User Save Data Controlled Method</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <th>Independent Servers Required?</th>
+      <td>Required</td>
+      <td>Not Required</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>Master License Information</th>
+      <td>Independent server</td>
+      <td>User save data</td>
+      <td>
+        <p>See <a href="../Pages/Page_483854071.html">9.2 Relationship Between Nintendo Accounts and Licenses</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Sharing Licenses for the Same Account Across Different Devices</th>
+      <td>Possible</td>
+      <td>Not possible</td>
+      <td>See <a href="../Pages/Page_483854071.html">9.2 Relationship Between Nintendo Accounts and Licenses</a>.</td>
+    </tr>
+    <tr>
+      <th>Offline Use</th>
+      <td>No</td>
+      <td>Data saved to the user save data can be used.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>Behavior When Deleting User Save Data</th>
+      <td>License information is not deleted.</td>
+      <td>License information is deleted.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_484511941_h1_2">Selling Consumable Service Items on Nintendo eShop</h1>
+<p>The sales data for consumable service items is added using the Nintendo Content Management System (NCMS). For more information about the settings to use with NCMS, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</p>
+<h2 id="Anchor_484511941_h2_4">Consumable Services</h2>
+<p>Consumable services are services identified at the Consumable ID level.</p>
+<p>For example, to sell virtual currency and in-game items as two kinds of consumable service items, you begin by creating the following two types of consumable services.</p>
+<ul>
+  <li>Consumable Service Name: Gold</li>
+  <li>Consumable Service Name: In-game item</li>
+</ul>
+<p>The consumable ID is configured when creating a consumable service in NCMS. You must add consumable services to the Consumable Service List for a title in NCMS to distribute those consumable services.</p>
+<h2 id="Anchor_484511941_h2_5">Consumable Service Items</h2>
+<p>Even when consumable services are sold in bundles, for the sake of convenience, they are called <em>consumable service items</em>. These consumable service items can be identified by their item IDs.</p>
+<p>Consumable service items are listed in Nintendo eShop on separate pages for each type of consumable service. For example, say there is a consumable service called &quot;Gold&quot; and you create the consumable service items Gold 1G and Gold 2G that are associated with that consumable service. Those two items, Gold 1G and Gold 2G, will appear on the Gold page in Nintendo eShop.</p>
+<p>The item ID is a value that is configured when creating a consumable service item in NCMS. Specify a string in NCMS that the application can use to identify purchased consumable service items. The format is a single-byte alphanumeric string of 1 to 16 (case-sensitive) characters. Nintendo eShop uses the application ID in combination with this item ID to identify product information. As a result, item IDs do not have to be unique across applications.</p>
+<h2 id="Anchor_484511941_h2_6">Registering in NCMS</h2>
+<p>Consumable service items are registered separately in NCMS for each region.</p>
+<p>In the following example, the two consumable services <strong>Gold</strong> and <strong>In-game item</strong> and the consumable service items associated with those services are set for the Americas region. The Americas region has three languages: American English, Canadian French, and Latin American Spanish. A name is set in each language for each consumable service name and each consumable service item.</p>
+<div class="table">
+  <a name="AutoAnchor_484511941_table002"></a>Table 6-1  Registering Consumable Services and Consumable Service Items in the Americas Region</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Consumable Service Name</th>
+      <th>Consumable ID</th>
+      <th>Consumable Service Item Name</th>
+      <th>Item ID</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td rowspan="6">
+        <p>American English: Gold</p>
+        <p>Canadian French: Gold</p>
+        <p>Latin American Spanish: Gold</p>
+      </td>
+      <td rowspan="6">2vsp76u3qtte2r1p</td>
+      <td rowspan="3">
+        <p>American English: Gold 1G</p>
+        <p>Canadian French: Gold 1G</p>
+        <p>Latin American Spanish: Gold 1G</p>
+      </td>
+      <td rowspan="3">SAMPLEGOLD000001</td>
+      <td>United States: $0.99</td>
+    </tr>
+    <tr>
+      <td>Canada: $1.25</td>
+    </tr>
+    <tr>
+      <td>Mexico: MX$19.21</td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <p>American English: Gold 2G</p>
+        <p>Canadian French: Gold 2G</p>
+        <p>Latin American Spanish: Gold 2G</p>
+      </td>
+      <td rowspan="3">SAMPLEGOLD000002</td>
+      <td>United States: $1.98</td>
+    </tr>
+    <tr>
+      <td>Canada: $2.38</td>
+    </tr>
+    <tr>
+      <td>Mexico: MX$36.67</td>
+    </tr>
+    <tr>
+      <td rowspan="6">
+        <p>American English: In game item</p>
+        <p>Canadian French: In game item</p>
+        <p>Latin American Spanish: In game item</p>
+      </td>
+      <td rowspan="6">dqnizadadvaee0p9</td>
+      <td rowspan="3">
+        <p>American English: item 1</p>
+        <p>Canadian French: item 1</p>
+        <p>Latin American Spanish: item 1</p>
+      </td>
+      <td rowspan="3">SAMPLEITEM0001</td>
+      <td>United States: $0.50</td>
+    </tr>
+    <tr>
+      <td>Canada: $0.63</td>
+    </tr>
+    <tr>
+      <td>Mexico: MX$9.70</td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <p>American English: item 2</p>
+        <p>Canadian French: item 2</p>Latin American Spanish: item 2</td>
+      <td rowspan="3">SAMPLEITEM0002</td>
+      <td>United States: $1.00</td>
+    </tr>
+    <tr>
+      <td>Canada: $1.26</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Mexico: MX$19.40</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_484511941_h2_7">Limitations on Repeat Consumable Service Items Purchases</h2>
+<p>You can limit the number of times each consumable service item can be purchased by each Nintendo Account. This limit is called the <em>purchase limit</em>. The number of times the item can be purchased while the purchase limit is enabled is called the <em>purchasable number</em>.<br />For example, if you set the purchasable number for a consumable service item to 1, that item can be purchased only once by each Nintendo Account.</p>
+<p>The purchase limit settings are configured on NCMS. For more information about configuring the setting, see NCMS Manual &gt; Submitting Sales and Promotional Information &gt; Submitting Consumable Services (Switch Only).<br />The maximum purchasable number that can be configured is 20. Purchase limits and the number of available purchases can be changed even after the consumable service item goes on sale.</p>
+<h3 id="Anchor_484511941_h3_1">Important Information When Setting Purchase Limits</h3>
+<p>Note the following information when setting purchase limits.</p>
+<ul>
+  <li>The number of purchases is counted only while a purchase limit is set. The purchases are not counted if the purchase limit is disabled.</li>
+  <li>The configured purchase limit cannot be reset. For this reason, if you want to reset the number of purchases for a consumable service item that has already been released and then set a new purchase limit, you must create a new consumable service item.</li>
+  <li>The purchase limit does not apply when you use the following methods to obtain a consumable service item. You can obtain the item even if a purchase limit has been set and the purchasable number has reached the maximum. Even if you obtain the item, it will not be counted toward the number of purchases.<ul><li>Purchasing a bundle that includes consumable service items</li><li>Using a download code</li><li>Using a privilege grant</li></ul></li>
+</ul>
+<h2 id="Anchor_484511941_h2_8">Displaying a Purchase Period For a Consumable Service Item</h2>
+<p>If a consumable service item will be sold for a limited time, the period of availability is displayed. If a purchase period is configured for a consumable service item, the period until the time sales of that item ends appears in Nintendo eShop.</p>
+<h2 id="Anchor_484511941_h2_9">Options to Configure Images and Descriptions for Consumable Service Items</h2>
+<p>By default, both an image and a description is set for a consumable service, but only an item name is set for a consumable service item. For example, if you plan to sell a virtual currency, you would set an image and a description of the virtual currency in the consumable service, but for the consumable service item you would set only the unit of the currency as the item name.</p>
+<p>On the other hand, if for example you were selling bundles of items that can be used in the application, you might want to add an image or a description for each bundle. In this case, you could make each bundle its own consumable service. However, that approach increases the number of consumable service items and it becomes harder to find the bundle you want. To avoid this issue, you can use the option to configure images and descriptions for consumable service items instead of consumable services. The following examples show what happens with that option enabled and disabled.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Consumable Service</th>
+      <th>Option Settings</th>
+      <th>Consumable Service Image and Description</th>
+      <th>Consumable Service Item Names</th>
+      <th>Consumable Service Item Images and Descriptions</th>
+    </tr>
+    <tr>
+      <td>Gold, a virtual currency</td>
+      <td>off (default)</td>
+      <td>Gold image and description</td>
+      <td>Units of Gold</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Bundle list</td>
+      <td>on</td>
+      <td>Bundle list image and description</td>
+      <td>Name of each bundle</td>
+      <td>Image and description for each bundle</td>
+    </tr>
+  </tbody>
+</table>
+<p>Currently, this option can only be configured by Nintendo. To use this option, contact Nintendo support.</p>
+<h2 id="Anchor_484511941_h2_10">Restrictions on the Number of Consumable Services and Item IDs</h2>
+<p>There are the following limitations when selling consumable service items on Nintendo eShop.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Limitation</th>
+      <th>Content Limitation</th>
+    </tr>
+    <tr>
+      <td>Number of consumable services that can be sold at the same time</td>
+      <td>Up to 20</td>
+    </tr>
+    <tr>
+      <td>Number of item IDs that can be sold at the same time</td>
+      <td>Up to 20 for each consumable service</td>
+    </tr>
+    <tr>
+      <td>Format of item IDs that can be added</td>
+      <td>
+        <p>A single-byte alphanumeric string of 1 to 16 (case-sensitive) characters</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Because of these restrictions, a maximum of 400 consumable service items can be sold at the same time for any one application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>There is an upper limit on the number of consumable services, so if you are selling multiple bundles, instead of creating a consumable service for each bundle, you may want to consider preparing a single consumable service for the bundles and then selling each bundle as a separate consumable service item, using the option to set an image and description for each item.</p>
+  </div>
+</div>
+<p>The system also imposes the following limitations.</p>
+<ul>
+  <li>When the EC applet is started from the application, it does not return the result for whether a purchase was made.</li>
+  <li>Independent servers and Switch applications cannot directly make purchase requests to the Nintendo eShop server.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

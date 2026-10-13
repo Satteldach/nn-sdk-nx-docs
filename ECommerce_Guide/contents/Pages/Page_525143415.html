@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.1 Usage Request on OMAS | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.1 Usage Request on OMAS -->
+<div class="pagetitle" id="PageId_525143415">4.1 Usage Request on OMAS</div>
+<div class="text_separate">
+<p>Before you begin development of e-commerce features, submit an e-commerce feature usage request on OMAS to get the necessary server settings.</p>
+<p>Using OMAS, you can request the following e-commerce features.</p>
+<ul>
+  <li>Downloadable content</li>
+  <li>Consumable service items</li>
+  <li>Subscription service items</li>
+  <li>The feature for getting information within applications (which must indicate the product that is using this feature)</li>
+</ul>
+<p>After you submit the e-commerce request and Nintendo approves the request, the requested features are available for use in the development and production environments.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You do not need to make a request on OMAS to use shop jumps that do not use the feature for getting information within applications.</p>
+  </div>
+</div>
+<h1 id="Anchor_525143415_h1_1">Considerations When Requesting E-Commerce Features</h1>
+<ul>
+  <li>When submitting course requests for subscription service items, do not change the maximum service period after server configuration is complete (that is, after you pass through the server configuration phase in OMAS). If you want to set a different maximum service period, submit a new course request. Contact Nintendo if you need to change a maximum service period that has already been set.</li>
+  <li>If the subscription service item is going to be shared with another application, the other application must also submit an e-commerce request. In <strong>Course ID for Subscriptions</strong> &gt; <strong>Usage</strong>, clearly indicate that this course has been issued for another application. To facilitate a smooth Nintendo approval process, make it clear in the overview that you will be using shared subscription service items.</li>
+  <li>If you are using an independent server, a request for an independent server must be submitted in OMAS. To use consumable service items controlled by independent servers or subscription service items, you must use an independent server.</li>
+  <li>The content from an OMAS request is applied to all environments: development, Lotcheck, and production. Separate settings for just one environment like the development environment are not possible.</li>
+</ul>
+<h1 id="Anchor_525143415_h1_2">ID and Secret Issued After OMAS Approval</h1>
+<p>Information needed for development appears in OMAS after the e-commerce request is approved and the server settings phase has ended. This section describes that information.</p>
+<h2 id="Anchor_525143415_h2_1">Course ID for Subscription Service Items</h2>
+<p>A sixteen-character alphanumeric course ID is issued when you are using subscription service items and have submitted a course request using Course Information for Service Tickets. The issued course ID is used in NCMS settings.</p>
+<h2 id="Anchor_525143415_h2_2">Service Item Client ID/Secret</h2>
+<p>When either a consumable service item or a subscription service item request has been submitted, client IDs and secrets used for service items are issued in E-Commerce Client Information.</p>
+<p>Service items that use an independent server require a client ID and secret for accessing the Nintendo eShop server from the independent server. Each environment, such as development or production, has a different client ID and secret.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>A client ID/secret for the development environment is issued even when the control method being used is the user save data controlled method, which does not involve the use of an independent server. This is for debugging purposes.</p>
+  </div>
+</div>
+<p>For security reasons, there are some restrictions for checking issued client IDs and secrets on OMAS. Development and Lotcheck environments have no particular visibility restrictions for client IDs and secrets. They are visible on OMAS if the title information is visible. Visibility in the production environment, however, is restricted in the following way.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment</th>
+      <th>Viewable Criteria</th>
+    </tr>
+    <tr>
+      <td>Development and Lotcheck environments (dd1, sd1, and sp1)</td>
+      <td>
+        <p>A Nintendo developer ID user that can view the title in OMAS.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Production Environment (lp1)</td>
+      <td>
+        <p>A Nintendo developer ID user associated with that title's publisher and who is a Title Administrator for that title.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_525143415_h2_3">Client IDs and Secrets for Compensation</h2>
+<p>Client IDs and secrets for compensation are issued in E-Commerce Client Information when you are using the user save data controlled method for consumable service items and you have selected to use the compensation feature.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

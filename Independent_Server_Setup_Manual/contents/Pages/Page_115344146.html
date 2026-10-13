@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7 Lotcheck | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7 Lotcheck -->
+<div class="pagetitle" id="PageId_115344146">7 Lotcheck</div>
+<div class="text_separate">
+<div class="textLayer">
+  <h1 id="Anchor_115344146_h1_1">About Lotcheck</h1>
+  <p>Lotcheck is the final testing process on the application that is performed by Nintendo. In principle, Switch applications must undergo the Lotcheck process and pass the tests before being released. Both the development hardware and a retail unit are used for this Lotcheck process, depending on the tests being performed. For more information, see the Nintendo Switch Lotcheck Procedures.</p>
+  <p>If the application being tested supports an independent server, the Lotcheck process also debugs the application including the server system before release. If you are developing an application that supports an independent server, you cannot use the production environment (<strong>lp1</strong>) to check how the application operates before its release. Nintendo's various server services are assured to work if they are used appropriately, but the application is responsible for ensuring that the independent server will work in the production environment and the other environments. Lotcheck includes a process that tests whether the logic for switching between independent server environments works correctly.</p>
+  <p>This testing uses the dedicated Lotcheck environments (<strong>sd1</strong> and <strong>sp1</strong>), which cannot be provided to application developers. In the same way, debugging in the production environment prior to release is not possible because Lotcheck includes a test of the release of the independent server.</p>
+  <h1 id="Anchor_115344146_h1_2">Preparing an Independent Server For Lotcheck</h1>
+  <p>Nintendo uses two dedicated server environments for the Lotcheck process on applications. These environments are named <strong>sd1</strong> and <strong>sp1</strong>.</p>
+  <p>When you submit your application for Lotcheck, first prepare an independent server that will run properly under both environments. Prepare this server before you submit your master ROM to Lotcheck. You can remove the server after your application has passed Lotcheck. <strong>Note:</strong> You must prepare an independent server for Lotcheck not just the first time you submit an application, but also when you test update data.</p>
+  <p>Note the following when preparing an independent server for Lotcheck.</p>
+  <ul>
+    <li>If the submitted ROM passes Lotcheck, that ROM will be produced and shipped without any modifications. Avoid writing any special settings or processes for Lotcheck into your application.<br />For example, do not submit a ROM where the application only accesses an independent server for Lotcheck.</li>
+    <li>We recommend restricting the access settings to the independent server using IP addresses and other methods so that there is no unexpected access during the Lotcheck process. At the same time, make sure that you allow Nintendo to access the independent server.<br />The IP address used during Lotcheck is posted on the Nintendo support page for developers.</li>
+    <li>If you will be using an independent server for Lotcheck that has already gone live, make sure that users are not adversely affected by the access to the server from Nintendo.</li>
+  </ul>
+  <h1 id="Anchor_115344146_h1_3">Providing Access to Independent Servers When Switching Environments With DNS</h1>
+  <p>Lotcheck accesses the independent server for several of the network tests on the submitted application. If the independent server connection target needs to be changed using DNS, complete either of the following procedures so Nintendo can access the independent server meant for Lotcheck during Lotcheck.</p>
+  <ol>
+    <li>Preparing a DNS Server That Can Be Used for Lotcheck</li>
+    <li>Providing the Domain Name, IP Address, and CNAME Record for the Independent Server That Lotcheck Will Use</li>
+  </ol>
+  <p>Enter this information for the product release in <strong>Features</strong> &gt; <strong>Independent Servers</strong> &gt; <strong>Name Resolution</strong> on the Nintendo Developer Portal.<br /></p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>For the network services operated by Nintendo such as NEX/NPLN and Nintendo eShop, the libraries and system features connect to the appropriate environment according to the environment identifier set in the Switch system. For more information, see <a href="../Pages/Page_115067988.html">6 Server Environments</a>.</p>
+      <p>For this reason, there are usually no issues if you submit information specific to the independent server for the prepared DNS and record data.</p>
+    </div>
+  </div>
+  <p>For more information about the different methods, see the following sections.</p>
+  <h2 id="Anchor_115344146_h2_1">Preparing a DNS Server That Can Be Used for Lotcheck</h2>
+  <p>With this method you prepare a DNS server to enable appropriate access to the independent server and then submit the IP address for that DNS server to Lotcheck. Lotcheck then occurs, using that specified DNS server.</p>
+  <p>We recommend that you choose this method if preparing a DNS server is an option.</p>
+  <p>Note the following when using this method.</p>
+  <ul>
+    <li>Are there restrictions for IP address access to that DNS server?<ul><li>The list of global IP addresses used for Lotcheck is posted on the Nintendo support site. Enable access from those global IP addresses before Lotcheck begins.</li></ul></li>
+    <li>Is the prepared DNS server recursive query set to a public DNS?<br /><ul><li>To use network features on Switch, you must be able to resolve the name of the Nintendo server.</li><li>The Nintendo server DNS record is not public, so configure a recursive query to the public DNS.</li></ul></li>
+  </ul>
+  <h2 id="Anchor_115344146_h2_2">Providing the Domain Name, IP Address, and CNAME Record for the Independent Server That Lotcheck Will Use</h2>
+</div>
+<p>Prepare a DNS server for changing the independent server that Lotcheck will connect to.</p>
+<p>We will then add the domain name, IP address, or CNAME record for the independent server to the Nintendo DNS server, based on the information you submit.</p>
+<h1 id="Anchor_115344146_h1_4">Removing the Independent Server's IP Address Access Restrictions</h1>
+<p>If IP access restrictions are set for the independent server, make sure that you remove those access restrictions for the global IP addresses used by Lotcheck before the Lotcheck process begins. The list of global IP addresses used for Lotcheck is posted on the Nintendo support site.</p>
+<p>Also note that connections to independent servers will be made from Japan, the United States, and Germany for Lotcheck.</p>
+<h1 id="Anchor_115344146_h1_5">Potential Problem</h1>
+<div>
+  <p>In the past, there were cases where an independent server was shut down for maintenance during the Lotcheck process without prior notification. The Lotcheck process encompasses regions outside of the region in which the Lotcheck documentation was submitted. Inform Nintendo well in advance when maintenance is planned.</p>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

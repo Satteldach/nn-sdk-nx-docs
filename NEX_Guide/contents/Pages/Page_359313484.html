@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.7 WebAPI | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.7 WebAPI -->
+<div class="pagetitle" id="PageId_359313484">4.7 WebAPI</div>
+<div class="text_separate">
+<p>You can use the NEX WebAPI to manage the data on the game server, periodically uploading, deleting, and aggregating the data.</p>
+<p>These features provided as the WebAPI can also be used from NMAS2.</p>
+<h1 id="Anchor_359313484_h1_1">Processes Configurable Only From the WebAPI</h1>
+<p>The following processes can only be run from the WebAPI (or from NMAS2). Note that these processes cannot be executed by applications using NEX.</p>
+<p>If your specification requires the game server settings to be configured in advance, use the WebAPI (or NMAS2) as needed to configure those settings.<br /></p>
+<h5 id="Anchor_359313484_h5_1">Matchmaking</h5>
+<ul>
+  <li>Creating and editing persistent gatherings</li>
+  <li>Configuring range broadening auto-matchmaking</li>
+  <li>Configuring score based auto-matchmaking</li>
+</ul>
+<h5 id="Anchor_359313484_h5_2">Ranking</h5>
+<ul>
+  <li>Creating and editing categories</li>
+  <li>Setting the range of rankings that can be retrieved using cached rankings</li>
+  <li>Setting a custom time scope</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>One exception is that a WebAPI for rankings is not provided, so the preceding processes can only be run from NMAS2.</p>
+  </div>
+</div>
+<h5 id="Anchor_359313484_h5_3">Ranking2</h5>
+<ul>
+  <li>Creating and editing categories</li>
+  <li>Creating and editing category types</li>
+  <li>Configuring ranking chart data</li>
+</ul>
+<h5 id="Anchor_359313484_h5_4">Utilities</h5>
+<ul>
+  <li>Configuring application-specific server settings</li>
+  <li>Configuring settings for maintenance notifications</li>
+</ul>
+<h5 id="Anchor_359313484_h5_5">Debug Assistance</h5>
+<ul>
+  <li>Configuring error simulations</li>
+</ul>
+<h1 id="Anchor_359313484_h1_2">Considerations When Using WebAPI</h1>
+<p>The NEX WebAPI is provided for the purpose of data management, so limit requests to one time per second per application. It cannot be used for sending requests linked to the operations of users using applications and web services, or for frequent updating.</p>
+<p>The WebAPI can be used for the following purposes.</p>
+<ul>
+  <li>Tallying the data store ratings values one time per day and displaying them in a webpage</li>
+  <li>Moving the data posted in the data store to a server for management one time per day</li>
+  <li>Periodically deleting old ratings data</li>
+</ul>
+<p>The WebAPI cannot be used for the following purposes.</p>
+<ul>
+  <li>Sending a request from the application to the independent server to get specific data, and having that independent server send a request to the game server using the WebAPI</li>
+  <li>Replacing all of the data in the data store at a specific time (because it would require sending more then one request per second)</li>
+  <li>Providing a web service for users where WebAPI requests are sent in response to user operations</li>
+</ul>
+<p>Contact Nintendo if you are unsure whether any of these cases applies to your application.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

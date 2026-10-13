@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.2.1 NCMS Settings for Development | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.2.1 NCMS Settings for Development -->
+<div class="pagetitle" id="PageId_471905430">4.2.1 NCMS Settings for Development</div>
+<div class="text_separate">
+<p>Similar to the production environment, sales data for the development environment Nintendo eShop is configured on NCMS. To use NCMS, you must request and receive approval for the use of e-commerce for the application in OMAS.</p>
+<p>
+  <a href="https://ncms3.mng.nintendo.net/ncms3/home/dashboard" target="_blank" rel="noopener noreferrer">https://ncms3.mng.nintendo.net/ncms3/home/dashboard</a>
+</p>
+<p>Note the following when using NCMS for development.</p>
+<ul>
+  <li>The URL is the same for both development and production environments.<br />Make sure that you do not set development environment information in the production environment.</li>
+  <li>Settings must be configured for each environment.<br />You cannot copy settings between the development environment and production environment.</li>
+  <li>The settings must be configured per region.<br />Unlike the production environment, the feature for copying to a different region is unavailable.</li>
+  <li>You cannot delete items that have been registered.<br />If you want to delete an item, use alternative methods such as terminating sales for that item or removing it from the list of targets for distribution.</li>
+</ul>
+<h1 id="Anchor_471905430_h1_1">Products That Can Be Set in NCMS for Development</h1>
+<p>The following products can be configured for sale in the development environment NCMS.</p>
+<table class="relative-table wrapped" style="width: 78.6055%;">
+  <colgroup> <col style="width: 14.634%;" /> <col style="width: 4.7386%;" /> <col style="width: 19.7945%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Product</th>
+      <th>Purchase</th>
+      <th>Usage</th>
+    </tr>
+    <tr>
+      <td>Consumable Service Items</td>
+      <td>Possible</td>
+      <td>In-app display, purchase, and usage verification</td>
+    </tr>
+    <tr>
+      <td>Subscription Service Items</td>
+      <td>Possible</td>
+      <td>In-app display, purchase, and usage verification</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Downloadable Content</p>
+      </td>
+      <td>Possible</td>
+      <td>In-app display, purchase, and usage verification</td>
+    </tr>
+    <tr>
+      <td>DLC + DLC Bundle</td>
+      <td>Possible</td>
+      <td>In-app display, purchase, and usage verification</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Titles</p>
+      </td>
+      <td>Not possible</td>
+      <td>In-app display</td>
+    </tr>
+    <tr>
+      <td>Bundles Containing a Title</td>
+      <td>Not possible</td>
+      <td>In-app display</td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Only Nintendo can configure bundles that include multiple titles. Contact Nintendo support to be able to configure sales in the development environment NCMS.</p>
+  </div>
+</div>
+<h2 id="Anchor_471905430_h2_1">Purchasing and Removing Rights for Downloadable Content</h2>
+<p>DLC and DLC bundles can be purchased in the development environment Nintendo eShop. You can also download and install them.<br />You can also use DevMenuCommand to delete the purchased rights. DLC and DLC bundles can be repurchased after rights are deleted. For more information about deleting purchase rights, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenuCommand &gt; Shop Features.</p>
+<p>DLC that has already been purchased can also be redownloaded in the development environment Nintendo eShop. However, you need to register the title ROM to redownload the DLC. For more information about registering ROMs, see (Optional) Registering a ROM.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Do not purchase bundles of multiple titles. Attempts to purchase them will result in an error 2137-4035 in Nintendo eShop.<br />To resolve this error, use DevMenuCommand to delete the purchased license.</p>
+  </div>
+</div>
+<h1 id="Anchor_471905430_h1_2">NCMS Settings</h1>
+<p>All of the following steps must be taken before you can set the sales settings for service items and downloadable content and check the in-app behavior in the development environment.</p>
+<table class="relative-table wrapped" style="width: 95.1626%;">
+  <colgroup> <col style="width: 35.4386%;" /> <col style="width: 64.5614%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Setting</th>
+      <th>When Settings Are Required</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Set NCMS license</p>
+      </td>
+      <td>
+        <ul>
+          <li>When first using NCMS for development</li>
+          <li>When adding or editing user accounts (NDIDs) that operate applications in the development environment in NCMS</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Add title</td>
+      <td>
+        <ul>
+          <li>When you first add service items or downloadable content to applications</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Add and distribute service items or downloadable content</td>
+      <td>
+        <ul>
+          <li>When adding or distributing service items or downloadable content</li>
+          <li>When changing sales information for service items or downloadable content</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Distribute titles</td>
+      <td>
+        <ul>
+          <li>When first adding and distributing a service item or downloadable content</li>
+          <li>When adding or deleting types of products (service items or downloadable content) to distribute in Nintendo eShop in the development environment</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Add the development hardware serial number</td>
+      <td>
+        <ul>
+          <li>When adding development hardware accessible in the development environment Nintendo eShop.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>After ensuring support for all of these settings, use the jump to eShop feature to check the behavior of the content registered to the development Nintendo eShop.</p>
+<p>Detailed information about each setting in the table is provided in the following sections.</p>
+<h2 id="Anchor_471905430_h2_2">Setting the NCMS License</h2>
+<p>The user needs the following permissions to set sales information for titles in the development environment in NCMS. Use the <strong>User Management</strong> menu in NCMS to grant permissions.</p>
+<ul>
+  <li>Basics<ul style="margin-left: 20.0px;"><li>NCMS Usage</li></ul></li>
+  <li>Price-related permissions(dd1)<ul style="margin-left: 20.0px;"><li>Browse Price/Discount</li><li>Applicant Price</li><li>Authorizer Price</li></ul></li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>User management rights are required for granting permissions. For more information, see the NCMS manual.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The permissions are applied across titles. For this reason, you do not need to set permissions each time you add a title.</p>
+  </div>
+</div>
+<h2 id="Anchor_471905430_h2_3">Adding Titles</h2>
+<p>Titles for use in the development environment can be registered from the <strong>Add New dd1 Title</strong> menu in NCMS.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can also open the page for registering titles from the following URL.</p>
+    <p>
+      <a href="https://ncms3.mng.nintendo.net/ncms3/develop/setup" target="_blank" rel="noopener noreferrer">https://ncms3.mng.nintendo.net/ncms3/develop/setup</a>
+    </p>
+  </div>
+</div>
+<p>After you finish adding the title, it is shown in the dd1 Title List at the bottom of the NCMS dashboard. After you have finished adding the title, access the page for the title from this list.</p>
+<h2 id="Anchor_471905430_h2_4">Adding and Distributing Service Items or Downloadable Content</h2>
+<p>The method for adding items differs between service items and downloadable content. This section describes each process.</p>
+<h3 id="Anchor_471905430_h3_1">Adding and Distributing Service Items</h3>
+<p>Information for service items distributed in Nintendo eShop in the development environment can be registered using either <strong>Service Ticket</strong> or <strong>Consumable Service</strong> on the title page.</p>
+<p>Added content is not immediately distributed in the development environment Nintendo eShop. It is applied when <strong>Distribute to dd1</strong> is used. To modify added data after it has been distributed, select <strong>Start Edits</strong>, and then make your changes.</p>
+<p>Data cannot be removed after that service item data has been distributed. If you want to hide added consumable service item data that was configured incorrectly, configure the following settings.</p>
+<table class="wrapped relative-table" style="width: 59.7052%;">
+  <colgroup> <col style="width: 29.1259%;" /> <col style="width: 70.8741%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Subscription and Consumable Service Items</th>
+      <td>Set a future date for the information release date.</td>
+    </tr>
+    <tr>
+      <th>Tickets and Consumable Services</th>
+      <td>Remove the target ticket or consumable service from the ticket or consumable services list, as described later.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>When adding subscription service items, set <strong>Distributing Countries Reference Type</strong> to <strong>Refer Main Title</strong>. If this setting is not configured, the item does not appear in the development environment Nintendo eShop.</p>
+  </div>
+</div>
+<h4 id="Anchor_471905430_h4_1">Consumable ID</h4>
+<p>When registering a consumable service in NCMS, you must set a 16-digit alphanumeric Consumable ID. By default, this ID is set automatically by NCMS. Enter a string only when you are using the feature for getting application information and the application uses the Consumable ID to identify consumable services. When entering a Consumable ID, you must set a value that is unique among all applications. More specifically, we recommend using initial codes. For example, if the application's initial code is <strong>ABCDE</strong>, set the ConsumableID to something like <strong>abcdeservice0001</strong>, with <strong>abcde</strong> set at the beginning. If the ID that you enter is already used by a different application, registration fails.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The application can use the same Consumable ID for different regions. However, to distribute the consumable service in that case, you must be able to distribute to dd1 in all of the regions that use this same Consumable ID.</p>
+  </div>
+</div>
+<h3 id="Anchor_471905430_h3_2">Adding and Distributing Downloadable Content</h3>
+<p>The ROM (NSP file) for the DLC must be registered when doing any of the following.</p>
+<ul>
+  <li>Purchasing or downloading downloadable content</li>
+  <li>Testing <code>aoc_indexes</code> using the feature for getting information within applications for downloadable content</li>
+</ul>
+<p>For more information about this feature and about <code>aoc_indexes</code>, see <a href="../Pages/Page_471920079.html">8.3 Downloadable Content</a>.</p>
+<h4 id="Anchor_471905430_h4_2">(Optional) Registering a ROM</h4>
+<p>Use the ROM Upload Tool to upload ROMs to the dd1 environment. Access the ROM Upload Tool from either of the following locations, and log in using your NNID.</p>
+<ul>
+  <li>Log in to dd1 NCMS, and select <strong>Downloadable Content</strong> &gt; <strong>AOC ROM Data</strong> &gt; <strong>ROM Upload</strong>.</li>
+  <li>
+    <a href="https://door-d4c.mng.nintendo.net/" class="c-link" target="_blank" rel="noopener noreferrer">https://door-d4c.mng.nintendo.net/</a>
+  </li>
+</ul>
+<p>Complete the following steps to operate the ROM Upload Tool and upload the ROM.</p>
+<ol>
+  <li>
+    <p>From the list of titles, select the application you want to upload.</p>
+    <div class="info_new">
+      <div class="info_new_left">Info</div>
+      <div class="info_new_right">
+        <p>If the application cannot be found, confirm the following.</p>
+        <ul>
+          <li>You have applied for use of e-commerce features on OMAS, the application has been approved, and the e-commerce server configuration is complete.</li>
+          <li>The title can be viewed on OMAS.</li>
+        </ul>
+      </div>
+    </div>
+  </li>
+  <li>Upload the ROM (NSP file) for the downloadable content from the upload form.</li>
+  <li>Verify that the workflow has changed to <strong>Submission</strong>, and click <strong>Submit</strong>.</li>
+  <li>Check that the workflow has changed to <strong>Complete</strong>.</li>
+</ol>
+<h4 id="Anchor_471905430_h4_3">Adding and Distributing Items</h4>
+<p>Complete the following procedure to add downloadable content.</p>
+<ol>
+  <li>From dd1 Title List in NCMS, select the title you want to add.</li>
+  <li>Select the downloadable content menu in the left pane, click the <strong>Add New</strong> button, and save the basic information.</li>
+  <li>From the <strong>AOC ROM Selection</strong> menu, select the downloadable content you want to add and select <strong>Save and Next</strong>.</li>
+  <li>Set the release countries, price, game page release date, language-specific information, and image assets according to the guidance.</li>
+  <li>
+    <p>Select the <strong>ROM Information</strong> menu in the left pane, and then select <strong>Distribute to dd1</strong>.</p>
+    <div class="info_new">
+      <div class="info_new_left">Info</div>
+      <div class="info_new_right">
+        <p>If the message &quot;ROM not found. Upload to D4C&quot; is displayed even though the ROM was added, run <strong>Update ROM Info</strong>.</p>
+      </div>
+    </div>
+  </li>
+</ol>
+<h3 id="Anchor_471905430_h3_3">(Optional) Adding and Distributing Bundles</h3>
+<p>Select the <strong>Bundle</strong> menu, select <strong>New Bundle Entry</strong> and configure the settings, and then select <strong>Distribute to dd1</strong>.</p>
+<h2 id="Anchor_471905430_h2_5">Distributing Titles</h2>
+<p>This process is separated into the process for linking registered titles with downloadable content or service items and the process for distribution. This section describes each process.</p>
+<h3 id="Anchor_471905430_h3_4">Linking Registered Titles With Downloadable Content or Service Items</h3>
+<p>For downloadable content, select <strong>Title</strong> &gt; <strong>Optional Menu</strong> &gt; <strong>Add-on content list</strong>, and add the downloadable content to the downloadable content list for the title.</p>
+<p>Service items are automatically linked to the title when you add the service item. At this point, the service item is registered to <strong>Optional Menu</strong> &gt; <strong>Course Order</strong> or <strong>Consumable Service Order</strong>.</p>
+<h3 id="Anchor_471905430_h3_5">Distribution</h3>
+<p>From <strong>Title</strong>, run <strong>Distribute to dd1</strong>. To change the registered information after distribution, use <strong>Start Edits</strong>.</p>
+<h2 id="Anchor_471905430_h2_6">(Optional) Registering and Distributing Product Information for a Title or Title Bundle</h2>
+<p>If you are adding a title to NCMS to get information within the application, you must add the title ROM. For more information, see (Optional) Registering a ROM.</p>
+<h2 id="Anchor_471905430_h2_7">Adding the Development Hardware Serial Number</h2>
+<p>The development environment Nintendo eShop restricts access based on the serial number of the development hardware. To remove access restrictions, add the serial number of the development hardware in <strong>ACL Config</strong> for the title. Because the access restrictions are applied when you update the serial number, the title does not need to be redistributed.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can check the serial number of the development hardware in HOME Menu &gt; Settings &gt; System &gt; Serial Information. (It will look something like XAL10002556849.)</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

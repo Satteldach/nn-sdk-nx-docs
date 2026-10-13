@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 Alarms | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 Alarms -->
+<div class="pagetitle" id="PageId_738492139">5.3 Alarms</div>
+<div class="text_separate">
+<p>
+  <span style="color: rgb(33,33,33); letter-spacing: 0.0px;">Alarms can be set in applications that support the feature to send notifications at predetermined times.</span>
+</p>
+<p>In training-type games, for example, alarms can be used is to help encourage users who want to continue to play the application.</p>
+<h1 id="Anchor_738492139_h1_1">Behavior When Activated</h1>
+<p>The behavior of the activated alarm differs depending on the state of the Switch system.</p>
+<h2 id="Anchor_738492139_h2_1">When in Sleep Mode</h2>
+<p>If the Switch system is in sleep mode, the Joy-Con(R) vibrates and the HOME Button notification LED blinks when an alarm has been activated. It activates regardless of whether the Joy-Con is connected. If the Switch system is left unattended, the alarm will go off again after 5 minutes and again after 10 minutes.</p>
+<p>When the Switch wakes, the user is prompted to start the application the alarm was set in.</p>
+<p>If multiple alarms have arrived, the latest alarm is displayed. Older alarms are displayed by pressing the R Button.</p>
+<div class="figure">
+  <a name="AutoAnchor_738492139_figure001"></a>Figure 5-1  Mockup of Alarm-Triggered Entrance Screen</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_738492139/748580875.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>In the following situations, alarms are not activated in sleep mode.</p>
+    <ul>
+      <li>The power is off to the Switch console or the battery is low.</li>
+      <li>The controller battery is low.</li>
+      <li>The controller is located where wireless signals from the Switch console do not reach, or the system is set to airplane mode.<br /></li>
+      <li>The controller is not paired.</li>
+      <li>The controller firmware is out of date.<ul><li>If the firmware in the connected controller is out of date, you are prompted to update the firmware when the application calls the API for setting the alarm.</li></ul></li>
+    </ul>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_738492139_h2_2">When Awake</h2>
+<p>When the Switch system is awake, an overlay notification appears in the upper-left part of the screen when an alarm has been activated.</p>
+<div class="figure">
+  <a name="AutoAnchor_738492139_figure002"></a>Figure 5-2  Mockup of Alarm-Triggered Overlay Notification</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_738492139/743772186.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_738492139_h1_2">Using the System Settings</h1>
+<p>Configured alarms can be checked, disabled, and deleted from <strong>Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Alarm Notifications</strong>.</p>
+<p>You can also choose to turn off notifications and controller vibrations while the Switch system is awake.</p>
+<div class="figure">
+  <a name="AutoAnchor_738492139_figure003"></a>Figure 5-3  Mockup of Check/Delete Alarms</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_738492139/743772184.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_738492139_h1_3">Application-Level Support</h1>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>You must submit a request to use this feature. If you would like to use this feature, Contact Nintendo.</p>
+  </div>
+</div>
+<p>Up to eight alarms can be set on each Switch console.</p>
+<p>The following settings can be configured for each alarm.</p>
+<table class="relative-table wrapped" style="margin-left: 1.5em; width: 81.4359%;">
+  <colgroup>
+    <col style="width: 22.1942%;" />
+    <col style="width: 77.7638%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <p>Element</p>
+      </th>
+      <th>
+        <p>Notes</p>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <p>Time</p>
+      </td>
+      <td>
+        <p>The time of the alarm, set for each individual day. The time does not have to be specified for every individual day.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Users</p>
+      </td>
+      <td>
+        <p>The alarm can be associated with a single person. It does not need to be associated with a user.</p>
+        <p>If the alarm is associated with a user, the following scenes show who the alarm has been set for.<br />・When the alarm notification appears in the Entrance<br />・When the alarm is checked in the system settings</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Enable/disable alarm</p>
+      </td>
+      <td>
+        <p>In principle, alarms are enabled, but you can disable an alarm and still keep the setting for that alarm.</p>
+        <p>The setting for the alarm can be switched between enabled and disabled in the system settings while an application is suspended, so if necessary, sync the application when it returns.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Application parameter</p>
+      </td>
+      <td>
+        <p>This parameter is passed to the application via the alarm when the alarm is activated. You can set up to 1024 bytes for this parameter.</p>
+        <p>It is passed to the application only if the application has been started or resumed directly from the Entrance.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_738492139_h2_3">Notes About Support</h2>
+<p>If your application supports alarms, note the following points.</p>
+<ul>
+  <li>
+    <p>To set an alarm, you must clearly provide the date and time of the alarm and get the consent of the user.<br />Setting an alarm without confirming the consent of the user is prohibited.</p>
+  </li>
+  <li>
+    <p>You must support the ability to remove alarms.</p>
+  </li>
+  <li>
+    <p>When multiple days or times of alarms are set, ensure they can be handled separately, based on user specifications and consent.</p>
+  </li>
+  <li>
+    <p>Do not provide specific information about what happens when an alarm is activated.<br />The behavior might change in future system-feature updates. It is all right to say something like 'If an alarm has been set, you will be notified at the specified date and time even if the Switch is in sleep mode.'</p>
+  </li>
+  <li>
+    <p>The format of your time notation does not need to match the format used for system features.<br />You are welcome to refer the notation in the system features, but consider that the content might change in the future.</p>
+  </li>
+</ul>
+<div>
+  <p>
+    <br />
+  </p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>In <em>Ring Fit Adventure</em>, alarms are set based on the days and times specified by users.</p>
+      <p>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_738492139/753075312.png" height="250" class="embedded-image" />
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

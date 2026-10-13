@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Considerations During Use | Nintendo Switch IR Motion Camera Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Considerations During Use -->
+<div class="pagetitle" id="PageId_231477475">5 Considerations During Use</div>
+<div class="text_separate">
+<p>This section describes the considerations when using the IR Motion Camera.</p>
+<h1 id="Anchor_231477475_h1_1">Ambient Environmental Considerations</h1>
+<p>The IR Motion Camera is affected by light interference, including infrared rays such as sunlight. For this reason, you must account for that effect during implementation. When using the IR Motion Camera, we recommend that you check whether the application is working appropriately, regardless of the environment. For example, we particularly recommend that you test the behavior in advance when using in the following environments.</p>
+<ul>
+  <li>Under sunlight</li>
+  <li>Near a window</li>
+  <li>Under lighting that includes infrared light, such as incandescent lamps</li>
+</ul>
+<p>We also recommend that you account for interference and individual differences when handling the brightness values and coordinates you get from the IR Motion Camera.</p>
+<h1 id="Anchor_231477475_h1_2">Safety Considerations</h1>
+<p>The IR Motion Camera is a sensor that detects the movement of hands or objects using infrared light. Depending on how it is used, safety may be affected. For example, avoid having users perform the following operations while using the IR Motion Camera.</p>
+<ul>
+  <li>Operations involving such rapid or large swinging motions that nearby people or objects might get hit by the IR Motion Camera (the Joy-Con (R)) or the player's hand<ul><li>&rArr; These operations risk injury to people and damage to objects, including the Joy-Con.</li><li>&rArr; For more information about the motions you need to consider when designing applications that use the IR Motion Camera, see Nintendo Switch Guidelines item 0099: Motions of Joy-Con controllers that require you to contact Nintendo.</li></ul></li>
+  <li>Operations that involve pointing the IR Motion Camera at the sun or very bright lights<ul><li>&rArr; Users risk eye damage if they look directly at the sun or very bright lights.</li></ul></li>
+</ul>
+<p>Always keep safety in mind when implementing the IR Motion Camera in your application, and avoid these kinds of operations.</p>
+<h1 id="Anchor_231477475_h1_3">Nintendo Switch Lite Support</h1>
+<p>Nintendo Switch Lite does not have the IR Motion Camera, so make sure the game can progress without any problems in the absence of an IR Motion Camera. If any specifications make the IR Motion Camera essential or important for progress, inform the user within the application that they must connect separate Joy-Con controllers. Alternatively, add supplemental text on the physical package and Nintendo eShop description, indicating that Switch Lite users playing the game require a separate Joy-Con controller.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

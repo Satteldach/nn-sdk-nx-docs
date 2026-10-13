@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.1 Preventing users from creating inappropriate UGC</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="border: 4px double black; margin: 4px; padding: 2px; font-weight: bold; background-color: #FFFFCC;">
+<p>Some features in this documentation are unavailable because JavaScript is not enabled in your browser. The table of contents is available only if JavaScript is enabled. Enable JavaScript and reload this page.</p>
+</div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.1 Preventing users from creating inappropriate UGC -->
+<div class="pagetitle" id="PageId_165024779">4.1 Preventing users from creating inappropriate UGC</div>
+<div class="text_separate">
+<p>Nintendo considers preventing users from creating inappropriate UGC to be a foundational tactic for avoiding unintended outcomes when exchanging UGC. There are various approaches you can take. For example, when users create UGC, you can instruct them not to include inappropriate content or personal information in it. Or, you can have a system-based method or other methods to check for inappropriate content. Below we use examples from released applications to introduce five ways of handling UGC.</p>
+<ul>
+  <li>
+    <a href="#Anchor_165024779_Notice">Notifying users before the exchange of UGC</a>
+  </li>
+  <li>
+    <a href="#Anchor_165024779_NGWord">Checking text for profanity</a>
+  </li>
+  <li>
+    <a href="#Anchor_165024779_Sender">Displaying or embedding the UGC sender's information</a>
+  </li>
+  <li>
+    <a href="#Anchor_165024779_VoiceChat">Disabling voice chat by default</a>
+  </li>
+  <li>
+    <a href="#Anchor_165024779_Penalty">Applying penalties to discourage users from creating inappropriate UGC</a>
+  </li>
+</ul>
+<h1 id="Anchor_165024779_h1_1">What to do</h1>
+<p>
+  <a name="Anchor_165024779_Notice"></a>
+</p>
+<h2 id="Anchor_165024779_h2_1">Notifying users before the exchange of UGC</h2>
+<p>Giving &quot;prior explanation&quot; means explaining to the user that the UGC they create may be seen by other users before that UGC is actually exchanged. The purpose of giving prior explanation is to deter users from creating UGC that includes offensive content or personal information they do not want to make available to others. Also note that some users may be upset if they suddenly start receiving UGC without any warning, even if there is nothing wrong with the UGC itself. This means that for some types of UGC, our example applications give prior explanation not only before sending UGC, but also before receiving it.</p>
+<p>★ See <a href="#Anchor_165024779_Notice_ex">Examples of notifying users before the exchange of UGC</a> for how some released applications have handled this.</p>
+<p>
+  <a name="Anchor_165024779_NGWord"></a>
+</p>
+<h2 id="Anchor_165024779_h2_2">Checking text for profanity</h2>
+<p>&quot;Profanity-checking&quot; refers to checking text exchanged with other users against a list of profanity (specifically, lists of offensive words set by Nintendo), and ensuring that any profanity found is not displayed to other users. Checking for profanity prevents other users from receiving offensive words. Released applications implement several ways to prevent profanity from being displayed to other users. One method is to replace profane words with different non-profane words; another is not allowing the user to proceed to the next scene as long as profanity is still present in text they have entered. Different applications use whatever method is best suited to their design.</p>
+<p>Note that on Nintendo Switch, your application is required to check text-based names for profanity. (See <a href="../Pages/Page_126201340.html#Anchor_126201340_NGWordCheck">Restricting the display of profanity in text-based names exchanged with other users</a>.) Use the <code>nn::ngc</code> library to perform the profanity check.</p>
+<p>Your application can check for profanity at two points: either before sending text, or after receiving text. However, if the sender and the recipient use different UI languages, the library checks against different lists of profanity depending on whether it runs on the sender side or recipient side. This means that the library may detect different profanity depending on when you perform the check.</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Timing of profanity check</th>
+      <th>Default profanity lists used</th>
+      <th>Example of user experience</th>
+    </tr>
+    <tr>
+      <td>Before sending text</td>
+      <td>Profanity lists corresponding to the sender's UI language</td>
+      <td>Sender can edit text to remove profanity before sending the text</td>
+    </tr>
+    <tr>
+      <td>After receiving text</td>
+      <td>Profanity lists corresponding to the recipient's UI language</td>
+      <td>Profanity in the recipient's UI language is hidden or masked so recipient cannot read it</td>
+    </tr>
+  </tbody>
+</table>
+<p>Check for profanity at any of the following points in your application.</p>
+<ul>
+  <li>Before sending text</li>
+  <li>After receiving text</li>
+  <li>Both before sending and after receiving text</li>
+</ul>
+<p>You are also free to add other languages' profanity lists to the check, in addition to checking the default lists that correspond to the UI language. For details, see the &quot;Features &gt; System &gt; NGC Library&quot; section of the <em>NintendoSDK Documents</em>.</p>
+<p>★ See <a href="#Anchor_165024779_NGWord_ex">Examples of checking text for profanity</a> for how some released applications have handled this.</p>
+<p>
+  <a name="Anchor_165024779_Sender"></a>
+</p>
+<h2 id="Anchor_165024779_h2_3">Displaying or embedding the UGC sender's information</h2>
+<p>Allowing users to exchange UGC anonymously may encourage the exchange of offensive or illicit UGC. Additionally, if unintended outcomes result from UGC exchange, finding a proper resolution is difficult when the sender cannot be identified. To prevent these situations, our example applications either display information that can identify the user who sent a given piece of UGC, or embed that information into the UGC data itself.</p>
+<p>If your application includes UGC sender information, Nintendo recommends <em>displaying</em> the information rather than embedding it. This is because displaying the sender information serves as a more effective deterrent to creating inappropriate UGC.</p>
+<p>★ See <a href="#Anchor_165024779_Sender_ex">Examples of displaying or embedding the UGC sender's information</a> for how some released applications have handled this.</p>
+<p>
+  <a name="Anchor_165024779_VoiceChat"></a>
+</p>
+<h2 id="Anchor_165024779_h2_4">Disabling voice chat by default</h2>
+<p>Even if the content of voice chat is not inappropriate, having another user suddenly attempt to engage in conversation is an undesirable user experience and could lead to unintended outcomes. For this reason, in our examples, the applications that offer voice chat disable the feature by default until the user explicitly enables it.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For Nintendo Switch, Nintendo plans to provide a comprehensive overall system to support voice chat features. This system includes a feature to disable voice chat by default.</p>
+    <p>If you are considering the use of voice chat features in your application, contact Nintendo.</p>
+  </div>
+</div>
+<p>★ See <a href="#Anchor_165024779_VoiceChat_ex">Examples of disabling voice chat by default</a> for how some released applications have handled this.</p>
+<p>
+  <a name="Anchor_165024779_Penalty"></a>
+</p>
+<h2 id="Anchor_165024779_h2_5">Applying penalties to discourage users from creating inappropriate UGC</h2>
+<p>Our example applications set penalties for UGC that users or moderators have judged to be inappropriate, and for the creators of that UGC. Making it clear to users that penalties exist may be expected to have a deterrent effect on the creation of inappropriate UGC.</p>
+<p>★ See <a href="#Anchor_165024779_Penalty_ex">Examples of applying penalties to discourage users from creating inappropriate UGC</a> for how some released applications have handled this.</p>
+<h1 id="Anchor_165024779_h1_2">Examples of this handling</h1>
+<p>
+  <a name="Anchor_165024779_Notice_ex"></a>
+</p>
+<h2 id="Anchor_165024779_h2_6">Examples of notifying users before the exchange of UGC</h2>
+<p>There are other means of conveying this information beside displaying it in a message; you can also design the names of your settings, menu options, modes, or similar labels in such a way that they convey to the user that UGC will be sent or received. Some of the examples below convey this information in a way that is specially customized to the application's design.</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Example</th>
+      <th>Description of example</th>
+      <th>Types of UGC</th>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Nintendo presents: New Style Boutique 2: Fashion Forward</em> (NOE) for Nintendo 3DS</p>
+        <p>Swapping rooms</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765085.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>The following explanation is displayed in the sequence where users send their profile data and room, bundled together in a single unit.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center;">When swapping rooms, your profile data and room can be seen by the recipient. Profile information can be edited in Caprice Chalet.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>This message makes it clear that another user will receive the UGC via communication, and that the UGC being sent is your profile data and room.</p>
+      </td>
+      <td>Text, images</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Mario Kart 8</em> for Wii U</p>
+        <p>Creating a tournament (NOE version)</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765086.jpg" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>In this scene, the user is setting up a tournament in which users compete over the Internet.</p>
+        <p>After the user reads about creating tournaments, the application displays the following message.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center;">When you create a tournament, you must decide on a name, write a welcome message, set specific rules and choose when it will be active. <br /><br />Please avoid including any personal information or using language that could make other users uncomfortable.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>This message makes it clear that the UGC being made available to other users is the tournament name and welcome message (text).</p>
+        <p>The message also includes caution text.</p>
+        <p />
+        <p>&quot;No&quot; is selected by default, which prevents users from accidentally skipping over this dialog if they are button-mashing.</p>
+        <p>This explanation is displayed to users every time they create a tournament.</p>
+      </td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Devil's Third</em> for Wii U</p>
+        <p>Text chat</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765091.jpg" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>The application displays the following message before the user enters the chat room.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p>You can interact with other players through text messages in a chat room. Please refrain from inconsiderate or vulgar messages, and do not give out any personal information.</p>
+                <p />
+                <p>Through the &quot;Report&quot; button, all conversation from this chat room will be visible to Nintendo. Do you wish to continue?</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>This message makes it clear that the UGC being exchanged with other users is text messages.</p>
+        <p>The message also includes caution text.</p>
+        <p />
+        <p>Note that in this case, a chat log is saved, and the message asks for user consent for Nintendo to view the log if a player reports it.</p>
+      </td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Super Smash Bros. for Wii U</em>
+        </p>
+        <p>Voice chat</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765054.jpg" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>This button allows the user to use voice chat when playing online with friends.</p>
+        <p />
+        <p />
+        <p>This button lets the user toggle voice chat on or off at any time. It is off by default.</p>
+        <p>Because selecting this button to turn on voice chat is considered equivalent to giving consent to exchange UGC via voice chat, the application does not display a separate message to give prior explanation.</p>
+        <p />
+        <p>The speech bubble with the exclamation mark indicates that one or more peers have turned on voice chat (that is, they want to talk with everyone).</p>
+      </td>
+      <td>Audio</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Animal Crossing: Happy Home Designer</em> for Nintendo 3DS</p>
+        <p>Posting screenshots to Miiverse</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765095.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>This is a scene of a user taking a screenshot of freely-arranged parts inside a house or facility, and posting the screenshot to Miiverse. By explicitly providing a Miiverse icon, the application conveys to the user that selecting the icon will transition the application to a Miiverse-related mode.</p>
+        <p>In addition, the first time the user selects this icon, the application displays the following message to explain that this operation calls the posting applet.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center;">Post screenshots of homes <br />or facilities you've made <br />to Miiverse! <br />(Uses Nintendo Network ID)</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>After the user selects <strong>OK!</strong>, the Miiverse posting applet is displayed. The user can cancel the post by selecting <strong>Cancel</strong> in the posting applet.</p>
+      </td>
+      <td>Images</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Wii Sports Club</em> for Wii U</p>
+        <p>Initial startup</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765097.jpg" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>This application displays the following message the first time it is started by a given account.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p style="text-align: center;">In Wii Sports Club, you can view <br />the Miiverse posts of other players. <br />Do you want to display other players' posts?</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>This message makes it clear that the UGC being exchanged with other users is Miiverse posts.</p>
+        <p>These messages are displayed only when the application is started for the first time by the account to which the user is currently logged in. The setting to display or not display these messages can be changed afterwards.</p>
+      </td>
+      <td>Text, images</td>
+    </tr>
+  </tbody>
+</table>
+<p>As shown above, there is more than one way of giving prior explanation. Some applications convey the information by displaying a single message, but others convey it pictorially with icons or even use an in-game character to explain it. In <em>Animal Crossing: Happy Home Designer</em> for Nintendo 3DS, the application conveys this information beforehand by using an in-game character's dialogue to explain that the user can arrange furniture inside houses and facilities and then exchange the houses and facilities with other users (images, maps made by combining preset parts).</p>
+<p>
+  <img src="../Attachments/Attach_165024779/163765098.png" width="800" />
+</p>
+<p>Also note that because this application gives a very thorough explanation prior to the first exchange of UGC, and because it implements a reporting feature, from the second time onward it gives a minimal explanation.</p>
+<p>
+  <img src="../Attachments/Attach_165024779/163765128.png" width="800" />
+</p>
+<p>In this way, the application deters the creation of inappropriate UGC by conveying to the user <em>what UGC</em> is exchanged and <em>what operations</em> trigger the exchange.</p>
+<p>
+  <strong>Note:</strong> This document has omitted several lines of dialogue from the actual explanation sequence as it appears in the game.</p>
+<p>
+  <a name="Anchor_165024779_NGWord_ex"></a>
+</p>
+<h2 id="Anchor_165024779_h2_7">Examples of checking text for profanity</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description of example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Types of UGC</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>
+          <em>Animal Crossing: Happy Home Designer</em> for Nintendo 3DS</p>
+        <p>Scene where user inputs names</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765131.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>In this scene, the user enters their player name. After the user confirms the name they have entered, this application performs a profanity check. If it finds that the name includes profanity, it displays the following message and returns the user to the scene where they entered the name.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>You can't use that name!</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Because the user cannot progress in the application as long as the name contains profanity, it is not possible for profanity to be displayed to their peers.</p>
+      </td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>StreetPass Mii Plaza</em> for Nintendo 3DS</p>
+        <p>Scene where users check Mii characters encountered via StreetPass</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765132.png" width="500" />
+        </p>
+      </td>
+      <td>In this scene, Mii characters received via StreetPass introduce themselves. If a Mii nickname contains profanity, its nickname is replaced with &quot;???&quot; and displayed that way.</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Fire Emblem Fates</em> for Nintendo 3DS</p>
+        <p>Scene where user inputs player character's name</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765133.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>In this scene, the user enters a name for their player character. After the user confirms the name they have entered, this application performs a profanity check. If it finds that the name includes profanity, it displays the following message.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p>This name contains words that others <br />may find offensive, or it contains numerals. <br />It may not be viewable by other users.</p>
+                <p>Proceed with this name?</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>If the user agrees, they can set their character's name as one that includes profanity. When this application displays names to peers, it replaces any profane names with a default name and displays that instead.</p>
+      </td>
+      <td>Text</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <a name="Anchor_165024779_Sender_ex"></a>
+</p>
+<h2 id="Anchor_165024779_h2_8">Examples of displaying or embedding the UGC sender's information</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description of example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Types of UGC</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>
+          <em>Flipnote Studio 3D</em> for Nintendo 3DS</p>
+        <p>Flipnote information</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765137.png" width="500" />
+        </p>
+      </td>
+      <td>In this application, the names of the creator and the original creator are saved and displayed on every flipnote. (In this example, both names are &quot;Nintendo&quot;.) The creator name can be changed from within the application, but creator information is managed on the server. As a result, this application's developer can still identify the creator even if the creator name is changed.</td>
+      <td>Video (flipnotes can use photos, so they may contain camera data)</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <a name="Anchor_165024779_VoiceChat_ex"></a>
+</p>
+<h2 id="Anchor_165024779_h2_9">Examples of disabling voice chat by default</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Example</th>
+      <th>Description of example</th>
+      <th>Types of UGC</th>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Super Smash Bros. for Wii U</em>
+        </p>
+        <p>Voice chat</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/163765066.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>This application allows users to voice chat in the scene where they choose their players characters for online multiplayer.</p>
+        <p>Voice chat is initially disabled, but users can enable it by tapping the voice chat icon (depicted in the example) and then voice chat with their peers.</p>
+        <p>In the icon on the left, the speech bubble with the exclamation mark indicates that one or more peers have turned on voice chat (that is, they want to talk with everyone).</p>
+      </td>
+      <td>Voice chat</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <a name="Anchor_165024779_Penalty_ex"></a>
+</p>
+<h2 id="Anchor_165024779_h2_10">Examples of applying penalties to discourage users from creating inappropriate UGC</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Example</th>
+      <th>Description of example</th>
+      <th>Types of UGC</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Super Mario Maker for Wii U</p>
+        <p>When the user accesses &quot;Course World&quot;</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/175843050.JPG" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>Before the application transitions to a mode where the user can browse UGC uploaded to the server, it explicitly states that creators of UGC that violates the rules are subject to penalties, as shown below.</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="text-align: center;">
+                <p>Important Notice From the Super Mario Maker Team</p>
+                <p style="text-align: left;">Please note that we may delete uploaded courses,</p>
+                <p style="text-align: left;">reset the total number of stars a user has earned,</p>
+                <p style="text-align: left;">and/or restrict their access to Course World</p>
+                <p style="text-align: left;">in the following cases:</p>
+                <ul>
+                  <li style="text-align: left;">The user intrusively requested stars from other <br />users, either in game or on Miiverse.</li>
+                  <li style="text-align: left;">The course included content that the Super Mario <br />Maker team judged to be a bug in the game.</li>
+                  <li style="text-align: left;">The user took advantage of bugs that were <br />unintended by either the course creator or the <br />developers to obtain new World Records.</li>
+                  <li style="text-align: left;">Any other behavior in violation of the Code of <br />Conduct.</li>
+                </ul>
+                <p style="text-align: left;">We hope you understand that these rules are<br /> in place to make sure everyone is able to fully </p>
+                <p style="text-align: left;">enjoy Super Mario Maker.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The penalties can consist of deletion of all courses (stages made by combining preset parts) posted by the user, deletion of all stars received by the user (the more stars you receive, the more courses you can post), and restrictions on connecting to Course World, the server where users upload courses.</p>
+        <p>In some cases inappropriate courses are found by admins who are moderating courses, and in some cases they are reported by users.</p>
+      </td>
+      <td>Stages made by combining preset parts</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Devil's Third</em> for Wii U</p>
+        <p>Reporting participants in text chat</p>
+        <p>
+          <img src="../Attachments/Attach_165024779/175843009.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>If the user finds another player in the chat room offensive, they can select that offensive player (in this figure, &quot;tendo&quot;) from the chat room's Member List and then tap <strong>Report</strong>. This reports the offensive player and also allows the user to provide their reason for the report.</p>
+        <p />
+        <p>The admins receive the report, check the reported reason and the chat log of the reported player, and ban the player if they feel it is warranted. (Because conversation in this chat room is saved as a chat log, it is possible for the publisher to trace back chat comments when they receive a report.)</p>
+        <p />
+        <p>Banned players are no longer able to use the online modes of this application.</p>
+        <p />
+        <p>As shown in <a href="#Anchor_165024779_Notice_ex">Examples of notifying users before the exchange of UGC</a>, this application makes it clear to users that there is a reporting feature before they enter the chat room.</p>
+      </td>
+      <td>Text chat</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

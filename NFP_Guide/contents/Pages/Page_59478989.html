@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.8 Number of Times Writing to the Application-Specific Region | NFP Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.8 Number of Times Writing to the Application-Specific Region -->
+<div class="pagetitle" id="PageId_59478989">6.8 Number of Times Writing to the Application-Specific Region</div>
+<div class="text_separate">
+<p>There is a limit to the number of times that the NFP tag or the device NAND memory may be written to. Please remember this limitation when you consider a design where the customer may write to the NFP tag repeatedly, such as a situation where writing to the application-specific region will drive customer satisfaction and happiness.</p>
+<p>Writing to the NFP tag refers to altering the application-specific region using the Flush function. The product life may be lower than designed by Nintendo when the NFP is written to more than 100,000 times.</p>
+<p>The NFP library also writes the backup data to the device NAND memory when writing to the application-specific region. An increase of write operations to the application-specific region also affects the life of the game console NAND memory.</p>
+<p>The following examples show implementations that take into consideration the read/write cycle count.</p>
+<ul>
+  <li>Implementing a limit to the touches made per day</li>
+  <li>Consolidating Flush calls when writing to the amiibo figures as much as possible.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

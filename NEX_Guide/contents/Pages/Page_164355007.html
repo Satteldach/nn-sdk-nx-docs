@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.2 Data Stores | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.2 Data Stores -->
+<div class="pagetitle" id="PageId_164355007">4.2 Data Stores</div>
+<div class="text_separate">
+<h1 id="Anchor_164355007_h1_1">Data Search Conditions</h1>
+<p>You can use the tags specified during upload to search for data in the data stores. However, server performance might decline if you set tags that result in a disproportionate number of search hits. For example, if data is tagged with a country category such as &quot;jp&quot; and &quot;us,&quot; all uploaded data will have one of these tags. If you then try to specify one of these tags to search for data in the data store, there will be a large number of matching records in the database, which may result in high server load and slow search performance.</p>
+<p>For this reason, be sure to design a tagging scheme that does not concentrate on the use of only certain tags for searching. If you want to categorize data by country as in the preceding example, we recommend using data types.</p>
+<h1 id="Anchor_164355007_h1_2">Support for Handling Multiple Save Data Files</h1>
+<p>Data is managed based on the owner&rsquo;s principal ID, which creates the possibility that your application may not be able to distinguish between multiple save data files. When the user uploads save data, the action might overwrite data uploaded earlier from a different save data file, so make sure to implement a means in your application to be able to identify the data itself.</p>
+<p>We recommend checking with the user before deleting or overwriting data previously uploaded from a different save file. There is a risk of problems in the production environment if data is deleted or overwritten without user confirmation. However, this requirement does not apply to cases where game progress is not affected by the deletion of uploaded data.</p>
+<p>For example, if only a limited number of data files can be saved and saving a new save data file requires deleting other data, we recommend displaying a message such as &quot;You can only save up to XX data files. Delete data saved from another save data file, and save new data?&quot; and get user confirmation before proceeding.</p>
+<p>If a Nintendo Account is linked to multiple Switch consoles, the different consoles all access the data using the same principal ID. Be sure to implement your application so it can proceed without hindrance in such an event.</p>
+<h1 id="Anchor_164355007_h1_3">Storage and Availability of Data on the Server</h1>
+<p>Note the following points about the storage and availability of data that has been uploaded to the server using the Data Store feature.</p>
+<ul>
+  <li>Data storage is not completely assured.</li>
+  <li>Lost data cannot be recovered.</li>
+  <li>Sometimes data is temporarily inaccessible due to the state of the server.</li>
+</ul>
+<h1 id="Anchor_164355007_h1_4">Making the Scope of Data Update Permissions as Small as Possible</h1>
+<!--Remove-->
+<p>When using the data store feature to upload data to the server, we recommend making the scope of update permissions as small as possible.</p>
+<p>By limiting the scope of these permissions, you can reduce the risk of data being illegally modified by malicious user activity. Use the following reference information to determine the most appropriate permissions.</p>
+<h6 id="Anchor_164355007_h6_1">When Only the Owner Updates Data</h6>
+<p>If only the user who uploaded the data themselves (the &quot;owner&quot;) is allowed to perform updates, set <code>DataStoreConstants::PERMISSION_PRIVATE</code>. This permission is the default value for <code>DataStorePostParam</code>.</p>
+<h6 id="Anchor_164355007_h6_2">When Users Other Than the Owner Also Update Data</h6>
+<ul>
+  <li>If the principal IDs of the users allowed to update data are known:<br />Specify <code>DataStoreConstants::PERMISSION_SPECIFIED</code>. Afterward, specify the principal IDs.</li>
+  <li>If the principal IDs of the users allowed to update data are unknown:<br />Specify <code>DataStoreConstants::PERMISSION_PRIVATE</code>. Afterward, the owner must use <code>DataStoreClient::GetPasswordInfo()</code> to get a password and share it with other users as needed. The password is a substitute for permissions.</li>
+</ul>
+<h6 id="Anchor_164355007_h6_3">When Using Uploads With a Specific Data ID</h6>
+<p>The data permission is set to <code>DataStoreConstants::PERMISSION_PUBLIC</code>. The scope of permission cannot be made any smaller.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

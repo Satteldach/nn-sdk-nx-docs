@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.10 Error Viewer Applet | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.10 Error Viewer Applet -->
+<div class="pagetitle" id="PageId_107323197">4.10 Error Viewer Applet</div>
+<div class="text_separate">
+<p>When errors occur, the error viewer applet is an applet for displaying the appropriate messages that have to be reported to the user.<br />Functionality to display the following error messages is available.</p>
+<ul>
+  <li>Boilerplate error messages that correspond to the result codes returned by the various SDK APIs.</li>
+  <li>Error messages provided by the application.</li>
+</ul>
+<h1 id="Anchor_107323197_h1_1">Error Display Specifications</h1>
+<p>The application that called the error viewer applet is blocked while an error is being displayed by the applet.<br />The main specifications about the display of errors are presented below.</p>
+<h2 id="Anchor_107323197_h2_1">Display Patterns</h2>
+<p>Two layouts are available for the error viewer applet: dialog box display and full-screen display.<br />Each error can be displayed with any of the following patterns, using combinations of these layouts.</p>
+<h3 id="Anchor_107323197_h3_1">Dialog Box Display Only</h3>
+<p>This pattern is completed with a simple dialog box display.</p>
+<div class="figure">
+  <a name="AutoAnchor_107323197_figure001"></a>Figure 4-1  Error Displayed Using Only a Dialog Box</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_107323197/381553870.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_107323197_h3_2">Dialog Box and Full-Screen Display</h3>
+<p>This pattern is for more complex errors that require a detailed description that do not fit within a dialog box.</p>
+<p>The dialog box appears first. Clicking a specific button within that dialog box switches to full-screen display.<br />The gist of the error appears in the dialog box. A detailed description appears in the full-screen display.</p>
+<div class="figure">
+  <a name="AutoAnchor_107323197_figure002"></a>Figure 4-2  Error Displayed Using Both a Dialog Box and Full-Screen Display</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_107323197/381553872.png" width="350" class="embedded-image" />
+  </span> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_107323197/127270923.png" width="50" class="embedded-image" /></span> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_107323197/381553874.png" width="350" class="embedded-image" /></span></p>
+<h3 id="Anchor_107323197_h3_3">Full-Screen Display Only</h3>
+<p>In general, this option is not used.</p>
+<div class="figure">
+  <a name="AutoAnchor_107323197_figure003"></a>Figure 4-3  Error Displayed Using Only Full-Screen Display</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_107323197/381553874.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_107323197_h2_2">Elements to Display</h2>
+<p>The following elements can be displayed in both the dialog box and full-screen displays.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The error code determines the elements and content that are displayed. For more information, see the <em>Nintendo Switch Error Code List</em>.</p>
+  </div>
+</div>
+<h3 id="Anchor_107323197_h3_4">Error Code</h3>
+<ul>
+  <li>Each error is assigned an ID number. Customer support needs this ID.</li>
+  <li>An error code always appears when displaying errors using the error viewer applet.</li>
+</ul>
+<h3 id="Anchor_107323197_h3_5">Error Message</h3>
+<ul>
+  <li>Make sure that the error text guides the user in resolving the error by describing the error's cause, the current status, and any workarounds.</li>
+  <li>When an error uses both dialog box and full-screen display, separate error messages can be displayed for each.</li>
+</ul>
+<h3 id="Anchor_107323197_h3_6">Buttons</h3>
+<ul>
+  <li>Up to three buttons can be displayed.</li>
+  <li>When an error uses both dialog box and full-screen display, separate buttons can be set for each.</li>
+  <li>The button on the screen responds to a press of the controller's B Button (or to another button with equivalent functionality).<br />If two or more buttons are displayed on the screen, the button on the left is the one that responds to the controller input.</li>
+</ul>
+<h2 id="Anchor_107323197_h2_3">Determining the Display Pattern</h2>
+<p style="margin-left: 1.2em;">The error viewer applet determines which display pattern to use, based on the presence of error messages for a dialog box and for the full-screen.</p>
+<div class="table">
+  <a name="AutoAnchor_107323197_table001"></a>Table 4-1  Criteria for Determining Display Pattern</div>
+<table class="wrapped" style="margin-left: 1.0em;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Messages for Dialog Boxes</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Messages for Full-Screen Display</div>
+      </th>
+      <th>
+        <br />
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Display Patterns</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yes</td>
+      <td>None</td>
+      <td>&rArr;</td>
+      <td>Dialog Box Display Only</td>
+    </tr>
+    <tr>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>&rArr;</td>
+      <td>Dialog Box and Full-Screen Display</td>
+    </tr>
+    <tr>
+      <td>None</td>
+      <td>Yes</td>
+      <td>&rArr;</td>
+      <td>Full-Screen Display Only</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_107323197_h2_4">Processing After Error Display Ends</h2>
+<p>Basically, the processes in response to the selection of buttons on the error screen, such as transitioning to a certain scene or restarting the application, are performed automatically.<br />The application does not have to be concerned about these processes.</p>
+<p>However, follow any instructions for error handling that are written in the library documents and error code lists, and implement your application accordingly.</p>
+<h1 id="Anchor_107323197_h1_2">Feature for Displaying Boilerplate Error Messages</h1>
+<p>Specify the result codes returned by the various SDK APIs to display the corresponding boilerplate error messages.<br />The error messages are saved as system data, so if the content of a message changes due to a system update, the application itself does not have to be updated to handle the change.</p>
+<p>The error messages are displayed in the language that has been set in the system's language settings.</p>
+<h2 id="Anchor_107323197_h2_5">Checking the State of Server Operation</h2>
+<p>When using specific servers operated by Nintendo, there is a button on the screen for checking the state of these servers if an error related to a fault or maintenance occurs.<br />Pressing this button initiates a check of server operation state, and one of the following results is displayed. (Internet connection is required.)</p>
+<ul>
+  <li>Operating normally.</li>
+  <li>A fault is occurring.</li>
+  <li>Maintenance in progress.</li>
+  <li>Operation state check failed.</li>
+</ul>
+<p>These results are specified in the same way as ordinary errors. Applications do not have to consider them (in terms of calling conventions, etc.)</p>
+<h1 id="Anchor_107323197_h1_3">Feature for Displaying Application-Specific Errors</h1>
+<p>Optional error messages can be displayed along with the application-specific error codes.<br />Use them as needed.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>This feature is provided for displaying error messages. Do not use this to display non-error messages, such as warnings and notifications.</p>
+  </div>
+</div>
+<h2 id="Anchor_107323197_h2_6">Advantages of Using This Functionality</h2>
+<ul>
+  <li>You can use error codes that do not appear in other applications.<br />You can use this when you want to associate error codes with workarounds on a website.</li>
+  <li>There are instances when the development load for implementing an error display user interface can be decreased.</li>
+</ul>
+<h2 id="Anchor_107323197_h2_7">Elements Specified From Applications</h2>
+<p>When displaying application-specific errors, specify the following elements and call the error viewer.</p>
+<h3 id="Anchor_107323197_h3_7">Last Four Error Code Digits</h3>
+<p>Application-specific errors use error codes in the following format: <em>2-XXXXX-0000</em>.<br />Specify the four digits that replace the <em>0000</em> portion when calling the error viewer.</p>
+<p>
+  <strong>Note:</strong> The <em>XXXXX</em> portion is automatically set by the application code.</p>
+<h3 id="Anchor_107323197_h3_8">Error Messages</h3>
+<p>For each error, you can specify an error message for dialog boxes, and an error message for the full-screen display.<br />The display pattern is determined by using the same criteria described previously in <strong>Determining the Display Pattern</strong>.</p>
+<h4 id="Anchor_107323197_h4_1">Text Data Format</h4>
+<p>Create text data for error messages in the following format.</p>
+<div class="table">
+  <a name="AutoAnchor_107323197_table002"></a>Table 4-2  Text Data Format Information</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Encoding Type</th>
+      <td>UTF-8</td>
+      <td>Do not attach the byte order mark (BOM).</td>
+    </tr>
+    <tr>
+      <th>Newline Code</th>
+      <td>LF</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>Maximum Size</th>
+      <td>
+        <p>2048 bytes</p>
+      </td>
+      <td>
+        <p>For UTF-8, the number of bytes changes depending on the characters.</p>
+        <p>Make sure that your text including the terminating null character fits within this maximum size.</p>
+        <p>
+          <br />
+        </p>
+        <p>For Japanese (<em>kana</em> and <em>kanji</em>), where each character is 3 bytes, it would fit approximately 700 characters.</p>
+        <p>For English (alphabet), where each character is 1 byte, it would fit 2,047 characters.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Maximum Number of Characters</th>
+      <td>
+        <p>1024 characters (for dialog boxes only)</p>
+      </td>
+      <td>
+        <p>There is also an upper limit to the number of characters, only for dialog box error messages.<br />Make both the size and number of characters fall within the allowed range.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_107323197_h3_9">Button Language</h3>
+<p>You can specify the language for the message appearing within buttons.<br />Use the same language as for the error message passed to the error viewer.</p>
+<p>The error viewer will automatically set the messages that appear in buttons.<br />You cannot specify strings.</p>
+<div class="table">
+  <a name="AutoAnchor_107323197_table003"></a>Table 4-3  Application-Specific Error Buttons</div>
+<table class="wrapped" style="margin-left: 1.0em;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Display Patterns</div>
+      </th>
+      <th>
+        <br />
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Dialog Box Buttons</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Full-Screen Buttons</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dialog Box Display Only</td>
+      <td>&rArr;</td>
+      <td>OK</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Dialog Box and Full-Screen Display</td>
+      <td>&rArr;</td>
+      <td>
+        <p>Left: Close</p>
+        <p>Right: More Info</p>
+      </td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>Full-Screen Display Only</td>
+      <td>&rArr;</td>
+      <td>-</td>
+      <td>OK</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2 Implementing Bans | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2 Implementing Bans -->
+<div class="pagetitle" id="PageId_245235773">5.2 Implementing Bans</div>
+<div class="text_separate">
+<p>This section describes the tools and information required for implementing bans, the timing when bans are applied, and their scope.</p>
+<h1 id="Anchor_245235773_h1_1">Tool Required for Implementing Bans (BMAS)</h1>
+<p>To implement a ban, use the management tool for registering bans, called BMAS (Ban Management System). For more information, see Help in BMAS.<br />You can use BMAS to register and unregister bans on applications.</p>
+<p>You can access BMAS from the following URL. To log in, you need a Nintendo Developer ID.</p>
+<p>
+  <a href="https://webapp.bmas2.srv.nintendo.net/" target="_blank" rel="noopener noreferrer">https://webapp.bmas2.srv.nintendo.net/</a>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>BMAS was renewed on April 9th, 2024, and its URL has changed.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<!--Remove-->
+<h1 id="Anchor_245235773_h1_2">Information Required for Bans</h1>
+<p>To register a ban in BMAS, you must specify the NSA ID of the user being banned.</p>
+<p>When a device app ban is registered, the last login time (which can be checked on BMAS) is used to identify the Switch console that is the target of the ban. For applications that use independent servers, the login ID information can also be used to identify the console. For more information, see <a href="../Pages/Page_426187011.html">5.3 Selecting the Ban Method</a>.</p>
+<h2 id="Anchor_245235773_h2_1">Identifying the NSA ID</h2>
+<p>The following methods are available for identifying a user's NSA ID information.</p>
+<h6 id="Anchor_245235773_h6_1">User's Principal ID When Using the NEX Game Server</h6>
+<p>When an application uses the NEX game server, you can identify the NSA ID of the user based on that user's principal ID information saved on the game server. The principal ID and NSA ID values in NEX have the same value.</p>
+<p>Use the NEX Web API or the NEX Management System (NMAS) to view the principal ID information on the game server.</p>
+<p>If the application uses the NEX data store or ranking features, you can identify the NSA ID of the target user from the game server if uploaded data or scores for that user exist.</p>
+<p>Note that the NEX matchmaking feature can only access the session information on the game server while the matchmaking session is actually being created. There is no way to identify users from previous sessions. Note that identifying an NSA ID later on is not possible during actual operations.</p>
+<h6 id="Anchor_245235773_h6_2">User IDs When Using NPLN</h6>
+<p>If the application is using NPLN, you can identify the NSA ID from the NPLN user ID. The NPLN user account is a user account created on the NPLN game server (tenant) and is associated with one network service account.<br />For more information about NPLN user accounts, see NPLN Manual &gt; NPLN Overview &gt; NPLN Architecture.<br />To identify the NSA ID from the NPLN User ID, you can use either the NPLN Dashboard or the NPLN WebAPI. For more information, see the respective manuals.<br /></p>
+<ul>
+  <li>Identifying the NSA ID from the NPLN User ID in the NPLN Dashboard<ul><li>On the NPLN Dashboard, open, <strong>Auth</strong> &gt; <strong>ID Search</strong> and use that page to search for the NSA ID associated with the NPLN user.</li><li>For more information, see NPLN Manual &gt; NPLN Dashboard Manual &gt; ID Search and Authentication Settings (Auth).</li></ul></li>
+  <li>Identifying the NSA ID from the NPLN User ID in the NPLN WebAPI<ul><li>You can use a feature similar to the NPLN Dashboard ID search feature from the WebAPI.</li><li>For more information, see NPLN Manual &gt; WebAPI Usage Manual.</li></ul></li>
+</ul>
+<h6 id="Anchor_245235773_h6_3">NSA ID Tokens When Using Independent Servers</h6>
+<p>If the application uses an independent server, the NSA ID can be identified from the user's NSA ID token that is sent to the independent server.<br />The independent server can view the NSA ID and login ID information from the internal information in the decrypted NSA ID token.<br />For more information, see the Nintendo Switch Independent Server Setup Manual.</p>
+<h6 id="Anchor_245235773_h6_4">Customer Support Number Viewable From the User Page</h6>
+<p>The number for customer support displayed on the User Page in the Switch HOME Menu can be used to identify the NSA ID of the applicable user account.<br />The method of determining the NSA ID by directly contacting the user is expected to be used when lifting bans rather than when applying them.<br />For more information about converting the support number to an NSA ID, see Nintendo Switch Independent Server Setup Manual &gt; Independent Server Operation.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The ID conversion tool that was provided in the previous version of BMAS is no longer provided in the renewed version of BMAS.</p>
+  </div>
+</div>
+<h2 id="Anchor_245235773_h2_2">Identifying and Narrowing Down the Login ID</h2>
+<p>When you register a device app ban, you must specify both an NSA ID and a login ID to apply the ban to a specific Switch console.<br /></p>
+<p>Use the search tool in BMAS to get the list of login IDs associated with a particular NSA ID.</p>
+<p>Each login ID in the obtained list represents a Switch console that has been linked at some time to the Nintendo Account associated with the NSA ID. Note that this list includes the login IDs for Switch consoles that are no longer linked to the Nintendo Account.</p>
+<p>You are banning a user for their behavior, so you do not want to target a Switch console that this person is no longer using. To avoid this, use either of the following procedures to identity or narrow down the login ID that is the target of the ban.</p>
+<h6 id="Anchor_245235773_h6_5">Specifying the Login ID</h6>
+<p>There is currently no method available for identifying a specific Switch console from the login ID.<br />However, if the application is using an independent server, you can get the login ID from the NSA ID token sent by the independent server. By controlling the independent server, you can identify combinations of NSA ID and login ID that represent specific Switch consoles.<br />If the application is using NEX or NPLN and is not using an independent server, you cannot use the NEX and NPLN mechanisms to reference the login ID information included within the NSA ID token.</p>
+<h6 id="Anchor_245235773_h6_6">Narrowing Down the Login ID</h6>
+<p>When you get the list of login IDs on BMAS, the list screen shows the last login time for each combination of NSA ID and login ID.<br />You can use this information about the last login times to determine which Switch consoles were recently used by the user you want to ban.<br />If several login IDs are associated with the NSA ID, narrow down the Switch consoles as much as possible before implementing the ban.</p>
+<h1 id="Anchor_245235773_h1_3">Timing for Applying Bans</h1>
+<p>The measures for blocking access to the service are implemented on the authentication server from the point when the ban is registered in BMAS.<br />However, authentication information is cached on the Switch console, so there might be a delay of up to one day from the time when the ban is implemented to when the user is actually prevented from using network services.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>If the application uses the NEX game server, using the NMAS forced disconnect is effective at the following two timings.</p>
+    <ul>
+      <li>Immediately after applying a ban</li>
+      <li>One day after applying a ban (after authentication information cached on the Switch console has expired)</li>
+    </ul>
+    <p>This is because even after applying a ban, credentials are not checked until the user attempts to log in to the NEX game server again.</p>
+  </div>
+</div>
+<h1 id="Anchor_245235773_h1_4">Lifting Bans</h1>
+<p>If you want to lift a ban for some reason, you can do it using BMAS. As with applying a ban, lifting a ban also requires the NSA ID and login ID for specifying the target.</p>
+<h1 id="Anchor_245235773_h1_5">Policy for Implementing Bans</h1>
+<p>Bans applied in BMAS only affect operations within specified applications.<br />Publishers can implement bans using BMAS at their discretion. It is the publisher's responsibility to consult with a legal advisor when appropriate.</p>
+<ul>
+  <li>If you have made adjustments with the legal department in advance and set an application-specific ban policy, follow that policy.</li>
+  <li>If there is no application-specific ban policy, consult with the legal department as required before adding any bans.</li>
+</ul>
+<p align="left">The following are examples of where bans might be appropriate.</p>
+<ul>
+  <li>When activities that interfere with running the game occur</li>
+  <li>When illegal content is posted or shared</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>For example, if the Japanese and non-Japanese publishers are different, bans applied by the non-Japanese publisher might be lifted by the Japanese publisher. Consider measures such as verifying the policies for each publisher before implementing the ban.</p>
+  </div>
+</div>
+<h1 id="Anchor_245235773_h1_6">Managing Ban Targets</h1>
+<p>Publishers are responsible for determining when to implement bans, including ensuring that they have the legal right to ban user(s). Publishers must also handle user inquiries about bans.<br />Consider measures such as managing the ban information, so that the ban target and reasons for banning can be referenced later if banned users were to contact the publisher.<br />Note that lifting bans upon user request is not mandatory, but implement bans appropriately with the expectation that users may contact you about them.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

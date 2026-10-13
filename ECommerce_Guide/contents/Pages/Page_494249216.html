@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.3.1 Compensation Method | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.3.1 Compensation Method -->
+<div class="pagetitle" id="PageId_494249216">6.3.1 Compensation Method</div>
+<div class="text_separate">
+<p>This section describes how to use a PC to provide compensation for user save data-controlled consumable service items.</p>
+<h1 id="Anchor_494249216_h1_1">Overview</h1>
+<p>Functionality is available to compensate users, specific to their NSA ID, for consumable service items when receiving user inquiries for compensation. To use this functionality, you need to request in OMAS and receive in advance a client ID and a client secret for compensation.</p>
+<p>The overall compensation process is as follows.</p>
+<ol>
+  <li>Check the <code>item_id</code> for the item that is the subject of compensation and the NSA ID of the user, call the API for checking transactions from a PC, and verify the purchase of the consumable service item.</li>
+  <li>Call the compensation API and provide compensation for the target consumable service item.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Use the transaction confirmation function to review the transaction where a compensation occurred using the compensation function.</p>
+  </div>
+</div>
+<p>For more information about the compensation function, see <a href="../Pages/Page_729755566.html">6.3.1.1 Compensation API</a>.</p>
+<h1 id="Anchor_494249216_h1_2">Important Information</h1>
+<ul>
+  <li>
+    <strong>Do not use this feature for any purpose other than providing compensation.</strong> Avoid using this feature for benefits awarded during campaigns.</li>
+  <li>There is the possibility that compensation would allow a user to acquire two of an item when normally only one of those items can be acquired. This situation occurs because it is difficult to confirm whether an item needing compensation has been lost within an application. Your application must work correctly when compensation is made, for example by not increasing the number of obtained items.</li>
+  <li>Use an implementation that enables compensation to be received within the application. In other words, if compensation is made via a PC operation, the application must be able to process that operation.</li>
+  <li>
+    <strong>Service item purchase notifications do not apply to compensation.</strong> For more information about notifications, see <a href="../Pages/Page_491448020.html">2.4 Service Item Purchase Notification Feature</a>.</li>
+  <li>This feature cannot be used for independent server-controlled service items. To compensate these kinds of items, use the license-management feature of the independent server.</li>
+</ul>
+<h1 id="Anchor_494249216_h1_3">Client ID/Secret for Compensation</h1>
+<p>To use the compensation API, you need a client ID/secret for compensation. For more information about how tokens are issued, see <a href="../Pages/Page_525143415.html">4.1 Usage Request on OMAS</a>.</p>
+<p>There are two kinds of client ID/secret for compensation, one for dd1 and one for lp1. For testing, use the one for dd1.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Keep strict control over the lp1 client ID/secret for compensation to protect against misuse.</p>
+  </div>
+</div>
+<h1 id="Anchor_494249216_h1_4">Consumable Service Item API Endpoints</h1>
+<p>Compensation can be used with dd1 for testing, and with lp1 for a production environment. For more information about the respective consumable service item API endpoint FQDNs, see the Correspondence Between Environment Identifiers and FQDNs of Subscription Service Item API Endpoints in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<h1 id="Anchor_494249216_h1_5">Getting the NSA ID</h1>
+<p>For more information about getting the NSA ID from the support number acquired during a user inquiry, see the Nintendo Switch Independent Server Setup Manual.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 Generating Account and Authentication Errors | Nintendo Switch Network Error Simulation Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 Generating Account and Authentication Errors -->
+<div class="pagetitle" id="PageId_221743887">3 Generating Account and Authentication Errors</div>
+<div class="text_separate">
+<p>Error codes that begin with 2124-<em>XXXX</em> represent errors related to accounts and authentication.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>
+      <span class="sv-ti-done">
+        <span class="sv-ti-title-text">For more information about errors returned by the <code>account</code> library, see the following materials.</span>
+      </span> </p>
+    <ul>
+      <li>
+        <span class="sv-ti-done">
+          <span class="sv-ti-title-text">NintendoSDK Documents</span>
+        </span>
+        <ul>
+          <li> <span class="sv-ti-done"><span class="sv-ti-title-text">Features &gt; System &gt; account Library</span></span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_221743887_h1_1">Errors That Can Be Generated Using the Web Tool for Authentication Debugging (Auth Debug Tool)</h1>
+<p>The following errors can be generated using the web tool for authentication debugging described in <a href="../Pages/Page_220662967.html">3.1 Using Auth Debug Tool, a Web Tool for Authentication Debugging</a>.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>Applications can handle all errors in the following table in the same way. For this reason, it is acceptable to generate any one of these errors (for example, 2124-3001) and confirm it is handled appropriately.</li>
+      <li>Note that you must restart the Switch if you want errors to be generated immediately after they have been set with Auth Debug Tool.</li>
+      <li>As shown in the table, the errors codes have changed for some errors on Switch systems that are system version 7.0.0 or later.</li>
+    </ul>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="2">Error Code</th>
+      <th rowspan="2">Description of Errors and Generation Procedure</th>
+    </tr>
+    <tr>
+      <th>System Version 7.0.0 or Later</th>
+      <th>System Versions Earlier Than 7.0.0</th>
+    </tr>
+    <tr>
+      <td>2124-3001</td>
+      <td>2124-3001</td>
+      <td>
+        <p>
+          <strong>Generated when the Nintendo authentication server is configured to only allow network connections from specific application versions or later.</strong> For more information, see the Nintendo Switch Independent Server Configuration Manual.</p>
+        <p>Use Auth Debug Tool to set <strong>Application update is required</strong> for the target system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4605</td>
+      <td>2124-4025</td>
+      <td>
+        <p>
+          <strong>Generated when the Nintendo authentication server is configured to refuse being used as the authentication service for an application.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Game card has been banned</strong> for the target system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4606</td>
+      <td>2124-4026</td>
+      <td>
+        <p>
+          <strong>Generated when the application has not been authorized to use the Nintendo authentication server.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Unauthorized application</strong> for the target system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4607</td>
+      <td>2124-4027</td>
+      <td>
+        <p>
+          <strong>Generated when the Nintendo authentication server is not available due to conditions with the application service.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Device has been banned by application</strong> for the target system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4608</td>
+      <td>2124-4028</td>
+      <td>
+        <p>
+          <strong>Generated when the application service has not started.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Application service is not started</strong> for the target system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4609</td>
+      <td>2124-4029</td>
+      <td>
+        <p>
+          <strong>Generated when the application service has terminated.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Application service is closed</strong> for the target system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4610</td>
+      <td>2124-4030</td>
+      <td>
+        <p>
+          <strong>Generated when the application service is not available.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Application service is not available</strong> for the target system. Note that the Switch must be restarted to apply this setting.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4612</td>
+      <td>2124-4210</td>
+      <td>
+        <p>
+          <strong>Generated when a problem has occurred in the Nintendo authentication service.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Authentication service is not available</strong> for the target system. Note that the Switch must be restarted to apply this setting.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2124-4613</td>
+      <td>2124-4260</td>
+      <td>
+        <p>
+          <strong>Generated when the Nintendo authentication service is undergoing maintenance.</strong>
+        </p>
+        <p>Use Auth Debug Tool to set <strong>Authentication service is under maintenance</strong> for the target system. Note that the Switch must be restarted to apply this setting.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_221743887_h1_2">Verifying Operation When the Network Service Account Is Not Available</h1>
+<p>
+  <span class="sv-ti-done">
+    <span class="sv-ti-title-text">When a Nintendo Account or Network Service account is not available, in principle the application should call the <code>account</code> library and initiate the sequence to restore availability. For more information, see the following documentation.</span>
+  </span>
+</p>
+<ul>
+  <li>
+    <span class="sv-ti-done">
+      <span class="sv-ti-title-text">NintendoSDK Documents</span>
+    </span>
+    <ul>
+      <li>
+        <span class="sv-ti-done">
+          <span class="sv-ti-title-text">
+            <span class="sv-ti-done">
+              <span class="sv-ti-title-text">Features &gt; System &gt; account Library</span>
+            </span> &gt; Using Network Service Accounts</span>
+        </span>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <span class="sv-ti-done">
+      <span class="sv-ti-title-text">Nintendo Switch Guidelines</span>
+    </span>
+    <ul>
+      <li>
+        <span class="sv-ti-done">
+          <span class="sv-ti-title-text">0121: Implementing Handling When the Network Service Account Is Not Available<br /></span>
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p>
+  <span class="sv-ti-done">
+    <span class="sv-ti-title-text">For more information about generating errors and pass/fail criteria, see the item noted in the <span class="sv-ti-done"><span class="sv-ti-title-text">Nintendo Switch Guidelines</span></span>.<br /></span>
+  </span>
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

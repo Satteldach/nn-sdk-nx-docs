@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2.2 Important Information When Connecting USB Devices | Nintendo Switch SDEV Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2.2 Important Information When Connecting USB Devices -->
+<div class="pagetitle" id="PageId_409301339">6.2.2 Important Information When Connecting USB Devices</div>
+<div class="text_separate">
+<p>When connecting a USB device, read the following important information.</p>
+<h5 id="Anchor_409301339_h5_1">Sequence for Connecting USB Devices</h5>
+<p>When connecting a USB device with either a USB Type-C to USB 3.1 Standard-A converter adapter or a USB hub to connect to an SDEV, always follow the following procedure to connect the device.</p>
+<ol>
+  <li>
+    <p>Connect the USB device to a converter adapter or a USB hub.</p>
+  </li>
+  <li>
+    <p>Connect the converter adapter or the USB hub to the USB Type-C converter connector on the bottom of the SDEV console.</p>
+    <div class="note_new">
+      <div class="note_new_left">Note</div>
+      <div class="note_new_right">
+        <p>Always connect the USB device to the converter adapter or USB hub before connecting the SDEV console. If you connect the converter adapter or USB hub to the SDEV console first, the SDEV may shut down when you connect the USB device.</p>
+      </div>
+    </div>
+    <p class="auto-cursor-target">
+      <br />
+    </p>
+  </li>
+</ol>
+<h5 id="Anchor_409301339_h5_2">USB 3.0 Support</h5>
+<p>When using NintendoSDK NX Add-On version 1.1.0 and later, USB 3.0 is not supported. Even devices that support USB 3.0 have the same behavior as USB 2.0 devices.</p>
+<p>While devices that support USB 3.0 can be used with earlier versions of the SDK, operation is not assured.</p>
+<h5 id="Anchor_409301339_h5_3">Connecting Devices That Support USB 3.0</h5>
+<p>Connecting some devices that support USB 3.0 may affect 2.4 GHz communication.</p>
+<p>The following problems may occur.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Symptom</th>
+    </tr>
+    <tr>
+      <td>Wireless communication with controllers</td>
+      <td>
+        <ul>
+          <li>Connection failure or disconnection</li>
+          <li>Delay or error in applying input</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Local communication</td>
+      <td>
+        <ul>
+          <li>Communication partner not found</li>
+          <li>Loss of socket communication</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>2.4 GHz wireless LAN communication</td>
+      <td>
+        <ul>
+          <li>Connection failure or disconnection</li>
+          <li>Loss of socket communication</li>
+          <li>Communication delay or slower speed</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If these kinds of problems occur, try the following.</p>
+<ul>
+  <li>Move the USB device as far from the console as possible.</li>
+  <li>Plug the USB device into a USB port that supports USB 2.0.<br />(This step provides performance equivalent to USB 2.0.)</li>
+  <li>Replace the USB device with one that does not support USB 3.0.</li>
+  <li>Use a 5 GHz wireless LAN.<br />(The effect on local communication between SDEV consoles or wireless controller communication will not be improved.)</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>These problems occur due to the nature of USB 3.0 devices. The same problems occur with the Switch retail product.</p>
+  </div>
+</div>
+<h5 id="Anchor_409301339_h5_4">Connecting a USB-Ethernet Adapter</h5>
+<p>The following operations are not supported.</p>
+<ul>
+  <li>With the SDEV turned on, removing a USB-Ethernet adapter from the SDEV cradle</li>
+  <li>Connecting multiple USB-Ethernet adapters</li>
+</ul>
+<p>If the SDEV system stops due to these operations, restart the SDEV.<br />For more information about restarting the SDEV, see <a href="../Pages/Page_112894060.html">8.1 Restarting the SDEV</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

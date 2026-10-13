@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.12 Toy-Con VR Goggles | Nintendo Switch Toy-Con Application Planning Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.12 Toy-Con VR Goggles -->
+<div class="pagetitle" id="PageId_429974902">5.12 Toy-Con VR Goggles</div>
+<div class="text_separate">
+<p class="auto-cursor-target">Any application that includes VR mode must include measures to promote a fun and safe experience. These measures can be implemented in various ways, including the application's controls, instructions, and notices.</p>
+<h2 id="Anchor_429974902_h2_1">Complying With Parental Controls</h2>
+<p>The age rating for VR mode is 7 and older, so instruct users to restrict the use of VR mode by children 6 and younger.<br /></p>
+<p>The <strong>VR Mode (3D Visuals)</strong> restriction in the parental controls enables prohibiting VR mode for children 6 or younger. Applications that support VR mode must enable restriction of VR mode by the parental controls.</p>
+<h2 id="Anchor_429974902_h2_2">Using Video That Avoids Motion Sickness</h2>
+<p>You must implement measures so that the application can be played for a long time without incurring motion sickness. The following are some examples.</p>
+<h3 id="Anchor_429974902_h3_1">Reprojection</h3>
+<p>The delay between when the user's head moves (the gyroscope value) and when that movement is applied on the screen can cause motion sickness. We recommend using reprojection to resolve this delay and mitigate motion sickness. For more information about implementation, contact Nintendo.</p>
+<h3 id="Anchor_429974902_h3_2">Setting the Frame Rate as High as Possible</h3>
+<p>A large screen refresh interval makes it harder to track head movement and can cause motion sickness.</p>
+<h3 id="Anchor_429974902_h3_3">Matching the Camera Movement With the User's Head Movement</h3>
+<p>If the camera movement does not match the user's head movement, the user's sensations will not be consistent and may cause motion sickness. Consider the following methods to create camera behavior that would be less likely to cause motion sickness.</p>
+<ul>
+  <li>Do not move the camera viewpoint in ways unrelated to user operations.</li>
+  <li>Limit the speed of camera zooming.</li>
+</ul>
+<h3 id="Anchor_429974902_h3_4">Avoiding Incorrect Stereoscopic Display</h3>
+<p>By implementing VR mode, it is possible to intentionally display the following types of images. However, these images might not achieve a correct stereoscopic 3D effect, or might cause the user to feel uncomfortable even if they achieve a stereoscopic effect.</p>
+<p>To avoid displaying incorrect stereoscopic images in applications that implement VR mode, avoid displaying images like the following as much as possible.</p>
+<ul>
+  <li style="list-style-type: disc;">States where the relative front/back positions of objects conflict<br />When two objects overlap in a standard 3D display, the object in front is displayed while the object in the back appears to be hidden. Images where this positional relationship contradicts itself and the object in front is hidden by the object in the back will cause discomfort to users.</li>
+</ul>
+<p>For more information, see the following section in the Nintendo Switch Guidelines.</p>
+<ul>
+  <li>
+    <span style="letter-spacing: 0.0px;">VR</span>
+    <ul>
+      <li>0201: Prohibition of incorrect stereoscopic display</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="Anchor_429974902_h2_3">Parallax Restrictions</h2>
+<p>When implementing VR mode, you can apply parallax to the left and right sides of the screen to create a sense of depth or protrusion, but excessive parallax will cause discomfort to users. For this reason, we recommend keeping the left/right image parallax within the following range.</p>
+<p>@ figure001: Recommended range of parallax</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Depth Direction</th>
+      <th>Parallax</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Depth</p>
+      </td>
+      <td>
+        <p>Within 10.0 mm (52 pixels)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Protrusion</p>
+      </td>
+      <td>
+        <p>Within 5.0 mm (26 pixels)</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>The mm described in this section are the standard values in VR mode. This is when the pixels for both the left eye and right eye are treated as a single pixel (0.192 mm x 0.192 mm).</p>
+<p>Parallax exceeding the recommended range is fine under the following circumstances.</p>
+<ul>
+  <li>If the duration where it exceeds the recommended range is one second or less.<br />For short durations, such as when a temporary sequence is played for one second or less, parallax exceeding the recommended range is acceptable because the human eye cannot adjust fast enough to follow the parallax. If visual adjustment is not fast enough, it is difficult for the user to feel discomfort even if the parallax exceeds the recommended range.</li>
+</ul>
+<h2 id="Anchor_429974902_h2_4">Considering Lens Distortion When Image Processing　</h2>
+<p>With the Toy-Con VR Goggles, the user looks at the screen through lenses so the screen is in focus even at extremely close range. At such times, the images on the screen can become distorted like the view through a fish-eye lens. We recommend using a process to cancel out this distortion by displaying images that have been distorted in the opposite way so they appear undistorted when viewed through the lenses. For more information about implementation, contact Nintendo.</p>
+<h2 id="Anchor_429974902_h2_5">Correcting For Chromatic Aberration</h2>
+<p>When the screen is viewed through the Toy-Con VR Goggles, chromatic aberration occurs because the refractive index of the lens is different for the different RGB color components. The RGB misalignment worsens from the center of the lens outward. As a countermeasure, we recommend chromatic aberration correction, creating the images for display on the screen with the RGB components shifted in the opposite direction to mitigate the chromatic aberrations experienced through the lenses For more information about implementation, contact Nintendo.</p>
+<h2 id="Anchor_429974902_h2_6">Displaying an Attention Screen for Toy-Con VR Goggles</h2>
+<p>To guide users about how to use the Toy-Con VR Goggles and draw their attention to important information, show an attention screen based on the following description.</p>
+<h3 id="Anchor_429974902_h3_5">Attention Screen Provided by Nintendo</h3>
+<p>Nintendo provides the following attention screen.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871729.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<h4 id="Anchor_429974902_h4_1">Display Timing</h4>
+<p>Show the attention screen every time the application is started.</p>
+<p>You must show the screen before the user actually operates the Toy-Con VR Goggles (before entering VR Mode).</p>
+<p>You must display the attention screen at least once before the user actually operates the Toy-Con VR Goggles. It is not sufficient to display this description just once the very first time the application is started, and never display it again when starting the application.</p>
+<p>It is required that the user can see this description. It is not sufficient to display this screen only inside a settings dialog box or other menu that the user must deliberately select to see the screen.</p>
+<h4 id="Anchor_429974902_h4_2">Display Duration</h4>
+<p>If the screen is displayed long enough for the user to read and understand its content, there is no specific requirement for how long to display the screen.</p>
+<p>We recommend displaying the screen for five seconds, but it is not a problem to allow the user to proceed immediately with a button press.</p>
+<h4 id="Anchor_429974902_h4_3">Supported Languages</h4>
+<p>Nintendo provides versions in the following languages: Japanese, English, German, French, Spanish, Italian, Dutch, Portuguese, Russian, Traditional Chinese, Simplified Chinese, and Korean.</p>
+<p>
+  <strong>Note:</strong> An attention screen in each language is attached to this document. For more information, see <a href="../Pages/Page_461520014.html">File List</a>.</p>
+<p>Use a language that is supported by the application or the language configured in the system settings.</p>
+<h3 id="Anchor_429974902_h3_6">Proprietary Attention Screen</h3>
+<p>We recommend using the attention screen provided by Nintendo to direct user attention to important information. However, you can also prepare a proprietary screen that includes the attention screen description as part of your overall description of application operations.</p>
+<h4 id="Anchor_429974902_h4_4">Text</h4>
+<p>When creating a proprietary attention screen, use the standardized text specified by Nintendo.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <p>
+          <br />
+        </p>
+        <p>The following information should be checked by an adult:</p>
+        <ul style="margin-left: 20.0px;">
+          <li>When using the Toy-Con VR Goggles...<ul style="margin-left: 20.0px;"><li>Be mindful of your surroundings and other people.</li><li>Only play while seated.</li><li>Make sure to take regular breaks.</li><li>Restrict the use of VR mode for children 6 and under.<br />Note: You can set software and usage restrictions via the Nintendo Switch Parental Controls smart device app or via Parental Controls on System Settings on the Nintendo Switch console.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Note:</strong> Text in each language is attached to this document. For more information, see <a href="../Pages/Page_461520014.html">File List</a>.</p>
+<h4 id="Anchor_429974902_h4_5">Illustrations</h4>
+<p>We recommend including illustrations that show how to play the game correctly.</p>
+<p>Illustrations that show how to play the game correctly are illustrations that show the user sitting in a chair.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871728.png" width="120" class="embedded-image" />
+  </span>
+  <br />
+</p>
+<h2 id="Anchor_429974902_h2_7">Prompting Users to Take Appropriate Breaks</h2>
+<p>When playing the game in VR mode, the user may experience symptoms similar to motion sickness depending on their conditions. It is also possible that they may feel tired or ill after playing the game for a long time.</p>
+<p>It is important to set one instance of play to last a short period of time and create appropriate pauses as the game proceeds to ensure that users take proper breaks.</p>
+<p>You can also measure users' play time to display messages prompting them to take a break.</p>
+<h3 id="Anchor_429974902_h3_7">Displaying Messages Prompting Users to Take a Break</h3>
+<p>Periodically show messages prompting users to take a break while playing in VR mode.</p>
+<h4 id="Anchor_429974902_h4_6">Text</h4>
+<p>Include the following standardized text to prompt users to take a break. You can reword the text as long as the meaning is preserved.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>Do you want to take a break?</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Note:</strong> Text in each language is attached to this document. For more information, see <a href="../Pages/Page_461520014.html">File List</a>.</p>
+<h4 id="Anchor_429974902_h4_7">Display Timing</h4>
+<p>Periodically display this message after the user starts playing the game in VR mode.</p>
+<p>You must display this message within 30 minutes of starting the game in VR mode, and then periodically every 30 minutes or less thereafter.</p>
+<p>Determine the timing for showing this message prompting users to take a break based on how strictly the application follows the recommended procedures described earlier on this page in Using Video That Avoids Motion Sickness. For applications that do not strictly follow these procedures, we recommend displaying the message at shorter intervals.</p>
+<p>There is no problem with a specification that determines that the user is taking a break if the gyroscope on the console is stationary for a certain period of time (recommended 5 minutes or longer) while in VR mode, and resets the timer.</p>
+<!--figure002-->
+<div class="figure">
+  <a name="AutoAnchor_429974902_figure002"></a>Figure 5-1  If the console gyroscope remains stationary for a certain period of time during VR mode</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871719.png" width="650" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_429974902_h5_1">Supporting Applications That Consist of Multiple Minigames</h5>
+<p>If VR mode is maintained in the screen between minigames (such as the menu screen), the timer for displaying the message to prompt users to take a break must also be maintained.</p>
+<!--figure003-->
+<div class="figure">
+  <a name="AutoAnchor_429974902_figure003"></a>Figure 5-2  For specifications where VR mode is maintained in the screen between minigames (such as the menu screen)</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871722.png" width="650" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<p>If VR mode is turned off in the screen between minigames (such as the menu screen), it is acceptable to judge the time when the VR mode is off as rest time, and implement a specification that resets the timer for the message prompting users to take a break.</p>
+<!--figure004-->
+<div class="figure">
+  <a name="AutoAnchor_429974902_figure004"></a>Figure 5-3  For specifications where VR mode is turned off in the screen between minigames</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871725.png" width="650" class="embedded-image" />
+  </span>
+</p>
+<h4 id="Anchor_429974902_h4_8">Display Duration</h4>
+<p>If the screen is displayed long enough for the user to read and understand its content, there is no specific requirement for how long to display the screen.</p>
+<p>While the message is displayed, the game can either be suspended or not suspended. We recommend that the application developer make this determination based on the application specifications.</p>
+<h4 id="Anchor_429974902_h4_9">Supported Languages</h4>
+<p>Nintendo provides versions in the following languages: Japanese, English, German, French, Spanish, Italian, Dutch, Portuguese, Russian, Traditional Chinese, Simplified Chinese, and Korean.</p>
+<p>Use a language that is supported by the application or the language configured in the system settings.</p>
+<h2 id="Anchor_429974902_h2_8">Calibrating the System's Six-Axis Sensor</h2>
+<p>Over the course of extended gameplay, the six-axis sensor drifts and errors accumulate in the values obtained from the sensor.</p>
+<p>For more information, see NintendoSDK VRGogglesKit (NintendoSDK SevenKit) &gt; Features &gt; hid Library &gt; SevenSixAxisSensor &gt; Important Information &gt; Calibration. This documentation will be provided <span style="letter-spacing: 0.0px;">after your plan is approved</span>.</p>
+<h3 id="Anchor_429974902_h3_8">Displaying a Message</h3>
+<h4 id="Anchor_429974902_h4_10">Text</h4>
+<p>Display the following fixed message to guide users to calibrate the sensor. You can reword the text as long as the meaning is preserved.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>Please set the console on a flat surface.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example Display</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871717.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <strong>Note:</strong> Text in each language is attached to this document. For more information, see <a href="../Pages/Page_461520014.html">File List</a>.</p>
+<h4 id="Anchor_429974902_h4_11">Display Timing</h4>
+<p>Display the message before the application enters VR mode.</p>
+<h4 id="Anchor_429974902_h4_12">Display Duration</h4>
+<p>Display the message until the calibration of the six-axis sensor is complete.<br /></p>
+<h4 id="Anchor_429974902_h4_13">Supported Languages</h4>
+<p>Nintendo provides versions in the following languages: Japanese, English, German, French, Spanish, Italian, Dutch, Portuguese, Russian, Traditional Chinese, Simplified Chinese, and Korean.</p>
+<p>Use a language that is supported by the application or the language configured in the system settings.</p>
+<h2 id="Anchor_429974902_h2_9">Implementing a Feature to Reset the Base Position</h2>
+<p>Calibration using the accelerometer does not work for the yaw axis (the axis of rotation around the center of gravity) of the system's six-axis sensor. As a result, the orientation as calculated by the sensor will gradually drift compared to the real-world orientation after the game has been played for a certain amount of time.<br />If this drift is a problem, implement a feature to reset the base position (see the note).</p>
+<p>
+  <strong>Note:</strong> The base position is a value that serves as the reference for associating the actual orientation of the controller with the internal orientation.</p>
+<h2 id="Anchor_429974902_h2_10">No Disadvantages Given to the User When Resuming a Game after Sleep Mode or Transitions from the HOME Menu</h2>
+<p>For health and safety, it is essential to design rest breaks into gameplay in VR mode. The user must be able to resume the game without any disadvantages if they suspend it by entering sleep mode, transitioning to the HOME Menu, pausing the game, or another method. This enables the user to take a break at any time according to their physical needs.</p>
+<p>This requirement is meant to avoid situations where users feel ill but continue to play in VR mode because they are worried about disadvantages if they stop.</p>
+<p>Specifically, the following types of consideration are required.</p>
+<ul>
+  <li>The player can resume from the suspended scene.</li>
+  <li>Scores and other aspects are not reset.</li>
+</ul>
+<h2 id="Anchor_429974902_h2_11">Notifying the System When Starting and Ending Stereoscopic Display</h2>
+<p>To avoid discomfort to users playing in VR mode, applications that implement VR mode should do the following.</p>
+<ul>
+  <li>Call the <code>nn::pl::BeginVrMode()</code> function when starting stereoscopic screen output.</li>
+  <li>Call the <code>nn::pl::EndVrMode()</code> function when ending stereoscopic screen output.</li>
+</ul>
+<p>If these functions are called correctly, the system is able to keep track of times when the application is displaying stereoscopic screens and the user might be wearing the Toy-Con VR Goggles. When the user presses the HOME Button in this state, the VR curtain is displayed. For more information, see <a href="#Anchor_429974902_h3_9">HOME Menu and Library Applets</a>.</p>
+<h2 id="Anchor_429974902_h2_12">(Reference) System Features While in VR Mode</h2>
+<h3 id="Anchor_429974902_h3_9">
+  <a name="Anchor_429974902_HOMEメニュー・ライブラリアプレット"></a>HOME Menu and Library Applets</h3>
+<p>The HOME Menu and the various library applets do not support VR mode 3D display.</p>
+<p>For this reason, if you transition to these screens during VR mode, a message (a VR curtain) like the following is automatically displayed to instruct the user to remove the Toy-Con VR Goggles, after which VR mode is ended and the transition takes place.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>This specification might change in a future update.</p>
+  </div>
+</div>
+<h4 id="Anchor_429974902_h4_14">When Transitioning to the HOME Menu</h4>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871732.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<p>If the user presses the HOME Button again while this screen is displaying, the transition to the HOME Menu is canceled and the user can return to the game still in VR mode.</p>
+<h4 id="Anchor_429974902_h4_15">When Starting a Library Applet</h4>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871733.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<p>It is not possible to return to the game still in VR mode. The user must remove the goggles and end VR mode.</p>
+<h3 id="Anchor_429974902_h3_10">Overlay Notifications</h3>
+<p>During VR mode, overlay notifications are displayed in the upper center of the screen.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871735.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_429974902_h3_11">Quick Settings</h3>
+<p>During VR mode, Quick Settings are displayed in the lower center of the screen.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_429974902/1821871734.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<p>Unlike with the normal Quick Settings, the only setting that can be changed is the screen brightness.</p>
+<p>This change applies to the brightness of the screen during VR mode. Changing this setting does not alter the ordinary screen brightness.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

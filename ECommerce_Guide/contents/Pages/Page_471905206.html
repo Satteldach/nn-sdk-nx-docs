@@ -1,0 +1,417 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2.2.2.2 Getting License Information | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2.2.2.2 Getting License Information -->
+<div class="pagetitle" id="PageId_471905206">6.2.2.2.2 Getting License Information</div>
+<div class="text_separate">
+<h1 id="Anchor_471905206_h1_1">Overview</h1>
+<p>This API gets the license information (the purchase transactions) for the specified application and the specified user.</p>
+<h2 id="Anchor_471905206_h2_1">Purchase Transaction Status</h2>
+<p>Purchase transactions can have the following two statuses.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>PURCHASED</td>
+      <td>The state where an item has been purchased on Nintendo eShop but has not been consumed.</td>
+    </tr>
+    <tr>
+      <td>CONSUMED</td>
+      <td>
+        <p>The state where the status has been changed by the API that updates the license information and the item has been consumed.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905206_h1_2">Request</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>GET /v1/applications/<span class="o">{</span>applicationId<span class="o">}</span>/accounts/<span class="o">{</span>nsaId<span class="o">}</span>/rights?sort<span class="o">={</span>sort<span class="o">}</span>&amp;<span class="nv">status</span><span class="o">={</span>status<span class="o">}</span>&amp;<span class="nv">page</span><span class="o">={</span>page<span class="o">}</span>&amp;<span class="nv">per_page</span><span class="o">={</span>per_page<span class="o">}</span>
+Authorization: Basic <span class="o">{</span>base64<span class="o">(</span>clientId:clientSecret<span class="o">)}</span>
+X-NINTENDO-NSA-ID-TOKEN: Bearer <span class="o">{</span>nsaIdToken<span class="o">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Remarks</th>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>Specify the application ID of the application with the license information you want to get.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;01004b9000490000&quot;</td>
+      <td>
+        <p>Do not add <code>0x</code> to the beginning of the application ID.</p>
+        <p>Only use lowercase for letters.<br /></p>
+      </td>
+    </tr>
+    <tr>
+      <td>nsaId</td>
+      <td>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>Only use lowercase for letters.</td>
+    </tr>
+    <tr>
+      <td>sort</td>
+      <td>
+        <p>Specifies the condition for sorting the obtained purchase transaction results. The following values can be specified.</p>
+        <ul style="list-style-type: square;">
+          <li>purchased_datetime_desc</li>
+          <li>purchased_datetime_asc</li>
+        </ul>
+        <p>Specify <code>purchased_datetime_asc</code> to get the results sorted in ascending order of purchase transaction date.</p>
+        <p>Specify <code>purchased_datetime_desc</code> to sort the results in descending order.</p>
+      </td>
+      <td>string</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>&quot;purchased_datetime_desc&quot;</td>
+      <td>&quot;purchased_datetime_asc&quot;</td>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>
+        <p>Gets purchase transactions with the specified status. The following values can be specified.</p>
+        <ul style="margin-left: 20.0px;">
+          <li>PURCHASED</li>
+          <li>CONSUMED</li>
+        </ul>
+      </td>
+      <td>string</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <p>&quot;PURCHASED&quot;</p>
+      </td>
+      <td>If <code>status</code> is omitted, both PURCHASED and CONSUMED purchase transactions are retrieved.</td>
+    </tr>
+    <tr>
+      <td>page</td>
+      <td>
+        <span style="color: inherit;">Specifies the number of pages of the purchase transaction list to get.</span>
+      </td>
+      <td>number</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>0</td>
+      <td>10</td>
+      <td>
+        <code>page</code> values begin from 0.</td>
+    </tr>
+    <tr>
+      <td>per_page</td>
+      <td> <span style="color: inherit;">Specifies the number of license information entries to display per page.</span></td>
+      <td>number</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>100</td>
+      <td>20</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>X-NINTENDO-NSA-ID-TOKEN</td>
+      <td>Specify the NSA ID token.</td>
+      <td>string</td>
+      <td>header</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;eyJqa3UiO...oDM9OBOtw&quot;</td>
+      <td>
+        <p>&quot;Bearer&quot; must be added as a prefix.</p>
+        <p>The token has an expiration date. To extend the expiration date, you must get the token again and update the value.<br /></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905206_h1_3">Response</h1>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="9">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="9">total_results</td>
+      <td>The number of purchase transactions retrieved.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>2</td>
+      <td>Cannot be null</td>
+      <td>
+        <p>Indicates the number of <code>rights</code> included in the <code>page</code>. It does not represent the total number of rights that could possibly be obtained.</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="9">rights</td>
+      <td>An array of purchase transactions.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <br />
+      </td>
+      <td>right_id</td>
+      <td>The purchase transaction identifier (Right ID).</td>
+      <td>string</td>
+      <td>
+        <p>A string of up to 36 characters.</p>
+      </td>
+      <td>&quot;ed610969-fe8f-4e0c-8d62-da7bdbd35897&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <br />
+      </td>
+      <td>nsa_id</td>
+      <td>The NSA ID that has the license.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <br />
+      </td>
+      <td>item_id</td>
+      <td>The item ID of the purchased service item.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;SAMPLEITEM0001&quot;</td>
+      <td>Cannot be null</td>
+      <td>For more information about the format, see <a href="../Pages/Page_484511941.html">6.1 Overview</a> &gt; Restrictions on the Number of Consumable Services and Item IDs.</td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <br />
+      </td>
+      <td>purchased_date_time</td>
+      <td>The date and time that the purchase transaction occurred.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1585741152000</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <br />
+      </td>
+      <td>status</td>
+      <td>The status of the purchase transaction.</td>
+      <td>string</td>
+      <td>
+        <ul style="margin-left: 20.0px;">
+          <li>PURCHASED</li>
+          <li>CONSUMED</li>
+        </ul>
+      </td>
+      <td>&quot;PURCHASED&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <br />
+      </td>
+      <td>country</td>
+      <td>The country information for the purchase transaction.</td>
+      <td>string</td>
+      <td>Two-character country code (ISO 3166-1 Alpha-2)</td>
+      <td>&quot;US&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="mi">200</span> <span class="nx">OK</span>
+<span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;total_results&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;rights&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;right_id&quot;</span><span class="o">:</span><span class="s2">&quot;ed610969-fe8f-4e0c-8d62-da7bdbd35897&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span><span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;item_id&quot;</span><span class="o">:</span><span class="s2">&quot;SAMPLEITEM0001&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;purchased_date_time&quot;</span><span class="o">:</span> <span class="mi">1585741152000</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="nx">PURCHASED</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;US&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;right_id&quot;</span><span class="o">:</span><span class="s2">&quot;248d4ad9-7c41-4b14-b6fa-5edfe4f45883&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span><span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;item_id&quot;</span><span class="o">:</span><span class="s2">&quot;SAMPLEGOLD000001&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;purchased_date_time&quot;</span><span class="o">:</span> <span class="mi">1582772445000</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="nx">PURCHASED</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;US&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;<span class="p">]</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905206_h1_4">curl Request Samples (dd1 Environment)</h1>
+<p>For simplicity, the <code>k</code> option is used to skip SSL authentication. A CA certificate can be obtained by following the instructions in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://sugar.ws.dd1.ss.nintendo.net/v1/applications/{application_id}/accounts/{nsa_id}/rights?status=PURCHASED&amp;page=0&amp;per_page=10&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span> <span class="se">\
+</span>-H <span class="s1">'X-NINTENDO-NSA-ID-TOKEN: Bearer {nsa_id_token}'</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

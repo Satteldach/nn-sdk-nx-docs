@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7 Supported Examples</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7 Supported Examples -->
+<div class="pagetitle" id="PageId_114732670">7 Supported Examples</div>
+<div class="text_separate">
+<p>This section describes actual cases such as how to determine the supported play modes, functional alternatives, and reasons for deciding not to support a basic policy.</p>
+<h1 id="Anchor_114732670_h1_1">Examples of Determining Supported Play Modes</h1>
+<h2 id="Anchor_114732670_h2_1">Example 1: An application with only one game mode</h2>
+<h4 id="Anchor_114732670_h4_1">Application Overview</h4>
+<p>This is the simplest case where the player progresses using only one game mode through the entire application, and game modes using alternate play modes do not exist.</p>
+<p>For example, a game similar to the Super Mario series.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732670_figure001"></a>Figure 7-1  An application with only one game mode</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732670/180067926.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_114732670_h5_1">Definition of Core Content</h5>
+<p>The entire application (because there is only one).</p>
+<h4 id="Anchor_114732670_h4_2">Policy for Supported Play Modes</h4>
+<p>All modes supported by the core content (all or one of TV mode, tabletop mode, and handheld mode).</p>
+<h2 id="Anchor_114732670_h2_2">Example 2: If there are minigames in addition to the core content</h2>
+<h4 id="Anchor_114732670_h4_3">Application Overview</h4>
+<p>Application with content including a story mode, minigame 1, and minigame 2. The story mode is the largest-scale content in this application. Minigame 1 and minigame 2 are small-scale content that do not affect the progression of the story mode.</p>
+<p>For example, a game similar to the Legend of Zelda series. Small dungeons and similar items that do not directly affect completing the game itself may also be considered the same type of case as minigame 1 and minigame 2.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732670_figure002"></a>Figure 7-2  If there are minigames in addition to the core content</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732670/180067927.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_114732670_h5_2">Definition of Core Content</h5>
+<p>The largest-scale content is the story mode, so it is natural to define this as the core content. However, it is also possible to define all of the content, including minigames, as the core content. Determine the core content based on the specifications of your application.</p>
+<h4 id="Anchor_114732670_h4_4">Policy for Supported Play Modes</h4>
+<p>The story mode is the core content for this application, so the play mode supported by the application will be the play mode used for story mode.</p>
+<ul>
+  <li>Story mode<br />&rarr;TV mode, handheld mode, tabletop mode</li>
+  <li>Minigame 1<br />&rarr;handheld mode, tabletop mode</li>
+  <li>Minigame 2<br />&rarr;TV mode, tabletop mode</li>
+</ul>
+<p>In this case, TV mode, handheld mode, and tabletop mode are all supported play modes. However, Minigame 1 and Minigame 2 can only be played in some of these play modes. So we recommend including in the supported play modes field the description that &quot;some content cannot be played&quot; in handheld mode and TV mode, and explaining the compatible play modes at the beginning of the minigames.</p>
+<p>If all content, including minigames, is to be included in the core content, the only supported play mode is tabletop mode. This is because it can be used for story mode, Minigame 1, and Minigame 2. What content is designated as the core content depends on the developer, but please take into consideration the users' recognition of &quot;core content&quot; to avoid any misunderstandings.</p>
+<h2 id="Anchor_114732670_h2_3">Example 3: An Application With Different Types of Core Content, for Which the Supported Play Modes Are Also Different</h2>
+<h4 id="Anchor_114732670_h4_5">Application Overview</h4>
+<p>This is the case where a single application contains multiple game modes that are each compatible with different play modes. Both game modes are considered equal, and both types can be considered core content.</p>
+<p>For example, a game like the Mario Kart series. Game Mode A is equivalent to single player mode and Game Mode B is equivalent to multiplayer mode.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732670_figure003"></a>Figure 7-3  An Application With Different Types of Core Content, For Which the Supported Play Modes Are Also Different</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732670/180067928.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_114732670_h5_3">Definition of Core Content</h5>
+<p>If both game modes are considered equal and you want players to both play the most, they can both be considered core content.</p>
+<h4 id="Anchor_114732670_h4_6">Policy for Supported Play Modes</h4>
+<p>Both Game Mode A and Game Mode B are considered core content for this application, so enter the supported play mode for both modes into the play mode field.</p>
+<ul>
+  <li>Game Mode A<br />&rarr;TV mode, handheld mode</li>
+  <li>Game Mode B<br />&rarr;TV mode, tabletop mode</li>
+</ul>
+<p>If the play modes for Game Modes A and B are as described previously, the supported play modes for this application are TV mode, tabletop mode, and handheld mode. However, all of the play modes are not used in each game mode, so to clarify this to the user we recommend adding further description in the supported play modes field such as &quot;Note: Only supported in Game Mode A&quot; for handheld mode and &quot;Note: Only supported in Game Mode B&quot; for tabletop mode. (TV mode is supported in both Game Mode A and Game Mode B, so it does not require additional description.)</p>
+<h2 id="Anchor_114732670_h2_4">Example 4: An application that progresses by clearing multiple minigames</h2>
+<h4 id="Anchor_114732670_h4_7">Application Overview</h4>
+<p>This application contains multiple minigames. When the user completes a minigame, the next minigame appears and the game's overall progression is based on clearing these minigames in order.</p>
+<p>For example, games similar to the Made In Wario series.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732670_figure004"></a>Figure 7-4  An application that has progress by clearing multiple minigames</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732670/180067929.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_114732670_h5_4">Definition of Core Content</h5>
+<p>Because the game will not progress without completing each of the minigames, they are together considered to be a single continuous story, and, as a result, are a single unit of core content.</p>
+<h4 id="Anchor_114732670_h4_8">Policy for Supported Play Modes</h4>
+<ul>
+  <li>Various minigames<br />&rarr; The play modes differ for each minigame</li>
+</ul>
+<p>Because the overall progression of the application is stalled if the user does not complete the minigames along the way, the supported play mode is the one common to all of the minigames. Based on the characteristics of minigames as described previously, it is likely that the play modes compatible for each minigame are different. In this case, if a common play mode cannot be specified for all of the minigames, we recommend performing the following to avoid stalling progression in the application.</p>
+<ul>
+  <li>Set alternative methods of operation (for example using cursor controls in place of touch panel controls)</li>
+  <li>Set options to avoid (for example operations that do not appear in a certain play mode)</li>
+</ul>
+<h2 id="Anchor_114732670_h2_5">Example 5: An application that contains multiple independent minigame contents</h2>
+<h4 id="Anchor_114732670_h4_9">Application Overview</h4>
+<p>This is the state where there are multiple minigames, and each of these minigames is independent from the other minigames from the beginning. Completing a specific minigame does not affect the other minigames.</p>
+<p>For example, a game such as Wii Sports.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732670_figure005"></a>Figure 7-5  An application with multiple minigame contents that exist independently of one another</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732670/180067925.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_114732670_h5_5">Definition of Core Content</h5>
+<p>Each of the minigames exists independently and it is not possible to define any specific minigame as the core content.</p>
+<h4 id="Anchor_114732670_h4_10">Policy for Supported Play Modes</h4>
+<ul>
+  <li>Various minigames<br />&rarr; The play modes differ for each minigame</li>
+</ul>
+<p>It is not possible to specify the core content for applications that consist of a collection of minigames. In addition, if the play modes for each minigame differ due to the characteristics of the minigames, we recommend describing all of the supported play modes in the play modes field and adding &quot;Note: The play mode differs depending on the content&quot;, and then describing in the application itself which minigames use which play modes.</p>
+<p>However, you can provide users with incorrect expectations if you include play modes in the play mode field that are only used in a small number of minigames. It is difficult to predict at what point play modes go against user expectations if they are not supported by certain minigames, as that depends on each application. We recommend determining a threshold, such as making a decision of only considering play modes that are supported by over 60 percent of the minigames as supported play modes.<br /></p>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

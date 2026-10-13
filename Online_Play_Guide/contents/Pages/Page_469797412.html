@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.7.4 Notes When Supporting the Friends Features | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.7.4 Notes When Supporting the Friends Features -->
+<div class="pagetitle" id="PageId_469797412">3.7.4 Notes When Supporting the Friends Features</div>
+<div class="text_separate">
+<h2 id="Anchor_469797412_h2_1">
+  <a name="Anchor_469797412_title062"></a>Applying Presence Privacy Settings in Friend Matching</h2>
+<p>In general, we recommend matchmaking after getting the list of online friends from the <code>friends</code> library and passing that list to NEX or an independent server. In this way, the user is only matched with friends who have made their presence public.</p>
+<p>There is also no need to support cases such as those where users are matched with friends by chance when playing in random matchmaking or another mode. </p>
+<h2 id="Anchor_469797412_h2_2">Using External Service Profiles Is Prohibited</h2>
+<p>It is prohibited for Switch applications to use external service profiles that do not belong to the user. (Profiles that are not in the application or on the Nintendo Switch are external.)</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>For example, applications cannot use Facebook profiles, Nintendo Network ID profiles, or Nintendo Account profiles other than the users' own profiles.</p>
+  </div>
+</div>
+<h2 id="Anchor_469797412_h2_3">
+  <a name="Anchor_469797412_title063"></a>Showing Personalized Profiles of Friends and Network Service Account Nicknames Together</h2>
+<p>This information is important for applications that store personalized profiles (such as in games where the user can freely name the main character). When displaying a friend's profile, make sure that you show a personalized profile and the Switch network service account nickname together in at least one place.</p>
+<p>The reason to show how they correspond at least one time is that users recognize their friends by their Switch network service account nicknames, and it might be difficult for a user to know which personalized profile corresponds to which Switch network service account nickname if only the personalized profiles are shown. You do not need to always show them together on every screen.</p>
+<p>If you find this result difficult to achieve using the application's UI, you can call the friend details screen of the My Page applet without any issues.</p>
+<h2 id="Anchor_469797412_h2_4">
+  <a name="Anchor_469797412_title060"></a>Policy for Using Best Friends</h2>
+<p>Best friends are those friends a user would prefer to see displayed. We recommend that your application display these friends preferentially. The My Page applet is designed to mark best friends with a special icon and show them first in the friend list.</p>
+<p>However, other than this kind of preferential display, refrain from instituting other ways of differentiating between best friends and other friends. If you design your application for play with best friends only, users are prompted to set players as best friends even when they do not want them displayed preferentially, which is contrary to the purpose of best friends. That being said, you can attach unique attributes to friends in the application to allow them to be distinguished.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>You can design a specification that targets only best friends, but also prepare a specification that targets all friends, and design your application so users can use both specifications.</p>
+    <p>For example, if you prepare a mode for matchmaking only between best friends, also prepare a mode for matchmaking between all friends that can be played the same way.</p>
+  </div>
+</div>
+<h2 id="Anchor_469797412_h2_5">
+  <a name="Anchor_469797412_title061"></a>Adding to Player History</h2>
+<p>The registration of information to Player History is typically done by the application using the <code>friends</code> library. If you are using the Pia5 version of the Pia library (a library provided by Nintendo), there is a flag for automatically registering session participants to Player History.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>If you are using Pia6 or later, the application must explicitly call the <code>nn::friends::AddPlayHistory()</code> function of the <code>friends</code> library.</p>
+  </div>
+</div>
+<p>Note that you do not need to add players to Player History if your application has its own mechanism for defining friends and is not using the Friends feature that is provided as a system feature.</p>
+<h2 id="Anchor_469797412_h2_6">Note About Registering to Player History</h2>
+<p>Only register players to Player History when the gameplay allows users to recognize the people they are communicating with as people they have played with before. <br />For example, in the following situations, it might be difficult for the user to recognize that the person they are communicating with is a person in the Player History.</p>
+<ul>
+  <li>Viewing online play sessions as an observer</li>
+  <li>Measuring connection speed before the game begins</li>
+  <li>Only briefly encountering the other party in a map, such as in an MMORPG</li>
+</ul>
+<h2 id="Anchor_469797412_h2_7">Specification Overlap With the Overlay Notification System Feature</h2>
+<p>There is a Nintendo Switch system feature to display the following overlay notifications for friends while an application is running.<br />Be careful when implementing similar notifications independently in the application because the specification may overlap.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Notification Content</th>
+      <th>Notification Timing</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Number of friends online: XXX users</p>
+      </td>
+      <td>The first time the user logs in after starting the system or waking it from sleep mode.</td>
+    </tr>
+    <tr>
+      <td>Number of friend requests received: XXX users</td>
+      <td>The first time the user logs in after starting the system or waking it from sleep mode.</td>
+    </tr>
+    <tr>
+      <td>Friend XX is online (support period TBD)</td>
+      <td>Each time a friend comes online.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Note that users have the option of disabling the display of these overlay notifications. For more information about overlay notifications, see the Nintendo Switch System Features Guide.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

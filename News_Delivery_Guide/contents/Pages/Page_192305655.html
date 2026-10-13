@@ -1,0 +1,790 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6 BCAT Management Tool: Setting Items and Setting Rules | Nintendo Switch News Delivery Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6 BCAT Management Tool: Setting Items and Setting Rules -->
+<div class="pagetitle" id="PageId_192305655">6 BCAT Management Tool: Setting Items and Setting Rules</div>
+<div class="text_separate">
+<p>This section describes the settings and the setting rules for the BCAT Management Tool.</p>
+<div class="selectable_regular">
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>When the BCAT server is undergoing maintenance or having problems, you might not be able to access the BCAT Management Tool.</p>
+      <p>For maintenance information, see <strong>Network Status</strong> on the Nintendo Developer Portal.</p>
+    </div>
+  </div>
+</div>
+<!--Remove-->
+<h1 id="Anchor_192305655_h1_1">News Setting Options</h1>
+<p>These settings are not directly displayed on the Nintendo Switch system.</p>
+<table class="wrapped relative-table" style="width: 98.2576%;">
+  <colgroup> <col style="width: 3.4643%;" /> <col style="width: 3.29531%;" /> <col style="width: 7.35108%;" /> <col style="width: 22.3912%;" /> <col style="width: 63.2869%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>Required</th>
+      <th>
+        <p>Delivery Region</p>
+        <p>Specific Rules</p>
+      </th>
+      <th>Item</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>○<p><br /></p></td>
+      <td>○</td>
+      <td>Overview</td>
+      <td>
+        <p>Enter an overview of the News item.</p>
+        <p>It does not appear to the user.</p>
+        <p>You can enter up to 100 characters.</p>
+        <p>[Japan-Specific] Enter the software title and the name of the responsible editor. Example: Nintendo eShop Availability_Taro Ninten</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Remarks</td>
+      <td>
+        <p>Enter remarks as needed.</p>
+        <p>It does not appear to the user.</p>
+        <p>You can enter up to 400 characters.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>Application ID for a Related Title</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>Facilitates the display of News in the Entrance of the Switch system for users who are playing the specified application.</p>
+          <p>
+            <br />
+          </p>
+          <!--Remove-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>Country Group</td>
+      <td>
+        <div class="content-wrapper">
+          <p>First specify the delivery region for the News.</p>
+          <p>Then specify the delivery countries (delivery target countries) for the News.</p>
+          <p>To exclude a particular country, clear the check box for that country.</p>
+          <p>The language of the News item to be created is determined by the specified countries.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>Country groups (groups that classify the delivery target countries) are created automatically by the system.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>Screenshot Restrictions</td>
+      <td>
+        <p>Specify whether to enable captures of the News screen.</p>
+        <p>Specify <strong>Enable captures</strong> as long as there is no special reason not to.</p>
+        <p>Only prohibit captures when you do not want to allow captures of News.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>Overlap Display of News Titles in List Image</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify whether to superimpose the title (described later) over the list image (described later) in the Switch Entrance and News List screens.</p>
+          <p>When <strong>Show</strong> is selected, a black band is inserted at the bottom of the list image. The News titles are displayed in this black band.</p>
+          <p>When <strong>Hide</strong> is selected, the News title is hidden when displaying the list image.</p>
+          <p>Unless you have reason to do otherwise, specify <strong>Show</strong> so users can grasp what the News item is about.</p>
+          <p>
+            <strong>Hide</strong> can only be set if the News title overlaps with text in the list image.</p>
+          <p>
+            <br />
+          </p>
+          <!--Remove-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>Delivery Start Date and Time</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify the date and time to start delivery of the News item from the BCAT server (BCAT Management Tool).</p>
+          <p>News items that have completed the pre-delivery review and the Nintendo review are automatically delivered after this date and time.</p>
+          <p>For more information about how the review works, see the BCAT Management Tool Operations Manual.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>There is a lag of approximately 10 minutes between the start of delivery and the time when the News can actually be displayed on the Switch system.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>Delivery End Date and Time</p>
+      </td>
+      <td>
+        <p>Specify the date and time to end delivery of the News item from the BCAT server (BCAT Management Tool).</p>
+        <p>The News will no longer be delivered from the server after this date and time.</p>
+        <p>
+          <strong>Switch devices that have already received the News are not affected by the arrival of this date and time.</strong> If necessary, specify a value for <strong>Delivered News Display Term</strong> (described later).</p>
+        <p>The default end date is 30 days after the start of delivery.</p>
+        <p>Change this value if you want any span other than 30 days.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Delivered News Display Term</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Set a date and time to stop displaying the News item on the user's Switch system.</p>
+          <p>Specify a News display term when you must restrict the display period for reasons such as copyright.</p>
+          <p>If no value is specified, the News can continue to be displayed as long as the user has saved the News to the Switch system.</p>
+          <p>To delete (hide) a News item that was delivered by mistake, change this value to a past date and time and redeliver the News item.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>A News item cannot be overwritten after its <strong>Delivered News Display Term</strong> has elapsed.</p>
+              <p>This means <strong>you cannot change the display term to a date in the past to temporarily hide a News item that was delivered by mistake and then redeliver a corrected version of the News item to show it again</strong>. In these kinds of situations, create a new News item.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>Alternate Language</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify the language in which to download the News items when the News items are not available in a language expected by the Switch system.</p>
+          <p>The defaults are as follows.</p>
+          <ul>
+            <li>[Japan-Specific] Japanese</li>
+            <li>[Americas-Specific] US English</li>
+            <li>[Europe- and Australia-Specific] UK English</li>
+            <li>[Korea-Specific] Korean</li>
+            <li>[Hong Kong-Specific] Traditional Chinese</li>
+            <li>[China Specific] Simplified Chinese</li>
+          </ul>
+          <p>Do not change this default value without a good reason. If you cannot avoid changing it, specify just one of the other language choices.</p>
+          <p>For more information about alternate languages, see <a href="../Pages/Page_192305616.html">2 News</a>.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>The Switch system only downloads News items from the server that match both the country of the Nintendo Account (associated with the user account) and the system language settings.</p>
+              <p>If the News item written in the language set in the system language settings does not exist on the BACT server, the News will not be downloaded even if the country of the Nintendo Account matches.</p>
+              <p>However, if an alternate language is specified for News items, News items written in this alternate language will be downloaded in place of the language that matches the system language settings.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Related Products</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify this option if you are introducing products related to the News to users.</p>
+          <p>You can specify the following kinds of products.</p>
+          <ul>
+            <li>Software (applications related to the channel)</li>
+            <li>Downloadable content</li>
+            <li>Merchandise bundles <br class="_mce_tagged_br" /></li>
+          </ul>
+          <p>The following products cannot be specified.</p>
+          <ul>
+            <li>Demo versions of applications</li>
+            <li>Service Items</li>
+          </ul>
+          <!--Remove-->
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Also see Considerations When Introducing Nintendo eShop Products on this page.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove-->
+<h1 id="Anchor_192305655_h1_2">News Structure Elements</h1>
+<p>This section describes settings that are directly displayed on the Nintendo Switch system.</p>
+<p>For more information about where these items are displayed, see the <a href="../Pages/Page_192305634.html">3 UI Reference</a>.</p>
+<table class="wrapped relative-table" style="width: 92.4482%;">
+  <colgroup> <col style="width: 4.61741%;" /> <col style="width: 4.08971%;" /> <col style="width: 7.12401%;" /> <col style="width: 10.2902%;" /> <col style="width: 73.8786%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>Required</th>
+      <th>
+        <p style="text-align: center;">Delivery Region</p>
+        <p style="text-align: center;">Specific Rules</p>
+      </th>
+      <th>Item</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>
+        <p>○</p>
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>List Image</td>
+      <td>
+        <p>Upload and specify the image to display in the Switch Entrance and News List.</p>
+        <p>For more information about layouts and formats, see <a href="../Pages/Page_202567888.html">5.2 Creating News</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>Title</td>
+      <td>
+        <p>The News item title.</p>
+        <p>You can enter up to 140 characters.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>Video URL</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>This sets a main video that will be displayed in a large size at the top of the News item.</p>
+          <p>Specify the URL of a video uploaded as an eShop Video in NCMS.</p>
+          <p>Videos must be approved by Nintendo in NCMS, and have statuses set to <strong>Process Completed</strong>.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Pay attention to the <strong>Delivery End Date and Time</strong> for the video, which can be set in NCMS. After the delivery end date and time has passed for a video, it can no longer be played from the News item.</p>
+              <p>If you plan to post a video to a News item that has been set with a delivery end date and time in NCMS, we recommend that you set the value of <strong>Delivered News Display Term</strong> for the News item so it occurs before this configured delivery end date and time.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Main Image</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Upload and specify the image to display in the body of the News.</p>
+          <p>For more information about layouts and formats, see <a href="../Pages/Page_202567888.html">5.2 Creating News</a>.</p>
+          <p>If a video URL has been specified, <strong>the main image will be used as a thumbnail for the video</strong>. If you specify a main video but do not specify a main image, the image registered in NCMS is used as the thumbnail.</p>
+          <p>
+            <br />
+          </p>
+          <p>You can specify up to two video URLs (and their thumbnails) or main images.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>You must specify at least one video URL (and its thumbnail) or one main image. Contact Nintendo support if you cannot meet this requirement.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Body</td>
+      <td>
+        <div class="content-wrapper">
+          <p>You can enter up to 5,000 characters.</p>
+          <p>
+            <br />
+          </p>
+          <p>You can use the following tags in the body.</p>
+          <ul>
+            <li>Text contained inside <code>&lt;header&gt;&lt;/header&gt;</code> tags is displayed as a header. You can use these tags up to 10 times per body.</li>
+            <li>Text contained inside <code>&lt;strong&gt;&lt;/strong&gt;</code> tags is emphasized. There is no limit to how many times these tags can be used.</li>
+            <li>Text contained inside <code>&lt;ita&gt;&lt;/ita&gt;</code> tags is italicized. There is no limit to how many times these tags can be used.</li>
+          </ul>
+          <p>The tags are counted in the character count. No other tags can be used.</p>
+          <!--Remove-->
+          <div class="selectable_regular">
+            <div class="note_new">
+              <div class="note_new_left">Note</div>
+              <div class="note_new_right">
+                <ul>
+                  <li>Tags cannot be used on text outside of the body such as in titles or footers.</li>
+                  <li>Up to two lines can be displayed as a header for text with the <code>&lt;header&gt;&lt;/header&gt;</code> tags. (The third and subsequent lines are discarded.)</li>
+                  <li>Make sure that you perform test delivery before actual delivery and verify that it is displayed as intended. For more information about test delivery, see <a href="../Pages/Page_245260296.html">5.3 Confirming Before Actual Delivery</a>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Link Button Type</td>
+      <td>
+        <div class="content-wrapper">
+          <p>A link is placed below the body text.</p>
+          <p>For more information, see Link Button Settings on this page.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Also see Considerations When Introducing Nintendo eShop Products on this page.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>7</p>
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>○</td>
+      <td>
+        <p>Link Button Text</p>
+      </td>
+      <td>
+        <p>A maximum of 64 characters can be used for the text of the link button.</p>
+        <p>
+          <br />
+        </p>
+        <p>[Japan-Specific] Enter text as described in Link Button Text Formats on this page.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Related Videos</td>
+      <td>
+        <div class="content-wrapper">
+          <p>These videos are displayed in a smaller size at the bottom of the News item.</p>
+          <p>As with the URL for the main video, specify the URLs of videos uploaded to NCMS. Alternatively, use <strong>Select Title to reference Videos from</strong> to search for a video, and specify it.</p>
+          <p>A maximum of nine URLs may be specified.</p>
+          <p>The images registered in NCMS are specified automatically as the thumbnails for the videos. You cannot specify another image using the BCAT Management Tool.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Pay attention to the release start date for the video, which can be set in NCMS. For more information, see <a href="../Pages/Page_230133073.html">4 Notes About Creating News</a> &gt; Setting the Delivery Period and Display Period for News Containing Video Clips.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <br />
+      </td>
+      <td>○</td>
+      <td>
+        <p>Names of Related Videos</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>If related videos have been set, you can enter a name up to 64 characters for each video.</p>
+          <p>Specify one of the following.</p>
+          <ul>
+            <li>Set a name for all of the videos</li>
+            <li>Do not set a name for any of the videos<ul><li>In this case, the area used for showing the name displays a thumbnail instead.</li></ul></li>
+          </ul>
+          <p>[Japan-Specific] If you have set a related video, make sure that you enter a name for it.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>
+        <br />
+      </td>
+      <td>○</td>
+      <td>
+        <p>Footer Text</p>
+      </td>
+      <td>
+        <p>You can enter up to 2,300 characters.</p>
+        <p>The footer is shown below the body text in a smaller and lighter font.</p>
+        <p>Use characters to enter the copyright and registered trademark symbols (&copy; and &reg;). Character entity references such as &lsquo;&amp;copy;&rsquo; cannot be used.</p>
+        <p>We recommend using footers for copyright information, notes of low importance, and comments about News.<br />Consider placing notes about product information in Nintendo eShop so the footers are not too long.</p>
+        <p>
+          <br />
+        </p>
+        <p>[Japan-Specific] We recommend using the footer for copyright information, editor signatures, and notes.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Description of Delivery Region in Footer Text</td>
+      <td>
+        <p>Specify whether to append the following statement at the beginning of the footer: &quot;This News is created for our Nintendo Account holders in the XXX.&quot;</p>
+        <p>Specify <strong>Include</strong> unless there is some reason to do otherwise.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>○</td>
+      <td>
+        <br />
+      </td>
+      <td>Rating System</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The ratings organization is specified in advance according to the language being used for the News.</p>
+          <p>If you must describe a ratings organization that cannot be selected using the BCAT Management Tool, we recommend entering this information as text in the footer.</p>
+          <p>
+            <br />
+          </p>
+          <p>Select <strong>No Rating</strong> only if the application is not subject to rating (for example, the application involves no gameplay and its purpose is to provide functionality).</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>If the application has not received a rating, select <strong>Rating Pending</strong> as the rating value. <strong>Do not select No Rating in this case</strong>.</p>
+              <p>For example, if you plan to get a CERO rating for the application, first select <strong>CERO</strong> as the rating system value. Next, select <strong>Rating Pending</strong> as the rating value.</p>
+            </div>
+          </div>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>You can copy content such as rating values across languages depending on the specified rating system.</p>
+              <p>Values are not synced when edited after copying, so copy again as required.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>○</td>
+      <td>○</td>
+      <td>Rating</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify the rating for the application.</p>
+          <p>
+            <br />
+          </p>
+          <!--Remove-->
+          <p>
+            <br />
+          </p>
+          <p>[Europe- and Australia-Specific] If the News includes a video, always display the rating either in the video or in the News.</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove-->
+<h1 id="Anchor_192305655_h1_3">Link Button Settings</h1>
+<h2 id="Anchor_192305655_h2_1">Link Button Type</h2>
+<p>You can specify any one of the following links for each News item.</p>
+<h3 id="Anchor_192305655_h3_1">Go to Nintendo eShop</h3>
+<p>After selecting <strong>SHOP</strong> as the link button type, specify the type of page the link leads to.</p>
+<ul>
+  <li>Software Details</li>
+  <li>DLC Details</li>
+  <li>Software DLC List</li>
+  <li>Bundle Details</li>
+  <li>Selected Products List</li>
+  <li>Service Tickets List</li>
+  <li>Consumable Items List</li>
+  <li>Nintendo Switch Online Page</li>
+</ul>
+<p>If you have selected a link to the Selected Products List page, specify a <strong>List Name</strong> and <strong>Products to Show (Up to 50)</strong>.</p>
+<p>If you have selected a link to the Nintendo Switch Online page, specify the link button text (described later).</p>
+<p>If any other type of page is selected, specify only one product. After that, specify the link button text.</p>
+<p>
+  <br />
+</p>
+<!--Remove-->
+<h3 id="Anchor_192305655_h3_2">Starting a Specific Application</h3>
+<p>After selecting <strong>GAME</strong> as the link button type, select the application to start.</p>
+<!--Remove-->
+<p>If you want to change the behavior of the application when it is started from News, upload a launch parameter binary file (maximum 16 KB).</p>
+<p>You can use the launch parameters to do things like give an item related to the News as a present to the user.</p>
+<p>Use the <code>nn::oe::TryPopLaunchParameter()</code> function to get the parameters. For more information, see the <code>oe</code> library page in NintendoSDK Documents.</p>
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <div class="expand-container" id="expander-192305655-1">
+      <div class="expand-control" id="expander-control-192305655-1">
+        <span class="expand-control-icon collapsed-icon"> </span>
+        <span class="expand-control-text">If the application cannot be started, instructions are provided based on the situation.</span>
+      </div>
+      <div class="expand-content expand-hidden" id="expander-content-192305655-1">
+        <ul>
+          <li class="_mce_tagged_br">If the corresponding application has never been started on that Switch console, the user is prompted to go to the Nintendo eShop page for purchasing the software.</li>
+          <li>If another application is suspended, the user is prompted to exit that application.</li>
+          <li>If the application is suspended and a launch parameter has been configured, the user is asked if they want to restart the application.<ul><li>If a launch parameter has not been configured, the application resumes at the point where it was suspended.</li></ul></li>
+          <li>If the game card with the pertinent application is not inserted, the user is prompted to insert the game card.<br /><ul><li>This prompt only occurs if the game card with the application has ever been inserted into that Switch console.</li></ul></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>Setting a link to start an application that has not yet been released is prohibited.<br />Because the application has not yet been installed on any Switch systems, clicking the link would unconditionally start Nintendo eShop, which is inconsiderate to users.</li>
+      <li>You cannot test the flow to start an application from the News delivered to development hardware because News cannot be delivered in the development environment (dd1 environment).<br />To emulate the flow, use DevMenu (NintendoSDK System Updater for NX 4.1.0-1.0 or later).</li>
+    </ul>
+    <!--Remove-->
+  </div>
+</div>
+<!--Remove-->
+<h2 id="Anchor_192305655_h2_2">[Japan-Specific] Link Button Text Formats</h2>
+<p>Refer to the following examples when entering text and adjust the text as necessary.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Link Button Type</th>
+      <th>Link Destination</th>
+      <th>Default Text</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td rowspan="9">SHOP<p><br /></p></td>
+      <td>Software Details</td>
+      <td>Visit (<em>software name</em>) in Nintendo eShop</td>
+      <td>Visit 1-2-Switch in Nintendo eShop</td>
+    </tr>
+    <tr>
+      <td>
+        <p>DLC Details</p>
+      </td>
+      <td>
+        <p>Visit <em>(DLC name)</em> in Nintendo eShop</p>
+      </td>
+      <td>
+        <p>Visit <em>Snipperclips - Cut it out, together! DLC</em> in Nintendo eShop</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Software DLC List</td>
+      <td>
+        <p>View list of downloadable content</p>
+      </td>
+      <td>
+        <p>View list of downloadable content</p>
+        <p>View list of 1-2-Switch downloadable content</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Bundle Details</td>
+      <td>Visit <em>name of bundle</em> in Nintendo eShop</td>
+      <td>Visit <em>The Legend of Zelda: Breath of the Wild Expansion Pass</em> in Nintendo eShop</td>
+    </tr>
+    <tr>
+      <td>Selected Products List</td>
+      <td>None</td>
+      <td>Visit the list of games and DLC for those games</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Service Tickets List</p>
+      </td>
+      <td>None</td>
+      <td>Visit <em>KARAOKE JOYSOUND for Nintendo Switch pass</em> in Nintendo eShop</td>
+    </tr>
+    <tr>
+      <td>Consumable Items List</td>
+      <td>None</td>
+      <td>Visit <em>Special Coins</em> in Nintendo eShop</td>
+    </tr>
+    <tr>
+      <td>Search</td>
+      <td>None</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Nintendo Switch Online Page</td>
+      <td>Visit Nintendo Switch Online page on Nintendo eShop</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">GAME</td>
+      <td>Start game (without launch parameter)</td>
+      <td>None</td>
+      <td>Start 1-2-Switch</td>
+    </tr>
+    <tr>
+      <td>Start game (with launch parameter)</td>
+      <td>None</td>
+      <td>Play Samurai Training in 1-2-Switch</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The following operations are prohibited.</p>
+    <ul>
+      <li>Including unnecessary text</li>
+      <li>Changing the tone of the text</li>
+    </ul>
+  </div>
+</div>
+<!--Remove-->
+<!--Remove-->
+<!--Remove-->
+<h1 id="Anchor_192305655_h1_4">Considerations When Introducing Nintendo eShop Products</h1>
+<p>When introducing a Nintendo eShop product, pay attention to its release period, which can be set in NCMS.</p>
+<p>For more information, see the BCAT Management Tool Operations Manual &gt; Related Products (<a href="https://developer.nintendo.com/html/online-docs/nx-ja/g1kr9vj6-ja/document.html?doc=Packages/Docs/Manuals/BCAT_Management_Tool_Usage_Manual/contents/Pages/Page_206994360.html" target="_blank" rel="noopener noreferrer">Japanese Version</a>, <a href="https://developer.nintendo.com/html/online-docs/nx-en/g1kr9vj6-en/document.html?doc=Packages/Docs/Manuals/BCAT_Management_Tool_Usage_Manual/contents/Pages/Page_206994360.html" target="_blank" rel="noopener noreferrer">English Version</a>).</p>
+<p>
+  <br />
+</p>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

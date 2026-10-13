@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 News Delivery | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 News Delivery -->
+<div class="pagetitle" id="PageId_203432527">3 News Delivery</div>
+<div class="text_separate">
+<h1 id="Anchor_203432527_h1_1">News Delivery</h1>
+<p>This section describes how to create and deliver News.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If you complete the procedure described later in Creating News Items in the production environment (the lp1 server environment), News is delivered to all target Switch systems in that production environment.<br />We strongly recommend that you take the following steps to ensure that News is not delivered with erroneous content or at the wrong time.</p>
+    <ol>
+      <li>Create the News in the production environment.</li>
+      <li>Test deliver the News in the production environment and check the content of the News using the production hardware.</li>
+      <li>Deliver the News in the production environment.</li>
+    </ol>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You cannot create and deliver News or conduct test delivery in the development environment (dd1 server environment).</p>
+  </div>
+</div>
+<h1 id="Anchor_203432527_h1_2">Delivering News</h1>
+<h2 id="Anchor_203432527_h2_1">Step 1: Selecting the Channel</h2>
+<ol>
+  <li>From the BCAT Management Tool menu, select <strong>News Delivery</strong>. The list of channels is displayed.</li>
+  <li>Select the channel for operations.</li>
+</ol>
+<h2 id="Anchor_203432527_h2_2">Step 2: Creating Directories</h2>
+<ol>
+  <li>Select the channel for operations. The list of directories is displayed.</li>
+  <li>If no directories exist, select <strong>Create New Directory</strong> to create a directory.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The directory name does not affect News delivery results. Create multiple directories for each News type to manage the News items as needed.</p>
+  </div>
+</div>
+<h2 id="Anchor_203432527_h2_3">Step 3: Creating News Items</h2>
+<ol>
+  <li>Select the directory.</li>
+  <li>Select <strong>Create New</strong> to begin creating a News item.</li>
+  <li>Specify the content for the item, <strong>using the following references</strong>.<br /><ul><li>Nintendo Switch News Delivery Guide &gt; News Delivery Flow <span style="color: rgb(55,55,55);">&gt;</span> <strong><span style="color: rgb(55,55,55);">Creating News</span></strong><span style="color: rgb(55,55,55);"> (</span><a href="https://developer.nintendo.com/html/online-docs/nx-ja/g1kr9vj6-ja/Packages/Docs/Guides/News_Delivery_Guide/contents/Pages/Page_202567888.html" target="_blank" rel="noopener noreferrer"><span style="color: rgb(55,55,55);">Japanese</span></a><span style="color: rgb(55,55,55);">, </span><a href="https://developer.nintendo.com/html/online-docs/nx-en/g1kr9vj6-en/Packages/Docs/Guides/news-delivery-guide/contents/Pages/Page_202567888.html" target="_blank" rel="noopener noreferrer"><span style="color: rgb(55,55,55);">English</span></a><span style="color: rgb(55,55,55);">)</span> </li><li>Nintendo Switch News Delivery Guide &gt; BCAT Management Tool: Setting Items and Setting Rules (<a href="https://developer.nintendo.com/html/online-docs/nx-ja/g1kr9vj6-ja/document.html?doc=Packages/Docs/Guides/News_Delivery_Guide/contents/Pages/Page_192305655.html" target="_blank" rel="noopener noreferrer">Japanese</a>, <a href="https://developer.nintendo.com/html/online-docs/nx-en/g1kr9vj6-en/document.html?doc=Packages/Docs/Guides/news-delivery-guide/contents/Pages/Page_192305655.html" target="_blank" rel="noopener noreferrer">English</a>)  <br /></li></ul></li>
+  <li>Click the <strong>Add</strong> button to finish creating the News item.</li>
+</ol>
+<p>
+  <br />
+</p>
+<p> <strong>News Entry Form</strong> <br /> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_203432527/260319486.png" width="64" class="embedded-image" /></span> </p>
+<h3 id="Anchor_203432527_h3_1">Information to Enter for Each News Item</h3>
+<p>Some information for News items only needs to be entered one time for each News item.</p>
+<p>You must pay particular attention to the following items.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Setting</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Delivery Start Date and Time</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify the date and time to start delivery of the News item from the BCAT server.</p>
+          <p>News items that have completed the pre-delivery review in addition to either the Nintendo review or the Tencent review are automatically delivered after this date and time.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>
+                <span style="color: rgb(55,55,55);">There is a lag of approximately 10 minutes between the start of delivery and the time when the News can actually be displayed on the Switch system.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Delivery End Date and Time</p>
+      </td>
+      <td>
+        <p>Specify date and time to end delivery of the News from the BCAT server.</p>
+        <p>The News will no longer be delivered from the server after this date and time.</p>
+        <p>
+          <span style="color: rgb(55,55,55);">
+            <strong>Switch devices that have already received the News are not affected when this date and time arrives.</strong>
+          </span> <span style="color: rgb(55,55,55);">If necessary, specify a value for <strong>Delivered News Display Term</strong> (described later).</span></p>
+        <p>The default end date is 30 days after the start of delivery.</p>
+        <p>Manually change this value if you want to end delivery any time other than 30 days after the start.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Delivered News Display Term</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Set a date and time to stop displaying the News item on the user's Switch system.</p>
+          <p>Specify a News display term when you must restrict the display period for reasons such as copyright.</p>
+          <p>If no value is specified, the News can continue to be displayed as long as the user has saved the News to the Switch system.</p>
+          <p>To delete (hide) a News item that was delivered by mistake, change this value to a past date and time and redeliver the News item.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>News that has passed the <strong>Display Expiration of the Delivered News</strong> cannot be overwritten.</p>
+              <p>For example, <strong>after you change the display period to a past date to temporarily hide News that was delivered by mistake, you can no longer revise and deliver (display) this News item.</strong> In this case, create a new News item.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Alternate Language</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify an alternate language to download if the <span style="color: rgb(55,55,55);">News item</span> does not have the language that the Nintendo Switch system requires.</p>
+          <p>Do not change this default value without a good reason. If you cannot avoid changing it, specify just one of the other language choices.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>The Switch system only downloads News items from the server that match both the country of the Nintendo Account (associated with the user account) and the system language settings.</p>
+              <p>
+                <span style="color: rgb(55,55,55);">If the News item written in the language set in the system language settings does not exist on the BACT server, the News is not downloaded even if the country of the Nintendo Account matches.</span>
+              </p>
+              <p>However, if an alternate language is specified for News items, News items written in this alternate language are downloaded in place of the language that matches the system language settings.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Related Products</td>
+      <td>
+        <p>For more information, see <a href="../Pages/Page_206994360.html">3.2 Related Products</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_203432527_h3_2">Information to Enter for Each Language</h3>
+<p>Some information for the News item must be entered for each language.</p>
+<p>You must pay particular attention to the following items.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Setting</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Video URL</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>This video is displayed in a large size at the top of the News item.</p>
+          <p>Specify the URL of a video uploaded as an eShop Video in NCMS.</p>
+          <p>Videos must be approved by Nintendo in NCMS, and have statuses set to <strong>Process Completed</strong>.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>After the <strong>Delivery End Date and Time</strong> set in NCMS has passed for a video, it can no longer be played from the News item.</p>
+              <p>If you plan to post a video set with a <strong>Delivery End Date and Time</strong> to a News item, we recommend that you set the value of <strong>Delivered News Display Term</strong> for the News item so it occurs before this <strong>Delivery End Date and Time</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Main Image</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Upload and specify the image to display in the body of the News.</p>
+          <p>For more information about the image format, see the Nintendo Switch News Delivery Guide.</p>
+          <p>If a video URL has been specified, <strong>the main image will be used as a thumbnail for the video</strong>. If you specify a main video but do not specify a main image, the image registered in NCMS is used as the thumbnail.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>You can specify up to two main videos or main images.</p>
+              <p>Main images that are treated as thumbnails for main videos, however, are not considered part of this limit.</p>
+              <p>For example, you can add the following four items at maximum: two main videos and two thumbnail images for each video.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Body</td>
+      <td>
+        <div class="content-wrapper">
+          <p>You can enter up to 5,000 characters.</p>
+          <p>To display a portion of the text in bold on the Switch system, surround that portion with the tags <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
+          <p>The tags are counted in the character count. No other tags can be used.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Link Type</td>
+      <td>
+        <p>For more information, see this <a href="../Pages/Page_216924680.html">3.1 Link</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_203432527_h2_4">Step 4: Verifying News Items</h2>
+<ol>
+  <li>Select <strong>Preview</strong> and verify the emulation results on the Switch system.</li>
+  <li>Select <strong>Edit</strong> and revise information as needed.</li>
+</ol>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The emulation results in the preview have a different appearance from their appearance on the actual Switch system.</p>
+    <p>Make sure that you perform test delivery before actual News delivery and verify the actual appearance of the News item on the Switch system.</p>
+  </div>
+</div>
+<h2 id="Anchor_203432527_h2_5">Step 5: News Delivery Request</h2>
+<ol>
+  <li>Select <strong>Request Pre-Delivery Review</strong>.</li>
+  <li>The News becomes available for delivery after a user in the Reviewer or Manager role approves the review.</li>
+  <li>The News is automatically delivered at the delivery start date and time.</li>
+</ol>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If the News is subject to <a href="../Pages/Page_203561409.html">2.4 Nintendo Review - Tencent Review</a>, it is not delivered until the review is approved by a reviewer at Nintendo.</p>
+  </div>
+</div>
+<h1 id="Anchor_203432527_h1_3">Updating News</h1>
+<p>For more information, see the Nintendo Switch News Delivery Guide &gt; Workflow for News Delivery &gt; Revisions After Delivery (<a href="https://developer.nintendo.com/html/online-docs/nx-ja/g1kr9vj6-ja/Packages/Docs/Guides/News_Delivery_Guide/contents/Pages/Page_245260312.html" target="_blank" rel="noopener noreferrer">Japanese</a>, <a href="https://developer.nintendo.com/html/online-docs/nx-en/g1kr9vj6-en/Packages/Docs/Guides/news-delivery-guide/contents/Pages/Page_245260312.html" target="_blank" rel="noopener noreferrer">English</a>).</p>
+<h1 id="Anchor_203432527_h1_4">Deleting News</h1>
+<h2 id="Anchor_203432527_h2_6">Deleting Undelivered News</h2>
+<p>You can delete undelivered News using the BCAT Management Tool.</p>
+<p>Select the target News in the BCAT Management Tool and follow the instructions on the screen to delete it.</p>
+<h2 id="Anchor_203432527_h2_7">Deleting Delivered News</h2>
+<p>News that has already been delivered cannot be deleted in the BCAT Management Tool.</p>
+<p>To revise News that has already been delivered, deliver the News item again according to the preceding Updating News section.</p>
+<p>To delete delivered News items from the Switch system, revise the date in <span style="color: rgb(55,55,55);">Delivered News Display Term</span> to a past date and deliver the News item again.</p>
+<h1 id="Anchor_203432527_h1_5">If the News Cannot Be Received After the Delivery Start Date and Time Has Arrived</h1>
+<p>If the News cannot be received by the delivery start date and time, try the following procedure.</p>
+<ol>
+  <li>Wait ten minutes after the delivery start date and time.</li>
+  <li>Confirm that the channel has been subscribed to.</li>
+  <li>Close the application.</li>
+  <li>If the Switch system has a wireless connection to the internet, enable airplane mode and wait 15 minutes. After that time has passed, disable airplane mode.</li>
+  <li>Put the Switch system in sleep mode and then wake it up.</li>
+  <li>If the Switch system is not connected to the internet, establish the connection.</li>
+  <li>Wait ten minutes while connected to the internet.</li>
+</ol>
+<p>Similar guidance can be found on the <a href="https://support.nintendo.co.jp/app/answers/detail/a_id/35794" target="_blank" rel="noopener noreferrer">Nintendo website in Japan</a>.</p>
+<p> <br /></p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

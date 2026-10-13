@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 Limitations and Important Information | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 Limitations and Important Information -->
+<div class="pagetitle" id="PageId_522483334">5.3 Limitations and Important Information</div>
+<div class="text_separate">
+<h1 id="Anchor_522483334_h1_1">Limitations on Content and Items</h1>
+<p>The following limitations apply to each application. The distribution infrastructure can be a concern even when these limitations are satisfied, so contact Nintendo in advance if you are planning downloadable content that involves many pieces of content or large downloadable data.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Subject</th>
+      <th>Limitation</th>
+    </tr>
+    <tr>
+      <td>Pieces of content</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <td>Items</td>
+      <td>
+        <p>16,000</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Size of one piece of content</td>
+      <td>
+        <p>10 GB<br />(32 GB if there are no updates after the content is released.)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Size of files that can be submitted at the same time</td>
+      <td>64 GB</td>
+    </tr>
+  </tbody>
+</table>
+<p>In addition, note the following about the size of the content.</p>
+<ul>
+  <li>Users cannot specify and delete individual pieces of downloadable content when they remove the downloadable content for an application using the HOME Menu. Pay special attention to this point if you plan to distribute a large volume of large-sized pieces of downloadable content.</li>
+  <li>Unlike patches, downloadable content does not support partial updates. When there is an update, all of the data must be re-downloaded, so avoid making updates to large pieces of downloadable content. If you are making frequent updates, use a method such as setting a flag in the downloadable content and including the data in a patch.</li>
+</ul>
+<h1 id="Anchor_522483334_h1_2">Timing When DLC Becomes Available</h1>
+<p>Applications can only reference DLC that is available for use at the time the application is started. For this reason, DLC that is downloaded while the application is running only becomes available after the application restarts.<br />However, note that there is an optional feature for enabling DLC even when the application is running. For more information, see NintendoSDK Documents &gt; aoc Library.</p>
+<h1 id="Anchor_522483334_h1_3">Controlling What DLC Can Be Purchased</h1>
+<p>You cannot control what DLC a user can purchase in Nintendo eShop. For example, the items available for purchase cannot be changed depending on progress in the game.</p>
+<p>However, you can use the feature for getting information within applications and the feature for hiding products in Nintendo eShop together to control what DLC a user can purchase.<br />For more information, see <a href="../Pages/Page_745078781.html">2.3 Feature for Getting Information Within Applications</a> and <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; Setting Products to Be Hidden in Nintendo eShop.</p>
+<h1 id="Anchor_522483334_h1_4">Sharing Downloadable Content With Other Applications</h1>
+<p>You cannot create downloadable content that can be referenced and used by multiple applications.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The demo version and full retail version of the same application are treated as separate applications. You cannot have the trial version and retail version reference and use each other's DLC.</p>
+  </div>
+</div>
+<p>To use the same content in multiple applications, you must get that downloadable content for each application. The following examples show ways that the downloadable content for one application can be made available when the downloadable content for another application is obtained.</p>
+<ul>
+  <li>Privilege Grants<ul><li>With this feature, when a user purchases the downloadable content for one application, a license is granted for the other application's downloadable content.<br />However, an icon is shown in the HOME Menu when the other downloadable content is obtained, which might be confusing to users who do not own that application.</li></ul></li>
+  <li>Owner Discounts<ul><li>With this feature, when a user purchases the downloadable content for one application, the other application's downloadable content is made available free of charge.<br />However, only DLC that is currently being sold can be made free of charge.</li></ul></li>
+</ul>
+<p>For more information about each feature, see <a href="../Pages/Page_464507877.html">3.4 Sales Options (Discounts, Buyer Benefits, Download Codes, Pre-Orders, Season Passes)</a>.</p>
+<h1 id="Anchor_522483334_h1_5">Updating Downloadable Content That Has Already Been Released</h1>
+<p>Note the following when updating data containing downloadable content or information on Nintendo eShop for downloadable content that has already been released in the production environment.</p>
+<h2 id="Anchor_522483334_h2_1">Compatibility With the Application</h2>
+<p>When you update the data for downloadable content, make sure that there are no bugs that would stop any version of the application on which that content can run. By setting required application release versions for the content, you can restrict which versions of the application can be started after the content has been installed.</p>
+<h2 id="Anchor_522483334_h2_2">Updating the Downloadable Content Data</h2>
+<p>If you are going to update the data for downloadable content that has already been distributed, make sure that the user is not disadvantaged in any way.</p>
+<p>When downloadable content is updated, users that have earlier versions of the downloadable content installed can update to the latest version of the downloadable content. Make sure that the features available to users in earlier versions remain available in such situations.</p>
+<h2 id="Anchor_522483334_h2_3">Changing Item Names</h2>
+<p>When the name of an item is changed in NCMS, the item name that is shown in Nintendo eShop also changes (see <a href="../Pages/Page_525143419.html">4.4 Distribution</a>). However, the item name is not changed in the receipt sent to users who already purchased that item.</p>
+<h1 id="Anchor_522483334_h1_6">Selling Items Exhausted Within the Application</h1>
+<p>Avoid using the downloadable content feature to implement items that are exhausted within the application. An example would be selling an item such as a &quot;10-pack of medicinal herbs&quot; in large amounts as downloadable content containing only flag data, and then for each purchased item checking that flag data in the application and saving the license information in the user save data. For this type of use case, consider using consumable service items rather than downloadable content.</p>
+<h1 id="Anchor_522483334_h1_7">Using a Patch to Distribute Resource Data for DLC</h1>
+<p>In some cases, the game might not work for users who have not purchased the DLC if they do not have the relevant resource data. An example would be when a user who purchases DLC in a fighting game fights a user who has not purchased the DLC. To handle this type of situation, you can distribute the required resource data as patches, and then sell a flag for using (unlocking) that data as downloadable content.</p>
+<p>This method requires all users who have not purchased the DLC to also receive the patch data. As much as possible, reduce the amount of resource data distributed through the patch to reduce the patch size to a minimum.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 Structure and Specifications | Nintendo Switch IR Motion Camera Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 Structure and Specifications -->
+<div class="pagetitle" id="PageId_112887160">2 Structure and Specifications</div>
+<div class="text_separate">
+<h1 id="Anchor_112887160_h1_1">Hardware Configuration</h1>
+<p>The IR Motion Camera is built into the bottom of the Joy-Con (R).</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887160/113972567.png" width="300" class="embedded-image" />
+  </span>
+</p>
+<p> A black covering over the IR Motion Camera cuts visible light and only allows infrared light to pass through.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887160/113972568.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p>Removing the black covering exposes the following mechanism.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887160/188816339.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p> The IR Motion Camera contains one IR Camera and four IR LEDs, as shown.</p>
+<p>
+  <br />
+</p>
+<p>The IR LEDs emit infrared light, and the IR Camera records whatever the light illuminates.<br />The camera captures a monochrome image as shown in the following picture.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887160/113972570.png" class="embedded-image" />
+  </span>
+</p>
+<p>Applying different image processing to that monochrome image enables it to be used in a variety of situations. For more information, see <a href="../Pages/Page_112887217.html">3 What the IR Motion Camera Can Do</a>.<br />One characteristic of this mechanism is that it can operate normally in dim rooms and dark environments because it emits its own IR light.</p>
+<h1 id="Anchor_112887160_h1_2">IR Camera and IR LED Specifications</h1>
+<p>The main specifications of the IR Camera and IR LEDs are as follows.<br />The camera cannot capture color photos like a normal digital camera because it is not an RGB camera.</p>
+<table class="table">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="2">Option</th>
+      <th>Specs</th>
+      <th>Comments</th>
+    </tr>
+    <tr>
+      <th rowspan="4">IR Camera</th>
+      <th>Resolution</th>
+      <td>Maximum 320 &times; 240 (QVGA)</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>Capture Frame Rate</th>
+      <td>1 fps to 200 fps</td>
+      <td>
+        <p>In general, a frame rate of 70 fps is used.<br />This parameter cannot be configured by application developers, but changes with the function. For more information, see <a href="../Pages/Page_112887217.html">3 What the IR Motion Camera Can Do</a>.<br />For more information about the framework for each function, see the IR Motion Camera library manual.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lens Field of View</th>
+      <td>103.3&deg; (horizontal), 83.6&deg; (vertical), 123.1&deg; (diagonal)</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>Capture Wavelength</th>
+      <td>Only captures 850 nm infrared light</td>
+      <td>Can only be used to photograph objects that reflect (or emit) infrared light.</td>
+    </tr>
+    <tr>
+      <th>IR LED Field of View Angle at 50% Intensity and Number</th>
+      <th />
+      <td>
+        <p>Two 75&deg; IR LEDs</p>
+        <p>Two 130&deg; IR LEDs</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <em>Field of view angle at 50% intensity</em> means that intensity of the IR LED observed at this angle is at half of its original intensity, and intensity does not reduce to 0 at this angle.<br />The range of light for a 75&deg; IR LED is narrower, although it is a stronger light. The range for the light of a 130&deg; IR LED is wider, but it is a weaker light.<br /> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_112887160/185139053.png" width="500" class="embedded-image" /></span></p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_112887160_h1_3">IR Image Capture Range</h1>
+<p>In general, the camera can capture an IR image of an area within 30 cm directly in front of the camera, as in the following image. </p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887160/124259459.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<p>The camera can record farther distances by using retroreflective material for the capture target.<br />However, this range changes with the camera's settings (including exposure time, digital gain, and switching the IR-LED on and off).<br />Exposure time, digital gain, and switching the IR-LED on and off are parameters that can be optionally configured. Use a range that extends to 30 cm directly in front of the camera when camera settings are at their maximum.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

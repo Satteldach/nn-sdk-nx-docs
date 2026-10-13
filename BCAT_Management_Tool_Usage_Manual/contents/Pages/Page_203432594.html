@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4 Data Delivery | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4 Data Delivery -->
+<div class="pagetitle" id="PageId_203432594">4 Data Delivery</div>
+<div class="text_separate">
+<h1 id="Anchor_203432594_h1_1">Data Delivery</h1>
+<p>This section describes the overview, initial settings, and operation procedure for the data structure required for delivering data.<br />In this document, the directories and files that are delivered in BCAT data delivery are collectively called <em>data</em>.</p>
+<h1 id="Anchor_203432594_h1_2">Preventing Incorrect Delivery</h1>
+<p>We strongly recommend that you take the following steps to ensure that there are no errors in the content or delivery timing for data.</p>
+<ol>
+  <li>Register the data in the development environment (dd1 server environment).</li>
+  <li>Perform delivery in the development environment or test delivery, and check the content of the data on the development hardware.</li>
+  <li>Get the retail version of the application.</li>
+  <li>Register the data in the production environment (lp1 server environment).</li>
+  <li>Test-deliver the data in the production environment and check the content of the data using the production hardware.</li>
+  <li>Deliver the data in the production environment and check the content of the data using the production hardware.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>To get the retail version of the application, you must submit the master ROM for the application and it must pass Lotcheck.</p>
+    <p>The data must be registered in the Lotcheck environment (sd1 and sp1 server environments) during master submission.</p>
+  </div>
+</div>
+<h1 id="Anchor_203432594_h1_3">Data Structure</h1>
+<p>Programs for applications that support BCAT data delivery recognize data in the path format of &quot;file B that is under directory A.&quot; The application treats paths and files as having a one-to-one correspondence.</p>
+<p>On the other hand, file B may be overwritten by a new file B' at a certain point. For this reason, the BCAT Management Tool treats paths and actual files as if they have a one-to-one correspondence.</p>
+<p>The BCAT Management Tool provides a <strong>virtual file</strong> system to manage file B and file B' together.</p>
+<p>Actual file instances are associated with and managed by virtual files. Virtual files are associated with at least one actual file so that delivery periods do not overlap.</p>
+<p>
+  <img src="../Attachments/Attach_203432594/263118834.png"></img>
+</p>
+<h1 id="Anchor_203432594_h1_4">Initial Setup</h1>
+<p>Perform initial setup as follows.</p>
+<ol>
+  <li>Log in to the BCAT Management Tool as a user with the Manager role for the target application.</li>
+  <li>From the menu, select <strong>Data Delivery</strong>.</li>
+  <li>Select the target application for the process.</li>
+  <li>From the menu, select <strong>Manage BCAT Usage Requests</strong>.</li>
+  <li>Click the <strong>Get and Apply BCAT Usage Request</strong> button.</li>
+</ol>
+<p>When this process is complete, the data delivery menu is displayed in the BCAT Management Tool.</p>
+<p>The size of the data delivery cache storage that was applied for in OMAS is also shown in the BCAT Management Tool.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can only get usage requests when the application phase in OMAS is <strong>In development</strong> or later.</p>
+    <p>If the application content in OMAS is updated, synchronize the data again after the request is approved by Nintendo (after the phase has changed).</p>
+  </div>
+</div>
+<h1 id="Anchor_203432594_h1_5">Adding Data</h1>
+<p>Use the following procedure to add data.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If this procedure is performed in the production environment, the data is delivered to all target Switch systems in the production environment.<br />See the Preventing Incorrect Delivery section and check the content of the data in the development environment beforehand.<br />In addition, also perform test delivery in the production environment before the data delivery start date and time or before approving pre-delivery review for the data.</p>
+  </div>
+</div>
+<h2 id="Anchor_203432594_h2_1">Step 1: Creating Directories</h2>
+<ol>
+  <li>To display the list of directories, from the BCAT Management Tool menu, select <strong>Manage Data Delivery</strong>.</li>
+  <li>Click the <strong>Add New Directory</strong> button to create a new directory.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>As soon as a directory is created, it is listed in the application by the <code>nn::bcat::EnumerateDeliveryCacheDirectory()</code> function.</p>
+    <p>The directory is listed even if it is empty.</p>
+  </div>
+</div>
+<h2 id="Anchor_203432594_h2_2">Step 2: Adding Files</h2>
+<ol>
+  <li>Select the directory name.</li>
+  <li>Click the <strong>New</strong> button to create a file.<br />The created file will be called the <em>virtual file</em> for convenience.<br />The filename you specify will be the filename recognized by the application.<br />The virtual file is not yet saved at this point.</li>
+  <li>Select the file to upload to the server.<br />This file will be called the <em>binary</em> for convenience.</li>
+  <li>Set the appropriate delivery start date and time and delivery end date and time for the binary.</li>
+  <li>Click the <strong>Add delivery file</strong> button to add multiple binaries.<br />Repeat the process in steps 3 and 4 for each binary.<br />For binaries with a delivery start date set far in the future, you can leave the entry for the delivery end date blank.</li>
+  <li>Click the <strong>Add</strong> button to upload the binary to the server.<br />This completes the process of adding the virtual file and binary.</li>
+</ol>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>There is a time lag of approximately ten minutes between starting delivery and the time when data can actually be downloaded on a Switch system.</p>
+    <p>When performing delivery linked to a particular event, we recommend either starting delivery earlier than the announced delivery date and time, or not announcing the exact date and time of delivery.</p>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>In cases such as the following, we recommend specifications that deliver the data itself in advance (for example, 12 hours prior or 1 day prior) and unlock the data at the specified time.<ul><li>The start time for the event is clearly determined.</li><li>When the event starts, you want as many users as possible to have identical data.</li></ul></li>
+      <li>When the data is obtained differs for each user. Avoid an implementation like the following.<ul><li>Delivering data 10 minutes before the event's start time, in consideration of a 10-minute time lag from delivery to before the data can be received.</li></ul></li>
+      <li>Set delivery periods for all of the binary files under the virtual file so that their delivery start and end dates and times do not overlap.<br />If the delivery periods for the binaries overlap, the user will be notified in the subsequent procedure that delivery has not been approved.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_203432594_h2_3">Step 3: Review</h2>
+<p>Perform the following procedures for the pre-delivery review request and approval.</p>
+<ol>
+  <li>Click the <strong>Request Pre-Delivery Review</strong> button for each binary.</li>
+  <li>Click the <strong>Approve Pre-Delivery Review</strong> button for each binary. Note that to perform this operation you must have the role of Reviewer or higher.</li>
+</ol>
+<p>This step completes the procedure. The data is delivered at the delivery start date and time.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>When the binaries are to be delivered in the production environment for an application sold in China, in addition to step 3, Tencent performs a review of each binary.</p>
+    <p>After the procedures in step 3 have been completed, a notification message is sent to Tencent from the BCAT Management Tool.</p>
+    <p>The data is not delivered until the review has been approved.</p>
+  </div>
+</div>
+<h1 id="Anchor_203432594_h1_6">Updating Data</h1>
+<p>Update created virtual files using the following procedure.</p>
+<ol>
+  <li>To display the list of directories, from the BCAT Management Tool menu, select <strong>Manage Data Delivery</strong>.</li>
+  <li>Select the name of the directory for which virtual files exist.</li>
+  <li>Click the <strong>Details</strong> button for the virtual file.</li>
+</ol>
+<p>The following steps are described for each type of update content.</p>
+<h2 id="Anchor_203432594_h2_4">Stopping Delivery of Undelivered Binaries</h2>
+<p>If the pre-delivery review for the binary has not yet been approved, click the <strong>Cancel Pre-Delivery Review</strong> button.</p>
+<p>If the pre-delivery review for the binary has been approved, click the <strong>Cancel Approval and Revise Content</strong> button.</p>
+<p> You can then perform the following operations as needed.</p>
+<ul>
+  <li>Replace the binary (re-upload).</li>
+  <li>Revise the delivery start date and time and delivery end date and time.</li>
+</ul>
+<h2 id="Anchor_203432594_h2_5">Stopping Delivery of Delivered Binaries</h2>
+<p>There are two operations for stopping the delivery of the binary.</p>
+<table class="wrapped relative-table" style="width: 97.8788%;">
+  <colgroup>
+    <col style="width: 14.9879%;" />
+    <col style="width: 36.5104%;" />
+    <col style="width: 48.578%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Operation</th>
+      <th>Description</th>
+      <th>Roles That Can Perform the Operation</th>
+    </tr>
+    <tr>
+      <td>Click the <strong>Expire</strong> button.</td>
+      <td>
+        <p>Clicking this button ends the delivery of the binary.<br />The delivery end date and time is set to the date and time that the button was pressed.</p>
+      </td>
+      <td>
+        <p>Users with the role of Reviewer or higher can perform this operation.<br />This was changed in the June 2021 update. Prior to that, the role of Editor or higher was required for this operation.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Set a delivery end date and time.</td>
+      <td>Delivery ends at the set date and time.</td>
+      <td>
+        <p>There are restrictions on which roles can perform this operation, depending on the status of the binary.</p>
+        <ul>
+          <li>Editor role: Can change the delivery end date and time for the binary when the status is <strong>Draft</strong>.</li>
+          <li>Role of Reviewer or higher: Can change the delivery end date and time for the binary when the status is anywhere from <strong>Draft</strong> to <strong>Publishing</strong>.</li>
+        </ul>
+        <p>Prior to the July 2021 update, users with the Editor role were also able to perform this operation on binaries when the status was anywhere from <strong>Draft</strong> to <strong>Publishing</strong>, but that has now changed.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>With this specification, users with the Editor role cannot directly change the delivery end date and time for binaries that have progressed to <strong>Publishing</strong> status.</p>
+<p>If the delivery end date and time must be changed for a binary that has advanced to <strong>Publishing</strong> status, have this handled by a user with the role of Reviewer or higher.</p>
+<p>If a new binary is added under a delivered binary that is not set with a delivery end date and time, the delivery start date and time for the new binary is automatically set as the delivery end date and time of the delivered binary when the pre-delivery review of the new binary is approved. In situations where the old binary is immediately replaced by the new binary, it might not be necessary to directly change the delivery end date and time.</p>
+<h2 id="Anchor_203432594_h2_6">Adding a New Binary</h2>
+<ol>
+  <li>Click the <strong>Add</strong> button for a binary that has already been added.</li>
+  <li>If the delivery start date and time for the new binary is after the time for the selected binary, click the <strong>Add after</strong> button. Conversely, if the delivery start date and time is before the time for the selected binary, click the <strong>Add before</strong> button.</li>
+  <li>Select the file to upload to the server.</li>
+  <li>Set the appropriate delivery start date and time and the delivery end date and time.</li>
+  <li>Click the <strong>Update</strong> button.</li>
+  <li>Then perform the same operations as those in step 3 of Adding Data.</li>
+</ol>
+<h1 id="Anchor_203432594_h1_7">Deleting Data</h1>
+<p>Use the following steps to delete data. The process is described for each deletion target.</p>
+<h2 id="Anchor_203432594_h2_7">Deleting Virtual Files</h2>
+<p>Virtual files can only be deleted if the status of all binaries under the virtual file is <strong>Expired</strong> or <strong>Draft</strong>.</p>
+<p>Use the following procedure to delete virtual files.</p>
+<ol>
+  <li>Change the status using one of the following methods based on the status of the binary.<ul><li>Click the <strong>Expire</strong> button to change the status to <strong>Expired</strong>.</li><li>Click the <strong>Cancel Pre-Delivery Review</strong>, <strong>Reject Pre-Delivery Review</strong>, or <strong>Cancel Approval and Revise Content</strong> button to change the status to <strong>Draft</strong>.</li></ul></li>
+  <li>Use the browser to reload the page.</li>
+  <li>Click the <strong>Delete</strong> button on the upper right of the page.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If a virtual file does not contain any binary files that are being delivered, that virtual file is not recognized by the application.</p>
+    <p>For this reason, that virtual file does not need to be deleted when data delivery is stopped for the application.</p>
+  </div>
+</div>
+<h2 id="Anchor_203432594_h2_8">Deleting Directories</h2>
+<p>Directories can only be deleted if the status of all binaries under all virtual files in the directory is <strong>Expired</strong> or <strong>Draft</strong>.</p>
+<p>For more information about changing the status of the binaries as needed, see the previous section Deleting Virtual Files.</p>
+<p>Use the following procedure to delete directories.</p>
+<ol>
+  <li>In the directory list screen, click the <strong>Details</strong> button.</li>
+  <li>Click the <strong>Delete</strong> button.</li>
+</ol>
+<h1 id="Anchor_203432594_h1_8">When Directory Changes Are Applied</h1>
+<p>Even when directories are created or deleted, those changes are not immediately applied on the Switch. Changes are applied to the Switch at either of the following times.</p>
+<ul>
+  <li>When background synchronization is performed as a result of starting (or ending) delivery of the next binary after a directory is created or deleted.</li>
+  <li>When there is immediate synchronization of the application approximately ten minutes after a directory is created or deleted.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

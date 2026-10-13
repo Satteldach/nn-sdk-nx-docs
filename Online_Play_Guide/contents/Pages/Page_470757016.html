@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.3 Notes About Saving Network Service Account Information on the Switch | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.3 Notes About Saving Network Service Account Information on the Switch -->
+<div class="pagetitle" id="PageId_470757016">4.3 Notes About Saving Network Service Account Information on the Switch</div>
+<div class="text_separate">
+<p>The links between user accounts and network service accounts cannot be removed or changed by the user (in system version 6.0.0 and later). However, the links can be removed or changed for repair and customer support reasons.<br />For this reason, if the save data for online play depends on a network service account, and you intend to save that save data to a save data region on the Switch, you must implement appropriate measures to handle when the network service account changes.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>If the save data for online play does not depend on a network service account, the following steps do not require consideration, even if the data will be saved to a save data region on the Switch.</p>
+  </div>
+</div>
+<p>We recommend taking both of the following steps in your application when any change to a network service account is detected.</p>
+<ul>
+  <li>Inform the user about any effects or restrictions resulting from the change.</li>
+  <li>Either take action to resolve any inconsistencies, or do nothing and stop the application from advancing.</li>
+</ul>
+<h2 id="Anchor_470757016_h2_1">Inform the User About the Impact of the Change</h2>
+<p>You must inform the user about any effects or restrictions resulting from the change, such as when save data is no longer available, or when some parameter has been reset.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Contact Nintendo support in advance if you plan to include descriptions of Nintendo Accounts in notifications, such as writing &quot;Nintendo Account&quot; in the message.</p>
+    <p>This approach helps ensure that the intention of the message is still conveyed even if Nintendo Accounts and related services are extended or changed in the future.</p>
+  </div>
+</div>
+<h2 id="Anchor_470757016_h2_2">Resolve Inconsistencies, or Do Nothing and Stop the Application From Advancing</h2>
+<p>If the change to the network service account creates inconsistencies, we recommend taking one of the following three actions. The actions are described in order of how extensively they affect the user, with the first action having the least effect.</p>
+<h3 id="Anchor_470757016_h3_1">Change the save data on the Switch to match the network service account changes.</h3>
+<p>This action does not require anything on the part of the user and allows the continued provision of the online service.</p>
+<p>The following are some examples.</p>
+<ul>
+  <li>Update the network service account ID in the save data on the Switch to match the change.</li>
+  <li>Allow the retention of non-volatile types of online service information (such as rankings) for past network service accounts.</li>
+</ul>
+<h3 id="Anchor_470757016_h3_2">Change the data on both the Switch and the network to match the network service account changes. Do not provide the online service until the information matches.</h3>
+<p>This action makes the user wait, but it does not require anything on the part of the user and allows the continued provision of the online service.</p>
+<p>The following are some examples.</p>
+<ol>
+  <li>Replace non-volatile types of online service information (such as rankings), that are based on the previous network service account ID, with information based on the current network service account ID.</li>
+  <li>Update the network service account ID in the save data on the Switch.</li>
+  <li>Enable the provision of network features after these actions are completed.</li>
+</ol>
+<h3 id="Anchor_470757016_h3_3">Make some or all of the save data on the Switch unavailable.</h3>
+<p>Perform this action so that the save data stored on the Switch is no longer usable, either in its entirety, or just the part that is dependent on a network service account.</p>
+<p>You could use any of the following methods.</p>
+<ul>
+  <li>Wait for the user to re-create the save data.<ul><li>Stop the application from advancing until the user has manually deleted the save data (using the system features). Users could learn how to do this from customer support or from a user community.</li></ul></li>
+  <li>Design the application to automatically delete the save data.<br /><ul><li>Automatically delete just the inconsistent parts of the save data, or delete it all and create it again.</li></ul></li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The user may lose assets if the application automatically deletes highly valued data such as all save data. For this reason, we strongly recommend making the save data unavailable instead of automatically deleting it (except in the case of cached data).</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

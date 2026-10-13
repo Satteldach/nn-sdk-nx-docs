@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 NFP Tag Creation Set | NFP Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 NFP Tag Creation Set -->
+<div class="pagetitle" id="PageId_55602810">5.3 NFP Tag Creation Set</div>
+<div class="text_separate">
+<p>To create amiibo figures for development, use the following tools and data file.</p>
+<p>The process of creating an amiibo figure for development purposes is shown in <a href="#AutoAnchor_55602810_figure001">Figure 5-1  Creating an amiibo Figure for Development</a>. You use noft_writer to write an NTF file containing the amiibo information to a blank tag, which is a tag to which data can be written.</p>
+<!--@keyword:NTFファイルnoft_writer書き込みブランクタグ開発用amiibo-->
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_55602810_figure001"></a>Figure 5-1  Creating an amiibo Figure for Development</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_55602810/158499309.png" width="700" alt="NTFファイルnoft_writer書き込みブランクタグ開発用amiibo" class="embedded-image" />
+  </span>
+</p>
+<h5 id="Anchor_55602810_h5_1">Blank Tag</h5>
+<p>An empty NFP tag.</p>
+<p>Development amiibo tags created by using noft_writer to write an NTF file to a blank tag cannot be used on retail game systems. Similarly, you cannot read from or write to a retail amiibo from a development console.</p>
+<h5 id="Anchor_55602810_h5_2">NTF File</h5>
+<p>The data to be written to the blank tag. Contains factory default-state amiibo data. Bundled in the amiibo data list.</p>
+<h5 id="Anchor_55602810_h5_3">noft_writer</h5>
+<p>This program runs on development hardware and writes the data from NTF files to blank tags. It cannot write data to retail product tags.</p>
+<div class="warn_new">
+  <div class="warn_new_left">Warning</div>
+  <div class="warn_new_right">
+    <p>After an NTF file is written to a tag and locked, it cannot be overwritten. After an NTF file has been written to a blank tag and locked, it is no longer possible to overwrite the data that was entered in the <a href="../Pages/Page_86619111.html">3.1.2 Shared Region</a> at the factory. Note that this prevents you from overwriting an NTF file even for the same character with different designs because the data is provided in separate NTF data files.<br />Although overwriting with a separate NTF file is possible if the tag is not locked, note that tags that are not locked have the limitation of being usable only in debugging mode and so forth. For more information, see the noft_writer description of each platform.</p>
+    <p>Writing can fail if the tag is moved away from the NFC touchpoint while noft_writer is writing data. If that happens, you cannot repair the tag by overwriting the data. Be careful not to move the tag away while writing the NTF file.</p>
+    <p>noft_writer does not support the NFC Reader/Writer.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

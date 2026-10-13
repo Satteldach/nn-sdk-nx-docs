@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.6 Delivery Log | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.6 Delivery Log -->
+<div class="pagetitle" id="PageId_258595937">2.6 Delivery Log</div>
+<div class="text_separate">
+<h1 id="Anchor_258595937_h1_1">What Is a Delivery Log?</h1>
+<p>Using the BCAT Management Tool in the production environment (lp1 server environment), you can download delivery logs to the Switch system for each News channel or application that supports data delivery.<br />The following use cases are expected.</p>
+<ul>
+  <li>Estimating the number of Switch systems that follow a channel</li>
+  <li>Estimating the number of Switch systems that can use network features of applications</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The number of unique Switch systems in the delivery log and the number of Switch systems that actively start applications may not always match because of the background synchronization feature in data delivery.</p>
+  </div>
+</div>
+<h1 id="Anchor_258595937_h1_2">Delivery Log Requests and Downloads</h1>
+<p>Delivery log requests and downloads are made in the <strong>Stats</strong> &gt; <strong>Log Requests</strong> menu.<br />The Manager role is required for requesting delivery logs.<br />The Viewer role or higher is required for downloading delivery logs.</p>
+<h1 id="Anchor_258595937_h1_3">Logging Time of Delivery Log</h1>
+<p>Specify the logging time when requesting a delivery log.</p>
+<ul>
+  <li>Specify a logging start time that is earlier than the time you begin to use the BCAT Management Tool.<ul><li>However, you cannot specify a time that precedes the current time by more than a year.</li><li>For News delivery: The usage start time refers to the time when a channel was approved in NCMS.</li><li>For data delivery: The usage start time refers to the time when content of a request was first synchronized from OMAS.</li></ul></li>
+  <li>Specify a logging end time that is earlier than two hours before the current time.</li>
+  <li>The logging time for a request can be specified for up to 31 days.<ul><li>For example, if delivery logs for a whole year are required, 12 separate requests must be made.</li></ul></li>
+</ul>
+<h1 id="Anchor_258595937_h1_4">Expiration Date of Delivery Log</h1>
+<p>Delivery logs cannot be downloaded after a certain period of time (currently set to one week) has elapsed since the request.<br />Request the delivery log again, if necessary.</p>
+<h1 id="Anchor_258595937_h1_5">Delivery Log Format</h1>
+<h2 id="Anchor_258595937_h2_1">News Delivery</h2>
+<p>The following is a sample of the delivery log format for News delivery and a description of the columns.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>&quot;masked_ip&quot;,&quot;masked_serial&quot;,&quot;news_id&quot;,&quot;data_id&quot;,&quot;http_status_code&quot;,&quot;accessed_at&quot;
+&quot;B91A1F74D56D1122FB05F7A111111111&quot;,&quot;839B9B2B432C0C562C43EFD499999999&quot;,&quot;777&quot;,&quot;16001&quot;,&quot;200&quot;,&quot;2017-08-25 00:18:00.000&quot;
+&quot;B91A1F74D56D1122FB05F7A111111111&quot;,&quot;839B9B2B432C0C562C43EFD499999999&quot;,&quot;778&quot;,&quot;16002&quot;,&quot;200&quot;,&quot;2017-08-25 00:18:00.100&quot;</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="relative-table wrapped" style="width: 97.4429%;">
+  <colgroup>
+    <col style="width: 17.3546%;" />
+    <col style="width: 82.6454%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Column Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <p>masked_ip</p>
+      </td>
+      <td>
+        <p>Global IP address of the Switch system.</p>
+        <p>It is masked.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>masked_serial</p>
+      </td>
+      <td>
+        <p>Indicates the Switch system serial number.</p>
+        <p>It is masked.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>news_id</td>
+      <td>
+        <p>An ID for identifying News.</p>
+        <p>This value is displayed in the BCAT Management Tool.</p>
+        <p>It is not changed even if News is revised and redelivered.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>data_id</td>
+      <td>
+        <p>An ID for identifying News within the system.</p>
+        <p>This value is not displayed in the BCAT Management Tool.</p>
+        <p>It is changed when nNews is revised and redelivered.</p>
+        <p>Ignore this value when there is no need to differentiate News before and after revision.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>http_status_code</td>
+      <td>
+        <p>HTTP status code.</p>
+        <p>For example, if you want to know when a particular Switch system first received News, note the rows where the value is <strong>200</strong>.<br />At this time, ignore rows where the value is 304.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>accessed_at</td>
+      <td>
+        <p>The time when a Switch system requested data transmission from the server.</p>
+        <p>The time is in the UTC time zone.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_258595937_h2_2">Delivering Data</h2>
+<p>The format of delivery logs for data delivery is the same as that for News delivery except for the following points.</p>
+<ul>
+  <li>datafile_id is listed instead of news_id.</li>
+  <li>
+    <code>datafile_id</code> is a binary value. For more information, see <a href="../Pages/Page_203432594.html">4 Data Delivery</a>. This value is displayed in the BCAT Management Tool.<br /></li>
+  <li>Ignore the data_id value.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

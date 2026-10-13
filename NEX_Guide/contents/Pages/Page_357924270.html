@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.4 Patches and Compatibility | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.4 Patches and Compatibility -->
+<div class="pagetitle" id="PageId_357924270">5.4 Patches and Compatibility</div>
+<div class="text_separate">
+<h1 id="Anchor_357924270_h1_1">Breaking Compatibility Between Versions When Distributing a Patch</h1>
+<p>To distribute a patch, you must submit requests on NCMS and OMAS.</p>
+<p>If you want to break compatibility between versions at the same time that the patch is distributed, we recommend requesting <strong>both A and B</strong> below. This will make it so only the patched version of the application will be able to connect to the game server.</p>
+<ul>
+  <li>A: Prohibit logins by the unpatched application.</li>
+  <li>B: Restart the game server and kick out logged-in users.</li>
+</ul>
+<p>That being said, if all of the following conditions apply, we recommend requesting only A.</p>
+<ul>
+  <li>Patched and unpatched versions of the application can coexist on the game server at the same time without issues.</li>
+  <li>There are no issues from a user support perspective with the unpatched application remaining on the game server.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>All of the following steps must be taken if a series of applications share a single game server (for example, there are separate application IDs for Europe and North America).</p>
+    <ul>
+      <li>Request both A and B for all applications in the series.</li>
+      <li>
+        <strong>Distribute the patch simultaneously worldwide</strong> for all applications in the series.</li>
+    </ul>
+    <p>If these steps are not taken, there is a risk that incompatible versions of the application will be present on the game server.</p>
+  </div>
+</div>
+<h2 id="Anchor_357924270_h2_1">Prohibiting Logins to Unpatched Applications (A)</h2>
+<p>Submit the following request on NCMS to prohibit any new logins by unpatched versions of the application at the same time that the patch is distributed.</p>
+<ul>
+  <li>When submitting the patch on NCMS, select <strong>Force Update</strong> for <strong>Force Update Flag (use authentication server to break compatibility)</strong>.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Prior to the NCMS server update in October 2021, this request item was displayed as <strong>Force Update Flag</strong>.</p>
+  </div>
+</div>
+<h2 id="Anchor_357924270_h2_2">Restarting the Game Server and Kicking Out Logged-In Users (B)</h2>
+<p>Submit the following request on OMAS to have the game server restarted when the patch is distributed.</p>
+<p>This kicks out users who are logged in when the patch is distributed.</p>
+<ul>
+  <li>When submitting the patch on OMAS, select <strong style="text-align: left;">Yes</strong> for <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong>.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The game server will be in the maintenance state before and after restarting. Note that this can affect users.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>Prior to the OMAS server update in October 2021, this request item was displayed as <strong>Restart NEX Server When Patch Is Released</strong>.</li>
+      <li>The name of this setting in Japanese was changed during the June 2020 server update for OMAS, but the English name was already <strong>Restart NEX Server When Patch Is Released</strong>.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_357924270_h1_2">Breaking the Compatibility of Features Without Restarting the Game Server</h1>
+<p>Depending on how the features that use NEX have been implemented, you can break communication compatibility between the unpatched and patched versions of the application but allow them to coexist on the game server.</p>
+<p>In this way, services can continue without restarting the game server even if the distribution of a patch breaks compatibility in the application specifications. In addition, patches for applications sharing a game server can be distributed to the different applications at different times.</p>
+<h2 id="Anchor_357924270_h2_3">Matchmaking</h2>
+<p>You can prevent matchmaking between the unpatched and patched versions of the application by changing the game mode specified for matchmaking sessions in the unpatched and patched versions.</p>
+<p>If you employ this method of changing the matchmaking game mode when a patch is distributed, there is a risk that the number of game modes will increase every time you release a patch that breaks compatibility, reducing the matchmaking success rate. To prevent users from being dispersed among numerous game modes and reducing the matchmaking success rate, we recommend using the procedure described in Prohibit Logins to Unpatched Applications to restrict connections by versions of the application that do not have the latest patch.</p>
+<h2 id="Anchor_357924270_h2_4">Ranking</h2>
+<p>You can prevent unpatched and patched versions of the application from referencing the same rankings by changing the categories for which scores are uploaded and rankings are obtained before and after the patch.</p>
+<h2 id="Anchor_357924270_h2_5">Data Store</h2>
+<p>You can prevent unpatched and patched versions of the application from referencing the same data by changing the data type of the data specified when uploading (or searching) data from before and after the patch.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

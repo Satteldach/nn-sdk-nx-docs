@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.5 Email Notifications | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.5 Email Notifications -->
+<div class="pagetitle" id="PageId_233879044">2.5 Email Notifications</div>
+<div class="text_separate">
+<h1 id="Anchor_233879044_h1_1">Email Notifications</h1>
+<p>When important operations are performed on the BCAT Management Tool, notifications are sent to the email addresses associated with the NDIDs of the concerned users.</p>
+<p>Email notifications are sent only in the dd1 and lp1 server environments.</p>
+<h1 id="Anchor_233879044_h1_2">Filtering</h1>
+<p>You can perform the following operations in the <strong>Mail Settings</strong> menu.</p>
+<ul>
+  <li>Turn off email notifications for News delivery to specific countries. Or turn them on.<br /><ul><li>For example, use this feature when your channel has different members handling delivery for America and delivery for Japan, and each member does not need to receive email notifications for the other countries.</li></ul></li>
+  <li>Turn off all other notifications. Or turn them on.<br /><ul><li>This applies, for example, to notifications about role change requests or data delivery.</li></ul></li>
+</ul>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_233879044/479876439.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_233879044_h1_3">Sender Address</h1>
+<p>The sender address of email notifications varies depending on the BCAT Management Tool server environment.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Server Environment Name</th>
+      <th>Sender Address</th>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>noreply@mail-dev.dev.bcat.mng.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>Not applicable</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>
+        <span style="color: rgb(55,55,55);">Not applicable</span>
+      </td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>noreply@mail-live.dev.bcat.mng.nintendo.net</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_233879044_h1_4">Operations and Notification Recipients</h1>
+<p>The following tables show the default settings for the main operations that trigger email notifications and the corresponding roles that receive the notifications.</p>
+<p>&times; indicates that notifications will not be sent. ○ indicates that notifications will be sent.</p>
+<h2 id="Anchor_233879044_h2_1">Pre-Delivery Review</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Operation</th>
+      <th colspan="4">Roles That Receive Notification</th>
+    </tr>
+    <tr>
+      <th>Viewer</th>
+      <th>Editor</th>
+      <th>Reviewer</th>
+      <th>Manager</th>
+    </tr>
+    <tr>
+      <td>Request Pre-Delivery Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Cancel Pre-Delivery Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Cancel Approval and Revise Content</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Approve Pre-Delivery Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_233879044_h2_2">Nintendo Reviews (News Only)</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Operation</th>
+      <th colspan="4">Roles That Receive Notification</th>
+    </tr>
+    <tr>
+      <th>Viewer</th>
+      <th>Editor</th>
+      <th>Reviewer</th>
+      <th>Manager</th>
+    </tr>
+    <tr>
+      <td>Request Nintendo Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Cancel Nintendo Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Approve Nintendo Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Reject Nintendo Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_233879044_h2_3">Tencent Review (News and Data)</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Operation</th>
+      <th colspan="4">Roles That Receive Notification</th>
+    </tr>
+    <tr>
+      <th>Viewer</th>
+      <th>Editor</th>
+      <th>Reviewer</th>
+      <th>Manager</th>
+    </tr>
+    <tr>
+      <td>Request Tencent Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Cancel Tencent Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Approve Tencent Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Reject Tencent Review</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_233879044_h2_4">Comments to News or Data Items</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Operation</th>
+      <th colspan="4">Roles That Receive Notification</th>
+    </tr>
+    <tr>
+      <th>Viewer</th>
+      <th>Editor</th>
+      <th>Reviewer</th>
+      <th>Manager</th>
+    </tr>
+    <tr>
+      <td>Post comments</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_233879044_h2_5">Requesting Role Changes</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Operation</th>
+      <th colspan="4">Roles That Receive Notification</th>
+    </tr>
+    <tr>
+      <th>Viewer</th>
+      <th>Editor</th>
+      <th>Reviewer</th>
+      <th>Manager</th>
+    </tr>
+    <tr>
+      <td>Request</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Cancel</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Reject</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+    <tr>
+      <td>Approve</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<p>Users who have requested to change their own roles will always receive email notifications.</p>
+<h2 id="Anchor_233879044_h2_6">Automatic Checking for Inappropriate Wording (News for China Only)</h2>
+<p>In a process that is limited to News items for China, all saved News items are automatically checked periodically for inappropriate wording (with the Dirty Word filter). If the News is found to contain inappropriate wording, the status for the News is rolled back to <strong>Editing</strong> and notification is sent via email.</p>
+<p>This check is also performed when the News is being saved, but email notification is not sent if inappropriate wording is found at that time. For more information about this check for inappropriate wording, see Nintendo Switch News Delivery Guide &gt; Notes About Creating News.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Operation</th>
+      <th colspan="4">Roles That Receive Notification</th>
+    </tr>
+    <tr>
+      <th>Viewer</th>
+      <th>Editor</th>
+      <th>Reviewer</th>
+      <th>Manager</th>
+    </tr>
+    <tr>
+      <td>None (automatically checked periodically)</td>
+      <td style="text-align: center;">&times;</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

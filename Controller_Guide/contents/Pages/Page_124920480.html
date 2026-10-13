@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 Application Controller Support | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 Application Controller Support -->
+<div class="pagetitle" id="PageId_124920480">3 Application Controller Support</div>
+<div class="text_separate">
+<p>This section describes the information for application controller support.  </p>
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about implementation, see NintendoSDK Documents &gt; Features &gt; Input Device &gt; hid Library &gt; Manual &gt; Features &gt; Npad.</p>
+  </div>
+</div>
+<h1 id="Anchor_124920480_h1_1">List of Controller Support Items</h1>
+<p>The following list shows the controller support items for applications. The items marked with (Required) are required to be supported. All other items are recommended.</p>
+<ul>
+  <li>
+    <a href="../Pages/Page_124019950.html">3.1 Supporting Different Play Formats and Grips (Required)</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_99800445.html">3.2 Assigning Controller Indexes (Required)</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_278510709.html">3.3 Implementation With Consideration of When Various Devices Are Not Included (Required)</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_294051887.html">3.4 Displaying the Screen Showing and Describing How To Wear a Joy-Con Strap (Required)</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_278510811.html">3.5 Following Nintendo Switch Terminology (Required)</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_99802852.html">3.6 Controller Support Applet</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_175083823.html">3.7 Controller Support Under Specific Conditions</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_278512430.html">3.8 Other Recommendations</a>
+  </li>
+</ul>
+<p>
+  <br />
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>There is no particular additional support required of application developers for Switch Lite. However, we recommend that developers consider that in some situations some features might not be available, both for Switch and Switch Lite. For more information, see <a href="../Pages/Page_278510709.html">3.3 Implementation With Consideration of When Various Devices Are Not Included (Required)</a>.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<div>
+  <h1 id="Anchor_124920480_h1_2">Benefits Available When Configured Appropriately</h1>
+</div>
+<p> The following benefits are available when these requirements are met.</p>
+<ol>
+  <li>Inheriting operation mode for system features (HOME Menu and the like can be manipulated as is).</li>
+  <li>The player LEDs light up appropriately (if using dual assignment, both the left and right Joy-Con controllers will light up the same).</li>
+  <li>Assignment of appropriate play format, according to the number of controllers.</li>
+  <li>Automatic disconnection for unsupported controllers.</li>
+</ol>
+<p>1 through 3 are benefits for players, and 4 is a benefit for application developers.</p>
+<p>For more information about supporting controllers within system features, including continuing operations when transitioning to system features, see <a href="../Pages/Page_99800449.html">4.1 Supporting System Features</a>. Refer to this documentation as necessary.</p>
+<p>For more information about player LED illumination, see <a href="../Pages/Page_99800445.html">3.2 Assigning Controller Indexes (Required)</a><span style="color: rgb(61,61,61);">.</span></p>
+<p>For more information about automatically disconnecting unsupported controllers in the application, see <a href="../Pages/Page_278512430.html">3.8 Other Recommendations</a>.</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

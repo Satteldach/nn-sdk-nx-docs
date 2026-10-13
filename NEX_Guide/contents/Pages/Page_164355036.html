@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2 Data Stores | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2 Data Stores -->
+<div class="pagetitle" id="PageId_164355036">5.2 Data Stores</div>
+<div class="text_separate">
+<div>
+  <h1 id="Anchor_164355036_h1_1">Using Both a Storage Server and the Game Server</h1>
+  <p>When using the data store feature to save data, that data can be saved on a storage server or on the game server.</p>
+  <p>The following table shows some of the advantages and disadvantages of each method.</p>
+  <table class="wrapped">
+    <colgroup>
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>
+          <div class="tablesorter-header-inner">
+            <br />
+          </div>
+        </th>
+        <th>
+          <div class="tablesorter-header-inner">Storage Server</div>
+        </th>
+        <th>
+          <div class="tablesorter-header-inner">Game Server</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="highlight-grey">
+          <strong>Maximum size for a single piece of data</strong>
+        </td>
+        <td>10 MB</td>
+        <td>1024 bytes</td>
+      </tr>
+      <tr>
+        <td class="highlight-grey">
+          <strong>Number of pieces of data that can be processed at one time</strong>
+        </td>
+        <td>1</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td class="highlight-grey">
+          <strong>Specifying a data ID when uploading data</strong>
+        </td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td class="highlight-grey">
+          <strong>Processing speed</strong>
+        </td>
+        <td>Slower than when using the game server.</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>However, by using both a storage server and the game server in combination, you can take full advantage of each. For example, if you store the replay data on the storage server and the thumbnails for that data on the game server, you can first get all of the thumbnails and then get only the needed replay data from the storage server. </p>
+  <h1 id="Anchor_164355036_h1_2">Using Data Stores as a Counter</h1>
+  <p>Data stores can be used to store data that functions as a counter for actions taken by game players or ratings submitted by game players.</p>
+  <p>For example, you could implement a voting feature by getting the total for the rating values for data uploaded in advance. When doing so, configure a minimum data rating value of 0 and a maximum data value of 1. If you then also set the option flag for the rating slot to <code>RATING_FLAG_MODIFIABLE</code>, you can set a restriction of one vote per user and limit users to a single vote per a set period of time when you configure the duplicate lock.</p>
+  <p>To use data stores as a counter across the entire game, someone has to upload the data. In this case, you can use the designated data ID upload feature so that it will upload only when data of the specified ID has not been uploaded. When using this feature, you begin with a rating. When there is no data, the workflow proceeds to the upload.</p>
+  <p>Negative values can also be specified and used freely as global variables for game participants, for example. However, relative comparison of these values is not supported, so you cannot filter data by values greater than or equal to a certain value.</p>
+  <h1 id="Anchor_164355036_h1_3">Getting Random Data</h1>
+  <p>To retrieve uploaded data at random, specify <code>RESULTRANGE_ANY_OFFSET</code> as the offset for the data to retrieve. This makes the server return pseudo-randomly selected data. Doing this makes it possible to prevent getting the same data every time.</p>
+  <h1 id="Anchor_164355036_h1_4">Exchanging Data Among Individual Users</h1>
+  <p>If you want to use data stores to exchange data among individual users, you can use data types to manage the received and unreceived data. For example, if you set <code>1</code> as the data type when you upload data that you want to use for data exchanges, other users can later set &quot;data type <code>1</code>&quot; as a search condition to get data of that type. The user who has obtained this data can change the data type to <code>0</code> after they receive it to ensure that multiple users cannot get the same data. This step also allows the user that uploaded the data to later see which data was obtained.</p>
+  <p>You could also use tags to categorize the data for searches, but as mentioned in <a href="../Pages/Page_164355007.html">4.2 Data Stores</a>, NEX data stores are not designed to search for data over wide search ranges, so you should avoid this. The reason is because the server load increases as the number of sets of data increases, and this can lower the quality of service.</p>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

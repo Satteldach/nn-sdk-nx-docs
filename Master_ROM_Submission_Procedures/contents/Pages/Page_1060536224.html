@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7 Support After Release | Nintendo Switch Master ROM Submission Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7 Support After Release -->
+<div class="pagetitle" id="PageId_1060536224">7 Support After Release</div>
+<div class="text_separate">
+<p>Bugs and other issues can arise after an application has been released to the market.<br />This section describes useful tools for resolving issues.</p>
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_1060536224_h1_1">Crash Reports</a>
+    </li>
+    <li>
+      <a href="#Anchor_1060536224_h1_2">Error Code List</a>
+    </li>
+  </ul>
+</p>
+<h1 id="Anchor_1060536224_h1_1">Crash Reports</h1>
+<p>A crash report is a collection of information about an application that has crashed due to an unexpected error. If crash reports are enabled for an application, the system will create a crash report when the application crashes and send it to the Nintendo crash report server.</p>
+<p>Application developers can analyze the crash reports that users agreed to share in the following two ways.</p>
+<h2 id="Anchor_1060536224_h2_1">Analysis Methods</h2>
+<h3 id="Anchor_1060536224_h3_1">Using a Web Browser</h3>
+<ul class="alternate">
+  <li>By accessing CRPORTAL (<a href="https://crash-report.wc.lp1.er.srv.nintendo.net/" target="_blank" rel="noopener noreferrer">https://crash-report.wc.lp1.er.srv.nintendo.net/</a>) and submitting a request, you can use the error monitoring system provided by Sentry (<a href="https://sentry.io" target="_blank" rel="noopener noreferrer">sentry.io</a>) to analyze the crash reports.</li>
+  <li>Currently, you can only analyze the crash reports collected in the market (production environment).</li>
+  <li>The advantage of this method is that you don't need to build a system to visualize the statistical information.</li>
+</ul>
+<h3 id="Anchor_1060536224_h3_2">Using the Crash Report Retrieval Tool Included in NintendoSDK</h3>
+<ul class="alternate" style="text-align: left;">
+  <li>By installing NintendoSDK, you can use the crash report retrieval tool (<code>CrashReport.exe</code>) to analyze the crash reports.</li>
+  <li>You can analyze the crash reports collected in the market (production environment) and the crash reports collected in the development environment.</li>
+  <li>The advantage of this method is that it can be used even when the available debugging methods are limited, such as during final testing in a development environment.</li>
+</ul>
+<h2 id="Anchor_1060536224_h2_2">Information That Can Be Analyzed</h2>
+<p>Various types of information can be obtained from the crash reports and analyzed, including information about the number of occurrences of each cause of a crash, error codes, exception addresses, stack traces, and screenshots. This information provides important clues when you contact Nintendo support, so check it in advance.</p>
+<h2 id="Anchor_1060536224_h2_3">Preparing for Analysis</h2>
+<p>To use crash reports, you need the NSS file that is created at the same time as the NSP file, as described in <a href="../Pages/Page_178492863.html">5.1 ROM Builds</a> &gt; Building Application ROMs. Be sure to save and not delete this NSS file, not only for the initial application, but also for patches.</p>
+<h2 id="Anchor_1060536224_h2_4">Reference Materials</h2>
+<ul>
+  <li>NintendoSDK Documents<ul><li>Features &gt; System &gt; Crash Reports</li></ul></li>
+  <li>Nintendo Switch Guidelines<ul><li>System Features &gt; Crash Reports</li></ul></li>
+</ul>
+<h1 id="Anchor_1060536224_h1_2">Error Code List</h1>
+<p>An error code might be displayed on the screen when the application crashes or a certain operation is performed. If you have obtained an error code, either from a user or from a crash report, you can reference the Error Code List to identify the type of issue involved. Depending on the content, the crash might be due to a hardware defect or a setting that was forgotten, and not due to the application. This list provides a way to determine whether the content is something that should be dealt with by the application developers.</p>
+<h2 id="Anchor_1060536224_h2_5">Reference Materials</h2>
+<ul>
+  <li>Error Code List<ul><li>Nintendo Developer Portal &gt; DEVELOPER SUPPORT &gt; Online Documentation<ul><li>Assets + Lists</li></ul></li></ul></li>
+  <li>Nintendo Switch Guidelines<ul><li>System Features &gt; Crash Reports</li></ul></li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Nintendo Switch Online | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Nintendo Switch Online -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452299" data-tags="revision-updated-12.0 revision-updated-14.0 revision-updated-6.0">Nintendo Switch Online</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements related to Nintendo Switch Online.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>You must set the country setting of Nintendo Accounts that you use to test the guidelines in this chapter to a country that provides the Nintendo Switch Online service. For a list of countries that provide the service, see the following.<ul><li><em>Nintendo Switch Independent Server Setup Manual</em><ul><li>Appendix &gt; Countries of Residence Allowed for Nintendo Accounts</li></ul></li></ul></li>
+    </ul>
+    <div>
+      <ul>
+        <li>Nintendo does not provide the Nintendo Switch Online service in China. However, you must still select <strong>No features require membership</strong> as the Nintendo Switch Online policy for applications for China. For details, see the <em>Nintendo Switch Online Play Guide</em>.</li>
+      </ul>
+      <p>
+        <br />
+      </p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+</div>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Nintendo Switch Online: General -->
+<h1 class="general" id="GuidelineLabel_2367452301" data-tags="revision-updated-6.0">Nintendo Switch Online: General</h1>
+<div class="text">
+<p>This subchapter covers general requirements for Nintendo Switch Online.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0163: Implementing handling for features that require a Nintendo Switch Online membership (When some features require membership) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452303" data-tags="revision-updated-20240206 revision-updated-6.0 revision-updated-14.0 function-npln function-独自サーバー revision-updated-12.0 revision-updated-7.0 revision-updated-8.0 revision-updated-13.0 function-nex function-nintendoswitchonline revision-updated-15.0 revision-updated-21.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452303" title="Right-click and copy link to copy a permalink to this guideline">0163: Implementing handling for features that require a Nintendo Switch Online membership (When some features require membership)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If an error occurs because the user is not a member of Nintendo Switch Online, you must call the specified function to display the sign-up sequence.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications whose Nintendo Switch Online Policy in OMAS is &quot;Some features require membership&quot;</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>For more information about the application policy categories, see the <em>Nintendo Switch Online Play Guide</em>.</li>
+      <li>For applications whose policy is &quot;All features require membership,&quot; see <a href="../Pages/Page_2367452299.html#GuidelineDescLabel_2367452305">0170: Implementing handling for features that require a Nintendo Switch Online membership (When all features require membership)</a>.</li>
+    </ul>
+  </div>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <p>If your application offers features that require the user to join Nintendo Switch Online, then you must display the system feature UI for the membership sign-up sequence when a user who is not a member tries to access those features. Your application must handle this differently depending on whether you use independent servers or middleware to implement the features, as shown below.</p>
+  <ul>
+    <li>When using independent servers:<br />Your application must handle the situation as described in &quot;Nintendo Switch Online &gt; Application-Level Support &gt; Using Independent Servers&quot; in the <em>Nintendo Switch Online Play Guide</em>.</li>
+    <li>When using middleware:<br />If your application uses middleware such as NEX or Pia to provide network services, you must implement whatever error handling is required by each middleware.<br />For details, see &quot;Nintendo Switch Online Support &gt; Application-Level Support &gt; NEX Error Handling When the Application Policy Is Some Features Require Membership&quot; in the <em>Nintendo Switch Online Play Guide</em>.</li>
+  </ul>
+  <p>If your application uses both independent servers and middleware, you must implement both kinds of handling.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If DevMenu &gt; <strong>Accounts</strong> &gt; <strong>Firmware settings</strong> &gt; <strong>Enable Nintendo Account license verification</strong> is not selected, the NSA ID token contains no Nintendo Switch Online membership information. To test this guideline, you must select to <strong>Enable Nintendo Account license verification</strong>.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>For details on how to implement this handling in applications whose Nintendo Switch Online policy is &quot;Some features require membership,&quot; see the following documents.</p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <p>
+      <br />
+    </p>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch Online Play Guide</em>
+        <ul>
+          <li>Nintendo Switch Online Support &gt; Application-Level Support</li>
+          <li>Nintendo Switch Online Support &gt; Use in a Development Environment &gt; Nintendo Switch Online Membership Manager</li>
+        </ul>
+      </li>
+      <li>
+        <em>Nintendo Switch Independent Server Setup Manual</em>
+        <br />
+        <ul>
+          <li>Connecting to an Independent Server &gt; Nintendo Switch Online Support</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>In DevMenu, go to <strong>Shop</strong> &gt; <strong>Valid Shop</strong> and change this setting to <strong>Test Shop</strong>.</li>
+  <li>On <a href="https://nsom.nntt.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">Nintendo Switch Online Membership Manager</a>, identify the Nintendo Accounts that are linked to user accounts on the Switch devkit, and for each one select <strong>Expire</strong> to set its <strong>Service availability</strong> to <strong>Unavailable</strong>. (Do this for as many Nintendo Accounts as necessary for the test.)</li>
+  <li>Hold down the POWER Button on the Switch devkit, then on the Power Menu select to restart the devkit.</li>
+  <li>Start the application and proceed to a scene where you can use a feature that requires a Nintendo Switch Online membership.</li>
+  <li>Attempt to use that feature.</li>
+  <li>Cancel out of the system-side UI.</li>
+  <li>Proceed to a scene where you can use a feature that requires a Nintendo Switch Online membership, and once more attempt to use that feature.</li>
+  <li>In the system-side UI, jump to Nintendo eShop (ec test applet).</li>
+  <li>On Nintendo Switch Online Membership Manager, identify the Nintendo Accounts that are linked to user accounts currently being used by the application, and for each one select <strong>Grant</strong> to set its <strong>Service availability</strong> to <strong>Available</strong>.</li>
+  <li>In the ec test applet, press the A Button and close the ec test applet.</li>
+  <li>If the application continues with the scene from step 7, then proceed with that scene and attempt to use the feature you are testing. If the application returned you to a scene earlier than the scene from step 7, proceed once again to the scene from step 7, then attempt to use the feature you are testing.</li>
+  <li>If the application has multiple features that require a Nintendo Switch Online membership, repeat steps 2 through 11 for every such feature.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if all of the following conditions are met.<ul>
+  <li>In steps 5 and 7, the system-side UI is displayed to explain that a Nintendo Switch Online membership is required.</li>
+  <li>In step 6, the feature being tested cannot be used.</li>
+  <li>In step 11, the feature being tested can be used.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452303_0" data-tag="function-nex">
+<label for="tagfilter_2367452303_0">
+<span class="function-tag" title="NEX" data-tag="function-nex">NEX</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452303_1" data-tag="function-独自サーバー">
+<label for="tagfilter_2367452303_1">
+<span class="function-tag" title="Independent servers" data-tag="function-独自サーバー">Independent servers</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452303_2" data-tag="function-nintendoswitchonline">
+<label for="tagfilter_2367452303_2">
+<span class="function-tag" title="Nintendo Switch Online" data-tag="function-nintendoswitchonline">Nintendo Switch Online</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452303_3" data-tag="function-npln">
+<label for="tagfilter_2367452303_3">
+<span class="function-tag" title="NPLN" data-tag="function-npln">NPLN</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_4" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452303_4">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_5" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367452303_5">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_6" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367452303_6">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_7" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452303_7">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_8" data-tag="revision-updated-13.0">
+<label for="tagfilter_2367452303_8">
+<span class="revision-tag" title="Updated v13.0" data-tag="revision-updated-13.0">Updated v13.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_9" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452303_9">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_10" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452303_10">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_11" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452303_11">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452303_12" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452303_12">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0170: Implementing handling for features that require a Nintendo Switch Online membership (When all features require membership) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452305" data-tags="revision-updated-20240206 revision-updated-14.0 revision-updated-10.0 function-マッチメイクボイスチャット function-npln function-独自サーバー revision-updated-12.0 revision-updated-7.0 revision-updated-8.0 revision-updated-13.0 function-nex revision-updated-20.0 function-nintendoswitchonline revision-updated-21.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452305" title="Right-click and copy link to copy a permalink to this guideline">0170: Implementing handling for features that require a Nintendo Switch Online membership (When all features require membership)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>If errors occur in your application when the user is not a member of Nintendo Switch Online, your application must handle the error by complying with &quot;Implementing handling when your application is unable to use a network service account.&quot;</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications whose Nintendo Switch Online Policy in OMAS is &quot;All features require membership&quot;</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>For more information about the application policy categories, see the <em>Nintendo Switch Online Play Guide</em>.</li>
+      <li>For applications whose policy is &quot;Some features require membership,&quot; see <a href="../Pages/Page_2367452299.html#GuidelineDescLabel_2367452303">0163: Implementing handling for features that require a Nintendo Switch Online membership (When some features require membership)</a>.</li>
+    </ul>
+  </div>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>When there is no disadvantage to the user even if the error is not displayed, such as in the following examples:<ul><li>During (background) processes that do not involve active user interaction, where the error causes no problems that affect the user's ability to progress further in your application</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <p>When a user who is not a member of Nintendo Switch Online plays an application whose policy is &quot;All features require membership,&quot; calling functions that allocate a cache for the NSA ID token returns the error <code>nn::account::ResultNetworkServiceAccountUnavailable</code>.</p>
+  <p>This applies to the following functions.</p>
+  <ul>
+    <li>
+      <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code>
+    </li>
+    <li>
+      <code>nn::nex::NgsFacade::Login()</code>
+    </li>
+    <li>Any of the following <code>nn::nex::SmartDeviceVoiceChatClient</code> functions: <br /><ul><li><code>GetAvailability()</code></li><li><code>JoinRoom()</code></li><li><code>ChangeVoiceChatChannel()</code></li></ul></li>
+    <li>Any of the following <code>nn::ens::SmartDeviceVoiceChatClient</code> functions:<ul><li><code>TestAvailability()</code></li><li><code>JoinRoom()</code></li><li><code>ChangeVoiceChatChannel()</code></li></ul></li>
+    <li>NPLN functions that trigger communication processing</li>
+  </ul>
+  <p>If this error is returned, you must handle it as described in <a href="../Pages/Page_2367452178.html#GuidelineDescLabel_2367452186">0121: Implementing handling when your application is unable to use a network service account</a>.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <ul>
+        <li>For more information on how to change the Nintendo Switch Online membership status in your development environment, see the <em>Nintendo Switch Online Play Guide</em>.</li>
+        <li>Even if the user is not subscribed to Nintendo Switch Online, the <code>nn::account::ResultNetworkServiceAccountUnavailable</code> error does not occur unless DevMenu &gt; <strong>Accounts</strong> &gt; <strong>Firmware settings</strong> &gt; <strong>Enable Nintendo Account license verification</strong> is selected. To test this guideline, you must select to <strong>Enable Nintendo Account license verification</strong>.</li>
+        <li>The <code>nn::nex::NgsFacade::Login()</code> function is an overloaded function, meaning that it has multiple variations. The only variation that is subject to this guideline is the variation (provided up until NEX library version 4.4.0) that takes <code>nn::account::UserHandle</code> as an argument.</li>
+      </ul>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul class="_mce_tagged_br">
+      <li>
+        <em>NPLN Manual</em>
+        <ul class="_mce_tagged_br">
+          <li>NPLN Programming Manual &gt; Basic Usage of the npln Library &gt; RPC Error Handling</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch Online Play Guide</em>
+        <ul class="_mce_tagged_br">
+          <li>Nintendo Switch Online &gt; Use in a Development Environment &gt; Nintendo Switch Online Membership Manager</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>In DevMenu, go to <strong>Shop</strong> &gt; <strong>Valid Shop</strong> and change this setting to <strong>Test Shop</strong>.</li>
+  <li>On <a href="https://nsom.nntt.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">Nintendo Switch Online Membership Manager</a>, identify the Nintendo Accounts that are linked to user accounts on the Switch devkit, and for each one select <strong>Expire</strong> to set its <strong>Service availability</strong> to <strong>Unavailable</strong>. (Do this for as many Nintendo Accounts as necessary for the test.)</li>
+  <li>Hold down the POWER Button on the Switch devkit, then on the Power Menu select to restart the devkit.</li>
+  <li>Start the application and proceed to a scene where you can use a feature that requires a Nintendo Switch Online membership.</li>
+  <li>Attempt to use that feature.</li>
+  <li>Cancel out of the system-side UI.</li>
+  <li>Proceed to a scene where you can use a feature that requires a Nintendo Switch Online membership, and once more attempt to use that feature.</li>
+  <li>In the system-side UI, jump to Nintendo eShop (ec test applet).</li>
+  <li>On Nintendo Switch Online Membership Manager, identify the Nintendo Accounts that are linked to user accounts currently being used by the application, and for each one select <strong>Grant</strong> to set its <strong>Service availability</strong> to <strong>Available</strong>.</li>
+  <li>In the ec test applet, press the A Button and close the ec test applet.</li>
+  <li>If the application has multiple features that require a Nintendo Switch Online membership, repeat steps 2 through 10 for every such feature.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if all of the following conditions are met.<ul>
+  <li>In steps 5 and 7, the system-side UI is displayed to explain that a Nintendo Switch Online membership is required.</li>
+  <li>In step 6, the feature being tested cannot be used.</li>
+  <li>In step 10, the application calls the function that previously returned the <code>nn::account::ResultNetworkServiceAccountUnavailable</code> error, and continues the scene while allowing the player to use the feature being tested.</li>
+  <li>In steps 5 through 10, no features of the application use the error viewer applet or other methods to display errors in the 2124-0200 to 2124-0269 range.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452305_0" data-tag="function-nex">
+<label for="tagfilter_2367452305_0">
+<span class="function-tag" title="NEX" data-tag="function-nex">NEX</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452305_1" data-tag="function-独自サーバー">
+<label for="tagfilter_2367452305_1">
+<span class="function-tag" title="Independent servers" data-tag="function-独自サーバー">Independent servers</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452305_2" data-tag="function-nintendoswitchonline">
+<label for="tagfilter_2367452305_2">
+<span class="function-tag" title="Nintendo Switch Online" data-tag="function-nintendoswitchonline">Nintendo Switch Online</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452305_3" data-tag="function-npln">
+<label for="tagfilter_2367452305_3">
+<span class="function-tag" title="NPLN" data-tag="function-npln">NPLN</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452305_4" data-tag="function-マッチメイクボイスチャット">
+<label for="tagfilter_2367452305_4">
+<span class="function-tag" title="Matchmaking Voice Chat" data-tag="function-マッチメイクボイスチャット">Matchmaking Voice Chat</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_5" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452305_5">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_6" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367452305_6">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_7" data-tag="revision-updated-20.0">
+<label for="tagfilter_2367452305_7">
+<span class="revision-tag" title="Updated v20.0" data-tag="revision-updated-20.0">Updated v20.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_8" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452305_8">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_9" data-tag="revision-updated-13.0">
+<label for="tagfilter_2367452305_9">
+<span class="revision-tag" title="Updated v13.0" data-tag="revision-updated-13.0">Updated v13.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_10" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452305_10">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_11" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367452305_11">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_12" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452305_12">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452305_13" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452305_13">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0210: Free-to-play applications that use NPLN must require a Nintendo Switch Online membership -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452307" data-tags="revision-updated-20.0 function-nintendoswitchonline revision-updated-21.0 revision-updated-18.0 function-npln" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452307" title="Right-click and copy link to copy a permalink to this guideline">0210: Free-to-play applications that use NPLN must require a Nintendo Switch Online membership</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Free-to-play applications that use NPLN must require a Nintendo Switch Online membership for all NPLN features.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Free-to-play applications that use NPLN
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p style="text-align: left;">If your free-to-play application uses NPLN, your application must require a Nintendo Switch Online membership for all NPLN features.</p>
+  <p style="text-align: left;">If your application's Nintendo Switch Online Policy in OMAS is set to &quot;All features require membership,&quot; it ensures that all NPLN features require a Nintendo Switch Online membership.</p>
+  <p style="text-align: left;">If your application's Nintendo Switch Online Policy in OMAS is set to &quot;Some features require membership,&quot; you must open the NPLN Dashboard web tool, go to <strong>Auth</strong> &gt; <strong>Config</strong>, and check that all of the NPLN features are included in the list of services that require a Nintendo Switch Online membership. See the NPLN Manual for more information about the settings to configure so that all NPLN features require Nintendo Switch Online membership.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Demos are treated as separate from free-to-play applications and are not subject to this guideline. Note that if you have a demo, you must set it to the same Policy as the full retail version of your application.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NPLN Manual</em>
+        <ul>
+          <li>NPLN Dashboard Manual &gt; Changing and Applying Tenant Settings (Config) &gt; Configuring Authorization Rules When Some Features Require Nintendo Switch Online Membership</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch Online Play Guide</em>
+        <ul>
+          <li>Nintendo Switch Online Support &gt; Member-Only and Complimentary Features</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Perform the following to check whether an application is free-to-play.</p>
+      <ul>
+        <li>On OMAS, access the application's Title Information page. Under the <strong>Application Overview</strong> section, confirm that the entry for the <strong>Free-To-Play?</strong> field is <strong>Yes</strong>.</li>
+      </ul>
+    </div>
+  </div>
+  <ol style="text-align: left;">
+    <li>On OMAS, access the application's Title Information page. Under the <strong>Nintendo Switch Online Policy</strong> section, check the <strong>Application Policy</strong>.</li>
+    <li>If the Policy you checked in step 1 is set to &quot;Some features require membership,&quot; check the following on NPLN Dashboard:<ul><li><strong>Auth</strong> &gt; <strong>Config</strong></li></ul></li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">Passes if at least one of the following conditions is met.<ul><li>In step 1, <strong>Nintendo Switch Online Policy</strong> &gt; <strong>Application Policy</strong> is set to &quot;All features require membership.&quot;</li><li>In step 2, <strong>Auth</strong> &gt; <strong>Config</strong> &gt; <strong>Services that require an NSO membership</strong> is set to &quot;All services&quot;.</li><li>In step 2, <strong>Auth</strong> &gt; <strong>Config</strong> &gt; <strong>Services that do not require an NSO membership</strong> is set to &quot;Auth&quot; only.</li></ul></div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452307_0" data-tag="function-nintendoswitchonline">
+<label for="tagfilter_2367452307_0">
+<span class="function-tag" title="Nintendo Switch Online" data-tag="function-nintendoswitchonline">Nintendo Switch Online</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452307_1" data-tag="function-npln">
+<label for="tagfilter_2367452307_1">
+<span class="function-tag" title="NPLN" data-tag="function-npln">NPLN</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452307_2" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367452307_2">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452307_3" data-tag="revision-updated-20.0">
+<label for="tagfilter_2367452307_3">
+<span class="revision-tag" title="Updated v20.0" data-tag="revision-updated-20.0">Updated v20.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452307_4" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367452307_4">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

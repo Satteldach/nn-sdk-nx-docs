@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 Configuring the System for Test Delivery | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 Configuring the System for Test Delivery -->
+<div class="pagetitle" id="PageId_205850121">5.3 Configuring the System for Test Delivery</div>
+<div class="text_separate">
+<h1 style="text-align: left;" id="Anchor_205850121_h1_1">Introduction</h1>
+<p>This page describes the procedure for configuring the system for test delivery.<br />Prepare the following items in advance.</p>
+<ul>
+  <li>System<ul><li>If testing the delivery of data, a development hardware device or a retail unit.</li><li>If testing the delivery of News items, a retail unit.</li></ul></li>
+  <li>Internet connection environment</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>The system configured for test delivery receives test deliveries for both News and data.<br />The system cannot receive test delivery of only one or the other.</li>
+      <li>If a 2141-0005 error occurs on a system that has been configured for test delivery, try re-entering the passcode using the procedure described in Configuring the System for Test Delivery, or restore the normal system settings using the procedure described in Deleting the Configuration for System Test Delivery.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_205850121_h1_2">Configuring the System for Test Delivery</h1>
+<h2 id="Anchor_205850121_h2_1">Step 1: Entering Hidden Commands</h2>
+<p>Use the following procedure to enter a hidden command.</p>
+<p>Adjust the system volume before proceeding to make sure that you do not miss the brief sound effect played in step 4.</p>
+<p>
+  <br />
+</p>
+<ol>
+  <li>On the HOME Menu, in System Settings, select <strong>Internet Settings</strong>.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205889368.jpg" height="250" class="embedded-image" /></span></li>
+  <li>Display the network list screen.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205889369.jpg" height="250" class="embedded-image" /></span></li>
+  <li>Press the + Button.</li>
+  <li>While pressing the + Button, hold down the L Stick for 3 seconds.<br />When the command has been successfully entered, a short, soft popping sound is played.</li>
+</ol>
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>To return to the previous screen when no sound effect was played, press the B Button one time to display the network list screen again. Then try to enter the hidden command again.</li>
+      <li>Hidden commands can also be entered by simultaneously holding down either the + or - Button and holding down either the L or R Stick.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_205850121_h2_2">Step 2: Connecting to the Network</h2>
+<p>From the network list screen, select a network to connect to and then connect to the network by entering the password, as you would for ordinary internet settings.</p>
+<h3 id="Anchor_205850121_h3_1">When a Hidden Command Is Successfully Entered</h3>
+<p>The following dialog box closes automatically and the screen to enter the passcode appears when the connection goes through. </p>
+<p>Proceed to step 3.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205897688.jpg" height="250" class="embedded-image" /></span></p>
+<h3 id="Anchor_205850121_h3_2">When a Hidden Command Is Not Successfully Entered</h3>
+<p>Entering a hidden command has failed when the preceding dialog box does not automatically close even if the connection has ended, and the display of the dialog box changes as follows.</p>
+<p>Return to step 1, and enter the hidden command again.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205889585.jpg" height="250" class="embedded-image" /></span></p>
+<h2 id="Anchor_205850121_h2_3">Step 3: Entering Passcodes</h2>
+<p>Enter a passcode corresponding to the system type and platform region on the following screen.</p>
+<p>The system gets settings from the server that correspond to the passcode, and saves them to the system.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The platform region is the region where the system is used, set for the system itself. The two options that are currently available for the platform region are <strong>Global</strong> and <strong>China</strong>. For more information, see NintendoSDK Documents.<br />In the production environment, Nintendo Switch consoles sold for China are configured with China as the platform region, and Nintendo Switch systems sold for other regions are set to Global.</p>
+  </div>
+</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_205850121/205889602.jpg" height="250" class="embedded-image" />
+  </span>
+</p>
+<h6 id="Anchor_205850121_h6_1">Passcode List</h6>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">System Type</th>
+      <th>Platform Region</th>
+      <th style="text-align: left;">Passcode</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>Development hardware</td>
+      <td>Global</td>
+      <td>bcatdd1test</td>
+      <td>
+        <p>Passcode for connecting to a server for BCAT test delivery in a <em>dd1</em> development environment.</p>
+        <p>Used for debugging data delivery. Not used for News delivery.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Retail unit</td>
+      <td>Global</td>
+      <td>bcatlp1test</td>
+      <td>The passcode for connecting to the BCAT test delivery server in the lp1 production environment.</td>
+    </tr>
+    <tr>
+      <td>Development hardware</td>
+      <td>China</td>
+      <td>bcatdd1test4china</td>
+      <td>
+        <p>The passcode for connecting a Switch system for the China region to the BCAT test delivery server in the dd1 development environment.</p>
+        <p>Used for debugging data delivery. Not used for News delivery.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Retail unit</td>
+      <td>China</td>
+      <td>bcatlp1test4china</td>
+      <td>The passcode for connecting a Switch system for the China region to the BCAT test delivery server in the lp1 production environment.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_205850121_h3_3">When Passcode Input Is Successful</h3>
+<p>The following type of dialog box indicating success appears when configuration was successful. Follow the instructions in the dialog box and turn off the system.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205889636.jpg" height="250" class="embedded-image" /></span></p>
+<h3 id="Anchor_205850121_h3_4">When Passcode Input Fails</h3>
+<p>The following type of dialog box indicating failure appears when configuration failed. The following are the primary reasons for configuration failures.</p>
+<ul>
+  <li>The passcode was not entered correctly.</li>
+  <li>Communications are restricted by a network administrator.</li>
+  <li>If the system is being managed by Nintendo: Due to special circumstances, the development hardware is connected to a server environment other than the dd1 development environment, or the retail unit is connected to a server environment other than the lp1 production environment.<br /><ul><li>If this happens, reinitialize the system before proceeding.</li></ul></li>
+</ul>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_205850121/427273275.jpg" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can investigate the cause of the problem by searching for <strong>2141-yyyy</strong> in the Error Code List documentation.</p>
+    <p>Contact Nintendo if you cannot resolve the problem.</p>
+  </div>
+</div>
+<h1 id="Anchor_205850121_h1_3">Deleting the Configuration for System Test Delivery</h1>
+<p>This section describes the procedures for deleting a configuration for test delivery from the system. </p>
+<ol>
+  <li>Open the screen for entering the passcode using the procedure described previously.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205890124.jpg" height="250" class="embedded-image" /></span></li>
+  <li>Enter <strong>delete</strong> as the passcode.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205889654.jpg" height="250" class="embedded-image" /></span></li>
+  <li>A dialog box indicating that the configuration was deleted appears. Follow the instructions in the dialog box and turn off the system.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_205850121/205889658.jpg" height="250" class="embedded-image" /></span></li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Test delivery configurations can also be deleted by initializing the system.</p>
+    <p>However, using <strong>Initialize Console Without Deleting</strong> in recovery mode does not delete this information.</p>
+  </div>
+</div>
+<h1 id="Anchor_205850121_h1_4">Checking the System's Settings</h1>
+<p>You can determine whether a system has been configured for test delivery by checking the passcode entry screen.</p>
+<p>To display the passcode entry screen, enter the hidden command described previously.</p>
+<p>If the system has been set for test delivery, the system's current settings are displayed using dimmed text in the preview field, as shown below.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_205850121/1122226251.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>If the preview field does not show dimmed text, the system is set with the default settings. When that is the case, the system is not configured for test delivery.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

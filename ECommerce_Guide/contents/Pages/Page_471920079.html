@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>8.3 Downloadable Content | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 8.3 Downloadable Content -->
+<div class="pagetitle" id="PageId_471920079">8.3 Downloadable Content</div>
+<div class="text_separate">
+<p>This section describes the implementation method, feature specifications, and other important information when using the feature for getting information within applications to get downloadable content information.</p>
+<h1 id="Anchor_471920079_h1_1">Overview</h1>
+<p>A feature is provided for getting the following information about downloadable content and downloadable content bundles. A downloadable content bundle is a bundle consisting of only downloadable content.</p>
+<ul>
+  <li>Names, descriptions, and disclaimers</li>
+  <li>The release date that appears in Nintendo eShop</li>
+  <li>The downloadable content index (Downloadable content bundles are not supported.)<br />For more information about downloadable content indexes, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library.</li>
+  <li>The identifier (the <code>ns_uid</code>) for display in Nintendo eShop.</li>
+</ul>
+<h2 id="Anchor_471920079_h2_1">Implementation</h2>
+<p>Use the following features for getting a list of downloadable content to get downloadable content information. The obtained downloadable content identifier (<code>ns_uid</code>) can also be specified in the jump to eShop API.</p>
+<h2 id="Anchor_471920079_h2_2">Determining Possession</h2>
+<p>To display only the downloadable content that the user does not possess, use <code>aoc_indexes</code> of the response. The values in <code>aoc_indexes</code> are the downloadable content indexes that were configured in NCMS.<br />Use the following process to determine ownership and display DLC that is not yet owned.</p>
+<ol>
+  <li>Use <code>nn::aoc::ListAddOnContent()</code> to get the list of available downloadable content indexes.</li>
+  <li>Using the DLC indexes acquired in step 1, call <code>nn::fs::MountAddOnContent()</code> for the ROM associated with each DLC index and check the return value.</li>
+  <li>Use the features for getting the list of downloadable content to get the index for each item of downloadable content.</li>
+  <li>If a downloadable content index obtained in step 3 is not on the list that was obtained in step 1, display the downloadable content that corresponds to that index.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about <code>nn::aoc::ListAddOnContent()</code> and <code>nn::fs::MountAddOnContent()</code>, see the discussion of those functions in the NintendoSDK API Reference.</p>
+  </div>
+</div>
+<p>As an example, assume you are offering the following downloadable content for sale.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Downloadable Content</th>
+      <th>Downloadable Content Index</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Downloadable content A</td>
+      <td>1</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Downloadable content B</td>
+      <td>2,3</td>
+      <td>Downloadable content index 2 is shared data used by downloadable content B and C.</td>
+    </tr>
+    <tr>
+      <td>Downloadable content C</td>
+      <td>2,4</td>
+      <td>Downloadable content index 2 is shared data used by downloadable content B and C.</td>
+    </tr>
+  </tbody>
+</table>
+<p>If a user purchases downloadable content A and B, the results of the <code>nn::aoc::ListAddOnContent()</code> function and the feature for getting a list of downloadable content look like the following.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <br />
+      </th>
+      <th>Downloadable Content Index</th>
+    </tr>
+    <tr>
+      <td>The list obtained by <code>nn::aoc::ListAddOnContent()</code></td>
+      <td>1,2,3</td>
+    </tr>
+    <tr>
+      <td>The <code>aoc_indexes</code> value for downloadable content A obtained by the feature for getting the list of downloadable content</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>The <code>aoc_indexes</code> value for downloadable content B obtained by the feature for getting the list of downloadable content</td>
+      <td>2,3</td>
+    </tr>
+    <tr>
+      <td>The <code>aoc_indexes</code> value for downloadable content C obtained by the feature for getting the list of downloadable content</td>
+      <td>2,4</td>
+    </tr>
+  </tbody>
+</table>
+<p>You can tell from these values that the user possesses downloadable content A and B and does possess downloadable content C.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Possession here does not mean that the user has purchased the downloadable content, but rather that the user has the rights to use and has installed the downloadable content. There is no way to determine whether the DLC has been purchased.</p>
+  </div>
+</div>
+<h3 id="Anchor_471920079_h3_1">Conditions for aoc_indexes To Be null</h3>
+<p>If the ROM for the downloadable content has not been registered with a season pass, or if download of the DLC is prohibited, its index is not included in <code>aoc_indexes</code>. If <code>aoc_indexes</code> is empty, its value is <code>null</code>.<br />Also, if the bundle contains downloadable content that will not be displayed in Nintendo eShop, the bundle's <code>aoc_indexes</code> is <code>null</code>.</p>
+<h1 id="Anchor_471920079_h1_2">URL Path Specifications</h1>
+<h2 id="Anchor_471920079_h2_3">Feature for Getting a List of Downloadable Content</h2>
+<p>Gets a list of the downloadable content and downloadable content bundles for the specified application.</p>
+<h3 id="Anchor_471920079_h3_2">Request</h3>
+<h4 id="Anchor_471920079_h4_1">URL Path</h4>
+<table class="wrapped">
+  <colgroup> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <td>/v1/applications/{applicationId}/aocs/items</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="Anchor_471920079_h4_2">Parameter</h4>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Data Types</th>
+      <th>Parameter Type</th>
+      <th>Required/Optional</th>
+      <th>Default<br />(Optional is the Only Default)</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>
+        <p>Application ID.</p>
+      </td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>{applicationId}</td>
+      <td>Use the ShopServiceAccessor alias replacement feature.</td>
+    </tr>
+    <tr>
+      <td>include_bundle</td>
+      <td>Whether to also get the downloadable content bundle.</td>
+      <td>boolean</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>true</td>
+      <td>true</td>
+      <td>Even if <code>true</code> is specified, you cannot get bundles that are combinations of anything other than downloadable content. For example, you cannot get a bundle that is a combination of a title and downloadable content.</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>
+        <p>Nintendo Account country code</p>
+      </td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>{country}</td>
+      <td>Use the ShopServiceAccessor alias replacement feature.</td>
+    </tr>
+    <tr>
+      <td>onsale_only</td>
+      <td>Whether to only get items that have the <code>onsale</code> sales status.</td>
+      <td>boolean</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>true</td>
+      <td>true</td>
+      <td>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; onsale_only Parameter.</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>Language Codes in IETF Language Tag Format</td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>en-US</td>
+      <td>
+        <p>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>offset</td>
+      <td>The position at which to start getting items (for paging).</td>
+      <td>integer</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>0</td>
+      <td>0</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>The number of items to get (for paging).</td>
+      <td>integer</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>100</td>
+      <td>10</td>
+      <td>
+        <p>Maximum value 100.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>/v1/applications/{applicationId}/aocs/items?country={country}&amp;lang=ja</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The <code><em>limit</em></code> parameter defines how many items of downloadable content can be obtained at a time, but the maximum is 100 items.</p>
+    <p>To obtain information on more than 100 items, use the offset element and split the process into multiple get operations. For a usage example of <code><em>limit</em></code> and <code><em>offset</em></code>, see <a href="../Pages/Page_757437035.html">8.1 Common</a>.</p>
+  </div>
+</div>
+<h3 id="Anchor_471920079_h3_3">Response</h3>
+<h4 id="Anchor_471920079_h4_3">Response Header</h4>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <p class="tableblock">200</p>
+      </td>
+      <td>
+        <p class="tableblock">OK</p>
+      </td>
+      <td>
+        <p class="tableblock">AocItemsResponseEntity</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="tableblock">400</p>
+      </td>
+      <td>
+        <p class="tableblock">Bad Request</p>
+      </td>
+      <td>
+        <p class="tableblock">ExternalErrorCode</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="tableblock">404</p>
+      </td>
+      <td>
+        <p class="tableblock">Not Found</p>
+      </td>
+      <td>
+        <p class="tableblock">ExternalErrorCode</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="tableblock">500</p>
+      </td>
+      <td>
+        <p class="tableblock">Internal Server Error</p>
+      </td>
+      <td>
+        <p class="tableblock">ExternalErrorCode</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="Anchor_471920079_h4_4">Response Body</h4>
+<table class="wrapped relative-table" style="width: 97.8253%;">
+  <colgroup> <col style="width: 1.95353%;" /> <col style="width: 2.58146%;" /> <col style="width: 5.72106%;" /> <col style="width: 9.97698%;" /> <col style="width: 8.09321%;" /> <col style="width: 14.6515%;" /> <col style="width: 17.3027%;" /> <col style="width: 7.11644%;" /> <col style="width: 32.2333%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="3">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>
+        <p>Null Values Allowed?</p>
+      </th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="3">lang</td>
+      <td>The Nintendo eShop display language.</td>
+      <td>string</td>
+      <td>Language code in IETF language tag format</td>
+      <td>&quot;en-US&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <div class="content-wrapper">
+          <p>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">length</td>
+      <td>The number of items obtained.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>1</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">offset</td>
+      <td>The position at which to start getting items</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>0</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">total</td>
+      <td>Total obtainable number.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>1</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">aoc_items</td>
+      <td>Downloadable content information.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">ns_uid</td>
+      <td>The NS_UID for jumping to eShop.</td>
+      <td>number</td>
+      <td>
+        <p>Integer value</p>
+      </td>
+      <td>70090000000001</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">name</td>
+      <td>Downloadable content name.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;Episode 1&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">description</td>
+      <td>Downloadable content description.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;Additional story&quot;</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">disclaimer</td>
+      <td>
+        <p>Legally required text and disclaimers to display for the downloadable content.</p>
+        <p />
+        <p>etc.</p>
+      </td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;You need the downloadable content to play the additional story.&quot;</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">content_type</td>
+      <td>
+        <p>Application type.</p>
+      </td>
+      <td>string</td>
+      <td>Text</td>
+      <td>
+        <p>&quot;aoc&quot;</p>
+      </td>
+      <td>Cannot be null</td>
+      <td>
+        <p>The strings have the following meanings.</p>
+        <ul style="list-style-type: square;">
+          <li>&quot;aoc&quot;: Downloadable content</li>
+          <li>&quot;bundle&quot;: A bundle consisting of multiple items of downloadable content.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">item_tags</td>
+      <td>Array of user-defined attributes.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Cannot be null</td>
+      <td>Empty when not configured.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>key</td>
+      <td>User-defined attribute key name.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;category&quot;</td>
+      <td>Cannot be null</td>
+      <td>Duplicate keys do not exist.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>value</td>
+      <td>User-defined attribute value.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;story&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">aoc_indexes</td>
+      <td>Additional downloadable content index arrays</td>
+      <td>
+        <p>array number</p>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>Array of integers</td>
+      <td>1, 2, 4, 5</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;lang&quot;</span><span class="o">:</span> <span class="s2">&quot;en-US&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;offset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;aoc_items&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;ns_uid&quot;</span><span class="o">:</span> <span class="mi">70090000000001</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Episode 1&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;Additional story&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;disclaimer&quot;</span><span class="o">:</span> <span class="s2">&quot;You need the downloadable content to play the additional story.&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;content_type&quot;</span><span class="o">:</span> <span class="s2">&quot;aoc&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;item_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;story&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span> <span class="p">...</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">],</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;aoc_indexes&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;<span class="p">]</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;error&quot;</span><span class="o">:</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;code&quot;</span><span class="o">:</span> <span class="s2">&quot;2001&quot;</span><span class="p">,</span> 
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Invalid NA Token&quot;</span><span class="p">,</span> 
+&nbsp;&nbsp;<span class="p">}</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

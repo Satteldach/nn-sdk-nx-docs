@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.3 User Account States | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.3 User Account States -->
+<div class="pagetitle" id="PageId_159219772">3.3 User Account States</div>
+<div class="text_separate">
+<p>With the Switch, you can set the timing of when to ask the user to select an account to match the sequence design of the application. As a result, switching the signed-in or signed-out state of each user account is basically performed within applications. When a user account is in the signed-in state, that user is recognized by the system as a user of the application. For user accounts in the signed-in state, the system issues Friend Presence information and records information to the Activity Log. In situations where multiple users are playing an application at the same time, multiple user accounts can simultaneously be in the signed-in state. For more information about the sign-in and sign-out processing for user accounts, see Changing the Signed-In and Signed-Out States of User Accounts in <a href="../Pages/Page_159220225.html">5.1.1 Feature Group 1: Displaying User Accounts and Changing Their States</a>.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>In this document, the <em>signed-in</em> and <em>signed-out</em> states refer to the selection state of a user account on the Switch console. Note that this is conceptually different from the process of signing in for authentication when connecting to a network. </p>
+  </div>
+</div>
+<h2 id="Anchor_159219772_h2_1">Differences Between the Signed-In and Signed-Out States</h2>
+<p>User accounts differ in the following ways when they are in the signed-in or signed-out states. Regardless of the signed-in or signed-out state of the user account, all save data associated with the application is accessible.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <br />
+      </th>
+      <th>Signed In</th>
+      <th>Signed Out</th>
+    </tr>
+    <tr>
+      <th>Description of state</th>
+      <td>The user account is selected in the application.</td>
+      <td>The user account is not selected in the application.</td>
+    </tr>
+    <tr>
+      <th>Handling by system features</th>
+      <td>Handled as using (playing) the application.</td>
+      <td>Not handled as using (playing) the application.</td>
+    </tr>
+    <tr>
+      <th>Suspend icon</th>
+      <td>The profile image is displayed on the application icon.</td>
+      <td>The profile image is not displayed on the application icon.</td>
+    </tr>
+    <tr>
+      <th>Friend presence</th>
+      <td>Can issue.</td>
+      <td>Cannot issue.</td>
+    </tr>
+    <tr>
+      <th>Save data</th>
+      <td>Accessible.</td>
+      <td>Accessible.</td>
+    </tr>
+  </tbody>
+</table>
+<p>The following example shows the application icon being displayed when the application is suspended and the user returns to the HOME Menu. If a user account is currently signed in, the profile image for that user account is displayed. If multiple user accounts are signed in, up to four accounts may be displayed.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159219772/216211823.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>If an obvious user for the application exists, putting the user account for that user into the signed-in state provides a more natural experience. In addition, Friend Presence can be issued while a user account is in a signed-in state as described previously, making it possible to show to friends that the application is currently being played. </p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>This documentation uses <em>signed in</em> or <em>signed out</em>, but other documentation may use <em>open state</em> or <em>close state</em>.</p>
+  </div>
+</div>
+<h2 id="Anchor_159219772_h2_2">Timing of State Changes</h2>
+<p>The state of the user account changes at the following times.</p>
+<ul>
+  <li>Change from signed-out to signed-in<br /><ul><li>When the sign-in process of the <code>account</code> library is called on a user account that is in the signed-out state.</li></ul></li>
+  <li>Change from signed-in to signed-out<br /><ul><li>When the sign-out process of the <code>account</code> library is called on a user account that is in the signed-in state.</li><li>When the application is ended.<br />All signed-in user accounts are automatically signed-out.</li></ul></li>
+</ul>
+<p>System features such as the HOME Menu do not change the state while the application is running.<br />The timing of these switches in the state of the user account are diagrammed in the examples presented in <a href="../Pages/Page_158275937.html">5.2 Different Designs for Supporting the Switch Account System</a>. Refer to those as well.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>There is also the option of having the user select the user account before starting the application. For more information, see <a href="../Pages/Page_159222300.html">5.2.5 Design 5: Select One Account Before the Application Starts</a>. </p>
+  </div>
+</div>
+<h2 id="Anchor_159219772_h2_3">Restrictions to State Changes</h2>
+<p>On Switch consoles with system version 6.0.0 and later, the user account states include one state where the user account cannot sign in. User accounts that are in this state cannot be used in the application. This state is set for the user account when the application starts and is based on the user's license to start the application. For more information about how the licenses owned by users are managed and shared on Nintendo Switch, see Nintendo Switch E-Commerce Guide.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

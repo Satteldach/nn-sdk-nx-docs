@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 SDEV Operating Environment | Nintendo Switch SDEV Quick Start</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 SDEV Operating Environment -->
+<div class="pagetitle" id="PageId_96563916">2 SDEV Operating Environment</div>
+<div class="text_separate">
+<p>The following environment is required for setting up the SDEV and running applications.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Operating system</th>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Microsoft Windows 10 Pro (64-bit)</li>
+            <li>Microsoft Windows 11 Pro (64-bit)</li>
+          </ul>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>An account with administrator rights is required.</p>
+            </div>
+          </div>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Behavior is not assured if you change the system locale in the operating system to something other than the default value.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p>.NET Framework</p>
+      </th>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Microsoft .NET Framework 4.7.2 or later</li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>If not already installed, download and install from the following link.</p>
+              <p>
+                <a href="https://support.microsoft.com/ja-jp/help/4054531/microsoft-net-framework-4-7-2-web-installer-for-windows" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/en-us/help/4054531/microsoft-net-framework-4-7-2-web-installer-for-windows</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>.NET Core SDK</th>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <div class="includeplus">
+              <ul>
+                <li>.NET Core SDK 3.1.420</li>
+              </ul>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p style="">.NET Core SDK is required for the following versions of NintendoSDK.</p>
+                  <ul style="">
+                    <li>Versions of NintendoSDK between 12.2.0 and 14.3.0</li>
+                    <li>Versions of NintendoSDK between 15.0.0 and 15.2.0</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Remove-->
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>If not installed, use the installer located in the following path.</p>
+                  <ul>
+                    <li>NintendoSDK\Installers\DotNetSdk\v3.1\dotnet-sdk-3.1.420-win-x64.exe</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>.NET 6 SDK</th>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <div class="includeplus">
+              <ul>
+                <li>.NET 6 SDK 6.0.400</li>
+              </ul>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>.NET 6 SDK is required for the following versions of NintendoSDK.</p>
+                  <ul>
+                    <li>NintendoSDK 15.x.x and later</li>
+                    <li>NintendoSDK 14.x.x versions released after the release of NintendoSDK 15.0.0</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Remove-->
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>If not installed, use the installer located in the following path.</p>
+                  <ul>
+                    <li>NintendoSDK\Installers\DotNetSdk\v6\dotnet-sdk-6.0.400-win-x64.exe</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>In addition, the following environment is required for developing applications with the NintendoSDK.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Operating system</th>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Microsoft Windows 10 Pro (64-bit)</li>
+            <li>Microsoft Windows 11 Pro (64-bit)</li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>An account with administrator rights is required.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p>.NET Framework</p>
+      </th>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>
+              <p>Microsoft .NET Framework 4.7.2 or later</p>
+            </li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>If not already installed, download and install from the following link.</p>
+              <p>
+                <a href="https://support.microsoft.com/ja-jp/help/4054531/microsoft-net-framework-4-7-2-web-installer-for-windows" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/en-us/help/4054531/microsoft-net-framework-4-7-2-web-installer-for-windows</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>.NET Core SDK</th>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <div class="includeplus">
+              <ul>
+                <li>.NET Core SDK 3.1.420</li>
+              </ul>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p style="">.NET Core SDK is required for the following versions of NintendoSDK.</p>
+                  <ul style="">
+                    <li>Versions of NintendoSDK between 12.2.0 and 14.3.0</li>
+                    <li>Versions of NintendoSDK between 15.0.0 and 15.2.0</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Remove-->
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>If not installed, use the installer located in the following path.</p>
+                  <ul>
+                    <li>NintendoSDK\Installers\DotNetSdk\v3.1\dotnet-sdk-3.1.420-win-x64.exe</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>.NET 6 SDK</th>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <div class="includeplus">
+              <ul>
+                <li>.NET 6 SDK 6.0.400</li>
+              </ul>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>.NET 6 SDK is required for the following versions of NintendoSDK.</p>
+                  <ul>
+                    <li>NintendoSDK 15.x.x and later</li>
+                    <li>NintendoSDK 14.x.x versions released after the release of NintendoSDK 15.0.0</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Remove-->
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>If not installed, use the installer located in the following path.</p>
+                  <ul>
+                    <li>NintendoSDK\Installers\DotNetSdk\v6\dotnet-sdk-6.0.400-win-x64.exe</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Visual Studio</th>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <div class="includeplus">
+              <!--Remove-->
+              <ul>
+                <li>Microsoft Visual Studio 2017 Professional Edition version <span style="color: rgb(23,43,77);">15.9.48</span><ul><li>English language pack required.</li></ul></li>
+                <li>Microsoft Visual Studio 2019 Professional Edition version 16.11.18<br /><ul><li>English language pack required.</li></ul></li>
+                <li>Microsoft Visual Studio 2022 Professional Edition version <span style="color: rgb(23,43,77);">17.3.3</span><br /><ul><li>English language pack required.</li></ul></li>
+              </ul>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p style="margin-left: 0.0px;">Microsoft Visual Studio 2017 can be used in NintendoSDK NX Add-On 4.4.0 and later.<br />Operation has been confirmed for the following combinations of versions of Microsoft Visual Studio 2017 (VS2017) and the earliest version/release date of NintendoSDK NX Add-On (NX).</p>
+                  <ul>
+                    <li>
+                      <span style="color: rgb(51,51,51);">VS2017 15.9.20: NX 9.6.0 (2020-03-06)<br /></span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(51,51,51);">VS2017 15.9.21: NX 10.4.0 (2020-04-07)<br /></span>
+                    </li>
+                    <li>VS2017 15.9.22: NX 11.0.0 (2020-06-04)</li>
+                    <li>VS2017 15.9.24: NX 10.6.0 (2020-07-14)<br /></li>
+                    <li>VS2017 15.9.25: NX 11.2.0 (2020-09-09)<br /></li>
+                    <li>VS2017 15.9.27: NX 11.3.0 (2020-10-08)<br /></li>
+                    <li>VS2017 15.9.30 : NX 12.1.0 (2021-02-04)<br /></li>
+                    <li>
+                      <span style="color: rgb(23,43,77);">VS2017 15.9.46 : NX 15.0.0 (2022/05/23)</span>
+                    </li>
+                    <li>
+                      <span style="color: rgb(23,43,77);">VS2017 15.9.48 : NX 15.1.0</span>
+                    </li>
+                  </ul>
+                  <!--Remove-->
+                </div>
+              </div>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>Required if building and debugging an NX application.<br />Not required if building but not debugging an NX application.</p>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p style="margin-left: 1.0em;">To use the NintendoSDK, you must install the Visual C++ redistributable packages.<br />If they are not installed, use one of the following installers to install the packages. (You must install all four of them.) </p>
+    <table class="wrapped">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th style="text-align: left;">Package Type</th>
+          <th style="text-align: left;">Installer Path</th>
+        </tr>
+        <tr>
+          <td>Visual C++ Redistributable Packages <br />for Visual Studio 2013</td>
+          <td>NintendoSDK\Installers\VcRuntime\v120\<ul><li>vcredist_x64.exe</li><li>vcredist_x86.exe</li></ul></td>
+        </tr>
+        <tr>
+          <td>Visual C++ Redistributable Packages <br />for Visual Studio 2017</td>
+          <td>NintendoSDK\Installers\VcRuntime\v141\<ul><li>vc_redist.x64.exe</li><li>vc_redist.x86.exe</li></ul></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

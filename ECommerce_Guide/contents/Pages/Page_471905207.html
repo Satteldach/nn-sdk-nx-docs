@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2.2.2.3 Updating License Information | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2.2.2.3 Updating License Information -->
+<div class="pagetitle" id="PageId_471905207">6.2.2.2.3 Updating License Information</div>
+<div class="text_separate">
+<h1 id="Anchor_471905207_h1_1">Overview</h1>
+<p>This API updates the status of the license information (the purchase transactions) for the specified application and the specified user.</p>
+<h1 id="Anchor_471905207_h1_2">Request</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>PUT /v1/applications/<span class="o">{</span>applicationId<span class="o">}</span>/accounts/<span class="o">{</span>nsaId<span class="o">}</span>/rights
+Authorization: Basic <span class="o">{</span>base64<span class="o">(</span>clientId:clientSecret<span class="o">)}</span>
+X-NINTENDO-NSA-ID-TOKEN: Bearer <span class="o">{</span>nsaIdToken<span class="o">}</span>
+Content-Type:application/json
+
+<span class="o">[</span>
+&nbsp;&nbsp;<span class="o">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;right_id&quot;</span>: <span class="s2">&quot;(String; Globally unique right ID)&quot;</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;(String; the status of the transaction; PURCHASED, CONSUMED)&quot;</span>
+&nbsp;&nbsp;<span class="o">}</span>
+<span class="o">]</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Remarks</th>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>Specifies the application ID for the titles whose licenses you are updating.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;01004b9000490000&quot;</td>
+      <td>
+        <p>Do not add <code>0x</code> to the beginning of the application ID.</p>
+        <p>Only use lowercase for letters.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nsaId</td>
+      <td>Specifies the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>
+        <p>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</p>
+        <p>Only use lowercase for letters.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>right_id</td>
+      <td>Specifies the purchase transaction identifier (Right ID).</td>
+      <td>string</td>
+      <td rowspan="2">body</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;ed610969-fe8f-4e0c-8d62-da7bdbd35897&quot;</td>
+      <td>
+        <p>Get the right ID using the API for getting license information.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>
+        <p>The status of the purchase transaction after the change. Specify <code>CONSUMED</code> to set the status to consumed.</p>
+      </td>
+      <td>string</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;PURCHASED&quot;</td>
+      <td>The status cannot be changed from <code>CONSUMED</code> to <code>PURCHASED</code>.</td>
+    </tr>
+    <tr>
+      <td>X-NINTENDO-NSA-ID-TOKEN</td>
+      <td>Specifies the NSA ID token.</td>
+      <td>string</td>
+      <td>header</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;eyJqa3UiO...oDM9OBOtw&quot;</td>
+      <td>
+        <p>&quot;Bearer&quot; must be added as a prefix.</p>
+        <p>The token has an expiration date. To extend the expiration date, you must get the token again and update the value.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>Fixed to <code>Content-Type:application/json</code>.</td>
+      <td>string</td>
+      <td>header</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;application/json&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905207_h1_3">Response</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>204 No Content</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905207_h1_4">curl Request Samples (dd1 Environment)</h1>
+<p>For simplicity, the <code>k</code> option is used to skip SSL authentication. A CA certificate can be obtained by following the instructions in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://sugar.ws.dd1.ss.nintendo.net/v1/applications/{application_id}/accounts/{nsa_id}/rights&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span> <span class="se">\
+</span>-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\
+</span>-H <span class="s1">'X-NINTENDO-NSA-ID-TOKEN: Bearer {nsa_id_token}'</span> <span class="se">\
+</span>-X PUT -d <span class="s1">'[{&quot;right_id&quot;:&quot;{right_id}&quot;,&quot;status&quot;:&quot;CONSUMED&quot;}]'</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

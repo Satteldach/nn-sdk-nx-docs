@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 Development/Usage Overview | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 Development/Usage Overview -->
+<div class="pagetitle" id="PageId_164354991">3 Development/Usage Overview</div>
+<div class="text_separate">
+<p>NEX is used in combination with the application (client) and game server. During development, consider not only the application, but also the status of the game server.</p>
+<p>This overview is organized by the seven stages of the development process and describes the factors that require consideration in each stage.</p>
+<h1 id="Anchor_164354991_h1_1">Planning</h1>
+<p>The planning stage involves assessing the specific ways that you can use NEX to achieve your vision for the application.</p>
+<p>No dedicated game server is provided in this step. Use the sample demo server to test various NEX features and confirm that those features are suitable for your application.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>As a general rule, we will <strong>stop accepting new requests to use NEX in August 2023</strong> (see <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/announcement?articleId=320267398" target="_blank" rel="noopener noreferrer">Acceptance of new requests for NEX features will end in August 2023</a> in Technical Information on the Nintendo Developer Portal). As needed, consider using NPLN (the game server service replacing NEX).</p>
+  </div>
+</div>
+<h2 id="Anchor_164354991_h2_1">Sample Demo Server</h2>
+<p>The sample demos included in the NEX package connect to this sample demo server. Because the demo server is shared with other developers, note the following when using it.</p>
+<ul>
+  <li>Do not upload application-specific information or screenshots into the data stores.</li>
+  <li>Do not specify the same matchmaking game mode used in the sample demos.</li>
+  <li>Do not store application-specific information in shared data used for rankings and other purposes.</li>
+  <li>Pay attention to the server load (discussed later).</li>
+  <li>Do not delete data that is not yours.</li>
+  <li>Do not use during the development/debug step described later.</li>
+</ul>
+<p>There are no restrictions on running the sample demo as is without any changes.</p>
+<h1 id="Anchor_164354991_h1_2">Development and Debugging</h1>
+<p>The development and debugging stage begins when application planning is complete and you have a better understanding about how you will be using NEX in your title. This step uses the game server prepared for each application instead of the sample demo server.</p>
+<h2 id="Anchor_164354991_h2_2">Requesting Use</h2>
+<p>To use a dedicated game server for your application, you must make a use request on <a href="https://omas2.mng.nintendo.net" target="_blank" rel="noopener noreferrer">OMAS2</a> (called &quot;OMAS&quot; in this document) to use NEX.</p>
+<p>When you submit this use request, include information about how you will use the NEX features. Nintendo might refer to this use request when providing technical support around the time the application is released and for Lotcheck. Nintendo can respond more easily if you enter information describing where and how the NEX features are used in scenes in the application.</p>
+<p>If you have not yet determined the details, enter that the details are still under discussion. In this case, update your usage request after the details are finalized.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Regardless of the release version of the application that actually uses NEX, you may submit the NEX usage request in advance for the convenience of your development schedule.</p>
+    <p>For example, if you are not implementing NEX in release versions 0 through 2 but plan to use NEX in release version 3 (a patch), discuss this with Nintendo and then submit an NEX usage request. In addition, describe this background when you submit your application for Lotcheck.</p>
+    <p>Even if you are in the process of developing release versions 0 through 2, <strong>do not</strong> select <strong>Yes</strong> for <strong>Use NEX in Development Environment (dd1) Only</strong>. Only select <strong>Yes</strong> for this field if there are no plans to provide the product to end users.</p>
+  </div>
+</div>
+<h2 id="Anchor_164354991_h2_3">Setup</h2>
+<p>The game server is set up when the phase for the release on OMAS has progressed to <strong>Setup Complete</strong>. In addition, you can use OMAS to check the game server ID and access key for this game server. Use this information to connect to the dedicated game server for your application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>For more information about OMAS phases, see the Help for the OMAS system (<a href="https://omas2.mng.nintendo.net/manual/ja/contents/Pages/Page_810149058.html" target="_blank" rel="noopener noreferrer">Japanese</a>, <a href="https://omas2.mng.nintendo.net/manual/en/contents/Pages/Page_810149058.html" target="_blank" rel="noopener noreferrer">English</a>).</li>
+      <li>If you change the version of the NEX library, you may need to update the game server. If you make a request on OMAS to change the NEX version, the game server will be updated if necessary after Nintendo has approved the request. This process requires approximately three business days from approval.</li>
+    </ul>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<!--Remove-->
+<p>
+  <br />
+</p>
+<h2 id="Anchor_164354991_h2_4">Server Load Considerations</h2>
+<p>The game server for each separate application shares a common server infrastructure with many other applications. To avoid having an adverse impact on other applications, avoid implementations that place a continuous high load on the game server.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>For game servers in the development environment (dd1), the application might receive a communication error (error code 2306-0345: <code>QERROR(RendezVous, LimitExceeded)</code>) if a user (principal ID) meets one of the following conditions.</p>
+    <ul>
+      <li>That principal ID continuously calls a function.<ul><li>Roughly speaking, this condition applies if a particular function is called over five times more frequently than defined in the Nintendo Switch Guidelines in 0026: Restrictions on Frequency of Calls to NEX API.</li></ul></li>
+      <li>It continuously calls a function, regardless of the type.<ul><li>Roughly speaking, this condition applies if a particular function is called more than 300 times in 5 minutes.</li></ul></li>
+    </ul>
+    <p>Be careful when developing and debugging your application to make sure that this kind of error is not received.</p>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Even for applications that share the same game server infrastructure, if those applications are using game servers with different game server IDs, design them in a way that prevents cross-referencing of data.</p>
+  </div>
+</div>
+<h1 id="Anchor_164354991_h1_3">Lotcheck</h1>
+<p>When submitting applications to Lotcheck, check the status of the game server in the Lotcheck environment. For more information, see <a href="../Pages/Page_201428425.html">4.5 Server Operations</a>.</p>
+<h1 id="Anchor_164354991_h1_4">Go Live</h1>
+<p>The game server is set up in the production environment (lp1) approximately three business days after Lotcheck has completed for the application.</p>
+<h2 id="Anchor_164354991_h2_5">Change in the OMAS Phase</h2>
+<p>The OMAS phase for the release changes to <strong>In Service</strong> when the game server has been set up in the production environment.</p>
+<h3 id="Anchor_164354991_h3_1">Exception to Change in OMAS Phase</h3>
+<p>After a patch has been distributed, the OMAS phase for the release changes to <strong>In Service</strong> if the following two conditions are met, even though a game server has already been set up in the production environment. This behavior is the intended behavior.</p>
+<ul>
+  <li>The release version of the application is version 1 or later.</li>
+  <li>When the patch request was submitted on OMAS, <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong> was set to <strong>Yes</strong>. (For more information, see Distributing Patches later on this page.)</li>
+</ul>
+<h2 id="Anchor_164354991_h2_6">Timing of When Game Server Is Available</h2>
+<p>You may connect to the production environment game server as soon as it is set up. It is not linked to the release date of the application. The application can link to the production environment game server even before the application release date. Be careful when implementing features that will not work correctly until after the release date, such as features that work with data distributed from an independent server.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Release the physical version of your application for sale after you have used the following procedure to confirm that the game server has been set up in the production environment. Also do this before distributing downloadable applications and patches.</p>
+    <ol>
+      <li>Log in to NMAS2 and select the production environment game server.</li>
+      <li>Try to display the data for a feature.</li>
+      <li>Verify that no error occurs.</li>
+    </ol>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You cannot specify the day that the production environment game server will be set up.</p>
+  </div>
+</div>
+<h1 id="Anchor_164354991_h1_5">Analysis</h1>
+<p>To check the statistics on the use of the production environment game server, access the <a href="https://smas.mng.nintendo.net" target="_blank" rel="noopener noreferrer">SMAS</a> web tool. Use this information when planning for patches or subsequent titles.</p>
+<h1 id="Anchor_164354991_h1_6">Distributing Patches</h1>
+<p>If you are distributing a patch, note whether there will be communications compatibility with the unpatched version of the application. If not, you must configure the game server so the unpatched application can no longer connect to the server. For more information, see <a href="../Pages/Page_357924270.html">5.4 Patches and Compatibility</a>.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If you update the NEX library version when you distribute a patch, you must update the game server version at the same time. For this reason, if you do this, you must block the unpatched version of the application from connecting to the game server.</p>
+  </div>
+</div>
+<h1 id="Anchor_164354991_h1_7">Localization</h1>
+<p>If you release a localized version of an existing application, as a general rule it will share the same game server. If you want to separate out the matchmaking results, data store data, and ranking data by region, do so by using separate categories and game modes for each region. You cannot prepare a separate game server for each region for this purpose.</p>
+<p>For more information, see Common Products and Shared Game Servers in <a href="../Pages/Page_201428425.html">4.5 Server Operations</a>.</p>
+<p>When releasing a patch for a localized version of an application, be careful about communication compatibility and changes to the NEX version. The game server is shared for all regions, so patches that break compatibility must be distributed to all regions at the same time. If you are considering such a scheme, consult in advance with the person in charge of distributing patches and make sure that this will be possible. Patches also must be distributed at the same time for all regions if the NEX version is being changed.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.3 Nintendo Switch Online Support | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.3 Nintendo Switch Online Support -->
+<div class="pagetitle" id="PageId_300840794">3.3 Nintendo Switch Online Support</div>
+<div class="text_separate">
+<h2 id="Anchor_300840794_h2_1">Nintendo Switch Online</h2>
+<p>Nintendo Switch Online is a paid online service provided by Nintendo.</p>
+<p>For an overview of Nintendo Switch Online, see Nintendo Switch Overview. For more information about supporting Nintendo Switch Online when developing Switch applications, see the Nintendo Switch Online Play Guide and the Nintendo Switch Guidelines, in addition to this document.</p>
+<p>On OMAS, services provided by independent servers are automatically determined to be services that require a Nintendo Switch Online membership. However, you can submit a change request on OMAS for the target feature, and if this request is approved, all or some of the services provided by the independent server can be provided as services that do not require a Nintendo Switch Online membership.</p>
+<p>Applications with online play are classified into three categories: <strong>All features require membership</strong>, <strong>No features require membership</strong>, or <strong>Some features require membership</strong>. This classification is called the <em>application policy</em>. For more information about these classifications, see the Nintendo Switch Online Play Guide.</p>
+<h3 id="Anchor_300840794_h3_1">Information About Nintendo Switch Applications for China</h3>
+<p>It is undecided whether a paid online service equivalent to Nintendo Switch Online will be offered for the China platform region.</p>
+<p>In the meantime, follow the same application policy as for Nintendo Switch consoles for other regions to determine whether an NSA ID token can be obtained and the specifications that apply.</p>
+<p>Because Nintendo Switch systems for China cannot join Nintendo Switch Online, submit a request in OMAS to change the application policy to <strong>No features require membership</strong>.</p>
+<h2 id="Anchor_300840794_h2_2">All Features Require Membership</h2>
+<p>If the application policy is <strong>All features require membership</strong> and the user has not subscribed to Nintendo Switch Online, NSA ID tokens cannot be obtained in the Switch application.</p>
+<p>The provision of services is determined based on whether an NSA ID token can be obtained, so no special handling is required by the independent server.</p>
+<p>For more information, see the Nintendo Switch Online Play Guide.</p>
+<h2 id="Anchor_300840794_h2_3">No Features Require Membership</h2>
+<p>When the application policy is <strong>No features require membership</strong>, NSA ID tokens can be obtained in the Switch application regardless of whether the user has subscribed to Nintendo Switch Online.</p>
+<p>No special handling is required by the independent server because there is no need to determine whether to provide services based on the Nintendo Switch Online membership status.</p>
+<p>For more information, see the Nintendo Switch Online Play Guide.</p>
+<h2 id="Anchor_300840794_h2_4">Some Features Require Membership</h2>
+<p>When the application policy is <strong>Some features require membership</strong>, special handling according to the user's membership status is required by both the independent server and the Switch application.</p>
+<p>Note the following when using an independent server together with a game server (NEX or NPLN).</p>
+<ul>
+  <li>In some cases, the application policy is <strong>Some features require membership</strong> even if all of the services provided by the independent server involve a Nintendo Switch Online membership.<ul><li>This can be the case when the NEX/NPLN services do not require a Nintendo Switch Online membership.</li><li>Because the application can get NSA ID tokens in such cases, the user's Nintendo Switch Online membership status must be determined.</li></ul></li>
+  <li>In some cases, the application policy is <strong>Some features require membership</strong> even if none of the services provided by the independent server involve a Nintendo Switch Online membership.<ul><li>This can be the case when the NEX/NPLN services require a Nintendo Switch Online membership.</li><li>Although the application policy is <strong>Some features require membership</strong>, the ability to get an NSA ID token can be used to determine whether all services can be provided.</li></ul></li>
+</ul>
+<h3 id="Anchor_300840794_h3_2">NSA ID Token Specifications</h3>
+<p>When the application policy is <strong>Some features require membership</strong>, the NSA ID token for that application includes the following properties.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Element</th>
+      <th>Type</th>
+      <th>Obtainable Value</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>nintendo.opp</td>
+      <td>string</td>
+      <td>Fixed as <code>MEMBERSHIP_REQUIRED</code>.</td>
+      <td>
+        <p>A value representing policy information about whether a Nintendo Switch Online membership is required for online play.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nintendo.ph</td>
+      <td>string</td>
+      <td>Fixed as <code>GAME_SERVER</code>.</td>
+      <td>
+        <p>Information representing where the determination is made whether to provide services based on Nintendo Switch Online membership status.</p>
+        <p>When this element exists and has the value <code>GAME_SERVER</code>, it might be necessary to make the determination on the independent server side.</p>
+        <p>If the independent server is being used in combination with NEX/NPLN, it might not be necessary for determination to be made by the independent server. For more information, see Nintendo Switch Online Play Guide &gt; Nintendo Switch Online &gt; Application-Level Support &gt; Some Features Require Membership.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nintendo.hm</td>
+      <td>bool</td>
+      <td>
+        <code>true</code> or <code>false</code></td>
+      <td>
+        <p>A value representing whether there is a subscription to Nintendo Switch Online.</p>
+        <p>For more information about Nintendo Switch Online memberships in the development environment, see Nintendo Switch Online Play Guide &gt; Nintendo Switch Online Support &gt; Application-Level Support &gt; Use in a Development Environment.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_300840794_h3_3">Handling by the Independent Server</h3>
+<p>Based on the preceding information, perform handling for providing member-only services on the independent server using the following steps.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_300840794/329895159.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<ol>
+  <li>Determine the <code>nintendo.ph</code> value of the NSA ID token. <br /><ul><li>When there is no <code>nintendo.ph</code> value or if the value is something other than <code>GAME_SERVER</code>.<ul><li><strong>Determine that all services can be provided.</strong></li></ul></li><li>If a <code>nintendo.ph</code> value exists and matches <code>GAME_SERVER</code>, move to the next judgment.</li></ul></li>
+  <li>Determine the <code>nintendo.hm</code> value of the NSA ID token. <br /><ul><li>When the <code>nintendo.hm</code> value exists, and it is <code>true</code>.<ul><li><strong>Determine that all services can be provided.</strong></li></ul></li><li>When the <code>nintendo.hm</code> value exists, and it is <code>false</code>.<ul><li><strong>Return an error to the client and prompt the user with a notification when receiving a use request for a service that requires a Nintendo Switch Online membership.</strong></li><li><strong>If the service does not require a Nintendo Switch Online membership, determine it to be available.</strong></li></ul></li><li>When the <code>nintendo.hm</code> value is blank, or is a value other than <code>true</code> or <code>false</code>.<ul><li>Handle it as a thrown exception.</li></ul></li></ul></li>
+</ol>
+<p>This handling method has the following advantages.</p>
+<ul>
+  <li>If a single independent server is shared between applications with some services exclusive to subscribers, and applications with all services either available or not available to subscribers, there is no need to change the logic for determination.<ul><li>For applications with some services exclusive to subscribers, handling based on membership status can be performed by determining the <code>nintendo.hm</code> value.</li><li>For applications with all services either available or not available to subscribers, all services can be determined to be available by determining that the <code>nintendo.ph</code> value does not exist. Also, for applications with all services exclusive to subscribers, the NSA ID token itself cannot be obtained when there is no Nintendo Switch Online membership.</li></ul></li>
+</ul>
+<h3 id="Anchor_300840794_h3_4">Handling in Applications</h3>
+<p>If it is determined on the independent server that a service cannot be provided because the user is not a member of Nintendo Switch Online, make a notification of that fact in the Switch application.</p>
+<p>Make this notification using <code>nn::account::ShowLicenseRequirementsForNetworkService()</code>. This function is available in NintendoSDK NX Add-On 4.4.0 and later.</p>
+<p>Call <code>nn::account::ShowLicenseRequirementsForNetworkService()</code> to enable a jump to the purchase page for Nintendo Switch Online membership on Nintendo eShop. In the development environment, Nintendo Switch Online memberships are not sold on the real Nintendo eShop, so if you want to check the behavior for the return value indicating a successful purchase (<code>nn::ResultSuccess</code>), use the EC test applet. You do not need the EC test applet to check the cancellation of a purchase (<code>nn::account::ResultCancelledByUser</code>).</p>
+<p>Currently, the Nintendo Switch Online information page is not displayed if <code>nn::account::ShowLicenseRequirementsForNetworkService()</code> is called while the user is a member of Nintendo Switch Online.</p>
+<p>
+  <br />
+</p>
+<p>
+  <strong>Confirming Purchase Success (nn::ResultSuccess)</strong>
+</p>
+<ol>
+  <li>Using either DevMenu or DevMenuCommand, change the shop that runs on the development hardware to the EC test applet (Dev Shop).</li>
+  <li>Call <code>nn::account::ShowLicenseRequirementsForNetworkService()</code> from within the application.</li>
+  <li>Start the EC test applet and, with that applet running, use the Nintendo Switch Online Membership Manager to grant a license to Nintendo Switch Online.<br /><ul><li>For more information about the Nintendo Switch Online Membership Manager, see the Nintendo Switch Online Play Guide.</li></ul></li>
+  <li>In the EC test applet, press the A Button to end the applet.<ul><li><code>nn::ResultSuccess</code> is returned to the application.</li></ul></li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Do not determine that a user is a member of Nintendo Switch Online based on the return of <code>nn::ResultSuccess</code> by the <code>nn::account::ShowLicenseRequirementsForNetworkService()</code> function. Instead, re-acquire the NSA ID token and reevaluate the membership status based on the value of <code>nintendo.hm</code> in that NSA ID token.</p>
+  </div>
+</div>
+<p>
+  <strong style="letter-spacing: 0.0px;">Confirming Purchase Cancellation (nn::account::ResultCancelledByUser)</strong>
+</p>
+<p>
+  <code>nn::account::ResultCancelledByUser</code> is returned to the application when any of the following actions occur after calling <code>nn::account::ShowLicenseRequirementsForNetworkService()</code> from within the application.</p>
+<ul>
+  <li>The applet is terminated without jumping to Nintendo eShop from the Nintendo Switch Online subscription information screen that appears when calling <code>nn::account::ShowLicenseRequirementsForNetworkService()</code>.</li>
+  <li>The B Button is pressed in the EC test applet to end the applet (if the shop that is running on development hardware is the EC test applet).</li>
+  <li>Nintendo eShop is terminated as is, after starting when the real Nintendo eShop is the shop that starts on development hardware.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

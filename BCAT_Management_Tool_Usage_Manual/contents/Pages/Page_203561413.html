@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.2 Roles and Usage Requests | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.2 Roles and Usage Requests -->
+<div class="pagetitle" id="PageId_203561413">2.2 Roles and Usage Requests</div>
+<div class="text_separate">
+<h1 id="Anchor_203561413_h1_1">Roles</h1>
+<p>In the BCAT Management Tool, content and operations that are available to users are managed using the concept of <em>roles</em>.</p>
+<p>Roles are assigned to users (NDIDs) <strong>for each News channel, and each application that supports data delivery</strong>.</p>
+<h2 id="Anchor_203561413_h2_1">Role Types</h2>
+<p>Four types of roles are provided in the BCAT Management Tool.</p>
+<ul>
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>Viewer (the lowest permission level)<br />Users with this role can view channels or applications and perform test delivery.</li>
+      <li>Editor<br />In addition to the Viewer-role permissions, this role also allows users to create News items or data and request pre-delivery reviews.</li>
+      <li>Reviewer<br />In addition to the Editor-role permissions, this role also allows users to approve pre-delivery reviews and to end the delivery of data being delivered.</li>
+      <li>Manager (the highest permission level)<br />In addition to the Reviewer-role permissions, this role allows users to manage the roles of other users. </li>
+    </ul>
+  </li>
+</ul>
+<h2 id="Anchor_203561413_h2_2">Quick Reference Chart for Role Types</h2>
+<table class="wrapped relative-table" style="width: 97.2435%;">
+  <colgroup>
+    <col style="width: 7.32122%;" />
+    <col style="width: 20.8555%;" />
+    <col style="width: 11.004%;" />
+    <col style="width: 16.1224%;" />
+    <col style="width: 15.4108%;" />
+    <col style="width: 17.7157%;" />
+    <col style="width: 11.5704%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <br />
+      </th>
+      <th>View Channels and Applications<br /></th>
+      <th>Test Delivery</th>
+      <th>Create News and Data<br /></th>
+      <th>Request Pre-Delivery Reviews<br /></th>
+      <th>
+        <p>Approve Pre-Delivery Reviews, and End Delivery of Data Being Delivered<br /></p>
+      </th>
+      <th>Manage Roles of Other Users<br /></th>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Viewer</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">-</td>
+      <td style="text-align: center;">-</td>
+      <td style="text-align: center;">-</td>
+      <td style="text-align: center;">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Editor</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">-</td>
+      <td style="text-align: center;">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Reviewer</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Manager</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+      <td style="text-align: center;">○</td>
+    </tr>
+  </tbody>
+</table>
+<p>○: Permission.<br />-: No permission.</p>
+<!--Remove-->
+<h1 id="Anchor_203561413_h1_2">Usage Requests</h1>
+<p>Users with the Manager role can assign any role to another user.</p>
+<p>The following section describes how to make a request to use each delivery of News or data, and how to be granted the Manager role.</p>
+<h2 id="Anchor_203561413_h2_3">News Delivery</h2>
+<ol>
+  <li>The requester (A in the diagram) <a href="https://ncms3.mng.nintendo.net/ncms3/gameNews/search" target="_blank" rel="noopener noreferrer">applies for a channel for News delivery using NCMS</a>, and waits for approval from Nintendo.<br />For more information about making a request, see the Nintendo Switch News Delivery Guide.</li>
+  <li>The requester logs in to the BCAT Management Tool.<br />The Manager role is automatically granted to the NDID of the requester.</li>
+  <li>The requester opens the <strong>News Delivery</strong> menu, selects the channel to set, and then selects <strong>Role Management</strong> &gt; <strong>Add User</strong>.</li>
+  <li>The requester grants the roles in the BCAT Management Tool to the NDIDs of the users (B and C in the diagram) of the affiliated company (NDID terminology).</li>
+</ol>
+<p>
+  <strong>Requesting News Delivery and Assigning Roles</strong>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_203561413/239595253.png" width="400" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If, due to special circumstances, you want to grant a role to a user who is not associated with the requester's company, contact Nintendo.</p>
+  </div>
+</div>
+<!--Remove-->
+<h4 id="Anchor_203561413_h4_1">Automatically Granting Roles</h4>
+<p>Viewer permissions for the created channel are automatically granted to NDIDs associated with the publisher company.</p>
+<p>The <em>publisher company</em> for the channel refers to the software publisher of the title associated with the channel.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You cannot rescind the Viewer permission of NDIDs that belong to the publisher company.</p>
+  </div>
+</div>
+<!--Remove-->
+<h2 id="Anchor_203561413_h2_4">Delivering Data</h2>
+<ol>
+  <li>The requester (A in the diagram) submits an application in OMAS to use BCAT data delivery, and awaits approval from Nintendo.</li>
+  <li>The requester logs in to the BCAT Management Tool.<br />The Manager role is automatically granted to the NDID of the requester.</li>
+  <li>The requester opens the <strong>Data Delivery</strong> menu, selects the target application, and then selects <strong>Manage Roles</strong> &gt; <strong>User List</strong>.</li>
+  <li>The requester grants BCAT Management Tool roles to the NDIDs of the following users (B and C in the diagram).<ul><li>Users of the affiliated company</li><li>Guest developers (OMAS terminology)</li><li>Co-developers (OMAS terminology)</li></ul></li>
+</ol>
+<p>
+  <strong>Requesting Data Delivery and Assigning Roles</strong>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_203561413/239595251.png" width="400" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_203561413_h3_1">Managing Data Delivery Roles</h3>
+<h4 id="Anchor_203561413_h4_2">Automatically Granting Roles</h4>
+<ul>
+  <li>When the user logs in to the BCAT Management Tool, permissions for viewing applications are synchronized between OMAS and the BCAT Management Tool.</li>
+  <li>Synchronized permissions are <strong>cached on the server for 24 hours</strong>. If the cache exists, the permissions are not synchronized even if the user logs in again to the BCAT Management Tool. If you want to synchronize roles immediately, select the <strong>Request Permissions Synchronization With OMAS</strong> button in the <strong>My Profile</strong> menu.</li>
+  <li>The following settings are applied automatically when synchronizing permissions between OMAS and the BCAT Management Tool.<ul><li>Users with permissions to view specific applications in OMAS are granted the Viewer role for those applications.</li><li>Users with the Title Administrator role (OMAS term) for specific applications are granted the Manager role instead of the Viewer role for those applications.</li><li>When a user can no longer view an application in OMAS, their role for that application is deleted.</li></ul></li>
+</ul>
+<h4 id="Anchor_203561413_h4_3">Manually Granting Roles</h4>
+<p>Managers can grant any role to users that satisfy the following two criteria.</p>
+<ul style="margin-left: 20.0px;">
+  <li>A user who has logged in at least once to the BCAT Management Tool in the server environment of the target application.</li>
+  <li>A user who has permissions to view the target application in OMAS.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can grant roles for viewing applications in OMAS (and Nintendo Developer Portal) to any user in the <a href="https://developer.nintendo.com/group/development/products" target="_blank" rel="noopener noreferrer">MY PRODUCTS menu on the Nintendo Developer Portal</a>.</p>
+  </div>
+</div>
+<!--Remove-->
+<h1 id="Anchor_203561413_h1_3">Requesting Role Changes</h1>
+<p>Users can request changes to their own roles.<br />A role is changed when a Manager approves the request.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_203561413/479876248.png" width="424" height="250" class="embedded-image" />
+  </span>
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

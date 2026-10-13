@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>11 Common Problems and Bugs | Nintendo Switch Lotcheck Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 11 Common Problems and Bugs -->
+<div class="pagetitle" id="PageId_426203695">11 Common Problems and Bugs</div>
+<div class="text_separate">
+<p>The following content describes common cases that result in inquiries from the Lotcheck Department or products failing Lotcheck. Knowing about these examples may avoid Lotcheck delays and increase the probability of passing Lotcheck. Use this information when preparing Lotcheck submissions.</p>
+<p>In addition, refer to this information for handling cases where content described in these examples is reported as a Lotcheck issue. For each example, if the detailed procedure is described on a separate page, there will be a link to that page.</p>
+<h5 id="Anchor_426203695_h5_1">Contents</h5>
+<p>
+  <strong>Note:</strong> The following sections are organized based on the conditions or type of problem.</p>
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_426203695_h1_1">Before Submitting to Lotcheck</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_426203695_h2_1">OMAS Application</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_2">Independent Server Settings</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_3">Entering Age Ratings</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_4">Entering Features Page Information</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_5">Entering Test Scenarios</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_6">Guidelines</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_7">Debugging (General Bugs)</a>
+      </li>
+      <li>
+        <a href="#Anchor_426203695_h2_8">SLIM</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_426203695_h1_2">When Requesting Lotcheck</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_426203695_h2_9">Downloadable Content</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_426203695_h1_3">After Submitting to Lotcheck</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_426203695_h2_10">Handling Issues Reported by the Lotcheck Department</a>
+      </li>
+    </ul>
+  </ul>
+</p>
+<h1 id="Anchor_426203695_h1_1">Before Submitting to Lotcheck</h1>
+<h2 id="Anchor_426203695_h2_1">OMAS Application</h2>
+<p>&rArr; Related Page: <a href="../Pages/Page_378367004.html">4.11 Configuring the System and Network Settings</a> &gt; OMAS</p>
+<h4 id="Anchor_426203695_h4_1">The OMAS request does not advance to During Development/Lotcheck Queue. (An error occurs when clicking the Submit button for Lotcheck.)</h4>
+<p>&rArr; Solution: See 11 in the <a href="../Pages/Page_378367014.html">10 FAQ/NDP Errors</a> table.</p>
+<h4 id="Anchor_426203695_h4_2">The features entered on OMAS do not match the network features that were actually implemented for the ROM.</h4>
+<ul>
+  <li>Example 1: Network features are implemented, even though they were not applied for in OMAS.<br />&rArr; Solution: Apply for network features in OMAS.</li>
+  <li>Example 2: There are OMAS entries included for features that are not implemented in the ROM submitted to Lotcheck. (These entries might include features that will be added in the future, or that were present in an earlier development phase but have subsequently been removed.)<br />&rArr; Solution: If the OMAS request content is incorrect, correct it.<br />If network features are not implemented in the version of the ROM that will be submitted soon, but will cause problems in development if an OMAS request is not made, include an OMAS request in the next patch. For more information, use the forums on the OMAS site.</li>
+</ul>
+<h4 id="Anchor_426203695_h4_3">The NEX library version for the ROM and the OMAS application do not match because the NEX library version included in the ROM was updated but not for the OMAS application.</h4>
+<p>&rArr; Solution: Correct the NEX library version in the OMAS request and resubmit with the ROM.</p>
+<h2 id="Anchor_426203695_h2_2">Independent Server Settings</h2>
+<p>&rArr; Related Page: <a href="../Pages/Page_378367004.html">4.11 Configuring the System and Network Settings</a> &gt; Independent Servers</p>
+<h4 id="Anchor_426203695_h4_4">The DNS data was not entered correctly in NDP &gt; Release Dashboard &gt; Features &gt; Independent Server &gt; Name Resolution.</h4>
+<p>&rArr; Solution: Rest the mouse pointer on the ? to display the tooltips for each entry, and enter the correct information.</p>
+<h4 id="Anchor_426203695_h4_5">The request recipient FQDN for consumables and subscription service items remains in the development environment (dd1), and was not changed to the Lotcheck environment (sp1).</h4>
+<p>&rArr; Solution:<br />Complete the steps in the following documentation.</p>
+<p>Nintendo Switch E-Commerce Guide &gt; (Reference) Reference Information for Developers &gt; Using Independent Servers &gt; Independent Server Environment</p>
+<h4 id="Anchor_426203695_h4_6">No accounts for independent services have been provided.</h4>
+<p>&rArr; Solution: Provide 20 accounts.</p>
+<p>Depending on the application's specifications, you might be asked to provide additional accounts.<br />It might also be possible to conduct the review with fewer accounts than those listed above. Contact Nintendo if creating a quantity of 20 accounts would pose difficulties.</p>
+<h4 id="Anchor_426203695_h4_7">The IP address used by the Lotcheck Department for white-listing has not been added.</h4>
+<p>&rArr; Solution: See the following documentation and add the appropriate IP address to the whitelist.</p>
+<p>
+  <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/information-for-network-title" target="_blank" rel="noopener noreferrer">NDP &gt; DEVELOPER SUPPORT &gt; Nintendo Switch &gt; Technical Information &gt; Information for Network Titles</a> &gt; Whitelisting information for when submitting a title that uses an independent server to Lotcheck</p>
+<h2 id="Anchor_426203695_h2_3">Entering Age Ratings</h2>
+<p>&rArr; Related Page: <a href="../Pages/Page_378367003.html">4.10 Entering Rating Settings</a></p>
+<h4 id="Anchor_426203695_h4_8">Rating Pending or Not Required is selected in NDP &gt; Age Rating.</h4>
+<p>If <strong>Rating Pending</strong> or <strong>Not Required</strong> is selected for the rating value, it will be reported as a problem by the Lotcheck Department except in cases with special circumstances.</p>
+<p>&rArr; Solution:</p>
+<ul>
+  <li>Submit to Lotcheck only after obtaining an official rating, even for demo software.</li>
+  <li>Do not set ratings for regions where the software will not be released.</li>
+  <li>For applications that are exempt from game-rating evaluation, select the rating agency for the release region and specify <strong>Not Required</strong> for the rating (The value of the <code>Age</code> element in the NMETA file is <code>0</code>).<br />Consult with the NDP Licensing contact in advance for any questions or concerns. (Reference: <a href="../Pages/Page_378367013.html">9 Contacts for Inquiries Before, During, and After Lotcheck Testing</a>)</li>
+</ul>
+<h4 id="Anchor_426203695_h4_9">The rating obtained from IARC is used for a physical product release.</h4>
+<p>&rArr; Solution: Releasing a physical version of the game requires getting a standard rating from local rating agencies. You cannot release physical versions with the rating obtained from IARC.<br />You must make a direct request to the rating agency.<br />Upload the obtained rating certificate (the notification of the review result) in NDP by going to <strong>Age Rating</strong> and clicking <strong>Add Standard Rating</strong>.</p>
+<h2 id="Anchor_426203695_h2_4">Entering Features Page Information</h2>
+<h4 id="Anchor_426203695_h4_10">The content on the Features page in Features &gt; Play Modes &gt; Handheld Mode is incorrect.</h4>
+<p>&rArr; Solution: Enter correct information for <strong>Maximum number of players in handheld mode</strong> and <strong>Supported ways of holding Joy-Con controllers in handheld mode</strong>. For more information about entering the data, see the applicable tooltips.</p>
+<h2 id="Anchor_426203695_h2_5">Entering Test Scenarios</h2>
+<h4 id="Anchor_426203695_h4_11">There is not enough information for the test scenarios for downloadable content.</h4>
+<p>&rArr; Related Page: <a href="../Pages/Page_378367001.html">4.8 Entering Test Scenarios</a> &gt; Entering Test Scenarios &gt; Procedure for Downloadable Content</p>
+<h2 id="Anchor_426203695_h2_6">Guidelines</h2>
+<p>Refer to the following page on NDP.</p>
+<p>
+  <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/lotcheck-information#lotcheck01" target="_blank" rel="noopener noreferrer">NDP &gt; Developer Support &gt; Nintendo Switch &gt; Technical Information &gt; Lotcheck Information &gt; [Nintendo Switch Guidelines] Guidelines with the most violations</a>
+</p>
+<h2 id="Anchor_426203695_h2_7">Debugging (General Bugs)</h2>
+<p>Refer to the following page on NDP.</p>
+<p>
+  <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/lotcheck-information#lotcheck05" target="_blank" rel="noopener noreferrer">Nintendo Developer Portal &gt; Developer Support &gt; Nintendo Switch &gt; Technical Information &gt; Lotcheck Information &gt; Examples of common general bugs</a>
+</p>
+<h2 id="Anchor_426203695_h2_8">SLIM</h2>
+<h4 id="Anchor_426203695_h4_12">Only the company name and no contact method is described in the contact information displayed in the system features.</h4>
+<p>&rArr; Solution: Edit the software legal information in SLIM (<a href="https://slim.mng.nintendo.net/slim/login" target="_blank" rel="noopener noreferrer">https://slim.mng.nintendo.net/slim/login</a>). Add user contact methods, such as an email address.</p>
+<h1 id="Anchor_426203695_h1_2">When Requesting Lotcheck</h1>
+<h2 id="Anchor_426203695_h2_9">Downloadable Content</h2>
+<h4 id="Anchor_426203695_h4_13">A release that supports the e-commerce downloadable content feature was submitted for Lotcheck, but the downloadable content was not submitted for Lotcheck, so the e-commerce feature cannot be tested.</h4>
+<p>&rArr; Related Page: <a href="../Pages/Page_442854507.html">4.13 Additional Information About DLC</a> &gt; Submit Both Initial Release/Patch and Downloadable Content for Lotcheck</p>
+<h4 id="Anchor_426203695_h4_14">Downloadable content that becomes available starting with a particular release version was submitted to Lotcheck, but the patch for that release version was not submitted to Lotcheck.</h4>
+<p>&rArr; Related Page: <a href="../Pages/Page_442854507.html">4.13 Additional Information About DLC</a> &gt; Submit Both Initial Release/Patch and Downloadable Content for Lotcheck</p>
+<h1 id="Anchor_426203695_h1_3">After Submitting to Lotcheck</h1>
+<h2 id="Anchor_426203695_h2_10">Handling Issues Reported by the Lotcheck Department</h2>
+<h4 id="Anchor_426203695_h4_15">After changing the content in Features, Test Scenarios, or Age Rating as directed by the Lotcheck Department, the Submit Edited Information button was not clicked. As a result, the Lotcheck Department has not received the changed content.</h4>
+<p>&rArr; Related Page: <a href="../Pages/Page_378367006.html">5 Items for the Developer to Address During Lotcheck</a> &gt; Handling Issues Reported by the Lotcheck Department &gt; Second row of the table &gt; Handling by Developer &gt; Example</p>
+<h4 id="Anchor_426203695_h4_16">No response for issues reported by the Lotcheck Department in the Lotcheck Issues tab.</h4>
+<p>&rArr; Related Page:</p>
+<p>
+  <a href="../Pages/Page_378367006.html">5 Items for the Developer to Address During Lotcheck</a> &gt; Lotcheck Process &gt; Handling by Developer</p>
+<p>
+  <a href="../Pages/Page_378367011.html">8 Notification Email From NDP</a> &gt; List of Notification Emails &gt; [Needs Response] A thread was created or a post was submitted to a thread by the developer, Nintendo, or NDP automatic processing (<strong>Messages</strong> tab or Lotcheck Issues Report).</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

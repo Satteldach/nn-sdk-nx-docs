@@ -1,0 +1,1816 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>E-commerce | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- E-commerce -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452327" data-tags="revision-updated-20240626 revision-updated-4.0 revision-updated-20240206">E-commerce</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements for application design and development that apply to applications using e-commerce features.<br />The guidelines in this chapter apply only to transactions that occur on Nintendo eShop using the Nintendo eShop balance. These guidelines do not apply to independent transactions on independent servers.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Nintendo is the seller of record for all transactions that occur on Nintendo eShop servers, even when the content is located on an independent server.</p>
+  </div>
+</div>
+<p>See below for definitions of terms used in this chapter. Refer to the <em>Nintendo Switch E-Commerce Guide</em> alongside this chapter.</p>
+<div class="table">
+  <a name="AutoAnchor_2367452327_table001"></a>Table 1 E-commerce Terminology</div>
+<table class="wrapped">
+  <tbody>
+    <tr>
+      <th>Term</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <p>E-commerce items</p>
+      </td>
+      <td>
+        <p>A general term for the following content and services sold on Nintendo eShop</p>
+        <ul>
+          <li>Downloadable content (DLC)</li>
+          <li>Consumable service items</li>
+          <li>Subscription service items</li>
+          <li>Bundle containing the above</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>For definitions of the different Nintendo platform server environments, see <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NintendoServer">Nintendo platform server environments</a>.</p>
+<!--Remove-->
+<div class="changelog">
+  <div class="expand-container" id="expander-2367452327-changelog">
+    <div class="expand-control" id="expander-control-2367452327-changelog">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">Revision History</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367452327-changelog">
+      <table class="changelog">
+        <thead>
+          <tr>
+            <th class="changelog_header">Date</th>
+            <th class="changelog_header">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="changelog_row" data-changelog-common="1">
+            <td class="changelog_date">2024/06/26</td>
+            <td class="changelog_body">
+              <ul class="changelog_root">
+                <li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type"><li class="changelog">Added information about Nintendo platform servers.</li></ul></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- E-commerce: General -->
+<h1 class="general" id="GuidelineLabel_2367452329" data-tags="revision-updated-1.1">E-commerce: General</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply to all applications that use e-commerce features.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0124: Prohibition of e-commerce items with content that deviates from your application's rating -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452331" data-tags="revision-updated-2.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452331" title="Right-click and copy link to copy a permalink to this guideline">0124: Prohibition of e-commerce items with content that deviates from your application's rating</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+The content of your e-commerce items must not deviate from your application's rating.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use e-commerce items
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Switch does not support the display of ratings for each individual e-commerce item. Similarly, if a user purchases an e-commerce item with content that exceeds the rating of your application, the Switch system is not able to restrict use of the item based on its rating. Therefore it is prohibited for you to have e-commerce items whose content deviates from the rating of your application.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the source code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if no e-commerce items have content that deviates from the rating of the application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452331_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452331_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452331_1" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367452331_1">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0200: Disclosing probabilities for paid loot boxes (or paid gacha) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452333" data-tags="revision-updated-14.0 revision-updated-17.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452333" title="Right-click and copy link to copy a permalink to this guideline">0200: Disclosing probabilities for paid loot boxes (or paid gacha)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If your application allows users to get items from paid loot boxes (or paid gacha), then your application must display the probabilities of getting each item before the user makes the purchase, and these items must not be required to progress in the game.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that provide paid loot boxes (or paid gacha) through e-commerce
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>In this guideline, &quot;paid loot boxes (or paid gacha)&quot; refers to paid in-game mechanisms that award randomized virtual items to players, for which the player pays either directly or with purchased in-game currency. (In-game mechanisms that award randomized virtual items to players for free are not considered to be paid loot boxes or paid gacha.) Applications that offer paid loot boxes must provide a method within the application for the player to view the correct probabilities of getting each item that it is possible to get from paid loot boxes.</p>
+  <p>The following are some ways of implementing these requirements:</p>
+  <ul>
+    <li>Implement a button in the purchase flow labeled &quot;Item drop rate&quot; or similar, which displays the probabilities of getting each item when selected by the user</li>
+    <li>Display the probabilities of getting each item in a location that the user can check at any time, such as an in-game &quot;Notifications&quot; area</li>
+  </ul>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>It is the responsibility of the publisher to ensure that the probabilities displayed within the application are correct.</p>
+    </div>
+  </div>
+  <p>You must display this information in a way that allows the player to understand the probabilities of getting each individual item. It is sufficient to display the probability on a category basis (such as by rarity or by item type) only if all items in each such category have equal drop rates. In addition, any items the user can get from paid loot boxes must not be required to progress in the game. Even if it is possible for the user to progress in the game without these items, it is also prohibited to design your application in a way that makes it extremely difficult for the user to progress without these items.</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>You must perform both Test Method A and Test Method B below.</p>
+<h6 id="Anchor_2367452333_h6_1">Test Method A</h6>
+<p>Progress to a point immediately prior to purchasing a loot box of your choice.</p>
+<h6 id="Anchor_2367452333_h6_2">Test Method B</h6>
+<p>Check the source code.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>For Test Method A, the application displays the probabilities of getting each item in a prominent location either before the user reaches the purchase screen, or on the purchase screen itself.</li>
+  <li>In Test Method B, if the application only displays the probability of getting categories of items, all items in a category must have the same probability.</li>
+  <li>In Test Method B, none of the items (or any future items) the user can get from paid loot boxes are required to progress in the game, and it is not extremely difficult for the user to progress without these items.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452333_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452333_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452333_1" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367452333_1">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452333_2" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452333_2">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0204: Providing in-game usable content upon purchase of a season pass -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452335" data-tags="revision-updated-16.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452335" title="Right-click and copy link to copy a permalink to this guideline">0204: Providing in-game usable content upon purchase of a season pass</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must provide in-game usable content at the time when the user purchases a season pass.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that meet both of the following conditions:</p>
+<ul>
+  <li>Provide season passes for purchase</li>
+  <li>Have received or will receive a rating from the PEGI (or PEGI Portugal), BBFC, USK, RARS, ACB, or OFLC ratings systems</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that provide season passes for purchase in European or Australian regions must provide at least one item of in-game usable content at the time when the user purchases a season pass.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+        <br />
+        <ul>
+          <li>
+            <strong>Downloadable Content</strong> &gt; <strong>Season Pass</strong></li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the source code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application provides at least one item of in-game usable content at the time when the user purchases a season pass.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452335_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452335_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452335_1" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367452335_1">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Service items -->
+<h1 class="general" id="GuidelineLabel_2367452337" data-tags="revision-updated-4.0">Service items</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements that apply to applications that use e-commerce features to support the sale of service items.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>
+      <span style="color: inherit;">If your application provides consumable service items for sale in Japan, it is the responsibility of the publisher of your application to comply with the Act on the Settlement of Funds. In cases where the consumable service items supported by your application meet all of the following conditions, they may be considered equivalent to &quot;prepayment&quot; and therefore be subject to the Act on the Settlement of Funds.</span>
+    </p>
+    <ul>
+      <li>
+        <span style="color: inherit;">sold in Japan</span>
+      </li>
+      <li>
+        <span style="color: inherit;">purchasable (not free)</span>
+      </li>
+      <li>
+        <span style="color: inherit;">expire more than 6 months after the date of issue</span>
+      </li>
+    </ul>
+    <p>
+      <span style="color: inherit;">Note that even if the consumable service items are not referred to as currency, they may still be considered equivalent to &quot;prepayment&quot; depending on how they are used. For markets other than Japan, you must comply with local laws and regulations.</span>
+    </p>
+  </div>
+</div>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0146: Displaying the remaining time/uses of service items -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452339" data-tags="revision-updated-4.0 revision-updated-16.0 revision-updated-17.0 revision-updated-19.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452339" title="Right-click and copy link to copy a permalink to this guideline">0146: Displaying the remaining time/uses of service items</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Within your application, users must be able to check either the expiration date of their purchased service items, or the amount of time or uses remaining on their purchased service items.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that support the sale of service items
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Service items that never have an expiry date or remaining number of uses to display
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>You must display the expiration date or amount of uses remaining on any purchased consumable service items, and the amount of time remaining on any purchased subscription service items, in a location somewhere within the application that is easily visible to the user. However, service items that never have an expiry date or a remaining number of uses to display (such as the examples below) are not subject to this guideline.</p>
+<ul>
+  <li>Unlimited service items that can only be purchased once, but have no limit on remaining time/uses (such as access passes)</li>
+  <li>Instant service items whose licenses are used immediately upon purchase, so that the remaining uses are always &quot;0&quot;</li>
+</ul>
+<p>Users can purchase service items for an application on Nintendo eShop even when that application is not currently running on the user's Nintendo Switch system. This means that after your application is started, it must check whether any service item licenses have been added before it displays the expiration date or number of uses remaining on consumable service items, and before it displays the amount of time remaining on subscription service items. If any licenses have been added, your application must update the information that it displays.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <ol>
+    <li>Play through all modes of the application from beginning to end, and check the amount of time/uses remaining on service items.</li>
+    <li>Close the application.</li>
+    <li>Add a service item license to the user account used in step 1. (If testing in the development environment, add a license by jumping to Nintendo eShop from within the application and purchasing the license. Then, on the ec applet's purchase completion screen, press the HOME Button and close the application.)</li>
+    <li>Start the application, and select the user account that you added a license to in step 3.</li>
+    <li>Go to a scene that displays the amount of time/uses remaining on service items.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>In step 1, the application provides some mode where users can check the expiration dates or amount of time/uses remaining on purchased service items.</li>
+  <li>In step 5, the license added in step 3 has been added to the amount of time/uses remaining that you checked in step 1.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452339_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452339_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452339_1" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452339_1">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452339_2" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367452339_2">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452339_3" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367452339_3">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452339_4" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367452339_4">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0132: Displaying errors for service items that are managed through independent servers -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452341" data-tags="function-独自サーバー revision-updated-14.0 revision-updated-6.0 revision-updated-8.0 revision-updated-4.0 revision-updated-3.0 revision-updated-5.0 function-eコマース revision-updated-5.2 function-エラー表示" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452341" title="Right-click and copy link to copy a permalink to this guideline">0132: Displaying errors for service items that are managed through independent servers</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must use the error viewer applet to display the following specific errors returned by the server API for service items.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that implement service item features via an independent server
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If something prevented a service item API function from completing successfully, it returns error information as its response. In general, error handling for these errors is left up to you when you implement your independent servers, but the following error codes must be displayed on the client side by your application. (Note that subscription service items and consumable service items have different error codes.)</p>
+<ul>
+  <li>For subscription service items:<ul><li><code>2621-1202(MandomError.SERVICE_MAINTENANCE)</code></li><li><code>2621-9501(BaasError.SERVICE_MAINTENANCE)</code></li></ul></li>
+  <li>For consumable service items:<ul><li><code>2622-1502(SugarError.SERVICE_MAINTENANCE)</code></li><li><code>2622-9501(BaasError.SERVICE_MAINTENANCE)</code></li></ul></li>
+</ul>
+<p>When you display errors on the client side in your application, you must use the error viewer applet to display them.<br />Errors other than those above are generally resolved on the server side. But if your application's design requires you to display an eShop REST API error not listed above to the user, then display it with a message that suits your application's design. (For example, a general-purpose message such as &quot;A communication error has occurred.&quot;)</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <ul>
+    <li>
+      <a href="https://mandom.ws.dd1.ss.nintendo.net/debug/forcedError" target="_blank" rel="noopener noreferrer">Web tool to set errors for subscription service items</a>
+    </li>
+    <li>
+      <a href="https://sugar.ws.dd1.ss.nintendo.net/debug/forcedError" target="_blank" rel="noopener noreferrer">Web tool to set errors for consumable service items</a>
+    </li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <ol>
+    <li>Using the web tool to set errors (see <strong>References</strong>), set a <code>SERVICE_MAINTENANCE</code> error.<br />(You must individually test each of the errors this guideline targets. To do this, first set one of the errors, then perform the following steps. Repeat until all errors have been tested.)<ul><li>Subscription service items: <code>2621-1202</code>, <code>2621-9501</code></li><li>Consumable service items: <code>2622-1502</code>, <code>2622-9501</code></li></ul></li>
+    <li>Start the application.</li>
+    <li>Play a mode in the application that uses subscription service items or consumable service items.</li>
+    <li>In the web tool to set errors, clear the error you set in step 1.</li>
+    <li>Proceed to a scene that calls the ec applet from within the application, and start Nintendo eShop.</li>
+    <li>Purchase a service item.</li>
+    <li>After completing the purchase on Nintendo eShop but before returning to the application, set the <code>SERVICE_MAINTENANCE</code> error again, the same as you did in step 1.</li>
+    <li>Return to the application.</li>
+    <li>Repeat steps 1 through 8 for all scenes that use subscription service items or consumable service items.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if the application uses the error viewer applet to display one of the following errors in steps 3 and 8, in accordance with the error you set in steps 1 and 7.</p>
+<ul>
+  <li>For subscription service items:<br /><ul><li><code>2621-1202(MandomError.SERVICE_MAINTENANCE)</code></li><li><code>2621-9501(BaasError.SERVICE_MAINTENANCE)</code></li></ul></li>
+  <li>For consumable service items:<ul><li><code>2622-1502(SugarError.SERVICE_MAINTENANCE)</code></li><li><code>2622-9501(BaasError.SERVICE_MAINTENANCE)</code></li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452341_0" data-tag="function-エラー表示">
+<label for="tagfilter_2367452341_0">
+<span class="function-tag" title="Displaying errors" data-tag="function-エラー表示">Displaying errors</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452341_1" data-tag="function-独自サーバー">
+<label for="tagfilter_2367452341_1">
+<span class="function-tag" title="Independent servers" data-tag="function-独自サーバー">Independent servers</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452341_2" data-tag="function-eコマース">
+<label for="tagfilter_2367452341_2">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_3" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452341_3">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_4" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452341_4">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_5" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452341_5">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_6" data-tag="revision-updated-5.2">
+<label for="tagfilter_2367452341_6">
+<span class="revision-tag" title="Updated v5.2" data-tag="revision-updated-5.2">Updated v5.2</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_7" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367452341_7">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_8" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367452341_8">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452341_9" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367452341_9">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0164: Displaying errors for consumable service items that are managed through user save data -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452343" data-tags="revision-updated-6.0 revision-updated-8.0 function-eコマース function-エラー表示" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452343" title="Right-click and copy link to copy a permalink to this guideline">0164: Displaying errors for consumable service items that are managed through user save data</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must appropriately handle and notify the user of any errors that occur when using consumable service items that are managed through user save data.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use consumable service items that are managed through user save data
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>When there is no disadvantage to the user even if the error is not displayed, such as in the following examples:</p>
+<ul>
+  <li>When the application automatically retries the operation and completes it without any problems</li>
+  <li>When the application can resolve the error without displaying it to the user</li>
+  <li>During (background) processes that do not involve active user interaction, where the error causes no problems that affect the user's ability to progress further in your application</li>
+  <li>
+    <p>When the <code>nn::nifm::HandleNetworkRequestErrorResult()</code> function is being used to notify users that they are not connected to the network</p>
+  </li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If your application uses consumable service items that are managed through user save data, and the ec library returns an error that must be displayed, you must use the error viewer applet to notify the user of the error.</p>
+<p>The following three categories of errors must be displayed.</p>
+<ul>
+  <li>If <code>nn::account::ResultNetworkServiceAccountUnavailable</code> is returned:<ul><li>Handle as required by <a href="../Pages/Page_2367452178.html#GuidelineDescLabel_2367452186">0121: Implementing handling when your application is unable to use a network service account</a>.</li></ul></li>
+  <li>If <code>nn::ec::ResultShowErrorCodeRequired</code> is returned:<ul><li>Use the <code>GetErrorCode()</code> function of the class that the error originated from to get the <code>nn::err::ErrorCode</code> structure, then pass it to <code>nn::err::ShowError(nn::err::ErrorCode)</code> to display the error.</li></ul></li>
+  <li>If some error is returned other than a <code>ResultShowErrorCodeRequired</code> belonging to the <code>nn::ec</code> namespace:<ul><li>Pass the returned <code>Result</code> to <code>nn::err::ShowError(nn::Result)</code> to display the error.</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>NintendoSDK Documents<ul><li>Features &gt; System &gt; ec Library</li></ul></li>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+        <ul>
+          <li>
+            <!--Remove - p.auto-cursor-target-->
+            <!--Remove-->
+            <!--Remove - p.auto-cursor-target-->
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="3"></th>
+      <th class="guidelineparam-header" rowspan="3">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367452343_h6_1">If <code>nn::account::ResultNetworkServiceAccountUnavailable</code> is returned:</h6>
+<p>Check the application's behavior by performing the Test Method in <a href="../Pages/Page_2367452178.html#GuidelineDescLabel_2367452186">0121: Implementing handling when your application is unable to use a network service account</a>.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367452343_h6_2">If <code>nn::ec::ResultShowErrorCodeRequired</code> is returned:</h6>
+<p>Configure the web tool to set errors (for consumable service items) to trigger error <code>2309-1502</code>, and then play through all application modes that use consumable service items from beginning to end.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367452343_h6_3">If some error is returned other than a <code>ResultShowErrorCodeRequired</code> belonging to the <code>nn::ec</code> namespace:</h6>
+<p>Check the source code.</p>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="3"></th>
+      <th class="guidelineparam-header" rowspan="3">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367452343_h6_4">If <code>nn::account::ResultNetworkServiceAccountUnavailable</code> is returned:</h6>
+<p>Passes if the application passes the Pass/Fail Determination of <a href="../Pages/Page_2367452178.html#GuidelineDescLabel_2367452186">0121: Implementing handling when your application is unable to use a network service account</a>.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367452343_h6_5">If <code>nn::ec::ResultShowErrorCodeRequired</code> is returned:</h6>
+<p>Passes if the application uses the error viewer applet to display error <code>2309-1502</code>.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367452343_h6_6">If some error is returned other than a <code>ResultShowErrorCodeRequired</code> belonging to the <code>nn::ec</code> namespace:</h6>
+<p>Passes if the application uses the error viewer applet to display the error.</p>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452343_0" data-tag="function-エラー表示">
+<label for="tagfilter_2367452343_0">
+<span class="function-tag" title="Displaying errors" data-tag="function-エラー表示">Displaying errors</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452343_1" data-tag="function-eコマース">
+<label for="tagfilter_2367452343_1">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452343_2" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452343_2">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452343_3" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452343_3">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0161: Stating conditions when offering or extending passes for subscription service items for promotional purposes -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452345" data-tags="function-独自サーバー revision-updated-6.0 revision-updated-7.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452345" title="Right-click and copy link to copy a permalink to this guideline">0161: Stating conditions when offering or extending passes for subscription service items for promotional purposes</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If you offer or extend passes for subscription service items to users for promotional purposes, you must explicitly state the conditions and limitations for your promotion on Nintendo eShop, for example, in the description of the subscription service item.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications for which you plan to use the Add Term License API to provide subscription service items via an independent server
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>There may be instances where, as part of your day-to-day operations on Nintendo eShop, you use the Add Term License API to offer or extend passes for subscription service items for promotional purposes. When you do this, you must explicitly state your conditions and limitations for the offer on Nintendo eShop; for example, in the description of the subscription service item.<br />Some examples of such conditions and limitations include making the offer available only to users who access your service within a certain timeframe, offering only one pass per device, or extending the pass only an <em>n</em> number of times.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>It is the responsibility of the publisher to handle all announcements and description of such promotions, either made in-game or through any other medium.</p>
+    </div>
+  </div>
+  <p>Nintendo expects that you will offer or extend passes only for promotional or compensation purposes. You must contact Nintendo if you wish to offer or extend passes for any other purpose. <em>User compensation</em> refers to situations where your application or independent server had some issue that caused a service outage, and you wish to compensate affected users.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <p>
+          <em>Nintendo Switch E-Commerce Guide</em>
+        </p>
+      </li>
+    </ul>
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the source code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the conditions and limitations for offering or extending passes for promotional purposes are clearly stated on Nintendo eShop; for example, in the description of the subscription service item.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452345_0" data-tag="function-独自サーバー">
+<label for="tagfilter_2367452345_0">
+<span class="function-tag" title="Independent servers" data-tag="function-独自サーバー">Independent servers</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452345_1" data-tag="function-eコマース">
+<label for="tagfilter_2367452345_1">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452345_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452345_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452345_3" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452345_3">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0189: Requirement to display a message about automatic renewal -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452347" data-tags="revision-updated-12.0 revision-updated-14.0 revision-updated-16.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452347" title="Right-click and copy link to copy a permalink to this guideline">0189: Requirement to display a message about automatic renewal</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If your application supports the sale of automatically renewed items, displays the price of those items within the application, and transitions to Nintendo eShop, your application must also display a specific message.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that support subscription service items, and that display the prices of automatically renewed items within the application</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If your application supports automatic renewal&mdash;meaning that it can automatically have the user purchase an extension of subscription service items before the subscription expires&mdash;and also displays the prices of automatically renewed items within the application, then your application must display a specific message. Specifically, your application must call the API for getting subscription service item information, and display the <code>automatic_renewal_notice</code> exactly as provided in this API's response, without modification. For your reference, the table named <strong>Message language and corresponding text</strong> gives the message text for each language. However, you must not hard-code this message text into your application; instead, you must get the message text using the above API.</p>
+  <p>The language in which this message is written is determined by the <code>country</code> and <code>lang</code> parameters of the API for getting subscription service item lists. See the <strong>Message language corresponding to various combinations of <code>country</code> and <code>lang</code></strong> table. Note that the content of this table may be out of date.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If you have links that transition from the application to the Nintendo eShop, Nintendo recommends that you name the link &ldquo;To Nintendo eShop&rdquo; or something similar so that the link destination is clear.</p>
+    </div>
+  </div>
+  <div class="table">
+    <a name="AutoAnchor_2367452347_table001"></a>Table 1 Message language corresponding to various combinations of country and lang</div>
+  <table class="wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <th>Sales region</th>
+        <th>country</th>
+        <th>lang</th>
+        <th>Message language (IETF language tag format)</th>
+      </tr>
+      <tr>
+        <th rowspan="4">Americas</th>
+        <td>United States</td>
+        <td>Any language other than Spanish</td>
+        <td>en-US</td>
+      </tr>
+      <tr>
+        <td>Canada</td>
+        <td>French</td>
+        <td>fr-CA</td>
+      </tr>
+      <tr>
+        <td>Mexico</td>
+        <td>Any language other than English</td>
+        <td>es-419</td>
+      </tr>
+      <tr>
+        <td>Brazil</td>
+        <td>Any language other than English</td>
+        <td>pt-BR</td>
+      </tr>
+      <tr>
+        <th rowspan="8">Europe/Australia</th>
+        <td>United Kingdom</td>
+        <td>Any language</td>
+        <td>en-GB</td>
+      </tr>
+      <tr>
+        <td>Germany</td>
+        <td>Any language</td>
+        <td>de</td>
+      </tr>
+      <tr>
+        <td>France</td>
+        <td>Any language</td>
+        <td>fr</td>
+      </tr>
+      <tr>
+        <td>Spain</td>
+        <td>Any language</td>
+        <td>es</td>
+      </tr>
+      <tr>
+        <td>Italy</td>
+        <td>Any language</td>
+        <td>it</td>
+      </tr>
+      <tr>
+        <td>Netherlands</td>
+        <td>Any language</td>
+        <td>nl</td>
+      </tr>
+      <tr>
+        <td>Russian Federation</td>
+        <td>Any language</td>
+        <td>ru</td>
+      </tr>
+      <tr>
+        <td>Portugal</td>
+        <td>Any language</td>
+        <td>pt</td>
+      </tr>
+      <tr>
+        <th>Japan</th>
+        <td>Japan</td>
+        <td>Any language</td>
+        <td>ja</td>
+      </tr>
+      <tr>
+        <th>Korea</th>
+        <td>Korea</td>
+        <td>Any language</td>
+        <td>ko</td>
+      </tr>
+      <tr>
+        <th>Hong Kong</th>
+        <td>Hong Kong</td>
+        <td>Any language</td>
+        <td>zh-Hant</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table">
+    <a name="AutoAnchor_2367452347_table002"></a>Table 2 Message language and corresponding text</div>
+  <table class="wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <th>Message language</th>
+        <th>Text</th>
+      </tr>
+      <tr>
+        <th>en-US</th>
+        <td>Depending on your age and your country/region, you may be unable to purchase products with automatic renewal or be unable to turn on automatic renewal. See Nintendo eShop for more information.</td>
+      </tr>
+      <tr>
+        <th>fr-CA</th>
+        <td>Selon votre &acirc;ge et votre pays/r&eacute;gion, il se peut que vous ne puissiez pas effectuer d'achat via le renouvellement automatique ou qu'il ne vous soit pas possible d'activer le renouvellement automatique. Vous pouvez trouver plus d'informations &agrave; ce sujet dans Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>es-419</th>
+        <td>En funci&oacute;n de tu edad y de tus ajustes de pa&iacute;s o regi&oacute;n, quiz&aacute; no puedas adquirir productos que cuenten con renovaci&oacute;n autom&aacute;tica o no puedas activar dicha renovaci&oacute;n. Consulta la informaci&oacute;n que se proporciona en Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>pt-BR</th>
+        <td>Dependendo das suas configura&ccedil;&otilde;es de pais ou regi&atilde;o e da sua idade, talvez n&atilde;o seja poss&iacute;vel comprar alguns produtos que ofere&ccedil;am renova&ccedil;&atilde;o autom&aacute;tica ou ativar essa renova&ccedil;&atilde;o. Para mais informa&ccedil;&otilde;es, visite o Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>en-GB</th>
+        <td>Depending on your age and your country/region, you may be unable to purchase products with automatic renewal, or you may be unable to activate automatic renewal. Please view the information provided in Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>de </th>
+        <td>Abh&auml;ngig von deinem Alter und deinem Land bzw. deiner Region kannst du m&ouml;glicherweise Produkte mit automatischer Verl&auml;ngerung nicht kaufen oder du kannst die automatische Verl&auml;ngerung m&ouml;glicherweise nicht aktivieren. Bitte lies die im Nintendo eShop bereitgestellten Informationen.</td>
+      </tr>
+      <tr>
+        <th>fr </th>
+        <td>Selon votre &acirc;ge et votre pays/r&eacute;gion, il se peut que vous ne puissiez pas acheter de produits fonctionnant par renouvellement automatique ou qu'il ne vous soit pas possible d'activer le renouvellement automatique. Consultez les informations disponibles dans le Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>es</th>
+        <td>En funci&oacute;n de tu edad y de tus ajustes de pa&iacute;s o regi&oacute;n, quiz&aacute; no puedas adquirir productos que cuenten con renovaci&oacute;n autom&aacute;tica o no puedas activar dicha renovaci&oacute;n. Consulta la informaci&oacute;n que se proporciona en Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>it </th>
+        <td>In base alla tua et&agrave; e al paese/regione impostato, potresti non essere in grado di acquistare prodotti con il rinnovo automatico, o potrebbe essere impossibile attivare il rinnovo automatico. Controlla le informazioni fornite nel Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>nl</th>
+        <td>Afhankelijk van je leeftijd en je land of regio kun je mogelijk geen artikelen met automatische verlenging kopen of kun je automatische verlenging mogelijk niet activeren. Lees de beschikbare informatie in de Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>ru</th>
+        <td>В зависимости от вашего возраста и страны/региона вы, возможно, не сможете купить продукты с автоматическим продлением или включить автоматическое продление. Пожалуйста, ознакомьтесь с предоставленной в Nintendo eShop информацией.</td>
+      </tr>
+      <tr>
+        <th>pt</th>
+        <td>Dependendo do teu pa&iacute;s e da tua defini&ccedil;&atilde;o de pa&iacute;s/regi&atilde;o, poder&aacute; n&atilde;o ser poss&iacute;vel adquirir produtos que tenham renova&ccedil;&atilde;o autom&aacute;tica ou ativar essa mesma renova&ccedil;&atilde;o. Consulta as informa&ccedil;&otilde;es dispon&iacute;veis na Nintendo eShop.</td>
+      </tr>
+      <tr>
+        <th>ja </th>
+        <td>国・地域・年齢によっては、自動継続購入にならない場合や、購入できない場合があります。 詳しくはニンテンドーeショップでの案内をご確認ください。</td>
+      </tr>
+      <tr>
+        <th>ko</th>
+        <td>국가/지역/연령에 따라 자동 연장 결제가 되지 않는 경우나, 구입할 수 없는 경우가 있습니다. 자세한 내용은 닌텐도 e숍의 안내를 확인해 주십시오.</td>
+      </tr>
+      <tr>
+        <th>zh-Hant</th>
+        <td>有可能因為國家、地區、年齡而無法設定自動繼續購買或無法購買。 詳情請確認Nintendo eShop中的說明。</td>
+      </tr>
+    </tbody>
+  </table>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>See <strong>Message language corresponding to various combinations of <code>country</code> and <code>lang</code></strong>. From this table, select a country in a region where the application supports the sale of automatically renewed items, and set your Nintendo Account to that country of residence.</li>
+  <li>Now, see the <code>lang</code> column in <strong>Message language corresponding to various combinations of <code>country</code> and <code>lang</code></strong>. Set that language to be used within the application.<br /><strong>Note:</strong> If the application does not support that <code>lang</code>, skip to step 6.</li>
+  <li>Using the Nintendo Account from step 1, start the application.</li>
+  <li>Progress in the application to a scene where the application displays a button that jumps to Nintendo eShop for the purpose of purchasing automatically renewed items.</li>
+  <li>Compare the message displayed on this screen to the corresponding message in <strong>Message language and corresponding text</strong>.</li>
+  <li>Repeat steps 1 through 5 with Nintendo Accounts for all other countries in regions where the application supports the sale of automatically renewed items.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in step 5, the application displays the message text provided by the Nintendo eShop server on-screen, using the language specified in the <strong>Message language corresponding to various combinations of <code>country</code> and <code>lang</code></strong> &gt; <strong>Message language</strong> field.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452347_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452347_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452347_1" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367452347_1">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452347_2" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452347_2">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452347_3" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452347_3">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Displaying item lists within your application -->
+<h1 class="general" id="GuidelineLabel_2367452349" data-tags="revision-updated-7.0">Displaying item lists within your application</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply when displaying in-application lists of the items available for purchase on Nintendo eShop.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0171: Handling addition of elements to your item lists -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452351" data-tags="revision-updated-14.0 revision-updated-7.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452351" title="Right-click and copy link to copy a permalink to this guideline">0171: Handling addition of elements to your item lists</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must operate correctly even when elements have been added to the item list that you get with the ec library.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the ec library to get item lists
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If your application uses the ec library to get item lists, then your application must parse the JSON data returned by the server to extract the item list data. Nintendo may add new elements and new data capacity for these elements to the JSON data without prior notice. To handle this, you must do the following.</p>
+  <ul>
+    <li>Allocate and pass the necessary amount of memory to the ec library so that memory does not run out when the amount of data increases.</li>
+    <li>Do not parse the JSON data in such a way that parsing fails when an element has been added. For example, do not parse the JSON data by specifying an offset and attempting to always extract the item list from the same location.</li>
+  </ul>
+  <p>You can use the JSON compatibility checking feature to check whether your application fulfills these requirements.</p>
+  <p>For more information about the JSON compatibility checking feature, see <span>NintendoSDK Documents > Features > System > ec Library > Debugging > JSON Compatibility Check Feature</span>.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>NintendoSDK Documents</li>
+      <li style="list-style-type: none;">
+        <ul>
+          <li>Features &gt; System &gt; ec Library &gt; Debugging &gt; JSON Compatibility Check Feature</li>
+          <li>Features &gt; Controlling the Development Hardware &gt; DevMenuCommand &gt; Shop Features</li>
+          <li>Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Shop Settings</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>
+      <p>On <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NCMS">NCMS</a>, register product information on dd1, and then distribute the information.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>
+      <p>Prepare a Nintendo Switch devkit initialized to NintendoSDK Firmware for NX 10.0.0-4.0 (NX Add-On 10.3.0) or later.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>Use the JSON compatibility checking feature to add dummy elements. You can add it using either of the following methods:<ol><li>Use <code>DevMenuCommand</code> to set &quot;<code>DevMenuCommand.nsp &ndash; shop set-json-dummy-element-of-ec-response --mode fixed</code>&quot;.</li><li>Start DevMenu, go to <strong>Shop</strong>, and set <strong>JSON Dummy Element Mode</strong> to <strong>Fixed</strong>.</li></ol></li>
+    <li>Check that the addition rate is set to the default setting (50%).</li>
+    <li>Start the application, get the item list data, then play a scene that uses the data you got.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application can be played without problems.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452351_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452351_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452351_1" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452351_1">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452351_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452351_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0177: Requirements when displaying prices -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452353" data-tags="function-独自サーバー revision-updated-12.0 revision-updated-20240626 revision-updated-14.0 revision-updated-16.0 revision-updated-15.0 revision-updated-17.0 function-eコマース revision-updated-8.0 revision-updated-9.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452353" title="Right-click and copy link to copy a permalink to this guideline">0177: Requirements when displaying prices</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+When displaying prices in-application, your application must display the price information retrieved from the Nintendo eShop server, including currency notation.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the ec library to display prices
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If you use the ec library to display prices within your application, your application must get the price from the following values.</p>
+<ul>
+  <li>
+    <strong>For all items other than consumable service items:</strong> You must use the <code>formatted_value</code> included in the response to the function for getting price information.</li>
+  <li>
+    <strong>For consumable service items:</strong> You must use the <code>formatted_value</code> included in the response to the function for getting consumable service item information.</li>
+</ul>
+<p>When you display prices in your application, you must display the above <code>formatted_value</code> exactly as retrieved by the function, without modification. The <code>formatted_value</code> is formatted to already include any necessary prefixes or suffixes for the price's currency notation.</p>
+<p>The following are examples of prohibited implementations:</p>
+<ul>
+  <li>Embedding or hardcoding prices in your application.</li>
+  <li>Retrieving prices from any source other than the Nintendo eShop server.</li>
+  <li>Taking the <code>formatted_value</code> and changing its prefix or suffix to some other currency notation.</li>
+</ul>
+<p>The <code>formatted_value</code> is determined by the <code>country</code> and <code>lang</code> parameters of the functions for getting price information and consumable service item information. See the following table for the currency notation corresponding to various combinations of <code>country</code> and <code>lang</code>.</p>
+<table class="wrapped" data-mce-resize="false">
+  <tbody>
+    <tr>
+      <th>Sales region</th>
+      <th>country</th>
+      <th>lang</th>
+      <th>Currency notation</th>
+    </tr>
+    <tr>
+      <th rowspan="6">Americas</th>
+      <td>United States</td>
+      <td>Any language</td>
+      <td>$0.00</td>
+    </tr>
+    <tr>
+      <td>Canada</td>
+      <td>Any language other than French</td>
+      <td>$0.00</td>
+    </tr>
+    <tr>
+      <td>Canada</td>
+      <td>French</td>
+      <td>0,00 $</td>
+    </tr>
+    <tr>
+      <td>Mexico</td>
+      <td>Any language</td>
+      <td>MX$0.00</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>Any language</td>
+      <td>R$ 0,00</td>
+    </tr>
+    <tr>
+      <td>Peru</td>
+      <td>Any language</td>
+      <td>S/0,00</td>
+    </tr>
+    <tr>
+      <th rowspan="7">Europe/Australia</th>
+      <td>United Kingdom</td>
+      <td>Any language</td>
+      <td>&pound;0.00</td>
+    </tr>
+    <tr>
+      <td>Belgium</td>
+      <td>Any language other than French</td>
+      <td>&euro;0,00</td>
+    </tr>
+    <tr>
+      <td>Belgium</td>
+      <td>French</td>
+      <td>0,00 &euro;</td>
+    </tr>
+    <tr>
+      <td>Poland</td>
+      <td>Any language</td>
+      <td>0,00 zł</td>
+    </tr>
+    <tr>
+      <td>Czech Republic</td>
+      <td>Any language</td>
+      <td>0,00 CZK</td>
+    </tr>
+    <tr>
+      <td>Russian Federation</td>
+      <td>Any language</td>
+      <td>0 RUB</td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>Any language</td>
+      <td>$0.00</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>Japan</td>
+      <td>Any language</td>
+      <td>0円</td>
+    </tr>
+    <tr>
+      <th>Korea</th>
+      <td>Korea</td>
+      <td>Any language</td>
+      <td>0원</td>
+    </tr>
+    <tr>
+      <th>Hong Kong</th>
+      <td>Hong Kong</td>
+      <td>Any language</td>
+      <td>HKD 0</td>
+    </tr>
+    <tr>
+      <th>China</th>
+      <td>China</td>
+      <td>Any language</td>
+      <td>0元</td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>
+      <p>On <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NCMS">NCMS</a>, register product information on dd1, and then distribute the information.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>See the table in the Backgrounder. From this table, select a country in a region where the application supports the sale of items, and set a Nintendo Account to that country of residence.</li>
+    <li>See the same table's <code>lang</code> column, and set that language to be used within the application.<br /><strong>Note:</strong> If the application does not support that language, skip to step 6.</li>
+    <li>Using the Nintendo Account from step 2, start the application.</li>
+    <li>Proceed to a scene in the application where prices are displayed.</li>
+    <li>Repeat steps 2 through 5 for all other countries in regions where the application supports the sale of e-commerce items.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in step 5, the price you configured in step 1 is displayed using the corresponding <strong>Currency notation</strong> from the table in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452353_0" data-tag="function-独自サーバー">
+<label for="tagfilter_2367452353_0">
+<span class="function-tag" title="Independent servers" data-tag="function-独自サーバー">Independent servers</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452353_1" data-tag="function-eコマース">
+<label for="tagfilter_2367452353_1">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_2" data-tag="revision-updated-20240626">
+<label for="tagfilter_2367452353_2">
+<span class="revision-tag" title="Updated v20240626" data-tag="revision-updated-20240626">Updated v20240626</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_3" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367452353_3">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_4" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367452353_4">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_5" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367452353_5">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_6" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452353_6">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_7" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452353_7">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_8" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367452353_8">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452353_9" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452353_9">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240626
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Added China to the currency notation table.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0178: Requirements for tax-included display -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452355" data-tags="revision-updated-17.0 revision-updated-8.0 revision-updated-16.0 revision-updated-18.0 function-eコマース revision-updated-9.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452355" title="Right-click and copy link to copy a permalink to this guideline">0178: Requirements for tax-included display</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+At least once before the user proceeds to Nintendo eShop, screens that display prices within your application must also display the &quot;prices include tax&quot; message retrieved from the Nintendo eShop server.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that use the ec library to display prices</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>When you use the ec library to display prices within your application, the screens that display prices must also display one of the following messages stating that the prices include tax.</p>
+  <ul>
+    <li>
+      <strong>For all items other than consumable service items:</strong> Display the <code>inc_tax_message</code> string included in the response to the function for getting price information.</li>
+    <li>
+      <strong>For consumable service items:</strong> Display the <code>inc_tax_message</code> string included in the response to the function for getting consumable service item information.</li>
+  </ul>
+  <p>If your application has multiple screens that display prices, it is acceptable to display the message on just one of those screens.</p>The <code>inc_tax_message</code> string changes depending on the <code>country</code> and <code>lang</code> parameters of the functions for getting price information and consumable service item information. See the table below for the contents of <code>inc_tax_message</code>. The content of this table is subject to change in the future, so consider these to be examples for reference only.<table class="wrapped" data-mce-resize="false"><colgroup> <col /> <col /> <col /> <col /> <col /> </colgroup><tbody><tr><th>Region</th><th><code>country</code></th><th><code>lang</code></th><th><code>inc_tax_message</code> (Production environment: <code>lp1</code>, Lotcheck environment: <code>sp1</code>)</th><th><code>inc_tax_message</code> (Development environment: <code>dd1</code>, Lotcheck environment: <code>sd1</code>)</th></tr><tr><td>Japan</td><td>Japan</td><td>Any language</td><td>null</td><td>&quot;税表示用のダミー文です。 (Dummy)&quot;</td></tr><tr><td rowspan="8"><p>Americas<br /><br /></p></td><td rowspan="2">Mexico</td><td>US English (en-US)</td><td>&quot;All prices include tax.&quot;</td><td>&quot;All prices include tax.&quot;</td></tr><tr><td>Latin American Spanish (es-419)</td><td>&quot;Todos los precios incluyen impuestos.&quot;</td><td>&quot;Todos los precios incluyen impuestos.&quot;</td></tr><tr><td rowspan="2">Argentina</td><td>US English (en-US)</td><td>&quot;Subject to applicable taxes.&quot;</td><td>&quot;Subject to applicable taxes.&quot;</td></tr><tr><td>Latin American Spanish (es-419)</td><td><p>&quot;Est&aacute; sujeto a los impuestos que procedan.&quot;</p></td><td>&quot;Est&aacute; sujeto a los impuestos que procedan.&quot;</td></tr><tr><td rowspan="2">United States</td><td>US English (en-US)</td><td>null</td><td>&quot;All prices include tax. (Dummy)&quot;</td></tr><tr><td>Latin American Spanish (es-419)</td><td>null</td><td>&quot;Todos los precios incluyen impuestos. (Dummy)&quot;</td></tr><tr><td>Canada</td><td>Canadian French (fr-CA)</td><td>null</td><td>&quot;Tous les prix affich&eacute;s incluent les taxes. (Dummy)&quot;</td></tr><tr><td>Brazil</td><td>Brazilian Portuguese (pt-BR)</td><td>null</td><td>&quot;Todos os pre&ccedil;os incluem impostos. (Dummy)&quot;</td></tr><tr><td rowspan="8">Europe<br /><br /><br /><br /><br /><br /><br /></td><td>Russian Federation</td><td>Any language</td><td>&quot;Все цены включают в себя НДС.&quot;</td><td>&quot;Все цены включают в себя НДС.&quot;</td></tr><tr><td>Portugal</td><td>Any language</td><td>&quot;Todos os pre&ccedil;os incluem IVA.&quot;</td><td>&quot;Todos os pre&ccedil;os incluem IVA.&quot;</td></tr><tr><td>Netherlands</td><td>Any language</td><td>&quot;Alle prijzen zijn inclusief btw.&quot;</td><td>&quot;Alle prijzen zijn inclusief btw.&quot;</td></tr><tr><td>Italy</td><td>Any language</td><td>&quot;Tutti i prezzi sono IVA compresa.&quot;</td><td>&quot;Tutti i prezzi sono IVA compresa.&quot;</td></tr><tr><td>Germany</td><td>Any language</td><td>&quot;Alle Preise inkl. MwSt.&quot;</td><td>&quot;Alle Preise inkl. MwSt.&quot;</td></tr><tr><td>France</td><td>Any language</td><td>&quot;Tous les prix sont TTC.&quot;</td><td>&quot;Tous les prix sont TTC.&quot;</td></tr><tr><td>Spain</td><td>Any language</td><td>&quot;Todos los precios incluyen IVA.&quot;</td><td>&quot;Todos los precios incluyen IVA.&quot;</td></tr><tr><td>United Kingdom</td><td>Any language</td><td>&quot;All prices include VAT.&quot;</td><td>&quot;All prices include VAT.&quot;</td></tr><tr><td>Australia</td><td>Australia</td><td>Any language</td><td>&quot;All prices include GST.&quot;</td><td>&quot;All prices include GST.&quot;</td></tr><tr><td>Korea</td><td>Korea</td><td>Any language</td><td>null</td><td>&quot;모든 가격은 세금 포함 가격입니다. (Dummy)&quot;</td></tr><tr><td>Hong Kong</td><td>Hong Kong</td><td>Any language</td><td>null</td><td>&quot;皆為含稅價 (Dummy)&quot;</td></tr><tr><td>China</td><td>China</td><td>Any language</td><td>null</td><td>&quot;All prices include tax. (Dummy)&quot;</td></tr></tbody></table><!--Remove - p.auto-cursor-target--></div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>
+      <p>On <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NCMS">NCMS</a>, register product information on dd1, and then distribute the information.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>See the table in the Backgrounder. From this table, select a country in a region where the application supports the sale of e-commerce items, and set a Nintendo Account to that country of residence.</li>
+    <li>See the same table's <strong>Language</strong> column, and set that language to be used within the application.<br /><strong>Note:</strong> If the application does not support that language, skip to step 6.</li>
+    <li>Using the Nintendo Account from step 2, start the application.</li>
+    <li>Proceed to a scene in the application where prices are displayed.</li>
+    <li>Repeat steps 2 through 5 for all other countries in regions where the application supports the sale of e-commerce items.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if, in step 5, the <code>inc_tax_message</code> string in the table in the Backgrounder is displayed on the same screen as the price information. If there are multiple scenes that display prices, passes if this condition is satisfied in at least one scene.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452355_0" data-tag="function-eコマース">
+<label for="tagfilter_2367452355_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452355_1" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367452355_1">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452355_2" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367452355_2">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452355_3" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367452355_3">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452355_4" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367452355_4">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452355_5" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452355_5">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

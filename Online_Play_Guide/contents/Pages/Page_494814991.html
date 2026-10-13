@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.2 Avoid Implementations That Continuously Try to Get an NSA ID Token in the Background (for Developers) | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.2 Avoid Implementations That Continuously Try to Get an NSA ID Token in the Background (for Developers) -->
+<div class="pagetitle" id="PageId_494814991">7.2 Avoid Implementations That Continuously Try to Get an NSA ID Token in the Background (for Developers)</div>
+<div class="text_separate">
+<p>The Nintendo authentication server is accessed when you call the function to get the NSA ID token (the <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code> function) if the NSA ID token is not cached at that time. If an error that cannot be resolved by the system or the application (an <code>nn::account::ResultNetworkCommunicationError</code> error) occurs and you continue to call the function to get the NSA ID token without fixing the cause of the error, you will put a load on the Nintendo authentication server. For this reason, avoid the following designs for your applications.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>If the load on the Nintendo authentication server becomes a problem in the commercial market, you may be asked to revise your implementation.</p>
+  </div>
+</div>
+<h1 id="Anchor_494814991_h1_1">Implementations to Avoid</h1>
+<p>If either of the following two processes apply to your implementation, consider adopting an implementation such as those presented later in Examples of Countermeasures.</p>
+<ul>
+  <li>Getting an NSA ID token in the background</li>
+  <li>Periodically trying to get an NSA ID token</li>
+</ul>
+<p>The following sections describe these processes in more detail.</p>
+<h2 id="Anchor_494814991_h2_1">Getting an NSA ID Token in the Background</h2>
+<p>This refers to implementations where <strong>the user is not told of the error</strong> by displaying the error viewer applet when <code>nn::account::ResultNetworkCommunicationError</code> is returned by the function that gets the NSA ID token (the <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code> function).</p>
+<p>Such an implementation corresponds to cases such as where the application does not clearly separate online mode from offline mode and proceeds with the online features in the inactive state if the network connection fails in the background.</p>
+<h2 id="Anchor_494814991_h2_2">Periodically Trying to Get an NSA ID Token</h2>
+<p>This refers to implementations designed to periodically try to get the NSA ID token in accordance with the progress in the application if the first attempt to get the NSA ID token has failed.<br />Such an implementation corresponds to cases such as where user operations advance the application and periodically transition to a scene that uses online features, and at those times an attempt is made to get an NSA ID token to enable those features.</p>
+<p>If the application fails to get the NSA ID token, it is restricted from trying again without an operation on the part of the user, as described in Nintendo Switch Guideline 0122: Prohibition of automatically retrying to get network service account ID tokens.</p>
+<h1 id="Anchor_494814991_h1_2">Reasons for Avoiding Implementations</h1>
+<p>If the process of getting the NSA ID token is conducted in the background and the process fails, the application might proceed without the user understanding that the online features have been inactivated or why an error has occurred. If the application keeps trying to get an NSA ID token without resolving the cause of the inability to connect online, the Nintendo authentication server will be accessed constantly.</p>
+<p>Depending on the design of the application and the number of users, this can put a load on the Nintendo authentication server and affect stable service delivery. Avoid this kind of implementation.</p>
+<p>There are no clear criteria for the kinds of designs and the numbers of users that are acceptable when an application is implemented this way. If the application is expected to be played by large numbers of users, for example because it is a free-to-play application, Nintendo may check the design specifications before or after the release. If the load on the Nintendo authentication server becomes a problem in the commercial market, you might be asked to revise your implementation.</p>
+<h1 id="Anchor_494814991_h1_3">Examples of Countermeasures</h1>
+<p>If your planning absolutely requires a design like those described in Implementations to Avoid, consider the possibility of taking the following countermeasures.</p>
+<ul>
+  <li>If the attempt to get the NSA ID token in the background has failed a certain number of times, display an error message to the user.</li>
+  <li>If the attempt to get the NSA ID token in the background has failed a certain number of times, stop making additional attempts in the background until the user explicitly re-enables the online features.</li>
+  <li>If the attempt to get the NSA ID token in the background has failed a certain number of times, reduce the frequency of subsequent attempts to get the NSA ID token in the background.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>These are just some examples of possible countermeasures. You are welcome to adopt other countermeasures if they resolve or mitigate the problems described in Reasons For Avoiding Implementations.</p>
+  </div>
+</div>
+<h1 id="Anchor_494814991_h1_4">Related Documents</h1>
+<ul>
+  <li>NintendoSDK Documents<ul><li>account Library</li></ul></li>
+  <li>Nintendo Switch Guidelines</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

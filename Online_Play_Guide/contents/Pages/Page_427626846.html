@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.4 Checking the Network Connection at the Appropriate Times During Online Play (for Developers) | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.4 Checking the Network Connection at the Appropriate Times During Online Play (for Developers) -->
+<div class="pagetitle" id="PageId_427626846">7.4 Checking the Network Connection at the Appropriate Times During Online Play (for Developers)</div>
+<div class="text_separate">
+<p>The user's network connection might become unavailable while connected to the NEX or NPLN server or an independent server. This issue applies in situations where the connection to the wireless LAN access point is severed, or the Switch is waking from sleep mode.<br />In this type of case, if you use a function that communicates with the server when the network connection is unavailable, the cause of communication failure may not be communicated appropriately to the user.<br />For this reason, we recommend calling <code>nn::nifm::IsNetworkAvailable()</code> at appropriate times to check the network connection.</p>
+<h1 id="Anchor_427626846_h1_1">Appropriate Timing</h1>
+<p>Determine the appropriate timing to call <code>nn::nifm::IsNetworkAvailable()</code> based on the application specifications. For example, consider calls at the following timing.</p>
+<ul>
+  <li>Calling the function each frame while connected to the server</li>
+  <li>Calling the function before executing a function that communicates with the server</li>
+</ul>
+<h1 id="Anchor_427626846_h1_2">Handling After Connection Check</h1>
+<p>If a network disconnection is detected using <code>nn::nifm::IsNetworkAvailable()</code>, consider notifying the user according to your application's specifications.</p>
+<p>Also note the following.</p>
+<ul>
+  <li>It is not always necessary to notify the user immediately after detecting disconnection.<br /><ul><li>Example: Notify the user at the time when the user explicitly chooses to use network features for the first time after disconnecting from the network.</li></ul></li>
+  <li>You do not have to use error handling from calling <code>nn::nifm::HandleNetworkRequestErrorResult()</code> to notify the user.<br /><ul><li>Example: If a network disconnection is detected during an online match, change the match opponent to automatic control mode and notify the user without interrupting the match.</li></ul></li>
+  <li>If communication with the server does not affect the user experience, an error notification does not need to be sent.<ul><li>Example: Do not send a notification when collecting the user's play history on the server.</li></ul></li>
+</ul>
+<h1 id="Anchor_427626846_h1_3">Related Documents</h1>
+<ul>
+  <li>NintendoSDK Documents<ul><li>nifm Library</li></ul></li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,691 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Introduction | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Introduction -->
+<div class="pagetitle" id="PageId_2367451833" data-tags="revision-updated-2.0 revision-updated-20240626 revision-updated-6.0 revision-updated-3.1 revision-updated-1.0 revision-updated-10.0 revision-updated-0.3 revision-updated-0.7 revision-updated-12.0 revision-updated-0.4 revision-updated-3.0 revision-updated-13.0 revision-updated-1.1 revision-updated-20240325 revision-updated-21.0 revision-updated-20240206">Introduction</div>
+<div class="text">
+<h1 id="Anchor_2367451833_h1_1">Purpose and content</h1>
+<p>This document stipulates various rules (Guidelines) that Nintendo Switch™ applications must follow.</p>
+<p>Nintendo has established these Guidelines for the following purposes.</p>
+<ul>
+  <li>Preventing problems (such as accidents) with commercially released products</li>
+  <li>Preventing application designs where the application cannot be played on all systems due to manufacturing differences between said systems</li>
+  <li>Ensuring that Nintendo services can operate without problems</li>
+  <li>Eliminating application designs that may significantly reduce expected system lifetime</li>
+  <li>Maintaining the brand image of the platform by standardizing specifications across all applications</li>
+  <li>Ensuring applications comply with contractual obligations, such as including required copyright notices</li>
+</ul>
+<p>Before you submit your application to Lotcheck, check that your application complies with all of the required guideline items.</p>
+<div>
+  <p>The content of the Guidelines applies to both Nintendo Switch and Nintendo Switch Lite, unless otherwise specified in the Software to Be Tested or Exceptions.</p>
+</div>
+<h2 id="Anchor_2367451833_h2_1">Lotcheck</h2>
+<p>Lotcheck refers to the certification testing that all applications must pass before being released for a Nintendo platform. Nintendo checks whether applications are adversely affected by different versions of hardware, internal components, or firmware, and whether applications comply with the Guidelines set by Nintendo.</p>
+<p>For a list of which guidelines your application must comply with, enter information about your application's specifications into Nintendo Developer Portal (NDP).</p>
+<p>For more information, see <em>Lotcheck Procedures</em> &gt; Preparing for Lotcheck &gt; Checking Compliance With Guidelines.</p>
+<div>
+  <p>When planning your application, also see the <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/lotcheck-information" target="_blank" rel="noopener noreferrer">Lotcheck Information</a> articles on NDP to find out about the guidelines with the most violations and other Guidelines-related topics.</p>
+</div>
+<!--Remove-->
+<h1 id="Anchor_2367451833_h1_2">Audience</h1>
+<p>These Guidelines are targeted for anyone involved in application development.</p>
+<h1 id="Anchor_2367451833_h1_3">Phases where you should read this document</h1>
+<p>These Guidelines are intended to be used as a reference during all stages of development, from the application planning stage through master ROM submission to Lotcheck.</p>
+<p>
+  <img src="../Attachments/Attach_2367451833/2687192311.png" width="1361"></img>
+</p>
+<h1 id="Anchor_2367451833_h1_4">Notes</h1>
+<ul>
+  <li>These Guidelines were established to reduce problems in all aspects of developing and releasing an application. Compliance with these Guidelines, however, does not guarantee that all problems can be avoided.</li>
+  <li>When you are planning to develop and release an application, observe all associated laws and regulations in addition to adhering to all requirements in these Guidelines. In addition, make sure you have obtained all necessary rights and permissions from third parties.</li>
+  <li>The content of these Guidelines is general in nature, so there may be cases where adherence to them is difficult due to the specifications of an application. In such cases, contact Nintendo in advance and explain your need for an exception. Implementation without full compliance with the Guidelines may be possible as long as the following conditions are met.<ul><li>If it can be determined that matters of concern to Nintendo can be handled (or that problems of concern can be avoided) because of how the application is designed</li><li>If Nintendo determines that the problems that result from compliance with a requirement in these Guidelines outweigh the benefits of compliance</li></ul></li>
+  <li>These Guidelines also apply to offline HTML included in your application. Any content you display must, like your application itself, comply with these Guidelines.</li>
+  <li>To submit your application to Nintendo for Lotcheck, you must do its final testing in an environment that meets specified conditions, regardless of your application's sales format. For details about these conditions, see <span>NintendoSDK Documents > Testing Applications</span>.</li>
+</ul>
+<div>
+  <ul>
+    <li>Each version of these Guidelines has a transition period, after which you are required to comply with the Guidelines in the newest version. See Nintendo Developer Portal &gt; Technical Information &gt; Master Submission Information (<a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/master-submission-information" target="_blank" rel="noopener noreferrer">https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/master-submission-information</a>) for details of the transition periods for each version.</li>
+  </ul>
+</div>
+<div>
+  <h2 id="Anchor_2367451833_h2_2">Applications for China</h2>
+  <p>When testing these Guidelines for applications for China, read all instances of &quot;Nintendo Account&quot; as &quot;account for China.&quot;<br />We have added notes to the guideline items that require special attention in this regard, so be sure to check these notes.</p>
+</div>
+<h1 id="Anchor_2367451833_h1_5">Terms used in these Guidelines</h1>
+<h2 id="Anchor_2367451833_h2_3">Hardware terms</h2>
+<p>These Guidelines use the following hardware terms. Hereafter, these Guidelines may use alternate terms rather than the official terms.</p>
+<!--Remove-->
+<div>
+  <!--table003-->
+  <div class="table">
+    <a name="AutoAnchor_2367451833_table003"></a>Table 3 Hardware terms used in these Guidelines</div>
+  <table class="wrapped">
+    <colgroup>
+      <col />
+      <col />
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>Official term</th>
+        <th>Alternate terms that may be used in these Guidelines</th>
+      </tr>
+      <tr>
+        <td>Nintendo Switch&trade; system</td>
+        <td>system</td>
+      </tr>
+      <tr>
+        <td>Nintendo Switch&trade; Lite system</td>
+        <td>system</td>
+      </tr>
+      <tr>
+        <td>Joy-Con&trade; controllers</td>
+        <td>Joy-Con controllers</td>
+      </tr>
+      <tr>
+        <td>Joy-Con&trade; (R)</td>
+        <td>Joy-Con (R), right Joy-Con</td>
+      </tr>
+      <tr>
+        <td>Joy-Con&trade; (L)</td>
+        <td>Joy-Con (L), left Joy-Con</td>
+      </tr>
+      <tr>
+        <td>Joy-Con&trade; grip</td>
+        <td>Joy-Con grip</td>
+      </tr>
+      <tr>
+        <td>Joy-Con&trade; charging grip</td>
+        <td>Joy-Con charging grip</td>
+      </tr>
+      <tr>
+        <td>Joy-Con&trade; strap</td>
+        <td>Joy-Con strap</td>
+      </tr>
+      <tr>
+        <td>Nintendo Switch&trade; dock</td>
+        <td>dock</td>
+      </tr>
+      <tr>
+        <td>Nintendo Switch&trade; Pro Controller</td>
+        <td>Nintendo Switch Pro Controller</td>
+      </tr>
+      <tr>
+        <td>Nintendo Switch&trade; development hardware</td>
+        <td>Nintendo Switch devkit, devkit</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Guidelines that do not distinguish between Nintendo Switch systems and Nintendo Switch Lite systems simply use &quot;system.&quot;</p>
+  <p>&quot;Nintendo Switch devkit&quot; refers to ADEV, SDEV, and EDEV hardware. It does not include HDEV hardware. If the Test Method does not specify which type of development hardware to use, you are free to use any of these types of devkits when testing.</p>
+</div>
+<h2 id="Anchor_2367451833_h2_4">Library names and system terms</h2>
+<!--table004-->
+<p>These Guidelines use the following library names and system terms. Hereafter, these Guidelines may use alternate terms rather than the official terms.</p>
+<div class="table">
+  <a name="AutoAnchor_2367451833_table004"></a>Table 4 Library names and system terms used in these Guidelines</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th scope="col">Alternate terms that may be used in these Guidelines</th>
+      <th scope="col">Official name and definition</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_BCAT"></a>
+          </p>
+          <p>BCAT</p>
+        </div>
+      </td>
+      <td>The <strong>B</strong>ackground <strong>C</strong>ontents <strong>A</strong>symmetric sync delivery and <strong>T</strong>ransmission (BCAT) system is used to deliver data to the Switch system.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_ECapplet"></a>
+          </p>
+          <p>ec applet</p>
+        </div>
+      </td>
+      <td>The ec (<strong>e</strong>-<strong>c</strong>ommerce) applet connects to the Nintendo eShop server and displays the Nintendo eShop screen to allow the user to purchase downloadable content and subscription service items directly within an application.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_FSLibrary"></a>
+          </p>
+          <p>fs library</p>
+        </div>
+      </td>
+      <td>The <strong>f</strong>ile <strong>s</strong>ystem (fs) library provides a means of performing operations on various file systems, including save data and the file system on a development PC.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_HIDLibrary"></a>
+          </p>
+          <p>hid library</p>
+        </div>
+      </td>
+      <td>The <strong>h</strong>uman <strong>i</strong>nterface <strong>d</strong>evice (hid) library provides an API for controlling various human interface devices including gamepads, keyboards, touch screens, and accelerometers.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_LDNLibrary"></a>
+          </p>
+          <p>ldn library</p>
+        </div>
+      </td>
+      <td>The <strong>l</strong>ocal <strong>d</strong>irectional <strong>n</strong>etwork (ldn) library provides features for connecting multiple devices without repeaters or the Internet and conducting communication among the applications running on those devices.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NCMS"></a>
+          </p>
+          <p>NCMS</p>
+        </div>
+      </td>
+      <td>The <strong>N</strong>intendo <strong>C</strong>ontent <strong>M</strong>anagement <strong>S</strong>ystem (NCMS) is a system for submitting various types of information required for distributing an application on Nintendo eShop.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NDP"></a>
+          </p>
+          <p>NDP</p>
+        </div>
+      </td>
+      <td>
+        <strong>N</strong>intendo <strong>D</strong>eveloper <strong>P</strong>ortal (NDP) is a restricted-access website for developers to get information needed to develop games on Nintendo platforms, submit master ROMs, and perform other related operations.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NEX"></a>
+          </p>
+          <p>NEX</p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <strong>N</strong>etwork <strong>EX</strong>tension (NEX) is a library of Nintendo-provided communication features.<br />It provides server services by communicating with the Nintendo game server.</p>
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NFP"></a>
+          </p>
+          <p>NFP</p>
+        </div>
+      </td>
+      <td>
+        <strong>N</strong>intendo <strong>F</strong>igurine <strong>P</strong>latform / <strong>N</strong>FC <strong>F</strong>eatured <strong>P</strong>latform (NFP) is a platform that introduces a new kind of gameplay through <em>amiibo</em> character products equipped with NFP tags, which link to the application when that amiibo figure is touched to the Nintendo game system or accessory (sold separately).</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NGCLibrary"></a>
+          </p>
+          <p>ngc library</p>
+        </div>
+      </td>
+      <td>The <strong>NG</strong> word <strong>c</strong>heck (ngc) library provides functions to check strings against a profanity list.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NIFMLibrary"></a>
+          </p>
+          <p>nifm library</p>
+        </div>
+      </td>
+      <td>The <strong>n</strong>etwork <strong>i</strong>nter<strong>f</strong>ace <strong>m</strong>anager (nifm) library provides an API for managing network connections in the NintendoSDK environment.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NMAS2"></a>
+          </p>
+          <p>NMAS2</p>
+        </div>
+      </td>
+      <td>The <strong>N</strong>EX server <strong>MA</strong>nagement <strong>S</strong>ystem <strong>2</strong> (NMAS2) allows management of Nintendo-provided NEX servers.<br />These servers provide matchmaking, ranking, and data storage services to applications.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NPLN"></a>
+          </p>
+          <p>NPLN</p>
+        </div>
+      </td>
+      <td>
+        <p>
+          <strong>N</strong>etwork <strong>PL</strong>atform for <strong>N</strong>intendo (NPLN) communicates with game servers provided by Nintendo, providing a means for adding online features like online battles to your application.<br />NPLN is the successor to NEX and the two are not compatible with each other.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NPLN_DASHBOARD"></a>
+          </p>
+          <p>NPLN Dashboard</p>
+        </div>
+      </td>
+      <td>
+        <p>A web user interface that allows you to customize NPLN services, check aggregated information, and similar operations.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_NSA"></a>
+          </p>
+          <p>NSA</p>
+        </div>
+      </td>
+      <td>
+        <strong>N</strong>etwork <strong>S</strong>ervice <strong>A</strong>ccount (NSA) refers to an account used by various Switch network services such as NPLN and the friends feature.<br />This account is created and used automatically by the operating system.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_OELibrary"></a>
+          </p>
+          <p>oe library</p>
+        </div>
+      </td>
+      <td>The <strong>o</strong>perating <strong>e</strong>nvironment (oe) library provides features related to the application's operating environment, such as controlling changes in program state and modifying performance configuration.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_OMAS"></a>
+          </p>
+          <p>OMAS</p>
+        </div>
+      </td>
+      <td>
+        <p>The <strong>O</strong>nline title <strong>MA</strong>nagement <strong>S</strong>ystem (OMAS) is a web system for requesting network features when developing products that support network services.<br />When you submit requests on OMAS to use network features, Nintendo sets up and configures a server for you, enabling you to develop the network features used in your product.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_OSLibrary"></a>
+          </p>
+          <p>os library</p>
+        </div>
+      </td>
+      <td>The <strong>o</strong>perating <strong>s</strong>ystem (os) library provides a useful mechanism for controlling the multithreaded execution of software.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_PDMLibrary"></a>
+          </p>
+          <p>pdm library</p>
+        </div>
+      </td>
+      <td>The <strong>p</strong>lay <strong>d</strong>ata <strong>m</strong>anagement (pdm) library provides features that obtain play data about applications that have previously been started on the system.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_Pia"></a>
+          </p>
+          <p>Pia</p>
+        </div>
+      </td>
+      <td>Pia is Nintendo&rsquo;s peer-to-peer communication library, the name of which is derived from the Japanese katakana spelling of &quot;peer&quot;.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a name="Anchor_2367451833_PLLibrary"></a>
+          </p>
+          <p>pl library</p>
+        </div>
+      </td>
+      <td>The <strong>pl</strong>atform (pl) library contains miscellaneous features including those that allow applications to access shared fonts.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_2367451833_h2_5">Nintendo platform server environments</h2>
+<p>
+  <a name="Anchor_2367451833_NintendoServer"></a>
+</p>
+<p>There are multiple server environments that provide the various network services on Nintendo platforms.</p>
+<p>Only some kinds of hardware are allowed to connect to each server environment. As a rule, only the permitted hardware can access the servers.</p>
+<p>For more information, see <em>Independent Server Setup Manual</em> &gt; Server Environments.</p>
+<h1 id="Anchor_2367451833_h1_6">How to navigate these Guidelines</h1>
+<h2 id="Anchor_2367451833_h2_6">Chapters</h2>
+<p>These Guidelines are organized into chapters by associated features. The individual chapters are described below. Applications that fall under &quot;Applications to Be Tested&quot; must comply with the guidelines given in that chapter.</p>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_2367451833_table001"></a>Table 5 Chapters in these Guidelines</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Chapter</th>
+      <th>Applications to Be Tested</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367451855.html">System features</a>
+      </td>
+      <td>All applications</td>
+      <td>This chapter covers requirements you must comply with if you use the features provided by the Switch system.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367451914.html">Hardware</a>
+      </td>
+      <td>All applications</td>
+      <td>This chapter covers requirements you must comply with if you use the hardware built into the Switch system.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367451948.html">File system</a>
+      </td>
+      <td>All applications</td>
+      <td>This chapter covers requirements you must comply with if you use the file system.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367451968.html">Safety</a>
+      </td>
+      <td>All applications</td>
+      <td>This chapter covers requirements for promoting a fun and safe experience with the Switch system for users.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452090.html">VR</a>
+      </td>
+      <td>Applications that use the Toy-Con VR Goggles to support VR</td>
+      <td>
+        <div class="content-wrapper">
+          <p>This chapter contains requirements for application design and development and applies to applications that use the Toy-Con VR Goggles to support VR (Virtual Reality).</p>
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452134.html">Play modes</a>
+      </td>
+      <td>All applications</td>
+      <td>This chapter covers requirements for application design and development that arise from the differences between the three play modes.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452178.html">Communication features</a>
+      </td>
+      <td>Applications that use any kind of communication feature.</td>
+      <td>This chapter covers requirements you must comply with if you use any kind of communication feature.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <a href="../Pages/Page_2367452274.html">Accounts</a>
+        </p>
+      </td>
+      <td>Applications that use accounts</td>
+      <td>This chapter covers requirements you must comply with if you use accounts.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <a href="../Pages/Page_2367452299.html">Nintendo Switch Online</a>
+        </p>
+      </td>
+      <td>Applications offering features that become available when the user subscribes to Nintendo Switch Online</td>
+      <td>This chapter covers requirements you must comply with if you use Nintendo Switch Online.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452309.html">UGC</a>
+      </td>
+      <td>Applications that exchange UGC</td>
+      <td>This chapter covers requirements you must comply with when designing applications that exchange UGC.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452319.html">Patches</a>
+      </td>
+      <td>Applications that apply patches</td>
+      <td>This chapter covers requirements you must comply with if you use patches.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452327.html">E-commerce</a>
+      </td>
+      <td>Applications that use e-commerce</td>
+      <td>This chapter covers requirements you must comply with if you use e-commerce.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452357.html">Demos</a>
+      </td>
+      <td>Demo versions of applications</td>
+      <td>This chapter covers requirements you must comply with if you create demos.</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../Pages/Page_2367452365.html">Other</a>
+      </td>
+      <td>All applications</td>
+      <td>This chapter covers general rules that all developers must comply with when developing Switch applications.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_2367451833_h2_7">Guideline Item</h2>
+<p>Guideline items are written in table format. Each row in the table is used as described below.</p>
+<!--Remove-->
+<div class="selectable_eu0">
+  <!--figure001-->
+  <div class="figure">
+    <a name="AutoAnchor_2367451833_figure001"></a>Figure 2 Guideline item</div>
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_2367451833/2367451835.png" class="embedded-image" />
+    </span>
+  </p>
+  <p>
+    <strong>Note:</strong> Some guidelines do not have this row.</p>
+</div>
+<!--Remove-->
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>Provisional content is marked with &quot;(TBD)&quot;.</p>
+    <p>If the guideline item name contains &quot;(TBD)&quot;, it indicates that although that requirement itself exists, the current text of the guideline item includes a large number of provisional or TBD details.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>If a guideline's test method states &quot;Check the source code,&quot; then there is no established test method. You must make sure that your application complies with the guideline during the implementation stage. You do not need to submit your source code when you submit your master ROM.</p>
+  </div>
+</div>
+<h3 id="Anchor_2367451833_h3_1">Permalinks to guideline items</h3>
+<p>The heading of each guideline item contains a permanent link to that guideline. Right-click the heading and copy the link to copy this permalink to your clipboard.</p>
+<!--figure005-->
+<div class="figure">
+  <a name="AutoAnchor_2367451833_figure005"></a>Figure 3 Permalinks</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_2367451833/2367451842.png" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_2367451833_h2_8">Controlling what content is displayed</h2>
+<p>These Guidelines provide the following two features to let you control what content is displayed.</p>
+<ul>
+  <li>Filter by rows</li>
+  <li>Highlight by tags</li>
+</ul>
+<h3 id="Anchor_2367451833_h3_2">Filter by rows</h3>
+<p>Filtering by rows lets you expand or collapse the backgrounder, test, or entire guideline item.</p>
+<p>Guideline items are split into rows, as shown below.</p>
+<!--figure002-->
+<div class="figure">
+  <a name="AutoAnchor_2367451833_figure002"></a>Figure 4 Rows</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_2367451833/3132028921.png" width="1000" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<!--Remove-->
+<p>
+  <br />
+</p>
+<p>The upper right of the page holds a menu that lets you filter which rows are displayed.</p>
+<!--figure003-->
+<div class="figure">
+  <a name="AutoAnchor_2367451833_figure003"></a>Figure 5 Filter-by-rows menu</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_2367451833/2367451839.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p>Clicking the <span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451833/2367451849.png" class="embedded-image" /></span> icon on the menu changes it to <span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451833/2367451850.png" class="embedded-image" /></span>, and expands those rows of all items on every page of this document. To expand or collapse just one individual guideline item, click the leftmost header column of the guideline. To expand or collapse one individual backgrounder or test, click the <span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451833/2367451849.png" class="embedded-image" /></span>/<span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367451833/2367451850.png" class="embedded-image" /></span> icon for that backgrounder or test.</p>
+<!--Remove-->
+<p>
+  <a name="Anchor_2367451833_tag_filter"></a>
+</p>
+<h3 id="Anchor_2367451833_h3_3">Highlight by tags</h3>
+<p>Each guideline item has at least one tag. Selecting a tag in the Tags menu highlights the guideline items which have that tag. You can open the Tags menu by clicking <strong>Tags</strong> on the left-hand menu pane.</p>
+<!--figure004-->
+<div class="figure">
+  <a name="AutoAnchor_2367451833_figure004"></a>Figure 6 Tags menu</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_2367451833/2367451841.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h4 id="Anchor_2367451833_h4_1">&quot;Most-failed guidelines&quot; tag</h4>
+<p>Guidelines for which Lotcheck finds a large number of violations are tagged with the &quot;Most-failed guidelines&quot; tag.</p>
+<p>Take extra care when reading and testing these guidelines while developing your application.</p>
+<div>
+  <p>The <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/lotcheck-information" target="_blank" rel="noopener noreferrer">Lotcheck Information</a> articles on Nintendo Developer Portal include examples of the most common violations. Nintendo recommends that you also use these articles as reference material.</p>
+</div>
+<h2 id="Anchor_2367451833_h2_9">Document Settings</h2>
+<p>In the document settings you can access the following features.</p>
+<ul>
+  <li>Import/export configuration files</li>
+  <li>Export Test Items and Backgrounders</li>
+  <li>Printable Page Display Settings</li>
+</ul>
+<h3 id="Anchor_2367451833_h3_4">Import/export configuration files</h3>
+<p>Here you can import or export your filter settings. This feature lets you save your preferred filter settings and reproduce them again later. For example, you can filter down to the set of guideline items your team is checking, then share the filter settings with your team.</p>
+<h3 id="Anchor_2367451833_h3_5">Export Test Items and Backgrounders</h3>
+<p>Here you can take a set of guideline items and export the text of their Test items into an Excel file. This feature outputs each chapter of the Guidelines to a separate worksheet tab within the Excel file.</p>
+<p>There is an option to export the Backgrounders along with the Test items.</p>
+<h3 id="Anchor_2367451833_h3_6">Printable Page Display Settings</h3>
+<p>Here you can display a printable version of individual chapters. The printable version retains your filter settings.</p>
+<!--Remove-->
+<div class="changelog">
+  <div class="expand-container" id="expander-2367451833-changelog">
+    <div class="expand-control" id="expander-control-2367451833-changelog">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">Revision History</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367451833-changelog">
+      <table class="changelog">
+        <thead>
+          <tr>
+            <th class="changelog_header">Date</th>
+            <th class="changelog_header">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="changelog_row" data-changelog-common="1">
+            <td class="changelog_date">2024/06/26</td>
+            <td class="changelog_body">
+              <ul class="changelog_root">
+                <li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type"><li class="changelog">Added a sentence to "Lotcheck" about how to get a list of which guidelines your application must comply with.</li><li class="changelog">Added definition for NDP (Nintendo Developer Portal) to "Library names and system terms."</li><li class="changelog">Added information about "Nintendo platform server environments."</li><li class="changelog">Removed link to the "Independent Server Setup Manual" online document.</li></ul></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="changelog_row" data-changelog-common="1">
+            <td class="changelog_date">2024/03/25</td>
+            <td class="changelog_body">
+              <ul class="changelog_root">
+                <li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type"><li class="changelog">Updated images used in <strong>Guideline item</strong> and <strong>Filter by rows</strong>.</li></ul></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--Remove-->
+<!--Remove-->
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

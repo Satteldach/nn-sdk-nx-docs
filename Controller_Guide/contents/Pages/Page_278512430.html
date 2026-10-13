@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.8 Other Recommendations | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.8 Other Recommendations -->
+<div class="pagetitle" id="PageId_278512430">3.8 Other Recommendations</div>
+<div class="text_separate">
+<p>This section describes other recommendations.</p>
+<h1 id="Anchor_278512430_h1_1">Supporting Attached Joy-Con Controller Operations</h1>
+<p>Users can play in handheld mode when an application supports using attached Joy-Con controllers. If this use case is not supported, the application essentially becomes crippled in the following situations.</p>
+<ul>
+  <li>The system is not sending output to a TV and the mode is airplane mode.</li>
+  <li>The Joy-Con battery has run out so the user wants to play with the Joy-Con attached to the console.</li>
+  <li>The user is playing a Nintendo Switch Lite without using a wireless controller.</li>
+</ul>
+<p>For this reason, support attached Joy-Con controller operations except in special circumstances such as those described in the following.</p>
+<ul style="margin-left: 20.0px;">
+  <li>Applications that use motion controllers, such as when you have to wear a Joy-Con wrist strap.</li>
+  <li>Applications that assume a Joy-Con controller will be attached to a device other than the Switch for gameplay.</li>
+  <li>Applications that only offer TV mode or tabletop mode.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Even when attached Joy-Con controllers cannot be used for the main portions of an application, such as character movement, we recommend making sure that the application supports using them to transition to the application and perform operations.</p>
+  </div>
+</div>
+<h1 id="Anchor_278512430_h1_2">Pro Controller Support</h1>
+<p>The Pro Controller is available to enhance gameplay in TV mode and tabletop mode. For this reason, the Pro Controller is also supported, except under the following special circumstances.</p>
+<ul style="margin-left: 20.0px;">
+  <li>Applications that use motion controllers, such as when you have to wear a Joy-Con wrist strap.</li>
+  <li>Applications for handheld mode only.</li>
+  <li>Applications using features that the Pro Controller does not offer, such as independent left and right accelerometer and gyroscope values, or the IR Motion Camera.</li>
+</ul>
+<h1 id="Anchor_278512430_h1_3">Supporting Controller Color Information</h1>
+<p>The color information is saved inside the Switch controller. The color information contains the 2 colors (RGB 888 &times; 2 = 6 bytes), main and sub, and is applied to and displayed on the controller icon shown on the screen and overlay that is displayed when calling the controller support applet. The main color is saved as a value similar to the color of the controller itself. As shown in the following image, the sub color is saved as a color that would be easy to identify for indicating buttons and other UI elements when displaying the controller.</p>
+<div class="figure">
+  <a name="AutoAnchor_278512430_figure001"></a>Figure 3-11  Image of a Controller Icon With Color Information Applied</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_278512430/300830439.png" height="231" class="embedded-image" />
+  </span>
+  <br />
+</p>
+<p>Though using the controller color information is not mandatory, using it makes it easier to identify the controller that the user is using. For example, it would be effective for party games and other scenarios in which there are multiple players.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>The sub color is not the actual color of the buttons on the controller.</li>
+      <li>The main and sub colors do not need to be used as a set. The main color can be used by itself.</li>
+      <li>If you want to apply color information to the controller icon in your application, we recommend adding a (green) frame around the icon so that the icon does not fade into the application background image.</li>
+      <li>There are no debugging features to rewrite the color information, etc. An actual controller needs to be prepared.</li>
+      <li>There might be more controller color variations in the future. Make sure that adding more controller color variations does not affect progress in the game.</li>
+      <li>If the action of getting the color information written to a controller fails, a black value is returned. This happens with the NES controllers for Switch, the Nintendo GameCube controller adapter, and the controller parts of Switch Lite.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_278512430_h1_4">Handling After Automatic Controller Disconnection</h1>
+<p>Controllers offering play formats not supported by the application, or controllers exceeding the maximum number of connections supported by the application, will be disconnected automatically.<br />For example, if an application only supports dual Joy-Con play, the Pro Controller that was connected when the application started, or was restored, will be disconnected. Similarly, such a device will not connect while the application is running. The application must perform handling after disconnection.<br />Note that Joy-Con controllers attached to the console cannot be disconnected because that connection is not wireless.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

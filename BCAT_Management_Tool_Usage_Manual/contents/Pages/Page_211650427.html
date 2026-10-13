@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7 FAQ | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7 FAQ -->
+<div class="pagetitle" id="PageId_211650427">7 FAQ</div>
+<div class="text_separate">
+<h1 id="Anchor_211650427_h1_1">Setup FAQ</h1>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Reference</th>
+    </tr>
+    <tr>
+      <th>I-1</th>
+      <td>I don't know the URL of the BCAT Management Tool.</td>
+      <td>
+        <ul>
+          <li>For more information, see <a href="../Pages/Page_221561705.html">2.1 Logging In to the BCAT Management Tool</a>.</li>
+          <li>Use separate URLs depending on the purpose.</li>
+        </ul>
+      </td>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th>I-2</th>
+      <td>I can't log in to the BCAT Management Tool.</td>
+      <td>
+        <ul>
+          <li>Use the NDID to log in to the BCAT Management Tool.</li>
+          <li>If you do not have an NDID, send a <span style="color: rgb(55,55,55);">NDID issue</span> request to the administrator in your organization.</li>
+          <li>For more information about finding out who your company administrator is, see <a href="https://developer.nintendo.com/web/development/register/contact-admin" target="_blank" rel="noopener noreferrer">Contact Your Company Admin</a>.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="https://developer.nintendo.com/group/development/admin/user-management" target="_blank" rel="noopener noreferrer">Nintendo Developer Portal &gt; ADMIN &gt; User Management</a>
+            <br />
+            <ul>
+              <li>The organization's administrator can issue NDIDs on these pages.</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_211650427_h1_2">News Delivery FAQ</h1>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Reference</th>
+    </tr>
+    <tr>
+      <th>N-1</th>
+      <td>
+        <p>I can't locate the channel I'm looking for in the <strong>News Delivery</strong> <span style="color: rgb(55,55,55);">menu</span>.</p>
+      </td>
+      <td>
+        <ul>
+          <li>The channels displayed in <strong>News Delivery</strong> in the BCAT Management Tool are managed in NCMS. Check the content of the information you have submitted in NCMS.</li>
+          <li>Confirm that an appropriate role has been assigned to the <span style="color: rgb(55,55,55);">NDID used to log in to the BCAT Management Tool</span>.</li>
+          <li>The <strong>News Delivery</strong> menu is not displayed because the BCAT Management Tool cannot deliver News to the development environment (dd1 environment).</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="../Pages/Page_203561413.html">2.2 Roles and Usage Requests</a>
+          </li>
+          <li>
+            <a href="https://ncms.mng.nintendo.net/ncms/" target="_blank" rel="noopener noreferrer">NCMS</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>N-2</th>
+      <td>I can't find the product that I want to add to <strong>Related Products</strong>.<br /></td>
+      <td>
+        <ul>
+          <li>Only products that include all delivery countries specified for the News item as release countries can be added to Related Products. Check the target countries where the News item will be delivered.<br /></li>
+          <li>Check the delivery settings of the product in NCMS.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="../Pages/Page_206994360.html">3.2 Related Products</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>N-3</th>
+      <td>
+        <p>I can't enter a URL for the <strong>Video URL</strong> when creating a News item.</p>
+        <p>For example, the error &quot;The specified domain is not responding&quot; is displayed. Alternatively, I cannot play that video on the Switch.</p>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <p>Videos that you want to include in News must be submitted and approved on NCMS.</p>
+          </li>
+          <li>
+            <p>NCMS will generate a dedicated URL after the video has been approved. Enter this URL in the BCAT Management Tool.</p>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="https://ncms.mng.nintendo.net/ncms/" target="_blank" rel="noopener noreferrer">NCMS</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>N-4</th>
+      <td>I cannot request a pre-delivery review after creating the News item.</td>
+      <td>
+        <ul>
+          <li>A user with the Manager role has disabled pre-delivery review for that channel.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="../Pages/Page_203561445.html">Channel Details</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>N-5</th>
+      <td>Failed to receive test delivery.</td>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>See Troubleshooting for Test Delivery of News Items in <a href="../Pages/Page_203432560.html">5.1 Test Delivery of News Items</a>.</li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>In the troubleshooting described on that page, the problem is often that the system has not been configured for test delivery.<br />You can check whether the system has been configured for test delivery using the procedure described in <a href="../Pages/Page_205850121.html">5.3 Configuring the System for Test Delivery</a>.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>N-6</th>
+      <td>Cannot receive email notifications.</td>
+      <td>
+        <ul>
+          <li>See the <a href="../Pages/Page_233879044.html">2.5 Email Notifications</a> section and check the <strong>Mail Settings</strong> menu.<br /></li>
+          <li>Check the spam folder of the Mailbox on your PC.</li>
+          <li>Consult with the administrator for your email address.</li>
+        </ul>
+      </td>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th>N-7</th>
+      <td>Production delivery fails.</td>
+      <td>
+        <ul>
+          <li>Delivery Target Country Is Not China<ul><li>Verify the country the News is being delivered to, and the country of residence associated with the Nintendo Account linked to the Switch console.</li></ul></li>
+          <li>Delivery Target Country Is China<ul><li>Verify that a user account linked with an account for China exists on the Switch system.<br /></li></ul></li>
+          <li>See <a href="../Pages/Page_203432527.html">3 News Delivery</a> &gt; If the News Cannot Be Received After the Delivery Start Date and Time Has Arrived.</li>
+        </ul>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_211650427_h1_3">Data Delivery FAQ</h1>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Reference</th>
+    </tr>
+    <tr>
+      <th>D-1</th>
+      <td>I cannot find the <span style="color: rgb(55,55,55);">target</span> application in the <strong>Data Delivery</strong> <span style="color: rgb(55,55,55);">menu</span>.</td>
+      <td>
+        <ul style="margin-left: 20.0px;">
+          <li>The applications displayed in <strong>Data Delivery</strong> in the BCAT Management Tool are managed in OMAS. Verify that you have applied to use BCAT data delivery in OMAS.</li>
+          <li>Check that the target application can be viewed in OMAS <span style="color: rgb(55,55,55);">with the NDID you entered to log in to the BCAT Management Tool</span>.</li>
+          <li>If you can view the target application in OMAS, in the <strong>My Profile</strong> menu, click <strong>Request Permissions Synchronization With OMAS</strong> to refresh the permissions cache.. For more information about the cache, see <a href="../Pages/Page_203561413.html">2.2 Roles and Usage Requests</a>.</li>
+        </ul>
+      </td>
+      <td>
+        <ul style="margin-left: 20.0px;">
+          <li>
+            <a href="https://omas.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">OMAS</a>
+          </li>
+          <li>
+            <a href="../Pages/Page_221561705.html">2.1 Logging In to the BCAT Management Tool</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>D-2</th>
+      <td>
+        <p>I can't find the interface for adding data even though the <span style="color: rgb(55,55,55);">target application is displayed in the <strong>Data Delivery</strong> menu</span>.</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>The application request information in OMAS may not be shown in the BCAT Management Tool.</li>
+            <li>From the BCAT Management Tool menu, select <strong>Manage BCAT Usage Requests</strong> and then click <strong>Get and Apply BCAT Usage Request</strong> to apply the information.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_211650427/214499848.png" width="400" class="embedded-image" /></span></li>
+            <li>A user must have the Manager role in the BCAT Management Tool to perform these operations.</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="https://omas.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">OMAS</a>
+          </li>
+          <li>
+            <a href="../Pages/Page_203561413.html">2.2 Roles and Usage Requests</a> </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>D-3</th>
+      <td>
+        <p>&quot;Could not find valid BCAT usage request&quot; is displayed when I select <strong>Manage BCAT Usage Requests</strong>.</p>
+      </td>
+      <td>
+        <ul>
+          <li>The request information can only be applied when the status of the application request information in OMAS is <strong>In Development</strong> or later.</li>
+          <li>The application request information status may be rolled back due to updating the request or other issues. For more information, see the OMAS Help.</li>
+        </ul>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>D-4</th>
+      <td>I can't rename a directory.</td>
+      <td>
+        <ul>
+          <li>Directories cannot be changed.</li>
+          <li>Delete the directory, and then create a new directory.</li>
+          <li>Directories can only be deleted if there are no files being delivered in the directory.</li>
+        </ul>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th>D-5</th>
+      <td>
+        <p>When performing immediate synchronization from the application, <a href="https://developer.nintendo.com/html/online-docs/nx-en/g1kr9vj6-en/Packages/Docs/lists/NintendoSwitch-ErrorCodeList/2122.html#2122-2403" target="_blank" rel="noopener noreferrer">error code 2122-2403 (ResultServerError403)</a> occurred and communication failed.</p>
+      </td>
+      <td>
+        <ul>
+          <li>See <a href="../Pages/Page_314465287.html">2.8 Restricting IP Addresses</a>, and register and permit access to the global IP address of the internet connection for the Switch in the BCAT Management Tool.</li>
+          <li>If you are testing delivery, see <a href="../Pages/Page_223826454.html">5.2 Test Delivery of Data</a> to make sure you have specified the serial number of the Switch console on the delivery list.</li>
+          <li>Contact the internet connection administrator.<br /></li>
+        </ul>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

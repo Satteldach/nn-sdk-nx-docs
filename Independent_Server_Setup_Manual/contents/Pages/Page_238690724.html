@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.7.1 Authorization Requests | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.7.1 Authorization Requests -->
+<div class="pagetitle" id="PageId_238690724">4.7.1 Authorization Requests</div>
+<div class="text_separate">
+<h2 id="Anchor_238690724_h2_1">Request Specification</h2>
+<h6 id="Anchor_238690724_h6_1">HTTP Method/Path</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">HTTP method</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th style="text-align: left;">Path</th>
+      <td>/connect/1.0.0/authorize</td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_238690724_h6_2">Request Parameters</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;">Item</th>
+      <th style="text-align: center;">Specification Method</th>
+      <th style="text-align: center;">Required?</th>
+      <th style="text-align: center;">Description</th>
+    </tr>
+    <tr>
+      <td>client_id</td>
+      <td>query</td>
+      <td>Y</td>
+      <td>
+        <p>Specifies the client ID issued by Nintendo. A different ID is issued for each server environment.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>response_type</td>
+      <td>query</td>
+      <td>Y</td>
+      <td>
+        <p>Represents the response format of the authorization request. You can specify multiple parameters separated by spaces.<br />If either <code>token</code> or <code>id_token</code> is included in the format, the authorization response is returned as a URL fragment.</p>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>code</td>
+              <td>Indicates that the authorization response contains an authorization code.</td>
+            </tr>
+            <tr>
+              <td>token</td>
+              <td>Indicates that the authorization response contains an access token.</td>
+            </tr>
+            <tr>
+              <td>id_token</td>
+              <td>Indicates that the authorization response contains an ID token.</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>query</td>
+      <td>Y</td>
+      <td>
+        <p>Represents the scope requested for authorization. More than one parameter can be specified by separating them with spaces. You must have prior approval from Nintendo to use <code>scope</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>redirect_uri</td>
+      <td>query</td>
+      <td>Y</td>
+      <td>
+        <p>Specify the preregistered URL-encoded URL redirect.<br />This <code>redirect_uri</code> must exactly match the value that was submitted. An error occurs if you add or modify a path or query.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>query</td>
+      <td>Y</td>
+      <td>
+        <p>Set to the null character or a string. You cannot simply omit the parameter.<br />The same <code>state</code> value that came with the authorization request is contained in the authorization response, unmodified.<br />It can be used as a measure against CSRF attacks and to maintain the context before and after the authorization request.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nonce</td>
+      <td>query</td>
+      <td>N</td>
+      <td>
+        <p>Optional parameter that can be added.<br />The same <code>nonce</code> value that came with the authorization request is contained in the <code>id_token</code>, unmodified.<br />It is used to prevent replay attacks when an ID token is obtained as the result of the authorization request.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_238690724_h3_1">For Switch Applications</h3>
+<p>Authorization requests from Switch applications use the <code>nn::account::CreateNintendoAccountAuthorizationRequest</code> function. For more information, see NintendoSDK Documents.<br />The following table shows the request parameters for requests made by Switch applications.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;"> Property</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>client_id</td>
+      <td>
+        <p>For Switch applications, the <code>client_id</code> associated with the application ID is resolved automatically, so it does not need to be specified.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>response_type</td>
+      <td>For Switch applications, code <code>id_token</code> is specified automatically.</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>
+        <p>Specify the range for which authorization is requested.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>redirect_uri</td>
+      <td>
+        <p>Resolved automatically for Switch applications so it does not need to be specified.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>
+        <p>Specify any value.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nonce</td>
+      <td>Specify any value.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_238690724_h2_2">Response Specification</h2>
+<p>If the authorization request is successful, the response is returned as a redirect to the specified redirect URI.<br />If <code>response_type=code</code>, the authorization response is included as a query string.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>GET /connect/1.0.0/authorize?client_id=0123456789abcdef&amp;nonce=nonce&amp;redirect_uri=http%3A%2F%2Flocalhost&amp;response_type=cod&amp;scope=user.basic%20user.birthday%20user.email%20user.links.nintendoNetwork.id%20openid%20offline&amp;state=state HTTP/1.1
+Host: e97b8a9d672e4ce4845ec6947cd66ef6-sb.accounts.nintendo.com
+&nbsp;
+HTTP/1.1 302 Found
+Location: http://localhost?session_state=db..&amp;state=..&amp;code=ey..</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If <code>token</code> or <code>id_token</code> is included in <code>response_type</code>, the authorization response is included as a URL fragment.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>GET /connect/1.0.0/authorize?client_id=0123456789abcdef&amp;nonce=nonce&amp;redirect_uri=http%3A%2F%2Flocalhost&amp;response_type=code%20id_token%20token&amp;scope=user.basic+user.birthday%20user.email%20user.links.nintendoNetwork.id%20openid%20offline&amp;state=state HTTP/1.1
+Host: e97b8a9d672e4ce4845ec6947cd66ef6-sb.accounts.nintendo.com
+
+
+HTTP/1.1 302 Found
+Location: http://localhost#session_state=db..&amp;state=..&amp;code=ey..&amp;access_token=ey..</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the authorization request succeeds, the following properties are included in the response.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>
+        <p>The authorization code used to get an access token. Included when <code>response_type=code</code> is specified.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>id_token</td>
+      <td>
+        <p>The ID token for authenticating the user. Included when <code>response_type=id_token</code> is specified. It can only be obtained when <code>scope=openid</code> has been specified.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>access_token</td>
+      <td>
+        <p>The token for accessing the account API. Included when <code>response_type=token</code> is specified.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>token_type</td>
+      <td>The format of the access token. Fixed to <code>Bearer</code>.</td>
+    </tr>
+    <tr>
+      <td>expires_in</td>
+      <td>Represents the period of validity of the ID token or access token.</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>
+        <p>The <code>state</code> value specified when the authorization request was made.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>session_state</td>
+      <td>
+        <p>A string that transparently indicates the state of the login session issued by the Nintendo Account. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>
+        <p>A list of the user-authorized <code>scope</code> values included among the values specified in the authorization request.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the authorization request fails, the response is returned as a redirect to the specified redirect URI. In addition, the following error information returns as a query string.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>
+        <div class="content-wrapper">
+          <table class="wrapped">
+            <tbody>
+              <tr>
+                <th>Error Codes</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>unauthorized_client</td>
+                <td>Error that occurs when the specified <code>response_type</code> is invalid. </td>
+              </tr>
+              <tr>
+                <td>consent_required</td>
+                <td>Error that occurs if the user rejects authorization. </td>
+              </tr>
+              <tr>
+                <td>invalid_scope</td>
+                <td>
+                  <p>Error that occurs when an invalid <code>scope</code> has been specified.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>access_denied</td>
+                <td>Generic error indicating failure of the authorization request.</td>
+              </tr>
+            </tbody>
+          </table>
+          <!--Remove-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>error_description</td>
+      <td>
+        <p>Text describing the <code>error</code> item.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>
+        <p>The <code>state</code> value specified when the authorization request was made.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the specified redirect URI is invalid or the redirect is otherwise not possible, the response is the error page with the content of the error.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

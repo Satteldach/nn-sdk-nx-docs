@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.3 Software Keyboard Applet | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.3 Software Keyboard Applet -->
+<div class="pagetitle" id="PageId_172887793">4.3 Software Keyboard Applet</div>
+<div class="text_separate">
+<p>This applet is invoked by the application to allow users to enter their names, passwords, and other text when text input is required.</p>
+<p>You can set parameters to, for example, enable and disable predictive text input or block the input of specific characters.  </p>
+<p>Note that the application must allocate the working memory, on the order of a few kilobytes, for this applet.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The Switch does not support input methods like handheld input and hand-drawn input that were supported on devices such as the Wii U.</p>
+  </div>
+</div>
+<div class="figure">
+  <a name="AutoAnchor_172887793_figure001"></a>Figure 4-1  Software Keyboard Applet Screen Images</div>
+<p> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_172887793/242598353.png" width="444" height="249" class="embedded-image" /></span></p>
+<h1 id="Anchor_172887793_h1_1">Basic Configuration</h1>
+<p>The screen is split into upper and lower halves. The upper half is a <em>preview field</em> where you preview the entered text. The lower half contains a <em>keyboard</em> that can be used for text entry, and a <em>footer</em> that displays a description of actions. The screen of the application that called the software keyboard applet appears in the background of the upper half.</p>
+<div class="figure">
+  <a name="AutoAnchor_172887793_figure002"></a>Figure 4-2  Configuration Elements of the Software Keyboard</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_172887793/172886108.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<div class="table">
+  <a name="AutoAnchor_172887793_table001"></a>Table 4-1  Configuration Elements of the Software Keyboard</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <macro>
+            <span class="circled_number">1</span>
+          </macro>
+        </div>
+      </td>
+      <td>Preview Field</td>
+      <td>
+        <p>Shows the text the user has entered.</p>
+        <p>Where it says <strong>header text area</strong>, <strong>subtext area</strong>, and <strong>Please enter the text</strong>, you can set instructions for what to enter.</p>
+        <p>
+          <strong>Note:</strong> The instructions set for <strong>Please enter the text</strong> only appear when the field is empty.<br /></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <macro>
+            <span class="circled_number">2</span>
+          </macro>
+        </div>
+      </td>
+      <td>Keyboard</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Appears as a layout of buttons that enable text entry.</p>
+          <p>When predictive text input is enabled, a field will appear above the keyboard for displaying conversion candidates.<br /></p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <macro>
+            <span class="circled_number">3</span>
+          </macro>
+        </div>
+      </td>
+      <td>Footer</td>
+      <td>Displays a guide for using controller buttons.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_172887793_h1_2">Startup Parameters</h1>
+<p>You can easily customize the software keyboard by setting startup parameters.</p>
+<p>You can configure the following parameters.</p>
+<ul>
+  <li>Keyboard type</li>
+  <li>Whether to enable predictive text input</li>
+  <li>Prohibited characters</li>
+  <li>Whether to enable the feature to hide character input</li>
+  <li>Whether to allow new lines<br /></li>
+  <li>Maximum and minimum number of characters</li>
+</ul>
+<h2 id="Anchor_172887793_h2_1">Keyboard Types</h2>
+<p>Types or modes of keyboards are classified by the kinds of characters that can be entered. The default is LanguageSet1 mode.</p>
+<div class="table">
+  <a name="AutoAnchor_172887793_table002"></a>Table 4-2  Keyboard Types</div>
+<table class="wrapped relative-table" style="width: 97.9705%;">
+  <colgroup>
+    <col style="width: 17.9245%;" />
+    <col style="width: 81.9897%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <p>LanguageSet1 Mode</p>
+        <p>(Previously Full Mode)</p>
+      </td>
+      <td>
+        <p>Not only can you enter commonly used alphanumeric characters, you can also enter a wide variety of symbols, kanji, and kana.</p>
+        <p>The characters that can be entered are not dependent on the region and language settings because the player can change keyboard layouts as desired. However, the keyboard layout that appears first depends on those region and language settings.</p>
+        <p>
+          <span style="color: rgb(55,55,55);">When just one user is selected, the system stores the keyboard layout that was opened last.</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>LanguageSet1Latin Mode<br />(Previously Full Latin Mode)</td>
+      <td>Although this mode is basically the same as LanguageSet1 mode, the difference is that in LanguageSet1Latin mode, the displayed keyboard layout initially prioritizes the entry of Latin characters.<br />For example, when the language in the system settings is set to Japanese, the Japanese kana keyboard layout is initially displayed for LanguageSet1 mode, while the QWERTY keyboard layout is displayed for LanguageSet1Latin mode.</td>
+    </tr>
+    <tr>
+      <td>ASCII Mode</td>
+      <td>
+        <p>Only ASCII characters can be entered.<br /><span style="color: rgb(55,55,55);">When just one user is selected, the system stores the keyboard layout that was opened last.</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td>Numeric Mode</td>
+      <td>Only numbers can be entered. Parameters can be set, however, to enable input of two additional characters.</td>
+    </tr>
+    <tr>
+      <td>Alphabet Mode</td>
+      <td>
+        <p>Although this mode is basically the same as LanguageSet1 mode, Japanese cannot be selected as the keyboard layout.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Simplified Chinese Mode</td>
+      <td>
+        <p>In addition to alphanumeric characters, Chinese (Simplified) characters can also be entered.</p>
+        <p>Layouts other than the Chinese keyboard that supports Pinyin input, and the symbol keyboard, cannot be selected.</p>
+        <p>Predictive text input is forcibly enabled.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Traditional Chinese Mode</td>
+      <td>
+        <p>In addition to alphanumeric characters, Chinese (Traditional) characters can also be entered.</p>
+        <p>Layouts other than the Chinese keyboard that supports Zhuyin, Cangjie and Sucheng input, and the symbol keyboard, cannot be selected.</p>
+        <p>Predictive text input is forcibly enabled.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Korean Mode</td>
+      <td>
+        <p>In addition to alphanumeric characters, Korean characters can also be entered.</p>
+        <p>Layouts other than the Korean keyboard that supports Hangul input, and the symbol keyboard, cannot be selected.</p>
+        <p>Predictive text input is forcibly enabled.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>LanguageSet2 Mode</td>
+      <td>
+        <p>In addition to the LanguageSet1 mode keyboard, the Chinese (Simplified and Traditional) and Korean keyboard layouts can also be selected.</p>
+        <p>Predictive text input is forcibly enabled.<br /></p>
+        <p>
+          <span style="color: rgb(55,55,55);">When just one user is selected, the system stores the keyboard layout that was opened last.</span>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>LanguageSet2Latin Mode</td>
+      <td>Although this mode is very similar to LanguageSet2 mode, the difference is that in LanguageSet2Latin mode, the displayed keyboard layout initially prioritizes the entry of Latin characters.<br />For example, when the language in the system settings is set to Japanese, the Japanese kana keyboard layout is initially displayed for LanguageSet2 mode, but the QWERTY keyboard layout is displayed for LanguageSet2Latin mode.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Alphabet, Simplified Chinese, Traditional Chinese, Korean, and LanguageSet2 modes will be available in NintendoSDK NX Add-On 6.3.0 and later.</p>
+<p>LanguageSet2Latin mode will be available in NintendoSDK NX Add-On 7.2.0 and later.</p>
+<h2 id="Anchor_172887793_h2_2">Enabling or Disabling Predictive Text Input</h2>
+<p>Predictive text input can be enabled and disabled.</p>
+<h3 id="Anchor_172887793_h3_1">User Dictionaries</h3>
+<p>You can add user dictionaries, which are dictionaries created in the application, to the dictionary used for predictive text input.</p>
+<p>You can also configure the software keyboard to not use dictionaries it normally would, and to use only user dictionaries instead.</p>
+<h3 id="Anchor_172887793_h3_2">Customized Dictionary</h3>
+<p>A customized dictionary was created that you can add for predictive text input on the PC.</p>
+<p>Unlike the user dictionary, you can set a customized dictionary for each keyboard array.</p>
+<p>When creating the customized dictionary, use the customized dictionary creation tool that is included in iWnn (the integrated language processing middleware).</p>
+<h3 id="Anchor_172887793_h3_3">Learning</h3>
+<p>Predictive text input learning occurs automatically by using the software keyboard. Applications cannot enable or disable this learning.</p>
+<p>Learning data is saved for each user account. That data will continue to be available whenever the software keyboard is subsequently called.</p>
+<p>Customers can delete learning data in the System Settings.</p>
+<p>
+  <br />
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The ability to continue using learning data is only available when just one user is selected. Learning data is not used from one session to the next when no users are selected or when multiple users are selected.</p>
+  </div>
+</div>
+<h2 id="Anchor_172887793_h2_3">Setting Prohibited Characters</h2>
+<p>You can use settings to block the input of the following types of characters.</p>
+<ul>
+  <li>Numbers</li>
+  <li>%</li>
+  <li>/ (slash)</li>
+  <li>\ (backslash)</li>
+  <li>@</li>
+  <li>Spaces</li>
+  <li>All characters except those used for download codes</li>
+  <li>All characters except those used for Mii nicknames</li>
+</ul>
+<h3 id="Anchor_172887793_h3_4">All characters except those used for download codes</h3>
+<p>Any characters other than the following are blocked. You cannot enter a capital O, I, or Z.</p>
+<ul>
+  <li>0123456789ABCDEFGHJKLMNPQRSTUVWXY</li>
+</ul>
+<h3 id="Anchor_172887793_h3_5">All characters except those used for Mii nicknames</h3>
+<p>Characters that are not included in <em>Appendix: Characters That Can Be Used in the User Account Nickname</em> in the <em>Account Guide</em> are blocked. For more information, see Nintendo Switch Account Guide.</p>
+<h2 id="Anchor_172887793_h2_4">Enabling and Disabling the Hide Input Text Feature</h2>
+<p>You can use settings to enable or disable the ability to immediately hide player input.</p>
+<p>We expect this feature to be enabled at times such as when entering passwords.</p>
+<h2 id="Anchor_172887793_h2_5">Allowing or Prohibiting New Lines</h2>
+<p>You can set whether players can include new lines within entered text.</p>
+<h2 id="Anchor_172887793_h2_6">Setting the Maximum or Minimum Number of Characters</h2>
+<p>You can use settings to configure the maximum number of characters that can be entered, and the minimum number of characters required for valid input.</p>
+<h1 id="Anchor_172887793_h1_3">Working With Hardware Keyboards</h1>
+<p>Commercially available hardware keyboards can be connected to the Nintendo Switch dock USB connector and used to enter text. No particular support is required in applications.</p>
+<p>Character input using the hardware keyboard has the following characteristics.</p>
+<ul>
+  <li>Even if the hardware keyboard is connected, characters can still be input as expected from devices other than the hardware keyboard.</li>
+  <li>Characters other than those described in the Text That Can Be Entered Using a Software Keyboard callout on this page, cannot be entered from the hardware keyboard.</li>
+  <li>You can switch the key layout of the hardware keyboard from the system settings by setting <strong>USB Keyboard</strong>.</li>
+  <li>When using Japanese, you can change the Japanese input by switching between single-byte and double-byte characters, or by pressing ALT+SPACEBAR.</li>
+  <li>When using Russian, pressing ALT+SHIFT switches to Russian input.</li>
+  <li>For Chinese, use the SHIFT key to switch between enabling and disabling Chinese input.</li>
+  <li>For Korean, use the right ALT key to switch between enabling and disabling Hangul input.</li>
+  <li>The following special keys are configured.<ul><li>ALT+ENTER: Confirm the input content and exit the software keyboard.</li><li>ESC or ALT+BACKSPACE: Discard the input content and exit the software keyboard.</li><li>TAB or SHIFT+TAB: Switch between selection of conversion candidates.</li></ul></li>
+</ul>
+<h1 id="Anchor_172887793_h1_4">Inline Keyboard</h1>
+<p>In addition to the regular software keyboard, a software keyboard (the <em>inline keyboard</em>) that allows the application to independently render a preview field is available. The inline keyboard differs from the regular software keyboard in the following ways.</p>
+<ul>
+  <li>The application can run processes even when the keyboard is being displayed.</li>
+  <li>The preview field must be rendered independently on the application side.<br /></li>
+  <li>Items other than the preview field are passed to the application as data images.</li>
+</ul>
+<p>Use the keyboard in situations where text input is required in parallel with applications, such as with chat.</p>
+<p>The inline keyboard will be available in NintendoSDK NX Add-On 6.3.0 and later.<br /></p>
+<h1 id="Anchor_172887793_h1_5">Text That Can Be Entered Using a Software Keyboard</h1>
+<p>The text that can be entered varies based on keyboard type and whether predictive text input is enabled or disabled.</p>
+<p>The following list includes the available characters. That list is included with this package.</p>
+<div class="table">
+  <a name="AutoAnchor_172887793_table003"></a>Table 4-3  Available Characters</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Condition</th>
+      <th>Filename</th>
+    </tr>
+    <tr>
+      <td>When Predictive Text Input Is Enabled (LanguageSet1 Mode or LanguageSet1Latin Mode)</td>
+      <td>
+        <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_LanguageSet1_Predictive_Func_Enable.xlsx">NX_SWKBD_CodeList_LanguageSet1_Predictive_Func_Enable.xlsx</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>When Predictive Text Input Is Disabled (LanguageSet1 Mode or LanguageSet1Latin Mode)</p>
+      </td>
+      <td>
+        <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_LanguageSet1.xlsx">NX_SWKBD_CodeList_LanguageSet1.xlsx</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>ASCII Mode</p>
+        </div>
+      </td>
+      <td>
+        <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_ASCII.xlsx">NX_SWKBD_CodeList_ASCII.xlsx</a>
+      </td>
+    </tr>
+    <tr>
+      <td>When Predictive Text Input Is Enabled (Alphabet Mode)</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_Alphabet_Predictive_Func_Enable.xlsx">NX_SWKBD_CodeList_Alphabet_Predictive_Func_Enable.xlsx</a>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>When Predictive Text Input Is Disabled (Alphabet Mode)</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_Alphabet.xlsx">NX_SWKBD_CodeList_Alphabet.xlsx</a>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Simplified Chinese Mode</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_SimplifiedChinese.xlsx">NX_SWKBD_CodeList_SimplifiedChinese.xlsx</a>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Traditional Chinese Mode</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_TraditionalChinese.xlsx">NX_SWKBD_CodeList_TraditionalChinese.xlsx</a>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Korean Mode</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_Korean.xlsx">NX_SWKBD_CodeList_Korean.xlsx</a>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>LanguageSet2 Mode and LanguageSet2Latin Mode</td>
+      <td>
+        <a href="../Attachments/Attach_172887793/NX_SWKBD_CodeList_LanguageSet2.xlsx">NX_SWKBD_CodeList_LanguageSet2.xlsx</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Nintendo extended characters cannot be entered regardless of the keyboard type and whether predictive text input is enabled or disabled.</p>
+<p>By holding down some keys, you can enter characters not displayed on the keyboard, such as double-byte alphanumeric characters and characters with diacritical marks.</p>
+<p>The table of characters that can be entered when predictive text input is enabled includes some characters that cannot be entered directly from the software keyboard. These characters might be entered when the dictionary is updated in a future system update, or depending on the content of the conversion dictionary set by the application.</p>
+<p>
+  <br />
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p> Although the following characters were added to the fonts for Japan, the Americas, and Europe in NintendoSDK Firmware for NX 5.0.0-3.0 and later, the characters cannot be entered using the keyboard.</p>
+    <ul>
+      <li>U+1E9E: &quot;LATIN CAPITAL LETTER SHARP S&quot;</li>
+      <li>U+2011 : &quot;NON-BREAKING HYPHEN&quot;</li>
+      <li>U+2060 : &quot;WORD JOINER&quot;</li>
+    </ul>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The characters that can be entered are not dependent on the settings for region and language within the system settings.</p>
+    <p>You can enter both kanji and Cyrillic text, for example, even when using the LanguageSet1 Mode keyboard type, and when the language is set to <strong>English</strong> in the system settings.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

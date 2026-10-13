@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>9.1 Using Independent Servers | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 9.1 Using Independent Servers -->
+<div class="pagetitle" id="PageId_491448834">9.1 Using Independent Servers</div>
+<div class="text_separate">
+<h1 id="Anchor_491448834_h1_1">Overview</h1>
+<p>This section describes the independent servers used for e-commerce. For more information about independent servers, see the Nintendo Switch Independent Server Setup Manual.<br />If you are using the following items, you must use an independent server.</p>
+<ul>
+  <li>Consumable service items managed by the independent server</li>
+  <li>Subscription service items</li>
+</ul>
+<p>To use these service items, you must make an OMAS request. For more information, see <a href="../Pages/Page_525143415.html">4.1 Usage Request on OMAS</a>.</p>
+<h1 id="Anchor_491448834_h1_2">Accessing Independent Servers From Applications</h1>
+<p>The following settings are required in order to get the token required to access an independent server.</p>
+<ul>
+  <li>The application ID in the application&rsquo;s NMETA file</li>
+  <li>The network service account on the development hardware<br />A Nintendo Account is required for using consumable service items, so you must create a network service account by linking the Nintendo Account to a Switch user account.</li>
+</ul>
+<p>For more information, see the NintendoSDK Manual and the Nintendo Switch Independent Server Setup Manual.</p>
+<p>
+  <a name="Anchor_491448834_environment"></a>
+</p>
+<h1 id="Anchor_491448834_h1_3">Independent Server Environment</h1>
+<p>There are separate server environments for development servers, for Lotcheck, and for users in general. <strong>Note:</strong> The fully qualified domain name (FQDN) for the API endpoint is different for the service item server in each environment. You must change the request destination depending on the environment used by the independent server. For more information, see the Nintendo Switch Independent Server Configuration Manual.</p>
+<table class="wrapped relative-table" style="width: 91.6344%;">
+  <colgroup> <col style="width: 5.32995%;" /> <col style="width: 94.6701%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment Identifier</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>The environment application developers use for development.</td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>An environment for special uses. Normally, it does not need to be considered.</td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>The environment used for Lotcheck.</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>The environment used for Lotcheck.</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>This environment is used by Nintendo for verifying compatibility of already released applications with new versions of the system firmware before they are publicly released.</td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>
+        <p>An environment offering services for general users.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Note that Lotcheck uses either the sd1 or sp1 environment based on the inspection stage.</p>
+  </div>
+</div>
+<h1 id="Anchor_491448834_h1_4">Correspondence Between Environment Identifiers and Consumable Service Item API Endpoints</h1>
+<table class="wrapped">
+  <colgroup> <col style="width: 87.0px;" /> <col style="width: 366.0px;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment Identifier</th>
+      <th>FQDN for the Consumable Service Item API Endpoint</th>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>
+        <p>https://sugar.ws.dd1.ss.nintendo.net</p>
+      </td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>https://sugar.ws.dp1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>https://sugar.ws.sd1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>https://sugar.ws.sp1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>https://sugar.ws.jd1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>https://sugar.ws.lp1.ss.nintendo.net</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_491448834_h1_5">Correspondence Between Environment Identifiers and FQDNs of Subscription Service Item API Endpoints</h1>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment Identifier</th>
+      <th>FQDN of Subscription Service Item API Endpoint</th>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>https://mandom.ws.dd1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>https://mandom.ws.dp1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>https://mandom.ws.sd1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>https://mandom.ws.sp1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>https://mandom.ws.jd1.ss.nintendo.net</td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>
+        <p>https://mandom.ws.lp1.ss.nintendo.net</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_491448834_h1_6">Client IDs and Client Secrets</h1>
+<p>A client ID and a client secret are needed to access the API endpoints for consumable service items and subscription service items from an independent server. For more information about how tokens are issued, see <a href="../Pages/Page_525143415.html">4.1 Usage Request on OMAS</a>.</p>
+<h1 id="Anchor_491448834_h1_7">Correspondence Between Environment Identifiers and Base URLs on the Nintendo Authentication Server</h1>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment Identifier</th>
+      <th>Base URLs on the Nintendo Authentication Server</th>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com</td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>https://d9c8ea0e17f68bdeab8674c59f6fabda-sb.baas.nintendo.com</td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>https://96130dc402837b377c07719e6c9514de-sb.baas.nintendo.com</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>https://dc219b6b3aa8e06873733fda1def0e03-sb.baas.nintendo.com</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>https://d78dbb1c550d43c6af49bf04c56bc094-sb.baas.nintendo.com</td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>https://e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_491448834_h1_8">CA Certificates</h1>
+<p>To use the server API for subscription service items and consumable service items, you must trust the following Nintendo private CA.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Issuer</th>
+      <th>CA Certificate</th>
+    </tr>
+    <tr>
+      <td>Nintendo CA - G3</td>
+      <td>
+        <p>Use the following.</p>
+        <ul>
+          <li>
+            <a href="../Attachments/Attach_491448834/491448835.pem">NintendoCA-G3.pem</a>
+          </li>
+          <li>
+            <a href="../Attachments/Attach_491448834/491448836.der">NintendoCA-G3.der</a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>These CA certificates are used on the Switch and have already been installed.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

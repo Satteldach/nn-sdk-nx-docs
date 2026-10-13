@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google" value="notranslate" />
+<title>HID (Human Interface Device) [2202-xxxx]</title>
+<link rel="stylesheet" href="ext/css/default.css" /><script src="ext/jquery.min.js"></script>
+<link rel="stylesheet" href="ext/jquery-ui/jquery-ui.min.css" />
+<link rel="stylesheet" href="ext/jquery-ui/theme.css" />
+<script src="ext/jquery-ui/jquery-ui.min.js"></script>
+<script src="ext/jsconf.js"></script>
+<script src="ext/default.js"></script>
+<script>document.write('<style>.jnone{display:none;}</style>');</script>
+</head>
+<body>
+<div class="header_wrap">
+<div class="header">
+<div id="tool_name"><a href="NintendoSwitch-ErrorCodeList-en.html">Error Code Search<br />Nintendo Switch</a></div>
+<div id="headnav" class="none">
+<div class="search">
+<input id="searchcode" class="searchcode" type="text" maxlength="12" placeholder=" -" />
+<input type="button" value="Search" for="searchcode" class="btn_search" />
+</div>
+</div>
+</div>
+</div>
+<div id="body" class="container init1st jnone">
+<div class="sticky_wrap">
+<div class="sticky_left">
+<h1 class="title fixleft">HID (Human Interface Device) [2202-xxxx]</h1>
+</div>
+</div>
+
+
+<div class="content" id="codetable">
+<div id="codeinfo" style="display:none">
+<div class="controls">
+Display Language:
+<select name="lang[name]" id="lang_name"></select>
+</div>
+
+<style>
+	table#codelisttable td,
+	table#codeinfotable tbody tr p { font-family: NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+</style>
+<style>
+	table#codelisttable td:nth-child(20),
+table#codeinfotable tbody tr:nth-child(20) p,
+table#codelisttable td:nth-child(23),
+table#codeinfotable tbody tr:nth-child(23) p,
+table#codelisttable td:nth-child(40),
+table#codeinfotable tbody tr:nth-child(40) p,
+table#codelisttable td:nth-child(43),
+table#codeinfotable tbody tr:nth-child(43) p { font-family: NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+table#codelisttable td:nth-child(21),
+table#codeinfotable tbody tr:nth-child(21) p,
+table#codelisttable td:nth-child(41),
+table#codeinfotable tbody tr:nth-child(41) p { font-family: NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+table#codelisttable td:nth-child(22),
+table#codeinfotable tbody tr:nth-child(22) p,
+table#codelisttable td:nth-child(42),
+table#codeinfotable tbody tr:nth-child(42) p { font-family: NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+
+</style>
+
+<div id="codeinfobody"></div>
+</div>
+
+<table id="codelisttable" class="margin-bottom-1">
+<thead>
+<tr>
+<th class="di_code tbpre fixleft fixtop">Error Code <span id="exp_codeinfo" class="init1st none" title="Double-clicking an error code cell switches it to only show that error code." alt="">?</span></th>
+<th class="di_f53 tbstr fixtop">Result</th>
+<th class="di_f52 tbstr fixtop">Description</th>
+<th class="di_f57 tbstr fixtop">Solution(for developer)</th>
+<th class="di_f55 tbstr fixtop">How to reproduce</th>
+<th class="di_f51 tbstr fixtop">Comments</th>
+<th class="di_f32 tbstr fixtop">Dialog message USen</th>
+<th class="di_f34 tbstr fixtop">Dialog message USes</th>
+<th class="di_f33 tbstr fixtop">Dialog message USfr</th>
+<th class="di_f121 tbstr fixtop">Dialog message USpt</th>
+<th class="di_f24 tbstr fixtop">Dialog message EUen</th>
+<th class="di_f25 tbstr fixtop">Dialog message EUfr</th>
+<th class="di_f27 tbstr fixtop">Dialog message EUde</th>
+<th class="di_f26 tbstr fixtop">Dialog message EUes</th>
+<th class="di_f28 tbstr fixtop">Dialog message EUit</th>
+<th class="di_f29 tbstr fixtop">Dialog message EUnl</th>
+<th class="di_f30 tbstr fixtop">Dialog message EUpt</th>
+<th class="di_f31 tbstr fixtop">Dialog message EUru</th>
+<th class="di_f23 tbstr fixtop">Dialog message JPja</th>
+<th class="di_f107 tbstr fixtop">Dialog message CNzh (zh-Hans)</th>
+<th class="di_f112 tbstr fixtop">Dialog message TWzh (zh-Hant)</th>
+<th class="di_f115 tbstr fixtop">Dialog message KRko</th>
+<th class="di_f118 tbstr fixtop">Dialog message CNzhT (China)</th>
+<th class="di_f20 tbstr fixtop">Dialog button 0</th>
+<th class="di_f21 tbstr fixtop">Dialog button 1</th>
+<th class="di_f22 tbstr fixtop">Dialog button 2</th>
+<th class="di_f47 tbstr fixtop">Fullscreen message USen</th>
+<th class="di_f49 tbstr fixtop">Fullscreen message USes</th>
+<th class="di_f48 tbstr fixtop">Fullscreen message USfr</th>
+<th class="di_f122 tbstr fixtop">Fullscreen message USpt</th>
+<th class="di_f39 tbstr fixtop">Fullscreen message EUen</th>
+<th class="di_f40 tbstr fixtop">Fullscreen message EUfr</th>
+<th class="di_f42 tbstr fixtop">Fullscreen message EUde</th>
+<th class="di_f41 tbstr fixtop">Fullscreen message EUes</th>
+<th class="di_f43 tbstr fixtop">Fullscreen message EUit</th>
+<th class="di_f44 tbstr fixtop">Fullscreen message EUnl</th>
+<th class="di_f45 tbstr fixtop">Fullscreen message EUpt</th>
+<th class="di_f46 tbstr fixtop">Fullscreen message EUru</th>
+<th class="di_f38 tbstr fixtop">Fullscreen message JPja</th>
+<th class="di_f108 tbstr fixtop">Fullscreen message CNzh (zh-Hans)</th>
+<th class="di_f113 tbstr fixtop">Fullscreen message TWzh (zh-Hant)</th>
+<th class="di_f116 tbstr fixtop">Fullscreen message KRko</th>
+<th class="di_f119 tbstr fixtop">Fullscreen message CNzhT (China)</th>
+<th class="di_f35 tbstr fixtop">Fullscreen button 0</th>
+<th class="di_f36 tbstr fixtop">Fullscreen button 1</th>
+<th class="di_f37 tbstr fixtop">Fullscreen button 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="CODE-2202-0178 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2202-0178"></a>2202-0178</td>
+<td class="di_f53 tbstr even cellok">ResultSixAxisSensorBroken</td>
+<td class="di_f52 tbstr even cellok">An error occurred due to a defect in the console&#39;s gyroscope.</td>
+<td class="di_f57 tbstr even cellok">The application developer does not need to handle this error.</td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok">The console&#39;s gyroscope is broken.<br /><br />Please refer to the Nintendo Support website.<br />support.nintendo.com/switch/error</td>
+<td class="di_f34 tbstr even cellok">Los sensores de movimiento de la consola están dañados.<br /><br />Para obtener más información, visita el sitio de soporte de Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f33 tbstr even cellok">Le gyroscope de la console est endommagé.<br /><br />Consultez le site d&#39;assistance Nintendo :<br />support.nintendo.com/switch/error</td>
+<td class="di_f121 tbstr even cellok">Os sensores de movimento do console estão quebrados.<br /><br />Para mais informações, visite a página de assistência da Nintendo:<br />support.nintendo.com/switch/error</td>
+<td class="di_f24 tbstr even cellok">The console&#39;s gyroscope is broken.<br /><br />Visit the Nintendo Support website for more information.<br />support.nintendo.com/switch/error</td>
+<td class="di_f25 tbstr even cellok">Le gyroscope de la console est défectueux.<br /><br />Visitez le site d&#39;assistance Nintendo pour plus d&#39;informations :<br />support.nintendo.com/switch/error</td>
+<td class="di_f27 tbstr even cellok">Der Gyrosensor der Konsole ist beschädigt.<br /><br />Weitere Informationen findest du auf der Website des Nintendo-Service.<br />support.nintendo.com/switch/error</td>
+<td class="di_f26 tbstr even cellok">Los sensores de movimiento de la consola están averiados.<br /><br />Para obtener más información, visita el sitio web del servicio de ayuda de Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f28 tbstr even cellok">Il giroscopio della console è rotto.<br /><br />Visita il sito del Centro Assistenza Nintendo per maggiori informazioni.<br />support.nintendo.com/switch/error</td>
+<td class="di_f29 tbstr even cellok">De gyroscoop van het systeem is defect.<br /><br />Kijk op de Nintendo-ondersteuningswebsite voor meer informatie.<br />support.nintendo.com/switch/error</td>
+<td class="di_f30 tbstr even cellok">Os sensores de movimento da consola estão danificados.<br /><br />Para mais informações, visita a página de assistência da Nintendo:<br />support.nintendo.com/switch/error</td>
+<td class="di_f31 tbstr even cellok">Гироскоп консоли поврежден.<br /><br />Дополнительную информацию см. на веб-сайте технической поддержки Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f23 tbstr even cellok">本体のジャイロセンサーが壊れています。<br /><br />くわしくは、Nintendo Switchサポートサイトをご覧ください。<br />https://www.nintendo.co.jp/support/switch/</td>
+<td class="di_f107 tbstr even cellok">主机的陀螺仪感应器已损坏。<br /><br />详情请查看Nintendo Switch支持网站。<br />support.nintendo.com/switch/error</td>
+<td class="di_f112 tbstr even cellok">主機的陀螺儀感應器已損壞。<br /><br />詳情請參閱Nintendo Switch支援頁面。<br />support.nintendo.com/switch/error</td>
+<td class="di_f115 tbstr even cellok">본체의 자이로 센서가 손상되었습니다.<br /><br />자세한 내용은 Nintendo Switch 서포트 사이트를 확인해 주십시오.<br />support.nintendo.com/switch/error</td>
+<td class="di_f118 tbstr even cellok">主机的陀螺仪感应器已损坏。<br /><br />详情请查看Nintendo Switch支持网站。<br />nintendoswitch.com.cn/support</td>
+<td class="di_f20 tbstr even cellok">OK</td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2202-3101 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2202-3101"></a>2202-3101</td>
+<td class="di_f53 tbstr odd cellok">ResultControllerSupportCanceled</td>
+<td class="di_f52 tbstr odd cellok">If you press the HOME Button to return to the HOME Menu while the controller support applet called by the application is running, call another system feature, and then return to the application, the controller support applet will be canceled.<br />This error falls within specifications when that occurs.<br />Normally this error is handled in the application. Prompt the user without displaying the error code.<br />This error is displayed to users when you skip the preceding error handling in the application.</td>
+<td class="di_f57 tbstr odd cellok">Handle this error in the application, in conjunction with the controller connection status, without calling the error viewer applet.</td>
+<td class="di_f55 tbstr odd cellok">1.  In tabletop mode, proceed to Controllers from the HOME Menu and set the left Joy-Con to P1.<br />2.  Start the application.<br />3.  After the title screen appears, press any button on the right Joy-Con.<br />4. When the controller support applet is displayed in the game, press the HOME Button.<br />5.  Navigate to Controllers and select Change Grip/Order.<br />6. Set the right Joy-Con to P1 and return to the HOME Menu.<br />7.  Restart the application.</td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footer fixleft"></div>
+</body>
+</html>

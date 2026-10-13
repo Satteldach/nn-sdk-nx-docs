@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.1 NEX General Considerations | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.1 NEX General Considerations -->
+<div class="pagetitle" id="PageId_260323922">5.1 NEX General Considerations</div>
+<div class="text_separate">
+<h1 id="Anchor_260323922_h1_1">Do Not Upload Confidential Data to Game Servers</h1>
+<p>Do not upload confidential game data to servers in any environment.</p>
+<p>There is even a risk of a data leak after the application is released <strong>even if confidential data is uploaded to environments other than the production environment.</strong></p>
+<h2 id="Anchor_260323922_h2_1">Background</h2>
+<p>After an application is released, the information contained in the application that is used to log in to the game server (game server ID and access key) is at higher risk of being extracted. Because this extracted information can be used to illegally log in to the game server, the following kinds of data are in danger of being accessed.</p>
+<ul>
+  <li>Matchmaking: strings describing matchmaking sessions and persistent gatherings</li>
+  <li>Data store: data uploaded with <code>DataStoreConstants::PERMISSION_PUBLIC permissions</code></li>
+</ul>
+<h2 id="Anchor_260323922_h2_2">Workaround</h2>
+<p>If data that you want to keep confidential must be uploaded to game server, encrypt it. We recommend using BCAT data delivery to distribute the decryption key. BCAT's test delivery function allows for connection restriction by global IP address during debugging.</p>
+<h1 id="Anchor_260323922_h1_2">Checking the Overlay Display of Maintenance Notifications in the Development Environment</h1>
+<p>In the development environment, you can use NMAS2 to send maintenance notifications that are displayed as overlays.</p>
+<p>For more information about maintenance notifications, see <a href="../Pages/Page_201428425.html">4.5 Server Operations</a>.</p>
+<h2 id="Anchor_260323922_h2_3">Conditions for Displaying Maintenance Notifications as Overlays</h2>
+<p>To display maintenance notifications as overlays, the following conditions must be satisfied.</p>
+<ul>
+  <li>NEX Conditions<br /><ul><li>For a notification of the start of maintenance, the current time is not later than the game server stop time.</li><li>For a notification of scheduled maintenance, the current time is not later than the scheduled maintenance time.</li><li>The application is logged in to a NEX game server.<ul><li>The notification is displayed logging in to the game server. In addition, the notification is displayed each time the user logs in during the available period.</li></ul></li></ul></li>
+  <li>System Settings Conditions<ul><li>The system is connected to the network.</li><li>The user account logged in to the NEX game server is linked to a Nintendo Account.</li><li>A NSA notification token is registered on the server.<ul><li>It is automatically registered from the HOME Menu or DevMenu if linked to a Nintendo Account.</li></ul></li><li>The application is registered on the Switch system.<ul><li>The application must be installed on the Switch console, either in system memory or on a microSD card, or the game card must be inserted. Overlays are not displayed correctly if you are using the development hardware and directly running an application on a PC.</li></ul></li></ul></li>
+</ul>
+<h1 id="Anchor_260323922_h1_3">Maintenance Start Notifications</h1>
+<p>To check notifications of the start of maintenance, change <strong>Maintenance Start Notification Event</strong> on NMAS2 to <strong>Notification On</strong>. You cannot specify the game server stop time in maintenance start notification settings on NMAS2.</p>
+<p>The game server stop time is set automatically to a time five minutes after <strong>Maintenance Start Notification Event</strong> has changed from <strong>Stopped</strong> to <strong>Notification On</strong>. In other words, notifications of the start of maintenance can be received for five minutes after the change to <strong>Notification On</strong>.</p>
+<h1 id="Anchor_260323922_h1_4">Notification of Scheduled Maintenance</h1>
+<p>To check notifications of scheduled maintenance, change <strong>Scheduled Maintenance Notification Event</strong> on NMAS2 to <strong>Notification On</strong>. At that time, specify the scheduled maintenance time.</p>
+<p>Notifications of scheduled maintenance can be received at any time after this setting is changed to <strong>Notification On</strong>, until the scheduled maintenance time has passed.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The period for receiving scheduled maintenance notifications in the development environment differs from that of the production environment.</p>
+    <p>Scheduled maintenance notifications in the production environment can be received starting an hour before the start of maintenance until the scheduled maintenance time has passed.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

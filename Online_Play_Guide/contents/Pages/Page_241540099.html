@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.2 Policies | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.2 Policies -->
+<div class="pagetitle" id="PageId_241540099">2.2 Policies</div>
+<div class="text_separate">
+<p>This section describes the Nintendo Switch Online policies that are set for the various features of an application, and the application policy that is set for the application itself.</p>
+<h1 id="Anchor_241540099_h1_1">Nintendo Switch Online Policies</h1>
+<p>Online features provided in Switch applications are either member-only or complimentary (see <a href="../Pages/Page_241539050.html">2.1 Member-Only and Complimentary Features</a>).<br />The setting that defines whether a feature is member-only or complimentary is called the feature's <em>Nintendo Switch Online policy</em>.</p>
+<p>The Nintendo Switch Online policy for each feature in applications under development is managed on OMAS.<br />In OMAS, each of the following features for the registered application is determined as <strong>member-only or complimentary and set to the appropriate Nintendo Switch Online policy automatically.</strong></p>
+<ul>
+  <li>NEX matchmaking</li>
+  <li>NEX ranking</li>
+  <li>NEX DataStore</li>
+  <li>NEX subscriber</li>
+  <li>Other NEX features</li>
+  <li>NPLN</li>
+  <li>Independent servers</li>
+</ul>
+<h2 id="Anchor_241540099_h2_1">Application Policy</h2>
+<p>
+  <strong>OMAS places applications into one of three classifications</strong> based on the Nintendo Switch Online policies set for these features. <strong>This classification is called the <em>application policy</em>.<br /></strong>The application policy is <strong>determined automatically by OMAS</strong>.</p>
+<ul>
+  <li>All features require membership</li>
+  <li>No features require membership</li>
+  <li>Some features require membership</li>
+</ul>
+<p>The application behavior changes depending on the application policy. For more information, see <a href="../Pages/Page_241541930.html">2.3 Application-Level Support</a>.</p>
+<p>
+  <strong>The application policy is set for each release version of an application.</strong> It is possible for version 2.0 of an application to have a different application policy than the 1.0 version after patching.<br />If the application policy is changed for an unreleased patch, the application behavior does not match the post-change policy until that patch is released and applied on the Switch console.</p>
+<h1 id="Anchor_241540099_h1_2">Automatic Determination of Nintendo Switch Online Policies in OMAS</h1>
+<p>In OMAS, the Nintendo Switch Online policy for each feature and the application policy are automatically determined based on the application's request options.<br />If any of the following conditions apply, OMAS classifies the application policy as <strong>All features require membership</strong>.<br />If none apply, it is classified as <strong>No features require membership</strong>.</p>
+<ul>
+  <li>NEX matchmaking has been requested.</li>
+  <li>
+    <strong>Yes</strong> has been selected for <strong>Whether online multiplayer is used</strong> in the NPLN application.</li>
+  <li>NPLN has been requested, and <strong>Free-To-Play?</strong> in <strong>Application Overview</strong> is set to <strong>Yes</strong>. (The NPLN <strong>Use of Online Multiplayer</strong> setting does not matter.)</li>
+  <li>Independent servers have been requested.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>OMAS never automatically classifies applications as <strong>Some features require membership</strong>. </p>
+    <p>When the application policy must be set to <strong>Some features require membership</strong>, submit a change request by following the steps in Changing the Nintendo Switch Online Policies later in this document.</p>
+    <p>In demo versions, the NPLN features are handled as member-only features if handled that way in the main application, and as complimentary features if handled that way in the main application. (For more information, see <a href="../Pages/Page_241539050.html">2.1 Member-Only and Complimentary Features</a> &gt; Handling NPLN Features as Member-Only or Complimentary.) As a result, in some cases you might need to manually change the Nintendo Switch Online Policy for the demo version in OMAS.</p>
+  </div>
+</div>
+<h1 id="Anchor_241540099_h1_3">Checking the Nintendo Switch Online Policies in OMAS</h1>
+<p>If the application has at least one member-only feature, a Nintendo Switch Online policy item is added to the OMAS Release Information page.<br />If there are no member-only features and the application is classified as <strong>No features require membership</strong>, the OMAS page for that application does not display any information or items relating to Nintendo Switch Online.</p>
+<h1 id="Anchor_241540099_h1_4">Changing the Nintendo Switch Online Policies</h1>
+<p>To change the Nintendo Switch Online policy for a feature, you must submit a Nintendo Switch Online Policy Change Request on OMAS.<br />The same process is used regardless of whether you are requesting a change from a member-only feature to a complimentary feature, or vice versa.<br />When requests related to NEX or to independent servers are up for re-examination, change requests will also be re-examined.</p>
+<h5 id="Anchor_241540099_h5_1">Changing the Nintendo Switch Online Policy for Applications That Have Started Services</h5>
+<p>A patch request is required for changing the Nintendo Switch Online policies for an application that has already begun services.<br />The settings for the independent server or the NEX server might need to be changed when the patch is released, so if you are requesting a patch that will change the Nintendo Switch Online policies, submit a request in OMAS to require installation of the patch.</p>
+<h5 id="Anchor_241540099_h5_2">Registering a Patch After Changing the Switch Online Policy</h5>
+<p>When you register a patch in OMAS, all requests from the previous version are copied. The Nintendo Switch Online Policy entries are also copied, so you do not need to resubmit this item for the patch.</p>
+<h1 id="Anchor_241540099_h1_5">Using the Same Server in Multiple Applications</h1>
+<h2 id="Anchor_241540099_h2_2">When Using the Same NEX Game Server</h2>
+<p>When multiple applications use the same NEX game server, the Nintendo Switch Online policy setting for each feature must be the same for all applications. Make sure that the Nintendo Switch Online policy for each feature is entered the same way in every request to use NEX features and every request to use an independent server submitted for every application.</p>
+<p style="color: rgb(33,33,33);">When a request is submitted for a new application or patch that will share the same NEX game server being used by another application, the NEX game server will not be updated if the Nintendo Switch Online policies set in the new submission differ from those already submitted for the other application.<br />In such cases, the phase review process on OMAS stops until the request content matches for all applications sharing the NEX game server.</p>
+<p>For example, say that a new request or a patch request is submitted for application A to use the matchmaking feature and the ranking feature. If application B is sharing the same NEX game server and intends to use only the ranking feature (or has already requested to use only that feature), one of the following steps must be taken so the same request information is submitted for both applications.</p>
+<ul>
+  <li>For application B, in addition to the request for ranking, submit a patch request for matchmaking even though that feature will not actually be used.</li>
+  <li>Revise the request for application A by deleting the request for matchmaking and submitting a request for only the ranking feature.</li>
+</ul>
+<h2 id="Anchor_241540099_h2_3">When Not Using the Same NEX Game Server</h2>
+<p>When multiple applications do not use the same NEX game server but use the same independent server or NPLN server, the Nintendo Switch Online policy setting for each feature does not have to be the same for all applications. Also, the OMAS phase review will not stop.</p>
+<p>However, if the application policy of one of the applications requires a membership for some features, the NPLN game server (tenant) must check whether the user is a Nintendo Switch Online member. For this reason, note the following.</p>
+<ul>
+  <li>On the dedicated management tool (NPLN Dashboard), you must set which NPLN features are services that require a Nintendo Switch Online membership.</li>
+  <li>It is not possible to set different settings for each application as to whether a specific NPLN service is a service that requires a Nintendo Switch Online membership.</li>
+</ul>
+<p>For more information, see the NPLN Manual included in the NPLN package.</p>
+<p>If you will be using an independent server that multiple applications will share, consider that there will be connections from multiple applications when you implement your server.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

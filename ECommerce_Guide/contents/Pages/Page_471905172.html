@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.4.3.5 Add License API | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.4.3.5 Add License API -->
+<div class="pagetitle" id="PageId_471905172">7.4.3.5 Add License API</div>
+<div class="text_separate">
+<h1 id="Anchor_471905172_h1_1">Overview</h1>
+<p>This API adds licenses, for the specified course IDs, to the Nintendo Account linked with the specified network service account. It can only be used for subscription service items in the fixed term format.</p>
+<p>If a user that is granted a license already had a valid license for that service, the validity period of the license is automatically extended.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Licenses added using this API function are not displayed in the purchase history on Nintendo eShop.</p>
+  </div>
+</div>
+<h1 id="Anchor_471905172_h1_2">Request</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>POST /v1/courses/{course_id}/accounts/{nsa_id}/transactions
+Authorization: Basic {base64(clientId:clientSecret)}
+Content-Type:application/json
+
+{&quot;additional_minutes&quot;:&quot;3600&quot;, &quot;reason_code&quot;:&quot;APPLICATION&quot;,&quot;reason_description&quot;:&quot;&quot;}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>course_id</td>
+      <td>The course ID for which to grant a license.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;aa5e5131d43ba0d4&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>additional_minutes</td>
+      <td>Specify the amount of additional time in minutes.</td>
+      <td>number</td>
+      <td rowspan="3">body</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>An error occurs if a term is specified that exceeds the amount of time that can be maintained by the specified account.</td>
+    </tr>
+    <tr>
+      <td>reason_code</td>
+      <td>
+        <p>Set the code that indicates the reason for adding a license.</p>
+        <p>There are some restrictions on which codes can be used as a <code>reason_code</code>. Use either of the following codes.</p>
+        <ul style="margin-left: 20.0px;">
+          <li>RECOMPENSE: For compensation</li>
+          <li>APPLICATION: For all other purposes</li>
+        </ul>
+      </td>
+      <td>string</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>RECOMPENSE</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>reason_description</td>
+      <td>Can be used to add a reason for granting the license.</td>
+      <td>string</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;&quot;</td>
+      <td>&quot;Compensation for server failure in April 2020&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>Fixed to <code>Content-Type:application/json</code>.</td>
+      <td>string</td>
+      <td>header</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;application/json&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905172_h1_3">Response</h1>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="4">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="4">transaction_id</td>
+      <td>Transaction ID.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>00000753-084d-445a-ac00-abcdef012345</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">additional_minutes</td>
+      <td>Added period (in minutes).</td>
+      <td>number</td>
+      <td>Minutes</td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">reason_code</td>
+      <td>Code for the reason for adding to the license.</td>
+      <td>string</td>
+      <td>Epoch milliseconds</td>
+      <td>1585699200000</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">reason_description</td>
+      <td>Description of the reason for adding to the license.</td>
+      <td>string</td>
+      <td>Epoch milliseconds</td>
+      <td>1588291200000</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;transaction_id&quot;</span><span class="o">:</span> <span class="s2">&quot;00000753-084d-445a-ac00-abcdef012345&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;additional_minutes&quot;</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;reason_code&quot;</span><span class="o">:</span> <span class="s2">&quot;RECOMPENSE&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;reason_description&quot;</span><span class="o">:</span> <span class="s2">&quot;Compensation for server failure in April 2020&quot;</span>
+&nbsp;&nbsp;<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905172_h1_4">curl Request Samples (dd1 Environment)</h1>
+<p>For simplicity, the <code>k</code> option is used to skip SSL authentication. A CA certificate can be obtained by following the instructions in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://mandom.ws.dd1.ss.nintendo.net/v1/courses/{course_id}/accounts/{nsa_id}/transactions&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span> <span class="se">\
+</span>-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\
+</span>-X POST -d <span class="s1">'{&quot;additional_minutes&quot;:&quot;3600&quot;, &quot;reason_code&quot;:&quot;APPLICATION&quot;,&quot;reason_description&quot;:&quot;&quot;}'</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

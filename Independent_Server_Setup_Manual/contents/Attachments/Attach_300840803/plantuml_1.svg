@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="712px" preserveAspectRatio="none" style="width:1059px;height:712px;background:#FFFFFF;" version="1.1" viewBox="0 0 1059 712" width="1059px" zoomAndPan="magnify"><defs><filter height="300%" id="f1jevltg4lvjxr" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#F7F7F7" height="700.4922" style="stroke:#A80036;stroke-width:1.0;" width="261.5" x="178" y="6"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="43" x="287.25" y="19.4951">Switch</text><rect fill="#F7F7F7" height="700.4922" style="stroke:#A80036;stroke-width:1.0;" width="330" x="469.5" y="6"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="199" x="535" y="19.4951">Nintendo Authentication Server</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="478.9219" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="220.5" y="121.9609"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="134.4063" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="386.5" y="152.3125"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="73.7031" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="552.5" y="182.6641"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="253.4609" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="874.5" y="317.0703"/><rect fill="#FFFFFF" filter="url(#f1jevltg4lvjxr)" height="122.4063" style="stroke:#000000;stroke-width:2.0;" width="380" x="641.5" y="332.0703"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="22" x2="22" y1="89.6094" y2="618.8828"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="225" x2="225" y1="89.6094" y2="618.8828"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="391.5" x2="391.5" y1="89.6094" y2="618.8828"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="557.5" x2="557.5" y1="89.6094" y2="618.8828"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="723.5" x2="723.5" y1="89.6094" y2="618.8828"/><line style="stroke:#A19B88;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="879" x2="879" y1="89.6094" y2="618.8828"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="29" x="5" y="86.5332">User</text><ellipse cx="22.5" cy="15" fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" rx="8" ry="8" style="stroke:#3E3F41;stroke-width:2.0;"/><path d="M22.5,23 L22.5,50 M9.5,31 L35.5,31 M22.5,50 L9.5,65 M22.5,50 L35.5,65 " fill="none" filter="url(#f1jevltg4lvjxr)" style="stroke:#3E3F41;stroke-width:2.0;"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="29" x="5" y="632.416">User</text><ellipse cx="22.5" cy="645.4922" fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" rx="8" ry="8" style="stroke:#3E3F41;stroke-width:2.0;"/><path d="M22.5,653.4922 L22.5,680.4922 M9.5,661.4922 L35.5,661.4922 M22.5,680.4922 L9.5,695.4922 M22.5,680.4922 L35.5,695.4922 " fill="none" filter="url(#f1jevltg4lvjxr)" style="stroke:#3E3F41;stroke-width:2.0;"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="83" x="182" y="53"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="69" x="189" y="74.5332">Application</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="83" x="182" y="617.8828"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="69" x="189" y="639.416">Application</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="84" x="347.5" y="53"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="70" x="354.5" y="74.5332">nn:account</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="84" x="347.5" y="617.8828"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="70" x="354.5" y="639.416">nn:account</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="164" x="473.5" y="53"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="150" x="480.5" y="74.5332">Authentication Endpoint</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="164" x="473.5" y="617.8828"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="150" x="480.5" y="639.416">Authentication Endpoint</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="140" x="651.5" y="53"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="126" x="658.5" y="74.5332">Public Key Endpoint</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="140" x="651.5" y="617.8828"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="126" x="658.5" y="639.416">Public Key Endpoint</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="139" x="808" y="53"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="125" x="815" y="74.5332">Independent Server</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="31.6094" style="stroke:#3E3F41;stroke-width:1.5;" width="139" x="808" y="617.8828"/><text fill="#3E3F41" font-family="VL P Gothic" font-size="14" lengthAdjust="spacing" textLength="125" x="815" y="639.416">Independent Server</text><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="478.9219" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="220.5" y="121.9609"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="134.4063" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="386.5" y="152.3125"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="73.7031" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="552.5" y="182.6641"/><rect fill="#F7F7F7" filter="url(#f1jevltg4lvjxr)" height="253.4609" style="stroke:#A19B88;stroke-width:1.0;" width="10" x="874.5" y="317.0703"/><polygon fill="#2C2918" points="208.5,117.9609,218.5,121.9609,208.5,125.9609,212.5,121.9609" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="22.5" x2="214.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="29.5" y="117.1045">1</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="168" x="40.5" y="117.1045">Begin using network services</text><polygon fill="#2C2918" points="374.5,148.3125,384.5,152.3125,374.5,156.3125,378.5,152.3125" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="230.5" x2="380.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="237.5" y="147.4561">2</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="126" x="248.5" y="147.4561">NSA ID token request</text><polygon fill="#2C2918" points="540.5,178.6641,550.5,182.6641,540.5,186.6641,544.5,182.6641" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="396.5" x2="546.5" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="403.5" y="177.8076">3</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="126" x="414.5" y="177.8076">NSA ID token request</text><line style="stroke:#2C2918;stroke-width:1.0;" x1="562.5" x2="604.5" y1="213.0156" y2="213.0156"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="604.5" x2="604.5" y1="213.0156" y2="226.0156"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="563.5" x2="604.5" y1="226.0156" y2="226.0156"/><polygon fill="#2C2918" points="573.5,222.0156,563.5,226.0156,573.5,230.0156,569.5,226.0156" style="stroke:#2C2918;stroke-width:1.0;"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="569.5" y="208.1592">4</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="83" x="580.5" y="208.1592">Authentication</text><polygon fill="#2C2918" points="407.5,252.3672,397.5,256.3672,407.5,260.3672,403.5,256.3672" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="401.5" x2="556.5" y1="256.3672" y2="256.3672"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="413.5" y="251.5107">5</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="119" x="424.5" y="251.5107">Authentication result</text><polygon fill="#2C2918" points="241.5,282.7188,231.5,286.7188,241.5,290.7188,237.5,286.7188" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235.5" x2="390.5" y1="286.7188" y2="286.7188"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="247.5" y="281.8623">6</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="119" x="258.5" y="281.8623">Authentication result</text><polygon fill="#2C2918" points="862.5,313.0703,872.5,317.0703,862.5,321.0703,866.5,317.0703" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="230.5" x2="868.5" y1="317.0703" y2="317.0703"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="237.5" y="312.2139">7</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="182" x="248.5" y="312.2139">Access request (NSA ID token)</text><path d="M641.5,332.0703 L702.5,332.0703 L702.5,340.0703 L692.5,350.0703 L641.5,350.0703 L641.5,332.0703 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="122.4063" style="stroke:#000000;stroke-width:2.0;" width="380" x="641.5" y="332.0703"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="656.5" y="346.5654">alt</text><text fill="#000000" font-family="VL P Gothic" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="267" x="717.5" y="345.4893">["If there is no key for NSA ID token verification"]</text><polygon fill="#2C2918" points="734.5,368.7734,724.5,372.7734,734.5,376.7734,730.5,372.7734" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="728.5" x2="873.5" y1="372.7734" y2="372.7734"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="740.5" y="367.917">8</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="116" x="751.5" y="367.917">Getting a public key</text><polygon fill="#2C2918" points="862.5,399.125,872.5,403.125,862.5,407.125,866.5,403.125" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="723.5" x2="868.5" y1="403.125" y2="403.125"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="730.5" y="398.2686">9</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="61" x="741.5" y="398.2686">Public key</text><line style="stroke:#2C2918;stroke-width:1.0;" x1="884.5" x2="926.5" y1="433.4766" y2="433.4766"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="926.5" x2="926.5" y1="433.4766" y2="446.4766"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="885.5" x2="926.5" y1="446.4766" y2="446.4766"/><polygon fill="#2C2918" points="895.5,442.4766,885.5,446.4766,895.5,450.4766,891.5,446.4766" style="stroke:#2C2918;stroke-width:1.0;"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="891.5" y="428.6201">10</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="100" x="909.5" y="428.6201">Public key cache</text><line style="stroke:#2C2918;stroke-width:1.0;" x1="884.5" x2="926.5" y1="483.8281" y2="483.8281"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="926.5" x2="926.5" y1="483.8281" y2="496.8281"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="885.5" x2="926.5" y1="496.8281" y2="496.8281"/><polygon fill="#2C2918" points="895.5,492.8281,885.5,496.8281,895.5,500.8281,891.5,496.8281" style="stroke:#2C2918;stroke-width:1.0;"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="891.5" y="478.9717">11</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="143" x="909.5" y="478.9717">NSA ID token verification</text><line style="stroke:#2C2918;stroke-width:1.0;" x1="884.5" x2="926.5" y1="527.1797" y2="527.1797"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="926.5" x2="926.5" y1="527.1797" y2="540.1797"/><line style="stroke:#2C2918;stroke-width:1.0;" x1="885.5" x2="926.5" y1="540.1797" y2="540.1797"/><polygon fill="#2C2918" points="895.5,536.1797,885.5,540.1797,895.5,544.1797,891.5,540.1797" style="stroke:#2C2918;stroke-width:1.0;"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="891.5" y="522.3232">12</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="133" x="909.5" y="522.3232">Authentication process</text><polygon fill="#2C2918" points="241.5,566.5313,231.5,570.5313,241.5,574.5313,237.5,570.5313" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="235.5" x2="878.5" y1="570.5313" y2="570.5313"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="247.5" y="565.6748">13</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="47" x="265.5" y="565.6748">Session</text><polygon fill="#2C2918" points="33.5,596.8828,23.5,600.8828,33.5,604.8828,29.5,600.8828" style="stroke:#2C2918;stroke-width:1.0;"/><line style="stroke:#2C2918;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="27.5" x2="224.5" y1="600.8828" y2="600.8828"/><text fill="#000000" font-family="VL P Gothic" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="39.5" y="596.0264">14</text><text fill="#000000" font-family="VL P Gothic" font-size="13" lengthAdjust="spacing" textLength="86" x="57.5" y="596.0264">Start of service</text><!--MD5=[b57e7de3205cd717512e9db24c4b20aa]
+@startuml
+ 
+skinparam default {
+  FontName "VL P Gothic"
+}
+
+skinparam sequence {
+  ArrowColor #2C2918
+
+  ActorBorderColor #3E3F41   
+  ActorBackgroundColor #F7F7F7
+  ActorFontColor #3E3F41
+  ActorFontSize 14
+
+  LifeLineBorderColor #A19B88
+  LifeLineBackgroundColor #F7F7F7
+     
+  ParticipantBorderColor #3E3F41
+  ParticipantBackgroundColor #F7F7F7
+  ParticipantFontSize 14
+  ParticipantFontColor #3E3F41
+   
+  BoxLineColor #A19B88
+  BoxBackgroundColor #F7F7F7
+}
+
+
+actor "User" as User
+
+box "Switch"
+  participant "Application" as NXApp
+  participant "nn:account" as NXActMgr
+end box
+
+ 
+box "Nintendo Account Server"
+  participant "Authentication Endpoint" as AuthEP
+end box
+
+box "Nintendo Authentication Server"
+  participant "Authentication Endpoint" as AuthEP
+  participant "Public Key Endpoint" as CertEP
+end box
+
+participant "Independent Server" as LoginEP
+
+ 
+autonumber 1
+
+User -> NXApp: Begin using network services
+activate NXApp
+ 
+NXApp -> NXActMgr: NSA ID token request
+activate NXActMgr
+NXActMgr -> AuthEP: NSA ID token request
+activate AuthEP
+
+AuthEP -> AuthEP: Authentication
+NXActMgr <- - AuthEP : Authentication result
+deactivate AuthEP
+
+NXApp <- - NXActMgr : Authentication result
+deactivate NXActMgr
+
+ 
+NXApp -> LoginEP : Access request (NSA ID token)
+activate LoginEP
+alt "If there is no key for NSA ID token verification"
+  LoginEP -> CertEP: Getting a public key
+  LoginEP <- - CertEP: Public key
+  LoginEP -> LoginEP: Public key cache
+end
+LoginEP -> LoginEP: NSA ID token verification
+LoginEP -> LoginEP : Authentication process
+NXApp <- - LoginEP : Session
+deactivate LoginEP
+
+User <- - NXApp : Start of service
+
+deactivate NXApp
+
+@enduml
+
+PlantUML version 1.2021.16(Thu Dec 09 02:25:22 JST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

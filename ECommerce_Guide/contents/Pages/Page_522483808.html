@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.4 For Developers | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.4 For Developers -->
+<div class="pagetitle" id="PageId_522483808">7.4 For Developers</div>
+<div class="text_separate">
+<h1 id="Anchor_522483808_h1_1">Registering Primary Consoles for Development Hardware</h1>
+<p>For device-based sharing type items, you must register the primary console on Nintendo eShop using one of the following methods.</p>
+<ul>
+  <li>Use the DevMenuCommand feature for registering the primary console.</li>
+  <li>Register in the shop menu of DevMenu.</li>
+  <li>Start Nintendo eShop and complete the initial startup sequence. After completing the initial startup sequence, set the primary console in <strong>Account Information</strong>.</li>
+</ul>
+<h1 id="Anchor_522483808_h1_2">Independent Server Settings</h1>
+<p>The following information must be stored on the independent server as parameters for implementing various requests for subscription service items.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Overview</th>
+    </tr>
+    <tr>
+      <td>Base URL of subscription service item server</td>
+      <td>
+        <p>For more information, see <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a> &gt; Correspondence Between Environment Identifiers and FQDNs of Subscription Service Item API Endpoints.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Client ID/Secret</td>
+      <td>Used when sending requests to the subscription service item server.</td>
+    </tr>
+    <tr>
+      <td>Course ID</td>
+      <td>Used when sending requests to the subscription service item server.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_522483808_h1_3">Adding Licenses in a Development Environment</h1>
+<p>Use one of the following procedures to add licenses in the development environment.</p>
+<ol>
+  <li>Use the API described in <a href="../Pages/Page_471905172.html">7.4.3.5 Add License API</a> to grant a license to any account.</li>
+  <li>Use NCMS to sell subscription service items on the development environment (dd1) Nintendo eShop, and to purchase subscription service items from the development environment Nintendo eShop.<br />For more information about sales methods for Nintendo eShop in the development environment, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</li>
+</ol>
+<h1 id="Anchor_522483808_h1_4">Testing Error Handling</h1>
+<p>The subscription service item server APIs may sometimes fail, such as when the Nintendo eShop server is down for maintenance. For more information about API responses when an error occurs, see <a href="../Pages/Page_471905168.html">7.4.3.1 Overview</a>.</p>
+<p>The following two methods are available for testing error handling.</p>
+<ul>
+  <li>Set errors for a specified account using the Web tool.<ul><li><a href="../Pages/Page_522485404.html">7.4.2 Online Tool for Error Settings</a></li></ul></li>
+  <li>Set errors for a specified account using the server API for debugging.<ul><li><a href="../Pages/Page_471905175.html">7.4.3.9 FOR DEBUGGING: API for Mandatory Error Settings</a></li><li><a href="../Pages/Page_471905176.html">7.4.3.10 FOR DEBUGGING: API for Clearing Mandatory Error Settings</a></li></ul></li>
+</ul>
+<p>Although the implementation of error handling is generally handled by the independent server, if an error is defined in the Nintendo Switch Guidelines as to be displayed in the application, use the error viewer applet to display the error to the user. For more information about calling the error viewer, see the following section.</p>
+<h3 id="Anchor_522483808_h3_1">NintendoSDK NX Add-On 7.0.0 or later</h3>
+<p>Use <code>nn::err::MakeErrorCode()</code> to generate an error code for the subscription service item. For the second parameter, specify the <code>code</code> value included in the error response from the server API.</p>
+<div class="code">
+  <a name="AutoAnchor_522483808_code001"></a>Code 7-1  Calling the Error Viewer Applet in NintendoSDK NX Add-On 7.0.0 or Later</div>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nn">nn::err::</span><span class="n">ErrorCode</span> <span class="n">err</span> <span class="o">=</span> <span class="nn">nn::err::</span><span class="n">MakeErrorCode</span><span class="p">(</span><span class="nn">nn::err::ErrorCodeCategoryType::</span><span class="n">SubscriptionService</span><span class="p">,</span> <span class="mi">1234</span><span class="p">);</span> <span class="c1">// 1234 is the code included in the error response from the API.
+</span><span class="nn">nn::err::</span><span class="n">ShowError</span><span class="p">(</span><span class="n">err</span><span class="p">);</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_522483808_h3_2">Versions earlier than NintendoSDK NX Add-On 7.0.0</h3>
+<p>To display the appropriate error message in the error viewer applet, call <code>nn::err::ShowError(ErrorCode errorCode)</code> with <code>2621</code> (the category code for a subscription service item) specified for the <code>category</code> public variable of the <code>nn::err::ErrorCode</code> structure, and set the <code>code</code> value included in the server API error response specified for the <code>number</code> public variable.</p>
+<div class="code">
+  <a name="AutoAnchor_522483808_code002"></a>Code 7-2  Calling the Error Viewer Applet in Versions Earlier Than NintendoSDK NX Add-On 7.0.0</div>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nn">nn::err::</span><span class="n">ErrorCode</span> <span class="n">err</span><span class="p">;</span>
+<span class="n">err</span><span class="p">.</span><span class="n">category</span> <span class="o">=</span> <span class="mi">2621</span><span class="p">;</span> <span class="c1">// Subscription service item error category.
+</span><span class="n">err</span><span class="p">.</span><span class="n">number</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span> <span class="c1">// Set code included in the error response of the API.
+</span><span class="nn">nn::err::</span><span class="n">ShowError</span><span class="p">(</span><span class="n">err</span><span class="p">);</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

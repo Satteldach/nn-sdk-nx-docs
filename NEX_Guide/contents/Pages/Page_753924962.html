@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.5 Applications for China | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.5 Applications for China -->
+<div class="pagetitle" id="PageId_753924962">5.5 Applications for China</div>
+<div class="text_separate">
+<h1 id="Anchor_753924962_h1_1">Usage Requests</h1>
+<p>Before submitting a request to use the game server in OMAS, discuss and agree on internet communication specifications with Tencent in advance.</p>
+<h1 id="Anchor_753924962_h1_2">Game Servers Are Set Up in China</h1>
+<p>The game servers used by applications for China are <strong>set up in China</strong> for all of the environments (the development, Lotcheck, and production environments). On the other hand, game servers for global applications (applications for countries other than China) are set up outside of China.</p>
+<p>For this reason, game servers cannot be shared between applications for China and global applications.</p>
+<!--Remove-->
+<h1 id="Anchor_753924962_h1_3">Library Versions That Can Be Used</h1>
+<p>As a general rule, applications for China must use NEX library version 4.6.3 or later.<br />If you would like to use an older version of the NEX library, contact Nintendo and include the SDK version.</p>
+<h1 id="Anchor_753924962_h1_4">Game Server For Chinese Government Evaluation</h1>
+<p>If you need a dedicated game server for review purposes (a game server with a different game server ID than the retail product game server) when you submit your application for review by the Chinese government, follow the following procedure to make the request.</p>
+<ol>
+  <li>On the Nintendo Developer Portal, create a product (product B) separate from the actual product (product A).<ul><li>The name of product B should include a string indicating that this product is for evaluation purposes only.</li></ul></li>
+  <li>On OMAS, submit a game server usage request for product B. Select <strong>Yes</strong> for <strong>Whether to limit setup of the NEX server to the development environment (dd1).</strong></li>
+</ol>
+<h1 id="Anchor_753924962_h1_5">Nintendo Switch Online Application Policy</h1>
+<p>When you make NEX usage requests on OMAS for an application for China, you must be careful about the Nintendo Switch Online application policy set for the application.</p>
+<p>For more information, see Nintendo Switch Online Play Guide &gt; Nintendo Switch Online Support &gt; Support in Applications for China. (<a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/Docs/Guides/Online_Play_Guide/contents/Pages/Page_741362190.html" target="_blank" rel="noopener noreferrer">English</a>, <a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/Docs/Guides/Online_Play_Guide/contents/Pages/Page_741362190.html" target="_blank" rel="noopener noreferrer">Japanese</a>)</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Also see <a href="../Pages/Page_164355001.html">4.1 NEX General Considerations</a> &gt; Some NEX Services Cannot Be Provided to Users in Countries and Regions Where Nintendo Switch Online Memberships Are Not Available.</p>
+  </div>
+</div>
+<h1 id="Anchor_753924962_h1_6">Sample Demo Server</h1>
+<p>If you want to check whether the internet lines used by your application developers can connect to China before you submit the game server usage request on OMAS, use the following information to connect to the sample demo server that has been set up in China.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Application ID</th>
+      <th>Game Server ID Hexadecimal)</th>
+      <th>
+        <p>Access Key</p>
+      </th>
+    </tr>
+    <tr>
+      <td>01004cb01334a000</td>
+      <td>39E99600</td>
+      <td>12345678</td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>If you use the internet outside of China, you might not be able to connect to the game servers set up in China from your development hardware (or from retail units).</li>
+      <li>When you try connecting to the sample demo server, make sure that the preceding application ID is correctly entered in the NMETA file. If it is not entered correctly, NSA ID token authentication fails and you cannot connect to the game server.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_753924962_h1_7">Relay Server</h1>
+<p>NAT traversal is known to be more likely to fail when using P2P communication in China compared to other regions. To address this issue, intermediary servers (relay servers) are provided just for applications for China.</p>
+<p>Using relay servers increases the possibility of successful communication between Switch consoles when NAT traversal has failed or is not expected to succeed.</p>
+<p>If you want to use a relay server, contact Nintendo and include the following information.</p>
+<ul>
+  <li>Are you using the Pia library?</li>
+  <li>Are you using the NEX library's VSocket feature?</li>
+</ul>
+<!--Remove-->
+<h1 id="Anchor_753924962_h1_8">Distance Estimate Based on Internet Path Is Ignored</h1>
+<p>Using the score-based auto-matchmaking feature, the physical distance between Switch consoles (as determined by GeoIP) can be specified as a condition in matchmaking.</p>
+<p>However, this condition does not work for game servers used by applications for China. In that case, the behavior is the same as if all Switch consoles are connected from the same city (for example, Beijing).</p>
+<p>Specifically, the value of <code>SCORE_CONVERSION_TYPE_DISTANCE</code> (integer value 5) is <strong style="letter-spacing: 0.0px;">always <code>0</code> before conversion.</strong></p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The GeoIP Geolocation Overwrite Settings can be changed in NMAS2, but those settings are ignored.</p>
+    <!--Remove-->
+    <p class="auto-cursor-target">
+      <br />
+    </p>
+  </div>
+</div>
+<h1 id="Anchor_753924962_h1_9">Cannot View Statistics in SMAS</h1>
+<p>Statistics for game servers used by applications for China cannot be viewed in SMAS.</p>
+<p>We also have no plans to provide statistics through SMAS or other systems.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For an overview of SMAS, see <a href="../Pages/Page_164354991.html">3 Development/Usage Overview</a> &gt; Analysis.</p>
+  </div>
+</div>
+<h1 id="Anchor_753924962_h1_10">Data Uploaded By a User With a Specific Principal ID Can Be Deleted</h1>
+<p>To comply with the law, there will be situations where the data uploaded to a game server used by an application for China by a user with a specific principal ID (the <em>target</em>) will be deleted from the game server.</p>
+<p>We recommend that you emulate this state and confirm the following.</p>
+<ul>
+  <li>The application does not crash.</li>
+  <li>Web servers that access data using the NEX WebAPI do not crash.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>The operation to delete data can occur not only when the game server is down for maintenance, but also while the game server is running (while the application and the NEX WebAPI can connect to the game server).</li>
+    </ul>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>The operation to delete data is performed only in the production environment.</li>
+      <li>The target's network service account is deleted before the deletion operation is performed. As a result, the target can no longer log in to the game server.</li>
+      <li>When the deletion operation is performed, the target is logged out of the game server.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_753924962_h2_1">Emulation Example</h2>
+<p>Use the following combination to upload data to a game server and delete that data.</p>
+<ol>
+  <li style="list-style-type: none;">
+    <ul>
+      <li>An application created for testing purposes</li>
+      <li>NMAS2</li>
+      <li>NEX WebAPI</li>
+    </ul>
+  </li>
+</ol>
+<h2 id="Anchor_753924962_h2_2">What Gets Deleted</h2>
+<ul>
+  <li>Matchmaking<ul><li>The target's personal statistics. (The data is reset.)</li><li>Matchmaking sessions and persistent gatherings owned by the target. (They are disbanded.)</li></ul></li>
+  <li>Ranking (Ranking1)<ul><li>The target's common user data.</li><li>The target's scores (including the parameter (<code>Param</code>) for each score.</li></ul></li>
+  <li>Ranking2<ul><li>The target's common user data.</li><li>The target's scores (including the other data (<code>Misc</code>) for each score.</li></ul></li>
+  <li>Data Store<ul><li>Data owned by the target (including persistent data).</li></ul></li>
+  <li>
+    <span class="placeholder-inline-tasks">Subscriber</span>
+    <ul>
+      <li>Because the topics feature has been discontinued (see <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/announcement?articleId=319649703" target="_blank" rel="noopener noreferrer">Discontinuation of NEX Subscriber Topics feature</a> in Technical Information on the Nintendo Developer Portal), there is nothing to delete.</li>
+    </ul>
+  </li>
+</ul>
+<!--Remove-->
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Supplementary Information for Matchmaking</p>
+    <ul>
+      <li>The target is kicked out of all matchmaking sessions before being logged out. This kicking out is treated as a straightforward communication disconnection.</li>
+    </ul>
+    <p>Supplementary Information for Subscriber</p>
+    <ul>
+      <li>The user status (the status uploaded by the <code>nn::nex::SubscriberClient::UpdateUserStatus()</code> function) is deleted when a user logs out.<ul><li>This is a general specification that has nothing to do with the deletion operation.</li></ul></li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_753924962_h2_3">Dependencies</h2>
+<p>If your application manages the IDs for data of users other than the data of the local user, you must consider the possibility that those reference targets might cease to exist.</p>
+<p>For example, if user A's common user data for rankings contains the data IDs for data in the data store that is owned by user B (the target), that data might be deleted before the expiration dates for those data IDs.</p>
+<h3 id="Anchor_753924962_h3_1">Items That Might Reference the Data of Other Users</h3>
+<ul>
+  <li>Ranking<ul><li>Common user data</li><li>Parameter for each score (<code>Param</code>)</li></ul></li>
+  <li>Ranking2<ul><li>Common user data</li><li>Other data for each score (<code>Misc</code>)</li></ul></li>
+  <li>Data Store<ul><li>Meta binary for each separate set of data (data ID) (<code>MetaBinary</code>)</li></ul></li>
+  <li>Subscriber<ul><li>A string for each set of content</li><li>A binary for each set of content</li></ul></li>
+  <li>Application Save Data</li>
+  <li>Data managed by an independent server</li>
+</ul>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

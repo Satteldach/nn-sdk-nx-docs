@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 Overview | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 Overview -->
+<div class="pagetitle" id="PageId_275859443">2 Overview</div>
+<div class="text_separate">
+<h1 id="Anchor_275859443_h1_1">Network Service Accounts and Nintendo Accounts</h1>
+<p>The Switch network system uses two accounts: the network service account and the Nintendo Account. For more information about these different accounts, see the Nintendo Switch Account Guide.</p>
+<p>The Nintendo Account is explicitly created by the user and is used not only by Switch but also by smart device applications and multiple services like My Nintendo.</p>
+<p>The network service account is created automatically when a Nintendo Account is linked on a Switch device, and is used to identify users when using network services on the Switch.</p>
+<p>Independent servers generally identify users on a Switch by network service accounts and provide services accordingly. The service for linking Nintendo Accounts, described later, is an optional feature. It provides a way to use the Nintendo Account information and to share the user's data across platforms.</p>
+<p>Network service accounts and Nintendo Accounts are different accounts, so you must consider the following points.</p>
+<ul>
+  <li>
+    <strong>The internal IDs used to identify accounts are different.<br /></strong>Web services used from PC browsers and the like cannot get the internal IDs of network service accounts. As a result, if you want to share user data between a Nintendo Switch application and a web service, the Nintendo Account linking service must be supported both on Switch and the web service.</li>
+  <li>
+    <strong>There is no way to ensure that the network service account and the Nintendo Account associated on the independent server are held by the same individual.</strong>
+    <br />There is a 1:1 relationship between network service accounts and Nintendo Accounts, but that information is not available to the independent server. In addition, the associations between network service accounts and Nintendo Accounts can be removed and changed by operations by Nintendo.<br />For these reasons, if your independent server will associate network service accounts with Nintendo Accounts, note that the Nintendo Account associated with a network service account might at some point be removed or changed.<br />To deal with associations made in error between network service accounts and Nintendo Accounts, we recommend adding the functionality to unassociate and reassociate the Nintendo Accounts associated with users managed on the independent server.</li>
+</ul>
+<h2 id="Anchor_275859443_h2_1">Information About Nintendo Switch Applications for China</h2>
+<p>Nintendo Switch consoles for China use a different account system than Switch for other regions.</p>
+<p>Nintendo Switch consoles for China cannot link with Nintendo Accounts. Nintendo Switch consoles for China must log in to a WeChat (messenger application) account to use network services. A network service account identical to the account on Nintendo Switch systems for other regions is created at this time.</p>
+<h1 id="Anchor_275859443_h1_2">Services for Independent Servers</h1>
+<p>This document describes the following two services, which are provided for independent servers.</p>
+<h2 id="Anchor_275859443_h2_2">Authentication Service for Switch Network Service Accounts</h2>
+<p>The authentication service for network service accounts for Switch (hereafter authentication service) ensures the validity of the Switch client connecting to the independent server.</p>
+<p>The authentication service is implemented by authenticating, with the independent server, the NSA ID token obtained from the Switch application. As a result, it must be supported by both the Switch application and the independent server.</p>
+<p>When using an independent server, the NSA ID must be obtained in the application according to the guidelines. Sending the NSA ID token to the independent server and authenticating it is not mandatory, but it is strongly recommended.</p>
+<p>The NSA ID contains the ID for identifying the user (network service account). Use this ID to provide the appropriate service based on the user.</p>
+<p>For more information about the authentication service, see <a href="../Pages/Page_115067964.html">3 Connecting to an Independent Server</a>.</p>
+<h2 id="Anchor_275859443_h2_3">Linking Service for Nintendo Accounts and Accounts for China</h2>
+<p>The linking service for Nintendo Accounts and accounts for China is a service that provides functionality to application-specific services to do things like sign in with these accounts and obtain profile information.</p>
+<p>For more information about the plans and features that you can implement, see these following sections.</p>
+<ul>
+  <li>
+    <a href="../Pages/Page_126568335.html">4 Linking With Nintendo Accounts</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_853754431.html">5 Linking With Accounts for China</a>
+  </li>
+</ul>
+<p>The account linking service is an optional feature, and if it is not needed to implement plans, you do not need to support it.</p>
+<p>You must support the authentication service to use the account linking service in a Switch application. Note that the account linking service is not a replacement for the authentication service.</p>
+<h1 id="Anchor_275859443_h1_3">Process for Developing and Operating an Independent Server</h1>
+<p>For more information about the process for developing and operating an independent server, see <a href="../Pages/Page_115067985.html">2.1 Flow From Development to Operation</a>.</p>
+<h1 id="Anchor_275859443_h1_4">Nintendo Platform Server Environments</h1>
+<p>Server services provided by Nintendo platforms exist in multiple environments.</p>
+<p>The development-specific environment called <strong>dd1</strong> is used during development, but the service provided to users in the production environment is called <strong>lp1</strong> when the product is released. In addition, specialized environments (<strong>sd1</strong>, <strong>sp1</strong>) are also used during Lotcheck (the final inspection for products at Nintendo).</p>
+<p>The independent server provides services for appropriate environments based on the timing at which these environments are used.</p>
+<p>For more information, see <a href="../Pages/Page_115067988.html">6 Server Environments</a>, <a href="../Pages/Page_115344146.html">7 Lotcheck</a>, and <a href="../Pages/Page_115344118.html">8 Independent Server Development</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

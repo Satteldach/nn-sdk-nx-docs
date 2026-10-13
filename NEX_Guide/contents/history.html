@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="tocData.js"></script>
+<script type="text/javascript" src="tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="template/css/template.css" />
+<title>Revision History | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- Revision History -->
+<div class="pagetitle" id="GuidelineHistoryLabel">Revision History</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<!--Remove-->
+<p class="auto-cursor-target">
+  <br />
+</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Date of Update</th>
+      <th>Category</th>
+      <th>
+        <div class="tablesorter-header-inner">Revisions</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>13.0</td>
+      <td>2023-07-05</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>
+            <a href="Pages/Page_165763523.html">2 Server Services Functionality</a>
+            <br />Added a note about the topics feature being discontinued to Subscribers &gt; Topics. Added &quot;(Discontinued)&quot; to the title of the Topics section.</li>
+          <li>
+            <a href="Pages/Page_164354991.html">3 Development/Usage Overview</a>
+            <ul>
+              <li>Added a note to the Planning section about how as a general rule, we will stop accepting new requests to use NEX in August 2023. Added a Sample Demo Server section and moved the description of the sample demo server to it.</li>
+              <li>Added information to Development and Debugging &gt; Requesting Use to clarify that you should only select <strong>Yes</strong> for the OMAS <strong>Use NEX in Development Environment (dd1) Only</strong> field if it is a product that you do not plan to provide to end users.</li>
+            </ul>
+          </li>
+          <li>
+            <a href="Pages/Page_164355001.html">4.1 NEX General Considerations</a>
+            <br />Separated the information in Logging In From a Windows Application based on the version of NintendoSDK being used.</li>
+          <li>
+            <a href="Pages/Page_753924962.html">5.5 Applications for China</a>
+            <ul>
+              <li>Deleted &quot;This deletion operation is scheduled to come into effect starting as soon as early February 2023&quot; from the note in Data Uploaded By a User With a Specific Principal ID Can Be Deleted.</li>
+              <li> Added the following to Data Uploaded By a User With a Specific Principal ID Can Be Deleted &gt; What Gets Deleted.<ul><li>Subscribers no longer need to be listed because the topics feature has been discontinued.</li><li>If a user is kicked out of a matchmaking session, it is treated as a straightforward communication disconnection.</li></ul></li>
+            </ul>
+          </li>
+          <li>
+            <a href="Pages/Page_1119052243.html">5.6 Friend Presence</a>
+            <br />In the lead sentence, clarified that &quot;friend presence privacy&quot; is a NintendoSDK <code>friends</code> library term.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>12.0</td>
+      <td>2022-12-21</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Development/Usage Overview<ul><li>Added a Note block in Development and Debugging &gt; Server Load Considerations noting that the application might receive a communication error if the development environment game server experiences a continued high load.</li><li>In Go Live, added the OMAS Phase section and the Timing of When Game Server Is Available section. In Change in the OMAS Phase, added an exception condition where the OMAS phase of the release changes to <strong>In Service</strong> after a patch has been distributed.</li><li>Added a Note block in Go Live instructing developers to confirm that the game server has been set up before releasing their application.</li></ul></li>
+          <li>Applications for China<br />Added Data Uploaded By a User With a Specific Principal ID Can Be Deleted.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>11.0</td>
+      <td>2022-04-21</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Development/Usage Overview <br />In Go Live, added information to the Info block noting that you must verify that the phase on OMAS has changed to In Service before releasing the application.</li>
+          <li>NEX General Considerations <br />In Number of Data Instances That NEX Can Handle &gt; Data Store, added information to the Info block noting that when data is logically deleted, the validity period for that data is automatically shortened.</li>
+          <li>Ranking<ul><li>Changed some of the wording in the Using a Large Number of Ranking Categories section and the Uploading Dummy Scores to a Ranking Category for Debugging section.</li><li>Added Debugging When There Are No Scores in the Rankings.</li><li>Added an Info block to Linking With Data Stores, noting that the same method can be used with Ranking2.</li></ul></li>
+          <li>Applications for China <br />In Relay Server, included &quot;intermediary server&quot; (another name for a relay server).<br />Revised the text to indicate that P2P communication may still not succeed even if a relay server is used.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>10.0</td>
+      <td>2021-09-15</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Server Operations<br />Updated Automatically Copying Game Server Settings &gt; Timing of Copying to reflect the renaming of the OMAS request item to <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong>.</li>
+          <li>Patches and Compatibility<ul><li>Made the following changes to Breaking Compatibility Between Versions When Distributing a Patch.<ul><li>Overall reorganization.</li><li>Deleted the section heading Notes About Breaking Compatibility.</li><li>Updated the page to reflect the planned renaming of an NCMS request item to <strong>Force Update Flag (use authentication server to break compatibility)</strong>.</li><li>Updated the page to reflect the renaming of an OMAS request item to <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong>.</li></ul></li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">9.0</td>
+      <td rowspan="2">2021-07-16</td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>Friend Presence</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Development/Usage Overview<br />Added text to the Go Live section noting that you cannot specify the day that the production environment game server will be set up.</li>
+          <li>NEX General Considerations<br />Added the section Logging in From a Windows Application.</li>
+          <li>Applications for China<ul><li>Added the following page subsections.<ul><li>Game Servers Are Set Up in China</li><li>Library Versions That Can Be Used</li><li>Game Server For Chinese Government Evaluation</li><li>Nintendo Switch Online Application Policy</li></ul></li><li>In the Relay Server section, readers are now instructed to contact Nintendo for more information about the use of the Pia library, rather than being instructed to see the Readme file.</li></ul></li>
+          <li>Login/Common Features<br />Added possible causes for &quot;Why do my game server logins always fail?&quot;</li>
+          <li>Requesting and Preparing a Game Server<br />Deleted &quot;Why can't I connect to the game server?&quot;</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;">8.0</td>
+      <td style="width: 59.0px;">2021-02-12</td>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Development/Usage Overview<br />Divided Development and Debugging into three sections: Requesting Use, Setup, and Server Load Considerations. Added that if you want to use NEX in a future patch, you can request to use NEX in OMAS in advance.<br />Added that when a production environment game server is established during the go live process, the OMAS release phase changes to In Service.<br />Rephrased wording.</li>
+          <li>NEX General Considerations<ul><li>Added the following information to Number of Data Instances That NEX Can Handle.<ul><li>For matchmaking, noted the need to close and remove matchmaking sessions as appropriate.</li><li>For Ranking (Ranking2), noted the need to consider both whether periodic resets are enabled and the number of past sessions of data that will be saved when you estimate the total number of scores.</li></ul></li><li>In Required Connection Environment for Connecting to the Game Server, added that accessing servers other than the game server may occur.</li><li>Rephrased wording.</li></ul></li>
+          <li>Data Store<br />Added Making the Scope of Data Update Permissions as Small as Possible.</li>
+          <li>Matchmaking<br />Renamed Matchmaking Sessions That Are Not Closed, changing it to Do Not Unnecessarily Increase the Total Number of Matchmaking Sessions. Deleted the description and replaced it with a link to NEX General Considerations &gt; Number of Data Instances That NEX Can Handle.</li>
+          <li>Server Operations<br />Added an Info block to Automatically Copying Game Server Settings, noting that the settings are managed per game server, so you must be careful that there are no conflicts among applications that share a game server.</li>
+          <li>Applications for China<br />Added Cannot View Statistics in SMAS (statistics for game servers used by applications for China cannot be viewed in SMAS).</li>
+          <li>Requesting and Preparing a Game Server<br />Added &quot;The NEX library is linked to the application but is not being used&quot; to the FAQ.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;">7.0</td>
+      <td style="width: 59.0px;">
+        <p>2020-10-29</p>
+      </td>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>General<br />Corrected errors and typos. Standardized terminology.</li>
+          <li>Server Services Functionality<br />Revised the example in Ranking &gt; Ranking of the use of group values, replacing the example using countries with an example using power levels defined in the application.<br />In Subscribers &gt; Topics, added that up to 128 topics can be used.</li>
+          <li>Development/Usage Overview<br />Replaced the link to OMAS (OMAS1) in Development and Debugging with the link to OMAS2.</li>
+          <li>NEX General Considerations<br />Revised the text in Breaking Compatibility and Version Connection Errors to match the latest NEX library specifications.<br />Added a subsection entitled Some NEX Services Cannot be Provided to Users in Countries and Regions Where Nintendo Switch Online Memberships Are Not Available.</li>
+          <li>Matchmaking<br />&quot;Using MATCHMAKE_SELECTION_METHOD_SCORE_BASED as a Selection Method For Auto-Matchmaking&quot; was renamed to &quot;Score-Based Auto-Matchmaking.&quot;<br />Added text to Error Displayed When the Blocked-User List Is Enabled noting that the error relates to joining matchmaking sessions using a method other than auto-matchmaking.</li>
+          <li>Server Operations<ul><li>Made the following additions to Automatically Copying Game Server Settings.<ul><li>For the Matchmaking feature, the matchmaking referee settings item was added to the copy targets.</li><li>For the Ranking2 feature, the ranking chart is an item that is already copied.</li><li>For the Ranking2 feature, the season information in the settings for each category type is not copied.</li></ul></li><li>Made the following changes to Impact of Maintenance and Maintenance Notifications.<ul><li>Added that it is necessary to consult with Nintendo in advance to use the scheduled maintenance notifications.</li><li>Added that the maintenance notification settings can be changed from NMAS2.</li><li>Changed the name of Sending Maintenance Notifications, renaming it to Receiving Maintenance Notifications.</li><li>Deleted the Maintenance Notification Settings section.</li></ul></li></ul></li>
+          <li>Patches and Compatibility<br />Changed the description in Restart the Game Server and Remove Logged-In Users to match the name change for a request item.</li>
+          <li>Applications for China<br />Added Sample Demo Server.</li>
+          <li>Requesting and Preparing a Game Server<br />In &quot;Why did my game server suddenly stop working?&quot; added that the server can temporarily stop at irregular times.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;" rowspan="2">6.0</td>
+      <td style="width: 59.0px;" rowspan="2">2019-12-03</td>
+      <td style="width: 45.0px;">Additions</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Applications for China</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Server Operations<br /> In the description for ③ in Impact of Maintenance and Maintenance Notifications &gt; Maintenance Flow and Impact on Users, noted that users cannot create new login sessions after the scheduled maintenance time has started.</li>
+          <li>NEX General Considerations<br />Added &quot;Do Not Upload Confidential Data to Game Servers.&quot;<br />In Checking the Overlay Display of Maintenance Notifications in the Development Environment &gt; Conditions for Displaying Maintenance Notifications as Overlays, removed the note about needing to run <strong>Upload notification token</strong> via the <strong>Account</strong> menu in DevMenu. This procedure was used in testing environments for system versions 7.x.x or earlier.<br />In Checking the Overlay Display of Maintenance Notifications in the Development Environment, removed the note that the NMAS2 maintenance notification settings change feature was being prepared.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;">5.0</td>
+      <td style="width: 59.0px;">2019-07-25</td>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>General<br />Changed the notation of NMAS (NMAS1) to NMAS2.</li>
+          <li>Development/Usage Overview<br />Added the Analysis section and a note about being able to check game server use statistics in SMAS.</li>
+          <li>Server Operations<br />In Automatically Copying Game Server Settings &gt; Copied Game Server Settings to Copy, removed <strong>Categories</strong> from the <strong>Ranking</strong> row in the table. In Important Information, corrected the description where category settings for rankings were automatically copied.<br />In Impact of Maintenance and Maintenance Notifications &gt; Maintenance Notification Settings, noted that the change settings feature in the NMAS2 maintenance notification is being prepared.</li>
+          <li>WebAPI<br />In Processes Configurable Only From the WebAPI, noted that no Ranking WebAPI is provided.</li>
+          <li>NEX General Considerations<br />In Checking the Overlay Display of Maintenance Notifications in the Development Environment, added that the NMAS2 maintenance notification settings change feature is being prepared.</li>
+          <li>Ranking<br />Changed the way to add dummy data to use NEX Management System 2 when debugging added scores in rankings using dummy data.</li>
+          <li>Patches and Compatibility<br />In Breaking Compatibility Between Versions When Distributing a Patch, fixed part of the text about the OMAS application when breaking compatibility between versions when distributing a patch. Added that they must make a request in NCMS.<br />In Breaking the Compatibility of Features Without Restarting the Game Server, changed the expression &quot;earlier and latest versions of the application&quot; to &quot;unpatched and patched versions of the application&quot;.</li>
+          <li>Requesting and Preparing a Game Server<br />In &quot;Why did my game server suddenly stop working?&quot; added that the operation to automatically transition the game server into a temporarily suspended state has been deprecated in the development environment.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;">4.0</td>
+      <td style="width: 59.0px;">
+        <p>2019-01-10</p>
+      </td>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>General<br />Corrected errors and typos. Standardized terminology.</li>
+          <li>Data Store<br />Added Storage and Availability of Data on Server.</li>
+          <li>Server Operations<br />Rewrote the introductory text in Automatically Copying Game Server Settings. Deleted <strong>While the Lotcheck environment game server is stopped</strong> and added <strong>While the Lotcheck environment game server is being set up</strong> in its place.<br />Added a description to Common Products and Shared Game Servers about sharing a game server with applications that are not set to a common product.</li>
+          <li>Guidelines<br />Deleted Prohibition of Unnecessary Logins to Game Servers along with the update to the guidelines.</li>
+          <li>Ranking<br />Updated the number set in Using a Large Number of Ranking Categories for the limit on the frequency of calls to match the number set in the latest guideline.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;" rowspan="3">3.0</td>
+      <td style="width: 59.0px;" rowspan="3">2018-06-26</td>
+      <td style="width: 45.0px;">Additions</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Guidelines</li>
+          <li>WebAPI</li>
+          <li>NEX General Considerations</li>
+          <li>Patches and Compatibility</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 45.0px;">Changes</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Server Services Functionality<br />Added subheadings and made revisions to the Subscribers section of the page.<br />Added text about getting ranking charts to the Ranking2 section of the page.<br />Made other revisions to the overall page.</li>
+          <li>Development/Usage Overview<br />Changed the Releasing Patches section to Distributing Patches, and revised the text. Deleted Breaking Compatibility When Releasing a Patch.</li>
+          <li>NEX General Considerations<br />Added information about displaying error messages to Initializing and Logging In.<br />Deleted Login and Logout Frequency.<br />Deleted Disconnecting NIFM During Asynchronous Processing.<br />Added Network Disconnection During Asynchronous Processing.<br />Added the target thread modes to Threads on Which NEX Functions Are Called, and revised the description.</li>
+          <li>Matchmaking<br />Made revisions to the overall page.</li>
+          <li>Ranking<br />Added Notes About Deleted Score Data.</li>
+          <li>Server Operations<br />Made overall revisions to the text in Automatically Copying Game Server Settings.<br />Made overall revisions to the text in Common Products and Shared Game Servers.<br />Added Impact of Maintenance and Maintenance Notifications.</li>
+          <li>Data Store<br />Deleted Breaking Data Compatibility With an Application Update.</li>
+          <li>Ranking<br />Deleted Accessing Various Rankings With a High Frequency, Breaking Ranking Compatibility in Application Updates, and Separating Rankings by Region.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 45.0px;">Deletions</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Tips and Tricks &gt; Matchmaking</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 44.0px;" rowspan="2"> 2.0</td>
+      <td style="width: 59.0px;" rowspan="2">2017-03-13</td>
+      <td style="width: 45.0px;">Additions</td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>Server Operations</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 45.0px;">
+        <p>Changes</p>
+      </td>
+      <td style="width: 1096.0px;">
+        <ul>
+          <li>General<br />Corrected errors and typos. Standardized terminology.</li>
+          <li>Development/Usage Overview<br />Added Breaking Compatibility When Releasing a Patch as a subsection of Releasing Patches.</li>
+          <li>NEX General Considerations<br />Added Compatibility Break Version Connection Errors.<br />Added text to Initializing and Logging In describing the behavior when multiple Switch systems are linked to the same Nintendo Account.</li>
+          <li>Data Store<br />Deleted the example of an implementation for distinguishing data from Support for Handling Multiple Save Data Files. Added text describing the behavior when multiple Switch systems are linked to the same Nintendo Account.</li>
+          <li class="sv-pt-link">Ranking<br />Added a description of operations on NMAS to Uploading Dummy Scores to a Ranking Category for Debugging.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 44.0px;">1.0</td>
+      <td style="text-align: left; width: 59.0px;">2016-08-04</td>
+      <td style="width: 45.0px;">
+        <p>-</p>
+      </td>
+      <td style="width: 1096.0px;">Initial version.</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

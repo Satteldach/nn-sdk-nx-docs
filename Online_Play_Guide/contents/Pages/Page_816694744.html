@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6 Compatibility With Earlier Versions of an Application | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6 Compatibility With Earlier Versions of an Application -->
+<div class="pagetitle" id="PageId_816694744">6 Compatibility With Earlier Versions of an Application</div>
+<div class="text_separate">
+<h1 id="Anchor_816694744_h1_1">Cases Where There Is a Need to Break Compatibility With Earlier Versions</h1>
+<p>The Switch patch mechanism does not ensure that all users play the patched version of the application following the release of the patch. As a result, there is always a possibility that access to the independent server or the NEX/NPLN server comes from a mix of both the unpatched application (earlier versions) and the patched application (the latest version).</p>
+<p>If access from earlier versions of the application causes problems, you must stop such access so the features of the independent server or the NEX/NPLN server are unavailable to earlier application versions.</p>
+<p>If there is no problem with access from earlier application versions, there is no need to stop access to the independent server or the NEX/NPLN server from earlier versions.</p>
+<h1 id="Anchor_816694744_h1_2">Block Earlier Releases Gradually Using the Nintendo Authentication Server</h1>
+<p>If it is not necessary to block access from earlier versions of the application at the same time that the patch is released, you can set the Nintendo authentication server to break compatibility gradually.</p>
+<p>This method works for both independent servers and the NEX/NPLN server.</p>
+<h2 id="Anchor_816694744_h2_1">Configuring the Nintendo Authentication Server</h2>
+<p>When you set the distribution information for the patch in NCMS, select Force Update Flag (block earlier releases using authentication server) &gt; Force Update for that patch.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Nintendo Content Management System (NCMS) is a web tool for registering products to sell on Nintendo eShop. You can access it from the link in the Nintendo Developer Portal.</p>
+    <p>For more information about using NCMS, see NCMS Manual, which you can access from the NCMS menu.</p>
+  </div>
+</div>
+<h2 id="Anchor_816694744_h2_2">Behavior When the Force Update Flag Is Enabled</h2>
+<p>If you selected <strong>Force Update Flag (block earlier releases using authentication server)</strong> &gt; <strong>Force Update</strong> for the patch in NCMS, that setting is applied to the Nintendo authentication server when the patch is distributed.</p>
+<p>When the application gets an NSA ID token (by calling the <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code> function), an error belonging to the <code>nn::account::ResultNetworkCommunicationError</code> class (2124-3001) is returned to earlier (unpatched) versions of the application and they can no longer get an NSA ID token. This error is normally shown by the error viewer applet, and a message appears in the error viewer applet explaining that the application must install the latest patch.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>In the development environment, patches cannot be distributed and settings cannot be configured for the Nintendo authentication server.</p>
+    <p>You can generate the 2124-3001 error using the web tool. For more information about generating the error, see Nintendo Switch Network Error Simulation Manual.</p>
+  </div>
+</div>
+<p>You must get an NSA ID token before you can access an independent server and the NEX/NPLN server, so until the application gets a new NSA ID token, the user cannot access the independent server or the NEX/NPLN server.<br /></p>
+<h2 id="Anchor_816694744_h2_3">Notes</h2>
+<p>Note that, even if you have configured the authentication server so earlier versions of the application cannot get an NSA ID token, earlier releases cannot be blocked immediately after the patch has been distributed for the following reasons.</p>
+<ol>
+  <li>Even if the Nintendo authentication server has been set, it can take about a day for the setting that generates the error to be applied to all users.<ul><li>The Nintendo authentication server authenticates the legitimacy of the application, but that information is cached on the Switch for about a day.<br />While this cache is valid, the application version is not checked when the application gets an NSA ID token, so it gets an NSA ID token without an error.</li></ul></li>
+  <li>Earlier releases cannot be blocked while the session with the server is active.<ul><li>If the Nintendo authentication server is set to force the update, access to the server is blocked by making it impossible to get an NSA ID token.<br />For this reason, access to the server cannot be blocked while the session between the application and the server is active as long as the user does not need to get an NSA ID token.</li></ul></li>
+</ol>
+<h1 id="Anchor_816694744_h1_3">Block Earlier Releases Immediately</h1>
+<p>If you need to block access from earlier versions of the application at the same time that the patch is released, you must handle it using the independent server and the NEX/NPLN server.</p>
+<h2 id="Anchor_816694744_h2_4">Independent Servers</h2>
+<p>If access to the independent server from earlier versions of the application causes problems, you can block access from earlier versions by taking all of the following measures.</p>
+<ul>
+  <li>End active sessions between Switch and the independent server at the same time that the patch is released.</li>
+  <li>Use the independent server to check the application version value that is included in the NSA ID token, and deny access if the version is an earlier version.</li>
+</ul>
+<p>For more information, see Nintendo Switch Independent Server Setup Manual &gt; Independent Server Development.</p>
+<h2 id="Anchor_816694744_h2_5">NEX/NPLN Server</h2>
+<p>If access to the NEX/NPLN server from earlier versions of the application causes problems, you can block access from earlier versions by taking all of the following measures.</p>
+<ul>
+  <li>Add the setting to the Nintendo authentication server using the method described on this page in Configuring the Nintendo Authentication Server.</li>
+  <li>When submitting the patch on OMAS, select <strong>Yes</strong> for <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong>.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>Prior to the OMAS server update in October 2021, <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong> was called <strong>Restart NEX Server When Patch Is Released</strong>.</li>
+      <li>For NEX, also see Nintendo Switch NEX Guide &gt; Tips and Tricks &gt; Patches and Compatibility.</li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

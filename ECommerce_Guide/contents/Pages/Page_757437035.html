@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>8.1 Common | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 8.1 Common -->
+<div class="pagetitle" id="PageId_757437035">8.1 Common</div>
+<div class="text_separate">
+<p>This section describes common specifications and considerations when using the feature for getting information within applications.</p>
+<h1 id="Anchor_757437035_h1_1">How to Use</h1>
+<p>Feature for getting information within applications use the <code>nn::ec::ShopServiceAccessor</code> class.</p>
+<p>The following workflow shows how information is acquired and jumps to the shop occur.</p>
+<ol>
+  <li>Specify the URL path string corresponding to the type of information you want to get in <code>nn::ec::ShopServiceAccessor::Request()</code>.</li>
+  <li>Get the JSON file as the response to <code>nn::ec::ShopServiceAccessor::AsyncResponse::Get()</code>.</li>
+  <li>Parse the JSON file to get the information, and then display it in the application.</li>
+  <li>Specify the identifier of the product selected by the user, and jump to the shop.</li>
+</ol>
+<p>For more information, see the API description in the NintendoSDK API Reference or the EcCatalog.</p>
+<h1 id="Anchor_757437035_h1_2">Setting Products to Be Hidden in Nintendo eShop</h1>
+<p>Products with this setting are not displayed when Nintendo eShop is started from the HOME menu. They are displayed only when the jump to eShop is made by specifying a product from within the application. Because you must go through the application to get to the shop, using this feature allows you to add the following conditions to product purchases.</p>
+<ul>
+  <li>Ensure that an application-specific account has been created before purchasing.</li>
+  <li>Provide sufficient description of the product content before purchasing.</li>
+  <li>Divide products according to where they can be purchased within the progress of the game.</li>
+</ul>
+<p>The settings for hiding products in Nintendo eShop must be configured by Nintendo in NCMS. For more information, contact Nintendo.</p>
+<h2 id="Anchor_757437035_h2_1">Notes About Hiding</h2>
+<h3 id="Anchor_757437035_h3_1">Not Displayed in Lists</h3>
+<p>Note that if a product is set to be hidden, it will not be shown if the jump to eShop is made using one of the following functions that display lists of item information.</p>
+<ul>
+  <li>Showing the list of downloadable content<br /><code>nn::ec::ShowShopAddOnContentList()</code></li>
+  <li>Showing the list of consumable service items<br /><code>nn::ec::ShowShopConsumableItemList()</code></li>
+  <li>Showing the list of subscription service items<br /><code>nn::ec::ShowShopSubscriptionList()</code></li>
+</ul>
+<p>For this reason, to jump to an item that has been hidden on eShop, make sure to use a function that specifies the item.</p>
+<h3 id="Anchor_757437035_h3_2">Sometimes Displayed in Unexpected Cases</h3>
+<p>Note that hidden products might be displayed in the following kinds of cases.</p>
+<ul>
+  <li>A malicious user accesses eShop in an unauthorized manner.</li>
+  <li>There is an issue with the application.</li>
+</ul>
+<h3 id="Anchor_757437035_h3_3">Use Cases Where Other Features Are Recommended</h3>
+<p>Consider using a different feature in the following use cases.</p>
+<ul>
+  <li>When applying temporary discounts<br />Use the temporary discount function.</li>
+  <li>When selling items that can only be obtained once within the application<br />Use the purchase limit function.</li>
+  <li>When selling items for free under certain conditions, such as purchase bonuses or individual code entry<br />Use the coupon function.</li>
+</ul>
+<h1 id="Anchor_757437035_h1_3">Requesting the Feature for Getting Information</h1>
+<p>You must make a request on OMAS to use this feature. In OMAS, in the list of e-commerce items, select <strong>Use the Ability to Get Item Information</strong>, and then select the target.</p>
+<h1 id="Anchor_757437035_h1_4">Development Environment Verification Settings</h1>
+<p>To validate this function in the development environment (dd1), each product must be registered with NCMS. For more information, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</p>
+<p>A function is provided as a debugging feature that displays an overlay notification of the requested information on the screen when accessing Nintendo eShop from the application. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Debugging &gt; Notifications of Access to Shop Services.</p>
+<h1 id="Anchor_757437035_h1_5">Important Information When Using Features for Getting Information</h1>
+<h2 id="Anchor_757437035_h2_2">Parsing a JSON File</h2>
+<p>The item information that can be obtained from Nintendo eShop is in JSON format. There is a possibility that additional elements may be added to the JSON with future changes to the Nintendo eShop server. Make sure that you consider such changes in the response when your application parses the JSON response. Specifically, see the following important information.</p>
+<ul>
+  <li>NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Debugging &gt; Response Simulation Feature.</li>
+  <li>NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Debugging &gt; JSON Compatibility Check Feature.</li>
+</ul>
+<p>The item information that can be obtained as a response is not sorted. To control the display sorting within the application, the application must support the item tag information described in the following section.</p>
+<h2 id="Anchor_757437035_h2_3">Using the NsUID</h2>
+<p>The <code>NsUID</code> (an ID identifying the item) is included within the item information that can be obtained from Nintendo eShop. To jump to a specific item in Nintendo eShop, pass this <code>NsUID</code> to the jump API. The <code>NsUID</code> value is different in each of the development environments, Lotcheck environment, and production environment. For this reason, do not embed the NsUID in the application. Always use the value obtained through the feature for getting service item information.</p>
+<h2 id="Anchor_757437035_h2_4">Frequency of Calling nn::ec::ShopServiceAccessor::Request()</h2>
+<p>Making frequent calls to the <code>nn::ec::ShopServiceAccessor::Request()</code> function can increase the time it takes for a response to return. As a rough guide, call this function no more than about 15 times in any minute.</p>
+<p>Please make calls as necessary. For example, if you always call the function each time the application is started, there is a possibility of a wave of access to the Nintendo eShop server, such as immediately after maintenance completes on the independent server used by the application. For this reason, we recommend avoiding such specifications and only calling the function when required, such as when the user actively moves to the in-application eShop.</p>
+<p>If possible, consider caching the obtained information for a period of time, including prices. However, if the price is changed, the price displayed in Nintendo eShop and the price in the in-application shop will not match for a time, which may create a disadvantage to the user. If you plan to change prices, consider not caching price information, or shortening the cache duration.</p>
+<p>Because the Nintendo eShop server is shared by all applications, there is the risk of users being unable to make application purchases if the load becomes heavy. Consider an implementation that reduces the load as much as possible.</p>
+<h2 id="Anchor_757437035_h2_5">Parameters for Requests to Get Information</h2>
+<h3 id="Anchor_757437035_h3_4">ShopServiceAccessor Alias Replacement</h3>
+<p>The ShopServiceAccessor alias replacement feature replaces <code>{applicationId}</code> with the application ID configured in the application's metadata (the NMETA file), and <code>{country}</code> with the country/region of residence of the Nintendo Account making the request. Unless you have a special reason, use the alias replacement function.</p>
+<p>If you use the alias replacement function and specify the request in the application as shown below, <code>{applicationId}</code> and <code>{country}</code> will be replaced when you actually make the request to the server.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>/v1/applications/{applicationId}/aocs/items?country={country}&amp;lang=ja</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When getting information about a title and bundles that include that title, if you are getting information about an application ID that is different from the one set in the metadata (<code>nmeta</code>) of the application, specify the application ID of the application you want to get in <code>{applicationId}</code>.</p>
+    <p>Information about applications other than the current product cannot be obtained.</p>
+  </div>
+</div>
+<h3 id="Anchor_757437035_h3_5">lang Parameter</h3>
+<p>Specify the language used by the application. If the specified language is available, the response is in that language. If not available, the response is in the default language for the country/region of residence of the Nintendo Account specified in the request.</p>
+<p>For example, if the country/region of residence of the Nintendo Account specified in the request is the US, the default language is en-US. As a result, if <code>country</code> (the Nintendo Account country/region of residence) in the request is <code>US</code> and the <code>lang</code> parameter is <code>ja</code> (Japanese), the <strong>lang</strong> in the response will be <code>en-US</code> and the language in the response will be English.</p>
+<h3 id="Anchor_757437035_h3_6">onsale_only Parameter</h3>
+<p>The <code>onsale_only</code> parameter indicates the sales status of the product. The default is <code>true</code>, which gets information about products in a state where they can be purchased from Nintendo eShop. To get information about products that are not available (registered but not available for purchase), specify <code>false</code>.</p>
+<table class="wrapped">
+  <colgroup> <col style="width: 100.0px;" /> <col style="width: 530.0px;" /> <col style="width: 301.0px;" /> <col /> </colgroup>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+      <th>Whether information can be obtained when onsale_only = true</th>
+      <th>Whether information can be obtained when onsale_only = false</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onsale</td>
+      <td>Product is being sold on Nintendo eShop.</td>
+      <td>
+        <p>Yes</p>
+      </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>not_onsale</td>
+      <td>Product information has been registered, but the product is not being sold on Nintendo eShop. For coupons, discontinued sales, unreleased, and so on.</td>
+      <td>
+        <p>No</p>
+      </td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>pre_order</td>
+      <td>Product is sold as a pre-order purchase.</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_757437035_h2_6">Item Tag Information</h2>
+<p>When getting downloadable content, subscription service items, and title information (including title information for bundles that include that title), a key and value set of information known as <em>item tag information</em> can be acquired as <code>item_tag</code>. For example, the key can specify &quot;equipment&quot; (a category common to the items), and the value can specify &quot;sword&quot; or &quot;shield,&quot; which is information specific to the item. Item tag information is set in NCMS.</p>
+<p>Item tag information is subject to the following restrictions.</p>
+<ul>
+  <li>Up to 30 tags can be set per item.</li>
+  <li>Duplicate keys cannot be set for a single item.</li>
+  <li>Keys and values may only contain uppercase and lowercase letters (a-z and A-Z), numbers (0-9), dashes (-), underscores (_), commas (,), and single-byte spaces.</li>
+  <li>The maximum length for keys is 64 characters, and the maximum length for values is 512 characters.</li>
+  <li>Empty keys and values cannot be set.</li>
+</ul>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>Item 1 (Wood Sword)
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;equipment&quot;, &quot;value&quot;: &quot;sword&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;available_time&quot;, &quot;value&quot;: &quot;early&quot;
+Item 2 (Wood Shield)
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;equipment&quot;, &quot;value&quot;: &quot;shield&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;available_time&quot;, &quot;value&quot;: &quot;early&quot;
+Item 3 (Gold Sword)
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;equipment&quot;, &quot;value&quot;: &quot;sword&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;key&quot;: &quot;available_time&quot;, &quot;value&quot;: &quot;late&quot;</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_757437035_h2_7">If You Need to Get Information for Over 100 Products</h2>
+<p>The <code><em>limit</em></code> parameter defines how many products can be obtained at a time, but the maximum is 100. To obtain information on more than 100 items, use the offset element and split the process into multiple get operations. The following example is the process for getting product information for 150 items.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">
+        <br />
+      </th>
+      <th colspan="2">Request</th>
+      <th colspan="2">Response</th>
+    </tr>
+    <tr>
+      <th>limit</th>
+      <th>offset</th>
+      <th>length</th>
+      <th>total</th>
+    </tr>
+    <tr>
+      <td>First Get Operation</td>
+      <td>100</td>
+      <td>0</td>
+      <td>100</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>Second Get Operation</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>150</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_757437035_h1_6">Response</h1>
+<h2 id="Anchor_757437035_h2_8">HTTP Status Codes and Error Responses</h2>
+<p>The following table shows the JSON response and HTTP status code that are returned as the result of getting information using ShopServiceAccessor.</p>
+<table class="relative-table wrapped" style="width: 30.2146%;">
+  <colgroup> <col style="width: 52.4217%;" /> <col style="width: 47.5783%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>
+        <p class="tableblock">400</p>
+      </td>
+      <td>
+        <p class="tableblock">Bad Request</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="tableblock">404</p>
+      </td>
+      <td>
+        <p class="tableblock">Not Found</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="tableblock">500</p>
+      </td>
+      <td>
+        <p class="tableblock">Internal Server Error</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the HTTP status code is not 200, the following error response is returned.</p>
+<table class="relative-table wrapped" style="width: 60.3433%;">
+  <colgroup> <col style="width: 3.56125%;" /> <col style="width: 11.1111%;" /> <col style="width: 16.5242%;" /> <col style="width: 11.396%;" /> <col style="width: 13.5328%;" /> <col style="width: 14.9573%;" /> <col style="width: 22.0798%;" /> <col style="width: 6.83761%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="2">Name</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="2">error</td>
+      <td>
+        <br />
+      </td>
+      <td>hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>code</td>
+      <td>Error code.</td>
+      <td>string</td>
+      <td>
+        <p>Four-digit decimal value</p>
+      </td>
+      <td>2001</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>message</td>
+      <td>Error message.</td>
+      <td>string</td>
+      <td>
+        <p>Text</p>
+      </td>
+      <td>
+        <pre>Invalid NA Token</pre>
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>{
+&nbsp;&nbsp;&quot;error&quot;: {
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;code&quot;: &quot;2001&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;message&quot;: &quot;Invalid NA Token&quot;,
+&nbsp;&nbsp;}
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

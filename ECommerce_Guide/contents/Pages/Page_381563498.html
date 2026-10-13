@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.3 User Save Data Controlled Method | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.3 User Save Data Controlled Method -->
+<div class="pagetitle" id="PageId_381563498">6.3 User Save Data Controlled Method</div>
+<div class="text_separate">
+<h1 id="Anchor_381563498_h1_1">Overview</h1>
+<p>The <em>user save data controlled method</em> is the method for saving a value provided to users that corresponds to a consumable service item in the user save data, without using an independent server. This <em>value provided to users</em> is the value in the application for purchased items like the following.</p>
+<ul>
+  <li>Stamina that can be used offline.<br />(Example: Stamina is consumed within the application to perform an action. Stamina recovers over time, or can be purchased while connected to the internet.)</li>
+  <li>Items that can be used within applications.<br />(Example: Herbs, used to recover a character's strength within the application.)</li>
+  <li>Currency that can be used within an application for purchasing items when offline.<br />(Example: Selling gold that can be used as a currency within the application. It would then be possible to buy, for example, one herb for one gold, even without a connection.)</li>
+</ul>
+<p>In contrast, license information is saved on independent servers for the independent server controlled method (see <a href="../Pages/Page_471905194.html">6.2 Independent Server Controlled Method</a>). For that method, the value provided to users is provided via communication between the application and the independent server. Although the user save data controlled method does not require the use of independent servers, some restrictions (described later) apply. <strong>In general, use the independent server controlled method.</strong> Carefully consider the use of the user save data controlled method, including whether the later-mentioned constraints cause issues, and also considering support costs incurred and other disadvantages.</p>
+<p>This section describes items within applications as an example of value provided to users.</p>
+<h1 id="Anchor_381563498_h1_2">Mechanism of the User Save Data Controlled Method</h1>
+<p>The entire process, from getting data for consumable service items to saving items within the application to user save data, occurs via communication between the application and the Nintendo eShop server. The process is as follows.</p>
+<ol>
+  <li>Purchase consumable service items in Nintendo eShop.</li>
+  <li>The application gets purchase information for consumable service items from the Nintendo eShop server.</li>
+  <li>Purchase information is saved to user save data.</li>
+  <li>The purchase information status in the Nintendo eShop server changes to <strong>Consumed</strong>.</li>
+  <li>Items within applications are saved to user save data.</li>
+</ol>
+<p>The following diagram shows these processes.</p>
+<div class="figure">
+  <a name="AutoAnchor_381563498_figure001"></a>Figure 6-4  Mechanism of the User Save Data Controlled Method</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_381563498/391856020.png" width="750" class="embedded-image" />
+  </span>
+</p>
+<p>These processes use the consumable service items client library.</p>
+<h1 id="Anchor_381563498_h1_3">Features Available From the Consumable Service Items Client Library</h1>
+<p>The consumable service items client library enables the following features.</p>
+<ul>
+  <li>Getting purchase data and status changes from the Nintendo eShop server</li>
+  <li>Converting to an item within the application, based on purchase data in the application</li>
+  <li>Protecting the overall user save data controlled method from power interruptions</li>
+</ul>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Consumable Service Items Client Libraries.</p>
+<h1 id="Anchor_381563498_h1_4">Restrictions and Notes</h1>
+<p>Note the following information and restrictions when using the user save data controlled method. If the restrictions are a problem, consider using the independent server controlled method to provide services.</p>
+<h2 id="Anchor_381563498_h2_1">Notifications Required When Deleting Save Data or Items Within an Application</h2>
+<p>With the user save data controlled method, items within applications are managed in save data. As a result, in-application items disappear along with the save data when initializing the Switch or deleting save data. This functionality is different from the independent server controlled method. For example, if a user clears save data after saving in-application items to that save data, those in-application items are lost. After in-application items are gone, <strong>they cannot be restored even after re-creating the save data, because the status for the purchase data on Nintendo eShop continues to be consumed.</strong> As a result, to get items within an application again, the user must repurchase them.</p>
+<p>
+  <strong>Warn users</strong> of the preceding points in the following places.</p>
+<ul>
+  <li>The information that appears in Nintendo eShop (including statements such as pre-purchase disclaimers)</li>
+  <li>The purchase screen in the application, the application's website, the operations manual, and elsewhere</li>
+</ul>
+<h2 id="Anchor_381563498_h2_2">Users Can Roll Back Save Data and Redo</h2>
+<p>The user's save data can be rolled back using the Save Data Cloud backup service of Nintendo Switch Online. If your application will use consumable service items that are controlled using user save data, make sure that you design the application to <strong>operate without problems even if the save data is rolled back</strong>. For example, users can repeatedly roll back save data to repeatedly enjoy a service like a single day of all-you-can-sing karaoke. If the ability to rollback save data will hamper the provision of services, consider using the independent server controlled method.</p>
+<p>As a result of save data rollbacks, you must pay attention to things like &quot;Gacha,&quot; a lottery where random items can be obtained, because it could change obtainable items each time. Standard implementations would allow such lottery-type items <strong>to be used over and over again</strong> when rolling back save data. A numerical value calculated from individual purchase information is provided in the consumable service items client library. Using this numerical value <strong>creates a fixed result instead of a random result, and solves the problem of repeated do-overs. The result is now the same no matter how many times the process is repeated, rendering repeats meaningless.</strong> For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Consumable Service Items Client Libraries.</p>
+<h2 id="Anchor_381563498_h2_3">Notifications Required When Deleting Items Within Applications When Rolling Back Save Data</h2>
+<p>After a consumable service item is purchased and acquired as an in-application item, if the save data is rolled back to prior to the purchase, the in-application item sometimes disappears. During such a rollback, the console warns about the possibility of lost purchased items, but you must also include such warning text within the application. In particular, <strong>in the case of specifications like the following where the user may want to roll back, warn users within the application.</strong></p>
+<ul>
+  <li>Type of obtained item is randomized</li>
+  <li>After an item is obtained, the state changes randomly</li>
+  <li>User can select from multiple targets (will also want to try other options)</li>
+</ul>
+<h2 id="Anchor_381563498_h2_4">In-Application Items Cannot Be Saved to Different Switch Systems</h2>
+<p>Purchase information becomes <strong>Consumed</strong> when saving items within applications to save data. <strong>You cannot save already obtained items to a different system</strong> even if it is between systems linked with the same Nintendo Account. However, through the Save Data Cloud Backup service, save data that includes items within applications can be transferred to a different system.</p>
+<h2 id="Anchor_381563498_h2_5">Cannot Use With the Independent Server Controlled Method</h2>
+<p>There is no way to distinguish between the independent server controlled method and the user save data controlled method for the purchase data available from Nintendo eShop servers. As a result, if the services provided with the independent server controlled method and user save data controlled method are different, <strong>a bug prevents the provision of necessary services</strong> when purchase data that was supposed to be processed on an independent server was instead processed in the application. You cannot use the independent server controlled method, but use the consumable service items client library to determine within the application whether the user purchased a consumable service item. The consumable service items client library <strong>cannot be used</strong> with the independent server controlled method because that use scenario was not incorporated into its design.</p>
+<h2 id="Anchor_381563498_h2_6">Cannot Get NSA ID Tokens</h2>
+<p>The user save data controlled method does not get NSA ID tokens with the application ID of the startup application when connecting to the Nintendo eShop server. Note that as a result, <strong>a connection to the Nintendo eShop server will work, even when a Switch Online subscription is needed or when the service has ended</strong>. The client ID and secret used for the independent server controlled method are not needed for the user save data controlled method. However, OMAS issues client IDs and secrets specifically for the dd1 development environment when debugging error handling in that environment. For more information about OMAS requests, see <a href="../Pages/Page_525143415.html">4.1 Usage Request on OMAS</a>.</p>
+<h2 id="Anchor_381563498_h2_7">Data That Associates Item IDs With In-Application Items Is Needed Within the Application</h2>
+<p>The item ID is included within the purchase data that the application gets from the Nintendo eShop server. The item ID is used by application developers as a string, up to sixteen alphanumeric characters long, configured for consumable service items to identify provided items. For example, if you sell &quot;one herb&quot; as a consumable service item set as item ID 0001 on NCMS, that consumable service item will have the item ID 0001 in the purchase data when it is purchased. Based on information linking that item ID and the item within the application, the application adds one herb to the save data. For this reason, you must <strong>embed the data that associates item IDs with items within applications in advance.</strong></p>
+<h2 id="Anchor_381563498_h2_8">Discussion Required for Method to Compensate Users</h2>
+<p>When you need to compensate users for some sort of trouble they have encountered, you can grant compensation by using independent server operations because provided services are managed on independent servers when using the independent server controlled method. Conversely, independent servers are not used for the user save data controlled method. <strong>As a result, it is difficult to offer compensation for items within applications.</strong> If you are still providing compensation, the following two main methods are available.</p>
+<ul>
+  <li>Using consumable service item download codes<br />For example, if &quot;one herb&quot; disappears from the save data because of an application bug, you can distribute the consumable service item download code for one herb to the affected users. Those users can then use that download code in Nintendo eShop to restore that one herb. However, these download codes can also be used by users who did not experience the issue, and it is impossible to know which users bought the consumable service item in the first place and experienced the issue. <strong style="letter-spacing: 0.0px;">Download codes can be used as compensation but you must carefully consider how they are used.</strong></li>
+  <li>Providing compensation outside of the application<br />Provide a mechanism for compensation based on user requests. Compensation is performed outside the application, so a method for making the compensated rights usable in the application is required. Rights granted as compensation are treated the same as purchased rights. Compensation is based on user reports and there are no methods for verifying save data status. <strong style="letter-spacing: 0.0px;">For this reason, you must consider effects such as users obtaining a consumable service item twice that typically can only be purchasable once.</strong> For example, consider making it impossible to use a particular item a second time. For more information about compensation methods, see <a href="../Pages/Page_494249216.html">6.3.1 Compensation Method</a>.</li>
+</ul>
+<h2 id="Anchor_381563498_h2_9">Important Notes When Selling Consumable Service Items With Purchase Limits</h2>
+<p>The number of purchases for consumable service items, which are sold in Nintendo eShop with purchase limits, are controlled per Nintendo Account. Because the number of available purchases remaining cannot be reset, there is a possibility that the display in the application and the display on Nintendo eShop may be different if the user save data has been re-created and the item is shown in the application. For example, if the user re-creates save data after purchasing and using a consumable service item with a purchase limit of one time, it is displayed as available for purchase in the application, but is not available for purchase in Nintendo eShop.</p>
+<p>The functionality for getting in-application item information returns the maximum number of each consumable service item that can be purchased, but does not return the number purchased by each user. Because the save data includes whether a user has purchased an item, the purchase information is deleted if the save data is deleted by a user operation, and items that are not actually available in Nintendo eShop are displayed as available in the application.</p>
+<h2 id="Anchor_381563498_h2_10">Caution Is Required When Placing Strict Restrictions on Consumable Service Item Purchases</h2>
+<p>Note that you cannot place restrictions on purchases by hiding consumable service items from view in Nintendo eShop, or limit purchase of consumable service items within the application by limiting getting information about them to a jump to eShop from the application. For example, after preparing two Nintendo Switch consoles and enabling the jump to eShop for both of them, you can jump to eShop with one, purchase a consumable service item, and then close the application without the rights being applied. At this point, if you then jump to eShop on the other console, purchase a consumable service item, and have the purchase rights applied on that console, you can then purchase more of the item than was supposed to be available on the eShop.</p>
+<h1 id="Anchor_381563498_h1_5">Differences From the Independent Server Controlled Method During Development</h1>
+<p>Development processes and debugging methods are nearly identical with those used for the independent server controlled method. Because of this, first see <a href="../Pages/Page_471905194.html">6.2 Independent Server Controlled Method</a>. When necessary, this documentation describes the differences from the independent server controlled method.</p>
+<h2 id="Anchor_381563498_h2_11">Testing Error Handling</h2>
+<p>For more information about error handling in the consumable service items client libraries, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Consumable Service Items Client Libraries, and the Nintendo Switch Guidelines.</p>
+<p>When the connection to the Nintendo eShop server failed, nn::ec::ResultShowErrorCodeRequired is returned from the consumable service items client library. The following two features are prepared to cause this error in the development environment. These features are also available for independent server controlled consumable service items.</p>
+<ul>
+  <li>Using the Web tool, set errors for a specified account.<ul><li><a href="../Pages/Page_471905202.html">6.2.2.1 Online Tool for Error Settings</a></li></ul></li>
+  <li>Using the debugging tools in the Server API, set errors for a specified account.<ul><li><a href="../Pages/Page_471905208.html">6.2.2.2.4 FOR DEBUGGING: API for Mandatory Error Settings</a></li><li><a href="../Pages/Page_471905209.html">6.2.2.2.5 FOR DEBUGGING: API for Clearing Mandatory Error Settings</a></li></ul></li>
+</ul>
+<p>The client ID and secret can only be used for this error setting for user save data controlled consumable service items. You can also only use server functions for setting and clearing errors.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

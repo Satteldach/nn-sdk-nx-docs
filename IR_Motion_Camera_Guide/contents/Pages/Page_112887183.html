@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4 Internal Processing | Nintendo Switch IR Motion Camera Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4 Internal Processing -->
+<div class="pagetitle" id="PageId_112887183">4 Internal Processing</div>
+<div class="text_separate">
+<p>This section describes the internal processing of features provided by the IR Motion Camera library.</p>
+<h1 id="Anchor_112887183_h1_1">Image Processing Overview</h1>
+<p>Because the background tends not to be visible in the IR image captured by the IR Motion Camera, the image processing performed is simpler and of higher accuracy than on a normal camera.<br />The following figure presents an example of image processing. It depicts the calculation of the center of luminosity for the image.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/113972578.png" width="652" class="embedded-image" />
+  </span>
+</p>
+<p>Some image processing, as shown in the figure, is performed either by the hardware engine inside the IR Motion Camera or by the MCU in the Joy-Con (R).<br />It is also technically possible to send the IR images to the console for processing.<br />However, because Bluetooth is used for communication between the console and the Joy-Con, this transfer of raw IR images results in a very slow frame rate.<br />Consequently, raw IR image processing on the console is only planned for some applications.<br />It is possible to capture compressed 40 x 30 images in real time by using hand analysis mode.<br />However, these compressed images contain a lot of noise and are not suitable for image processing on the console.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/124259463.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<p>The following section describes the internal processing of features provided by the IR Motion Camera library.<br />Contact Nintendo support when planning games where your image processing will not work even when using the following options, because it is possible that it will work as soon as Joy-Con MCU is supported.</p>
+<h2 id="Anchor_112887183_h2_1">Moment Mode (Image Processing With the Hardware Engine)</h2>
+<p>As shown in the following figure, an image with a resolution of 320 &times; 240 is divided into 48 40-by-40 blocks in an 8-by-6 grid.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/124259460.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<p>The following values are calculated for each block in the grid.</p>
+<ul>
+  <li>Average luminosity value</li>
+  <li>Luminosity center coordinates</li>
+</ul>
+<p>In other words, 48 sets of data that include the average luminosity value and the luminosity center coordinates are exported.<br />Combine the data from each of the 48 grid blocks to find the whole image's luminosity center coordinates.</p>
+<h2 id="Anchor_112887183_h2_2">Hand Analysis Mode (Image Processing With the MCU)</h2>
+<p>IR images are sent to the MCU in the Joy-Con (R).<br />The MCU performs image processing to recognize hand-related information.<br />Information such as the number of fingers, the center position of the palm, and an outline of the hand is exported as data.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/124259461.png" width="600" class="embedded-image" />
+  </span>
+</p>
+<p>Because this mode requires the hand to fall accurately within the IR Motion Camera's angle of view, you must adjust the hand's position.<br />For example, having a guide that shows the hand outline (as in the following image) makes hand positioning easier.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/113972583.png" class="embedded-image" />
+  </span>
+</p>
+<p>You can capture compressed 40 &times; 30 images similar to the following in real time, at the same time as hand data. These images can be used in the guide and for positioning.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/186026522.png" width="150" class="embedded-image" />
+  </span>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/186026521.png" width="160" class="embedded-image" />
+  </span>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/186026519.png" width="145" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_112887183_h2_3">Clustering Mode (Image Processing With the Hardware Engine)</h2>
+<p>As shown in the following figure, objects greater than a specific brightness (luminosity) value and size are detected and clustered.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/124259462.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>Data is exported that includes the average brightness value and the brightness focus coordinates for those clusters. (Some forms are not recognizable as clusters.)<br />Up to sixteen clusters can be detected. <br />You are free to set your desired parameters for the brightness value and size for detecting clusters.</p>
+<h2 id="Anchor_112887183_h2_4">Adaptive Clustering Mode (Image Processing With the Microcontroller)</h2>
+<p>Adaptive clustering mode detects clusters while changing the camera settings, such as exposure time and LED intensity, for each frame so that the markers pictured by the IR Motion Camera can be easily detected.<br />Think of it as a clustering mode with an auto-exposure compensation feature, specialized for detecting markers.<br />Also, even though there is less information for detectable objects compared to clustering mode, the number of clusters that can be detected is increased to 32.<br />We recommend selecting the mode that is more suitable for your use case.</p>
+<h2 id="Anchor_112887183_h2_5">Pointing Mode (Image Processing With the Hardware Engine)</h2>
+<p>Pointing mode is a mode for pointing using the IR Motion Camera. It works by detecting a dedicated retroreflector bar placed near the screen.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/438671414.png" width="640" class="embedded-image" />
+  </span>
+</p>
+<p>Determine the size of the retroreflectors in this figure, the distances between them, and recognize the retroreflector bar.<br />Later, the central point between the three points of the retroreflectors is set as the pointing coordinates.</p>
+<h2 id="Anchor_112887183_h2_6">IR LED Mode</h2>
+<p>IR LED mode is for using the IR Motion Camera not as a sensor (camera), but as an LED that can control IR illumination.</p>
+<p>It is primarily intended to be used for playing with multiple Joy-Con controllers, one of which emits light in this mode, and the other of which is used for taking photos with the IR Motion Camera.<br />However, because it takes time to switch the LED on or off, it is not suitable for data communication via high-speed signal switching.</p>
+<h2 id="Anchor_112887183_h2_7">Pulse Rate Measurement Mode</h2>
+<p>The pulse rate measurement mode is a mode where the IR Motion Camera emits an infrared signal to the tip of the user's finger, and the changes in the light reflected by the hemoglobin in the blood are measured to measure the user's approximate pulse rate.<br />As pictured in the following figures, if you press the ball of your thumb lightly against the IR Motion Camera and hold still for a while, there will be slight changes in brightness between the images depending on the amount of light that is reflected.<br />You can use this information to get an approximate pulse rate.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112887183/1267034069.JPG" height="250" class="embedded-image" />
+  </span> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_112887183/1291072939.jpg" height="250" class="embedded-image" /></span></p>
+<p>Also note that this feature is for obtaining the user's approximate pulse rate during a certain period of time, not for obtaining real-time changes in the pulse rate.<br />In addition to the approximate pulse rate, information such as measurement progress, reliability, and the cause of errors can be obtained from the library. We recommend using this information in the UI or elsewhere to guide the user so that they can perform measurements appropriately.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Nintendo Switch is not a medical device.<br style="text-align: left;" />The pulse rate obtained in pulse rate measurement mode is only an estimate. Do not use it for medical diagnosis, treatment, or prevention.<br />Consider these limitations when using this feature.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>We have not tested pulse rate measurement using any part of the body other than the surface of the thumb, and pulse rate measurement with other body parts is not supported. </p>
+  </div>
+</div>
+<p>Depending on how this feature is used, you might need to display cautionary text to users in order to draw their attention to this important information.<br />For more information, see <a href="../Pages/Page_112887217.html">3 What the IR Motion Camera Can Do</a> and the SDK documentation.</p>
+<h1 id="Anchor_112887183_h1_2">Image Transfer Mode</h1>
+<p>Primarily for debugging purposes, a mode is being prepared that can send 8-bit grayscale IR image data to the console in the following sizes: 320 &times; 240, 160 &times; 120, or 80 &times; 60.<br />Transferring a 320 &times; 240 raw image to the system can take under four seconds in ideal conditions where things like Bluetooth packet drops are not occurring.<br />Transferring an 80 &times; 60 raw image to the system can take under 0.25 seconds under ideal conditions where things like Bluetooth packet drops are not occurring.<br />There is a trade-off in data volume for transfer time.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

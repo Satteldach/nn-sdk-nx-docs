@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>8.5 Subscription Service Items | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 8.5 Subscription Service Items -->
+<div class="pagetitle" id="PageId_663950176">8.5 Subscription Service Items</div>
+<div class="text_separate">
+<h1 id="Anchor_663950176_h1_1">Overview</h1>
+<p>The following features are available.</p>
+<ul>
+  <li>Getting lists of course information from the Nintendo eShop server</li>
+  <li>Getting information about subscription service items associated with a specified course from the Nintendo eShop server</li>
+</ul>
+<h2 id="Anchor_663950176_h2_1">Implementation</h2>
+<p>Use the feature for getting course lists to get the list of courses associated with an application ID. Then use the feature for getting the list of subscription service items to get the list of items for the specified course. You can also use the Shop Jump API to specify the item identifier (NsUID) obtained here.</p>
+<h1 id="Anchor_663950176_h1_2">URL Path Specifications</h1>
+<h2 id="Anchor_663950176_h2_2">Feature for Getting List of Courses</h2>
+<p>This function gets the list of courses associated with an application ID.</p>
+<h3 id="Anchor_663950176_h3_1">Request</h3>
+<h4 id="Anchor_663950176_h4_1">URL Path</h4>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <p>/v1/applications/{applicationId}/courses</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="Anchor_663950176_h4_2">Parameter</h4>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>
+        <p>Default<br />(Optional is the only default)</p>
+      </th>
+      <th>Example</th>
+      <th>Remarks</th>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>Application ID.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>{applicationId}</td>
+      <td>
+        <p>Specify this value using a ShopServiceAccessor alias replacement.</p>
+        <p>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>Nintendo Account country code.</td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>{country}</p>
+      </td>
+      <td>Specify this value using a ShopServiceAccessor alias replacement.</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>Language Codes in IETF language tag format.</td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>en-US</td>
+      <td>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example path:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>/v1/applications/{applicationId}/courses?country={country}&amp;lang=ja</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_663950176_h3_2">Response</h3>
+<table class="wrapped relative-table" style="width: 97.9058%;">
+  <colgroup> <col style="width: 1.91131%;" /> <col style="width: 7.03364%;" /> <col style="width: 17.5076%;" /> <col style="width: 6.49847%;" /> <col style="width: 10.474%;" /> <col style="width: 12.6911%;" /> <col style="width: 7.49235%;" /> <col style="width: 36.3914%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="2">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="2">lang</td>
+      <td>The Nintendo eShop display language.</td>
+      <td>string</td>
+      <td>Language code in IETF language tag format<br /></td>
+      <td>&quot;en-US&quot;</td>
+      <td>Cannot be null</td>
+      <td>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</td>
+    </tr>
+    <tr>
+      <td colspan="2">courses</td>
+      <td>
+        <br />
+      </td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>id</td>
+      <td>Superscription course identifier.</td>
+      <td>string</td>
+      <td>
+        <p>16-digit alphanumeric</p>
+        <p>^[0-9A-Za-z]{16}$</p>
+      </td>
+      <td>&quot;aa5e5131d43ba0d4&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>name</td>
+      <td>Superscription course name.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;sample course&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>description</td>
+      <td>Description of superscription course.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;sample course - Explanation&quot;</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>disclaimer</td>
+      <td>Legally required text and disclaimers for subscriptions.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;sample course - Disclaimer&quot;</td>
+      <td>
+        <br />
+      </td>
+      <td>Refers to the &quot;attention&quot; field in NCMS.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;lang&quot;</span><span class="o">:</span> <span class="s2">&quot;ja&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;courses&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;aa5e5131d43ba0d4&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;sample course&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;sample course Explanation&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;disclaimer&quot;</span><span class="o">:</span> <span class="s2">&quot;sample course Disclaimer&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;d6d733334c51f61a&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;sample course2&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;sample course2 Explanation&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;disclaimer&quot;</span><span class="o">:</span> <span class="s2">&quot;sample course2 Disclaimer&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;<span class="p">]</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_663950176_h2_3">Feature for Getting the List of Subscription Service Items</h2>
+<p>This function gets the list of subscription service items associated with a course (Course ID).</p>
+<h3 id="Anchor_663950176_h3_3">Request</h3>
+<h4 id="Anchor_663950176_h4_3">URL Path</h4>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <td>/v1/applications/{applicationId}/courses/{courseId}/items</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="Anchor_663950176_h4_4">Parameter</h4>
+<table class="wrapped relative-table" style="margin-left: 1.5em; width: 97.3822%;">
+  <colgroup> <col style="width: 8.07071%;" /> <col style="width: 7.84012%;" /> <col style="width: 5.61107%;" /> <col style="width: 8.68563%;" /> <col style="width: 7.84012%;" /> <col style="width: 13.5281%;" /> <col style="width: 11.837%;" /> <col style="width: 36.5872%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>
+        <p>Parameter</p>
+        <p>Type</p>
+      </th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default (Optional is the only default)</th>
+      <th>Example</th>
+      <th>Remarks</th>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>Application ID.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>{applicationId}</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>course_id</td>
+      <td>Superscription course identifier.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>aa5e5131d43ba0d4</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specify a <code>course_id</code> obtained by the feature for getting the list of subscription courses.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>onsale_only</td>
+      <td>
+        <p>
+          <code>true</code>: Only get items with &quot;<code>onsale</code>&quot; sales status.</p>
+        <p>
+          <code>false</code>: Also get items with a sales status other than &quot;<code>onsale</code>.&quot;</p>
+      </td>
+      <td>boolean</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>true</td>
+      <td>true</td>
+      <td>Specify whether the item is available for purchase in the Nintendo eShop. For more information about this parameter, see <a href="../Pages/Page_757437035.html">8.1 Common</a>.</td>
+    </tr>
+    <tr>
+      <td>offset</td>
+      <td>The position at which to start getting items.</td>
+      <td>number</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>0</td>
+      <td>0</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>The maximum number to get.</td>
+      <td>number</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>100</td>
+      <td>10</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example path:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>/v1/applications/{applicationId}/courses/aa5e5131d43ba0d4/items?country={country}&amp;lang=ja</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>In this example, a request is made for the list of subscription service items for the course with <code>course_id</code> <code>aa5e5131d43ba0d4</code>.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>The <code><em>limit</em></code> parameter defines how many subscription service items can be obtained at a time, but the maximum is 100 items.</p>
+    <p>To obtain information on more than 100 items, use the offset element and split the process into multiple get operations. For a usage example of <code><em>limit</em></code> and <code><em>offset</em></code>, see <a href="../Pages/Page_757437035.html">8.1 Common</a>.</p>
+  </div>
+</div>
+<h3 id="Anchor_663950176_h3_4">Response</h3>
+<h4 id="Anchor_663950176_h4_5">Body</h4>
+<table class="relative-table wrapped" style="width: 97.9058%;">
+  <colgroup> <col style="width: 2.52294%;" /> <col style="width: 2.82875%;" /> <col style="width: 11.0856%;" /> <col style="width: 16.2844%;" /> <col style="width: 6.72783%;" /> <col style="width: 10.1682%;" /> <col style="width: 12.156%;" /> <col style="width: 13.3792%;" /> <col style="width: 24.8471%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="3">Name</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="3">lang</td>
+      <td>The Nintendo eShop display language.</td>
+      <td>string</td>
+      <td>Language code in IETF language tag format<br /></td>
+      <td>&quot;en-US&quot;</td>
+      <td>Cannot be null</td>
+      <td>For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a> &gt; lang Parameter.</td>
+    </tr>
+    <tr>
+      <td colspan="3">automatic_renewal_notice</td>
+      <td>Text about automatic renewal.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;message&quot;</td>
+      <td>Cannot be null</td>
+      <td>For more information, see About automatic_renewal_notice on this page.</td>
+    </tr>
+    <tr>
+      <td colspan="3">length</td>
+      <td>The number of items obtained.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>3</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">offset</td>
+      <td>The position at which to start getting items.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>0</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">total</td>
+      <td>Total obtainable number.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>3</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">course_items</td>
+      <td>Array of subscription tickets.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <code>null</code> if 0 tickets are acquired.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">ns_uid</td>
+      <td>NsUID for jumping to eShop.</td>
+      <td>long</td>
+      <td>
+        <p>Integer value</p>
+      </td>
+      <td>70090000000001</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">grant_minutes</td>
+      <td>Extension period, in minutes.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>1440</td>
+      <td rowspan="2">Cannot be null</td>
+      <td rowspan="2">
+        <div class="content-wrapper">
+          <p>Changes as described later based on the subscription service type.</p>
+          <table class="wrapped">
+            <tbody>
+              <tr>
+                <th>Type</th>
+                <th>grant_minutes</th>
+                <th>grant_months</th>
+              </tr>
+              <tr>
+                <td>Fixed term format</td>
+                <td>A value is entered.</td>
+                <td>null</td>
+              </tr>
+              <tr>
+                <td>Monthly format</td>
+                <td>null</td>
+                <td>A value is entered.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">grant_months</td>
+      <td>Extension period, in months.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">max_purchase_count</td>
+      <td>Maximum number that can be purchased.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>1</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <code>null</code> when undefined. (<code>0</code> cannot be set.)</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">automatic_renewal</td>
+      <td>Automatic renewal information.</td>
+      <td>hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <code>null</code> if there is no setting for automatic renewal.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>grant_minutes</td>
+      <td>Automatic renewal extension period, in minutes.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>10080</td>
+      <td rowspan="2">Cannot be null</td>
+      <td rowspan="2">
+        <p>Changes as described later based on the subscription service type.</p>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th>Type</th>
+              <th>grant_minutes</th>
+              <th>grant_months</th>
+            </tr>
+            <tr>
+              <td>Fixed term format</td>
+              <td>A value is entered.</td>
+              <td>null</td>
+            </tr>
+            <tr>
+              <td>Monthly format</td>
+              <td>null</td>
+              <td>A value is entered.</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>grant_months</td>
+      <td>Automatic renewal extension period, in months.</td>
+      <td>number</td>
+      <td>Integer value</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td colspan="2">item_tags</td>
+      <td>Array of user-defined attributes.</td>
+      <td>array hashmap</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Cannot be null</td>
+      <td>Empty when not configured.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>key</td>
+      <td>User-defined attribute key name.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;display_order&quot;</td>
+      <td>Cannot be null</td>
+      <td>Duplicate keys do not exist.</td>
+    </tr>
+    <tr>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>Value</td>
+      <td>User-defined attribute value.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;2&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;lang&quot;</span><span class="o">:</span> <span class="s2">&quot;en-GB&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;automatic_renwal_notice&quot;</span><span class="o">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;offset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;course_items&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;ns_uid&quot;</span><span class="o">:</span> <span class="mi">70080000001053</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_minutes&quot;</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_months&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;item_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;display_order&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">]</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;ns_uid&quot;</span><span class="o">:</span> <span class="mi">70080000001054</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_minutes&quot;</span><span class="o">:</span> <span class="mi">1800</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_months&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;item_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;display_order&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">]</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;ns_uid&quot;</span><span class="o">:</span> <span class="mi">70080000001051</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_minutes&quot;</span><span class="o">:</span> <span class="mi">12800</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_months&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;max_purchase_count&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;automatic_renewal&quot;</span><span class="o">:</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;grant_minutes&quot;</span><span class="o">:</span> <span class="mi">12800</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;item_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;display_order&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">]</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;<span class="p">]</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Because the items are not named, control the order in which items are displayed using <code>grant_minutes</code> and <code>grant_months</code>, or with <code>item_tags</code> as in the preceding example.</p>
+  </div>
+</div>
+<h5 id="Anchor_663950176_h5_1">About automatic_renewal_notice</h5>
+<p>If you are showing items that are automatically renewed and their prices in your application, you must display the text obtained by <code>automatic_renewal_notice</code> in the application. In some countries and regions, items that are automatically renewed cannot be sold, and they are replaced by regular items. This text is designed to draw attention to this fact. The application cannot determine whether items have been replaced this way, so simply display the text that is obtained. The text is translated based on the response <code>lang</code>.</p>
+<h5 id="Anchor_663950176_h5_2">About max_purchase_count and Subscription Service Items That Are Free the First Time</h5>
+<p>
+  <code>max_purchase_count</code> provides information about the maximum number of times a subscription service item can be purchased, so you can use it to distinguish those items that are free the first time.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Note that <code>max_purchase_count</code> always returns the maximum purchase count that was set for the item. As a result, if <code>max_purchase_count</code> is set to <code>1</code> for an automatically renewed item that is free the first time, the Nintendo Account that purchased that item gets <code>max_purchase_count=1</code> as the response even though no more of the subscription service item can be purchased. To purposefully not display a subscription service item in your application after it has been purchased, have the application determine whether that item has been purchased.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

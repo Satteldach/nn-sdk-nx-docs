@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>9.3 Supplemental Information and Considerations on Jump to eShop | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 9.3 Supplemental Information and Considerations on Jump to eShop -->
+<div class="pagetitle" id="PageId_745078729">9.3 Supplemental Information and Considerations on Jump to eShop</div>
+<div class="text_separate">
+<h1 id="Anchor_745078729_h1_1">Jump to eShop Landing Page and API Correspondence Chart</h1>
+<p>The following table presents the jump to eShop landing pages and the corresponding API functions.</p>
+<table class="relative-table wrapped" style="width: 97.882%;">
+  <colgroup> <col style="width: 7.57927%;" /> <col style="width: 11.8329%;" /> <col style="width: 19.8763%;" /> <col style="width: 36.0402%;" /> <col style="width: 24.6713%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Jump to eShop Landing Pages</th>
+      <th>Products Accessible After the Jump</th>
+      <th>SDK Functions (nn::ec)</th>
+      <th>Image of Nintendo eShop Landing Page (for Reference)</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Downloadable Software Details</td>
+      <td>
+        <ul>
+          <li>Downloadable software</li>
+          <li>List of demo versions</li>
+          <li>List of bundles (in combination with downloadable software)</li>
+          <li>List of downloadable content</li>
+          <li>List of consumable service items</li>
+          <li>List of subscription service items</li>
+        </ul>
+      </td>
+      <td>
+        <p>
+          <br />
+        </p>
+        <p>Specify the application ID.<br />ShowShopApplicationInformation()</p>
+        <p>Specify the <code>ns_uid</code>.<br />ShowShopProductDetails()</p>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516165.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Bundle (in combination with downloadable software)</td>
+      <td>
+        <ul>
+          <li>Specified bundle (in combination with downloadable software)</li>
+        </ul>
+      </td>
+      <td>ShowShopProductDetails()</td>
+      <td>(Image under construction)</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Downloadable Content List</td>
+      <td>
+        <ul>
+          <li>Downloadable content</li>
+          <li>Bundles (DLC + DLC)</li>
+        </ul>
+      </td>
+      <td>ShowShopAddOnContentList()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516167.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Specified DLC List</td>
+      <td>
+        <ul>
+          <li>Specified downloadable content (multiple)</li>
+        </ul>
+      </td>
+      <td>ShowShopProductList()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <br />
+          </p>
+        </div>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_745078729/1004516163.png" height="250" class="embedded-image" />
+        </span>
+      </td>
+      <td>Specifies the multiple pieces of DLC to be displayed by the API.</td>
+    </tr>
+    <tr>
+      <td>Downloadable Content Details</td>
+      <td>
+        <ul>
+          <li>Specified Downloadable Content</li>
+        </ul>
+      </td>
+      <td>ShowShopProductDetails()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516166.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <p>Specifies the (single) piece of DLC to be displayed by the API.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Consumable Service List</p>
+      </td>
+      <td>
+        <ul>
+          <li>Consumable Service</li>
+        </ul>
+      </td>
+      <td>ShowShopConsumableItemList()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516168.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <p>Displays a list if there are multiple consumable services.</p>
+        <p>Selecting a consumable service from the displayed list shows a list of the consumable service items supported by that consumable service.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Consumable Service Items</td>
+      <td>
+        <ul>
+          <li>Consumable service items</li>
+        </ul>
+      </td>
+      <td>ShowShopConsumableItemList()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <br />
+          </p>
+        </div>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_745078729/1004516169.png" height="250" class="embedded-image" />
+        </span>
+      </td>
+      <td>If there is a consumable service item, displays a list of consumable service items.</td>
+    </tr>
+    <tr>
+      <td>Consumable Service Item Details</td>
+      <td>
+        <ul>
+          <li>Specified consumable service item</li>
+        </ul>
+      </td>
+      <td>ShowShopConsumableItemDetail()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <br />
+          </p>
+        </div>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_745078729/1004516170.png" height="250" class="embedded-image" />
+        </span>
+      </td>
+      <td>Specifies the single consumable service item to be displayed by the API.</td>
+    </tr>
+    <tr>
+      <td>Course List (Subscription Services)</td>
+      <td>
+        <ul>
+          <li>Course</li>
+        </ul>
+      </td>
+      <td>ShowShopSubscriptionList()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516160.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <p>If there are multiple courses, displays a list of courses.</p>Selecting a course displays a list of subscription-type service items.</td>
+    </tr>
+    <tr>
+      <td>Subscription Service Items</td>
+      <td>
+        <ul>
+          <li>Subscription service items</li>
+        </ul>
+      </td>
+      <td>ShowShopSubscriptionList()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516161.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>If a course is present, a list of subscription service items is displayed.</td>
+    </tr>
+    <tr>
+      <td>Subscription Service Item Details</td>
+      <td>
+        <ul>
+          <li>The specified subscription service item</li>
+        </ul>
+      </td>
+      <td>ShowShopSubscriptionDetails()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516162.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>Specifies the (single) subscription service item to be displayed in the API.</td>
+    </tr>
+    <tr>
+      <td>Enter Download Code</td>
+      <td>
+        <br />
+      </td>
+      <td>ShowShopEnterCodeScene()</td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_745078729/1004516164.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <p>Use this function to guide users to enter download codes.</p>
+        <p>This functionality is also available in countries or regions that only support redemption of download codes.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_745078729_h1_2">Important Information About Jumping to eShop</h1>
+<h2 id="Anchor_745078729_h2_1">Application Processing While Jumping to eShop</h2>
+<p>Starting the EC applet from within the application does not interrupt the application's processing. The EC applet is terminated when a user makes or cancels a purchase in Nintendo eShop. Note that the EC applet does not return any results to the application. That is, the application cannot determine whether a product was purchased as a result of a jump to eShop.</p>
+<h2 id="Anchor_745078729_h2_2">Nintendo eShop Page Transition After Jumping to eShop</h2>
+<p>The user can access only the products accessible from the post-jump to eShop product page. For example, after a jump to the download software details page, the user can access the downloadable content list on the page, but cannot access other downloadable software.</p>
+<h2 id="Anchor_745078729_h2_3">Jumps That Require the Feature for Getting Information Within the Application</h2>
+<p>When using the following API functions, you must use the feature for getting information within the application to get the ID (the <code>ns_uid</code>) that specifies the product to display. For more information, see <a href="../Pages/Page_471905496.html">8 Feature for Getting Information Within Applications</a>.</p>
+<ul>
+  <li>ShowShopProductList()</li>
+  <li>ShowShopProductDetails()</li>
+  <li>ShowShopConsumableItemDetail()</li>
+  <li>ShowShopSubscriptionDetails()</li>
+</ul>
+<p>In addition, by setting the items to private in Nintendo eShop and using the preceding API, you can limit the purchase avenues so that downloadable content and consumable service items can be purchased only via jump to eShop. For more information, see <a href="../Pages/Page_757437035.html">8.1 Common</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1 Supporting Different Play Formats and Grips (Required) | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1 Supporting Different Play Formats and Grips (Required) -->
+<div class="pagetitle" id="PageId_124019950">3.1 Supporting Different Play Formats and Grips (Required)</div>
+<div class="text_separate">
+<p>
+  <span style="color: rgb(61,61,61);">You must select a play format, which is categorized by controller type and grip.</span> <span style="color: rgb(61,61,61);">These selections set the available controllers and buttons, and their functionality.</span></p>
+<p>
+  <span style="color: rgb(61,61,61);">When you select single Joy-Con grip as the play format (which can apply to either the right or left controller), you must also specify a grip (either solo remote grip or solo horizontal grip). </span>
+</p>
+<div class="figure">
+  <a name="AutoAnchor_124019950_figure001"></a>Figure 3-1  Flowchart for Supporting Different Play Formats and Grips</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_124019950/300830436.png" width="450" class="embedded-image" />
+  </span> </p>
+<p> </p>
+<p>
+  <span style="color: rgb(61,61,61);">Applications must first set the number of players using controllers.</span>
+</p>
+<p>
+  <span style="color: rgb(61,61,61);">For applications that support both of the following play modes, specify the number of Joy-Con controllers for each player.</span> </p>
+<ul>
+  <li>
+    <span style="color: rgb(61,61,61);">Single Joy-Con grip play, Joy-Con (R) play, or Joy-Con (L) play</span>
+  </li>
+  <li>
+    <span style="color: rgb(61,61,61);">Dual-controller grip play (dual controller play, or Pro Controller operation)</span>
+  </li>
+</ul>
+<p>
+  <span style="color: rgb(61,61,61);">Controller indexes are assigned based on the settings content when controllers are connected to the console.</span>
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>For example, with a game that can be played by up to four players, if there are only two sets each of Joy-Con (L) and Joy-Con (R) controllers, up to two players can play, each holding two controllers. To play with four players, each player will have to play with one controller. For this reason, rather than determining the number of Joy-Con controllers to set in advance, we recommend allowing the user to specify the number of Joy-Con controllers.</p>
+    <p>This kind of controller assignment is easy when using the controller support applet. For more information, see <a href="../Pages/Page_99802852.html">3.6 Controller Support Applet</a>.</p>
+  </div>
+</div>
+<h1 id="Anchor_124019950_h1_1">Play Formats</h1>
+<p>A category called <em>play formats</em> is available to reduce the cost of supporting the different buttons and features that could be handled by the application. The play format must be selected in the <code>hid</code> library. (Multiple selections are possible.)</p>
+<p>
+  <strong>For example, select Pro Controller Play and Joy-Con Attached to the Console Play to enable the Pro Controller, dual-controller grip, Joy-Cons attached to the grip, and Joy-Cons attached to the console.</strong>
+</p>
+<div class="table">
+  <a name="AutoAnchor_124019950_table001"></a>Table 3-1  Play Format Types</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Play Format</th>
+      <th>Description</th>
+      <th>Available Buttons and Features</th>
+    </tr>
+    <tr>
+      <td>Pro Controller Play</td>
+      <td>
+        <p>A play format that accepts the buttons and inputs available from the Pro Controller.</p>
+        <p>The following controllers and grips are supported.</p>
+        <ul>
+          <li>Pro Controller</li>
+          <li>Joy-Con</li>
+          <ul>
+            <li>Dual-controller grip</li>
+            <li>Joy-Con attached to the classic-grip accessory</li>
+          </ul>
+        </ul>
+      </td>
+      <td>
+        <p>+Control Pad, A, B, X, Y Buttons</p>
+        <p>L, R, ZL, ZR Buttons</p>
+        <p>+ and - Buttons<br />Two control sticks</p>
+        <p>One accelerometer and gyroscope</p>
+        <p>Two vibration features</p>
+        <p>NFC reader and writer</p>
+        <p>IR Motion Camera</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Switch/Joy-Con Combination Play</td>
+      <td>
+        <p>Play format specific to the Joy-Con attached to the Switch console.</p>
+      </td>
+      <td>
+        <p>Directional buttons, A, B, X, Y Buttons</p>
+        <p>L, R, ZL, ZR Buttons</p>
+        <p>+ and - Buttons</p>
+        <p>Two control sticks</p>
+        <p>One accelerometer and gyroscope</p>
+        <p>Two vibration features</p>
+        <p>NFC reader and writer</p>
+        <div>IR Motion Camera</div>
+      </td>
+    </tr>
+    <tr>
+      <td>Dual-Controller Grip Play</td>
+      <td>
+        <p>Play format specific to the dual-controller grip.</p>
+      </td>
+      <td>
+        <p>Joy-Con (R):</p>
+        <p>A, B, X, Y Buttons</p>
+        <p>R, ZR, SL, SR Buttons</p>
+        <p>+ Button</p>
+        <p>One control stick</p>
+        <p>One accelerometer and gyroscope</p>
+        <p>One vibration feature</p>
+        <p>NFC reader and writer</p>
+        <p>IR Motion Camera</p>
+        <p>
+          <br />
+        </p>
+        <p>Joy-Con (L):</p>
+        <p>Directional buttons</p>
+        <p>L, ZL, SL, SR Buttons</p>
+        <p>- Button</p>
+        <p>One control stick</p>
+        <p>One accelerometer and gyroscope</p>
+        <p>One vibration feature </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Joy-Con (R) Play</td>
+      <td>
+        <p>Play format specific to the Joy-Con (R) single grip.</p>
+        <p>The following grips are supported.</p>
+        <ul>
+          <li>Joy-Con (R) solo remote grip</li>
+          <li>Joy-Con (R) solo horizontal grip</li>
+        </ul>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <p>A, B, X, Y Buttons</p>
+        <p>R, ZR, SL, SR Buttons</p>
+        <p>+ Button</p>
+        <p>One control stick</p>
+        <p>One accelerometer and gyroscope</p>
+        <p>One vibration feature</p>
+        <p>NFC reader and writer</p>
+        <p>IR Motion Camera</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Joy-Con (L) Play</td>
+      <td>
+        <p>Play format specific to the Joy-Con (L) single grip.</p>
+        <p>The following grips are supported.</p>
+        <ul>
+          <li>Joy-Con (L) solo remote grip</li>
+          <li>Joy-Con (L) solo horizontal grip</li>
+        </ul>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <p>Directional buttons</p>
+        <p>L, ZL, SL, SR Buttons</p>
+        <p>- Button</p>
+        <p>One control stick</p>
+        <p>One accelerometer and gyroscope </p>
+        <p>One vibration feature</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>The Switch/Joy-Con combination cannot be used in TV mode. However, the HOME Button and the Capture Button are enabled.</li>
+      <li>Switch Lite is treated the same as the Switch/Joy-Con combination. It is not, however, equipped with either HD rumble or the IR Motion Camera and cannot use these features.</li>
+      <li>There is no IR sensor on the Pro Controller. That feature cannot be used.</li>
+      <li>Even if there are 11 or more simultaneous button inputs, the input information cannot be obtained due to firmware specifications.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_124019950_h2_1">
+  <span style="color: rgb(61,61,61);">Requirements for Applications Supporting Tabletop Mode</span>
+</h2>
+<p>If the Joy-Con controllers are connected to the console and a wireless controller is also connected, the application cannot determine which device the user wants to use as a controller. For example, this case occurs when the Joy-Con controllers are attached to the console when playing with the Pro Controller in tabletop mode. Use any of the following procedures to handle this situation.</p>
+<ul>
+  <li>Using one of the following methods, ask the user which controller they want to use.<ul><li>Use the controller support applet in single-player special mode. For more information, see <a href="../Pages/Page_99802852.html">3.6 Controller Support Applet</a>.</li><li>Unique handling by the application without using the controller support applet.</li></ul></li>
+  <li>Enable operation from both the Joy-Con controllers connected to the console and the wireless controller.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>When operation from both the Joy-Con controllers connected to the console and the wireless controller is enabled, vibrations sent to an unused controller may be unsettling to the user. In addition, when using the 6-axis sensor for input, because there is also input from the controller that is not being used, you cannot enable input from both controllers. In this case, we recommend asking the user which controller they want to use.</li>
+      <li>A policy of treating tabletop mode as only the state where the Joy-Con are detached from the console is prohibited by <strong>Guideline 0160: Supporting Wireless Controllers Regardless of Whether the Joy-Con Controllers Are Attached to the System</strong>. The Switch Lite behavior is similar to a Switch with the Joy-Con attached, so this policy would make Switch Lite not playable in tabletop mode.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_124019950_h1_2">
+  <span style="color: rgb(61,61,61);">Specifying a Grip for One Joy-Con</span>
+</h1>
+<p>You can set any of the following grips when the application supports either Joy-Con (R) play or Joy-Con (L) play, or both.</p>
+<ul>
+  <li>Solo remote grip</li>
+  <li>Solo horizontal grip</li>
+</ul>
+<p>The following advantages for the user result from setting the grip correctly in the application.</p>
+<ul>
+  <li>Play will continue with that grip when calling the system features. For more information, see <a href="../Pages/Page_99800449.html">4.1 Supporting System Features</a>.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When holding the Joy-Con (R) vertically, the player LEDs light up in order from the top, but when holding the Joy-Con (R) horizontally, the player LEDs light up in order from the left. For more information, see <a href="../Pages/Page_99800445.html">3.2 Assigning Controller Indexes (Required)</a>.</p>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>You cannot mix settings for solo remote grip and solo horizontal grip.</li>
+      <li>The default value for the <code>hid</code> library is solo remote grip. There are also restrictions on using the controller support applet. For more information, see <a href="../Pages/Page_99802852.html">3.6 Controller Support Applet</a>.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_124019950_h1_3">Limitations When Supporting Pro Controller Play</h1>
+<p>The following Joy-Con grips are available for applications supporting Pro Controller play.</p>
+<ul>
+  <li>Dual-controller grip</li>
+  <li>Joy-Con attached to the classic-grip accessory</li>
+</ul>
+<p>Care is needed when considering application specifications because these grips have the following differences compared to the Pro Controller.</p>
+<div class="table">
+  <a name="AutoAnchor_124019950_table002"></a>Table 3-2  Differences From the Pro Controller</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Option</th>
+      <th>Differences</th>
+    </tr>
+    <tr>
+      <td>Connection Status</td>
+      <td>
+        <p>The number of controllers that can be connected changes.</p>
+        <p>When using Joy-Con in the Pro Controller play format, the right and left Joy-Con controllers are treated as one controller.</p>
+        <p>If one of the two Joy-Con controllers disconnects because of a dead battery or for any other reason, the entire controller is viewed as disconnected. However, the HOME Button and the Capture Button are enabled.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>+Control Pad</td>
+      <td>
+        <p>The +Control Pad is available with the Pro Controller. On the Joy-Con, however, directional buttons that split the four directions into separate buttons are used because there is no +Control Pad.</p>
+        <p>The +Control Pad and directional buttons have the following differences.</p>
+        <ul>
+          <li>The up and down buttons and left and right buttons on the +Control Pad, cannot be pressed simultaneously.</li>
+          <li>
+            <p>Because the four buttons are merged in the +Control Pad, unlike the directional buttons on the Joy-Con, there may be an occasion when up or down input is registered unintentionally when the user quickly switches between left and right input.</p>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Control Sticks</td>
+      <td>
+        <p>The range of motion of the control sticks on the Joy-Con is narrower than that of the Pro Controller.</p>
+        <p>The maximum and minimum values for the control sticks are the same, but the resolution for the control stick values is different.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Accelerometer<br />Gyroscope</td>
+      <td>
+        <p>An accelerometer and gyroscope are built into the Pro Controller.<br />When using the Joy-Con dual-controller grip or Joy-Con attached to the classic-grip accessory, the sensor for the right controller is used.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>HD Rumble</td>
+      <td>
+        <p>There is a vibration motor inside the left and right grips of the Pro Controller, for a total of two vibration motors.</p>
+        <p>When the Joy-Con grip is attached, it has the same play feel as the Pro Controller.</p>
+        <p>When holding two Joy-Con controllers, the sensation is improved because vibration is divided between left and right, to the controllers held in the left and right hands.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

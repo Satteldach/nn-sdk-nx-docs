@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 Other Important Information</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 Other Important Information -->
+<div class="pagetitle" id="PageId_161306905">5.3 Other Important Information</div>
+<div class="text_separate">
+<h1 id="Anchor_161306905_h1_1">Attaching and Detaching the Joy-Con and Docking and Undocking the Nintendo Switch</h1>
+<p>Although not directly related to the basic policies, some system features (as noted in the previous section) allow users to choose the play style that best suits their situation by docking or undocking the Switch and attaching or detaching the Joy-Con.</p>
+<p>The connections between the console and the Nintendo Switch dock and between the main unit and the Joy-Con are not as mechanically durable as the buttons and sticks.</p>
+<p>For that reason, you must not use docking and undocking the console or attaching and detaching the Joy-Con as elements of gameplay.</p>
+<h1 id="Anchor_161306905_h1_2">Nintendo Switch Lite Considerations</h1>
+<p>The Nintendo Switch Lite cannot be placed in the Switch dock and does not support TV mode. In addition, as described in the following section, the Switch Lite controllers cannot be physically removed.</p>
+<p>For these reasons, an application that supports only TV mode as the play mode cannot be played at all by Switch Lite users. Furthermore, in tabletop mode, which uses wireless controllers (either Joy-Con or Pro Controller), only Switch Lite users who own a wireless controller can play.</p>
+<h2 id="Anchor_161306905_h2_1">References to Switch in the Application</h2>
+<p>There is no need to add Switch Lite when displaying pictures of Switch or using the word &quot;Switch&quot; in application text. There is no problem with using pictures of Switch or the word &quot;Switch&quot; to represent both Switch and Switch Lite.</p>
+<p>There is no method that would enable an application to determine whether it is running on Switch or on Switch Lite.</p>
+<h2 id="Anchor_161306905_h2_2">Joy-Con Controllers Do Not Detach</h2>
+<p>Unlike the Switch Joy-Con controllers, the controllers of the Switch Lite cannot be physically removed. As a result, from the application's perspective Switch Lite always acts like the Switch with the Joy-Con controllers attached. You can, however, pair wireless controllers with the Switch Lite.</p>
+<p>When an application requires using a wireless controller, it calls the controller support applet or transitions to a scene for connecting a wireless controller in a proprietary way. With Switch, users can meet the requirement by detaching the Joy-Con and pairing it wirelessly or by pairing another wireless controller they happen to have. With Switch Lite, however, users might not have a separate wireless controller on hand, so you cannot assume that a wireless controller will be connected.</p>
+<p>Under these circumstances, if the following problems occur within the application, consider using the corresponding workaround strategies.</p>
+<h3 id="Anchor_161306905_h3_1">Application Does Not Leave a Scene or Mode Until a Wireless Controller Is Connected</h3>
+<p>If the application is designed to wait for the connection of a wireless controller, users who are playing with Switch Lite could get stuck at that point. Change the specifications of the application to allow users to leave that scene or mode even without a wireless controller. For example, you could use a Switch Lite button to return to the previous scene. When you use the controller support applet, call it in a way that allows you to return to the previous scene.</p>
+<h3 id="Anchor_161306905_h3_2">Application Does Not Work With Wireless Controller Until Joy-Con Is Detached</h3>
+<p>In most cases with Switch, the system is in the state where the Joy-Con controllers have been detached when the application recognizes a wireless controller (especially the Joy-Con). However, because Switch Lite is always in a state where the controllers are attached to the system, Switch Lite users cannot play the application using a wireless controller if the application only supports using wireless controllers when the Joy-Con have been detached. For this reason, ask the user which controllers they are using, or allow the game to be operated with any controller.</p>
+<p>Switch Lite has a system feature that provides a way for the user to disable controller button operations (as if the Joy-Con was detached). It is fine to ask customers to contact customer support when necessary.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>There is functionality planned for the SDEV and EDEV that emulates a state where the Joy-Con controllers are not removed. This functionality can be used for testing and debugging.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2.1 Mechanisms | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2.1 Mechanisms -->
+<div class="pagetitle" id="PageId_471905195">6.2.1 Mechanisms</div>
+<div class="text_separate">
+<p>This section describes how independent server-controlled consumable service items work on the Nintendo Switch.</p>
+<h1 id="Anchor_471905195_h1_1">Mechanisms for Consumable Service Items Using the Independent Server Controlled Method</h1>
+<p>The following figure shows the mechanism for consumable service items using the independent server controlled method.</p>
+<div class="figure">
+  <a name="AutoAnchor_471905195_figure001"></a>Figure 6-3  Overall Schematic of Independent Server-Controlled Consumable Service Items</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_471905195/471905196.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_471905195_h2_1">Purchasing Consumable Service Items</h2>
+<p>Consumable service items are purchased in Nintendo eShop on the Switch. When the purchase of a consumable service item is completed, that purchase transaction is recorded in Nintendo eShop.</p>
+<h2 id="Anchor_471905195_h2_2">Confirming Purchases and Updating License Information</h2>
+<p>The application sends a request from the independent server to the Nintendo eShop server to confirm the user's purchase and update the license information. To be specific, the following procedure is performed.</p>
+<ol>
+  <li>Purchase transactions are referenced.</li>
+  <li>The license information for consumable service items is saved.</li>
+  <li>The license information is updated for the requesting user.</li>
+</ol>
+<p>The individual steps in this procedure are described later.</p>
+<h3 id="Anchor_471905195_h3_1">Times When Purchase Information Is Checked</h3>
+<p>The application checks the purchase information mainly at the following times.</p>
+<ul>
+  <li>When consumables licenses need to be updated after the application starts<br /><ul><li>Check for purchases that were made before the application started.</li></ul></li>
+  <li>After returning from a jump to Nintendo eShop<br /><ul><li>Check for purchases made in a jump to eShop.</li></ul></li>
+</ul>
+<h2 id="Anchor_471905195_h2_3">Referencing Purchase Transactions</h2>
+<p>The independent server sends a request to the Nintendo eShop server using a server API to get a list of purchase transactions for each user.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Nintendo never deletes purchase transactions from the Nintendo eShop server or modifies the status of purchase transactions. For example, if you ever need to invalidate licenses after a certain period of time after a purchase has elapsed, implement support for this situation in the application using the country/region and purchase date information included in the response obtained as described in <a href="../Pages/Page_471905206.html">6.2.2.2.2 Getting License Information</a>.</p>
+  </div>
+</div>
+<h2 id="Anchor_471905195_h2_4">Saving License Information for Consumable Service Items</h2>
+<p>Independent servers can get unprocessed purchase transactions (see <a href="../Pages/Page_471905206.html">6.2.2.2.2 Getting License Information</a>) and grant licenses to users as appropriate based on those transactions. This license information must be managed on the independent server.</p>
+<p>Also, the independent server needs to request status changes from Nintendo eShop for transactions that have had licenses granted. When the status change has been accepted, those transactions will be obtained with the &quot;Consumed&quot; status during subsequent retrievals of the transaction list.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Status information for purchase transactions can only be used for filtering purposes when getting license information. Status updates on Nintendo eShop cannot be used to manage addition of licenses to user accounts. On the independent server, use the <code>right_id</code> value to manage whether a license has been granted for a particular transaction. For more information about <code>right_id</code> values, see <a href="../Pages/Page_471905199.html">6.2.2 For Developers</a> &gt; Adding Licenses to Accounts.</p>
+  </div>
+</div>
+<h2 id="Anchor_471905195_h2_5">Service Provision</h2>
+<p>Independent servers handle the provision of services to Switch applications.</p>
+<p>Always provide services to users based on the license information managed on the independent server.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

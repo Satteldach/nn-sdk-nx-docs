@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.3 Limitations and Important Information | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.3 Limitations and Important Information -->
+<div class="pagetitle" id="PageId_522483800">7.3 Limitations and Important Information</div>
+<div class="text_separate">
+<h1 id="Anchor_522483800_h1_1">Limitations on Subscription Service Items</h1>
+<p>The following limitations exist when selling subscription service items on Nintendo eShop.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Limitation</th>
+      <th>Content Limitation</th>
+    </tr>
+    <tr>
+      <td>Maximum service period</td>
+      <td>You can specify any number of days in the range from 1 day to 730 days.</td>
+    </tr>
+    <tr>
+      <td>Subscription service item term that can be purchased</td>
+      <td>You can specify a term of at least one minute and no more than half of the number of days of the maximum service period, rounded down.<br />For example, if the maximum service period is 360 days, the maximum term that can be purchased for the subscription service item is 180 days.</td>
+    </tr>
+    <tr>
+      <td>Number of subscription service item courses that can be purchased</td>
+      <td>Up to 10</td>
+    </tr>
+    <tr>
+      <td>Number of items that can be added to a single course</td>
+      <td>Up to 20</td>
+    </tr>
+  </tbody>
+</table>
+<p>Contact Nintendo if your plans cannot be executed with the preceding limitations.</p>
+<h2 id="Anchor_522483800_h2_1">System-Based Limitations</h2>
+<p>There are several system-based limitations.</p>
+<ul>
+  <li>The application cannot determine whether the user has purchased an item. The EC applet does not return the result of whether a purchase was made to the application.</li>
+  <li>Independent servers cannot directly request purchases from Nintendo eShop.<ul><li>However, it is possible to use the API for adding licenses to grant a license to a specific user for compensation purposes. For more information, see <a href="../Pages/Page_522483745.html">7.2 Mechanisms</a>.</li></ul></li>
+  <li>Sometimes the API for subscription service items returns temporary errors for reasons such as the maintenance of services provided by Nintendo.</li>
+</ul>
+<h2 id="Anchor_522483800_h2_2">Using Independent Servers to Cache Validity Periods</h2>
+<p>To reduce the amount of traffic to the Nintendo eShop server, consider caching the validity period on an independent server. For example, if your application does not display the remaining validity period, consider implementing a process where the application contacts the Nintendo eShop server when the validity period cached on the independent server expires to check if there is a valid validity period or license available.</p>
+<p>In case of an operation like a refund, you cannot shorten or cancel the user's validity period. This specification might change in the future.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

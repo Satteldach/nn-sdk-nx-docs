@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.1 Overlay Notifications | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.1 Overlay Notifications -->
+<div class="pagetitle" id="PageId_107323205">5.1 Overlay Notifications</div>
+<div class="text_separate">
+<p>This feature displays urgent information on the screen when system power is on (including when applications are running).</p>
+<div class="figure">
+  <a name="AutoAnchor_107323205_figure001"></a>Figure 5-1  Overlay Notification Mockup</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_107323205/242598398.png" width="444" height="249" class="embedded-image" />
+  </span>
+  <br />
+</p>
+<div>
+  <h1 id="Anchor_107323205_h1_1">Features</h1>
+  <p>Overlay notifications have the following characteristics.</p>
+  <ul>
+    <li>By default, all overlay notifications are set to display.<ul><li>Some overlay notifications, depending on their type, can be hidden using the system settings.</li></ul></li>
+    <li>There are two types of overlay notifications: <em>conditions</em> and <em>reactions</em>.<br /><ul><li>Conditions are conveyed when the user needs to take an action to continue play on the Switch.</li><li>Reactions are conveyed to share information about the results of user actions.</li></ul></li>
+    <li>A maximum of two overlay notifications can be displayed simultaneously.<ul><li>One condition and one reaction.</li></ul></li>
+    <li>The display time varies with the type of overlay notification.</li>
+    <li>There is no way to control this from within the application.</li>
+    <li>Sound effects are enabled by default. They can be switched to disabled and back again from the system settings in <strong>Notifications and News</strong>.<ul><li>While a sound effect is playing, the volume of other sounds is reduced.</li></ul></li>
+    <li>No vibration is used.</li>
+    <li>The ground has an opacity of 200.</li>
+    <li>
+      <span style="color: rgb(55,55,55);">Displayed in the upper-left corner of the screen</span> in a size that changes, depending on whether the mode is TV mode or handheld mode. <ul><li>In TV mode, the notification size is 357 x 75 pixels. (If two items are shown at the same time, the size is 357 x 150 pixels.)</li><li>In handheld mode, the notification size is 420 x 88 pixels. (If two items are shown at the same time, the size is 420 x 177 pixels.)</li></ul></li>
+  </ul>
+</div>
+<h1 id="Anchor_107323205_h1_2">Overlay Notifications</h1>
+<p>The types of overlay notifications are as follows.</p>
+<p>(Types marked with an asterisk (*) are not shown on Switch consoles for the China region.)<br /></p>
+<div class="table">
+  <a name="AutoAnchor_107323205_table001"></a>Table 5-1  Condition Overlay Notifications</div>
+<table class="wrapped" style="margin-left: 31.0px;">
+  <colgroup>
+    <col style="width: 473.0px;" />
+    <col style="width: 1043.0px;" />
+  </colgroup>
+  <tbody style="margin-left: 30.0px;">
+    <tr style="margin-left: 30.0px;">
+      <th>Description</th>
+      <th>Display Timing</th>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>System battery level is low.</td>
+      <td>
+        <ul>
+          <li>When the system battery level is low.<ul><li>15%</li><li>5%</li><li>1%</li></ul></li>
+          <li>When the battery level is at or less than 15%, when either waking from sleep mode or turning power on.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Controller battery level is low.</td>
+      <td>
+        <ul>
+          <li>Appears when the controller battery level is low.</li>
+          <li>When the battery level is low when either waking from sleep mode or turning power on.</li>
+          <li>Fifteen minutes from the first appearance, or until recharging begins.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Controller battery depleted.</td>
+      <td>
+        <ul>
+          <li>The controller connection is broken because the battery is depleted.</li>
+          <li>When the Joy-Con is connected via wireless communications while Bluetooth is disabled.</li>
+          <li>When switching from handheld mode to TV mode, but only when the Joy-Con are attached.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Controller paired with the console.</td>
+      <td>
+        <p>When a controller is paired with the system. (Also displayed when pairing with the SYNC Button.)</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Play timer is running out. (*)</td>
+      <td>
+        <ul>
+          <li>When there is little remaining time in the play timer.<ul><li>1 hour remaining</li><li>Thirty minutes remaining</li><li>5, 4, 3, 2, and 1 minute remaining</li><li>Ten seconds remaining</li><li>No play time remaining</li></ul></li>
+        </ul>
+        <p>The play timer is one of the features offered with the Nintendo Parental Controls Switch smart device application.</p>
+        <p>The <em>play timer</em> is a developer term that refers to the amount of time left until the time restriction is reached in either &quot;play time per day&quot; or &quot;end time,&quot; whichever comes first.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Time set in play timer exceeded. (*)</td>
+      <td>
+        <ul>
+          <li>When the time set in the play timer has been exceeded.<ul><li>Fifteen minutes over</li><li>Thirty minutes over</li><li>One hour over</li><li>Ninety minutes over</li><li>Two hours over</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Restriction level setting has changed. (*)</td>
+      <td>
+        <ul>
+          <li>When any of the following settings were changed using the Nintendo Parental Controls Switch.<ul><li>Rating</li><li>Posting to social media</li><li>Communicate freely with anyone</li><li>Security level</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>PIN has changed. (*)</td>
+      <td>
+        <ul>
+          <li>When any of the following settings were changed using the Nintendo Parental Controls Switch.<br /><ul><li>Parental controls PIN</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Play time per day was changed. (*)</td>
+      <td>
+        <ul>
+          <li>When any of the following settings were changed using the Nintendo Parental Controls Switch.<ul><li>Play time per day</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>
+        <p>Any of the following settings were applied. (*)</p>
+        <ul>
+          <li>Restriction level</li>
+          <li>PIN</li>
+          <li>Play time per day</li>
+        </ul>
+      </td>
+      <td>
+        <p>When setting values exactly the same as those saved on the Switch console were set using the Nintendo Parental Controls Switch.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Unregistered from Nintendo Switch Parental Controls app. (*)</td>
+      <td>
+        <ul>
+          <li>When the system is unregistered from the Nintendo Switch Parental Controls app.<ul><li>Unregistered from server</li><li>Unregistered by another communications process</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Download completed.<br />(Applications, Downloadable Content, etc.)</td>
+      <td>
+        <ul>
+          <li>When download of an application, downloadable content, or patch has completed.<br /><ul><li>Merge when data within the same application is simultaneously downloaded.</li><li>If downloaded ahead of time, display a message such as &quot;Please wait until the release date&quot; until the day of release.<br />When play becomes possible, display a message such as &quot;You can play now.&quot;</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>
+        <p>When friends are online.</p>
+        <p>
+          <span style="color: rgb(63,67,80);">Received friend request is unprocessed.</span>
+        </p>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <p>When a Nintendo Account already associated with a user is opened when friends are online, or when a received friend request is unprocessed.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Server maintenance warnings have arrived during gameplay.</td>
+      <td>
+        <p>When a server maintenance warning is received for the game that is running. (Notifications past the maintenance time are destroyed.)</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Server maintenance has begun during gameplay.</td>
+      <td>
+        <p>When a notification of the start of maintenance is received for the game that is running. (Notifications past the maintenance time are destroyed.)</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Notifications of friend requests and online friends.</td>
+      <td>When these notifications arrive.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Notifications related to the Nintendo Switch Online app. (*)</td>
+      <td>
+        <ul>
+          <li>When invited to a room.</li>
+          <li>When starting voice chat with other users during matchmaking.</li>
+          <li>
+            <p align="left">If users are already using the voice chat when matchmaking occurs.</p>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Notification of change in parental controls settings. (*)</td>
+      <td>When the various parental controls settings have changed.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Headphones volume notification</td>
+      <td>This is reported only one time, when the volume exceeds a prescribed level.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Timeout notification when playing on a console other than the primary console.</td>
+      <td>
+        <p>When a user is playing on a console other than their primary console, and remains in an offline or similar state for a certain period of time.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Friend invitation notifications</td>
+      <td>When receiving an online play invitation from a friend.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Alarm notification.</td>
+      <td>When the time set for the alarm in a supporting application has arrived.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Notification that a Game Trial period is starting.</td>
+      <td>When Game Trials Software becomes available to play.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Advanced notification that a Game Trial period is ending.</td>
+      <td>When a Game Trial period is close to ending while the user is playing it.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>
+        <p style="text-align: left;" title="">Notification that Bluetooth audio has been disconnected (conflict with local communication).</p>
+      </td>
+      <td>When local communication is started while connected to a Bluetooth audio device, and the Bluetooth audio device is then disconnected.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Maximum number of connected controllers has been exceeded (when using Bluetooth audio).</td>
+      <td>When the user attempts to connect three or more wireless controllers while connected to a Bluetooth audio device.</td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Notifications related to Nintendo Switch Online. (*)</td>
+      <td>When a Nintendo Switch Online mission has been completed and Platinum Points for it have not been obtained yet.</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<div class="table">
+  <a name="AutoAnchor_107323205_table002"></a>Table 5-2  Reaction Overlay Notifications</div>
+<table class="wrapped" style="margin-left: 31.0px;">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody style="margin-left: 30.0px;">
+    <tr style="margin-left: 30.0px;">
+      <th style="text-align: left;">Description</th>
+      <th style="text-align: left;">Display Timing</th>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>System now charging.</td>
+      <td>
+        <p>When the AC adapter is connected and system recharging begins.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>System charging interrupted.</td>
+      <td>
+        <p>When the AC adapter is unplugged during system recharging.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>System charging error.</td>
+      <td>
+        <p>When the AC adapter is connected but the system does not start charging.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>HOME Menu cannot be displayed.</td>
+      <td>
+        <p>When the HOME Button is pressed while in a locked state.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>
+        <p>Volume adjustment. <br />(System speakers/headphones)</p>
+      </td>
+      <td>
+        <ul>
+          <li>When either of the volume buttons is pressed.</li>
+          <li>When muted.</li>
+        </ul>
+        <p>(Including when the headphones are disconnected when the <strong>Mute when Headphones are Disconnected</strong> setting is enabled in the system settings.) </p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Headphones volume limit notification.</td>
+      <td>
+        <p>When a user attempts to increase the volume from maximum while using headphones with <strong>Lower Max Headphone Volume</strong> enabled on in the system settings</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Screenshot capture success.</td>
+      <td>
+        <p>When a screenshot is successfully captured.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Screenshot capture failed.</td>
+      <td>
+        <p>When screenshot capture fails.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Screenshot capture error. <br />(Insufficient memory/capture limit reached/access error.)</td>
+      <td>
+        <p>When a screenshot capture error occurs.</p>
+      </td>
+    </tr>
+    <tr style="margin-left: 30.0px;">
+      <td>Screenshot capture lock.</td>
+      <td>
+        <p>When the Capture Button is pressed while screenshot captures are locked.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.9 Submitting Save Data | Nintendo Switch Lotcheck Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.9 Submitting Save Data -->
+<div class="pagetitle" id="PageId_378367002">4.9 Submitting Save Data</div>
+<div class="text_separate">
+<p>If not all features implemented in the application are available at the start of the game, saved data may be required together with the test scenario to enable Lotcheck to progress efficiently.</p>
+<p>If it takes 10 minutes or more to reach the scene described in the test scenario, submit save data using the following procedure.</p>
+<h5 id="Anchor_378367002_h5_1">Related Documents</h5>
+<ul>
+  <li>NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Managing Save Data</li>
+</ul>
+<h5 id="Anchor_378367002_h5_2">Related NDP Pages</h5>
+<ul>
+  <li>NDP &gt; MY PRODUCTS &gt; target_product &gt; Releases or Downloadable Content &gt; target_release &gt; go to the guide on the right side of the screen &gt; Features</li>
+  <li>NDP &gt; MY PRODUCTS &gt; target_product &gt; Releases or Downloadable Content &gt; target_release &gt; go to the guide on the right side of the screen &gt; Test Scenarios</li>
+</ul>
+<h5 id="Anchor_378367002_h5_3">Procedure</h5>
+<ol>
+  <li> Click <strong>Features</strong> and enter information for each displayed item.</li>
+  <li> Click <strong>Test Scenarios</strong>. A list of options to test is displayed, based on the content entered in <strong>Features</strong>.</li>
+  <li> Submit save data when it takes ten or more minutes from the start of the application to arrive at the testing location as described for each item in <strong>Method</strong>.</li>
+  <li>Submit save data using the <strong>+ Add file</strong> button under <strong>Method</strong>.<br /><br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_378367002/381555100.JPG" width="570" height="250" class="embedded-image" /></span><br /><br /></li>
+</ol>
+<h1 id="Anchor_378367002_h1_1">
+  <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">Requirements for Save Data for Lotcheck</span>
+</h1>
+<p>Submit save data that meets the following requirements.</p>
+<ul>
+  <li>Save data backed up using DevMenu:<br /><strong>Note:</strong> Compress everything located in the <code>BackupSaveData</code> folder that was created on the microSD card (<code>sd:\NintendoSDK\BackupSaveData</code>), and submit that as the save data.</li>
+  <li>Save data created in the user environment:<br /><strong>Note</strong>: For Lotcheck use (for the production device compatibility test), the save data must be comparable to the save data that can be created in actual gameplay. For example, you cannot use save data created in debug mode that would never be created in the actual production environment.</li>
+  <li>If a scene supports multiplayer gameplay, prepare save data for the corresponding number of players.</li>
+  <li>If the save data is compatible with another application, include the save data created by that compatible application.<br />(Example: Save data created in a demo version when the demo version save data is used in the full retail version of an application.)</li>
+</ul>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.4 Authentication Sequence | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.4 Authentication Sequence -->
+<div class="pagetitle" id="PageId_300840803">3.4 Authentication Sequence</div>
+<div class="text_separate">
+<p>The following sample shows the standard sequence up to the point of logging in to the independent server by an application using an NSA ID token.</p>
+<div class="panel" style="border-width: 1px;">
+  <div class="panelHeader" style=" border-bottom-width: 1px;">
+    <b>Application</b>
+  </div>
+  <div class="panelContent">
+    <div class="plantuml-svg-inline">
+      <img src="../Attachments/Attach_300840803/plantuml_1.svg" />
+    </div>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>1-2</td>
+      <td>
+        <p>When the application connects to the independent server it allocates cache for the NSA ID token and gets that cache.</p>
+        <p>Have the application call the <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync</code> and <span style="color: inherit;"><code>nn::account::LoadNetworkServiceAccountIdTokenCache</code> functions</span>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>3-6</td>
+      <td>
+        <p>
+          <code>nn:account</code> connects to the Nintendo authentication server and requests an NSA ID token.</p>
+        <p>The server authenticates the device, application, and network service account.</p>
+        <p>If they pass authentication, <code>nn:account</code> returns an NSA ID token to the application.</p>
+        <p>If authentication or communication fails and an NSA ID token cannot be obtained, the function returns failure. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <p>The application sends the obtained NSA ID token to the independent server.</p>
+        <p>There are no restrictions on how tokens are sent, but the communication route must be encrypted to prevent interception of NSA ID tokens.  </p>
+      </td>
+    </tr>
+    <tr>
+      <td>8-11</td>
+      <td>
+        <p>The NSA ID token received by the independent server is verified using the procedure described later. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>12-14</td>
+      <td>
+        <p>If the verification result confirms that the NSA ID token is valid, services may be provided for the application.</p>
+        <p>If necessary, the services are associated with the network service account.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

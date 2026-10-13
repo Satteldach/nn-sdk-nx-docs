@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.3 Error Handling for the Account Library (for Developers) | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.3 Error Handling for the Account Library (for Developers) -->
+<div class="pagetitle" id="PageId_444702216">7.3 Error Handling for the Account Library (for Developers)</div>
+<div class="text_separate">
+<p>When using the <code>account</code> library, be sure that you do not violate the following guidelines for error handling.</p>
+<ul>
+  <li>0121: Implementing handling when your application is unable to use a network service account</li>
+  <li>0122: Prohibition of automatically retrying to get network service account ID tokens</li>
+  <li>0135: Handling Result values returned by account library</li>
+</ul>
+<p>Violating the guidelines causes the application to fail Lotcheck (the final testing process for applications, performed by Nintendo). Carefully consider this issue when developing applications.</p>
+<h1 id="Anchor_444702216_h1_1">Background Behind Each Guideline</h1>
+<p>For more information about each guideline, see the Nintendo Switch Guidelines.</p>
+<h2 id="Anchor_444702216_h2_1">0121: Implementing handling when your application is unable to use a network service account</h2>
+<p>If the network service account becomes unavailable, the only method of restoring from this state in the application is to call the <code>nn::account::EnsureNetworkServiceAccountAvailable()</code> function.</p>
+<p>For this reason, if the application does not follow this guideline, the user experience may suffer greatly if the user cannot continue in the application but cannot determine why the service is unavailable or how to handle it.</p>
+<h2 id="Anchor_444702216_h2_2">0122: Prohibition of automatically retrying to get network service account ID tokens</h2>
+<p>If this guideline is violated, a large amount of requests may be sent to Nintendo's authentication server in a short period of time. As a result, if the server is affected, various online services provided to the Switch may become unavailable.</p>
+<h2 id="Anchor_444702216_h2_3">0135: Handling Result values returned by account library</h2>
+<p>Note that there are several problems with <code>ResultNetworkCommunicationError</code> handling.</p>
+<p>The procedure for testing the guidelines for <code>ResultNetworkCommunicationError</code> handling is described in the procedure for inducing errors in 2124-3001: Application update is required, but it describes a general test case and this result represents several different communication errors. For this reason, a waiver cannot be issued if you just notify the user in the application that a 2124-3001 error has occurred.</p>
+<p>Make sure that you handle the error according to the procedure in the account Library documentation in NintendoSDK Documents, and make sure that the user is appropriately informed of the error.</p>
+<h1 id="Anchor_444702216_h1_2">Related Documents</h1>
+<ul>
+  <li>NintendoSDK Documents<ul><li>account Library</li></ul></li>
+  <li>Nintendo Switch Guidelines</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

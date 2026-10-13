@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>9.1 Development Hardware | Nintendo Switch Overview</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 9.1 Development Hardware -->
+<div class="pagetitle" id="PageId_178487969">9.1 Development Hardware</div>
+<div class="text_separate">
+<p>This section introduces the various development hardware and the NX development card, which is a game card that can be used during application development.<br />For more information about purchasing the development hardware, see GETTING STARTED &gt; Nintendo Switch &gt; Development Tools in the Nintendo Developer Portal.</p>
+<h1 id="Anchor_178487969_h1_1">Development Hardware</h1>
+<p>There are four types (and six distinct varieties) of development hardware: the SDEV/SDEV-D, which is equipped with a wide range of useful features for application development; the EDEV/EDEV-D, which is structurally similar to the Switch retail unit; the HDEV, which provides a way to check the differences in the feel of operations on Switch Lite, which has a different console and screen size than Switch; and the ADEV, which provides a way to check the differences in the OLED model.</p>
+<p>Each development hardware system has different characteristics and features, as described below, and you can select the one that best meets your development needs.</p>
+<h2 id="Anchor_178487969_h2_1">SDEV/SDEV-D</h2>
+<p>The SDEV and SDEV-D (hereafter, unless otherwise specified, &quot;SDEV&quot; refers to both the SDEV and SDEV-D) development hardware have advanced features, including many external interfaces not found on the Switch retail unit that are useful for development. The SDEV motherboard has a built-in, dedicated board for adding extra features, making the SDEV larger than the EDEV.</p>
+<p>The unit is designed with an HDMI port for video output. By connecting the SDEV to an external display via this HDMI port, the picture displayed on the unit's LCD screen can be mirrored on an external display. The unit also has a special port for the attachment of a controller for debugging, and an Ethernet jack for connecting to a PC. It has 6 GB of memory, which is 2 GB more than the retail unit (the SDEV-D has 8 GB, which is 4 GB more). However, the unit does not have a battery, so to run, it must be connected to an external power supply via an AC adapter.</p>
+<p>It also has a <strong>CPU Overclock</strong> feature, which can be used to set the CPU clock to a higher rate (1,785 MHz) than what is available on the retail unit (1,020 MHz). For more information about this feature, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; CPU Overclock.</p>
+<p>For more information about the SDEV, see Nintendo Switch SDEV Usage Manual.</p>
+<div class="figure">
+  <a name="AutoAnchor_178487969_figure001"></a>Figure 9-1  Appearance of the SDEV</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178487969/178487967.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_178487969_h2_2">EDEV/EDEV-D</h2>
+<p>The EDEV and EDEV-D (hereafter, unless otherwise specified, &quot;EDEV&quot; refers to both the EDEV and EDEV-D) hardware have a hardware configuration similar to the retail unit and are designed for debugging as well as development. In addition to final testing of applications, the EDEV can also be used for development, although it does not have as many useful development features as the SDEV.</p>
+<p>The EDEV is equipped with the bare minimum of features required for development. It can communicate with a PC via a USB cable if connected to a special accessory. You can debug applications from a PC, as you can with the SDEV, and get run-time logs. In addition, the EDEV has a built-in battery just like the retail unit, which lets you experience how the application actually plays when the console is not attached to a cable.</p>
+<p>For more information about the EDEV, see Nintendo Switch EDEV Usage Manual.</p>
+<div class="figure">
+  <a name="AutoAnchor_178487969_figure002"></a>Figure 9-2  Appearance of the EDEV (with Joy-Con attached)</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178487969/218189944.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_178487969_h2_3">HDEV</h2>
+<p>You can use the HDEV when you need to check how the feel of gameplay differs on <span style="letter-spacing: 0.0px;">Switch Lite due to its different overall size and screen size compared to Switch. The HDEV development hardware has the same outward appearance as Nintendo Switch Lite and can run applications that are still under development.</span> Always test your applications using the EDEV or ADEV even after testing them with the HDEV.</p>
+<p>For more information about the HDEV, see Nintendo Switch HDEV Usage Manual.</p>
+<div class="figure">
+  <a name="AutoAnchor_178487969_figure003"></a>Figure 9-3  Appearance of the HDEV</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178487969/614402954.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_178487969_h2_4">ADEV</h2>
+<p>When you need to check for differences in hardware specifications, like housing size, you can use a piece of hardware called ADEV. ADEV is development hardware that has the same appearance as the OLED model, and can be used to run applications during their development. It has 8 GB of memory, which is 4 GB more than the retail unit.</p>
+<p>Like the EDEV, the ADEV can be used as an environment for testing applications.</p>
+<p>For more information about the ADEV, see Nintendo Switch ADEV Usage Manual.</p>
+<div class="figure">
+  <a name="AutoAnchor_178487969_figure004"></a>Figure 9-4  Appearance of the ADEV</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178487969/1170513218.png" width="700" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_178487969_h2_5">Common Features</h2>
+<p>The different development hardware types all provide the basic (essential) features for application development. When the development hardware is connected to a PC, the following functionality is available. For more information, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware.</p>
+<ul>
+  <li>Run built NX applications.</li>
+  <li>Update the development hardware firmware.</li>
+  <li>Write applications to NX development cards.</li>
+  <li>Install applications in system memory.</li>
+  <li>Control basic operations of the development hardware from the PC (such as installing, starting, and ending applications).</li>
+</ul>
+<h2 id="Anchor_178487969_h2_6">Development Hardware Comparison</h2>
+<p>The following table compares the main features of the different types of development hardware.</p>
+<div class="table">
+  <a name="AutoAnchor_178487969_table001"></a>Table 9-1  Comparison of Development Hardware Features</div>
+<p>O --- Supported X --- Not Supported</p>
+<table class="wrapped relative-table" style="width: 89.5066%;">
+  <colgroup> <col style="width: 20.0%;" /> <col style="width: 15.0%;" /> <col style="width: 15.0%;" /> <col style="width: 15.0%;" /> <col style="width: 15.0%;" /> <col style="width: 20.0%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;" rowspan="2">
+        <br />
+      </th>
+      <th style="text-align: center;" colspan="4">Development Hardware</th>
+      <th style="text-align: center;" rowspan="2">(Reference) Switch / Switch Lite / <br />OLED Model Retail Units</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;">SDEV</th>
+      <th style="text-align: center;">EDEV</th>
+      <th style="text-align: center;">ADEV</th>
+      <th style="text-align: center;">HDEV</th>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Shape</th>
+      <td style="text-align: center;">Thicker back panel than Switch</td>
+      <td style="text-align: center;">Same as Switch</td>
+      <td style="text-align: center;">Same as the OLED model</td>
+      <td style="text-align: center;">Same as Switch Lite</td>
+      <td style="text-align: center;">－</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Main memory</th>
+      <td style="text-align: center;">6 GB (SDEV)<br />8 GB (SDEV-D)</td>
+      <td style="text-align: center;">4 GB</td>
+      <td style="text-align: center;">
+        <p>8 GB</p>
+      </td>
+      <td style="text-align: center;">4 GB</td>
+      <td style="text-align: center;">4 GB</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">System memory (eMMC)</th>
+      <td style="text-align: center;" colspan="4">64 GB</td>
+      <td style="text-align: center;">32 GB/64 GB (OLED model)</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Game card</th>
+      <td style="text-align: center;" colspan="4">Can read and write NX development cards.</td>
+      <td style="text-align: center;">Can read game cards for the retail unit.</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Connection to PC</th>
+      <td style="text-align: center;">〇 (Via Ethernet - 1 GB)</td>
+      <td style="text-align: center;" colspan="3">〇 (Via USB cable, relay box)</td>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Connection to USB peripherals</th>
+      <td style="text-align: center;">〇 (Uses SDEV dock)</td>
+      <td style="text-align: center;" colspan="2">
+        <p>〇 (Uses Nintendo Switch dock)</p>
+      </td>
+      <td class="highlight-grey" style="text-align: center;">
+        <p>&times; (Cannot be placed in Nintendo Switch dock)</p>
+      </td>
+      <td style="text-align: center;">OLED Model: 〇, Switch Lite: &times;<br /></td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Combined use of USB peripheral and PC connection</th>
+      <td style="text-align: center;">〇</td>
+      <td class="highlight-grey" style="text-align: center;" colspan="3">&times;</td>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">PC control over development hardware</th>
+      <td style="text-align: center;">〇</td>
+      <td style="text-align: center;" colspan="3">〇 (Some features only available with SDEV)</td>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Use of debug controller</th>
+      <td style="text-align: center;">
+        <p>Classic Controller Pro<br />(Supports commercial products) </p>
+      </td>
+      <td class="highlight-grey" style="text-align: center;" colspan="3">&times;</td>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">System LCD mirroring (via HDMI)</th>
+      <td style="text-align: center;">〇</td>
+      <td class="highlight-grey" style="text-align: center;" colspan="3">&times;</td>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">CPU Overclock</th>
+      <td style="text-align: center;">〇</td>
+      <td class="highlight-grey" style="text-align: center;" colspan="3">&times;</td>
+      <td class="highlight-grey" style="text-align: center;">－</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Runs without external power supply</th>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+      <td style="text-align: center;" colspan="3">〇</td>
+      <td style="text-align: center;">〇</td>
+    </tr>
+    <tr>
+      <th style="text-align: center;">Final testing of applications</th>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+      <td style="text-align: center;">〇</td>
+      <td style="text-align: center;">〇</td>
+      <td class="highlight-grey" style="text-align: center;">&times;</td>
+      <td class="highlight-grey" style="text-align: center;">－</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_178487969_h2_7">Available Controllers</h2>
+<p>In addition to the Joy-Con included in the development hardware set, you can also connect commercially available Joy-Con and Nintendo Switch Pro controllers to the devices. The Joy-Con included in the development hardware set is the same as the commercially available Joy-Con.</p>
+<p>With the SDEV, you can also connect a commercially available Classic Controller Pro.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>Note that if you use a commercially available Joy-Con or Nintendo Switch Pro Controller with the development hardware and overwrite the firmware, those controllers might not work properly in combination with the Nintendo Switch retail product.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<h1 id="Anchor_178487969_h1_2">NX Development Cards</h1>
+<p>NX development cards are game cards that can be used with the development hardware. Unlike game cards, they are available in only 32 GB capacity.</p>
+<p>If you plan to sell your application as a card product, you must use an NX development card to confirm operations.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

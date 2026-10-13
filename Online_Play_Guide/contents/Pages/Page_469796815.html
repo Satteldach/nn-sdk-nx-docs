@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1 Definition and Characteristics of Friends | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1 Definition and Characteristics of Friends -->
+<div class="pagetitle" id="PageId_469796815">3.1 Definition and Characteristics of Friends</div>
+<div class="text_separate">
+<h2 id="Anchor_469796815_h2_1">Definition of Switch Friends</h2>
+<p>Switch friends are users who both want to play together on a long-term basis on the Switch. The specific interpretation of &quot;friend&quot; varies depending on the user. Using the procedures for establishing friends described later, users can create friend relationships both with people they know personally (such as family and friends) and with people that they meet online.</p>
+<h2 id="Anchor_469796815_h2_2">Using the Friends Feature in Applications</h2>
+<p>Applications can combine the Friends feature and the online play feature to implement ways for users to play with friends. From the perspective of application development, the Friends feature roughly consists of the following two elements.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Element</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Friend Library</td>
+      <td>This library, <code>nn::friends</code>, provides various APIs for applications to use the Friends feature.</td>
+    </tr>
+    <tr>
+      <td>My Page Applet</td>
+      <td>
+        <p>This library applet displays the User Page and includes the friend list feature for checking the list of friends and adding friends.<br />Applications specify this applet's startup mode and call specific Friends features. Using this can reduce the implementation load for the UI and processing specific to Friends features.</p>
+        <p>For more information about the User Page, see the Nintendo Switch System Features Guide.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>For more information, see <a href="../Pages/Page_469797296.html">3.7 Using From Applications</a>.</p>
+<h2 id="Anchor_469796815_h2_3">Features of the Friends Feature</h2>
+<h3 id="Anchor_469796815_h3_1">Nintendo Account or Account for China Required</h3>
+<p>Only user accounts that have linked to a Nintendo Account or an account for China can use the Friends feature. For more information about Nintendo Accounts and accounts for China, see the Nintendo Switch Account Guide.</p>
+<p>The Friends feature is provided for individual network service accounts linked to a Nintendo Account or an account for China.</p>
+<h3 id="Anchor_469796815_h3_2">Maximum Number of People</h3>
+<p>A maximum of 300 friends can be registered per network service account. We recommend that applications have specifications to allow users to have 300 friends, but it is not a problem to segment and use friends for an appropriate reason according to the specification (Example: displaying only 100 friends in order of highest character level).</p>
+<h3 id="Anchor_469796815_h3_3">Friend Information</h3>
+<p>All friend information is managed on the server. The following four types of information exist per friend.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Type</th>
+      <th>Notes </th>
+    </tr>
+    <tr>
+      <td>Network service account attributes</td>
+      <td>
+        <p>For more information, see the <em>Nintendo Switch Account Guide</em>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Extended profile</td>
+      <td>Additional information other than the network service account attributes such as nicknames and user icons. Includes history information such as software that has been played.</td>
+    </tr>
+    <tr>
+      <td>Records for each friend</td>
+      <td>Stored information about the relationships of the user and each friend.</td>
+    </tr>
+    <tr>
+      <td>Settings for each friend</td>
+      <td>Settings that the user can configure for each friend.</td>
+    </tr>
+  </tbody>
+</table>
+<p>For more information about the specific types of information available to applications, see <a href="../Pages/Page_469797296.html">3.7 Using From Applications</a>.</p>
+<h3 id="Anchor_469796815_h3_4">Scope of Usage</h3>
+<p>Switch Friends are closed relationships contained within the Switch platform and are basically only used in applications on the Switch platform.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469796815/481492809.png" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_469796815_h3_5">Discrepancy Between Friend Information Obtained by the Application and Information on the Server</h3>
+<p>In the following types of cases, information obtained by the application may differ from information on the server. Account for this discrepancy when designing your application.</p>
+<ul>
+  <li>When the Switch getting the friend information is not connected to the internet<ul><li>The presence status for the friend is treated as &quot;Offline&quot; regardless of the friend's actual presence status.</li></ul></li>
+  <li>When the Switch getting the friend information is connected to the internet, but the updated friend information on the server has not synced with the friend information cached in the system<br /><ul><li>There can be a lag of ten or more seconds from the time the friend information is updated on the server to the time the friend information cached in the system is updated. If friend information is referenced before the system cache is updated, there could be a discrepancy with the information on the server.</li><li>If for some reason the Switch system cannot receive the push notification from the server, this time lag might create a discrepancy with the information on the server until the Switch system triggers synchronization. Synchronization with the information on the server takes place at times like when the user presses the Y Button in the friend list on their User Page to explicitly update the friend information. Discrepancies that result from these factors are baked into the specification.</li></ul></li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

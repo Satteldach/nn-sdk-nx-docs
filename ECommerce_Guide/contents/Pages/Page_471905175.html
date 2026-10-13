@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.4.3.9 FOR DEBUGGING: API for Mandatory Error Settings | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.4.3.9 FOR DEBUGGING: API for Mandatory Error Settings -->
+<div class="pagetitle" id="PageId_471905175">7.4.3.9 FOR DEBUGGING: API for Mandatory Error Settings</div>
+<div class="text_separate">
+<h1 id="Anchor_471905175_h1_1">Overview</h1>
+<p>This API allows API functions that are not for debugging that take an <code>nsa_id</code> as a parameter to return the specified error code for the Nintendo Account linked with the specified network service account.<br />When an error is set using this API function, the <code><em>message</em></code> in the error response becomes null.<br />This API can only be used in the development environment. Use it to confirm behavior when errors occur, for debugging purposes.</p>
+<h1 id="Anchor_471905175_h1_2">Request</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>PUT /v1/debug/forcedError/{nsa_id}?error_code={error_code}
+Authorization: Basic {base64(clientId:clientSecret)}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th> Parameter</th>
+      <th>Parameter Type</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <p>nsa_id</p>
+      </td>
+      <td>Path</td>
+      <td>No</td>
+      <td>
+        <p>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>error_code</td>
+      <td>Query</td>
+      <td>No</td>
+      <td>Specify the last four digits of the error code to trigger.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905175_h1_3">Response</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>201 Created</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

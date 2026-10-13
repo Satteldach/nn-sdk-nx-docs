@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.1 Network Service Account | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.1 Network Service Account -->
+<div class="pagetitle" id="PageId_159219867">4.1 Network Service Account</div>
+<div class="text_separate">
+<p>The network service account is an account used by various Switch network services like NEX and the friends feature. This account is created and used automatically by the system. Only one network service account can be linked to each user account. For more information about NEX, see Nintendo Switch NEX Guide. For more information about the friends feature, see Nintendo Switch Online Play Guide.</p>
+<h2 id="Anchor_159219867_h2_1">
+  <a name="Anchor_159219867_title001"></a>Network Service Account Attributes</h2>
+<p>Network service accounts can store the following data as attributes. If the <strong>Applicable When</strong> column is anything other than <strong>-</strong>, that attribute only exists if the situation is applicable.</p>
+<table class="wrapped relative-table" style="width: 97.8362%;">
+  <colgroup>
+    <col style="width: 7.90514%;" />
+    <col style="width: 7.98419%;" />
+    <col style="width: 84.1107%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Attribute</th>
+      <th>Applicable When</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Internal ID</td>
+      <td>-</td>
+      <td>An ID that is globally unique among network service accounts within the same environment, and which cannot be changed. For more information about the server environment, see Nintendo Switch Independent Server Setup Manual. It is handled as a unique key by NEX and the friends feature on Switch. It is obtained from the application and used when specifying friends and the like. It is not displayed to the user.<br />The network service account internal ID is unique. IDs linked to Nintendo Switch systems for China do not overlap with the IDs linked to Nintendo Switch systems for other regions.</td>
+    </tr>
+    <tr>
+      <td>Nickname</td>
+      <td>-</td>
+      <td>Stores the nickname of the linked user account. In cases where the same Nintendo Account is linked to multiple Switch consoles, this nickname is synchronized across all user accounts that are linked to the same network service account.</td>
+    </tr>
+    <tr>
+      <td>Profile image</td>
+      <td>-</td>
+      <td>Stores the profile image of the linked user account. In cases where the same Nintendo Account is linked to multiple Switch consoles, this profile image is synchronized across all user accounts that are linked to the same network service account.</td>
+    </tr>
+    <tr>
+      <td>Information about the linked Nintendo Account</td>
+      <td>Linked to a Nintendo Account upon creation</td>
+      <td>
+        <p>Stores information about the Nintendo Account linked to the network service account.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Information about the linked account for China</td>
+      <td>Linked to an account for China upon creation</td>
+      <td>Stores information about the account for China linked to the network service account.</td>
+    </tr>
+  </tbody>
+</table>
+<p>With the exception of the internal ID, there is a possibility that these attributes will change while the application is running. (They might be changed by another Switch linked to the account, or by some other device.) Design your specification so inconsistencies do not arise even if these attributes happen to be changed while the application is running.</p>
+<h2 id="Anchor_159219867_h2_2">Creating a Network Service Account</h2>
+<p>When a Nintendo Account or an account for China is first associated with a user account on Switch, a network service account is automatically created. Network services become available when the user subsequently signs in with that network service account.</p>
+<h2 id="Anchor_159219867_h2_3">Linking and Unlinking User Accounts and Network Service Accounts</h2>
+<p>In consoles with system version 6.0.0 and later, users cannot remove links between user accounts and network service accounts. (Users can remove links on consoles with system versions prior to 6.0.0.) If a Nintendo Account is removed, the user account to which that Nintendo Account was linked cannot be linked to a separate network service account.</p>
+<p>Similarly, on Switch for China, users cannot remove links between user accounts and network service accounts.</p>
+<p>However, for reasons related to repair or customer support, the links between user accounts and network service accounts (or accounts for China) might be removed.</p>
+<p>The following describes whether changes to the linked state between a user account and a network service account are possible while the application is running.</p>
+<ul>
+  <li>A user account that is not linked to a network service account can be linked to a new network service account at any time while the application is running. However, it is <strong>not a requirement for the application to follow this immediately</strong>.</li>
+  <li>A user account cannot be unlinked from a network service account while the application is running.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When designing your application, note that <strong>the network service account linked to a user account can get changed even though the user account remains the same</strong>. This behavior is different from the Wii U account system. See the descriptions both in NintendoSDK Documents &gt; Features &gt; Save Data, and Nintendo Switch Online Play Guide.</p>
+  </div>
+</div>
+<h2 id="Anchor_159219867_h2_4">Deleting Network Service Accounts</h2>
+<p>Network service accounts cannot be deleted by the user. However, when a Nintendo Account (or an account for China) is deleted, the linked network service account can no longer be used.</p>
+<h2 id="Anchor_159219867_h2_5">Supplemental Information: Guest Login Feature</h2>
+<p>A future feature (tentative name: Guest Login) is under consideration for accessing the information of an existing network service account without linking to the user account. This would allow a user to sign in to their Nintendo Account from inside an application for temporary access to the network service account that is linked to that Nintendo Account. As an example of how this feature might be used, a person could take the character they raised and upload it as online data, and then use that data on the Switch of a friend without the need to create a user account on that Switch.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

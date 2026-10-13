@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.6 Blocked-User List | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.6 Blocked-User List -->
+<div class="pagetitle" id="PageId_469797285">3.6 Blocked-User List</div>
+<div class="text_separate">
+<p>The blocked-user list registers the players the user does not want to become friends with and the players the user does not want to matchmake with for online play. Each user can decide to add other players to this list for any reason. The application can implement protective measures such as preventing matchmaking by getting this blocked-user list. The blocked-user list is also common to all applications and may contain a maximum of 100 users. Players are not informed when a user adds them to the blocked-user list. Also make sure that applications do not inform players of their registration to this list.</p>
+<h2 id="Anchor_469797285_h2_1">Usefulness</h2>
+<p>The following happens when a user registers a player to the blocked-user list.</p>
+<ul>
+  <li>Friend requests from the player are not sent to the user.</li>
+  <li>With the NEX default setting, matchmaking with that player no longer occurs.<ul><li>We recommend supporting this same policy in applications that conduct matchmaking without using NEX.</li><li>There is generally no need to change the default NEX setting, but it can be incompatible in the following kinds of situations in applications that support multiple players. For this reason, there is an option for ignoring the blocked-user list when matchmaking in certain specified modes specified in the application.<ul><li>Joining with friends: A user tries to join with a friend in a game but cannot because someone in the matchmaking session is on the user's blocked-user list, or the user is on someone else's blocked-user list.</li><li>Large-scale matchmaking (tournaments and other events): Using the blocked-user list, users can wrongly keep others from participating.</li><li>Rating matchmaking: By registering stronger players to the blocked-user list, users can make it easier to win for themselves and improperly raise their rating.</li></ul></li></ul></li>
+</ul>
+<p>Consider also introducing other independent measures in your application, based on the assumption that the user might find offense with the blocked user. (Example: Do not display works posted by players on the blocked-user list).</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Unlike NEX, there is no setting offered in NPLN that prevents matchmaking with a user on the blocked-user list. If needed, determining whether a user is on the blocked-user list must be handled by the application following the matchmaking process.</p>
+    <p>For more information, see NPLN Manual &gt; NPLN Programming Manual &gt; Gamesync.</p>
+  </div>
+</div>
+<h2 id="Anchor_469797285_h2_2">Using When Not Connected to the Internet</h2>
+<p>The blocked-user list is managed on the server, but the cache from the last time the system was connected to the server is saved in the system. As a result, applications can get the blocked-user list even when the Switch is not connected to the internet. However, users can only be added to the blocked-user list when the Switch is connected to the internet.</p>
+<h2 id="Anchor_469797285_h2_3">Registration Method</h2>
+<p>Users can add a player to the blocked-user list using any of the following methods.</p>
+<table class="wrapped" style="margin-left: 24.0px;">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <p>Method</p>
+      </th>
+      <th>
+        <p>Overview</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Registration from a friend request</td>
+      <td>Users can add the sender of a friend request from the screen that lists received friend requests in their User Page.</td>
+    </tr>
+    <tr>
+      <td>Registration from Player History</td>
+      <td>Users can add a user they played with from the Player History screen in their User Page.</td>
+    </tr>
+    <tr>
+      <td>Registration from an application</td>
+      <td>
+        <p>Users can add any user (including friends) from the application, from the user details screen of the My Page applet.<br />For more information, see <a href="../Pages/Page_469797296.html">3.7 Using From Applications</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

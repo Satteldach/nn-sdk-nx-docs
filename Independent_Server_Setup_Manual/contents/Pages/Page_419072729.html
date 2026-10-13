@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>10.5 Authorization Procedures for Child Accounts | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 10.5 Authorization Procedures for Child Accounts -->
+<div class="pagetitle" id="PageId_419072729">10.5 Authorization Procedures for Child Accounts</div>
+<div class="text_separate">
+<h2 id="Anchor_419072729_h2_1">Authorization in Child Accounts</h2>
+<p>For child accounts, the authorization procedure sequence differs depending on the settings in the child account. The child account settings are configured via the Nintendo Account of a parent or guardian.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_419072729/1112467177.png" height="250" class="embedded-image" />
+  </span>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_419072729/1112467177.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>If <strong>Information sharing</strong> is set to <strong>Always ask for permission before sharing information</strong>, the consent of the parent or guardian Nintendo Account is required whenever authorization is required of the child account.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>In some countries, including those in North America and the European region, <strong>Information sharing</strong> is set to <strong>Always ask for permission before sharing information</strong> by default.</li>
+      <li>In some countries, such as in the European region, <strong>Information sharing</strong> cannot be changed to <strong>Always allow sharing of information</strong>.</li>
+    </ul>
+  </div>
+</div>
+<p>Authorization verification is performed in the production environment by sending an email to the Nintendo Account of the parent or guardian.<br />On the other hand, in the development environment, no emails of any kind are sent to the email addresses registered for Nintendo Accounts.<br />For this reason, when you need to verify authorization from the parent or guardian's Nintendo Account in the development environment, use the method described later in Procedure For Verifying Authorization From a Parent or Guardian Account. This procedure is required for child accounts in the European region and other regions with similar requirements.</p>
+<h2 id="Anchor_419072729_h2_2">Procedure For Verifying Authorization From a Parent or Guardian Account</h2>
+<h6 id="Anchor_419072729_h6_1">Step 1</h6>
+<p>Open the development environment Nintendo Account page in a PC browser and sign in with the child account you want to authorize.</p>
+<h6 id="Anchor_419072729_h6_2">Step 2</h6>
+<p>Change the {} sections in the following URL with the application information you want to authorize, and open the URL with a PC browser.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.accounts.nintendo.com/connect/1.0.0/authorize?client_id={your client_id}&amp;redirect_uri=nintendo%3A%2F%2F{your application_id}.app&amp;response_type={your response_type}&amp;scope={your scope}&amp;state=state</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>When attempting this process with the NintendoSDK AccountApplicationAuthorization sample, the URL is as follows.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.accounts.nintendo.com/connect/1.0.0/authorize?client_id=da5952368900d43a&amp;redirect_uri=nintendo%3A%2F%2F0100f80000492000.app&amp;response_type=code+id_token&amp;scope=openid+user.basic&amp;state=state</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_419072729_h6_3">Step 3</h6>
+<p>Select to send an email with instructions to the parent or guardian on the displayed page. An email is not sent at this time, but a URL for the parent or guardian to agree is displayed in the upper area of the Nintendo Account page.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_419072729/419076905.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h6 id="Anchor_419072729_h6_4">Step 4</h6>
+<p>Jump to the URL displayed in step 3. When you sign in with the parent or guardian's Nintendo Account on this page, you can approve the authorization for the child account.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

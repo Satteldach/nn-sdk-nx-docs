@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.1 Composition and Development Flow | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.1 Composition and Development Flow -->
+<div class="pagetitle" id="PageId_522483313">5.1 Composition and Development Flow</div>
+<div class="text_separate">
+<p>This section describes the composition and development flow of downloadable content.</p>
+<h1 id="Anchor_522483313_h1_1">Composition of Downloadable Content</h1>
+<p>Switch downloadable content is composed of one set of metadata and one or more sets of content.</p>
+<div class="figure">
+  <a name="AutoAnchor_522483313_figure001"></a>Figure 5-1  Overview of Downloadable Content</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522483313/529985311.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>The data used inside the application is separated into individual pieces of content. Application developers are free to configure how much data is included within a single piece of content.</p>
+<p>Application developers can also assign each piece of content an <code>index</code> value for identification purposes. This <code>index</code> value must be unique across the application. On Switch, each piece of downloadable content is installed and managed individually. Similarly, when working with downloadable content within an application, each piece of content (each <code>index)</code> is mounted separately to access and use the files inside that content. The same is true for Nintendo eShop. As a general rule, individual pieces of content are sold as individual products.</p>
+<p>The actual data included in a piece of content consists of a collection of files and directories. There are no particular rules about the naming and hierarchical structure of these files and directories.</p>
+<p>The metadata is information in XML format that describes the downloadable content. For more information about this metadata, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library.</p>
+<h1 id="Anchor_522483313_h1_2">Development Flow</h1>
+<div class="figure">
+  <a name="AutoAnchor_522483313_figure002"></a>Figure 5-2  Downloadable Content Development Flowchart</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522483313/831139811.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>To test your downloadable content in the development environment and submit it to Lotcheck, you must package the content and the metadata together using Authoring Tool. During packaging, which collects multiple pieces of content together, the information about each piece of content is combined with information about the other content as a single set of metadata. There is no need to prepare metadata for each piece of content. In the development environment, the packaged downloadable content can be installed to the Switch development hardware for testing.</p>
+<h1 id="Anchor_522483313_h1_3">Items and Content in Nintendo eShop</h1>
+<p>The managed unit for selling downloadable content in Nintendo eShop is the <em>item</em>. The item is set with a sales price and a sales period and that information is shown in Nintendo eShop. Items are linked to content. By purchasing an item, the user can download and use the content linked to that item.</p>
+<p>Multiple pieces of content can be linked to an item. No warning message is displayed at purchase time if the item contains multiple pieces of content and the user happens to already own some of them. Do not link multiple pieces of content to an item unless the content is being shared among multiple items that are for sale. For example, if you are selling two additional stories that have a common resource, configure multiple pieces of content, including the same content in each additional story, as shown.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Pieces of Content</th>
+    </tr>
+    <tr>
+      <td>Story A</td>
+      <td>index 1 (resource for story A), index 3 (common resource)</td>
+    </tr>
+    <tr>
+      <td>Story B</td>
+      <td>index 2 (resource for story B), index 3 (common resource)</td>
+    </tr>
+  </tbody>
+</table>
+<p>If you want to sell multiple pieces of content together as a set, the normal method is to link each piece of content to a separate item, register all of the separate items, and then sell the items together as a bundle. For more information about the mechanism for bundles, see <a href="../Pages/Page_745405247.html">3.3 Selling Bundles and Sets</a>.</p>
+<p>Items can be purchased from Nintendo eShop and the ec applet. Applications are only required to implement the ec applet call portion for purchases of downloadable content.</p>
+<div class="figure">
+  <a name="AutoAnchor_522483313_figure003"></a>Figure 5-3  Items and Content</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522483313/831139829.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p>The sales settings for items in the production environment are configured on NCMS.</p>
+<p>The metadata for the content can include information in the form of <em>tags</em>. The tags are not shown in Nintendo eShop, but if you set these tags in the content metadata when you register the sales information on NCMS, you can use them to link items and pieces of content.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

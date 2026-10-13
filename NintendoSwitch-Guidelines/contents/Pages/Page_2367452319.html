@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Patches | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Patches -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452319" data-tags="">Patches</div>
+<div class="text">
+<p>This chapter covers requirements for application design and development that apply to applications that have patches.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Patches: General -->
+<h1 class="general" id="GuidelineLabel_2367452321" data-tags="">Patches: General</h1>
+<div class="text">
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0123: Limit on patch size -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452323" data-tags="revision-updated-10.0 revision-updated-14.0 revision-updated-20240626 function-パッチ revision-updated-13.0 revision-updated-3.0 revision-updated-7.0 revision-updated-18.0 revision-updated-2.0 revision-updated-6.0 revision-updated-9.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452323" title="Right-click and copy link to copy a permalink to this guideline">0123: Limit on patch size</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The size of a patch must be no larger than the following threshold value:</p>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>1.5 GiB</p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Patches
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>When you create patches, you must keep their size to no larger than the threshold value. If your patch absolutely must exceed this size limit due to your application's design, you must submit a request for an approval on Nintendo Developer Portal. This threshold value limit applies to the size of the NSP file for the patch you are submitting. For example, if you add 400 MiB of content in v1, then add another 400 MiB of content in v2 for an NSP file that is 800 MiB, this limit applies to the total 800 MiB size of the NSP file. (The limit applies to the cumulative total size of your latest patch. It does not apply to the relative increase in size between patches, which would be 400 MiB in the example above.)</p>
+  <p>Nintendo considers the reasons that your patch exceeds the size limit when deciding whether to grant waivers for this guideline. If you request a waiver, run AuthoringTool's <code>analyze-patch</code> command (shown below), and submit the results with your waiver request. Nintendo uses this as quantitative information about the patch size. The <code>analyze-patch</code> command is available in versions of AuthoringTool that support NintendoSDK NX Add-On 10.4.0 or later. Even if you are creating a patch in an older development environment, Nintendo recommends that you get a version of AuthoringTool that supports it and run <code>analyze-patch</code>.</p>
+  <table class="codeblock">
+    <tbody>
+      <tr>
+        <td class="code">
+          <div class="codeblock"><pre>AuthoringTool.exe analyze-patch patch-current.nsp [--previous patch-previous.nsp] --original application.nsp  --obfuscate-file-name</pre></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If your patch is v2 or later, you must always specify <code>previous</code>. For details about how to use this tool or for examples of its output, see the &quot;Features &gt; Patches &gt; Optimization Information&quot; section of the <em>NintendoSDK Documents</em>.</p>
+  <p>Along with the results of running <code>analyze-patch</code>, also provide the following information to explain the reasons why your patch exceeds the size limit and the reasons why you cannot reduce the size of your patch any further. As a basic rule, Nintendo may grant waivers for patches that exceed this limit as long as the patch size matches up to the amount of fixes and updates in the patch, so that the size feels reasonable to users.</p>
+  <ul>
+    <li>List the content that is causing the patch to exceed the size limit, broken up by purpose and estimated size. (There is no need to list content that has little impact on the patch size.)<br />Example: This patch adds map data taking up 300 MiB</li>
+    <li>If your patch exceeds the size limit because it includes content that is not actually being changed by the patch, explain the technical reason why your patch includes this content.<br />Example: This application uses middleware that creates non-deterministic archives, taking up 500 MiB</li>
+    <li>Include the content and size of any patches you plan to release in the future, if you know such details<br />Example: We expect future patches to reach up to 4.5 GiB in size</li>
+  </ul>
+  <p>The &quot;Patch size analysis&quot; produced by <code>analyze-patch</code> provides a breakdown of your patch's size, which you can use for reference when checking why your patch size exceeds the limit. You can display actual filenames by leaving out the <code>--obfuscate-file-name</code> option. Feel free to provide the required information by taking the &quot;Patch size analysis&quot; output and simply adding your additional descriptions and explanations to it.</p>
+  <p>In the &quot;Original size analysis&quot; produced by <code>analyze-patch</code>, the field labeled &quot;unused&quot; indicates the size of the data that is no longer referenced after the patch is applied, either because those files were updated or because they were deleted. If this &quot;unused&quot; data exceeds 1 GiB, you must also explain why a high amount of data is no longer used, when explaining why your patch exceeds the size limit.</p>
+  <p>Below are some examples of ways patch sizes can increase and how to handle such situations. For details about the patch mechanism for Nintendo Switch and about ways to decrease patch size, see the &quot;Features &gt; Patches&quot; section of the <em>NintendoSDK Documents</em>.</p>
+  <div class="expand-container" id="expander-2367452323-1">
+    <div class="expand-control" id="expander-control-2367452323-1">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">You want to distribute a patch that includes data just for users who have purchased downloadable content</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367452323-1">
+      <p>Users who have not purchased your downloadable content will be forced to download the data as part of the patch even though they cannot use the data. Consider including this kind of data in your downloadable content instead. If you have both small and large files of this kind of data, it may also be effective to put the small files in your patch and put the large files in your downloadable content.</p>
+      <p>If there is a reason why you cannot include this data in your downloadable content, you must contact Nintendo to explain the reason. For example, you could write something like &quot;Even for users who have not purchased the downloadable content, it is necessary for them to have this data so that they can see this data in network PvP matches&quot; as your reason.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="expand-container" id="expander-2367452323-2">
+    <div class="expand-control" id="expander-control-2367452323-2">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">You want to update the middleware your application uses and reconvert the corresponding resources</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367452323-2">
+      <p>There is no benefit for the user in receiving identical resources again in a patch, so including identical resources in your main application and in a patch is prohibited.</p>
+      <ul>
+        <li>Investigate whether you can design your patch in such a way that it does not include the reconverted resources<br />Adjusting the method that the middleware uses to reconvert the resources may allow you to prevent identical resources from being included in your patch again.</li>
+        <li>Check whether it is possible for you to continue using the previous version of the middleware without updating it<br />When submitting a patch, you are allowed to use old SDK versions which Nintendo no longer accepts for submission.</li>
+      </ul>
+      <p>On the other hand, the following are some cases where you must update your middleware and cannot avoid it. In these cases, contact Nintendo to explain the reason.</p>
+      <ul>
+        <li>In order to use a feature provided in a new SDK version, you must update to the middleware version supported by that SDK</li>
+        <li>You must update the middleware to fix a fatal bug caused by the middleware</li>
+      </ul>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="expand-container" id="expander-2367452323-3">
+    <div class="expand-control" id="expander-control-2367452323-3">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">You want to convert existing resources to optimize performance</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367452323-3">
+      <p>Performance optimization is not outright prohibited because it is also beneficial to users. But before you assume you must have a large patch, please investigate whether you can achieve both improved performance and small size.</p>
+      <ul>
+        <li>Look into whether there is a way to convert the resources without increasing the size of the patch<br />Adjusting the method that you use to convert resources may allow you to prevent your patch size from increasing.</li>
+        <li>If you have not yet submitted the initial version of your application, use your initial version to optimize any elements that may later affect patch size.</li>
+      </ul>
+      <p>If it is difficult for your application to balance performance and size, contact Nintendo to explain the reason.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="expand-container" id="expander-2367452323-4">
+    <div class="expand-control" id="expander-control-2367452323-4">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">You want to put data you know you will revise later in a patch instead of the main application, to limit how much storage space each user needs</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367452323-4">
+      <p>If your application is download-only and you know that some content of your initial application will be repeatedly modified by patches going forward, consider putting the actual data of the content you plan to modify in a patch instead of in your main application. Doing this can ultimately reduce the amount of combined storage space required for your application and its patches.<br />The purpose of this guideline is to limit the consumption of storage space, so Nintendo may approve your patch being large in such cases. Contact Nintendo with the size breakdowns for your main application and patch, as well as your planned patch release schedule.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->If you are using NintendoSDK NX Add-On 13.x or later, you can use the ROM compression feature. This feature can help reduce the size of your application and patches if they contain compressible data. This feature compresses applications in a way that creates smaller patches. Using this feature for all your compression may ultimately make your patch size smaller than if you use a different compression scheme or use this feature on a pre-compressed application. Therefore, if you are using NintendoSDK NX Add-On 13.x or later, consider using this feature to compress the initial version of your application from the start, because that may also reduce your patch size. If you did not use the ROM compression features on the initial version of your application and then used the feature for the first time on a patch, the ROM compression feature may in fact increase the patch size. In such cases, you must make sure to test the feature and check that it actually does produce a smaller compressed file before you submit. For more information about ROM compression, see the <em>NintendoSDK Documents</em> &gt; Features &gt; Building &gt; Creating Application Images &gt; Resource Data (ROM) Compression.</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>NintendoSDK Documents<ul><li>Features &gt; Patches</li><li>Features &gt; Building &gt; Creating Application Images &gt; Resource Data (ROM) Compression</li></ul></li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>After loading the NSP file in AuthoringEditor, go to <strong>Basic</strong> &gt; <strong>Size information</strong> and check the value displayed in the <strong>Patch install size</strong> field.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the value displayed in AuthoringEditor under the <strong>Basic</strong> &gt; <strong>Size information</strong> &gt; <strong>Patch install size</strong> field after loading the NSP file is no larger than the threshold value.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452323_0" data-tag="function-パッチ">
+<label for="tagfilter_2367452323_0">
+<span class="function-tag" title="Patches" data-tag="function-パッチ">Patches</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_1" data-tag="revision-updated-20240626">
+<label for="tagfilter_2367452323_1">
+<span class="revision-tag" title="Updated v20240626" data-tag="revision-updated-20240626">Updated v20240626</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_2" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367452323_2">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_3" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452323_3">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_4" data-tag="revision-updated-13.0">
+<label for="tagfilter_2367452323_4">
+<span class="revision-tag" title="Updated v13.0" data-tag="revision-updated-13.0">Updated v13.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_5" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367452323_5">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_6" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367452323_6">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_7" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452323_7">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_8" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452323_8">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_9" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367452323_9">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452323_10" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367452323_10">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240626
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Changed description.</li>
+<li class="changelog">Changed threshold value for the size limit.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0053: Prohibition of patches that make save data unusable -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452325" data-tags="revision-updated-12.0 function-パッチ function-違反件数が多い revision-updated-8.0 revision-updated-7.0 revision-updated-0.3 revision-updated-5.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452325" title="Right-click and copy link to copy a permalink to this guideline">0053: Prohibition of patches that make save data unusable</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Users must be able to continue using their save data after they apply your patch.</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Patches
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Applications that do not create save data</li>
+  <li>The following types of save data:<ul><li>Option settings, temporarily suspended gameplay data, or other data that users can recreate relatively easily</li><li>Specific data that you deliberately break compatibility with as part of a specification change (for example, a patch that makes it impossible to watch previously-saved replay data)</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Your application must be backward-compatible with save data from earlier versions. This means that after applying the patch, users must still be able to use save data created by earlier unpatched versions of your application. For example, avoid any implementations where applying a patch would cause the application to assume that the previous save data is corrupted, making it impossible for users to progress, or causing the application to initialize the save data and erase their previous progress.<br />In contrast, save data created by your application after the patch does not need to work with earlier versions of your application before the patch. (In other words, your application does not need to be forward-compatible.)<br />It is not a problem to break compatibility with the following types of save data.</p>
+  <ul>
+    <li>Option settings, temporarily suspended gameplay data, or other data that users can recreate relatively easily</li>
+    <li>Specific data that you deliberately break compatibility with as part of a specification change (for example, a patch that makes it impossible to watch previously-saved replay data)</li>
+  </ul>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Play the unpatched application and create an example of every kind of data.</li>
+  <li>Apply the patch.</li>
+  <li>Access and use all the kinds of data created in step 1.</li>
+  <li>If you have already released previous patches, repeat steps 1 through 3 with all previously released versions, each time starting in step 1 with one more of the previous patches already applied.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in step 3, the previous save data is usable.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452325_0" data-tag="function-パッチ">
+<label for="tagfilter_2367452325_0">
+<span class="function-tag" title="Patches" data-tag="function-パッチ">Patches</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452325_1" data-tag="function-違反件数が多い">
+<label for="tagfilter_2367452325_1">
+<span class="function-tag" title="Most-failed guidelines" data-tag="function-違反件数が多い">Most-failed guidelines</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452325_2" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452325_2">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452325_3" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452325_3">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452325_4" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452325_4">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452325_5" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367452325_5">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452325_6" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367452325_6">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

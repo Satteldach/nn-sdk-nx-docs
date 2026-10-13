@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1.2 Shared Region | NFP Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1.2 Shared Region -->
+<div class="pagetitle" id="PageId_86619111">3.1.2 Shared Region</div>
+<div class="text_separate">
+<p>A variety of IDs are written to the shared region during manufacturing and shipping so that the application can determine information about the end consumer's amiibo. These IDs allow a variety of unique effects/features to be implemented for each amiibo the consumer purchases. These IDs also allow support for features to be implemented in advance for amiibo products that are not yet available for purchase. However, using these IDs without a complete understanding of the purpose of each may result in unforeseen limitations on the types of amiibo products that can be used with your application. In addition, improper implementation of amiibo support may result in unexpected behavior when additional amiibo products are released in the future and used with your application. Please read the following descriptions of each ID carefully and implement the proper support in your application.</p>
+<div class="figure">
+  <a name="AutoAnchor_86619111_figure005"></a>Figure 3-2  ID Example Assigned to the Shared Region</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_86619111/1176657070.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about which IDs are configured on each amiibo product, see the amiibo Data List.</p>
+  </div>
+</div>
+<h4 id="Anchor_86619111_h4_1">Data Entered at the Factory</h4>
+<h6 id="Anchor_86619111_h6_1">Character ID</h6>
+<p>The character ID allows the application to determine whether the corresponding character is supported in the application. A different character ID is assigned to each character. The character ID comprises a 3-byte region. The first two bytes represent the base character ID, and the last byte represents the character ID details.</p>
+<p>The same base character ID is assigned to every version of the same character. For example, a base character ID of 0x0000 is assigned to every Mario amiibo, and a base character ID of 0x0001 is assigned to every Luigi amiibo.</p>
+<p>The character ID details are used to indicate different versions of the base character specified by the base character ID. A different character ID details value is assigned to each version of a character. For example, a character ID details value of 0x00 is assigned to normal Mario, and a character ID details value of 0x01 is assigned to Dr. Mario. </p>
+<p>If you want your application to react in a certain specific way to each different character, you would use the base character ID. The character ID (base character ID plus character ID details) allows you to implement a variety of unique application behaviors for each amiibo product. This provides a unique and valuable user experience for each amiibo product for consumers who purchase different versions of the same amiibo character. However, it is not possible to implement support for versions of a character that have not been assigned an ID while the game title is under development. If you want your application to be able to support new versions of amiibo characters as they are released, the safest option is to use the base character ID and only implement character-specific application behaviors (rather than behaviors unique to different versions of the same character).</p>
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_86619111_figure001"></a>Figure 3-3  Determinations Based on Character IDs</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_86619111/158499302.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h6 id="Anchor_86619111_h6_2">Series ID</h6>
+<p>The series ID indicates the amiibo design series. The same series ID is assigned to all amiibo products that belong to the same series, such as all amiibo products in the Super Smash Brothers series or all amiibo products in the Animal Crossing series, for example.</p>
+<p>Using the series ID makes it easier to narrow down which amiibo characters will be supported in your application. Use the series ID when you want to implement particular application behaviors for all amiibo products in a particular design series or when you want to be able to implement different application behaviors for each amiibo product in the same series (including new amiibo products in the series that may be released in the future). There are also characters, such as Mario and Link, who appear in multiple series. Regardless of whether you decide to implement unique application behaviors for each character or to implement the same application behaviors for all characters in a series, ensure that the user has a smooth, natural, and enjoyable user experience.</p>
+<!--figure004-->
+<div class="figure">
+  <a name="AutoAnchor_86619111_figure004"></a>Figure 3-4  Determinations Based on Series IDs</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_86619111/158499303.png" width="900" class="embedded-image" />
+  </span>
+</p>
+<h6 id="Anchor_86619111_h6_3">Numbering ID</h6>
+<p>Numbering IDs are part of a sequential numbering scheme that covers all amiibo products. A unique numbering ID is assigned to amiibo products of the same type. For example, numbering IDs are used to distinguish between amiibo products that have the same character ID and series ID but have different poses, are carrying or using different items, or have different coloring. Using the numbering ID allows you to implement different application behaviors for each different version of amiibo products.</p>
+<p>However, for your application to be able to distinguish between amiibo products using the numbering ID, numbering IDs must already have been assigned when your application starts. As a result, implementing numbering ID-specific application behaviors limits the range of amiibo products that can be used in your application. When implementing numbering ID-specific application behaviors, you may want to investigate also supporting the use of amiibo products other than only those with certain numbering IDs. In addition, Nintendo cannot guarantee that production of an amiibo product with a particular numbering ID will continue indefinitely. Production of an amiibo product with a particular numbering ID may be discontinued at any time.</p>
+<!--figure003-->
+<div class="figure">
+  <a name="AutoAnchor_86619111_figure003"></a>Figure 3-5  Determinations Based on Numbering ID</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_86619111/158499304.png" width="400" class="embedded-image" />
+  </span>
+</p>
+<h6 id="Anchor_86619111_h6_4">Unique ID</h6>
+<p>The unique ID is an ID unique to each NFP tag. The unique ID can also be read by other NFC reader devices. All amiibo products that contain an NFP tag can be distinguished from one another using this unique ID.</p>
+<p>The unique ID allows you to distinguish between amiibo products that are otherwise identical. For example, the unique ID makes it possible to distinguish between you and your friend's otherwise identical Mario amiibo products from the Super Mario series.</p>
+<p>Consider a case in which a user loads the data on her amiibo product prior to playing a game and then creates new gameplay data while playing the game. Before writing the new data to the amiibo product, you can check the unique ID to make sure that it is the same amiibo product and thereby prevent writing data to the wrong amiibo. Because the unique ID is unique to each amiibo product, you must take special precautions in cases such as when the amiibo is accidentally lost. Avoid game designs that write more save data than necessary on the amiibo, which can prevent users from continuing to play the game if they lose their amiibo products unless they delete the application-side save data and start over.</p>
+<!--figure002-->
+<div class="figure">
+  <a name="AutoAnchor_86619111_figure002"></a>Figure 3-6  Determinations Based on Unique IDs</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_86619111/158499305.png" width="400" class="embedded-image" />
+  </span>
+</p>
+<!--Remove-->
+<h6 id="Anchor_86619111_h6_5">NFP Type</h6>
+<p>NFP type is an ID assigned to amiibo products based on product type. For example, different NFP types are assigned to amiibo figures and amiibo cards.</p>
+<p>Using the NFP type ID allows you to implement application behaviors specific to a certain type of amiibo product. However, new types of amiibo products may be launched in the future. Overusing the NFP type ID may restrict the ability of your application to support new amiibo product types as they are launched in the future.</p>
+<h4 id="Anchor_86619111_h4_2">Data Entered When the Owner Registers</h4>
+<h6 id="Anchor_86619111_h6_6">Owner</h6>
+<p>The owner of an amiibo product can register his/her Mii to the amiibo.</p>
+<h6 id="Anchor_86619111_h6_7">Nickname</h6>
+<p>The nickname given to the amiibo product by the owner. (Maximum of 10 characters.)</p>
+<h4 id="Anchor_86619111_h4_3">Data Entered When the Application Accesses the Application-Specific Region</h4>
+<h6 id="Anchor_86619111_h6_8">Access ID</h6>
+<p>Nintendo assigns an access ID to each application. The access ID is used on the game system to determine whether to allow a specific application to access the application-specific region of an NFP tag. For more information about using the application-specific region, see <a href="../Pages/Page_86619119.html">3.2.1 Use of the Application-Specific Region</a>.</p>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

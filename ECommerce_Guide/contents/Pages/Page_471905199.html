@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2.2 For Developers | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2.2 For Developers -->
+<div class="pagetitle" id="PageId_471905199">6.2.2 For Developers</div>
+<div class="text_separate">
+<h1 id="Anchor_471905199_h1_1">Independent Server Settings</h1>
+<p>To make various requests in Nintendo eShop, save the following information on the independent server.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Overview</th>
+    </tr>
+    <tr>
+      <td>Base URL of the consumable service item server</td>
+      <td>
+        <p>For more information, see <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a> &gt; Correspondence Between Environment Identifiers and Consumable Service Item API Endpoints.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Client ID/Secret</td>
+      <td>
+        <p>This information is used to send requests for the consumable service item.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Item ID</td>
+      <td>
+        <p>This ID is used to identify items purchased on Nintendo eShop. Independent servers use this ID to determine which licenses to assign to users.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905199_h1_2">Adding Licenses to User Accounts</h1>
+<p>After a request to get license information is received from the independent server, Nintendo eShop returns information for the item purchased by the user who sent the request. Identify the purchased item and grant licenses based on this information. In addition, to record that the license has been used, send a license information update request to update the purchase information status.</p>
+<p>The following two IDs are used during this process.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>ID Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>item_id</td>
+      <td>
+        <p>This item ID identifies the purchased item.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>right_id</td>
+      <td>
+        <p>ID for identifying the units of consumable service items users purchase from Nintendo eShop.<br />When Nintendo eShop receives a request for a user&rsquo;s license information, it returns that license information in units of <code>right_id</code> values.</p>
+        <p>The status of <code>right_id</code> is updated when the license is granted.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905199_h1_3">Debugging in the Development Environment</h1>
+<p>Using NCMS, consumable service items can be sold on the development environment (dd1) Nintendo eShop.</p>
+<p>For more information, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</p>
+<h1 id="Anchor_471905199_h1_4">Testing Error Handling</h1>
+<p>The consumable service item server APIs may sometimes fail, such as when the Nintendo eShop server is down for maintenance. For more information about API responses when errors occur, see <a href="../Pages/Page_471905205.html">6.2.2.2.1 Overview</a>.</p>
+<p>The following two features are available for testing error handling.</p>
+<ul>
+  <li>Using the Web tool, set errors for a specified account.<ul><li><a href="../Pages/Page_471905202.html">6.2.2.1 Online Tool for Error Settings</a></li></ul></li>
+  <li>Using the server APIs for debugging, set errors for a specified account.<ul><li><a href="../Pages/Page_471905208.html">6.2.2.2.4 FOR DEBUGGING: API for Mandatory Error Settings</a></li><li><a href="../Pages/Page_471905209.html">6.2.2.2.5 FOR DEBUGGING: API for Clearing Mandatory Error Settings</a></li></ul></li>
+</ul>
+<p>Although the implementation of error handling is generally handled by the independent server, if an error is defined in the Nintendo Switch Guidelines as to be displayed in the application, use the error viewer applet to display the error to the user.</p>
+<h3 id="Anchor_471905199_h3_1">NintendoSDK NX Add-On 7.0.0 or later</h3>
+<p>Use the <code>nn::err::MakeErrorCode()</code> function to generate an error code for the consumable service item. For the second parameter, specify the <code>code</code> value included in the error response from the server API.</p>
+<div class="code">
+  <a name="AutoAnchor_471905199_code001"></a>Code 6-1  Calling the Error Viewer Applet in NintendoSDK NX Add-On 7.0.0 or Later</div>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nn">nn::err::</span><span class="n">ErrorCode</span> <span class="n">err</span> <span class="o">=</span> <span class="nn">nn::err::</span><span class="n">MakeErrorCode</span><span class="p">(</span><span class="nn">nn::err::ErrorCodeCategoryType::</span><span class="n">ConsumableService</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">code</span><span class="p">);</span> <span class="c1">// error.code is the code included in the error response of API
+</span><span class="nn">nn::err::</span><span class="n">ShowError</span><span class="p">(</span><span class="n">err</span><span class="p">);</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_471905199_h3_2">Versions earlier than NintendoSDK NX Add-On 7.0.0</h3>
+<p>The corresponding error message can be displayed in the error viewer applet by specifying <code class="plain plain">2622</code> (the category code for consumable service items) for the <code class="plain plain">category</code> public variable of the <code class="plain plain">nn::err::ErrorCode</code> structure, specifying the code included in the server API error response for the <code class="plain plain">number</code> public variable, and then calling <code class="plain plain">nn::err::ShowError(ErrorCode <em>errorCode</em>)</code>.</p>
+<div class="code">
+  <a name="AutoAnchor_471905199_code002"></a>Code 6-2  Calling the Error Viewer Applet</div>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nn">nn::err::</span><span class="n">ErrorCode</span> <span class="n">err</span><span class="p">;</span>
+<span class="n">err</span><span class="p">.</span><span class="n">category</span> <span class="o">=</span> <span class="mi">2622</span><span class="p">;</span> <span class="c1">// Consumable service item error category.
+</span><span class="n">err</span><span class="p">.</span><span class="n">number</span> <span class="o">=</span> <span class="n">error</span><span class="p">.</span><span class="n">code</span><span class="p">;</span> <span class="c1">// error.code is the code included in the error response of API
+</span><span class="nn">nn::err::</span><span class="n">ShowError</span><span class="p">(</span><span class="n">err</span><span class="p">);</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

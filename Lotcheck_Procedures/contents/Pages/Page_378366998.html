@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.7 Finishing Debugging | Nintendo Switch Lotcheck Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.7 Finishing Debugging -->
+<div class="pagetitle" id="PageId_378366998">4.7 Finishing Debugging</div>
+<div class="text_separate">
+<p>The Lotcheck process is not a debugging process, as noted in <a href="../Pages/Page_378366995.html">2 Lotcheck</a>.</p>
+<p>Even if there is no problem with production device compatibility or the guideline standards, if a bug is discovered, an application might fail Lotcheck depending on the contents of the bug. In this case, it is necessary to perform Lotcheck again.</p>
+<p>
+  <strong>Submit the ROM after thorough debugging so that it requires the minimum amount of time to pass Lotcheck.</strong>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The guideline test checks all items, even when bugs are discovered, but only for the initial submission of a release.</p>
+    <p>Even during the first submission, the guideline test may be canceled if it is determined that there are so many bugs that testing cannot continue.</p>
+  </div>
+</div>
+<h1 id="Anchor_378366998_h1_1">Second and Subsequent Lotcheck for the Same Product</h1>
+<p> <strong>Note</strong>: This section is based on the description in <a href="../Pages/Page_378367006.html">5 Items for the Developer to Address During Lotcheck</a> &gt; Process From Lotcheck Submission to Judgment. </p>
+<p>When submitting a product for Lotcheck the second and subsequent times, submit the product after fixing the bugs that were reported in the previous Lotcheck tests.</p>
+<h2 id="Anchor_378366998_h2_1">Resubmission After Failing Lotcheck and Fixing the ROM</h2>
+<ul>
+  <li>Review the bugs reported as Lotcheck issues and fix the issues that are marked <strong>Will Fix in ROM</strong> in the thread status.<br />After fixing the bugs, perform testing and verify that the bugs were fixed.</li>
+  <li>Check whether the bugs reported by Lotcheck adversely affect other functionality, and fix any issues.<br />If you only fix the reported instance of a bug, your application may still contain related bugs.</li>
+</ul>
+<h2 id="Anchor_378366998_h2_2">Patch Submission</h2>
+<ul>
+  <li>Fix the bugs marked as <strong>Temporary Waiver Approved</strong> in a previous release.<br />Any <strong>Temporary Waiver Approved</strong> is only valid for the approved release version.</li>
+</ul>
+<h1 id="Anchor_378366998_h1_2">Common Examples</h1>
+<p>Refer to the following page on NDP.</p>
+<p>
+  <a class="external-link" href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/lotcheck-information#lotcheck05" rel="noopener noreferrer" target="_blank">Nintendo Developer Portal &gt; Developer Support &gt; Nintendo Switch &gt; Technical Information &gt; Lotcheck Information &gt; Examples of common general bugs</a>
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

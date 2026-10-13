@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Creating a Master ROM | Nintendo Switch Master ROM Submission Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Creating a Master ROM -->
+<div class="pagetitle" id="PageId_178488508">5 Creating a Master ROM</div>
+<div class="text_separate">
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_178488508_h1_1">Master ROM Types</a>
+    </li>
+    <li>
+      <a href="#Anchor_178488508_h1_2">Process for Creating a Master ROM</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_178488508_h2_1">Creating a Master ROM for an Application</a>
+      </li>
+      <li>
+        <a href="#Anchor_178488508_h2_2">Creating a Master ROM for Downloadable Content</a>
+      </li>
+    </ul>
+  </ul>
+</p>
+<p>This section describes the procedure for creating a master ROM.</p>
+<p>The master ROM is an executable NSP file that includes all the associated data needed to run an application, including the minimally required elements and icons.</p>
+<h1 id="Anchor_178488508_h1_1">Master ROM Types</h1>
+<!--figure003-->
+<div class="figure">
+  <a name="AutoAnchor_178488508_figure003"></a>Figure 5-1  Master ROM Types</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178488508/274200608.png" width="600" class="embedded-image" />
+  </span>
+</p>
+<p>Master ROMs must be created and submitted for applications, patches, and downloadable content (DLC). The gray squares (<span class="embedded-file-wrapper "><img src="../Attachments/Attach_178488508/195570980.png" width="60" class="embedded-image" /></span>) in <a href="#AutoAnchor_178488508_figure003">Figure 5-1  Master ROM Types</a> indicate the types of master ROMs that can be created.</p>
+<p>Application information is handled in units of what is known as a <em>product</em>. There are four types of applications: full retail applications, demo applications, on-card downloadable content, and multi-application cards. Each of these categories has an associated <em>product type</em>. (A product is the unit used to handle application information.)</p>
+<p>For all applications, including full retail applications, demo applications, on-card downloadable content, and multi-application cards, an initial release is created, and then patches are created to update the application. Downloadable content can also be created and distributed for applications. However, downloadable content cannot be updated using application patches.</p>
+<h1 id="Anchor_178488508_h1_2">Process for Creating a Master ROM</h1>
+<h2 id="Anchor_178488508_h2_1">Creating a Master ROM for an Application</h2>
+<p>Use the following procedure to create a master ROM for an application.</p>
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_178488508_figure001"></a>Figure 5-2  Creating a Master ROM for an Application</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178488508/186770332.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<ol>
+  <li>Add the software legal information.</li>
+  <li>Prepare the icons and, optionally, offline HTML files.</li>
+  <li>Create an NMETA file.</li>
+  <li>Build the release version using the Visual Studio project.</li>
+  <li>Update the ROM content as necessary.</li>
+  <li>Test the release version of the NSP file.</li>
+</ol>
+<h2 id="Anchor_178488508_h2_2">Creating a Master ROM for Downloadable Content</h2>
+<p>The procedure for creating a master ROM for downloadable content is essentially the same as the procedure for applications, except that different information must be configured in the NMETA file.</p>
+<p>For the detailed procedure, see <a href="../Pages/Page_178492863.html">5.1 ROM Builds</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

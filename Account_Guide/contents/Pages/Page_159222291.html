@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2.3 Design 3: Select Additional Account/Switch Accounts Within the Application | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2.3 Design 3: Select Additional Account/Switch Accounts Within the Application -->
+<div class="pagetitle" id="PageId_159222291">5.2.3 Design 3: Select Additional Account/Switch Accounts Within the Application</div>
+<div class="text_separate">
+<p>This design covers playing within the application while adding or switching user accounts. This design assumes the creation of a proprietary UI for each application, primarily including applications that support guest users.</p>
+<h6 id="Anchor_159222291_h6_1">Advantages</h6>
+<ul>
+  <li>You can implement adding or switching user accounts at any point that suits the application's specifications.</li>
+</ul>
+<h6 id="Anchor_159222291_h6_2">Important Information</h6>
+<ul>
+  <li>Generally speaking, you must implement the UI for your application.<ul><li>The basic feature provided by the account management applet is selecting a user account from among the accounts registered on the system, regardless of sign-in status.</li><li>It is possible that application specifications would allow for support via combinations of the various applet options.</li><li>When implementing a proprietary UI, you must provide support for users who cannot sign in. For more information, see <a href="../Pages/Page_159220225.html">5.1.1 Feature Group 1: Displaying User Accounts and Changing Their States</a>.</li></ul></li>
+  <li>Sharing data among all users would require proprietary support that used the account save data region (allowing, for example, synchronization among different data instances).<ul><li>See NintendoSDK Documents &gt; Features &gt; Save Data, and Nintendo Switch Online Play Guide for considerations about save data.</li></ul></li>
+  <li>Talk to your NEX lead about your method for implementing the simultaneous use or switching of user accounts while in a NEX use environment within the application. The reason for this request is that the processes for signing in and out of the NEX server can affect server performance.</li>
+</ul>
+<p>This design offers many variations, because it can be freely interpreted. As a result, this documentation includes three examples that are likely to be representative.</p>
+<h3 id="Anchor_159222291_h3_1">Design 3-1: Mini-Games</h3>
+<p>The first example envisions titles that are collections of mini-games, incorporating multiple game modes. General board game and karaoke titles could also be included in this type. The natural sequence for titles like these would be to begin with selecting either the game mode to play in or the number of players and settings, and then to proceed to selecting participating user accounts.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159222291/163772741.png" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_159222291_h3_2">Design 3-2: Supporting Both Single and Multiplayer Mode</h3>
+<p>The second example envisions titles that support both single player (single play mode) and multiple player (multiplay mode). Account selection for single play can be skipped when title specifications denote using single play solely for offline practice modes. However, the single play history will not be saved in this case.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159222291/163772740.png" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_159222291_h3_3">Design 3-3: Staged User Selection</h3>
+<p>In the third example, after selecting the first person's user account at the start of the game all other players are selected upon entry to multiplay mode. (This design is inherited from Designs 1, 2, and 5.) This design is a good fit for titles where specifications call for multiple players to play after selecting a leader or for multiple players to play in roles that assist the main user account. In both cases, play records would also accumulate for sub-players.</p>
+<p>In this case, you can use the account management applet user interface with the <strong>Display the Skip Button</strong> option selected, even when the user accounts for two or more players have been selected.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159222291/163772742.png" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>In version 6.0.0 and later of the NX system, a forced user selection can occur before starting an application, in conjunction with the application's license. However, in some cases user selection is duplicated for applications that have implemented this pattern in the HOME Menu and in the application.</p>
+    <p>As an option for avoiding this situation, a setting in SDK version 7.0.0 and later allows using selected user account data when the system has already performed user selection for reasons related to license. When this option is enabled, the application can get data about whether user selection occurred from the HOME Menu and data about the selected user. Using this data, you can achieve implementations that skip repeating user selection in the application when users were already selected in the HOME Menu.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

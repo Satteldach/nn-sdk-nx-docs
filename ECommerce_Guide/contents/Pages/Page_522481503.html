@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>8.7 Important Information When Displaying Prices | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 8.7 Important Information When Displaying Prices -->
+<div class="pagetitle" id="PageId_522481503">8.7 Important Information When Displaying Prices</div>
+<div class="text_separate">
+<h1 id="Anchor_522481503_h1_1">Important Information When Displaying Product Price Information Within Applications</h1>
+<h2 id="Anchor_522481503_h2_1">Price Information</h2>
+<p>If you will be displaying product price information in the application, do not embed the price information in the application. Instead, make sure that you display the information obtained by the feature for getting information. If you embed the price information in the application, the price displayed in the application may differ from the price displayed before purchase in Nintendo eShop. However, there is no issue with the method of caching price information obtained by the feature for getting information, and then using it.</p>
+<h2 id="Anchor_522481503_h2_2">Showing That Tax Is Included</h2>
+<p>In some countries and regions, you must indicate that tax is included in the price when showing prices inside an application. Indicating that tax is included means displaying text such as &quot;the prices for all of the products include tax.&quot; You can get the actual message from <code>inc_tax_message</code> included in the response for the feature for getting price information, described in <a href="../Pages/Page_663950179.html">8.6 Getting Price Information</a>, and the response for the feature for getting consumable service item information, described in <a href="../Pages/Page_471919639.html">8.4 Consumable Service Items</a>. <code>inc_tax_message</code> is null for countries and regions where it is not necessary to indicate that tax is included in the price. Unless this is null, make sure that you display the obtained message as is, without any modifications.</p>
+<p>Note that the countries and regions where it is not necessary to show that tax is included might change in the future. If showing that tax is included becomes necessary, <code>inc_tax_message</code> will change from null to a string.</p>
+<h3 id="Anchor_522481503_h3_1">Testing inc_tax_message</h3>
+<p>If <code>inc_tax_message</code> has changed from null to a string, check that the string is displayed by testing in the dd1 environment (the development environment) using an <code>inc_tax_message</code> that is not null.</p>
+<p>In the dd1 (development) environment, <code>inc_tax_message</code> takes a dummy message, instead of <code>null</code>, for countries and regions where you do not need to show that tax is included. For more information about <code>inc_tax_message</code>, see the following documentation. The information in this table might change in the future, so use it for reference only.</p>
+<table class="wrapped">
+  <colgroup> <col style="width: 92.0px;" /> <col style="width: 115.0px;" /> <col style="width: 242.0px;" /> <col style="width: 319.0px;" /> <col style="width: 370.0px;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Region</th>
+      <th>country</th>
+      <th>lang</th>
+      <th>inc_tax_message (Production environment: lp1)</th>
+      <th>inc_tax_message (Development environment: dd1)</th>
+    </tr>
+    <tr>
+      <td>Japan</td>
+      <td>Japan</td>
+      <td>Japanese (ja)</td>
+      <td>null</td>
+      <td>&quot;税表示用のダミー文です。 (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td rowspan="8">
+        <p>Americas</p>
+      </td>
+      <td rowspan="2">Mexico, Colombia, Chile</td>
+      <td>US English (en-US)</td>
+      <td>&quot;All prices include tax.&quot;</td>
+      <td>&quot;All prices include tax.&quot;</td>
+    </tr>
+    <tr>
+      <td>Latin American Spanish (es-419)</td>
+      <td>&quot;Todos los precios incluyen impuestos.&quot;</td>
+      <td>&quot;Todos los precios incluyen impuestos.&quot;</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Argentina</td>
+      <td>US English (en-US)</td>
+      <td>&quot;Subject to applicable taxes.&quot;</td>
+      <td>&quot;Subject to applicable taxes.&quot;</td>
+    </tr>
+    <tr>
+      <td>Latin American Spanish (es-419)</td>
+      <td>
+        <p>&quot;Est&aacute; sujeto a los impuestos que procedan.&quot;</p>
+      </td>
+      <td>&quot;Est&aacute; sujeto a los impuestos que procedan.&quot;</td>
+    </tr>
+    <tr>
+      <td rowspan="2">United States, Peru</td>
+      <td>US English (en-US)</td>
+      <td>null</td>
+      <td>&quot;All prices include tax. (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td>Latin American Spanish (es-419)</td>
+      <td>null</td>
+      <td>&quot;Todos los precios incluyen impuestos. (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td>Canada</td>
+      <td>Canadian French (fr-CA)</td>
+      <td>null</td>
+      <td>&quot;Tous les prix affich&eacute;s incluent les taxes. (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>Brazilian Portuguese (pt-BR)</td>
+      <td>null</td>
+      <td>&quot;Todos os pre&ccedil;os incluem impostos. (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td rowspan="8">Europe</td>
+      <td>Russia</td>
+      <td>Russian (ru)</td>
+      <td>&quot;Все цены включают в себя НДС.&quot;</td>
+      <td>&quot;Все цены включают в себя НДС.&quot;</td>
+    </tr>
+    <tr>
+      <td>Portugal</td>
+      <td>Portuguese (pt)</td>
+      <td>&quot;Todos os pre&ccedil;os incluem IVA.&quot;</td>
+      <td>&quot;Todos os pre&ccedil;os incluem IVA.&quot;</td>
+    </tr>
+    <tr>
+      <td>Netherlands</td>
+      <td>Dutch (nl)</td>
+      <td>&quot;Alle prijzen zijn inclusief btw.&quot;</td>
+      <td>&quot;Alle prijzen zijn inclusief btw.&quot;</td>
+    </tr>
+    <tr>
+      <td>Italy</td>
+      <td>Italian (it)</td>
+      <td>&quot;Tutti i prezzi sono IVA compresa.&quot;</td>
+      <td>&quot;Tutti i prezzi sono IVA compresa.&quot;</td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td>German (de)</td>
+      <td>&quot;Alle Preise inkl. MwSt.&quot;</td>
+      <td>&quot;Alle Preise inkl. MwSt.&quot;</td>
+    </tr>
+    <tr>
+      <td>France</td>
+      <td>French (fr)</td>
+      <td>&quot;Tous les prix sont TTC.&quot;</td>
+      <td>&quot;Tous les prix sont TTC.&quot;</td>
+    </tr>
+    <tr>
+      <td>Spain</td>
+      <td>Spanish (es)</td>
+      <td>&quot;Todos los precios incluyen IVA.&quot;</td>
+      <td>&quot;Todos los precios incluyen IVA.&quot;</td>
+    </tr>
+    <tr>
+      <td>United Kingdom</td>
+      <td>British English (en-GB)</td>
+      <td>&quot;All prices include VAT.&quot;</td>
+      <td>&quot;All prices include VAT.&quot;</td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>Australia</td>
+      <td>British English (en-GB)</td>
+      <td>&quot;All prices include GST.&quot;</td>
+      <td>&quot;All prices include GST.&quot;</td>
+    </tr>
+    <tr>
+      <td>Korea</td>
+      <td>Korea</td>
+      <td>Korean (ko)</td>
+      <td>null</td>
+      <td>&quot;모든 가격은 세금 포함 가격입니다. (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td>Hong Kong</td>
+      <td>Hong Kong</td>
+      <td>Traditional Chinese (zh-Hant)</td>
+      <td>null</td>
+      <td>&quot;皆為含稅價 (Dummy)&quot;</td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>China</td>
+      <td>Simplified Chinese (zh-Hans)</td>
+      <td>null</td>
+      <td>&quot;All prices include tax. (Dummy)&quot;</td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If you want to check using null in the dd1 environment the same as in the lp1 environment, use the response simulation feature. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Debugging &gt; Response Simulation Feature.</p>
+  </div>
+</div>
+<h2 id="Anchor_522481503_h2_3">Showing Temporary Discounts</h2>
+<p>When a temporary discount is set in NCMS, the price of the product is discounted for the set period of time and the discount is displayed in Nintendo eShop. While the temporary discount is in effect, the discount information is entered in <code>discount_price</code>. You can use this discount information in the application to display discount promotions.</p>
+<p>To test the display of discounts in the dd1 (development) environment, Nintendo must configure certain settings. Contact Nintendo support if you want to perform this testing.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>The value in <code>discount_price</code> becomes available after the start of the temporary discount period, so after it becomes available, the value in <code>start_datetime</code> refers to a time in the past. In other words, you cannot use <code>start_datetime</code> to promote future discounts.</li>
+      <li>The information obtained by the features is cached on the server for about 10 minutes, so it is possible for <code>discount_price</code> to be included in the result even though the discount period has actually already ended. Use the value of <code>end_datetime</code> to end the discount promotion at a more accurate time in your application.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_522481503_h1_2">Nintendo eShop Currencies and Maximum Balances</h1>
+<p>There is a maximum balance (upper limit to funds that can be added) for each currency in Nintendo eShop. Products that would exceed the maximum balance cannot be purchased.</p>
+<p>The following shows the maximum Nintendo eShop balance for each currency, notated in that currency. Check whether the fonts used in your applications support displaying these currencies.</p>
+<table class="wrapped relative-table" style="width: 36.4251%;">
+  <colgroup> <col style="width: 25.7786%;" /> <col style="width: 48.0812%;" /> <col style="width: 26.1402%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>ISO Code</th>
+      <th>Name</th>
+      <th>Maximum Balance</th>
+    </tr>
+    <tr>
+      <td>JPY</td>
+      <td>Japanese yen</td>
+      <td>70,000円</td>
+    </tr>
+    <tr>
+      <td>USD</td>
+      <td>U.S. dollar</td>
+      <td>$250.00</td>
+    </tr>
+    <tr>
+      <td>CAD</td>
+      <td>Canadian dollar</td>
+      <td>$350.00</td>
+    </tr>
+    <tr>
+      <td>MXN</td>
+      <td>Mexican peso</td>
+      <td>MX$5,500.00</td>
+    </tr>
+    <tr>
+      <td>BRL</td>
+      <td>Brazilian real</td>
+      <td>R$ 1.500,00</td>
+    </tr>
+    <tr>
+      <td>ARS</td>
+      <td>Argentine peso</td>
+      <td>
+        <p>$21.000,00</p>
+      </td>
+    </tr>
+    <tr>
+      <td>CLP</td>
+      <td>Chilean peso</td>
+      <td>$179.000</td>
+    </tr>
+    <tr>
+      <td>COP</td>
+      <td>Colombian peso</td>
+      <td>$865.000</td>
+    </tr>
+    <tr>
+      <td>PEN</td>
+      <td>Peruvian sol</td>
+      <td>S/900,00</td>
+    </tr>
+    <tr>
+      <td>AUD</td>
+      <td>Australian dollar</td>
+      <td>$375.00</td>
+    </tr>
+    <tr>
+      <td>EUR</td>
+      <td>Euro</td>
+      <td>&euro;250.00</td>
+    </tr>
+    <tr>
+      <td>CZK</td>
+      <td>Czech koruna</td>
+      <td>6250,00 CZK</td>
+    </tr>
+    <tr>
+      <td>DKK</td>
+      <td>Danish krone</td>
+      <td>2000,00 kr.</td>
+    </tr>
+    <tr>
+      <td>NZD</td>
+      <td>New Zealand dollar</td>
+      <td>$415.00</td>
+    </tr>
+    <tr>
+      <td>NOK</td>
+      <td>Norwegian krone</td>
+      <td>2500,00 kr</td>
+    </tr>
+    <tr>
+      <td>PLN</td>
+      <td>Polish złoty</td>
+      <td>1000,00 zł</td>
+    </tr>
+    <tr>
+      <td>RUB</td>
+      <td>Russian ruble</td>
+      <td>20000 RUB</td>
+    </tr>
+    <tr>
+      <td>ZAR</td>
+      <td>South African rand</td>
+      <td>R4,500.00</td>
+    </tr>
+    <tr>
+      <td>SEK</td>
+      <td>Swedish krona</td>
+      <td>2600,00 kr</td>
+    </tr>
+    <tr>
+      <td>CHF</td>
+      <td>Swiss franc</td>
+      <td>CHF 350,00</td>
+    </tr>
+    <tr>
+      <td>GBP</td>
+      <td>British pound</td>
+      <td>&pound;225.00</td>
+    </tr>
+    <tr>
+      <td>KRW</td>
+      <td>Korean Republic won</td>
+      <td>200,000원</td>
+    </tr>
+    <tr>
+      <td>HKD</td>
+      <td>Hong Kong dollar</td>
+      <td>HKD 1,500</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

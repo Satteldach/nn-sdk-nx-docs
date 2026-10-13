@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2.2 Design 2: Select One Account When Selecting Save Data | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2.2 Design 2: Select One Account When Selecting Save Data -->
+<div class="pagetitle" id="PageId_159222273">5.2.2 Design 2: Select One Account When Selecting Save Data</div>
+<div class="text_separate">
+<p>This example implements a proprietary UI for an application where each user has several save data slots. You can set the user account at the same time as save data selection. With the Switch system, the size of the account save data region is set in advance, so the assumption is that the specification calls for each user to have a maximum of <em>N</em> slots of save data.</p>
+<h6 id="Anchor_159222273_h6_1">Advantages</h6>
+<ul>
+  <li>Selection of the user account is completed at the same time as save data selection.<ul><li>Effort within the user experience can be reduced, promoting using separate save data for each player.</li></ul></li>
+</ul>
+<h6 id="Anchor_159222273_h6_2">Important Information</h6>
+<ul>
+  <li>Generally speaking, you must implement the UI for your application.<br /><ul><li>The feature provided by the account management applet is the selection of a user account from among the accounts registered on the system, regardless of sign-in status. As a result, the application must support checking whether the number of save instances data that can be created is within the maximum and sending notifications when users who have reached the maximum number of save data instances that can be created are selected. Also note that if you are using the &quot;user that cannot be selected&quot; feature in the user selection UI of the account management applet, the applet side cannot display the reason that the user cannot be selected.</li><li>When implementing a proprietary UI, you must provide support for users who cannot sign in. For more information, see <a href="../Pages/Page_159220225.html">5.1.1 Feature Group 1: Displaying User Accounts and Changing Their States</a>.</li></ul></li>
+  <li>For applications that include specifications for multiple users playing simultaneously, there is no way to specify users other than the first. For this reason, additional users are treated as guests.<ul><li>This design is suitable if users after the first user only perform light support operations and the additional users are clearly identified as guests. (Their save data is not retained.)</li><li>You can also add a sequence to the application to allow users to select user accounts for the other users separately at the beginning of scenes where more than one person is playing. (Also see Design 3-3.)</li></ul></li>
+</ul>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159222273/163772738.png" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<p>The content of the save data selection screen (A in the following figure) is just one example of what could be used. Other hypothetical cases include displaying user data together for each player (B in the following figure), and providing the capability to change the sort order. In addition, in some cases, content might enable the selection of save data slots after selecting the user account (C in the following figure), although the advantage inherent in selecting user accounts at the same time as save data is lost. This design is essentially the same as Design 1. Plan for appropriate content. You do not need to be limited by these examples because there are places where there is more dependency on plan specifications and designs.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159222273/163772739.png" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>In version 6.0.0 and later of the NX system, a forced user selection can occur before starting an application, in conjunction with the application's license. However, in some cases user selection is duplicated for applications that have implemented this pattern in the HOME Menu and in the application.</p>
+    <p>As an option for avoiding this situation, a setting in SDK version 7.0.0 and later allows using selected user account data when the system has already performed user selection for reasons related to license. When this option is enabled, the application can get data about whether user selection occurred from the HOME Menu and data about the selected user. Using this data, you can achieve implementations that skip repeating user selection in the application when users were already selected in the HOME Menu.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

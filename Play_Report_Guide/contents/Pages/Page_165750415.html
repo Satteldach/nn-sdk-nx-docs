@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Play Report Web Tool | Nintendo Switch Play Report Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Play Report Web Tool -->
+<div class="pagetitle" id="PageId_165750415">5 Play Report Web Tool</div>
+<div class="text_separate">
+<h1 id="Anchor_165750415_h1_1">Web Tool Features</h1>
+<p>The Play Report web tool has features for the following tasks.</p>
+<ul>
+  <li>Checking sent data</li>
+  <li>Issuing access keys for downloading raw data</li>
+</ul>
+<!--Remove-->
+<p>To use these features, after logging in to the web tool, in the <strong>Title List</strong> menu, select the application (title).</p>
+<!--Remove-->
+<div class="selectable_public">
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_165750415/834575944.png" width="500" class="embedded-image" />
+    </span>
+  </p>
+</div>
+<h1 id="Anchor_165750415_h1_2">Checking Sent Data</h1>
+<p>The Play Report data (the report data, referred to as simply &quot;data&quot; in the tool) that is sent from the Switch console to the server is accumulated as JSON files in a server (Amazon S3) that is not used for analysis. The report data in this state is called <em>raw data</em>.</p>
+<p>As shown in the following figure, the raw data can be viewed in the <strong>Checking Sent Data</strong> tab.</p>
+<!--Remove-->
+<div class="selectable_public">
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_165750415/834576062.png" width="500" class="embedded-image" />
+    </span>
+  </p>
+</div>
+<p>The sent report data is listed in reverse-chronological order by event.</p>
+<p>Selecting a report data ID displays the contents of the report data on the right side of the screen, as seen in the following figure.</p>
+<!--Remove-->
+<div class="selectable_public">
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_165750415/834576442.png" width="500" class="embedded-image" />
+    </span>
+  </p>
+</div>
+<p>Review this information and verify that the intended report data was sent correctly from the Switch console to the server.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>Note that in the preceding example, the time zone shown for the report data in the list on the left is JST, while the time zone for the report data shown on the right is UTC.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The production environment (lp1 server environment) report data cannot be viewed in the <strong>Checking Sent Data</strong> tab.</p>
+  </div>
+</div>
+<!--Remove-->
+<h3 id="Anchor_165750415_h3_1">System Keys</h3>
+<p>There are certain keys that are automatically assigned to the report data when the report data is sent from the Switch console to the server. These keys are called <em>system keys</em>.</p>
+<p>System keys can be used for analysis.</p>
+<!--Remove-->
+<table class="relative-table wrapped" style="width: 91.8399%;">
+  <colgroup>
+    <col style="width: 21.7282%;" />
+    <col style="width: 23.0705%;" />
+    <col style="width: 55.2013%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>application_id</td>
+      <td>Integer</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The ID of the application that registered the report.</p>
+          <div class="selectable_public">
+            <p>When this ID is obtained using the method described in <a href="../Pages/Page_830307579.html">6 Downloading Raw Data</a>, it is obtained as a value converted to <code>int64</code> type (a 64-bit signed integer). Be careful when using this value because it is converted from hexadecimal to decimal.</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>event_id</td>
+      <td>String</td>
+      <td>
+        <p>The value for the event ID specified in the Play Report library when the application saves report data. (Report data is saved in units called <em>events</em>.)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>
+        <div class="content-wrapper">
+          <!--Remove - p.auto-cursor-target-->
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+          <div class="selectable_public">
+            <p>String</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The internal ID of the network service account associated with the user account specified when the application saves report data.<br />The value can be blank (null).</p>
+          <div class="selectable_public">
+            <p>The NSA ID that can be obtained in the play report is scrambled. It cannot be converted to an NSA ID.<br />Even if a report is from a different application, as long as the network service account is the same, the value of (the scrambled) <code>nsa_id</code> will match.</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>device_id</td>
+      <td>
+        <div class="content-wrapper">
+          <!--Remove - p.auto-cursor-target-->
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+          <div class="selectable_public">
+            <p>String</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The device ID.<br />This information is for system developers at Nintendo.</p>
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+          <div class="selectable_public">
+            <p>To determine whether multiple reports are being sent from the same device, use the <code>serial_number</code> system key.</p>
+            <p>The device ID that can be obtained in the play report is scrambled.<br />Even if a report is from a different application, as long as the device is the same, the value of (the scrambled) <code>device_id</code> will match.</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>device_id2</td>
+      <td>
+        <div class="content-wrapper">
+          <p>String</p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The new device ID, created for system convenience.<br />This information is for system developers at Nintendo.</p>
+        </div>
+        <!--Remove-->
+        <!--Remove - p.auto-cursor-target-->
+        <div class="selectable_public">
+          <p>To determine whether multiple reports are being sent from the same device, use the <code>serial_number</code> system key.</p>
+          <p>Like <code>device_id</code>, it is a scrambled value.<br />However, the value does not match <code>device_id</code>.</p>
+        </div>
+        <!--Remove - p.auto-cursor-target-->
+      </td>
+    </tr>
+    <tr>
+      <td>serial_number</td>
+      <td>
+        <div class="content-wrapper">
+          <!--Remove - p.auto-cursor-target-->
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+          <div class="selectable_public">
+            <p>String</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The serial number of the Switch console that sent the report data.</p>
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+          <div class="selectable_public">
+            <p>The serial number that can be obtained in the play report is scrambled.<br />Even if a report is from a different application, as long as the serial number is the same, the value of (the scrambled) <code>serial_number</code> will match.</p>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>lc_recorded_at</td>
+      <td>TIMESTAMP</td>
+      <td>The time (in UTC) when report data was created, as measured on the Switch console's user-operable system clock.</td>
+    </tr>
+    <tr>
+      <td>nc_recorded_at</td>
+      <td>TIMESTAMP</td>
+      <td>
+        <p>The time (in UTC) when the report data was created, as measured on a network clock.<br />The value can be blank (null).</p>
+      </td>
+    </tr>
+    <tr>
+      <td>operation_mode</td>
+      <td>Integer</td>
+      <td>
+        <p>The operation mode of the Switch console when the report data was saved. The value is identical to the value for <code>nn::oe::GetOperationMode()</code>.</p>
+        <ul>
+          <li>
+            <code>0</code>: Handheld mode</li>
+          <li>
+            <code>1</code>: TV mode</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>report_identifier</td>
+      <td>A 36-character string</td>
+      <td>
+        <p>A unique value for each set of report data.</p>
+        <p>For more information about using this value, see <a href="../Pages/Page_186025373.html">8 Play Report Restrictions</a> &gt; Sending Duplicate Data.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>posted_at</td>
+      <td>TIMESTAMP</td>
+      <td>The time (in UTC) when report data was received by the server.</td>
+    </tr>
+    <tr>
+      <td>application_version</td>
+      <td>Integer</td>
+      <td>
+        <p>The application's release version.<br />This value is specified in <code>ReleaseVersion</code> in the NMETA file.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>env</td>
+      <td>String</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The identifier of the Nintendo platform server environment.</p>
+          <div class="selectable_public">
+            <ul style="margin-left: 20.0px;">
+              <li>
+                <code>dd1</code>: Development environment</li>
+              <li>
+                <code>lp1</code>: Production environment</li>
+            </ul>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>os_version</td>
+      <td>String</td>
+      <td>
+        <p>The system version for the Switch console.<br />This is the value when the report data was sent to the server, not the value when the report data was created.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>product_model</td>
+      <td>Integer</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The Nintendo Switch console type.</p>
+          <ul>
+            <li>
+              <code>1</code>: Nintendo Switch (HAC)</li>
+            <li>
+              <code>3</code>: The new model with the longer-lasting Nintendo Switch battery (HAD)</li>
+            <li>
+              <code>4</code>: Nintendo Switch Lite (HDH)</li>
+            <li>
+              <code>6</code>: Nintendo Switch OLED Model (HEG)</li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info:</div>
+            <div class="info_new_right">
+              <p>For each type of device, the values for the retail product and the development hardware are the same.</p>
+            </div>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>rebootless_system_update_version</td>
+      <td>String</td>
+      <td>This information is for system developers at Nintendo.</td>
+    </tr>
+    <tr>
+      <td>is_china</td>
+      <td>BOOLEAN</td>
+      <td>
+        <div class="content-wrapper">
+          <p>This information indicates the platform region that the Nintendo Switch device is set to use. Can be used for application analysis.</p>
+          <ul>
+            <li>If the platform region is <strong>China</strong> (set to be sold in China), the value of this key will be <strong>true</strong>.</li>
+            <li>If the platform region is <strong>Global</strong> (set to be sold outside of China), the value of this key will be <strong>false</strong>.</li>
+          </ul>
+          <p>Although operation is not assured, in some cases non-Chinese specification game cards can be started on Nintendo Switch consoles for China. In these cases, report data for an application that is not for China might be sent from both consoles for China and from consoles for other regions.</p>
+          <p>When analyzing report data, you can use this key to determine whether the data was sent by a Switch console for China.</p>
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>You can review the list of system keys from the <strong>Help</strong> tab on the right side of the screen after you have selected a raw data ID.</p>
+<!--Remove-->
+<!--Remove-->
+<!--Remove-->
+<h1 id="Anchor_165750415_h1_3">Issuing Access Keys for Downloading Raw Data</h1>
+<!--Remove-->
+<p>To download raw data from the development environment or the production environment, select the <strong>S3</strong> tab and issue an Amazon S3 data storage access key (<code>access_key_id</code>). For more information, see <a href="../Pages/Page_830307579.html">6 Downloading Raw Data</a>.</p>
+<p>This access key only contains the permissions to download the raw data for the issued title (<code>GetObject</code>) and to display the list. You cannot perform other operations or download the raw data for another title.</p>
+<p>You can delete access keys or reissue deleted access keys using the Play Report web tool.</p>
+<div class="selectable_public">
+  <p>You can create only one access key for each title.</p>
+  <p>The user who is the Play Report administrator is responsible for properly managing the issued access keys and sharing them with the necessary members.</p>
+</div>
+<!--Remove-->
+<div class="selectable_public">
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_165750415/834576330.png" width="500" class="embedded-image" />
+    </span>
+  </p>
+</div>
+<p>Download the raw data using AWS CLI or AWS SDK with the issued access key. For more information about AWS CLI and AWS SDK, see the official AWS website.</p>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.9 Offline Web Applet | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.9 Offline Web Applet -->
+<div class="pagetitle" id="PageId_115049609">4.9 Offline Web Applet</div>
+<div class="text_separate">
+<p>The Offline Web Applet is a web browser that displays the web content (offline HTML) added to applications.</p>
+<div class="figure">
+  <a name="AutoAnchor_115049609_figure001"></a>Figure 4-1  Image Screen for the Offline Web Applet</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_115049609/242598388.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_115049609_h1_1">Offline Web Applet Overview</h1>
+<p>The Offline Web Applet is a web browser for displaying web content added to applications. This web content may be comprised of elements such as HTML, CSS, images, video, JavaScript, and fonts.</p>
+<p>The overall term for these files is offline HTML.</p>
+<p>While the supported formats are identical to the web applet, this applet does not connect to the internet and cannot display pages that contain files on web servers.</p>
+<p>The applet loads files from the application and displays pages in a short time after startup.</p>
+<p>Due to these characteristics, this applet is suitable for displaying content similar to the content of the application itself.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The electronic manual that was required for Wii U and Nintendo 3DS has been discontinued. Developers are free to choose whether to include materials in their applications that was included in the e-manual, such as a gameplay guide. You can use the Offline Web Applet to display materials such as a gameplay guide, but there is no set location, such as in the System Menu, to display such content. </p>
+  </div>
+</div>
+<h1 id="Anchor_115049609_h1_2">Using the Offline Web Applet</h1>
+<h2 id="Anchor_115049609_h2_1">Operation Method</h2>
+<p>The supported operations are the same as those for the web applet. The space navigation and pointer controls support use of the controller, as well as operation via touching the screen.</p>
+<h2 id="Anchor_115049609_h2_2">Specifying Paths</h2>
+<p>To display offline HTML, it is first necessary to add the offline HTML to the ROM.</p>
+<p>Specify the path of the page that you want to display from the added offline HTML.</p>
+<p>For more information about the specifications on specifying paths, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Offline Web Applet.</p>
+<h2 id="Anchor_115049609_h2_3">Customizing the Offline Web Applet</h2>
+<p>The Offline Web Applet can be customized in the same manner as the web applet.</p>
+<p>It is also possible to permanently display the footer.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</p>
+<h2 id="Anchor_115049609_h2_4">Exchanging Information with the Application</h2>
+<p>As with the web applet, you can pass any parameters between the calling application and the Offline Web Applet.</p>
+<p>However, note that the specifications differ from the web applet.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</p>
+<h2 id="Anchor_115049609_h2_5">Calling the Web Applet</h2>
+<p>While it is not possible to directly transition to online webpages from offline HTML, it is possible to call the web applet through the application.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Offline Web Applet.</p>
+<h1 id="Anchor_115049609_h1_3">Notes When Using the Offline Web Applet</h1>
+<h2 id="Anchor_115049609_h2_6">Effects on System Update</h2>
+<p>System Update may also result in updates to the Offline Web Applet.</p>
+<p>Due to Web browser properties and results of the update, the appearance or behavior of offline HTML content could vary.</p>
+<p>Use the Offline Web Applet with consideration of the effects of system updates.</p>
+<h2 id="Anchor_115049609_h2_7">Termination by the System</h2>
+<p>If the user presses the <strong>HOME Button</strong>, and starts a system application from the <strong>HOME Menu</strong> while the Offline Web Applet is running, the Offline Web Applet will be terminated by the system.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</p>
+<h2 id="Anchor_115049609_h2_8">Displaying Online Webpages is Not Supported</h2>
+<p>Because the applet does not connect to the internet, it does not support the displaying of online webpages.</p>
+<p>Use the web applet to display online webpages.</p>
+<p>For more information, see <a href="../Pages/Page_261995939.html">4.8 Web Applet</a>.</p>
+<h2 id="Anchor_115049609_h2_9">Restrictions When Creating Content</h2>
+<p>When creating content, it is important to note that the Offline Web Applet, like the web applet, does not support certain features.</p>
+<p>Follow the Nintendo Switch Guidelines when creating content that is to be displayed in offline HTML.</p>
+<p>Note that, due to its nature, the Offline Web Applet has the following restrictions.</p>
+<ul>
+  <li>Cannot display pages that include files stored on a web server.</li>
+  <li>Does not support cookies and localStorage.<ul><li>sessionStorage can be used.</li></ul></li>
+</ul>
+<h1 id="Anchor_115049609_h1_4">Effective Usage Examples</h1>
+<p>The Offline Web Applet can also be used in the following ways.</p>
+<ul>
+  <li>As an e-manual<ul><li>It can be used to describe how to play the game and the application controls.</li></ul></li>
+  <li>As a pause screen<ul><li>The application thread is stopped when the Offline Web Applet starts, so it can also be used as a pause screen.</li></ul></li>
+  <li>As a collection of videos<ul><li>It is possible to use the video player in the Offline Web Applet as a video collection.</li></ul></li>
+  <li>As part of another application<ul><li>The URL parameters or return value when the applet is terminated, can be used to exchange information between the application and offline HTML.</li></ul></li>
+</ul>
+<p>For usage examples, see NintendoSDK Documents &gt; API Reference &gt; Sample Backgrounder &gt; Web.</p>
+<h1 id="Anchor_115049609_h1_5">Specifications</h1>
+<p>The Offline Web Applet specifications are based on the web applet.</p>
+<p>However, the main difference is that the Offline Web Applet does not connect to the internet, so those features do not apply.</p>
+<p>For more information, see <a href="../Pages/Page_261995939.html">4.8 Web Applet</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

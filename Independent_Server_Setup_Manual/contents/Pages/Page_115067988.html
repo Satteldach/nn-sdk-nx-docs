@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6 Server Environments | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6 Server Environments -->
+<div class="pagetitle" id="PageId_115067988">6 Server Environments</div>
+<div class="text_separate">
+<h1 id="Anchor_115067988_h1_1">Nintendo Platform Server Environments</h1>
+<p>Several server environments for the server group provide the various network services on the Nintendo platforms.</p>
+<p>Note the following points when developing applications that use the services provided by these servers, and when developing independent servers.</p>
+<ul>
+  <li>The fully qualified domain names (FQDN) for the API endpoints provided by these various servers differ.</li>
+  <li>There is no assurance that the IDs issued by the servers will be unique across environments.<ul><li>Example 1: The internal IDs of network service accounts</li><li>Example 2: Nintendo Account identifiers.</li></ul></li>
+  <li>Some server environments are used only for Lotcheck (the testing process conducted by Nintendo).</li>
+</ul>
+<p>The following table lists the server environments operated by Nintendo and describes how they are used. Each server environment has been assigned its own environment identifier.</p>
+<p>In addition, only some kinds of hardware are allowed to connect to each server environment. As a rule, only the permitted hardware can access the servers.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Environment Identifier</th>
+      <th>Hardware Type</th>
+      <th>Users</th>
+      <th>Description</th>
+      <th>Accessing an Independent Server</th>
+    </tr>
+    <tr>
+      <td>td1</td>
+      <td>Development Hardware</td>
+      <td>Nintendo</td>
+      <td>The environment that Nintendo uses for developing the SDK and the libraries.</td>
+      <td>Does not occur</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>Development Hardware</td>
+      <td>Nintendo</td>
+      <td>
+        <p>The environment that Nintendo uses to verify the compatibility of the latest versions of system firmware and servers prior to public release by testing them using applications that have already been released. If your application supports an independent server and Nintendo plans to use it for the compatibility testing, it will inform you ahead of time to get your consent.</p>
+        <p>However, for applications that use both NPLN and an independent server, this consent process might be skipped in the future. For more information, see the NPLN Manual.</p>
+      </td>
+      <td>Occurs</td>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>Development Hardware</td>
+      <td>Application developers</td>
+      <td>
+        <p>The environment for application development and testing.</p>
+        <p>By default, the Switch development hardware connects to this environment.</p>
+      </td>
+      <td>Occurs</td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>Retail unit</td>
+      <td>-</td>
+      <td>
+        <p>An environment for special uses.</p>
+      </td>
+      <td>
+        <p>Occurs when using the dp1 environment.</p>
+        <p>Does not normally occur.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>Development Hardware</td>
+      <td>Nintendo's quality-control team</td>
+      <td>An environment for Lotcheck (the final testing for the retail product at Nintendo).</td>
+      <td>Occurs</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>Retail unit</td>
+      <td>Nintendo's quality-control team</td>
+      <td>An environment for Lotcheck (the final testing for the retail product at Nintendo).</td>
+      <td>Occurs</td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>Retail unit</td>
+      <td>General users</td>
+      <td>An environment offering services for general users.</td>
+      <td>Occurs</td>
+    </tr>
+  </tbody>
+</table>
+<p>For the environments where access to an independent server occurs, prepare your independent server so there are no problems verifying the NSA ID token and providing services when use of the independent server begins in that environment.</p>
+<p>For Nintendo server services connected from Switch consoles, the Switch application does not need to make any adjustments in response to the server environment because the Switch settings themselves change in response to the environment.<br /></p>
+<h1 id="Anchor_115067988_h1_2">List of Base URLs on the Nintendo Authentication Server</h1>
+<p>When verifying an NSA ID token, check whether the Base URL of the Nintendo authentication server included in the token matches the URL registered beforehand on the independent server. For more information, see <a href="../Pages/Page_115067964.html">3 Connecting to an Independent Server</a>. Use the following as a URL to embed in the independent server.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment Identifier</th>
+      <th>Base URLs on the Nintendo Authentication Server</th>
+    </tr>
+    <tr>
+      <td>td1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>
+        <span class="external-link">
+          <span class="nolink">
+            <span class="nolink">https://<span class="external-link"><span class="nolink"><span class="external-link">d78dbb1c550d43c6af49bf04c56bc094</span></span></span>-sb.baas.nintendo.com</span>
+          </span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>
+        <span class="external-link">https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com</span>
+      </td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>
+        <span class="nolink">https://d9c8ea0e17f68bdeab8674c59f6fabda-sb.baas.nintendo.com</span>
+      </td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>
+        <span class="nolink">https://96130dc402837b377c07719e6c9514de-sb.baas.nintendo.com</span>
+      </td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>
+        <span class="nolink">https://dc219b6b3aa8e06873733fda1def0e03-sb.baas.nintendo.com</span>
+      </td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>
+        <span class="nolink">https://e0d67c509fb203858ebcb2fe3f88c2aa.baas.nintendo.com</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If you will be using a periodic batch job to get the JWKs, append the string <code>/1.0.0/certificates</code> to the relevant Base URL when sending the request, as described in <a href="../Pages/Page_300840824.html">3.5 NSA ID Token Specifications</a> &gt; NSA ID Token Format &gt; Verification Procedure &gt; Getting the JWKs Using a Periodic Batch Job.</p>
+  </div>
+</div>
+<h1 id="Anchor_115067988_h1_3">Independent Server Environment</h1>
+<p>This section describes the recommended configuration of the server environment for an independent server and how to switch among server environments.</p>
+<h2 id="Anchor_115067988_h2_1">Recommended Configuration</h2>
+<p>When you configure your independent server, we recommend preparing at least two server environments: a development server environment that application developers mainly connect to, and a production server environment that ordinary users connect to.</p>
+<p>If the development server and the production server are identical, there is a risk that the production server will be affected by development work meant to update the independent server and the application after the service goes live.</p>
+<p>If it proves difficult to separate the two versions of the independent server at the hardware level, you can make them logically exclusive.</p>
+<h2 id="Anchor_115067988_h2_2">Switching Server Environments</h2>
+<p>This section introduces several ways to switch the server environment, along with considerations for each method.</p>
+<p>If you intend to use a method other than the following methods to switch server environments, make sure that you contact Nintendo in advance to prevent unanticipated problems during the Lotcheck process.</p>
+<p>For more information about access from Lotcheck, see <a href="../Pages/Page_115344146.html">7 Lotcheck</a>.</p>
+<h3 id="Anchor_115067988_h3_1">Switching the Connected Environment Using Settings in the Application</h3>
+<p>In this method, you use build options or processing inside the application to switch among hostnames and IP addresses, which are different for each independent server environment.</p>
+<p>If you choose this method, we recommend using the private package NintendoSDK NX Add-On ApplicationServerEnvironmentKit.</p>
+<p>If embedding the hostname or IP address of a development server in the application, we recommend taking measures to prevent users from unexpectedly accessing that server, such as setting access restrictions.</p>
+<h4 id="Anchor_115067988_h4_1">ApplicationServerEnvironmentKit</h4>
+<p>The NintendoSDK NX Add-On ApplicationServerEnvironmentKit provides a mechanism for switching among the independent server hostnames and IP addresses that have been embedded in the application, doing so according to the application server environment. ApplicationServerEnvironmentKit is available in NintendoSDK NX Add-On 10.2.0 and later. Contact Nintendo support to request the use of this private package.<br />When making a usage request, include the purpose, such as &quot;to switch the independent server environment.&quot;</p>
+<p>The <code>nn::oe::GetServerEnvironmentType()</code> function included in this package gets the identifier for the application server environment, which can be used to switch which independent server to connect to. By switching the independent server environment as per this identifier, the application can change the connection destination server without having to prepare DNS and complete other similar tasks.</p>
+<p>With the development hardware, you can use DevMenuCommand to change the value obtained by the <code>nn::oe::GetServerEnvironmentType()</code> function at any time. Only the application server environment obtained by the application changes, and no changes are made to the various network service environments provided by the Nintendo platform. You can use this feature to test in advance the application behavior when it has been submitted to Lotcheck or released to general users.</p>
+<p>The following table lists the application server environments that can be obtained using <code>nn::oe::GetServerEnvironmentType()</code>.</p>
+<table class="relative-table wrapped" style="width: 86.4253%;">
+  <colgroup> <col style="width: 23.241%;" /> <col style="width: 76.759%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Application Server Environment</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>nn::oe::ServerEnvironmentType_Dd</td>
+      <td>
+        <p>This value is obtained for the default development hardware environment (dd1).</p>
+        <p>If this value is obtained, connect to your independent server for the development environment.</p>
+        <p>This value is also obtained as the default when the Nintendo platform environment identifier has been switched to td1 or jd1.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>nn::oe::ServerEnvironmentType_Lp</td>
+      <td>
+        <p>This value is obtained for the default production unit environment (lp1).</p>
+        <p> If this value is obtained, connect to your general user-facing independent server. <br /></p>
+      </td>
+    </tr>
+    <tr>
+      <td>nn::oe::ServerEnvironmentType_Sd</td>
+      <td>
+        <p>This value is obtained when Nintendo is running Lotcheck in the sd1 environment.</p>
+        <p>If this value is obtained, connect to an independent server that can be used to run Lotcheck with the development hardware. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>nn::oe::ServerEnvironmentType_Sp</td>
+      <td>
+        <p>This value is obtained when Nintendo is running Lotcheck in the sp1 environment.</p>
+        <p> If this value is obtained, connect to an independent server that can be used to run Lotcheck with a retail unit. <br /></p>
+      </td>
+    </tr>
+    <tr>
+      <td>nn::oe::ServerEnvironmentType_Dp</td>
+      <td>
+        <p>Used to switch the connection destination of the independent server in the dp1 environment.</p>
+        <p>This value is obtained by default when the retail unit environment is switched to dp1.</p>
+        <p>If you are not using the dp1 environment, you do not need to configure any settings for independent server switching.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When running Lotcheck in the sd1/sp1 environments, you cannot change the default value for the application server environment (<code>nn::oe::ServerEnvironmentType_Sd/nn::oe::ServerEnvironmentType_Sp</code>) to another value to do the checks. As such, make sure that you embed in your application the destinations to connect to when <code>nn::oe::ServerEnvironmentType_Sd</code> and <code>nn::oe::ServerEnvironmentType_Sp</code> are obtained.</p>
+  </div>
+</div>
+<h4 id="Anchor_115067988_h4_2">If Not Switching Connection Destination Server by Environment</h4>
+<p>If you use a build option to change the connection destination server, you cannot change the connection destination server settings embedded in the application after the build.</p>
+<p>If you select this method, consider the following information.</p>
+<ul>
+  <li>The application ROM that is submitted for Lotcheck must be set with the actual server environment. This method might affect general users during Nintendo&rsquo;s Lotcheck if an application has already been released.</li>
+  <li>Do not mistakenly ship the application built with access to the development server environment.</li>
+</ul>
+<h3 id="Anchor_115067988_h3_2">Switching Servers Using DNS</h3>
+<p>In this method, the application contains a single hostname and uses DNS to switch between connections to server environments.</p>
+<p>When using this method, make sure that Nintendo can access the original server that was set up for Lotcheck. For more information, see <a href="../Pages/Page_115344146.html">7 Lotcheck</a>.</p>
+<p>Note that if someone else sets up a DNS server with the same settings, setting the same DNS in the retail unit could result in the retail unit accessing the independent server that the DNS specifies.</p>
+<h3 id="Anchor_115067988_h3_3">Routing via User Identifiers</h3>
+<p>In this method, clients are routed to specific server environments only when some conditions are met, based on factors such as the version information obtained from the application and the network service account internal ID.</p>
+<p>Be careful that the processing load from routing does not affect the provision of server services in the production environment.</p>
+<p>Also make sure that you provide Nintendo with the conditions for connecting to the server environment for the Lotcheck process before you submit the application for Lotcheck.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

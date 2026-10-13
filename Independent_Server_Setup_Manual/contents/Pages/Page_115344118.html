@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>8 Independent Server Development | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 8 Independent Server Development -->
+<div class="pagetitle" id="PageId_115344118">8 Independent Server Development</div>
+<div class="text_separate">
+<h1 id="Anchor_115344118_h1_1">Accessing Nintendo Servers</h1>
+<p>When accessing Nintendo servers from an independent server, note that the FQDNs of the API endpoints provided by each server are assigned per environment. The independent server must switch to the appropriate FQDN to send the request to the Nintendo server that corresponds to the Nintendo platform server environment.</p>
+<p>The following figure depicts the relationships between the different components when using the various Nintendo server environments.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_115344118/232075219.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<ul>
+  <li>One environment identifier is always configured in the Switch system, and that setting determines the Nintendo platform server environment and the corresponding Nintendo server to which to make the request.<br />In general, the <strong>dd1</strong> environment identifier is set for the Switch development hardware used by application developers.</li>
+  <li>Nintendo does not generally permit Switch applications to directly access its servers, using libraries like <code>nn::socket</code> and <code>libcurl</code> that enable application developers to control the request target without going through an independent server.<br />When accessing a Nintendo server from a Switch application, you normally go through the provided libraries and the console system, using a format that masks the Nintendo server you want to connect to.<br />At that point, the library or the NX system resolves the server environment, so the application does not need to track the different connections made in the different server environments.</li>
+  <li>When accessing the Nintendo servers from an independent server, the server environment must be determined based on which server environment the connecting Switch system will use.<br />Determine the server environment based on the value of <code>iss</code> in the NSA ID token. For more information about NSA ID tokens, see <a href="../Pages/Page_115067964.html">3 Connecting to an Independent Server</a>. For more information about the correspondence between environment identifiers and the <code>iss</code> value (the Nintendo authentication server Base URLs), see <a href="../Pages/Page_115067988.html">6 Server Environments</a>.<br />Because the FQDNs of Nintendo servers differ depending on the environment, the independent server must have information about the Nintendo server system used and the FQDN corresponding to the environment ahead of time.<br />For more information about the environment and its corresponding FQDN, see the service manual of the Nintendo server used.</li>
+</ul>
+<h1 id="Anchor_115344118_h1_2">Managing Users on the Independent Server</h1>
+<p>When managing user information on the independent server, avoid managing the information by using the network service account internal ID as the primary key. We recommend that you use a design where the user IDs, which are managed by the independent server, are associated with the internal IDs of network service accounts, and provide services separately for each network service account.</p>
+<p>We recommend this practice for the following reasons.</p>
+<ul>
+  <li>To prevent a situation where it is impossible to create users on the independent server without the network service account when the independent service supports login using accounts other than the network service account</li>
+  <li>To avoid the need to create network service accounts when issuing a large number of accounts for purposes such as debugging the independent server<ul><li>Nintendo cannot provide network service accounts for purposes such as debugging.</li></ul></li>
+</ul>
+<p>To manage and identify users, include not only the network service account internal ID, but also the value that identifies the Nintendo platform server environment (the <code>iss</code> value in the NSA ID token).</p>
+<p>For an example of managing user information on independent servers, see <a href="../Pages/Page_187704602.html">10.3 Example of Retaining Data When Managing Users on an Independent Server</a> when required.</p>
+<h1 id="Anchor_115344118_h1_3">Notifications for Errors Occurring With Independent Servers</h1>
+<div>Error codes are available for Switch applications to use freely, regardless of whether an independent server is in use. You do not need to submit a request to Nintendo to use these error codes.</div>
+<div>To display errors that occur on an independent server using Switch, assign error codes from the region prepared for the application, and then use the error viewer applet to display them, along with error messages.</div>
+<div>For more information about displaying application-specific errors, including ways to specify the error codes used by the application, see Error Viewer Applet in the System Features Guide.</div>
+<div>The exception is when you are using the method described later in this document to restrict access to the independent server from earlier versions of the application, in which case you must call the <code>nn::err::ShowUnacceptableApplicationVersionError()</code> function and display the error. The reason for this exception is that even if you prompt users to install the patch, if you do not call this function they may not be prompted to install the patch when the application is restarted. When you call this function, the patch distribution information that is stored in the Switch gets updated and the user is prompted in the error viewer to restart the application.</div>
+<h1 id="Anchor_115344118_h1_4">Compatibility With Earlier Versions of Applications</h1>
+<p>Even if update data has been released for an application, there is no assurance that all users will be using the application with the update data applied. As a result, there is always a possibility that access to the independent server will come from a mix of both the earlier version of the application and the latest updated version.</p>
+<p>Use one of the following procedures to make sure that no problems arise after update data has been released.</p>
+<ol>
+  <li>Design your independent server to handle access without problems from both versions of the application (the versions both before and after the update data has been applied).</li>
+  <li>Deny access to the independent server from applications that have not applied the update data.</li>
+</ol>
+<h2 id="Anchor_115344118_h2_1">Breaking Compatibility Gradually Using the Nintendo Authentication Server</h2>
+<p>If it is not necessary to block access from earlier versions of the application at the same time that the patch is released, you can set the Nintendo authentication server to break compatibility gradually.</p>
+<p>For more information, see Nintendo Switch Online Play Guide &gt; Compatibility With Earlier Versions of an Application.</p>
+<h2 id="Anchor_115344118_h2_2">Breaking Compatibility Immediately</h2>
+<p>Use the following method if you need to block access from earlier versions of the application at the same time that the patch is released.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>There is a feature in NEX and NPLN to block access from applications that have not applied the patch. For applications that use NEX or NPLN and use an independent server at the same time, if you design the application to first log in to the NEX/NPLN server and to not access the independent server if that login fails, access to the independent server from earlier versions of the application will not occur.</p>
+    <p>For more information, see the following documentation.</p>
+    <ul>
+      <li>For NEX: Nintendo Switch NEX Guide &gt; Tips and Tricks &gt; Patches and Compatibility</li>
+      <li>For NPLN: NPLN Manual &gt; NPLN Guide &gt; Checking Application Version and Patch Distribution</li>
+    </ul>
+  </div>
+</div>
+<p>In this method, a process is implemented to send version information to the independent server from the application trying to access the server, and the independent server determines whether the version is an earlier version and access from the application should be restricted.</p>
+<p>Implementation that is specific to the application and independent server is required. Use this method when access to the independent server from multiple versions of the application is not acceptable.</p>
+<p>The following two versions can be used to determine the version of the independent server.</p>
+<ol>
+  <li>Version that the application independently manages and uses</li>
+  <li>Version embedded in the metadata of the Switch application</li>
+</ol>
+<p>The version value embedded in the metadata of the Switch application is the version value that the developer wrote in the NMETA file, when the application image was being created using AuthoringTool.</p>
+<p>Because this value is set in the <code>nintendo.av</code> value of the NSA ID token, you can block access from selected versions by setting the versions for which you want to block access in the independent server, and comparing the version of the NSA ID token with those versions.</p>
+<p>The application authentication information that determines the <code>nintendo.av</code> value of the NSA ID is cached within the Switch for a certain period of time. However, when retrieving the NSA ID token after the patch data is applied, the cache is freed and application authentication recurs. As a result, the earlier version value will not be sent to the independent server as a token from the application with the update data applied, based on the application's authentication information cached prior to the patch being applied.</p>
+<p>If you are using this method to show errors to users in the Switch application, call the <code>nn::err::ShowUnacceptableApplicationVersionError()</code> function and show the errors, as described in Notifications for Errors Occurring With Independent Servers.</p>
+<div class="figure">
+  <a name="AutoAnchor_115344118_figure001"></a>Figure 8-1  Expected Workflow When Performing Version Checks on the Independent Server</div>
+<div class="panel" style="border-width: 1px;">
+  <div class="panelContent">
+    <div class="plantuml-svg-inline">
+      <img src="../Attachments/Attach_115344118/plantuml_1.svg" />
+    </div>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.1.1 Feature Group 1: Displaying User Accounts and Changing Their States | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.1.1 Feature Group 1: Displaying User Accounts and Changing Their States -->
+<div class="pagetitle" id="PageId_159220225">5.1.1 Feature Group 1: Displaying User Accounts and Changing Their States</div>
+<div class="text_separate">
+<p>To implement scenes in the application where user accounts are selected, the application must take steps to get user account information and to change the states of the accounts. The application can use the following features for that purpose.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Feature</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Get a list of the user accounts in the Switch console</td>
+      <td>The list is presented in a user-configurable sort order.</td>
+    </tr>
+    <tr>
+      <td>Get user nicknames</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Get profile images (image data)</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Change the signed-in and signed-out states of user accounts.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Get the last user account signed in to the system</td>
+      <td>For more information, see the following section.</td>
+    </tr>
+    <tr>
+      <td>Option to select a user account before the application starts</td>
+      <td>
+        <p>Configured as metadata for the application. There are no plans to support the selection of multiple users. The displayed UI is the same one that is displayed for user account selection in the <a href="../Pages/Page_159220253.html">5.1.3 Feature Group 3: Account Management Applet</a>. When a save data thumbnail is saved, this image is also displayed.</p>
+        <p>For more information, see below.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Get a list of user accounts that can sign in</td>
+      <td>
+        <p>This feature was added to the SDK version 6.0.0 series.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_159220225_h2_1">Implementing Scenes For Selecting User Accounts</h2>
+<p>The policy with the Switch is to guide players naturally to the proper use of user accounts by coinciding the selection of user accounts with operations like the selection of save data or the selection of game characters. If at all possible, implement your application so user accounts are selected in a way that is consistent with user operations. Avoid implementations where the application automatically selects which user account to sign in without any selections being made by the user.</p>
+<p>You can choose among several ways to implement scenes for selecting user accounts, as follows.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Implementation</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>The application uses the account management applet.</td>
+      <td>The account management applet has a UI that prompts players to select or switch users. Based on the internal user account ID returned from this applet, the application uses the account library to sign in and sign out user accounts.</td>
+    </tr>
+    <tr>
+      <td>Create an application-specific UI.</td>
+      <td>Use the <code>account</code> library to list the user accounts registered on the console, and implement an application-specific UI to select or switch users and sign in or sign out.</td>
+    </tr>
+    <tr>
+      <td>Select the user in the system itself before the application starts.</td>
+      <td>
+        <p>Have the system call the account management applet and start the application with one user account already selected. An explicit sign-in process on the application side is required for the selected account.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_159220225_h2_2">Changing the Signed-In and Signed-Out States of User Accounts</h2>
+<p>In scenes in the application that involve the selection of user accounts, perform the appropriate sign-in and sign-out processes if users are being added or trading turns. The Switch system features operate on the assumption that the user account being used by the game is in the signed-in state. For this reason, unexpected outcomes could occur if the user accounts selected in the application differ from the signed-in states of accounts in the system. Similarly, have the application perform the user account sign-out process when the application transitions to scenes where a user account is not used.</p>
+<p>For more information about the differences between when the user account is signed in and when it is signed out, see <a href="../Pages/Page_159219772.html">3.3 User Account States</a>. For more information about user account sign-in and sign-out processes, see <a href="../Pages/Page_158275937.html">5.2 Different Designs for Supporting the Switch Account System</a>.</p>
+<p>The following table presents specific examples of scenes where accounts are signed in and signed out.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Scene Where Processing Takes Place</th>
+      <th>Process</th>
+    </tr>
+    <tr>
+      <td>More users playing together. One example is transitioning to two-person play mode.</td>
+      <td>Sign in other user accounts in addition to those already signed in.</td>
+    </tr>
+    <tr>
+      <td>A switch in players.</td>
+      <td>Sign out the user account that is currently signed in, and then sign in a different user account.</td>
+    </tr>
+    <tr>
+      <td>Users stop playing. (Example: Return to the title screen.)</td>
+      <td>Sign out the user accounts that are currently signed in.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Sign-in and sign-out processes are generally completed instantly. However, if the application is using the network features, accessing a network service account after signing in may take some time.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>There is no need for users to be signed in and out every time if the game requires multiple users to frequently join and leave. Implement a measure to sign out user accounts after a long time has passed without them being used for gameplay. For example, assume that four users are playing a turn-based board game. Rather than having each user sign in and out on each turn, it would be better to have all four players remain signed in for the duration of the game.</p>
+  </div>
+</div>
+<h3 id="Anchor_159220225_h3_1">Support When Sign-In Processing Cannot Be Performed</h3>
+<p>On Switch consoles with system version 6.0.0 and later, the user account states include one state where the user account cannot sign in. In cases where an application requests that users select a user account for sign-in purposes, ensure that user accounts in this state cannot be selected. In cases requesting that users make a selection for purposes other than signing in, this state does not need to be considered.</p>
+<p>When using the account management applet, the option to specify whether user accounts in this state are selectable can be set when the applet is displayed. For more information, see <a href="../Pages/Page_159220253.html">5.1.3 Feature Group 3: Account Management Applet</a>.</p>
+<h2 id="Anchor_159220225_h2_3">Supplementary Features for User Account Selection</h2>
+<p>You can use the following options to improve usability and to decrease costs associated with the application.</p>
+<h3 id="Anchor_159220225_h3_2">Get the last user account signed in to the system</h3>
+<p>A feature is provided for getting the last user account that was signed in on the console. (The value that can be obtained is reset when the Switch is turned off.) If you are implementing a custom UI for game scenes where a user account is selected, players may find it more convenient if you preferentially display this user account when the application starts (for example by controlling the focus of the cursor). Support for this functionality is not required. The selection UI displayed by the account management applet (described in the next section) initially places the cursor focus based on this information.</p>
+<h3 id="Anchor_159220225_h3_3">Option to Select User Before Application Starts</h3>
+<p>The Switch has an option for using a system feature to select the user before the application starts. The use of this feature is configured as metadata in the application. If this option has been enabled, when the application is selected in the HOME Menu, the account manager applet is displayed to request the selection of a user. For an application that is deployed on multiple platforms, you can use this option to implement a version for the Switch without making any major changes to how accounts are handled.</p>
+<h4 id="Anchor_159220225_h4_1">Workaround for Cases Where There Are Redundant Requests to Select a User</h4>
+<p>On consoles with system version 6.0.0 and later, the situation with licenses in the application might force a user to be selected before the application can start, regardless of how the option for selecting a user has been set. For applications designed to select a user after startup, this can result in situations where the request to select a user is made redundantly, first by the system and then by the application. An option was implemented in SDK 7.0.0 and later versions to avoid this redundancy. The option enables the application to use the user account information from the system's user-selection process if that process was performed prior to application startup due to the license situation. This option is configured as application metadata. When this option is enabled, the application can determine whether the user-selection process was performed in the HOME Menu and, if so, get the information about that selected user. This provides a way to omit a redundant user-selection process inside the application when it has already been performed in the HOME Menu.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.5 Submitting to Lotcheck | Nintendo Switch Master ROM Submission Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.5 Submitting to Lotcheck -->
+<div class="pagetitle" id="PageId_178494358">6.5 Submitting to Lotcheck</div>
+<div class="text_separate">
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_178494358_h1_1">Lotcheck Submission for Applications</a>
+    </li>
+    <li>
+      <a href="#Anchor_178494358_h1_2">Lotcheck Submission for DLC</a>
+    </li>
+    <li>
+      <a href="#Anchor_178494358_h1_3">Support for the Lotcheck Environment</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_178494358_h2_1">Applications Using BCAT Data Delivery</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_178494358_h1_4">Responding to Lotcheck Results</a>
+    </li>
+    <li>
+      <a href="#Anchor_178494358_h1_5">Reference</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_178494358_h2_2">Related Systems</a>
+      </li>
+    </ul>
+  </ul>
+</p>
+<h1 id="Anchor_178494358_h1_1">Lotcheck Submission for Applications</h1>
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_178494358_figure001"></a>Figure 6-1  Submitting to Lotcheck</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_178494358/186770348.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<p>After the ROM has been uploaded and all waiver requests have been approved, the <strong>Submit</strong> button for the product is enabled in the menu on the right of the Lotcheck Request page for the target release version. Click the button to submit content uploaded to the Nintendo Developer Portal to Lotcheck.</p>
+<p>Request the cancellation of Lotcheck if you need to replace the ROM before the Lotcheck results are known. You can later resubmit the revised version. To request cancellation, click the <strong>Cancel Submission</strong> button in the menu on the right of the Lotcheck Request page for the release.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The ROM for release cannot be modified after you have received notification that it has passed Lotcheck. Any subsequent bug fixes must be released as patches.<br />Contact Nintendo if you need to completely replace the release ROM for some reason.</p>
+  </div>
+</div>
+<h1 id="Anchor_178494358_h1_2">Lotcheck Submission for DLC</h1>
+<p>Only one package of DLC (one NSP file) can be submitted at a time to Lotcheck. For this reason, make sure that the NSP file you create for the DLC contains all of the content that will be tested in Lotcheck at the time. Each time the submitted NSP file passes Lotcheck, you can then submit the next NSP file.<br />The Lotcheck submission procedure for downloadable content is similar to that for applications. Select <em>target product</em> &gt; <strong>Releases</strong> &gt; <em>target DLC archive release version</em> and then click the <strong>Submit</strong> button in the menu on the right of the Lotcheck Request page for that DLC archive version.</p>
+<h1 id="Anchor_178494358_h1_3">Support for the Lotcheck Environment</h1>
+<p>During the Lotcheck process, the environment used is sometimes different from the development environment (dd1) of the application. If the following description applies to your application, make sure that the Lotcheck environment is supported.</p>
+<h2 id="Anchor_178494358_h2_1">Applications Using BCAT Data Delivery</h2>
+<p>Register data required for running the application to the BCAT management tools in the sp1 and sd1 environments, then start delivery. For more information about the BCAT management tool URL and how to add data, see BCAT Management Tool Usage Manual.</p>
+<h1 id="Anchor_178494358_h1_4">Responding to Lotcheck Results</h1>
+<p>After the Lotcheck process is complete, the Lotcheck result for the release (pass or fail) will be displayed in <em>target product</em> &gt; <strong>Releases</strong> &gt; <strong>Status</strong> for the application or the DLC archive release. For more information about the displayed status information, see <a href="../Pages/Page_181899009.html">2 Nintendo Developer Portal</a>.</p>
+<p>Issues appear in the <strong>Lotcheck Bugs</strong> column when the submission fails Lotcheck. Use one of the following procedures to respond in that case.</p>
+<ul>
+  <li>If the issue can be fixed:<ul><li>Resubmit to Lotcheck after implementing the fix.</li></ul></li>
+  <li>If the issue cannot be fixed:<ul><li>Submit a waiver request, including the reason why the issue cannot be fixed. For more information about the process, see <a href="../Pages/Page_178494264.html">6.4 Submitting Waiver Requests</a>.</li></ul></li>
+</ul>
+<h1 id="Anchor_178494358_h1_5">Reference</h1>
+<h2 id="Anchor_178494358_h2_2">Related Systems</h2>
+<ul>
+  <li>Nintendo Developer Portal</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

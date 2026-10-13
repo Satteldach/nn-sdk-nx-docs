@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.2 Usage Requests | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.2 Usage Requests -->
+<div class="pagetitle" id="PageId_238691014">4.2 Usage Requests</div>
+<div class="text_separate">
+<h1 id="Anchor_238691014_h1_1">Making a Request</h1>
+<p>To use the Nintendo Account linking feature, submit a Nintendo Account linking request on OMAS. For more information about OMAS, see the OMAS2 Manual. Nintendo reviews usage requests. The review process can take time, so submit your request well in advance. If the request is approved, a client ID and a client secret will be issued.</p>
+<p>To change the content of the request, for example to add a <code>scope</code> value or a redirect URI, edit the submitted request and resubmit it. Nintendo will then review the request again based on the changes. Note that the contents of the request are updated when re-review is approved, including for the production environment. If you have any requirements for the timing, contact Nintendo separately.</p>
+<h2 id="Anchor_238691014_h2_1">Request Items</h2>
+<p>This section describes the information that must be provided for the Nintendo Account Linking Request on OMAS. For more information about how the information shown to the user is displayed, see <a href="../Pages/Page_238691440.html">10.1 Authorization Page: Sample of the Authorization Management Page</a>.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+      <th>Information Shown to Users?</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td>Name/Company Name/Developer Name</td>
+      <td>
+        <p>The name and company name/developer name are both shown to the user on the authorization page and authorization management page.<br />You must register both the name and the company name/developer name in at least one language. Registering these names in multiple languages is optional.</p>
+        <ul>
+          <li>Name<br />The name of the application.</li>
+          <li>Company Name/Developer Name<br />Name of the company or developer providing the application.<br />If you are entering a company name that is different from the publisher of the application, explain the reason in <strong>Comments</strong>.</li>
+          <li>Language<br />The following languages are supported for <strong>Name</strong> and <strong>Company Name/Developer Name</strong>.</li>
+        </ul>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th>Locale</th>
+              <th>Display for Users</th>
+            </tr>
+            <tr>
+              <td>en-US</td>
+              <td>English (US)</td>
+            </tr>
+            <tr>
+              <td>ja-JP</td>
+              <td>
+                <p>Japanese</p>
+              </td>
+            </tr>
+            <tr>
+              <td>fr-FR</td>
+              <td>
+                <p>Fran&ccedil;ais (France)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>es-ES</td>
+              <td>
+                <p>Espa&ntilde;ol (Espa&ntilde;a)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>de-DE</td>
+              <td>Deutsch</td>
+            </tr>
+            <tr>
+              <td>it-IT</td>
+              <td>Italiano</td>
+            </tr>
+            <tr>
+              <td>nl-NL</td>
+              <td>Nederlands</td>
+            </tr>
+            <tr>
+              <td>pt-PT</td>
+              <td>Portugu&ecirc;s (Portugal)</td>
+            </tr>
+            <tr>
+              <td>ru-RU</td>
+              <td>Русский</td>
+            </tr>
+            <tr>
+              <td>es-MX</td>
+              <td>
+                <p>Espa&ntilde;ol (Latinoam&eacute;rica)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>fr-CA</td>
+              <td>
+                <p>Fran&ccedil;ais (Canada)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>pt-BR</td>
+              <td>
+                <p>Portugu&ecirc;s (Brasil)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>en-GB</td>
+              <td>
+                <p>English (UK/Australia)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>ko-KR</td>
+              <td>한국어</td>
+            </tr>
+            <tr>
+              <td>zh-TW</td>
+              <td>繁體中文</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The UI language switches for <strong>Name</strong> and <strong>Company Name/Developer Name</strong> according to the language set by the user. If no name is registered in the language set by the user, the name registered for the en-US name is shown preferentially.</p>
+      </td>
+      <td>Yes</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Purpose of Nintendo Account Linking</td>
+      <td>
+        <p>Enter the application overview and the purpose of connection with Nintendo Accounts.<br />Nintendo will use this information to determine whether to approve the request, so please describe it in as much detail as possible.</p>
+      </td>
+      <td>No</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Logo Image</td>
+      <td>
+        <p>Logo image of the application. It is displayed to users on the authorization page and the authorization management page.<br />Only one logo image can be configured. The image may be shrunk depending on the device it is displayed on.<br />Attach an image file to your request that satisfies the following conditions.</p>
+        <ul style="margin-left: 20.0px;">
+          <li>Size: 210 &times; 210</li>
+          <li>File format: PNG or JPG</li>
+        </ul>
+      </td>
+      <td>Yes</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>
+        <p>Country where the company or developer is located.<br />It is displayed to users on the authorization page and authorization management page.</p>
+      </td>
+      <td>Yes</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Application URI</td>
+      <td>
+        <p>The URI representing the application. It is displayed to users on the authorization page and the authorization management page.</p>
+      </td>
+      <td>Yes</td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td>Application Type</td>
+      <td>
+        <p>Select one or more of the following options that best describe your application type. <strong>Switch</strong> must be selected.</p>
+        <ul>
+          <li>
+            <strong>Switch</strong>
+            <br />An application that runs on Switch.<br />This option is required, so make sure that you select it. The request will be rejected if this option is not selected.</li>
+          <li>
+            <strong>Web Application</strong>
+            <br />An application that runs on the server.</li>
+          <li>
+            <strong>Smart Device Application</strong>
+            <br />An application that runs on a smart device, including smart phones and tablets.<br />To link this type of application with Nintendo Accounts, you must use a web application as an intermediary.<br />See the Redirect URI row in this table.</li>
+        </ul>
+      </td>
+      <td>No</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Application ID</td>
+      <td>
+        <div class="content-wrapper">
+          <p>This item is shown if <strong>Switch</strong> has been selected as the application type. Add the application ID of the Switch application that will make the authorization request.<br />You can add multiple application IDs, but at least one must be entered. To add an application ID, the target application must be submitted on OMAS.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>As a specification of the Nintendo Account linking feature, the same application ID cannot be associated with multiple clients.</p>
+              <p>OMAS allows you to include an application ID that is already associated with another client in your request, but if you do that, Nintendo will reject the request during the review.</p>
+              <p>You can also include the application ID for an application for China in your request, but Nintendo also rejects that during the review.</p>
+            </div>
+          </div>
+          <p>A custom URI of the form <code>nintendo://${<em>application ID</em>}.app</code> that corresponds to the application ID that is added here is registered as the redirect URI.</p>
+          <p>All letters in the application ID must be lowercase. (Example: <code>nintendo://0123456789abcdef.app</code>)<br /></p>
+        </div>
+      </td>
+      <td>No</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Redirect URI</td>
+      <td>
+        <p>This item is shown if <strong>Web Application</strong> or <strong>Smart Device Application</strong> has been selected as the application type, and in that case an entry for this item is required. (At least one must be registered.)<br /></p>
+        <p>The URI to redirect to after the request is approved. More than one can be submitted.</p>
+        <p>A custom URL schema cannot be used for the redirect URI. For this reason, if the type is <strong>Smart Device Application</strong>, use a callback to the smart device application via a web application.</p>
+      </td>
+      <td>No</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Scope of Permissions to Get (scope)</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Specifies the desired scope of permissions. For more information about the various permissions, see Scope of Permissions to Get (scope) later on this page.</p>
+        </div>
+      </td>
+      <td>Yes</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Presenting the End-User License Agreement</td>
+      <td>
+        <p>Describe the method for presenting the application's end-user license agreement to users.<br />The request is not approved if an end-user license agreement does not exist, or if users cannot refer to it.</p>
+      </td>
+      <td>No</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>End-User License Agreement URI</td>
+      <td>
+        <p>URI indicating the End-User License Agreement for the application. It is displayed to users on the authorization page and authorization management page.<br />Only one user licensing agreement URI can be configured.</p>
+      </td>
+      <td>Yes</td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td>Presenting the Privacy Policy</td>
+      <td>
+        <p>Describe the method for presenting the application's privacy policy to users.<br />The request is not approved if a privacy policy does not exist, or if users cannot refer to it.</p>
+      </td>
+      <td>No</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>Privacy Policy URI</td>
+      <td>
+        <p>The URI listing the application's privacy policy. It is displayed to users on the authorization page and authorization management page. <br />Only one privacy policy URI can be configured.</p>
+      </td>
+      <td>Yes</td>
+      <td>Optional</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_238691014_h2_2">Scope of Permissions to Get (scope)</h2>
+<p>The following table lists the various <code>scope</code> values for the scopes of permissions that are available from an external service.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Scope Value</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>openid</td>
+      <td>
+        <p>Permission to get the ID token indicating the authentication results for the Nintendo Account.<br /><strong>Will use</strong> is always selected for this option.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>offline</td>
+      <td>Permission for re-obtaining the access token required to run the API.</td>
+    </tr>
+    <tr>
+      <td>user.country</td>
+      <td>Permission to get the user's country.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>New scope requests are not being accepted for the following scopes.</p>
+    <table class="wrapped">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th>Scope Value</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>user.basic</td>
+          <td>
+            <p>Permission to get basic user information (country, language, time zone, and gender).</p>
+          </td>
+        </tr>
+        <tr>
+          <td>user.email</td>
+          <td>Permission to get the email addresses of users.<br />If the target Nintendo Account is a child account, you cannot obtain an email address because no email address is registered.<br />For more information about child accounts, see the Nintendo Switch Account Guide &gt; Network Service Accounts, Nintendo Accounts, and Accounts for China &gt; Nintendo Accounts.</td>
+        </tr>
+        <tr>
+          <td>user.birthday</td>
+          <td>Permission to get the birthdays of users.</td>
+        </tr>
+        <tr>
+          <td>user.links.nintendoNetwork.id</td>
+          <td>
+            <div class="content-wrapper">
+              <p>Permission to get the Nintendo Network ID linked to the Nintendo Account.<br />Returns an empty value if there is no linked Nintendo Network ID.<br />The user can unlink their Nintendo Network ID or change the link to a different Nintendo Network ID.</p>
+              <div class="info_new">
+                <div class="info_new_left">Info</div>
+                <div class="info_new_right">
+                  <p>The Nintendo Network ID is the account used by 3DS and Wii U.</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h2 id="Anchor_238691014_h2_3">Sharing Link Settings</h2>
+<p>The settings for the Nintendo Account linking feature can be shared across application types. Alternatively, the settings can be shared among multiple applications. When making the request, consider sharing the settings in the way that works best for the provision of services. The following types of cases can be considered as examples.</p>
+<ul>
+  <li>Standardizing settings when there is a web application that links to a Switch application</li>
+  <li>Using shared settings in Switch applications belonging to a series</li>
+  <li>Linking accounts unique to the development company to Nintendo Accounts, and enabling signing in with Nintendo Accounts to those independent accounts from web applications and multiple Switch applications released by that company.</li>
+</ul>
+<p>The following table shows the differences between sharing and not sharing the settings for the Nintendo Account linking feature.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>When Settings Are Shared</th>
+      <th>When Settings Are Not Shared</th>
+    </tr>
+    <tr>
+      <td>Client ID/secret</td>
+      <td>
+        <p>For applications that share settings, a common client ID and secret can be used in each separate environment.</p>
+      </td>
+      <td>A separate ID is issued for each application and application type.</td>
+    </tr>
+    <tr>
+      <td>User authorization agreement</td>
+      <td>If approval has been granted to any application or application type where the settings are shared, approval is also granted to the other applications and application types.</td>
+      <td>Approval is required for each application and application type.</td>
+    </tr>
+    <tr>
+      <td>List of services displayed on the Nintendo Account authorization management page</td>
+      <td>Displayed as a single service for applications and application types with shared settings.</td>
+      <td>Displayed as an approved service for each application and application type.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Settings for services</p>
+        <p>(such as name, logo image, and scope of permissions)</p>
+      </td>
+      <td>Settings are standardized for applications and application types that share settings.</td>
+      <td>The settings can be changed for each individual application and for each type of application.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>When you support authorization from multiple applications and application types that do not share settings on a single independent server, that independent server manages multiple client IDs and secrets for one environment. Note that if some settings are incorrect, authorization might not be performed appropriately.</p>
+  </div>
+</div>
+<h1 id="Anchor_238691014_h1_2">Review and Approval</h1>
+<p>Nintendo reviews the contents of the request. During the review process, Nintendo might request additional information or ask questions about the content of the request. If the review finds no issues with the content of the request, the use of the feature is approved.</p>
+<p>The Nintendo Account linking feature is only provided when it is required for services related to Switch applications. For this reason, it will generally not be approved for use in cases such as the following.</p>
+<ul>
+  <li>The feature will be incorporated into programs (middleware) created for provision to an unspecified number of developers.<br />(It is all right for the application developer to subcontract an outside company to create a program that will be incorporated into its own application.)</li>
+  <li>The Nintendo Accounts will be used for signing in to websites unrelated to applications sold on Switch.</li>
+</ul>
+<h2 id="Anchor_238691014_h2_4">About the Client ID and Client Secret</h2>
+<p>If the request is approved, a client ID and a client secret is issued by Nintendo. This information can be checked on OMAS inside the approved Nintendo Account Linking Request.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The only people who can check the Nintendo Account Linking Request information are the user who made the request and the designated Company Administrator in that user's company.</p>
+  </div>
+</div>
+<p>One set of client ID and client secret is issued for each Nintendo platform server environment. Keep this information in a safe place because it is required for linking with Nintendo Accounts. Different values are issued for the client ID and client secret for each Nintendo platform server environment. Note that it is necessary to use a different client ID and client secret than used for development for Lotcheck and release.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

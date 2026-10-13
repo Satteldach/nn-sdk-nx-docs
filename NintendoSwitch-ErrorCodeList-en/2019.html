@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google" value="notranslate" />
+<title>TSC [2019-xxxx]</title>
+<link rel="stylesheet" href="ext/css/default.css" /><script src="ext/jquery.min.js"></script>
+<link rel="stylesheet" href="ext/jquery-ui/jquery-ui.min.css" />
+<link rel="stylesheet" href="ext/jquery-ui/theme.css" />
+<script src="ext/jquery-ui/jquery-ui.min.js"></script>
+<script src="ext/jsconf.js"></script>
+<script src="ext/default.js"></script>
+<script>document.write('<style>.jnone{display:none;}</style>');</script>
+</head>
+<body>
+<div class="header_wrap">
+<div class="header">
+<div id="tool_name"><a href="NintendoSwitch-ErrorCodeList-en.html">Error Code Search<br />Nintendo Switch</a></div>
+<div id="headnav" class="none">
+<div class="search">
+<input id="searchcode" class="searchcode" type="text" maxlength="12" placeholder=" -" />
+<input type="button" value="Search" for="searchcode" class="btn_search" />
+</div>
+</div>
+</div>
+</div>
+<div id="body" class="container init1st jnone">
+<div class="sticky_wrap">
+<div class="sticky_left">
+<h1 class="title fixleft">TSC [2019-xxxx]</h1>
+</div>
+</div>
+
+
+<div class="content" id="codetable">
+<div id="codeinfo" style="display:none">
+<div class="controls">
+Display Language:
+<select name="lang[name]" id="lang_name"></select>
+</div>
+
+<style>
+	table#codelisttable td,
+	table#codeinfotable tbody tr p { font-family: NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+</style>
+<style>
+	table#codelisttable td:nth-child(20),
+table#codeinfotable tbody tr:nth-child(20) p,
+table#codelisttable td:nth-child(23),
+table#codeinfotable tbody tr:nth-child(23) p,
+table#codelisttable td:nth-child(40),
+table#codeinfotable tbody tr:nth-child(40) p,
+table#codelisttable td:nth-child(43),
+table#codeinfotable tbody tr:nth-child(43) p { font-family: NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+table#codelisttable td:nth-child(21),
+table#codeinfotable tbody tr:nth-child(21) p,
+table#codelisttable td:nth-child(41),
+table#codeinfotable tbody tr:nth-child(41) p { font-family: NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+table#codelisttable td:nth-child(22),
+table#codeinfotable tbody tr:nth-child(22) p,
+table#codelisttable td:nth-child(42),
+table#codeinfotable tbody tr:nth-child(42) p { font-family: NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+
+</style>
+
+<div id="codeinfobody"></div>
+</div>
+
+<table id="codelisttable" class="margin-bottom-1">
+<thead>
+<tr>
+<th class="di_code tbpre fixleft fixtop">Error Code <span id="exp_codeinfo" class="init1st none" title="Double-clicking an error code cell switches it to only show that error code." alt="">?</span></th>
+<th class="di_f53 tbstr fixtop">Result</th>
+<th class="di_f52 tbstr fixtop">Description</th>
+<th class="di_f57 tbstr fixtop">Solution(for developer)</th>
+<th class="di_f55 tbstr fixtop">How to reproduce</th>
+<th class="di_f51 tbstr fixtop">Comments</th>
+<th class="di_f32 tbstr fixtop">Dialog message USen</th>
+<th class="di_f34 tbstr fixtop">Dialog message USes</th>
+<th class="di_f33 tbstr fixtop">Dialog message USfr</th>
+<th class="di_f121 tbstr fixtop">Dialog message USpt</th>
+<th class="di_f24 tbstr fixtop">Dialog message EUen</th>
+<th class="di_f25 tbstr fixtop">Dialog message EUfr</th>
+<th class="di_f27 tbstr fixtop">Dialog message EUde</th>
+<th class="di_f26 tbstr fixtop">Dialog message EUes</th>
+<th class="di_f28 tbstr fixtop">Dialog message EUit</th>
+<th class="di_f29 tbstr fixtop">Dialog message EUnl</th>
+<th class="di_f30 tbstr fixtop">Dialog message EUpt</th>
+<th class="di_f31 tbstr fixtop">Dialog message EUru</th>
+<th class="di_f23 tbstr fixtop">Dialog message JPja</th>
+<th class="di_f107 tbstr fixtop">Dialog message CNzh (zh-Hans)</th>
+<th class="di_f112 tbstr fixtop">Dialog message TWzh (zh-Hant)</th>
+<th class="di_f115 tbstr fixtop">Dialog message KRko</th>
+<th class="di_f118 tbstr fixtop">Dialog message CNzhT (China)</th>
+<th class="di_f20 tbstr fixtop">Dialog button 0</th>
+<th class="di_f21 tbstr fixtop">Dialog button 1</th>
+<th class="di_f22 tbstr fixtop">Dialog button 2</th>
+<th class="di_f47 tbstr fixtop">Fullscreen message USen</th>
+<th class="di_f49 tbstr fixtop">Fullscreen message USes</th>
+<th class="di_f48 tbstr fixtop">Fullscreen message USfr</th>
+<th class="di_f122 tbstr fixtop">Fullscreen message USpt</th>
+<th class="di_f39 tbstr fixtop">Fullscreen message EUen</th>
+<th class="di_f40 tbstr fixtop">Fullscreen message EUfr</th>
+<th class="di_f42 tbstr fixtop">Fullscreen message EUde</th>
+<th class="di_f41 tbstr fixtop">Fullscreen message EUes</th>
+<th class="di_f43 tbstr fixtop">Fullscreen message EUit</th>
+<th class="di_f44 tbstr fixtop">Fullscreen message EUnl</th>
+<th class="di_f45 tbstr fixtop">Fullscreen message EUpt</th>
+<th class="di_f46 tbstr fixtop">Fullscreen message EUru</th>
+<th class="di_f38 tbstr fixtop">Fullscreen message JPja</th>
+<th class="di_f108 tbstr fixtop">Fullscreen message CNzh (zh-Hans)</th>
+<th class="di_f113 tbstr fixtop">Fullscreen message TWzh (zh-Hant)</th>
+<th class="di_f116 tbstr fixtop">Fullscreen message KRko</th>
+<th class="di_f119 tbstr fixtop">Fullscreen message CNzhT (China)</th>
+<th class="di_f35 tbstr fixtop">Fullscreen button 0</th>
+<th class="di_f36 tbstr fixtop">Fullscreen button 1</th>
+<th class="di_f37 tbstr fixtop">Fullscreen button 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="CODE-2019-1002 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2019-1002"></a>2019-1002</td>
+<td class="di_f53 tbstr even cellok">ResultInterfaceNameInvalid</td>
+<td class="di_f52 tbstr even cellok">An invalid interface name was passed.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok">This error can occur when there is a timing issue for a network connection. Try again.</td>
+<td class="di_f32 tbstr even cellok">Could not connect to the internet.<br /><br />Please try again.</td>
+<td class="di_f34 tbstr even cellok">No se ha podido establecer la conexión a internet.<br /><br />Inténtalo de nuevo.</td>
+<td class="di_f33 tbstr even cellok">La connexion à Internet a échoué.<br /><br />Veuillez réessayer ultérieurement.</td>
+<td class="di_f121 tbstr even cellok">Não foi possível estabelecer uma conexão à internet.<br /><br />Tente novamente.</td>
+<td class="di_f24 tbstr even cellok">Could not connect to the internet.<br /><br />Please try again.</td>
+<td class="di_f25 tbstr even cellok">La connexion à Internet a échoué.<br /><br />Réessayez.</td>
+<td class="di_f27 tbstr even cellok">Es konnte keine Verbindung zum Internet hergestellt werden.<br /><br />Bitte versuche es erneut.</td>
+<td class="di_f26 tbstr even cellok">No se ha podido establecer la conexión a internet.<br /><br />Inténtalo de nuevo.</td>
+<td class="di_f28 tbstr even cellok">Impossibile collegarsi a Internet.<br /><br />Riprova.</td>
+<td class="di_f29 tbstr even cellok">Er kan geen verbinding worden gemaakt met het internet.<br /><br />Probeer het opnieuw.</td>
+<td class="di_f30 tbstr even cellok">Não foi possível estabelecer ligação à Internet.<br /><br />Tenta novamente.</td>
+<td class="di_f31 tbstr even cellok">Не удалось подключиться к Интернету.<br /><br />Пожалуйста, повторите попытку.</td>
+<td class="di_f23 tbstr even cellok">インターネットに接続できませんでした。<br /><br />もう一度おためしください。</td>
+<td class="di_f107 tbstr even cellok">无法连接互联网。<br /><br />请再试一次。</td>
+<td class="di_f112 tbstr even cellok">無法連接網路。<br /><br />請再次嘗試。</td>
+<td class="di_f115 tbstr even cellok">인터넷에 접속하지 못했습니다.<br /><br />다시 한번 시도해 주십시오.</td>
+<td class="di_f118 tbstr even cellok">无法连接互联网。<br /><br />请再试一次。</td>
+<td class="di_f20 tbstr even cellok">OK</td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2019-2002 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2019-2002"></a>2019-2002</td>
+<td class="di_f53 tbstr odd cellok">ResultInvalidInternalLogic</td>
+<td class="di_f52 tbstr odd cellok">Request processing failed because there was an internal logic error.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok">This error can occur when the user has a bad Internet connection.<br />A detailed cause for this error is currently unknown.</td>
+<td class="di_f32 tbstr odd cellok">An error has occurred.<br /><br />Please try again later.</td>
+<td class="di_f34 tbstr odd cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.</td>
+<td class="di_f33 tbstr odd cellok">Une erreur est survenue.<br /><br />Veuillez réessayer ultérieurement.</td>
+<td class="di_f121 tbstr odd cellok">Ocorreu um erro.<br /><br />Tente novamente mais tarde.</td>
+<td class="di_f24 tbstr odd cellok">An error has occurred.<br /><br />Please try again later.</td>
+<td class="di_f25 tbstr odd cellok">Une erreur est survenue.<br /><br />Réessayez ultérieurement.</td>
+<td class="di_f27 tbstr odd cellok">Es ist ein Fehler aufgetreten.<br /><br />Bitte versuche es später erneut.</td>
+<td class="di_f26 tbstr odd cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.</td>
+<td class="di_f28 tbstr odd cellok">Si è verificato un errore.<br /><br />Riprova più tardi.</td>
+<td class="di_f29 tbstr odd cellok">Er is een fout opgetreden.<br /><br />Probeer het later nog eens.</td>
+<td class="di_f30 tbstr odd cellok">Ocorreu um erro.<br /><br />Tenta novamente mais tarde.</td>
+<td class="di_f31 tbstr odd cellok">Произошла ошибка.<br /><br />Повторите попытку позже.</td>
+<td class="di_f23 tbstr odd cellok">エラーが発生しました。<br /><br />しばらく待って、やりなおしてください。</td>
+<td class="di_f107 tbstr odd cellok">发生错误。<br /><br />请稍后再试。</td>
+<td class="di_f112 tbstr odd cellok">發生錯誤。<br /><br />請稍候重新嘗試。</td>
+<td class="di_f115 tbstr odd cellok">에러가 발생했습니다.<br /><br />잠시 후, 다시 시도해 주십시오.</td>
+<td class="di_f118 tbstr odd cellok">发生错误。<br /><br />请稍后再试。</td>
+<td class="di_f20 tbstr odd cellok">Details</td>
+<td class="di_f21 tbstr odd cellok">Close</td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok">An error has occurred.<br /><br />Please try again later.<br /><br />If the problem persists, please refer to the Nintendo Support website.<br />support.nintendo.com/switch/error</td>
+<td class="di_f49 tbstr odd cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.<br /><br />Si el problema no se soluciona, visita el sitio de soporte de Nintendo:<br />support.nintendo.com/switch/error</td>
+<td class="di_f48 tbstr odd cellok">Une erreur est survenue.<br /><br />Veuillez réessayer ultérieurement.<br /><br />Si le problème persiste, consultez le site d&#39;assistance Nintendo :<br />support.nintendo.com/switch/error</td>
+<td class="di_f122 tbstr odd cellok">Ocorreu um erro.<br /><br />Tente novamente mais tarde.<br /><br />Se o problema persistir, visite a página de assistência da Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f39 tbstr odd cellok">An error has occurred.<br /><br />Please try again later.<br /><br />If the problem persists, please refer to the Nintendo Support website.<br />support.nintendo.com/switch/error</td>
+<td class="di_f40 tbstr odd cellok">Une erreur est survenue.<br /><br />Réessayez ultérieurement.<br /><br />Si le problème persiste, consultez le site d&#39;assistance de Nintendo :<br />support.nintendo.com/switch/error</td>
+<td class="di_f42 tbstr odd cellok">Es ist ein Fehler aufgetreten.<br /><br />Bitte versuche es später erneut.<br /><br />Wenn das Problem bestehen bleibt, besuche bitte die Website des Nintendo-Service.<br />support.nintendo.com/switch/error</td>
+<td class="di_f41 tbstr odd cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.<br /><br />Visita support.nintendo.com/switch/error<br />si el problema no se soluciona.</td>
+<td class="di_f43 tbstr odd cellok">Si è verificato un errore.<br /><br />Riprova più tardi.<br /><br />Se il problema persiste, visita il sito del Centro Assistenza Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f44 tbstr odd cellok">Er is een fout opgetreden.<br /><br />Probeer het later nog eens.<br /><br />Kijk op de Nintendo-ondersteuningswebsite als dit probleem zich blijft voordoen.<br />support.nintendo.com/switch/error</td>
+<td class="di_f45 tbstr odd cellok">Ocorreu um erro.<br /><br />Tenta novamente mais tarde.<br /><br />Se o problema persistir, visita a página de assistência da Nintendo:<br />support.nintendo.com/switch/error</td>
+<td class="di_f46 tbstr odd cellok">Произошла ошибка.<br /><br />Повторите попытку позже.<br /><br />Если проблема сохраняется, посетите веб-сайт технической поддержки Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f38 tbstr odd cellok">エラーが発生しました。<br /><br />しばらく待って、やりなおしてください。<br /><br />このエラーが何度も発生するときは、Nintendo Switchサポートサイトをご覧ください。<br />https://www.nintendo.co.jp/support/switch/</td>
+<td class="di_f108 tbstr odd cellok">发生错误。<br /><br />请稍后再试。<br /><br />如果此错误反复发生，请查看Nintendo Switch支持网站。<br />support.nintendo.com/switch/error</td>
+<td class="di_f113 tbstr odd cellok">發生錯誤。<br /><br />請稍候重新嘗試。<br /><br />若反覆發生此錯誤，請參閱Nintendo Switch支援頁面。<br />support.nintendo.com/switch/error</td>
+<td class="di_f116 tbstr odd cellok">에러가 발생했습니다.<br /><br />잠시 후, 다시 시도해 주십시오.<br /><br />이 에러가 계속 발생할 경우, Nintendo Switch 서포트 사이트를 확인해 주십시오.<br />support.nintendo.com/switch/error</td>
+<td class="di_f119 tbstr odd cellok">发生错误。<br /><br />请稍后再试。<br /><br />如果此错误反复发生，请查看Nintendo Switch支持网站。<br />nintendoswitch.com.cn/support</td>
+<td class="di_f35 tbstr odd cellok">OK</td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2019-9999 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2019-9999"></a>2019-9999</td>
+<td class="di_f53 tbstr even cellok"></td>
+<td class="di_f52 tbstr even cellok">General Message</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok">An error has occurred.<br /><br />Please try again later.</td>
+<td class="di_f34 tbstr even cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.</td>
+<td class="di_f33 tbstr even cellok">Une erreur est survenue.<br /><br />Veuillez réessayer ultérieurement.</td>
+<td class="di_f121 tbstr even cellok">Ocorreu um erro.<br /><br />Tente novamente mais tarde.</td>
+<td class="di_f24 tbstr even cellok">An error has occurred.<br /><br />Please try again later.</td>
+<td class="di_f25 tbstr even cellok">Une erreur est survenue.<br /><br />Réessayez ultérieurement.</td>
+<td class="di_f27 tbstr even cellok">Es ist ein Fehler aufgetreten.<br /><br />Bitte versuche es später erneut.</td>
+<td class="di_f26 tbstr even cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.</td>
+<td class="di_f28 tbstr even cellok">Si è verificato un errore.<br /><br />Riprova più tardi.</td>
+<td class="di_f29 tbstr even cellok">Er is een fout opgetreden.<br /><br />Probeer het later nog eens.</td>
+<td class="di_f30 tbstr even cellok">Ocorreu um erro.<br /><br />Tenta novamente mais tarde.</td>
+<td class="di_f31 tbstr even cellok">Произошла ошибка.<br /><br />Повторите попытку позже.</td>
+<td class="di_f23 tbstr even cellok">エラーが発生しました。<br /><br />しばらく待って、やりなおしてください。</td>
+<td class="di_f107 tbstr even cellok">发生错误。<br /><br />请稍后再试。</td>
+<td class="di_f112 tbstr even cellok">發生錯誤。<br /><br />請稍候重新嘗試。</td>
+<td class="di_f115 tbstr even cellok">에러가 발생했습니다.<br /><br />잠시 후, 다시 시도해 주십시오.</td>
+<td class="di_f118 tbstr even cellok">发生错误。<br /><br />请稍后再试。</td>
+<td class="di_f20 tbstr even cellok">Details</td>
+<td class="di_f21 tbstr even cellok">Close</td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok">An error has occurred.<br /><br />Please try again later.<br /><br />If the problem persists, please refer to the Nintendo Support website.<br />support.nintendo.com/switch/error</td>
+<td class="di_f49 tbstr even cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.<br /><br />Si el problema no se soluciona, visita el sitio de soporte de Nintendo:<br />support.nintendo.com/switch/error</td>
+<td class="di_f48 tbstr even cellok">Une erreur est survenue.<br /><br />Veuillez réessayer ultérieurement.<br /><br />Si le problème persiste, consultez le site d&#39;assistance Nintendo :<br />support.nintendo.com/switch/error</td>
+<td class="di_f122 tbstr even cellok">Ocorreu um erro.<br /><br />Tente novamente mais tarde.<br /><br />Se o problema persistir, visite a página de assistência da Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f39 tbstr even cellok">An error has occurred.<br /><br />Please try again later.<br /><br />If the problem persists, please refer to the Nintendo Support website.<br />support.nintendo.com/switch/error</td>
+<td class="di_f40 tbstr even cellok">Une erreur est survenue.<br /><br />Réessayez ultérieurement.<br /><br />Si le problème persiste, consultez le site d&#39;assistance de Nintendo :<br />support.nintendo.com/switch/error</td>
+<td class="di_f42 tbstr even cellok">Es ist ein Fehler aufgetreten.<br /><br />Bitte versuche es später erneut.<br /><br />Wenn das Problem bestehen bleibt, besuche bitte die Website des Nintendo-Service.<br />support.nintendo.com/switch/error</td>
+<td class="di_f41 tbstr even cellok">Se ha producido un error.<br /><br />Inténtalo de nuevo más tarde.<br /><br />Visita support.nintendo.com/switch/error<br />si el problema no se soluciona.</td>
+<td class="di_f43 tbstr even cellok">Si è verificato un errore.<br /><br />Riprova più tardi.<br /><br />Se il problema persiste, visita il sito del Centro Assistenza Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f44 tbstr even cellok">Er is een fout opgetreden.<br /><br />Probeer het later nog eens.<br /><br />Kijk op de Nintendo-ondersteuningswebsite als dit probleem zich blijft voordoen.<br />support.nintendo.com/switch/error</td>
+<td class="di_f45 tbstr even cellok">Ocorreu um erro.<br /><br />Tenta novamente mais tarde.<br /><br />Se o problema persistir, visita a página de assistência da Nintendo:<br />support.nintendo.com/switch/error</td>
+<td class="di_f46 tbstr even cellok">Произошла ошибка.<br /><br />Повторите попытку позже.<br /><br />Если проблема сохраняется, посетите веб-сайт технической поддержки Nintendo.<br />support.nintendo.com/switch/error</td>
+<td class="di_f38 tbstr even cellok">エラーが発生しました。<br /><br />しばらく待って、やりなおしてください。<br /><br />このエラーが何度も発生するときは、Nintendo Switchサポートサイトをご覧ください。<br />https://www.nintendo.co.jp/support/switch/</td>
+<td class="di_f108 tbstr even cellok">发生错误。<br /><br />请稍后再试。<br /><br />如果此错误反复发生，请查看Nintendo Switch支持网站。<br />support.nintendo.com/switch/error</td>
+<td class="di_f113 tbstr even cellok">發生錯誤。<br /><br />請稍候重新嘗試。<br /><br />若反覆發生此錯誤，請參閱Nintendo Switch支援頁面。<br />support.nintendo.com/switch/error</td>
+<td class="di_f116 tbstr even cellok">에러가 발생했습니다.<br /><br />잠시 후, 다시 시도해 주십시오.<br /><br />이 에러가 계속 발생할 경우, Nintendo Switch 서포트 사이트를 확인해 주십시오.<br />support.nintendo.com/switch/error</td>
+<td class="di_f119 tbstr even cellok">发生错误。<br /><br />请稍后再试。<br /><br />如果此错误反复发生，请查看Nintendo Switch支持网站。<br />nintendoswitch.com.cn/support</td>
+<td class="di_f35 tbstr even cellok">OK</td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footer fixleft"></div>
+</body>
+</html>

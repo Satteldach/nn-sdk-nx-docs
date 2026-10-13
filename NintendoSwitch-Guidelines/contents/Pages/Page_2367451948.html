@@ -1,0 +1,1476 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>File system | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- File system -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367451948" data-tags="">File system</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements for application design and development and applies to applications that use the file system.</p>
+<p>See below for definitions of terms used in this chapter.</p>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_2367451948_table001"></a>Table 1 File System Terminology</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Term</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Storage media</td>
+      <td>General term referring to game cards, system memory, microSD cards, and all other media accessible by the system.</td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Storage media -->
+<h1 class="general" id="GuidelineLabel_2367451950" data-tags="">Storage media</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply to reading and writing data to storage media.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0011: Limits on frequency and amount of writing to storage media -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451952" data-tags="revision-updated-20240206 function-ファイルシステム revision-updated-17.0 revision-updated-20240626 revision-updated-6.0 revision-updated-0.7 revision-updated-3.1 function-違反件数が多い revision-updated-0.5 revision-updated-1.0 revision-updated-9.0 revision-updated-0.3 revision-updated-3.0 revision-updated-0.6 revision-updated-1.1 revision-updated-2.0 revision-updated-15.0 revision-updated-21.0 revision-updated-16.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451952" title="Right-click and copy link to copy a permalink to this guideline">0011: Limits on frequency and amount of writing to storage media</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Your application must comply with the following requirements when writing to storage media.</p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>Your application must write to storage media no more than 32 times per minute on average, and must write no more than a total of 16 MiB per minute on average.</p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that write to storage media
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>If the application exceeds this frequency only when the user plays the application in an atypical way</li>
+  <li>If the application has already gotten approval from Nintendo in advance to temporarily exceed this frequency in scenes the user encounters infrequently</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Excessively frequent writes to writable storage media can wear out the storage media and shorten its usable life below the product lifetime expected by Nintendo.</p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>In one average minute, you must limit write operations to storage media to no more than 32 times, and must write no more than 16 MiBs'-worth of files.</p>
+      <p>For example, if your application auto-saves roughly once every ten minutes, then in each auto-save you must call functions that perform write operations no more than 320 times total, and must write no more than 160 MiB of files total.</p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <p>Applications that regularly save game progress need to be carefully designed. For example, in a visual novel or text-adventure game where you expect the average user to take about 1.5 seconds to read one line, do not save their progress every time you display a new line. Instead, do something like waiting until the user has read an entire page before saving.</p>
+  <p>For a list of functions that perform write operations, see <span>NintendoSDK Documents > Features > Basic Features > fs Library > Debugging > Checking the Frequency of Access</span>.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>The overall fewer number of writes you perform, the more performance improves. Likewise, the fewer file system operations you perform, the fewer locations in your application are affected by storage media response speed. For more information about file system performance, see <span>NintendoSDK Documents > Features > Basic Features > fs Library > Performance</span>.</p>
+    </div>
+  </div>If your application's average frequency exceeds these frequency limits over 10 minutes of typical gameplay and it is difficult for you to comply with the requirements, you must contact Nintendo in advance and obtain approval. (You may disregard cases where your application exceeds the limits only when the user plays in an atypical way.)<br />When you contact Nintendo, provide the following information.<ul><li>What situations cause your application to exceed the frequency limits, and how does your application exceed the limits?</li><li>What conditions trigger the write operations, and what kinds of write operations are they?</li><li>If the amount of writing changes depending on the user's progress in the game, how does the write size of each file change?</li><li>Access logs and gameplay video of the following gameplay:<ul><li>At least 10 minutes of gameplay containing one or more scenes where the application exceeds these frequency limits<ul><li>For example, if your application exceeds the frequency limits only on initial startup, start the game without any save data or CacheStorage when you play it.</li></ul></li><li>At least 30 minutes of normal gameplay, starting from a point where the user has already made progress in the game<br /><ul><li>Restore save data from a point where the user has already made progress in the game, then play forward from that point. For applications that use CacheStorage, also restore the CacheStorage to a state corresponding to the user's progress in the game.</li><li>If the amount of writing changes depending on the user's progress in the game, play the game from a point where the write size of each file has gotten large.</li></ul></li></ul></li></ul><p>Also note that you must provide your original access log, not simply the analysis result from FsAccessLogChecker. You can use Target Manager or Target Manager 2's remote video feature to record the gameplay videos.</p></div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Controlling the Development Hardware &gt; DevMenu</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Performance</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Debugging &gt; Checking the Frequency of Access</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Tool Reference &gt; FsAccessLogChecker</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Master ROM Submission Procedures</em>
+        <ul>
+          <li>Submitting a Master ROM &gt; Uploading Master ROMs</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <ol>
+    <li>
+      <!--Remove - p.auto-cursor-target-->
+      <div class="fl-horizontally">
+        <!--Remove - p.auto-cursor-target-->
+        <!--Remove-->
+        <!--Remove - p.auto-cursor-target-->
+        <div>
+          <p>Insert a microSD card into a Nintendo Switch devkit that has been initialized to NintendoSDK SystemUpdater for NX 11.0.0-6.0 or later.</p>
+        </div>
+        <!--Remove - p.auto-cursor-target-->
+      </div>
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>Start DevMenu, go to <strong>Debug &gt; FS Access Log Mode</strong>, and set it to <strong>SdCard</strong>.</li>
+    <li>Start the application (built with a build type of <code>Release</code>).</li>
+    <li>Play through the application from beginning to end.</li>
+    <li>Close the application.<br />(The system saves access logs to the microSD card when the application is closed, the system transitions to sleep mode, or powers off.)</li>
+    <li>Remove the microSD card from the Switch devkit, and get the <code>FsAccessLog.txt</code> access log file located directly underneath the microSD card's root directory.</li>
+    <li>Analyze the access log using the version of FsAccessLogChecker packaged with the NintendoSDK SystemUpdater that your Switch devkit is currently initialized to.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Passes if the <strong>FS Access Log Check Result</strong> section of the FsAccessLogChecker analysis result is not FAIL for any of the following fields.</p>
+  <ul>
+    <li>SdkVersion</li>
+    <li>Spec</li>
+    <li>TotalTime</li>
+    <li>WriteSize</li>
+    <li>WriteAccessCount</li>
+  </ul>
+  <div class="note_new">
+    <div class="note_new_left">Note:</div>
+    <div class="note_new_right">
+      <p>If you are unable to avoid a FAIL result for one or more of these checks, contact Nintendo in advance to avoid delays. See the Backgrounder for more information.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ul>
+    <li class="_mce_tagged_br">You can combine the test for this guideline with the tests for &quot;<a href="../Pages/Page_2367451948.html#GuidelineDescLabel_2367451954">0012: Limit on frequency of reading storage media</a>&quot; and &quot;<a href="../Pages/Page_2367452365.html#GuidelineDescLabel_2367452391">0059: Limits on automatic writes</a>.&quot;</li>
+    <li>The Test Method does not depend on the NintendoSDK version your application is built with.</li>
+    <li>
+      <p>Initialize your Switch devkit using a NintendoSDK SystemUpdater package corresponding to any of the firmware versions listed on Nintendo Developer Portal &gt; <strong>Developer Support</strong> &gt; <strong>Nintendo Switch</strong> &gt; <strong>Technical Information</strong> &gt; <strong>Master ROM Submission Information</strong> &gt; <strong>Firmware Version Required for Testing</strong>.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>Use the version of FsAccessLogChecker packaged with the NintendoSDK SystemUpdater that your Switch devkit is currently initialized to.</li>
+    <li>Your application may have sudden peaks where it makes many <code>fs</code> accesses in a short time, but FsAccessLogChecker takes the average frequency of accesses when it performs its check. To do this, FsAccessLogChecker requires an access log at least ten minutes long in duration.<br />If your application rarely makes <code>fs</code> accesses, you must ensure that the 10 or more minutes of gameplay that you record for your access log includes operations involving <code>fs</code> accesses (such as saving or transitioning between scenes).</li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451952_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451952_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451952_1" data-tag="function-違反件数が多い">
+<label for="tagfilter_2367451952_1">
+<span class="function-tag" title="Most-failed guidelines" data-tag="function-違反件数が多い">Most-failed guidelines</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_2" data-tag="revision-updated-20240626">
+<label for="tagfilter_2367451952_2">
+<span class="revision-tag" title="Updated v20240626" data-tag="revision-updated-20240626">Updated v20240626</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_3" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451952_3">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_4" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451952_4">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_5" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451952_5">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_6" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367451952_6">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_7" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451952_7">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_8" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367451952_8">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_9" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451952_9">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_10" data-tag="revision-updated-3.1">
+<label for="tagfilter_2367451952_10">
+<span class="revision-tag" title="Updated v3.1" data-tag="revision-updated-3.1">Updated v3.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_11" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451952_11">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_12" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451952_12">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_13" data-tag="revision-updated-1.1">
+<label for="tagfilter_2367451952_13">
+<span class="revision-tag" title="Updated v1.1" data-tag="revision-updated-1.1">Updated v1.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_14" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451952_14">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_15" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367451952_15">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_16" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367451952_16">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_17" data-tag="revision-updated-0.5">
+<label for="tagfilter_2367451952_17">
+<span class="revision-tag" title="Updated v0.5" data-tag="revision-updated-0.5">Updated v0.5</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451952_18" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451952_18">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240626
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Added &quot;applications that have already gotten approval from Nintendo&quot; to the Exceptions.</li>
+<li class="changelog">Added a note to the Pass/Fail Determination regarding cases where it is required to contact Nintendo in advance.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0012: Limit on frequency of reading storage media -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451954" data-tags="revision-updated-2.0 function-ファイルシステム revision-updated-17.0 revision-updated-20240626 revision-updated-6.0 revision-updated-3.1 revision-updated-7.0 revision-updated-10.0 revision-updated-0.5 revision-updated-1.0 revision-updated-5.0 revision-updated-0.7 function-すべてのアプリケーション revision-updated-3.0 revision-updated-0.6 revision-updated-4.0 revision-updated-1.1 revision-updated-20240325 revision-updated-15.0 revision-updated-21.0 revision-updated-16.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451954" title="Right-click and copy link to copy a permalink to this guideline">0012: Limit on frequency of reading storage media</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>Your application must not repeatedly read from the same location in storage media more than an average of once per second.</p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>All applications</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>If the application exceeds this frequency only when the user plays the application in an atypical way</li>
+  <li>If the application has already gotten approval from Nintendo in advance to temporarily exceed this frequency in scenes the user encounters infrequently</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>There is an upper limit on the guaranteed number of times that read operations can be performed on storage media. Excessively frequent reads of the same region in storage media can wear out the storage media and shorten its usable life below the product lifetime expected by Nintendo.</p>
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>To prevent this, do not repeatedly perform read operations from the same location in any storage media more than an average of once per second. For example: in an average ten-minute period, you must mount and unmount the same media no more than 600 times, and you must re-read the same region in the same file no more than 600 times.</p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <p>If you need to repeatedly read data from storage media, find some workaround that does not exceed the frequency limit. For example, you could load a sizeable chunk of data into main memory, and then access that loaded data.<br />The following are examples of operations where you would need to be careful.</p>
+  <ul>
+    <li>Application performs a read every time it displays a single character of a font.</li>
+    <li>Application performs periodic reads at an interval of every frame or second.</li>
+    <li>Application performs a read every time a character takes a step.</li>
+  </ul>
+  <p>When you mount and unmount the same media, the same metadata is read as part of the mount and unmount operations, so this counts as repeatedly reading the same location in storage media. If the data read by one call overlaps with the data read by another call, this also counts as repeatedly reading the same region in the same file. If your application repeatedly reads the same file, but the region specified by <code>offset</code> and <code>size</code> does not overlap with previous reads, it does not count as repeatedly reading the same location. For a list of functions that perform read operations, see <span>NintendoSDK Documents > Features > Basic Features > fs Library > Debugging > Checking the Frequency of Access</span>.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>This guideline is intended to help you avoid the &quot;Read Disturb&quot; phenomenon that affects NAND flash memory. &quot;Read Disturb&quot; is a phenomenon where data that is stored physically close to read locations can get corrupted.</p>
+      <p>Because the physical arrangement of data in NAND flash memory is different from the logical arrangement, it is not possible to know what data may get corrupted. If your application's resource data (its ROM) is corrupted, the user can recover it by redownloading it, but if their save data is corrupted they cannot recover it. If the system's firmware or metadata is corrupted, it may stop operating properly.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Nintendo provides a file data cache feature that allows you to automatically cache a file's data within the FS library. To use this feature, the application only needs to allocate memory for the file data cache, so it may be an easy way to decrease your read frequency. For more information, see <span>NintendoSDK Documents > Features > Basic Features > fs Library > Manual > Features > File Data Cache</span>.</p>
+      <div>
+        <p>This feature is available in NintendoSDK NX Add-On 5.4.0 and later.</p>
+      </div>
+      <!--Remove - p.auto-cursor-target-->
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If your application uses Unity, see <em>Unity for Nintendo Switch Development Manual</em> &gt; Development Guide &gt; Using AssetBundle.</p>
+      <p>Note that the file data cache function mentioned above is supported as of Unity for Nintendo Switch 5.1.0 2018/05/16, SDK 5.4.0, and Unity 2018.1.2f1. For more information, see &quot;UI Reference &gt; Player Settings &gt; nn::fs Cache Buffer Size&quot; in the <em>Unity for Nintendo Switch Development Manual</em>.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>The overall fewer number of reads you perform, the more performance improves. Likewise, the fewer file system operations you perform, the fewer locations in your application are affected by storage media response speed. For more information about file system performance, see <span>NintendoSDK Documents > Features > Basic Features > fs Library > Performance</span>.</p>
+    </div>
+  </div>
+  <p>If your application's average frequency exceeds these frequency limits over 10 minutes of typical gameplay and it is difficult for you to comply with the requirements, you must contact Nintendo in advance and obtain approval. (You may disregard cases where your application exceeds the limits only when the user plays in an atypical way.)<br />When you contact Nintendo, provide the following information.</p>
+  <ul>
+    <li>What situations cause your application to exceed the frequency limits, and how does your application exceed the limits?</li>
+    <li>Access logs and gameplay video of the following gameplay:<br /><ul><li>At least 10 minutes of gameplay containing one or more scenes where the application exceeds these frequency limits</li><li>At least 30 minutes of normal gameplay, starting from a point where the user has already made progress in the game<br /><ul><li>Restore save data from a point where the user has already made progress in the game, then play forward from that point. For applications that use CacheStorage, also restore the CacheStorage to a state corresponding to the user's progress in the game.</li></ul></li></ul></li>
+  </ul>
+  <p>Also note that you must provide your original access log, not simply the analysis result from FsAccessLogChecker. You can use Target Manager or Target Manager 2's remote video feature to record the gameplay videos.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Controlling the Development Hardware &gt; DevMenu</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Performance</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Debugging &gt; Checking the Frequency of Access</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Tool Reference &gt; FsAccessLogChecker</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Manual &gt; Features &gt; File Data Cache</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Master ROM Submission Procedures</em>
+        <ul>
+          <li>Submitting a Master ROM &gt; Uploading Master ROMs</li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          <em>Unity for Nintendo Switch Development Manual</em>
+        </p>
+        <ul>
+          <li>
+            <p>Development Guide &gt; Using AssetBundle</p>
+          </li>
+          <li>
+            <p>UI Reference &gt; Player Settings &gt; nn::fs Cache Buffer Size</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>
+      <!--Remove - p.auto-cursor-target-->
+      <div class="fl-horizontally">
+        <!--Remove - p.auto-cursor-target-->
+        <!--Remove-->
+        <!--Remove - p.auto-cursor-target-->
+        <div>
+          <p>Insert a microSD card into a Switch devkit that has been initialized to NintendoSDK SystemUpdater for NX 11.0.0-6.0 or later.</p>
+        </div>
+        <!--Remove - p.auto-cursor-target-->
+      </div>
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>Start DevMenu, go to <strong>Debug &gt; FS Access Log Mode</strong>, and set it to <strong>SdCard</strong>.</li>
+    <li>Start the application (built with a build type of <code>Release</code>).</li>
+    <li>Play through the application from beginning to end.</li>
+    <li>Close the application.<br />(The system saves access logs to the microSD card when the application is closed, the system transitions to sleep mode, or powers off.)</li>
+    <li>Remove the microSD card from the Switch devkit, and get the <code>FsAccessLog.txt</code> access log file located directly underneath the microSD card's root directory.</li>
+    <li>Analyze the access log using the version of FsAccessLogChecker packaged with the NintendoSDK SystemUpdater that your Switch devkit is currently initialized to.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Passes if the <strong>FS Access Log Check Result</strong> section of the FsAccessLogChecker analysis result is not FAIL for any of the following fields.</p>
+  <ul>
+    <li>SdkVersion</li>
+    <li>Spec</li>
+    <li>TotalTime</li>
+    <li>MountCount</li>
+    <li>SameAddressRead</li>
+  </ul>
+  <div class="note_new">
+    <div class="note_new_left">Note:</div>
+    <div class="note_new_right">
+      <p>If you are unable to avoid a FAIL result for one or more of these checks, contact Nintendo in advance to avoid delays. See the Backgrounder for more information.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ul>
+    <li>You can combine the test for this guideline with the tests for &quot;<a href="../Pages/Page_2367451948.html#GuidelineDescLabel_2367451952">0011: Limits on frequency and amount of writing to storage media</a>&quot; and &quot;<a href="../Pages/Page_2367452365.html#GuidelineDescLabel_2367452391">0059: Limits on automatic writes</a>.&quot;</li>
+    <li>The Test Method does not depend on the NintendoSDK version your application is built with.</li>
+    <li>
+      <p>Initialize your Switch devkit using a NintendoSDK SystemUpdater package corresponding to any of the firmware versions listed on Nintendo Developer Portal &gt; <strong>Developer Support</strong> &gt; <strong>Nintendo Switch</strong> &gt; <strong>Technical Information</strong> &gt; <strong>Master ROM Submission Information</strong> &gt; <strong>Firmware Version Required for Testing</strong>.</p>
+      <!--Remove-->
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>Use the version of FsAccessLogChecker packaged with the NintendoSDK SystemUpdater that your Switch devkit is currently initialized to.</li>
+    <li>Your application may have sudden peaks where it makes many <code>fs</code> accesses in a short time, but FsAccessLogChecker takes the average frequency of accesses when it performs its check. To do this, FsAccessLogChecker requires an access log at least ten minutes long in duration.<br />If your application rarely makes <code>fs</code> accesses, you must ensure that the 10 or more minutes of gameplay that you record for your access log includes operations involving <code>fs</code> accesses (such as saving or transitioning between scenes).</li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451954_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451954_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451954_1" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367451954_1">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_2" data-tag="revision-updated-20240325">
+<label for="tagfilter_2367451954_2">
+<span class="revision-tag" title="Updated v20240325" data-tag="revision-updated-20240325">Updated v20240325</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_3" data-tag="revision-updated-20240626">
+<label for="tagfilter_2367451954_3">
+<span class="revision-tag" title="Updated v20240626" data-tag="revision-updated-20240626">Updated v20240626</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_4" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451954_4">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_5" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451954_5">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_6" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367451954_6">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_7" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451954_7">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_8" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367451954_8">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_9" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451954_9">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_10" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451954_10">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_11" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451954_11">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_12" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367451954_12">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_13" data-tag="revision-updated-3.1">
+<label for="tagfilter_2367451954_13">
+<span class="revision-tag" title="Updated v3.1" data-tag="revision-updated-3.1">Updated v3.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_14" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451954_14">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_15" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451954_15">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_16" data-tag="revision-updated-1.1">
+<label for="tagfilter_2367451954_16">
+<span class="revision-tag" title="Updated v1.1" data-tag="revision-updated-1.1">Updated v1.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_17" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451954_17">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_18" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367451954_18">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_19" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367451954_19">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451954_20" data-tag="revision-updated-0.5">
+<label for="tagfilter_2367451954_20">
+<span class="revision-tag" title="Updated v0.5" data-tag="revision-updated-0.5">Updated v0.5</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240626
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Added &quot;applications that have already gotten approval from Nintendo&quot; to the Exceptions.</li>
+<li class="changelog">Added a note to the Pass/Fail Determination regarding cases where it is required to contact Nintendo in advance.</li>
+</ul></li>
+</ul>
+</li>
+<li class="changelog_row" data-changelog-common="1">Version 20240325
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Revised text in Backgrounder regarding the NX Add-On version that added support for file data cache.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0013: Prohibition of implementations that depend on access speed -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451956" data-tags="function-ファイルシステム revision-updated-0.2 revision-updated-1.0 revision-updated-6.0 revision-updated-8.0 revision-updated-3.0 revision-updated-0.3 revision-updated-5.0 revision-updated-2.0 function-すべてのアプリケーション revision-updated-9.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451956" title="Right-click and copy link to copy a permalink to this guideline">0013: Prohibition of implementations that depend on access speed</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must operate correctly even if there are changes to any storage media's access speeds.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <p>Different types of storage media (system memory, game cards, and microSD cards) have different read/write access speeds. There are also individual differences within the same media type and across different sizes and models of the same media type, and access speeds to any single storage media may change over time as it wears out, the data on it becomes more fragmented, or for other reasons. This means that if you implement processing that depends on having a certain access speed when reading or writing to storage media, you may invite bugs caused when the actual access speed is different. To avoid this, avoid coding in a way that depends on having a certain access speed for any storage media.</p>
+  <p>For example, if you assume that loading should finish within 2 seconds at expected loading speeds, and then you hard-code that assumption into your program by forcibly stopping the read operation after 2 seconds and starting to render from the loaded data, you may cause lockups or other critical bugs when the read doesn't finish within the expected time. Avoid hard-coding assumptions about access speeds into your program.</p>
+  <p>To allow you to test for bugs that depend on access speeds, Nintendo has provided features to emulate three possible speeds of access to any storage media: Unvarying fast access speed (equivalent to accessing system memory), unvarying slow access speed (equivalent to accessing one of the slower microSD cards likely to be available on the market), and randomly-varying access speed. Use these speed emulation features to ensure that your application operates correctly at various access speeds and when speeds fluctuate.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Note that the speed emulation features do not guarantee the Nintendo Switch system's maximum and minimum access speeds to storage media in the future.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Performance</li>
+          <li>Features &gt; Basic Features &gt; fs Library &gt; Debugging &gt; Checking Access Speed Dependency</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>Prepare a Switch devkit initialized to the most recent firmware version listed on Nintendo Developer Portal &gt; <strong>Developer Support</strong> &gt; <strong>Nintendo Switch</strong> &gt; <strong>Technical Information</strong> &gt; <strong>Master ROM Submission Information</strong> &gt; <strong>Firmware Version Required for Testing</strong>.</li>
+    <li>Remove the microSD card from the devkit.</li>
+    <li>Install the application you are testing (main application, patches, and DLC) to the system memory of the devkit.</li>
+    <li>In DevMenu, go to <strong>Debug</strong> &gt; <strong>FS Speed Emulation Mode</strong> and set it to <strong>Faster</strong>, <strong>Slower</strong>, or <strong>Random</strong>, then start the application installed in step 3 and play through it from beginning to end. Do this for all three of the speed settings.</li>
+  </ol>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If there is insufficient free space in the devkit's system memory to install the main application, patches, and all downloadable content to system memory, use a UHS-I (Ultra High Speed Phase I) microSD card with a read speed of 60 to 95 MB/s.</p>
+      <p>Because the speed emulation features work by slowing down access to the storage media, it is best to perform this test using storage media that has a fast access speed to start with. When testing this guideline, always store the application you are testing in system memory, and do your best to store other associated data in system memory as well. On top of that, make sure to use the fastest microSD card you have access to.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Passes if the application is playable without problems in step 4.</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451956_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451956_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451956_1" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367451956_1">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_2" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367451956_2">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_3" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451956_3">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_4" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451956_4">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_5" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451956_5">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_6" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451956_6">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_7" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451956_7">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_8" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451956_8">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_9" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451956_9">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451956_10" data-tag="revision-updated-0.2">
+<label for="tagfilter_2367451956_10">
+<span class="revision-tag" title="Updated v0.2" data-tag="revision-updated-0.2">Updated v0.2</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Save data -->
+<h1 class="general" id="GuidelineLabel_2367451958" data-tags="">Save data</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply when reading or writing save data.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0147: Using save data in a way that does not depend on what other accounts are linked -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451960" data-tags="function-ファイルシステム revision-updated-21.0 revision-updated-4.0 revision-updated-8.0 revision-updated-7.0 revision-updated-18.0 function-アカウント revision-updated-5.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451960" title="Right-click and copy link to copy a permalink to this guideline">0147: Using save data in a way that does not depend on what other accounts are linked</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must be able to inherit and continue using the same save data even when the linked accounts have changed.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use save data
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Data saved to network storage
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>On Switch, it is possible for the user to unlink their user account from their Nintendo Account, or to change the Nintendo Account that is linked to a specific user account. If your save data depends on specific accounts being linked, a change in the linked accounts could make it unusable. It is therefore prohibited to design your application in such a way that a change in the linked accounts causes it to delete its save data or makes the save data unusable.</p>
+<p>
+  <strong>Note:</strong> In system versions 6.0.0 and later, users can no longer unlink their user account and Nintendo Account with a user operation. However, there is a possibility that customer support personnel could unlink accounts either now or in the future.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NPLN Manual</em>
+        <ul>
+          <li>
+            <strong>NPLN Programming Manual</strong> &gt; <strong>Managing NPLN Users</strong> &gt; <strong>UserConfig Settings and NPLN User Usage Patterns</strong><ul><li><strong>Pattern 2: Use as Explicitly Created Users (Non-Prearranged Users)</strong> &gt; <strong>Guideline Compliance When Using Non-Prearranged Users</strong></li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <strong>Note:</strong> In order to perform this test, the Switch devkit must be connected to the internet.<br /><ol><li>Create a user account and link it to Nintendo Account A.</li><li>With the user account linked to Nintendo Account A, play the application, perform a save operation, and close the application.</li><li>In DevMenu, go to <strong>Accounts</strong> &gt; <strong>(User account from step 1)</strong> &gt; <strong>Unregister NSA</strong> and unlink Nintendo Account A from the user account.</li><li>With the user account not linked to any Nintendo Account, load the save data you created in step 2 and make some progress in the application, then perform a save operation and close the application.</li><li>Link the user account to a separate Nintendo Account, Nintendo Account B.</li><li>With the user account linked to Nintendo Account B, load the save data you created in step 4 and make some progress in the application, then perform a save operation and close the application.</li></ol><div class="info_new"><div class="info_new_left">Info:</div><div class="info_new_right"><p><strong>Applications that support NPLN and cache the NPLN user ID in save data</strong> <br />If your application falls into this category, then in the development environment, NPLN features are not available to you in step 6. This means that you cannot use the above Test Method to check this guideline. If your application saves the NPLN user ID in save data, check the details of your implementation to determine whether your application complies with this guideline.<br />Note that in the production environment, Nintendo compensates for changes in linked accounts so that your application can still use NPLN features when linked accounts have changed. For more information, see the <em>NPLN Manual</em> &gt; <strong>NPLN Programming Manual</strong> &gt; <strong>Managing NPLN Users</strong> &gt; <strong>UserConfig Settings and NPLN User Usage Patterns</strong> &gt; <strong>Pattern 2: Use as Explicitly Created Users (Non-Prearranged Users)</strong> &gt; <strong>Guideline Compliance When Using Non-Prearranged Users</strong>.</p></div></div><!--Remove - p.auto-cursor-target--></div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application can continue using the save data in steps 4 and 6.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If the application requires the user account to be linked to a Nintendo Account in order to use save data, it is not a problem for testers to skip step 4.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451960_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451960_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451960_1" data-tag="function-アカウント">
+<label for="tagfilter_2367451960_1">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451960_2" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451960_2">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451960_3" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367451960_3">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451960_4" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451960_4">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451960_5" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451960_5">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451960_6" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451960_6">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451960_7" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367451960_7">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0148: Prohibition of accessing the save data of applications not released by your publisher -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451962" data-tags="function-ファイルシステム revision-updated-4.0 function-すべてのアプリケーション" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451962" title="Right-click and copy link to copy a permalink to this guideline">0148: Prohibition of accessing the save data of applications not released by your publisher</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not access the save data of applications that are not released by your publisher.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Your application must not access the save data of applications that are not released by your publisher. You are free to access the save data of applications released by your publisher, but if you would like to access the save data of applications released by a different publisher, you must contact Nintendo.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Building &gt; Creating Application Images &gt; Writing the NMETA File</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+In <code>AuthoringEditor</code>'s <strong>Details &gt; File system access</strong> section, check the value displayed in the <strong>Save data access authority of other applications</strong> field.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in <code>AuthoringEditor</code>'s <strong>Details &gt; File system access</strong> section, the value displayed in the <strong>Save data access authority of other applications</strong> field does not specify an application ID from an application not released by your publisher.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451962_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451962_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451962_1" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367451962_1">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451962_2" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367451962_2">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0151: Using save data from migrated user accounts -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451964" data-tags="function-ファイルシステム revision-updated-6.0 revision-updated-5.0 revision-updated-18.0 function-アカウント" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451964" title="Right-click and copy link to copy a permalink to this guideline">0151: Using save data from migrated user accounts</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must be able to use its save data without problems even if the user account is migrated.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that create save data on the system
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>A user account consists of a user identifier (<code>nn::account::Uid</code>), profile, and other information. Migrating a user account to another system moves the user account itself and all of its user save data to the other system. Moving to another system also causes the pseudo device ID (<code>PseudoDeviceId</code>) to change. This means that if you link your save data to the <code>PseudoDeviceId</code>, your application may no longer be able to use its save data properly after the user account is migrated.</p>
+  <p>You must ensure that your application does not link its save data to the <code>PseudoDeviceId</code>, and is able to use its save data without problems even if the user account is migrated.</p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Save Data &gt; Features for Transferring and Copying User Save Data<ul><li>User Account Migration</li></ul></li>
+          <li>Features &gt; Save Data &gt; Notes When Using User Save Data<ul><li>Pseudo Device ID (PseudoDeviceId)</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare a Switch devkit that can launch the DevMenu, has a user account already created on it, and has been initialized in DEV mode.</li>
+  <li>Start the application, create save data for the user account, and close the application.</li>
+  <li>Launch the DevMenu and display the <strong>Debug</strong> screen.</li>
+  <li>Go to <strong>Reset Pseudo Device ID</strong> and select <strong>Reset</strong>.</li>
+  <li>Start the application again and load the save data created in step 2.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the save data can be properly used in step 5.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If you test your application using the method below (in which both the <code>PseudoDeviceId</code> and user identifier <code>nn::account::Uid</code> change) and your application passes, then your application successfully complies with both this guideline and &quot;<a href="../Pages/Page_2367451948.html#GuidelineDescLabel_2367451966">0152: Using copied user save data</a>.&quot; If your application fails the test below, then it is possible that you are violating one or both guidelines. In that case you must test each guideline separately using its own individual Test Method in order to determine which guideline is being violated.</p>
+<h6 id="Anchor_2367451964_h6_1">How to test 0151 and 0152 simultaneously:</h6>
+<ol>
+  <li>Prepare two devkits: Switch devkit A (with user account A already created on it), and Switch devkit B (with user account B already created on it). Also prepare one microSD card. Set up the devkits so that each can launch the DevMenu.</li>
+  <li>Insert the microSD card in Switch devkit A and start up the system.</li>
+  <li>On Switch devkit A, play the application and create save data.</li>
+  <li>Start the DevMenu, go to <strong>SaveData</strong>, and select the save data for the account you used when creating save data.</li>
+  <li>Press A to export the save data to the microSD card.</li>
+  <li>Remove the microSD card from Switch devkit A and insert it in Switch devkit B.</li>
+  <li>On Switch devkit B, start the DevMenu, go to the <strong>SaveData</strong> screen, and change the dropdown in the upper part of the screen from <strong>User</strong> to <strong>Backup in SD card</strong>.</li>
+  <li>This displays the save data stored in the SD card. Select the save data you exported, press A, and on the next screen select <strong>Import</strong>.</li>
+  <li>A list of accounts is displayed. Select the account you want to import to, then complete the import.</li>
+  <li>On Switch devkit B, start the application and load the save data.</li>
+</ol>
+<h6 id="Anchor_2367451964_h6_2">Pass/Fail Determination</h6>
+Passes if the save data created on Switch devkit A in step 3 can be used without problems on Switch devkit B in step 10.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451964_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451964_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451964_1" data-tag="function-アカウント">
+<label for="tagfilter_2367451964_1">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451964_2" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367451964_2">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451964_3" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451964_3">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451964_4" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451964_4">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0152: Using copied user save data -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451966" data-tags="function-ファイルシステム function-nintendoswitchonline revision-updated-6.0 revision-updated-5.0 revision-updated-7.0 revision-updated-18.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451966" title="Right-click and copy link to copy a permalink to this guideline">0152: Using copied user save data</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must be able to use its save data without problems even if the user save data is copied.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that create save data on the system
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Copying the user save data copies it to a user account with a different user identifier (<code>nn::account::Uid</code>). (There is no distinction between copying to another user account on the same Nintendo Switch system versus a user account on a different system.) This means that if you link your save data to the user identifier (<code>nn::account::Uid</code>), your application may no longer be able to use its save data properly after the user save data is copied.<br />You must ensure that your application does not link its save data to the user identifier (<code>nn::account::Uid</code>), and is able to use its save data without problems even if the user save data is copied. If your application's design requires it to link its save data to the user identifier (<code>nn::account::Uid</code>), contact Nintendo.</p>
+  <p>Use of Save Data Cloud backup, one of the services for Nintendo Switch Online members, counts as copying user save data between user accounts (and between devices).</p>
+  <p>
+    <br />
+  </p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Save Data &gt; Features for Transferring and Copying User Save Data<ul><li>Copy User Save Data</li></ul></li>
+          <li>Features &gt; Save Data &gt; Notes When Using User Save Data<ul><li>User Identifier (nn::account::Uid)</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare a microSD card and a Switch devkit that can launch the DevMenu and has two user accounts already created on it (user account A and user account B).</li>
+  <li>Insert the microSD card into the Switch devkit and start up the system.</li>
+  <li>On user account A, play the application and create save data.</li>
+  <li>Launch the DevMenu, go to <strong>SaveData</strong>, and select the save data for the account you used when creating the save data for user account A.</li>
+  <li>Press A to export the save data to the microSD card.</li>
+  <li>On the <strong>SaveData</strong> screen, change the dropdown in the upper part of the screen from <strong>User</strong> to <strong>Backup in SD card</strong>.</li>
+  <li>This displays the save data stored in the SD card. Select the save data you exported, press A, and on the next screen select <strong>Import</strong>.</li>
+  <li>A list of accounts is displayed. Select user account B, then complete the import.</li>
+  <li>Close DevMenu. In system settings, go to <strong>User</strong>, select user account A, and delete it.</li>
+  <li>Start the application and load user account B's save data.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the save data can be properly used in step 10.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If you test your application using the method below (in which both the <code>PseudoDeviceId</code> and user identifier <code>nn::account::Uid</code> change) and your application passes, then your application successfully complies with both this guideline and &quot;<a href="../Pages/Page_2367451948.html#GuidelineDescLabel_2367451964">0151: Using save data from migrated user accounts</a>.&quot; If your application fails the test below, then it is possible that you are violating one or both guidelines. In that case you must test each guideline separately using its own individual Test Method in order to determine which guideline is being violated.</p>
+<h6 id="Anchor_2367451966_h6_1">How to test 0151 and 0152 simultaneously:</h6>
+<ol>
+  <li>Prepare two devkits: Switch devkit A (with user account A already created on it), and Switch devkit B (with user account B already created on it). Also prepare one microSD card. Set up the devkits so that each can launch the DevMenu.</li>
+  <li>Insert the microSD card in Switch devkit A and start up the system.</li>
+  <li>On Switch devkit A, play the application and create save data.</li>
+  <li>Start the DevMenu, go to <strong>SaveData</strong>, and select the save data for the account you used when creating save data.</li>
+  <li>Press A to export the save data to the microSD card.</li>
+  <li>Remove the microSD card from Switch devkit A and insert it in Switch devkit B.</li>
+  <li>On Switch devkit B, start the DevMenu, go to the <strong>SaveData</strong> screen, and change the dropdown in the upper part of the screen from <strong>User</strong> to <strong>Backup in SD card</strong>.</li>
+  <li>This displays the save data stored in the SD card. Select the save data you exported, press A, and on the next screen select <strong>Import</strong>.</li>
+  <li>A list of accounts is displayed. Select the account you want to import to, then complete the import.</li>
+  <li>On Switch devkit B, start the application and load the save data.</li>
+</ol>
+<h6 id="Anchor_2367451966_h6_2">Pass/Fail Determination</h6>
+<p>Passes if the save data created on Switch devkit A in step 3 can be used without problems on Switch devkit B in step 10.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451966_0" data-tag="function-ファイルシステム">
+<label for="tagfilter_2367451966_0">
+<span class="function-tag" title="File system" data-tag="function-ファイルシステム">File system</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451966_1" data-tag="function-nintendoswitchonline">
+<label for="tagfilter_2367451966_1">
+<span class="function-tag" title="Nintendo Switch Online" data-tag="function-nintendoswitchonline">Nintendo Switch Online</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451966_2" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367451966_2">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451966_3" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451966_3">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451966_4" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451966_4">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451966_5" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451966_5">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>UGC | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- UGC -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452309" data-tags="revision-updated-10.0 revision-updated-0.5 revision-updated-20240206 revision-updated-0.6">UGC</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements you must take into account when designing applications that exchange UGC. UGC stands for &quot;user-generated content,&quot; and refers to text, images, characters, maps, stages, photographic images, photographic video, audio, and any other content created by individual users. In cases where your application includes assets in its ROM from the start and uses them without any modification by users, those assets are not considered to be UGC. While UGC has the benefit of allowing users to enjoy gameplay in new ways by sharing content they created, it has the downside that if inappropriate content is spread it could take away users' enjoyment. If your application has a feature to exchange UGC, you must fully understand the possibilities of UGC and handle the UGC appropriately.</p>
+<p>To get a better understanding of the specifics of UGC, refer to the <em>UGC Guide</em> alongside this chapter.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- UGC: General -->
+<h1 class="general" id="GuidelineLabel_2367452311" data-tags="revision-updated-1.0 revision-updated-14.0 revision-updated-5.0 revision-updated-20240206 revision-updated-0.5 revision-updated-0.6 revision-updated-7.0 revision-updated-9.0">UGC: General</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements that apply when you allow users to exchange UGC.</p>
+<p>UGC broadly falls into the following eight categories.</p>
+<h5 id="Anchor_2367452311_h5_1">Text-based names</h5>
+<p>Text-based names are text strings freely entered by the user. The difference between these and all other freely-entered text is that these are names for characters, items, or anything else that can be named by the user.</p>
+<h5 id="Anchor_2367452311_h5_2">Text</h5>
+<p>Strings freely entered by the user are text.</p>
+<h5 id="Anchor_2367452311_h5_3">Images and video</h5>
+<p>This refers to illustrations and animations drawn by the user, and all other images and video that do not contain photographic images.<br />If any portion of an image or video uses photographic images, that UGC falls under &quot;photographic images and photographic video.&quot;</p>
+<h5 id="Anchor_2367452311_h5_4">Photographic images and photographic video</h5>
+<p>This refers to photographic images and video that uses photographic images. This includes images and video taken by the IR Motion Camera on Nintendo Switch.</p>
+<h5 id="Anchor_2367452311_h5_5">Audio</h5>
+<p>This refers to audio that is input or recorded via a microphone connected to the Nintendo Switch system. Audio is not limited only to recorded audio. Conversations over voice chat also fall into this category.<br />However, voice chat performed using the Nintendo Switch Online app for smart devices (Matchmaking Voice Chat) is outside the scope of this category.</p>
+<h5 id="Anchor_2367452311_h5_6">UGC made by combining preset parts</h5>
+<p>Illustrations, characters, and stages made by combining preset parts. Stages exchanged by sandbox applications are also considered to be UGC.</p>
+<h5 id="Anchor_2367452311_h5_7">UGC with low freedom of expression</h5>
+<p>This refers to UGC with low freedom of expression, which does not fall under any of the categories above. This kind of UGC is not subject to the restrictions in this subchapter.</p>
+<h5 id="Anchor_2367452311_h5_8">UGC not exchanged with other users</h5>
+<p>This refers to content that is created by users within your application, but which is not exchanged with other users. This kind of UGC is not subject to the restrictions in this subchapter.</p>
+<p>For more information about the various types of UGC, see the <em>UGC Guide</em>.</p>
+<p>
+  <br />
+</p>
+<p>See the table below for descriptions of terminology used in this subchapter.</p>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_2367452311_table001"></a>Table 1 UGC Terminology</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Term</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Exchange of UGC</td>
+      <td>
+        <em>Exchange of UGC</em> refers to the act of sending UGC to other users via the features of Nintendo products and those users receiving UGC via the features of Nintendo products, and vice versa. This includes not only one-on-one interactions using internet communication or local communication, but also uploading UGC to a server and other users downloading it.</td>
+    </tr>
+    <tr>
+      <td>Sending UGC</td>
+      <td>
+        <em>Sending UGC</em> refers to the part of UGC exchange where UGC is sent directly from Switch system A to Switch system B, or is sent to a server where it can be viewed from Switch system B.</td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0069: Complying with Parental Controls -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452313" data-tags="function-ペアレンタルコントロール revision-updated-21.0 function-ugc revision-updated-5.0 revision-updated-0.5 revision-updated-0.6" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452313" title="Right-click and copy link to copy a permalink to this guideline">0069: Complying with Parental Controls</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If the Parental Controls item &quot;Communicating with Others&quot; is restricted, you must not allow the user to freely communicate with others inside your application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use internet communication or local communication to exchange UGC between users
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>When the UGC being exchanged is any of the following:</p>
+<ul>
+  <li>The following two categories of UGC, through which it would be difficult for users to have a conversation even if they attempted to exploit it<br /><ul><li>Text-based names</li><li>UGC with low freedom of expression</li></ul></li>
+  <li>UGC for which the system features take care of all necessary handling<br /><ul><li>Mii characters</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>One of the Switch Parental Controls is &quot;Communicating with Others.&quot; (Also called &quot;Free communication with others&quot; in European languages.) If this Parental Controls item is restricted, you must not allow the user to freely communicate with others inside your application.</p>
+  <p>
+    <em>Communicating with others</em> means that users are able to exchange UGC with each other using internet communication or local communication. &quot;Communicating with Others&quot; is not limited to chat and direct messages; it also includes features such as those where users can make their hand-drawn illustrations public on a server and comment on others' illustrations, or features where users can publish the short comment in their profile to others. If your application handles UGC that may, in effect, be used by users to have a conversation with one another, you must apply the Parental Controls restriction to this UGC regardless of how frequently users can exchange this UGC in your application. When developing your application, see the examples in the <em>UGC Guide</em> section &quot;3 What is handled by Nintendo Switch features and what applications must handle&quot; to determine whether the UGC exchanged in your application allows users to have a conversation with one another.</p>
+  <p>You must decide what method of restricting communication features best suits your application's design. For example, you could disable the entire mode that includes the communication feature or replace the feature with one that does not allow users to communicate freely.</p>
+  <p>Restriction of &quot;Communicating with Others&quot; does not restrict the user from exchanging the types of UGC listed in the Exceptions. For these types of UGC, there are already countermeasures in place&mdash;either the system performs all necessary handling when exchanging them, or it would be inherently difficult for users to have a conversation by exchanging them.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK API Reference</em>
+        <ul>
+          <li>PCTL</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch UGC Guide</em>
+        <ul>
+          <li>What is handled by Nintendo Switch features and what applications must handle</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare two Switch devkits, Switch devkit A and Switch devkit B (hereafter referred to as &quot;devkit A&quot; and &quot;devkit B&quot;).</li>
+  <li>On devkit A, create UGC.</li>
+  <li>On devkit A only, go to Parental Controls and restrict <strong>Communicating with Others</strong>.</li>
+  <li>Attempt to send the UGC created in step 2 from devkit A to devkit B.</li>
+  <li>On devkit A, lift the restriction on <strong>Communicating with Others</strong>.</li>
+  <li>On devkit B only, go to Parental Controls and restrict <strong>Communicating with Others</strong>.</li>
+  <li>Attempt to send the UGC created in step 2 from devkit A to devkit B.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if at least one of the following conditions is met in both step 4 and step 7.</p>
+<ul>
+  <li>The application cannot send the UGC from devkit A to devkit B.</li>
+  <li>The application can send the UGC from devkit A to devkit B, but cannot display the UGC.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452313_0" data-tag="function-ugc">
+<label for="tagfilter_2367452313_0">
+<span class="function-tag" title="UGC" data-tag="function-ugc">UGC</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452313_1" data-tag="function-ペアレンタルコントロール">
+<label for="tagfilter_2367452313_1">
+<span class="function-tag" title="Parental Controls" data-tag="function-ペアレンタルコントロール">Parental Controls</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452313_2" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367452313_2">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452313_3" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367452313_3">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452313_4" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367452313_4">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452313_5" data-tag="revision-updated-0.5">
+<label for="tagfilter_2367452313_5">
+<span class="revision-tag" title="Updated v0.5" data-tag="revision-updated-0.5">Updated v0.5</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0075: Profanity checking -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452315" data-tags="function-ugc revision-updated-3.0 revision-updated-7.0 revision-updated-0.6 revision-updated-0.7 revision-updated-2.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452315" title="Right-click and copy link to copy a permalink to this guideline">0075: Profanity checking</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not allow profanity to be displayed in text-based names that are exchanged with other users.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that exchange text-based names with other users
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Cases where the text-based names exchanged by your application fall under any of the following categories:<ul><li>IDs, names, etc. that must be displayed without modification because they are used when users contact customer support, etc.<br /><ul><li>Account IDs<br /> (all account IDs including the Nintendo Account ID and any accounts on independent servers)</li></ul></li><li>Text on which the system performs a profanity check<br /><ul><li>Nintendo Switch user account nicknames</li><li>Mii nicknames</li><li>amiibo nicknames</li></ul></li></ul></li>
+  <li>Cases where users cannot exchange text-based names when &quot;Communicating with Others&quot; is restricted in Parental Controls</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Unlike other text-based UGC, <em>text-based names</em> can be exchanged even if the Parental Controls item &quot;Communicating with Others&quot; is restricted. But it is not desirable for text-based names to display inappropriate text.</p>
+<p>It is the responsibility of your application to avoid this by filtering against the lists of profane words provided by Nintendo and ensuring that no profanity is displayed in text-based names that are visible to other users.</p>
+<br />
+<p>That said, applications are not required to profanity-check the specific types of text-based names listed as Exceptions in this guideline. Because account IDs are used when users contact customer support and in other situations, they must be displayed without modification and are therefore considered exceptions to this guideline. The other three cases are exceptions because they are profanity-checked by the system, and it isn't necessary for the application to perform an additional profanity check.</p>
+<p>If users cannot exchange text-based names in your application when &quot;Communicating with Others&quot; is restricted in Parental Controls, it is acceptable for your application to skip the profanity check.</p>
+<p>Your application can check for profanity when users enter text, before sending text, or after receiving text; any of these timings is acceptable. When the sender and receiver have a different system region or language setting, it is acceptable for the application to choose on which side the check is performed. If your application checks for profanity when users enter text, there is a possibility that the language setting could be changed after the check but before the text is sent. However, no particular handling is required for such cases.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch UGC Guide</em>
+        <ul>
+          <li>What is handled by Nintendo Switch features and what applications must handle</li>
+          <li>Preventing users from creating inappropriate UGC<ul><li>Checking text for profanity</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>NintendoSDK Documents</li>
+      <li style="list-style-type: none;">
+        <ul>
+          <li>Features &gt; System &gt; <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NGCLibrary">NGC Library</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare two Switch devkits, Switch devkit A and Switch devkit B.</li>
+  <li>On devkit A, attempt to create a text-based name by entering profanity.</li>
+  <li>Attempt to send the text-based name created in step 2 from devkit A to devkit B.</li>
+  <li>On devkit B, attempt to display the text-based name received in step 3. </li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if at least one of the following conditions is met.</p>
+<ul>
+  <li>The application cannot create the text-based name in step 2.</li>
+  <li>The application cannot send the text-based name in step 3.</li>
+  <li>The application does not display the text-based name in step 4. </li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+For testing purposes, the words &quot;warumoshi,&quot; &quot;ワルモシ,&quot; and &quot;qxzq&quot; are registered as profanity in all languages. You can enter one of these words to test this guideline.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452315_0" data-tag="function-ugc">
+<label for="tagfilter_2367452315_0">
+<span class="function-tag" title="UGC" data-tag="function-ugc">UGC</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452315_1" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452315_1">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452315_2" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367452315_2">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452315_3" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367452315_3">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452315_4" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367452315_4">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452315_5" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367452315_5">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0076: Prohibition of sending photographic images or photographic video -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452317" data-tags="revision-updated-14.0 function-ugc revision-updated-0.7 revision-updated-0.6 function-irセンサー" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452317" title="Right-click and copy link to copy a permalink to this guideline">0076: Prohibition of sending photographic images or photographic video</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not allow the user to send photographic images or photographic video to other users.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that handle photographic images or photographic video</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>To prevent offensive or indecent data from being circulated, it is prohibited for applications to have features that allow users to send photographic images or photographic video.<br />This guideline applies to all forms of exchange (via internet communication, via local communication, with friends, with strangers, and all other methods and kinds of exchange).</p>
+  <p>This guideline also applies to images taken by the IR Motion Camera, because they are categorized as photographic images.</p>
+  <p>If your application displays photographic images, also see &quot;<a href="../Pages/Page_2367451855.html#GuidelineDescLabel_2367451870">0049: Prohibition of screen capture while displaying photographic images or photographic video</a>.&quot;</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch UGC Guide</em>
+        <ul>
+          <li>What is handled by Nintendo Switch features and what applications must handle</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare two Switch devkits, Switch devkit A and Switch devkit B.</li>
+  <li>Prepare a photographic image or photographic video on devkit A.</li>
+  <li>Attempt to send the photographic image or photographic video from devkit A to devkit B.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the photographic image or photographic video cannot be sent in step 3.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452317_0" data-tag="function-ugc">
+<label for="tagfilter_2367452317_0">
+<span class="function-tag" title="UGC" data-tag="function-ugc">UGC</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452317_1" data-tag="function-irセンサー">
+<label for="tagfilter_2367452317_1">
+<span class="function-tag" title="IR Motion Camera" data-tag="function-irセンサー">IR Motion Camera</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452317_2" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452317_2">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452317_3" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367452317_3">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452317_4" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367452317_4">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

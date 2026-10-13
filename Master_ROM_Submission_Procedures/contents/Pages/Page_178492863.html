@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.1 ROM Builds | Nintendo Switch Master ROM Submission Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.1 ROM Builds -->
+<div class="pagetitle" id="PageId_178492863">5.1 ROM Builds</div>
+<div class="text_separate">
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_178492863_h1_1">NMETA Files</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_178492863_h2_1">Creating and Editing NMETA Files</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_178492863_h1_2">Building Application ROMs</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_178492863_h2_2">Initial Release</a>
+      </li>
+      <ul>
+        <li>
+          <a href="#Anchor_178492863_h3_1">Build Procedures</a>
+        </li>
+        <li>
+          <a href="#Anchor_178492863_h3_2">Demo Applications</a>
+        </li>
+      </ul>
+      <li>
+        <a href="#Anchor_178492863_h2_3">Patches</a>
+      </li>
+      <ul>
+        <li>
+          <a href="#Anchor_178492863_h3_3">Building Patches</a>
+        </li>
+      </ul>
+      <li>
+        <a href="#Anchor_178492863_h2_4">Multi-Application Cards</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_178492863_h1_3">Building ROMs for Downloadable Content</a>
+    </li>
+    <ul>
+      <ul>
+        <li>
+          <a href="#Anchor_178492863_h3_4">Build Procedures</a>
+        </li>
+      </ul>
+    </ul>
+    <li>
+      <a href="#Anchor_178492863_h1_4">Testing</a>
+    </li>
+    <ul>
+      <ul>
+        <li>
+          <a href="#Anchor_178492863_h3_5">Installing Applications</a>
+        </li>
+        <li>
+          <a href="#Anchor_178492863_h3_6">Installing Downloadable Content</a>
+        </li>
+      </ul>
+    </ul>
+    <li>
+      <a href="#Anchor_178492863_h1_5">Saving the Build Environment</a>
+    </li>
+    <li>
+      <a href="#Anchor_178492863_h1_6">Reference</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_178492863_h2_5">Related Documents</a>
+      </li>
+    </ul>
+  </ul>
+</p>
+<p>This section describes the NMETA file required to build a ROM, as well as the processes of building and testing ROMs and saving the build environments.</p>
+<p>ROMs can be created by specifying an NMETA file when building a Visual Studio Project that was created according to the instructions in <a href="../Pages/Page_178488222.html">4.2 Creating Visual Studio Projects</a>.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>You can also build ROMs without using Visual Studio. For more information, see NintendoSDK Documents &gt; Features &gt; Building &gt; Build Systems &gt; Guide to Setting Up the Environment.</p>
+  </div>
+</div>
+<h1 id="Anchor_178492863_h1_1">NMETA Files</h1>
+<p>NMETA files define the associated data for an application or downloadable content. The NMETA file specifies application-related information such as the application ID, the release version, and software legal information, as well as data like the title name that are referenced by the HOME Menu and other system features.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>You create legal information using SLIM. For more information about the creation process, see System Features Guide &gt; System Menus &gt; HOME Menu &gt; Options.</p>
+  </div>
+</div>
+<h2 id="Anchor_178492863_h2_1">Creating and Editing NMETA Files</h2>
+<p>For more information about the NMETA file settings and how to create NMETA files, see NintendoSDK Documents &gt; Features &gt; Building &gt; Creating Application Images &gt; Writing NMETA Files, in addition to Tutorial &gt; Application Development &gt; Preparing the NMETA File.</p>
+<p>NMETA files can also be edited using AuthoringEditor. AuthoringEditor can be used to edit NSP files after they have been built and to call NSP files directly from within Visual Studio. For more information about using AuthoringEditor, see NintendoSDK Documents &gt; Features &gt; Building &gt; Creating Application Images &gt; Tool Reference &gt; AuthoringEditor.</p>
+<h1 id="Anchor_178492863_h1_2">Building Application ROMs</h1>
+<p>The products that can be submitted to Lotcheck from the <strong>Releases</strong> tab of the dashboard are referred to as <em>applications</em>. In addition to full retail applications, this term also refers to demo applications and multi-application cards.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>To create the first patch, you need the NSP file of the initial version of the application, and it must have passed Lotcheck. To create the second and later patches, you need that NSP file and also the NSP file of the previous patch. Be sure to save and not delete these files.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>To use crash reports, you need the NSS file that is created at the same time as the NSP file. Be sure to save and not delete this NSS file, not only for the initial application, but also for patches.<br />For more information about using crash reports, see <a href="../Pages/Page_1060536224.html">7 Support After Release</a>.</p>
+  </div>
+</div>
+<h2 id="Anchor_178492863_h2_2">Initial Release</h2>
+<p>The initial release of an application refers to the first version of a full retail application, demo application, or multi-application card application that was created and submitted. On Nintendo Developer Portal, the initial release is the one that is created under <strong>Releases</strong> with a release version of 00.</p>
+<h3 id="Anchor_178492863_h3_1">Build Procedures</h3>
+<ol>
+  <li>Configure the following options for the Visual Studio project properties.<ol><li>Set the <strong>Application Program Format</strong> property to <strong>NSP</strong>.</li><li>Enable <strong>Dead-stripping</strong>.</li></ol></li>
+  <li>Specify the NMETA file in the project file.</li>
+  <li>When creating a master ROM, set the solution configuration to <strong>Releases</strong> and then build the application using Visual Studio.</li>
+</ol>
+<p>For the detailed build procedures, see NintendoSDK Documents &gt; Tutorial &gt; Application Development.</p>
+<h3 id="Anchor_178492863_h3_2">Demo Applications</h3>
+<p>The build procedure for demo applications is the same as the build procedure for full retail applications except that when creating the ROM for a demo application, the <strong>Basic</strong> &gt; <strong>Demo</strong> check box must be selected in AuthoringEditor.</p>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_178492863_h2_3">Patches</h2>
+<p>
+  <em>Patches</em> consist of data for updating full retail applications and demo applications. On the Nintendo Developer Portal, products created in <strong>Releases</strong> with a release version of 01 or later are patches.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>When compacting an application, see Nintendo Switch Patch Guide &gt; Switch Patch Features &gt; Application Compaction.</p>
+  </div>
+</div>
+<h3 id="Anchor_178492863_h3_3">Building Patches</h3>
+<p>Read the Patch Guide documentation before you begin creating a patch.</p>
+<ul>
+  <li>For the AuthoringTool patch build procedure, see <br />NintendoSDK Documents &gt; Features &gt; Patches &gt; Building and Running a Patch.</li>
+  <li>For the VSI patch build procedure, see <br />NintendoSDK Documents &gt; Features &gt; Building &gt; VSI &gt; Creating Patches.</li>
+</ul>
+<h2 id="Anchor_178492863_h2_4">Multi-Application Cards</h2>
+<p>For more information about build procedures, see NintendoSDK Documents &gt; Features &gt; NX Development Cards &gt; Multi-Application Cards.</p>
+<h1 id="Anchor_178492863_h1_3">Building ROMs for Downloadable Content</h1>
+<p>Products that can be submitted to Lotcheck from the <strong>Downloadable Content</strong> tab of the dashboard are referred to as <em>downloadable content</em>, or DLC. Downloadable content cannot be updated using application patches. To update an existing DLC product, you must create and submit an updated version of the DLC itself rather than using an application patch.</p>
+<p>When you submit the master ROM, you must collect together all of the data for the DLC and submit it as a single package. This package is in a format for master ROM submission, but it is not treated as the data for a single piece of downloadable content.</p>
+<h3 id="Anchor_178492863_h3_4">Build Procedures</h3>
+<p>For more information about building downloadable content, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library &gt; Creating Downloadable Content.</p>
+<h1 id="Anchor_178492863_h1_4">Testing</h1>
+<p>Final testing for applications submitted to Nintendo Lotcheck must be performed in an environment that meets certain conditions, regardless of the application sales format. For more information about these conditions, see NintendoSDK Documents &gt; Testing Applications.</p>
+<p>The SDEV can be used to test the release version of the NSP file. However, you must also test using the EDEV. In addition, when selling card-based software, also test for writing the application to an NX development card and starting from the NX development card.</p>
+<h3 id="Anchor_178492863_h3_5">Installing Applications</h3>
+<p>When testing, the way you install an application will differ, depending on the application type.</p>
+<ul>
+  <li>When testing after writing to an NX development card:<br />See NintendoSDK Documents &gt; Tutorial &gt; Writing to NX Development Cards.</li>
+</ul>
+<ul>
+  <li>When testing after installing to system memory:<br />See NintendoSDK Documents &gt; Tutorial &gt; Installing Applications on Development Hardware.</li>
+</ul>
+<h3 id="Anchor_178492863_h3_6">Installing Downloadable Content</h3>
+<p>To test downloadable content, put the NSP file for the DLC on an SD card and then use DevMenuCommand to install the content. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library &gt; Managing Downloadable Content.</p>
+<h1 id="Anchor_178492863_h1_5">Saving the Build Environment</h1>
+<p>Export and save any used build environments because they can be used when developing patches. For more information, see Nintendo Dev Interface &gt; <em>gear icon on the upper right</em> &gt; Documentation &gt; NDI_Manual-en &gt; 4. Using NDI &gt; 4.10 Exporting a Development Environment (MegaZarf Format).</p>
+<h1 id="Anchor_178492863_h1_6">Reference</h1>
+<h2 id="Anchor_178492863_h2_5">Related Documents</h2>
+<ul>
+  <li>NintendoSDK Documents<ul><li>Features &gt; Building &gt; Build Systems &gt; Guide to Setting Up the Environment</li><li>Features &gt; Building &gt; VSI &gt; Creating Patches</li><li>Features &gt; Building &gt; Creating Application Images &gt; Writing NMETA Files</li><li>Features &gt; Patches &gt; Building and Running a Patch</li><li>Features &gt; System &gt; AOC Library &gt; Creating Downloadable Content</li><li>Features &gt; System &gt; AOC Library &gt; Managing Downloadable Content</li><li>Tutorial &gt; Application Development</li><li>Tutorial &gt; Installing Applications on Development Hardware</li><li>Tutorial &gt; Writing to NX Development Cards</li><li>Testing Applications</li></ul></li>
+  <li>Patch Guide</li>
+  <li>NDI Manual<ul><li>4.10 Exporting a Development Environment (MegaZarf Format)</li></ul></li>
+  <li>E-Commerce Guide</li>
+</ul>
+<!--Remove-->
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

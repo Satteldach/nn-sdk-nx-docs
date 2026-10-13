@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.3 Matchmaking | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.3 Matchmaking -->
+<div class="pagetitle" id="PageId_164355017">4.3 Matchmaking</div>
+<div class="text_separate">
+<div>
+  <h1 id="Anchor_164355017_h1_1">Score-Based Auto-Matchmaking</h1>
+  <p>Contact Nintendo if the following two conditions apply in your case. Depending on the method used to configure the parameters, you might not receive the intended search results when searching for matchmaking sessions.</p>
+  <ul>
+    <li>
+      <code>MATCHMAKE_SELECTION_METHOD_SCORE_BASED</code> will be specified as the selection condition for automatic matchmaking. (Score-based auto-matchmaking.)</li>
+    <li>You are considering some method of use other than with parameters as presented in the example in NX NEX Manual &gt; WebAPI &gt; Matchmaking &gt; API for Auto-Matchmaking by Scoring Feature.</li>
+  </ul>
+  <!--Remove-->
+  <h1 id="Anchor_164355017_h1_2">Do Not Unnecessarily Increase the Total Number of Matchmaking Sessions</h1>
+  <p>See <a href="../Pages/Page_164355001.html">4.1 NEX General Considerations</a> &gt; Number of Data Instances That NEX Can Handle.</p>
+  <h1 id="Anchor_164355017_h1_3">Excluding Non-Joinable Matchmaking Sessions From the Search Results</h1>
+  <p>If you are using <code>MatchmakeExtensionClient::BrowseMatchmakeSession</code> to search for and allow the user to select a matchmaking session to join, we recommend excluding password-protected sessions and closed sessions from the search.</p>
+  <p>Some applications set passwords for matchmaking sessions to perform matchmaking between specific users. If the search results include these kinds of matchmaking sessions that are only open to some users, and matchmaking sessions that are already closed, the number of joinable matchmaking sessions that can be presented to the user may be diminished. As a result, users might repeatedly search for matchmaking sessions, degrading their experience and increasing the load on the server.</p>
+  <h1 id="Anchor_164355017_h1_4">Auto-Matchmaking and Using Only One Search Criterion for Matchmaking Sessions</h1>
+  <p>With the auto-matchmaking feature, if only one search criterion has been specified for the matchmaking session, the load on the game server can increase when many users are connected at the same time. If you expect your application will have large numbers of users connected at the same time, consider ways of distributing the load, such as dividing the matchmaking sessions into two or three game modes internally even if the search criteria appear identical to the user. Contact Nintendo during the planning phase if you expect your application will have large numbers of simultaneously connected users, making it difficult to distribute the load.</p>
+  <h1 id="Anchor_164355017_h1_5">Error Displayed When the Blocked-User List Is Enabled</h1>
+  <p>If the blocked-user list is enabled, an error occurs when a person uses a method other than auto-matchmaking to try to join a matchmaking session that includes a participant who has added that person to their blocked-user list.</p>
+  <p>To prevent bad feelings, do not display a message explaining that the person cannot join the matchmaking session because they are on a blocked-user list. Instead, simply explain to the user that they cannot participate in that matchmaking session. We recommend a generic message like &quot;Could not join this group.&quot;</p>
+  <p>If the user continues searching for matchmaking sessions, we recommend that you do not redisplay the session that the user could not join.</p>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.5 Server Operations | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.5 Server Operations -->
+<div class="pagetitle" id="PageId_201428425">4.5 Server Operations</div>
+<div class="text_separate">
+<h1 id="Anchor_201428425_h1_1">Automatically Copying Game Server Settings</h1>
+<p>When the game server settings are changed using <a href="https://developer.nintendo.com/group/development/when-to-use-nmas-versus-nmas2" target="_blank" rel="noopener noreferrer">NMAS2</a> or WebAPI, only some settings are copied from the game server in the development environment (dd1) to other environments.</p>
+<p>If the application requires a particular configuration of the game server for normal operations, make sure that you check the settings on NMAS2 at the following times.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Timing</th>
+      <th>What to Check</th>
+    </tr>
+    <tr>
+      <td>Immediately after the application has been submitted to Lotcheck.</td>
+      <td>The settings in the Lotcheck environments (the sd1 and sp1 environments).</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Immediately before the application release.</p>
+        <p>(The period between when the phase on OMAS becomes <strong>In Service</strong> and the actual release date of the application.)</p>
+      </td>
+      <td>The settings in the production environment (lp1).</td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<!--Remove-->
+<h2 id="Anchor_201428425_h2_1">Timing of Copying</h2>
+<p>Game server settings that have been changed in the development environment are copied to other environments at the following times.</p>
+<h3 id="Anchor_201428425_h3_1">Lotcheck Environment</h3>
+<h6 id="Anchor_201428425_h6_1">When the Lotcheck environment game server is first set up</h6>
+<ul>
+  <li>The Lotcheck environment game server is set up at the same time as the development environment game server.</li>
+  <li>If the phase on OMAS has progressed to <strong>Setup Complete</strong>, the Lotcheck environment game server has completed being set up.</li>
+</ul>
+<h6 id="Anchor_201428425_h6_2">After the Lotcheck environment game server has been set up</h6>
+<ul>
+  <li>After the Lotcheck environment game server has been set up, settings are copied once per day.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>This frequency is subject to change without notice.</p>
+  </div>
+</div>
+<h3 id="Anchor_201428425_h3_2">Production Environment</h3>
+<h6 id="Anchor_201428425_h6_3">When a new production environment game server is set up</h6>
+<ul>
+  <li>The production environment game server is set up some time after Lotcheck is completed and before actual service begins.</li>
+  <li>If the phase on OMAS has progressed to <strong>In Service</strong>, the production environment game server has completed being set up.</li>
+</ul>
+<h6 id="Anchor_201428425_h6_4">When the production environment game server restarts when a patch is released</h6>
+<ul>
+  <li>If the <strong>Block Earlier Releases From Connecting to NEX/NPLN Server</strong> item is selected when the patch request is submitted on OMAS, the game server will be restarted to coincide with the distribution of the patch.<ul><li>If this item is not requested, the production environment game server will not be restarted and the game server settings will not be copied.</li><li>For more information on making the request, see <a href="../Pages/Page_357924270.html">5.4 Patches and Compatibility</a> &gt; Breaking Compatibility Between Versions When Distributing a Patch.</li></ul></li>
+  <li>If the phase of the patch title on OMAS has progressed to <strong>In Service</strong>, the production environment game server has finished restarting.</li>
+  <li>The game server settings will not be copied if the game server is restarted to deal with a server failure or at any other time except when a patch is released.</li>
+</ul>
+<h2 id="Anchor_201428425_h2_2">Copied Game Server Settings</h2>
+<p>The following NMAS2 settings are copied automatically. Consider this fact if you change any of these settings in a patch.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <p>Matchmaking</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Matchmaking server settings</li>
+            <li>Rating matchmaking thresholds</li>
+            <li>Score-based auto-matchmaking settings</li>
+            <li>Matchmaking referee settings (number of recent history items)</li>
+          </ul>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>The following settings are not copied.</p>
+              <ul>
+                <li>Persistent gathering settings</li>
+              </ul>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Ranking</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Settings</li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>To be specific, the following settings are copied.</p>
+              <ul>
+                <li>Custom time scope 0</li>
+                <li>Custom time scope 1</li>
+                <li>UTC offset for the time scope</li>
+                <li>Time Scope ALL enabled or disabled</li>
+                <li>Length of cached top rankings</li>
+              </ul>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>The following settings are not copied.</p>
+              <ul>
+                <li>Settings for each category (<strong>Minimum Score</strong> and <strong>Maximum Score</strong>)</li>
+                <li>Score data uploaded for each category</li>
+              </ul>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Ranking2</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Category (settings for each category)</li>
+            <li>Category type (settings for each category type)</li>
+            <li>Ranking chart</li>
+          </ul>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>The following settings are not copied.</p>
+              <ul style="margin-left: 20.0px;">
+                <li>Season information in the settings for each category type</li>
+                <li>Score data uploaded for each category</li>
+              </ul>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Utilities</p>
+      </td>
+      <td>
+        <ul>
+          <li>Application settings</li>
+          <li>Maintenance notification settings</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The preceding settings are managed per game server. When developing a new application that will share a game server, for example a localized version of the application, make sure that there are no conflicts.</p>
+  </div>
+</div>
+<h1 id="Anchor_201428425_h1_2">Common Products and Shared Game Servers</h1>
+<p>One game server is set up for each application. However, if a common product is set for an application when the product is created in the Nintendo Developer Portal, that application shares a game server with the other applications that have been set with that same common product.</p>
+<p>The game server is set up such that applications set with the same common product all use the same game server.</p>
+<p>If you want an application that is not set to a common product to share a game server with other existing applications, you must configure it on OMAS.</p>
+<h1 id="Anchor_201428425_h1_3">Impact of Maintenance and Maintenance Notifications</h1>
+<p>This section describes the specifications for game server maintenance.</p>
+<h2 id="Anchor_201428425_h2_3">Types of Maintenance Notifications</h2>
+<p>When a game server is under maintenance, the following two kinds of notifications are sent.</p>
+<h3 id="Anchor_201428425_h3_3">Notification of Scheduled Maintenance</h3>
+<p>This notification is sent by the game server approximately one hour before the scheduled maintenance time.</p>
+<p>This feature is <strong>disabled</strong> by default. The setting cannot be changed from NMAS2. <strong style="letter-spacing: 0.0px;">Consult with Nintendo in advance</strong> when this feature is necessary.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>Notifications of scheduled maintenance are provided on the assumption they will be used by applications where online play exceeds roughly 10 minutes at a time.</li>
+      <li>Notification of scheduled maintenance is skipped in the case of emergency maintenance.</li>
+    </ul>
+  </div>
+</div>
+<h3 id="Anchor_201428425_h3_4">Maintenance Start Notifications</h3>
+<p>This notification is sent by the game server at the scheduled maintenance time.</p>
+<p>This feature is enabled by default. The setting cannot be changed from NMAS2.</p>
+<h2 id="Anchor_201428425_h2_4">Receiving Maintenance Notifications</h2>
+<p>Maintenance notifications (both for scheduled maintenance and the start of maintenance) are received using one of the following two methods.</p>
+<h3 id="Anchor_201428425_h3_5">Receiving Maintenance Notifications Using the Overlay Notifications System Feature</h3>
+<p>This feature displays the maintenance notification as an overlay notification, which is part of the system features.</p>
+<p>For more information about the Overlay Notifications system feature, see the Nintendo Switch System Features Guide.</p>
+<p>Notifications to users are handled by the system feature, so the application does not need to support them.</p>
+<p>This feature is enabled by default. The setting can be changed from NMAS2.</p>
+<h3 id="Anchor_201428425_h3_6">Receiving Maintenance Notifications as NEX Library Notification Events</h3>
+<p>This feature receives maintenance notifications as <code>nex</code> library events.</p>
+<p>Use this method if you want to use application-specific controls to handle maintenance notifications in the application.</p>
+<p>This feature is <strong>disabled</strong> by default. The setting can be changed from NMAS2.</p>
+<h2 id="Anchor_201428425_h2_5">Maintenance Flow and Impact on Users</h2>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_201428425/369722097.png" width="650" class="embedded-image" />
+  </span>
+</p>
+<h6 id="Anchor_201428425_h6_5">①: The period until the notification of scheduled maintenance is sent</h6>
+<ul>
+  <li>No effect on users.</li>
+</ul>
+<h6 id="Anchor_201428425_h6_6">②: The period between sending the notification of scheduled maintenance and the actual scheduled maintenance time</h6>
+<ul>
+  <li>The notification of scheduled maintenance is issued approximately one hour before the scheduled maintenance time.</li>
+  <li>No effect on users aside from the notifications of scheduled maintenance.</li>
+</ul>
+<h6 id="Anchor_201428425_h6_7">③: The period between the time of the scheduled maintenance and stopping the game server</h6>
+<ul>
+  <li>A notification of the start of maintenance is sent when the time has arrived for the scheduled maintenance.</li>
+  <li>The game server stops roughly 5 to 10 minutes after the scheduled maintenance time has arrived. In the case of emergency maintenance, the game server stops immediately.</li>
+  <li>In the production environment, users cannot log in.</li>
+  <li>In both the production environment and the development environment, users who are already logged in cannot use matchmaking.</li>
+</ul>
+<h6 id="Anchor_201428425_h6_8">④: The period after the game server has stopped</h6>
+<ul>
+  <li>When the game server stops, logged in users are disconnected.</li>
+  <li>Users cannot log in to a new session until the game server has been restarted.</li>
+</ul>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

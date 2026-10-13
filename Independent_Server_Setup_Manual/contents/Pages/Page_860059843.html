@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.7 ID Tokens | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.7 ID Tokens -->
+<div class="pagetitle" id="PageId_860059843">5.7 ID Tokens</div>
+<div class="text_separate">
+<p>The specifications for ID tokens for accounts for China are nearly identical to the specifications for NSA ID tokens and Nintendo Account ID tokens.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>It is prohibited to decode an ID token for an account for China within a Switch application and then use that information.</p>
+  </div>
+</div>
+<h2 id="Anchor_860059843_h2_1">ID Token Format</h2>
+<h6 id="Anchor_860059843_h6_1">Header</h6>
+<p>A JSON object containing the following properties.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Key String</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Type</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alg</td>
+      <td>string</td>
+      <td>
+        <p>The signature algorithm. Fixed to RS256.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>kid</td>
+      <td>string</td>
+      <td>
+        <p>The identifier for the public key used in the signature. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>jku</td>
+      <td>string(url)</td>
+      <td>
+        <p>The endpoint serving the public key. </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_860059843_h6_2">Claims</h6>
+<p>A JSON object containing the following properties. Additional properties may be added in the future without notice.</p>
+<table class="wrapped">
+  <colgroup>
+    <col style="width: 76.0px;" />
+    <col style="width: 65.0px;" />
+    <col style="width: 1096.0px;" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Key String</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Type</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>iss</td>
+      <td>string</td>
+      <td>
+        <p>The base URL of the Nintendo authentication server that issues the token.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>sub</td>
+      <td>string</td>
+      <td>
+        <p>Indicates the internal ID of the account for China.<br />This value is different from the NSA ID token sub-value (network service account internal ID).</p>
+      </td>
+    </tr>
+    <tr>
+      <td>aud</td>
+      <td>string</td>
+      <td>
+        <p>The client ID specified in the authorization request. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>iat</td>
+      <td>integer</td>
+      <td>
+        <p>The time when the token was issued. The format is a UNIX timestamp.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>exp</td>
+      <td>integer</td>
+      <td>
+        <p>The period during which the token is valid. The format is a UNIX timestamp. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>jti</td>
+      <td>string</td>
+      <td>
+        <p>The identifier issued for individual tokens. The format is UUID v4. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>typ</td>
+      <td>string</td>
+      <td>
+        <p>The type of token. Fixed to <code>id_token</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>c_hash</td>
+      <td>string</td>
+      <td>
+        <p>The hash value for verifying the authorization code.<br />Included when <code>response_type</code>=<code>code id_token</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>at_hash</td>
+      <td>string</td>
+      <td>
+        <p>The hash value for verifying the access token<br />Included when <code>response_type=token id_token</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>nonce</p>
+      </td>
+      <td>string</td>
+      <td>The <code>nonce</code> value that was set during the authorization request.</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>string</td>
+      <td>
+        <p>The user's country of residence. The format is ISO 3166-1 alpha-2. <br />This property is only included when <code>user.basic.scope</code> has been authorized by the user.<br />Fixed as <code>CN</code> for accounts for China.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_860059843_h6_3">Sample</h6>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre># Header
+{
+&nbsp;&nbsp;&quot;alg&quot;: &quot;RS256&quot;,
+&nbsp;&nbsp;&quot;kid&quot;: &quot;79bda91d-3535-47f3-9c9d-001ef9db6ccb&quot;,
+&nbsp;&nbsp;&quot;jku&quot;: &quot;https://dd1.accounts.nintendoswitch.com.cn/1.0.0/certificates&quot;
+}
+&nbsp;
+# Claims
+{
+&nbsp;&nbsp;&quot;iss&quot;: &quot;https://dd1.accounts.nintendoswitch.com.cn&quot;,
+&nbsp;&nbsp;&quot;sub&quot;: &quot;89d19564ae22a3ff&quot;,
+&nbsp;&nbsp;&quot;aud&quot;: &quot;xxxxxxxxxxxxxxxx&quot;,
+&nbsp;&nbsp;&quot;iat&quot;: 1587716634,
+&nbsp;&nbsp;&quot;exp&quot;: 1587717534,
+&nbsp;&nbsp;&quot;jti&quot;: &quot;f5d3627d-0d21-43a8-9f14-ddb7f02bcf67&quot;,
+&nbsp;&nbsp;&quot;typ&quot;: &quot;id_token&quot;,
+&nbsp;&nbsp;&quot;c_hash&quot;: &quot;j2uZUx76QazDnPx9NiczAg&quot;,
+&nbsp;&nbsp;&quot;at_hash&quot;: &quot;unScKhOVby9ws1BHCaiYHw&quot;,
+&nbsp;&nbsp;&quot;nonce&quot;: &quot;nonce&quot;
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_860059843_h2_2">ID Token Verification Procedure</h2>
+<p>With the exception of steps 7 and 8, the procedure for verifying an ID token is the same as the verification procedure described in <a href="../Pages/Page_300840824.html">3.5 NSA ID Token Specifications</a>.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>Verification Content</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>
+        <p>Verify that the token is in JWT format.</p>
+      </td>
+      <td>Before proceeding to other verification processes, the first step is to verify that the ID token is in the correct format.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <p>Verify that the value of <code>alg</code> in <code>Header</code> is <code>RS256</code>.</p>
+      </td>
+      <td>This verification step is necessary to reject invalid ID tokens, such as those with an <code>alg</code> value of <code>none</code>.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <p>Verify the signature attached to the ID token.<br />Use the <code>Get</code> member function to access the URL stored in <code>jku</code> for <code>Header</code> to get the public key or certificate to verify the signature.<br />The data that can be obtained is called a JSON web key set (JWKs) and is expressed as a JSON object array containing public keys and certificates.<br />The JWKs contains the <code>kid</code> property to specify which key to use.<br />The key information matching <code>kid</code> in <code>Header</code> of the ID token is obtained from the JWKs to verify the ID token.</p>
+        <p>The signature verification algorithm is fixed to <code>RS256</code> (RSA-SHA256) as shown in the <code>alg</code> value for <code>Header</code>.<br />Use the <code>x5c</code> value (certificate in X.509 format) contained in the JWK or the public key's <code>n</code> value (Modulus)/<code>e</code> value (Exponent) for verification.</p>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <p>Signature key rotation is every 24 hours.</p>
+        <p>To keep up with changes to the signature key, the independent server must access the URL indicated by the value of <code>jku</code> and get the JWKs using one (or both) of the following methods. </p>
+        <p>
+          <strong>Getting the JWKs On Demand</strong>
+        </p>
+        <p>In this method, server-to-server communication is conducted to get the JWKs if there are no cached JWKs when an ID token must be verified.</p>
+        <ol>
+          <li>
+            <p>Check whether a JWKs is cached that corresponds to the <code>kid</code> value in <code>Header</code>.</p>
+            <p>If it is not, execute the following procedure.</p>
+          </li>
+          <li>
+            <p>Verify that the URL of the <code>jku</code> value in <code>Header</code> matches the URL provided by the Nintendo authentication server.</p>
+          </li>
+          <li>
+            <p>Use the <code>Get</code> member function to request and get the JWKs for the URL of the <code>jku</code> value.</p>
+          </li>
+          <li>
+            <p>Cache the obtained JWKs. </p>
+          </li>
+        </ol>
+        <p>
+          <strong>Getting the JWKs Using a Periodic Batch Job</strong>
+        </p>
+        <p>This method gets JWKs periodically using a separate process from the one for verifying the NSA ID token.<br />The rotation interval during normal operations is 24 hours. In the case of unforeseen circumstances like the leaking of keys, the keys might be replaced before 24 hours pass. For this reason, run the process at five-minute intervals.</p>
+        <p>The JWKs contains three generations of JWK data to prevent situations where a JWK corresponding to a signature cannot be obtained, even when the ID token is cached in an intermediate system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <p>Verify that the value of <code>iss</code> in the <span class="highlight">Claims</span> matches the Base URL on the Nintendo authentication server.</p>
+      </td>
+      <td>The Base URL of the Nintendo authentication server must be preregistered in the independent server in advance.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <p>Verify that the value of <code>iat</code> in <span class="highlight">Claims</span> is in the past. </p>
+      </td>
+      <td>A calculation error of around 10 seconds can be tolerated to allow for time differences among systems.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <p>Verify that the value of <code>exp</code> in <span class="highlight">Claims</span> is after the current time.</p>
+      </td>
+      <td>A calculation error of around 10 seconds can be tolerated to allow for time differences among systems.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <p>Verify that the <code>aud</code> value in <span class="highlight">Claims</span> matches the local client ID.</p>
+      </td>
+      <td>This verification is necessary to prevent connections from other companies' applications.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <p>If <code>nonce</code> was specified in the authorization request, this process verifies that the <code>nonce</code> value in <span class="highlight">Claims</span> matches the locally issued <code>nonce</code> value.</p>
+      </td>
+      <td>Verification of <code>nonce</code> is designed to prevent replay attacks by duplicate of authorization responses.</td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_860059843_h6_4">JSON Web Key Set (JWKs)</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Key String</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Type</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>keys</td>
+      <td>array</td>
+      <td>
+        <p>An array that includes the following JSON objects.</p>
+        <p>
+          <br />
+        </p>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th>Key String</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>kid</td>
+              <td>string</td>
+              <td>
+                <p>Indicate the identifier for the key used in the signature.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>e</td>
+              <td>string</td>
+              <td>The exponent value of the Base64-encoded RSA public key.</td>
+            </tr>
+            <tr>
+              <td>n</td>
+              <td>string</td>
+              <td>The modulus value of the Base64-encoded RSA public key.</td>
+            </tr>
+            <tr>
+              <td>x5c</td>
+              <td>array</td>
+              <td>The Base64-encoded certificate chain in X.509 format.</td>
+            </tr>
+            <tr>
+              <td>alg</td>
+              <td>string</td>
+              <td>The signature algorithm. Fixed to <code>RSA256</code>.</td>
+            </tr>
+            <tr>
+              <td>kty</td>
+              <td>string</td>
+              <td>The key type. Fixed to <code>RSA</code>.</td>
+            </tr>
+            <tr>
+              <td>use</td>
+              <td>string</td>
+              <td>
+                <p class="newpage">The use of the key. Fixed to sig.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_860059843_h2_3">Verifying the Authorization Code Using the c_hash Value</h2>
+<p>If <code>response_type=id_token code</code> was specified in the authorization request, the ID token will include the <code>c_hash</code> value, which is a hash value for the authorization code.<br />By using this hash value to verify the authorization code, you can confirm that the authorization code has not been altered in the application or somewhere en route.<br />Use the following verification procedure. </p>
+<ol>
+  <li>Use the SHA-256 algorithm to hash the <code>code</code> value included in the authorization response.</li>
+  <li>Encode the first half of this hash value using <code>base64url</code> encoding.</li>
+  <li>Compare this value with the <code>c_hash</code> value in <code>id_token</code> and confirm that they match.</li>
+</ol>
+<p>
+  <br />
+</p>
+<div>
+  <h2 id="Anchor_860059843_h2_4">Verifying the Access Token Using the at_hash Value</h2>
+  <p>If <code>response_type=id_token</code> token was specified in the authorization request, the ID token will include <code>at_hash</code>, which is a hash value for the access token.<br />By using this hash value to verify the access token, you can confirm that the access token has not been altered in the application or somewhere en route.<br />Use the following verification procedure. </p>
+  <ol>
+    <li>Use the SHA-256 algorithm to hash the <code>access_token</code> value included in the authorization response.</li>
+    <li>Encode the first half of this hash value using <code>base64url</code> encoding.</li>
+    <li>Compare this value with the <code>at_hash</code> value in <code>id_token</code> and confirm that they match.</li>
+  </ol>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

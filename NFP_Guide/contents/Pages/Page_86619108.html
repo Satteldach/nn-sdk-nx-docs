@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1.1 NFP Tag Regions | NFP Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1.1 NFP Tag Regions -->
+<div class="pagetitle" id="PageId_86619108">3.1.1 NFP Tag Regions</div>
+<div class="text_separate">
+<p>An NFP tag is an NFC tag in a special NFP format with two regions: a <em>shared region</em> that is read-only, and an <em>application-specific region</em> in which the application can read and write data.</p>
+<!--@keyword:アプリ専用領域NFP共用領域216byteアプリ自由領域読み込み専用-->
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_86619108_figure001"></a>Figure 3-1  NFP Tag Regions</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_86619108/158499301.png" width="500" alt="アプリ専用領域NFP共用領域216byteアプリ自由領域読み込み専用" class="embedded-image" />
+  </span> </p>
+<p>The regions accessible to the application differ according to the type of amiibo the user touched to the touch point, as shown in the following table.</p>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_86619108_table001"></a>Table 3-1  Accessible Regions</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th rowspan="2">
+        <br />
+        <br />
+      </th>
+      <th colspan="2">Shared Region</th>
+      <th colspan="2">Application-Specific Region</th>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Write</th>
+      <th>Load</th>
+      <th>Write</th>
+    </tr>
+    <tr>
+      <th>amiibo with readable/writable application-specific region</th>
+      <td>○</td>
+      <td>&times;</td>
+      <td>○</td>
+      <td>○</td>
+    </tr>
+    <tr>
+      <th>Other amiibo figure</th>
+      <td>○</td>
+      <td>&times;</td>
+      <td>&times;</td>
+      <td>&times;</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

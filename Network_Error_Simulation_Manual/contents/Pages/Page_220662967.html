@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1 Using Auth Debug Tool, a Web Tool for Authentication Debugging | Nintendo Switch Network Error Simulation Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1 Using Auth Debug Tool, a Web Tool for Authentication Debugging -->
+<div class="pagetitle" id="PageId_220662967">3.1 Using Auth Debug Tool, a Web Tool for Authentication Debugging</div>
+<div class="text_separate">
+<h1 id="Anchor_220662967_h1_1">Auth Debug Tool</h1>
+<p>Auth Debug Tool is a web tool that provides the following features for debugging issues with the Nintendo Authentication Server. </p>
+<ul>
+  <li>Simulation of errors caused by the authentication server</li>
+  <li>Viewing the authentication server access logs</li>
+</ul>
+<p>To access Auth Debug Tool, use the following URL. Use your Nintendo Developer ID to log in.</p>
+<p>
+  <a href="https://telescope.nntt.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">https://telescope.nntt.mng.nintendo.net/</a>
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>To use Auth Debug Tool, there must be at least one viewable title that uses network features and has passed the title review process on OMAS.</p>
+  </div>
+</div>
+<h2 id="Anchor_220662967_h2_1">Checking the System Serial Number</h2>
+<p>Auth Debug Tool uses the system serial number for error simulation and log viewing.</p>
+<p>You can check your system serial number from the <span style="color: rgb(55,55,55);">HOME Menu</span> in <strong>System Settings</strong> &gt; <strong>System</strong> &gt; <strong>Serial Information</strong>.</p>
+<p>The serial numbers for some systems, such as development hardware, may not include a check digit.</p>
+<div class="figure">
+  <a name="AutoAnchor_220662967_figure001"></a>Figure 3-1  Checking the Serial Number</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_220662967/221743592.jpg" height="250" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_220662967_h1_2">Error Simulation Feature</h1>
+<p>With Auth Debug Tool, you can configure specific errors to be generated when an application is started on a particular Switch. An error can be registered for a set combination of application and Switch. Errors cannot be configured to occur for only a particular account or for the same error on multiple applications with a single setting.</p>
+<p>Also, the Switch system caches authentication information, so even if errors are configured using Auth Debug Tool, the errors do not occur while the cache is valid. The cached authentication information is cleared when the Switch is restarted, so restart the console after you have configured the errors using Auth Debug Tool.</p>
+<h2 id="Anchor_220662967_h2_2">Registering Errors</h2>
+<p>To register a new error, open the <strong>Application Errors</strong> page and click <strong>Create New Error</strong>.</p>
+<p>To register the error, configure the following settings and then click <strong>Create</strong>.</p>
+<div class="table">
+  <a name="AutoAnchor_220662967_table001"></a>Table 3-2 Token Log Search Criteria</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+      <th>Required?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Serial Number</td>
+      <td>Specify the serial number of the system for which the error will be generated.</td>
+      <td>Required</td>
+      <td>Refer to the procedure described in Checking the System Serial Number. Be careful not to omit the check digit.</td>
+    </tr>
+    <tr>
+      <td>Application</td>
+      <td>Select the application for which the error is to be generated.</td>
+      <td>Required</td>
+      <td>
+        <p>Only applications that can be viewed on OMAS by the logged in NDID can be selected.</p>
+        <p>You cannot select an application for which the use of network features has not been requested on OMAS.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Error Code</td>
+      <td>Select the error to be generated.</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Comment</td>
+      <td>Write anything you want in these notes when registering the error.</td>
+      <td>Optional</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_220662967_h2_3">Displaying a List of Configured Errors</h2>
+<p>The <strong>Application Errors</strong> page displays the settings of the errors registered by the logged-in NDID. Errors set by NDIDs other than that of the logged-in user cannot be displayed.</p>
+<p>To edit the settings of a registered error, click the pen icon on the right side of the page.</p>
+<p>Select a check box on the left side of the page to activate the <strong>Delete</strong> button, which you can then click to delete the selected item.</p>
+<h1 id="Anchor_220662967_h1_3">Searching Token Logs</h1>
+<p>To check the token acquisition logs, open the <strong>Application Auth Logs</strong> page.</p>
+<p>Token logs can be filtered by setting search conditions. Note that the <strong>Application</strong> item cannot be omitted.</p>
+<div class="table">
+  <a name="AutoAnchor_220662967_table001"></a>Table 3-2 Token Log Search Criteria</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+      <th>Optional?</th>
+    </tr>
+    <tr>
+      <td>Serial Number</td>
+      <td>Filter the log to exclude all entries except those for tokens obtained by the console with the specified serial number.</td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td>Application</td>
+      <td>Filter the log to exclude all entries except those for tokens obtained by the specified application.</td>
+      <td>Required</td>
+    </tr>
+    <tr>
+      <td>IP Address</td>
+      <td>
+        <p>Filter the log to exclude all entries except those involving access to the authentication server from the specified IP address.</p>
+        <p>CIDR notation cannot be used.</p>
+        <p>The asterisk wildcard character (*) can be used together with text at the beginning, middle, or end of the search phrase.</p>
+      </td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td>Search Range</td>
+      <td>Selects the period for log entries to search.</td>
+      <td>Required</td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

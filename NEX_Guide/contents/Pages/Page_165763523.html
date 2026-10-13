@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 Server Services Functionality | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 Server Services Functionality -->
+<div class="pagetitle" id="PageId_165763523">2 Server Services Functionality</div>
+<div class="text_separate">
+<p>Nintendo offers a library called <code>nex</code> that provides server services by communicating with the Nintendo game server. The <code>nex</code> library is compatible with multiple platforms.</p>
+<p>The following is a description of the server services functionality available from NEX.</p>
+<h1 id="Anchor_165763523_h1_1">Matchmaking</h1>
+<p>Matchmaking is a feature that allows users to find other players to play with in online, multiplayer matches. A group of players that are matched up and play together in matchmaking is referred to as a matchmaking session.</p>
+<p>You can use the matchmaking functionality to create matchmaking sessions based on criteria specified by the application, and to search for matchmaking sessions that match specified criteria. For example, you can search for matchmaking sessions created by a friend, or search for or create matchmaking sessions that have attribute values that are specified by the application. You can also get matchmaking sessions that specific users have already joined.</p>
+<h2 id="Anchor_165763523_h2_1">Persistent Gatherings</h2>
+<p>A <em>persistent gathering</em> is a group gathering where information persists on the server even after all group members have logged out from the game server. The server maintains data on group participation even when users are offline. In addition, the following use cases are available for matchmaking using only users who have joined specific persistent gatherings.</p>
+<ul>
+  <li>User-driven community creation functionality, in addition to matchmaking and ranking within communities</li>
+  <li>Official competitions hosted by the application's publisher</li>
+  <li>Competitions organized by users</li>
+</ul>
+<p>Persistent gatherings are managed independently by each game server.</p>
+<h1 id="Anchor_165763523_h1_2">Ranking</h1>
+<p>Ranking refers to the ability to acquire an order, based on scores, after servers tabulate score data that users upload. There are two types of ranking functionality available from NEX: Ranking and Ranking2. Your application specifications determine how you differentiate them.</p>
+<h2 id="Anchor_165763523_h2_2">Ranking</h2>
+<p>With the first type (Ranking) you use different categories to separately handle multiple scores for a user. You can get the ranking order for each score separately. For example, by using several categories, you can get rankings for each stage, rankings for each game mode, and so forth.</p>
+<p>You can also set group values for scores. By using group values, you can create ranking data that is narrowed down to a specific group. For example, suppose there is an online tournament where users are separated into a number of different power levels to compete. If each user's power level is specified for the group value when scores are uploaded, you can get the rankings later and specify a group value to get the rankings for a specific power level.</p>
+<p>In addition to categories and group values, you can specify the following ranking modes to realize a variety of different kinds of rankings.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can also get statistics on score averages, minimums, and maximums.</p>
+  </div>
+</div>
+<h4 id="Anchor_165763523_h4_1">Ranking Modes</h4>
+<h5 id="Anchor_165763523_h5_1">Range Ranking</h5>
+<p>In this mode you get the rankings that are within the range of rankings you want to acquire.</p>
+<h5 id="Anchor_165763523_h5_2">Nearby Ranking</h5>
+<p>In this mode you get a range of rankings that places a specific user at the center of that list of rankings.</p>
+<h5 id="Anchor_165763523_h5_3">Friend Ranking</h5>
+<p>In this mode you get a range of rankings that is specific to your own friends.</p>
+<h5 id="Anchor_165763523_h5_4">Nearby Friend Ranking</h5>
+<p>In this mode you get rankings of your friends who are nearby.</p>
+<h5 id="Anchor_165763523_h5_5">Get User's Ranking Data</h5>
+<p>In this mode you get the ranking data for only the specified user.</p>
+<h2 id="Anchor_165763523_h2_3">Ranking2</h2>
+<p>The functionality available with the second ranking option, ranking2, is similar to that of the first option, described previously. There are some specification differences. The major differences are listed below.</p>
+<ul>
+  <li>The guidelines for restrictions on API call frequency are more relaxed compared to the ranking feature.</li>
+  <li>You cannot use group values.</li>
+  <li>You create settings for data like the periodic reset interval and minimum ranking order at the category type level.</li>
+  <li>You configure the various categories by associating them with preset category types.</li>
+  <li>Any score data that falls outside of the minimum ranking order that was configured for a category is deleted.</li>
+  <li>You can get a ranking chart with statistical information about all scores uploaded to date.</li>
+</ul>
+<p>For more information about differences compared to the ranking feature, see the NX NEX Manual.</p>
+<h1 id="Anchor_165763523_h1_3">Data Store</h1>
+<p>
+  <em>Data store</em> refers to network storage functionality that enables you to upload or download any data. When a user uploads data they created, they can then share that data with friends or other users.</p>
+<p>Data store offers the following functionality.</p>
+<h5 id="Anchor_165763523_h5_6">Uploading</h5>
+<p>Uploads data to the server. Access permissions must be set for the data that is uploaded. Choose from among different options, including <strong>only me</strong>, <strong>only certain users</strong>, <strong>only friends</strong>, or <strong>all users</strong>. Because metadata including the data type and tag information can be attached to the data, you can use this metadata to search for data.</p>
+<h5 id="Anchor_165763523_h5_7">Downloading</h5>
+<p>Downloads data from the server. Users can download only the data for which they have the appropriate access privileges.</p>
+<h5 id="Anchor_165763523_h5_8">Search</h5>
+<p>Searches for the target data within the data uploaded to the server. There are several different ways to search, including searching for the user that uploaded the data, searching for the data type, searching for tags, and searching for the date the data was uploaded or updated. It is also possible to sort the search results by date or rating value.</p>
+<h5 id="Anchor_165763523_h5_9">Update</h5>
+<p>Updates data uploaded to the server. You can update just the data itself or just the metadata as well.</p>
+<h5 id="Anchor_165763523_h5_10">Rating</h5>
+<p>You can apply rating values to data uploaded to the server. Because you can sort the search results based on these rating values, you can do things like getting a list of data for users ranked in order by the ratings.</p>
+<h5 id="Anchor_165763523_h5_11">Deletions</h5>
+<p>Deletes data uploaded to the server. Even without explicitly removing data, it is automatically removed after a set period because an expiration time is set for the data when you upload it.</p>
+<h5 id="Anchor_165763523_h5_12">Perpetuating</h5>
+<p>Perpetuates data uploaded to the server to block the removal of the data that would normally occur at the expiration time. Each user can only perpetuate a certain amount of uploaded data.</p>
+<h1 id="Anchor_165763523_h1_4">Subscribers</h1>
+<p>In the subscriber feature, the status of users is sent and received via the server, enabling users to share their online status and online play status.</p>
+<p>This section describes the two types of subscriber features.</p>
+<h2 id="Anchor_165763523_h2_4">Topics (Discontinued)</h2>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>This feature has been discontinued. For more information, see <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/announcement?articleId=319649703" target="_blank" rel="noopener noreferrer">Discontinuation of NEX Subscriber Topics feature</a> in Technical Information on the Nintendo Developer Portal.</p>
+  </div>
+</div>
+<p>This messaging feature is based on the publish-subscribe model. Users can post content to channels that handle specific topics. By periodically getting the content posted to a particular topic, users can always stay on top of latest posts to that topic.</p>
+<p>Up to 128 topics can be used with each game server.</p>
+<h2 id="Anchor_165763523_h2_5">Shared User Status</h2>
+<p>With this feature, users post their status to the game server so friends can share that status.</p>
+<p>Depending on the information that is posted, friends can disclose and reference each other's login status or play status. This feature can also be used to invite friends for matchmaking.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

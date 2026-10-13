@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.6 Controller Support Applet | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.6 Controller Support Applet -->
+<div class="pagetitle" id="PageId_99802852">3.6 Controller Support Applet</div>
+<div class="text_separate">
+<p>When developing applications for the Switch, you have many factors to consider for controllers, particularly because there are many ways to handle the Joy-Con controllers. </p>
+<p>When starting or resuming an application, the controller connection status is hard to determine, and it is not clear how to hold the Joy-Con controllers. Consider that you might occasionally want to prompt the user to change the controller grip, depending on the scene while the application is running. In addition, the way a player uses a controller can change its state. Players can connect additional registered controllers, and connections can be lost as a result of the condition of the batteries or the signal strength.</p>
+<p>The controller support applet is designed to decrease the amount of support needed from the application in such cases. You can prompt users to connect controllers or change controller positions based on instructions to the applet when you call it from the application. You might not need to use it, but if you do, it can simplify the handling of the controllers. </p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>For more information about implementation, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Controller Support Applet.</li>
+      <li>The NintendoSDK NX Add-On includes a controller support applet sample. For more information, see NintendoSDK Documents &gt; Sample Descriptions.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_99802852_h1_1">Feature Description</h1>
+<p>A screen similar to the following is displayed when the controller support applet is called from the application.</p>
+<div class="figure">
+  <a name="AutoAnchor_99802852_figure001"></a>Figure 3-3  Mockup Image for the Controller Support Applet</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_99802852/180065798.png" width="500" class="embedded-image" />
+  </span> </p>
+<p>Press the L and R Buttons (or any of the following buttons: ZL, ZR, SL, and SR) to connect to the console. For Joy-Con, the button that is pressed determines the grip. Finally, pressing the A Button exits the applet.</p>
+<p>Press and hold the SYNC Button to pair and connect the desired controller, even when it has not previously been paired with the console.</p>
+<p>The target controllers and the number of controllers to connect are specified by the application.</p>
+<p>The Controller Not Connecting applet feature describes how to pair controllers from the player perspective when they have problems connecting the controllers.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>A similar function can be called from <strong>Controller</strong> &gt; <strong>Change Controller Grip/Order</strong> in the HOME Menu. The following settings are possible.</p>
+    <ul>
+      <li>Acceptable play formats: Pro Controller play, Joy-Con controllers attached to the console play, Joy-Con (R) play, Joy-Con (L) play</li>
+      <li>Grip with single-controller: Horizontal grip</li>
+      <li>Minimum number of players using wireless controllers: 0 players</li>
+      <li>Maximum number of players using wireless controllers: 4 players</li>
+      <li>Dual-grip controller use: Enabled</li>
+    </ul>
+  </div>
+</div>
+<p>The controller support applet has two modes: <em>standard mode</em> and <em>single-player special mode</em>.</p>
+<p>Each of these modes is described separately.</p>
+<h2 id="Anchor_99802852_h2_1">Standard Mode</h2>
+<p>In this mode, users are promoted to prepare wireless controllers for up to eight players. Joy-Con controllers attached to the Switch console are not displayed as an option in the controller support applet screen, as shown in Figure 3.3.</p>
+<h3 id="Anchor_99802852_h3_1">Specifications When Calling the Applet</h3>
+<p>The application can also specify the following items when calling the controller support applet in standard mode.</p>
+<ul>
+  <li>The maximum and minimum number of players using wireless controllers (between 0 and 8).</li>
+  <li>Whether to maintain the connection status when the applet is called (if not maintained, all of the connected controllers will be disconnected).</li>
+  <li>Whether to fill in unused indexes when committing.</li>
+  <li>Allow determination when there are controllers in dual-controller grip mode? (For example, you can prohibit a dual-controller grip during local communication where a limited number of controllers can be connected.)</li>
+  <li>The frame color settings and the supplemental text settings for each controller (can be omitted).</li>
+</ul>
+<p>The accepted types of controllers vary, depending on the settings separately specified by the application for the play formats and the grip for single Joy-Con play. For more information, see <a href="../Pages/Page_124019950.html">3.1 Supporting Different Play Formats and Grips (Required)</a>.</p>
+<h3 id="Anchor_99802852_h3_2">Behavior After Returning to the Application</h3>
+<p>When the applet is in standard mode, one of the following is returned to the application that called the applet.</p>
+<ul>
+  <li>Indication that the user has selected to go back (meaning the controllers might not be in a state expected by the application).</li>
+  <li>Indication that the user has decided on a selection (meaning the controllers are in a state expected by the application). Also, the application is told the <span style="color: rgb(85,85,85);">number of players</span> recognized by the Switch system.</li>
+</ul>
+<p>If the user decides on a selection that does meet the expectation of the application, an error is displayed and the process remains in controller support applet without returning to the application.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>In Nintendo SDK NX Add-On 8.0.0 and later, a Joy-Con attached to the system can be used to select to go back or make a decision in the applet, even if the application is not designed to support the operations of an attached Joy-Con controller. This design is intended to alleviate cases where the user cannot exit out of the controller support applet.</p>
+  </div>
+</div>
+<h3 id="Anchor_99802852_h3_3">Supporting Five or More Players</h3>
+<p>In Nintendo SDK NX Add-On 8.0.0 and later, the controller support applet can accommodate the preparation of wireless controllers for five or more players (up to a maximum of eight). However, note the following points when five or more players have been specified.</p>
+<ul>
+  <li>Selection of dual-controller grip play is forcibly prohibited, even if the display of that play mode as a choice was allowed in Specifications When Calling the Applet. This design is intended to handle multiple connected wireless controllers (up to eight).</li>
+  <li>The display frame for each player is narrower, with less room for supplemental text.</li>
+</ul>
+<div class="figure">
+  <a name="AutoAnchor_99802852_figure004"></a>Figure 3-4  Image of Controller Support Applet (For Eight Players, With Supplemental Text)</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_99802852/481477066.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_99802852_h3_4">Supporting Solo Remote Grip</h3>
+<p>When you select single Joy-Con grip as a play format, which applies to both the Joy-Con (R) grip and Joy-Con (L) grip, you must also specify a grip (solo remote grip).</p>
+<p>After making the selection and calling the controller support applet, the following screen appears.</p>
+<p>If the play formats supported by the application include Joy-Con dual-controller grip and Pro Controller, the controller support applet cannot be called and returns an error.</p>
+<div class="figure">
+  <a name="AutoAnchor_99802852_figure003"></a>Figure 3-5  Image of Controller Support Applet (Solo Remote Grip)</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_99802852/180065820.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>In system version 6.0.0 and later, the controller support applet can now be called, supporting solo remote grip, even when applications support attached Joy-Con controller operations. This enables <strong>Back</strong> operations for attached Joy-Con controllers.</p>
+  </div>
+</div>
+<h2 id="Anchor_99802852_h2_2">Single-Player Special Mode</h2>
+<p>Players are prompted to prepare controllers, including attached Joy-Con controllers, for one person. Use this single-player special mode when calling the controller support applet from single-player applications that support TV mode, handheld mode, and tabletop mode. Use standard mode even for single-player applications when the game requires a wireless controller.</p>
+<h3 id="Anchor_99802852_h3_5">Specifications When Calling the Applet</h3>
+<p>You can also specify the following options when calling single-player special mode in the controller support applet, from the application.</p>
+<ul>
+  <li>Whether to maintain the connection status when the applet is called (if not maintained, all of the connected controllers will be disconnected).</li>
+  <li>The frame color settings and supplemental text settings for the controller, used by the user (can be omitted).</li>
+</ul>
+<div class="figure">
+  <a name="AutoAnchor_99802852_figure002"></a>Figure 3-6  Image of the Controller Frame and Supplemental Text</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_99802852/180065806.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p>The accepted types of controllers vary, depending on the settings separately specified by the application for the play formats and the grip for single Joy-Con play. For more information, see <a href="../Pages/Page_124019950.html">3.1 Supporting Different Play Formats and Grips (Required)</a>.</p>
+<h3 id="Anchor_99802852_h3_6">Behavior After Returning to the Application</h3>
+<p>When the applet is in single-player special mode, one of the following is returned to the application that called the applet. </p>
+<ul>
+  <li>A wireless controller was selected (controller index 1).</li>
+  <li>A Joy-Con/Switch combination configuration was selected.</li>
+</ul>
+<p>
+  <br />
+</p>
+<p>There is no <strong>Back</strong> option for single-player special mode. A controller is always selected before resuming the application.</p>
+<p>However, there are cases where <code>cancel</code> is returned to the application, depending on user operations (such as transitioning to the HOME Menu or calling the controller settings).</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>In Nintendo SDK NX Add-On 8.0.0 and later, the controller support applet cannot be called in single-player special mode if the application does not support the operations of the attached Joy-Con controller. Use standard mode even for single-player applications when you want the player to use a wireless controller.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<h1 id="Anchor_99802852_h1_2">Unsupported Features</h1>
+<h2 id="Anchor_99802852_h2_3">UI Customization</h2>
+<p>While some elements can be changed as specifications when the applet is called, the UI for the controller support applet offers a neutral feel, enabling it to work with any application.</p>
+<h2 id="Anchor_99802852_h2_4">Special Controller Configurations</h2>
+<p>The controller support applet is designed to be easy to use in most cases.</p>
+<p>The following controller configurations are not supported by the controller support applet.</p>
+<ul>
+  <li>Simultaneous display of Joy-Con attached to the Switch system and wireless controllers (operations can be accepted if the application supports the configurations).</li>
+  <li>Joy-Con (R) solo-grip play is supported, but Joy-Con (L) solo-grip play is not supported (or vice versa).</li>
+  <li>Dual-controller grip play with five or more players.</li>
+  <li>Supporting a mix of solo remote grip and dual-controller grip.</li>
+</ul>
+<h2 id="Anchor_99802852_h2_5">Auto-Start</h2>
+<p>Because some applications must support connection or grip changes in their own independent UI, the controller support applet never automatically appears and starts running.</p>
+<p>In all cases, the controller support applet will respond to calls from applications.</p>
+<h1 id="Anchor_99802852_h1_3">Considerations</h1>
+<ul>
+  <li>When calling the controller support applet while performing local communication, wireless registration by holding down the controller's SYNC Button cannot be done due to radio frequency interference. However, you can connect, change the controller's position, and perform wired registration.</li>
+  <li>The internet connection can become unstable as a result of signal interference when calling the controller support applet while using internet communication. Avoid calling the controller support applet when you want to avoid internet connection issues.</li>
+  <li>When the controller support applet is called (including during the process of restoring the application), button input from holding down the button is invalidated by the system. For this reason, it is a better experience for the user to have the application enter a wait screen when resuming gameplay (such as in action games).</li>
+</ul>
+<h1 id="Anchor_99802852_h1_4">Not Using the Controller Support Applet</h1>
+<p>Applications can support reconnecting controllers and changing positions using a custom UI, without using the controller support applet.</p>
+<p>It will not be possible, however, to pair by pressing and holding the controller SYNC Button.</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

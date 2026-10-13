@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.2 Preparations for Development | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.2 Preparations for Development -->
+<div class="pagetitle" id="PageId_525143440">4.2 Preparations for Development</div>
+<div class="text_separate">
+<p>As you begin development, see sections in this page that are relevant to the e-commerce features you are using. You can also reference the following documents.</p>
+<ul>
+  <li>NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library</li>
+  <li>Nintendo Switch Independent Server Setup Manual</li>
+  <li>NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; Consumable Service Items Client Libraries</li>
+</ul>
+<p>This page describes the features that you may need in the development environment such as the development environment Nintendo eShop, dummy EC applet, and adding funds, and the considerations for those features.</p>
+<h1 id="Anchor_525143440_h1_1">Using Nintendo eShop in the Development Environment</h1>
+<p>If you are using any of the following features, you must add sales information to the development environment Nintendo eShop.</p>
+<ul>
+  <li>Consumable Service Items</li>
+  <li>Subscription Service Items</li>
+  <li>Feature for Getting Item Information Within Applications<br /></li>
+</ul>
+<p>As with the production environment, sales data for the development environment Nintendo eShop is configured in NCMS. For more information about the sales information settings in NCMS, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</p>
+<h1 id="Anchor_525143440_h1_2">Switching Between Nintendo eShop and Dummy EC Applet</h1>
+<p>The dummy EC applet is a tool for checking the parameters of the jump to eShop API in the development environment.</p>
+<p>If the development hardware is initialized with a firmware version to which &quot;+ Prod&quot; is not affixed, the EC applet starts by default when Nintendo eShop is called. If &quot;+ Prod&quot; is affixed to the firmware version used for initialization, Nintendo eShop starts.</p>
+<p>You can use one of the following methods to switch from the dummy EC applet to Nintendo eShop.</p>
+<ul>
+  <li>Use the <code>switch-shop</code> command in DevMenuCommand, and configure it so that Nintendo eShop opens on the development hardware.</li>
+  <li>Change the <strong>Shop</strong> &gt; <strong>Valid Shop</strong> option in DevMenu so that Nintendo eShop opens on the development hardware.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about DevMenuCommand and DevMenu, see NintendoSDK Documents.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>Depending on the version of the NintendoSDK firmware on the development hardware, it may not be possible to start Nintendo eShop. Make sure that you use the latest version of the firmware required for ROM testing. You can find the latest version on the Nintendo Developer Portal in Technical Information &gt; Master Submission Information &gt; Firmware Version Required for Testing.</li>
+      <li>When opening the Nintendo Switch Online page in the development environment Nintendo eShop, error 2813-0013 occurs and you cannot perform any operations on that page. This behavior is by design.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_525143440_h2_1">DevMenu Warning Messages</h2>
+<p>If the warning message &quot;Warning: application background tasks are too heavy&quot; is displayed in the dummy EC applet, the behavior of Nintendo eShop may not be normal. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; ec Library &gt; EC Applet Usage &gt; Considerations When Calling the EC Applet.</p>
+<h1 id="Anchor_525143440_h1_3">Checking Content Registered on Nintendo eShop Using Development Hardware</h1>
+<p>Applications are not searchable from Nintendo eShop when it is opened from the HOME Menu. To access the registered application or the list of downloadable content, start the application with the jump to Nintendo eShop feature implemented. The following eShop jump functions can be used for testing purposes.</p>
+<ul>
+  <li>
+    <code>nn::ec::ShowShopApplicationInformation()</code> // Jumps to the application details in eShop.</li>
+  <li>
+    <code>nn::ec::ShowShopConsumableItemList()</code> // Displays a list of consumable service items.</li>
+  <li>
+    <code>nn::ec::ShowShopSubscriptionList()</code> // Displays the list of subscription service items.</li>
+  <li>
+    <code>nn::ec::ShowShopAddOnContentList()</code> // Jumps to the list of downloadable content in eShop.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Using Nintendo eShop in the development environment requires a Nintendo Account for the dd1 environment. Prepare this environment in advance.</p>
+  </div>
+</div>
+<h1 id="Anchor_525143440_h1_4">Adding Funds in the Development Environment</h1>
+<p>You cannot use a real credit card or a Nintendo Prepaid Card to add funds to the balance in the development environment.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Do not attempt to use or save real credit card information under any circumstances.</p>
+  </div>
+</div>
+<p>To add funds to the balance, use the following dummy credit card number that is only available in the development environment. Credit card numbers differ depending on country and region.</p>
+<h2 id="Anchor_525143440_h2_2">Japan</h2>
+<p>Use the following dummy credit card numbers when using a Nintendo Account for Japan.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+    </tr>
+    <tr>
+      <td>MASTER</td>
+      <td>5555 5555 5555 4444</td>
+      <td>03/30</td>
+      <td>737</td>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4111 1111 1111 1111</td>
+      <td>03/30</td>
+      <td>737</td>
+    </tr>
+    <tr>
+      <td>JCB</td>
+      <td>3569 9900 1009 5841</td>
+      <td>03/30</td>
+      <td>737</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_525143440_h2_3">European Region, Hong Kong</h2>
+<p>Use the following dummy credit card numbers when using a Nintendo Account in a country in the European region (such as the United Kingdom, Germany, or France) or in Hong Kong.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+    </tr>
+    <tr>
+      <td>MASTER</td>
+      <td>5555-5555-5555-4444</td>
+      <td>03/30</td>
+      <td>737</td>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4111-1111-1111-1111</td>
+      <td>03/30</td>
+      <td>737</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_525143440_h2_4">Australian Region</h2>
+<p>Use the following dummy credit card numbers when using a Nintendo Account in the Australian region (Australia and New Zealand).</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4002-6900-0000-0008</td>
+      <td>03/30</td>
+      <td>737</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_525143440_h2_5">Americas Region</h2>
+<h3 id="Anchor_525143440_h3_1">USA, Canada, Mexico</h3>
+<p>Use the following dummy credit card numbers when using a Nintendo Account for USA, Canada, or Mexico.</p>
+<table class="relative-table wrapped" style="width: 54.0763%;">
+  <colgroup> <col style="width: 21.7452%;" /> <col style="width: 29.0859%;" /> <col style="width: 29.3629%;" /> <col style="width: 19.8061%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4200-0000-0000-0000</td>
+      <td>Future Date (Optional)</td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>5454-5454-5454-5454</td>
+      <td>Future Date (Optional)</td>
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Set the postal code as follows (choose one if there are multiple options) when adding funds in the United States or Canada.</p>
+<table class="relative-table wrapped" style="width: 16.741%;">
+  <colgroup> <col style="width: 54.3426%;" /> <col style="width: 45.1237%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Country</th>
+      <th>Postal Code</th>
+    </tr>
+    <tr>
+      <td rowspan="3">United States</td>
+      <td>98052</td>
+    </tr>
+    <tr>
+      <td>19801</td>
+    </tr>
+    <tr>
+      <td>36201</td>
+    </tr>
+    <tr>
+      <td>Canada</td>
+      <td>M4W1L1</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_525143440_h3_2">Brazil</h3>
+<p>Use the following dummy credit card numbers when using a Nintendo Account for Brazil.</p>
+<table class="wrapped relative-table" style="width: 94.4947%;">
+  <colgroup> <col style="width: 12.5399%;" /> <col style="width: 12.5399%;" /> <col style="width: 13.5645%;" /> <col style="width: 11.4217%;" /> <col style="width: 38.5109%;" /> <col style="width: 11.423%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+      <th>Cardholder Name</th>
+      <th>Taxpayer Number (CPF)</th>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4111-1111-1111-1111</td>
+      <td>Future Date (Optional)</td>
+      <td>Optional</td>
+      <td>
+        <p>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br />Example 1: test test</p>
+        <p>Example 2: a a</p>
+      </td>
+      <td>
+        <p>12345678909</p>
+        <p>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>5555-5555-5555-4444</td>
+      <td>Future Date (Optional)</td>
+      <td>
+        <p>Optional</p>
+      </td>
+      <td>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br /><p>Example 1: test test</p><p>Example 2: a a</p></td>
+      <td>12345678909</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_525143440_h3_3">Argentina</h3>
+<p>Use the following dummy credit card numbers when using a Nintendo Account for Argentina.</p>
+<table class="wrapped relative-table" style="width: 97.8884%;">
+  <colgroup> <col style="width: 12.1049%;" /> <col style="width: 12.8602%;" /> <col style="width: 10.9086%;" /> <col style="width: 11.0254%;" /> <col style="width: 22.9351%;" /> <col style="width: 9.48101%;" /> <col style="width: 20.6848%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+      <th>Cardholder Name</th>
+      <th>State (Province)</th>
+      <th>Taxpayer Number (CUIT/CUIL)</th>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4111-1111-1111-1111</td>
+      <td>Future Date (Optional)</td>
+      <td>Optional</td>
+      <td>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br />Example 1: test test<br />Example 2: a a</td>
+      <td>Optional</td>
+      <td>
+        <p>Select either CUIT or CUIL.</p>
+        <p>Use any number (the default is fine).</p>
+      </td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>5555-5555-5555-4444</td>
+      <td>Future Date (Optional)</td>
+      <td>Optional</td>
+      <td>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br />Example 1: test test<br />Example 2: a a</td>
+      <td>Optional</td>
+      <td>
+        <p>Select either CUIT or CUIL.</p>
+        <p>Use any number (the default is fine).</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_525143440_h3_4">Columbia, Peru</h3>
+<p>Use the following dummy credit card numbers when using a Nintendo Account for Columbia or Peru.</p>
+<table class="wrapped relative-table" style="width: 86.0483%;">
+  <colgroup> <col style="width: 13.7719%;" /> <col style="width: 15.6922%;" /> <col style="width: 15.3344%;" /> <col style="width: 12.5439%;" /> <col style="width: 42.6576%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+      <th>Cardholder Name</th>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4111-1111-1111-1111</td>
+      <td>Future Date (Optional)</td>
+      <td>777</td>
+      <td>
+        <p>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br />Example 1: test test</p>
+        <p>Example 2: a a</p>
+      </td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>5555-5555-5555-4444</td>
+      <td>Future Date (Optional)</td>
+      <td>
+        <p>777</p>
+      </td>
+      <td>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br /><p>Example 1: test test</p><p>Example 2: a a</p></td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_525143440_h3_5">Chile</h3>
+<p>Use the following dummy credit card numbers when using a Nintendo Account for Chile.</p>
+<table class="wrapped relative-table" style="width: 86.3499%;">
+  <colgroup> <col style="width: 13.7238%;" /> <col style="width: 17.4634%;" /> <col style="width: 12.0616%;" /> <col style="width: 12.5%;" /> <col style="width: 44.2513%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Credit Card Company</th>
+      <th>Credit Card Number</th>
+      <th>Valid Thru (Month/Year)</th>
+      <th>Security Code</th>
+      <th>Cardholder Name</th>
+    </tr>
+    <tr>
+      <td>VISA</td>
+      <td>4051-8856-0044-6623</td>
+      <td>Future Date (Optional)</td>
+      <td>123</td>
+      <td>
+        <p>Arbitrary string (single-byte alphanumeric + single-byte space + single-byte alphanumeric)<br />Example 1: test test</p>
+        <p>Example 2: a a</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_525143440_h2_6">Korea</h2>
+<p>Dummy credit card numbers are currently not available for Korea. We plan to support this feature in the future.</p>
+<p>To add funds, enter the prepaid card number in Nintendo eShop. Contact Nintendo to get a prepaid card number.</p>
+<h1 id="Anchor_525143440_h1_5">Considerations When Checking Purchases</h1>
+<p>When Nintendo eShop is called from inside the application, no result is returned to the call target indicating whether the user has made a purchase. This behavior is the same in both the development and production environments. The behavior is the same regardless of whether the call target is Nintendo eShop or the dummy EC applet.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The purchase notification feature is supported for both consumable service items and subscription service items. For more information, see <a href="../Pages/Page_491448020.html">2.4 Service Item Purchase Notification Feature</a>.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

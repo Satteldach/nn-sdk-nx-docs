@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 Delivery Specifications | Nintendo Switch BCAT Data Delivery Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 Delivery Specifications -->
+<div class="pagetitle" id="PageId_209101064">2 Delivery Specifications</div>
+<div class="text_separate">
+<h1 id="Anchor_209101064_h1_1">About BCAT Data Delivery</h1>
+<p>BCAT Data Delivery is a system for simultaneously delivering data registered on servers managed by Nintendo to multiple Switch systems. Data delivery involves synchronizing the data on the server with the data on the Switch system.</p>
+<p>Multiple directories with a directory depth of one level can be registered on the server. Multiple files can be added to a directory. The delivery start date and time and end date and time can be scheduled for each file.</p>
+<p>During synchronization, the directory and file tree structure will be copied as is to the Switch system. If directories or files are deleted from the server, they will also be deleted from the Switch system.</p>
+<p>To register data on the server, use the BCAT Management Tool, a web system for PC browsers.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>This document collectively refers to the directories and files as data.</p>
+  </div>
+</div>
+<h2 id="Anchor_209101064_h2_1">Usage Examples</h2>
+<p>BCAT data delivery is expected to be used in cases such as the following.</p>
+<ul>
+  <li>Delivering additional player characters along with online and offline campaigns</li>
+  <li>Distributing configuration files to adjust game balance</li>
+</ul>
+<p>It is not possible to deliver dynamic program modules (such as NRO files).</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Previously, a special BCAT mechanism was provided for delivery of data by specific operators in certain retail stores and event venues, but support for that feature has ended.</p>
+  </div>
+</div>
+<h2 id="Anchor_209101064_h2_2">Usage Conditions</h2>
+<p>The following conditions must be satisfied for the end user to use the BCAT data delivery feature.</p>
+<ul>
+  <li>The user has started the application that supports BCAT data delivery at least one time, and initialized BCAT data delivery (called nn::bcat::Initialize).</li>
+  <li>The user has internet access.</li>
+  <li>At least one user account on the system is linked to a Nintendo Account (or an account for China).<br /></li>
+</ul>
+<p>If these conditions are satisfied, even user accounts that are not linked to Nintendo Accounts (or accounts for China) can use the BCAT data delivery system.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If the usage conditions for BCAT data delivery are not satisfied and a function that involves immediate synchronization is called, the function returns an error (an <span class="ApiLink_nn__Result">nn::Result</span> instance for which <code>nn::Result::IsFailure()</code> returns <code>true</code>). For more information about immediate synchronization, see Synchronization Types later on this page. Note that this error can also occur for reasons other than a failure to meet the usage conditions described here.</p>
+    <p>As a general rule, if an error occurs, pass the returned value to the error viewer applet to notify the user about the error, as described in the Nintendo Switch Guidelines (0079: Displaying errors using the error viewer applet). An appropriate message will be shown to the user to resolve the cause of the error.</p>
+    <p>If the Nintendo Switch Guidelines do not pertain to your particular case, there is no requirement to notify the user via the error viewer applet. However, if you do not notify users via the error viewer applet, they might not be able to resolve the cause of the error. In those situations, it is the responsibility of the publisher to respond to inquiries from users and take appropriate measures to resolve the issue, for example by confirming with users that the BCAT data delivery usage conditions are satisfied.</p>
+  </div>
+</div>
+<h1 id="Anchor_209101064_h1_2">Synchronization Types</h1>
+<p>Two synchronization methods are provided for BCAT data delivery.</p>
+<p>A method of <em>immediate synchronization</em> is provided for downloading data from the server to the Switch console at any time when the application is running.</p>
+<p>A method of <em>background synchronization</em> is provided for downloading data from the server to the Switch console in advance when the application is not running.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Please avoid designs where all immediate synchronization is performed at the same time. That would concentrate the load on the server, which might affect the overall operations of the service.</p>
+  </div>
+</div>
+<h1 id="Anchor_209101064_h1_3">Synchronization Granularity</h1>
+<ul>
+  <li>Data is synchronized by directory.</li>
+  <li>After synchronization is complete, the content of directory A in the Switch console will be overwritten by the content of directory A on the server.</li>
+  <li>Directory synchronization is an atomic operation, so directory A with old content and directory A with new content will not coexist in the Switch console at the same time.</li>
+  <li>Even if the content of directory A on the Switch console is identical to the latest content on the server, there is no assurance that the content in a different directory B would also be the latest version.<ul><li>This situation may occur, for example, when the internet connection is disconnected during synchronization. Keep that in mind.</li></ul></li>
+</ul>
+<h1 id="Anchor_209101064_h1_4">Synchronization Limitations</h1>
+<h3 id="Anchor_209101064_h3_1">Notifications</h3>
+<p>Background synchronization is performed when the Switch console receives a push notification from the server.</p>
+<p>Push notifications are sent when there are changes to the data being delivered (for example, when new data is released).</p>
+<p>If the Switch console is offline when the push notification is sent, it will receive the notification again when it comes back online.</p>
+<p>However, there is <strong>no assurance that all Switch consoles will receive the notification</strong> when using background synchronization. When necessary, implement immediate synchronization in the application and verify that synchronization was successful.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>In situations like the following, push notifications cannot be received.</p>
+    <ul>
+      <li>The user has not run the application recently.<ul><li>Background synchronization is only performed for the 16 most recently run applications that support BCAT data delivery.<br /></li></ul></li>
+      <li>There is a problem with the server that delivers push notifications.<ul><li>Note that an immediate synchronization will succeed even if push notifications cannot be received due to server problems.</li></ul></li>
+    </ul>
+  </div>
+</div>
+<h3 id="Anchor_209101064_h3_2">Time Required</h3>
+<p>
+  <strong>Note:</strong> It can take time for all Switch systems to be fully synchronized via background synchronization for the following reasons.</p>
+<ul>
+  <li>Push notifications for background synchronization are sent sequentially to the target Switch systems.</li>
+  <li>The internet connection speed differs for each target Switch system that is connected.</li>
+</ul>
+<h3 id="Anchor_209101064_h3_3">Discrepancies</h3>
+<p>Until all Switch systems are synchronized, both &quot;systems that have completed synchronization&quot; and &quot;systems that have not completed synchronization&quot; will coexist.</p>
+<p>If your specification for inter-application communication does not tolerate <span style="color: inherit;">discrepancies in synchronization states, perform immediate synchronization before inter-application communication.</span></p>
+<h1 id="Anchor_209101064_h1_5">Relationship Between Server and Client</h1>
+<p>The server and Switch system have the following relationship.</p>
+<p>Note that data is delivered to the Switch system only if the system has the application and there is a user account on that system that is linked to a Nintendo Account.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_209101064/239582462.png" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The specification is the same for Switch consoles for the China region. In the preceding diagram, read &quot;account for China&quot; where it says Nintendo Account.</p>
+  </div>
+</div>
+<h1 id="Anchor_209101064_h1_6">Server System Structure</h1>
+<p>The following table summarizes the server system structure.</p>
+<p>
+  <br /> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_209101064/239582463.png" class="embedded-image" /></span></p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>System</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>BCAT Server </td>
+      <td>Server that delivers data to the Switch. <br /></td>
+    </tr>
+    <tr>
+      <td>Generic Notification System<br />Nintendo Push Notification Service (NPNS)</td>
+      <td>
+        <p>Server that delivers push notifications for the Switch.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Switch System</td>
+      <td>
+        <p>
+          <span style="color: inherit;">Downloads data from the BCAT server, triggered by </span>
+          <span style="color: inherit;">the receipt of the push notifications.<br /></span>
+          <span style="color: inherit;">In the application, data can be downloaded at any time.</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>
+        <p>In this context, this term refers to the user who registers data for delivery on the BCAT server.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

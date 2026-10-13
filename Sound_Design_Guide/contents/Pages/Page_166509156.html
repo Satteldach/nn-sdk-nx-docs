@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 Tips | Nintendo Switch Sound Design Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 Tips -->
+<div class="pagetitle" id="PageId_166509156">3 Tips</div>
+<div class="text_separate">
+<p>This page introduces tips for sound development.</p>
+<h1 id="Anchor_166509156_h1_1">Switch Sound Mode Settings</h1>
+<p>The Switch system settings provide the following sound mode settings for each audio output device.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>System Setting</th>
+      <th>Output Device</th>
+      <th>Modes</th>
+    </tr>
+    <tr>
+      <td>TV Settings &gt; TV Sound</td>
+      <td>HDMI</td>
+      <td>Automatic / Surround Sound / Stereo / Mono</td>
+    </tr>
+    <tr>
+      <td>System &gt; Sound</td>
+      <td>System Speakers / Headphones / USB Audio Output Device / Bluetooth Audio Output Device</td>
+      <td>Stereo/Mono</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Note:</strong> When TV Sound is set to Automatic, the system will operate in Surround Sound mode if the output device supports surround sound, and Stereo mode if not.<br /><br />Users can change this setting at their discretion through the Switch system settings, even when the application is starting. However, because the Switch has a feature to downmix surround audio output to two channels according to the selected sound mode setting and the actual number of channels of the output device, you do not need to worry about the possibility of audio from the center, rear left, or rear right channels of surround mode not being output or sounds missing in stereo/mono mode on the application side.</p>
+<p>
+  <br />
+</p>
+<p>Based on these considerations, the sound developer for the application can design sound output as follows.</p>
+<ul>
+  <li>Design sound for surround mode.<ul><li>Regardless of the system's sound mode setting, the application designs sound with the assumption of outputting audio from all channels.</li><li>The final output corresponding to the system's sound mode settings is left up to the downmix feature of the Switch.<ul><li>You can use the audio renderer provided by the NintendoSDK to set the coefficient used in downmix processing calculations to an application-specific value. For more information, see the <code>audio</code> library manual for the NintendoSDK.</li></ul></li></ul></li>
+  <li>Design sound for stereo.<ul><li>Regardless of the system's sound mode setting, the application designs sound with the assumption of outputting audio from only the front channels.</li><li>Narrowing the mix processing of voices to only two channels is expected to raise processing efficiency, including processing to play a larger number of sounds.</li><li>This design is effective for applications that do not require surround output, such as 2D scrolling games.</li></ul></li>
+</ul>
+<p>Note that if you are considering specifications to switch sound mode using original settings configured within the application, you cannot change the sound mode setting on the Switch side from the application. Even if you switch the original mode setting on the application side, audio is ultimately output to channels dependent on the sound mode setting selected on the Switch system side, so the settings in the application may be disabled in some cases.</p>
+<h1 id="Anchor_166509156_h1_2">Measuring Loudness Values</h1>
+<p>Loudness values for Switch can be measured using either Spy or SystemAudioMonitor, included in the NintendoSDK.<br />The differences between the two tools are as follows.</p>
+<ul>
+  <li>Spy<br /><ul><li>Measurements only occur for audio played back by AudioRenderer.</li><li>The application has to incorporate Spy.</li><li>Values are displayed in a graph format.</li><li>Output device volume settings for the television are always incorporated.</li></ul></li>
+  <li>SystemAudioMonitor<ul><li>Measurements occur not only for audio played back by AudioRenderer but also by AudioOut.</li><li>Nothing needs to be incorporated into the application.</li><li>Raw values are displayed.</li><li>Output device volume settings are incorporated, corresponding to the output device at the time of measurement.</li></ul></li>
+</ul>
+<h2 id="Anchor_166509156_h2_1">
+  <span class="sv-ti-done">Measuring Loudness Values with Spy</span>
+</h2>
+<p style="margin-left: 40.0px;">
+  <span class="sv-ti-done">The Spy features included with the NintendoSDK, can be used to measure loudness values and True Peak values of a currently running application.<br /></span>For more information about how to use Spy, see the NintendoSDK documentation.</p>
+<p style="margin-left: 40.0px;">In Spy.exe, the Audio Loudness Meter Panel displays the average loudness and True Peak values for an application while it is running.</p>
+<p style="margin-left: 40.0px;">Immediately after connecting to a target, Spy.exe automatically begins taking measurements.<br />For more information about measurement segments when taking measurements, see 2. Support Recommendations.<br />The following diagram shows a sample measurement taken using the audio loudness meter in Spy.exe. </p>
+<h6 id="Anchor_166509156_h6_1">Figure 3.1 Audio Loudness Meter Panel in Spy.exe</h6>
+<p style="margin-left: 40.0px;">
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_166509156/259757100.jpg" class="embedded-image" />
+  </span>
+  <br />
+</p>
+<p style="margin-left: 40.0px;">
+  <span class="sv-ti-done">The value for Integrated(LKFS), marked as A in Figure 3.1, is the average loudness measured between the start of measuring and the present.<br />This measurement value will appear green when it is within the recommended range of the average loudness target value (-24 LKFS to -28 LKFS).<br />When this measurement value turns yellow, it indicates that it is within the tolerance range of the average loudness measurement value (-22 LKFS to -28 LKFS).<br />When this measurement value turns red, it indicates that it is outside the tolerance range of the average loudness measurement value.</span>
+</p>
+<p style="margin-left: 40.0px;">
+  <span class="sv-ti-done">The peak value measurement can be found next to B in Figure 3.1.<br />When True Peak is on, a calculated True Peak value is displayed here.<br />This measurement value will appear blue when it is within the recommended range for True Peak.<br />When this measurement value turns red, it indicates that it is outside of the recommend range.</span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The function that sets the volume of the output device for the TV (nn::audio::SetAudioOutputDeviceVolume) can affect the measurement values shown in the Audio Loudness Panel in Spy.<br />You may want to consider letting these values be applied by the output device volume settings for the TV, even when the console speakers, headphones, or other output devices are active.</p>
+  </div>
+</div>
+<h2 id="Anchor_166509156_h2_2">
+  <span class="sv-ti-done">Measuring Loudness Values With SystemAudioMonitor</span>
+</h2>
+<p>
+  <span class="sv-ti-done">The SystemAudioMonitor features included with the NintendoSDK can be used to measure loudness values and true peak values of a currently running application.<br /></span>For more information about using SystemAudioMonitor, see NintendoSDK Documents.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>SystemAudioMonitor is available starting with NintendoSDK NX Add-On 5.1.0.<br /></p>
+  </div>
+</div>
+<p>In the upper portion of <code>SystemAudioMonitor.exe</code>, the average loudness and true peak values appear for the running application.</p>
+<p>Immediately after connecting to a target, <code>SystemAudioMonitor.exe</code> automatically begins taking measurements.<br />For more information about measurement segments when taking measurements, see 2. Support Recommendations.<br />The following diagram shows a sample measurement taken using <code>SystemAudioMonitor.exe</code>. </p>
+<h6 id="Anchor_166509156_h6_2">Figure 3.2. SystemAudioMonitor.exe</h6>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_166509156/400999968.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="sv-ti-done">The value for INT, marked as A in Figure 3.2, is the average loudness measured between the start of measuring and the present.<br /></span>The peak value can be measured at B in Figure 3.2.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The measurement values for SystemAudioMonitor are updated in accordance with the device currently playing output with the configured output device volume settings, using the output device volume settings function (<code>nn::audio::SetAudioOutputDeviceVolume</code>).</p>
+  </div>
+</div>
+<h5 id="Anchor_166509156_h5_1">Related Documents</h5>
+<ul>
+  <li>NintendoSDK Documents<ul><li><span class="sv-ti-done">Features &gt; Audio &gt; audio Library &gt; Manual &gt; Features &gt; Audio Renderer</span></li><li><span class="sv-ti-done">Features &gt; Audio &gt; audio Library &gt; Manual &gt; Features &gt; Other</span></li><li><span class="sv-ti-done">Features &gt; Audio &gt; audio Library &gt; Tool Reference &gt; SystemAudioMonitor</span><br /></li><li><span class="sv-ti-done">Features &gt; NintendoWare &gt; Spy</span></li><li><span class="sv-ti-done">Features &gt; NintendoWare &gt; Spy &gt; Spy.exe &gt; Audio Loudness Meter Panel</span><br /></li></ul></li>
+</ul>
+<!--Remove-->
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

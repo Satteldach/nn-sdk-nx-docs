@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.6 Token Requests | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.6 Token Requests -->
+<div class="pagetitle" id="PageId_860042565">5.6 Token Requests</div>
+<div class="text_separate">
+<p>These are requests to get a token in exchange for the authorization code obtained by making an authorization request.<br />Always perform token requests from your independent server.</p>
+<h2 id="Anchor_860042565_h2_1">Requested Domains</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Environment Identifier</th>
+      <th>Requested Domains</th>
+    </tr>
+    <tr>
+      <td>td1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>jd1</td>
+      <td>jd1.accounts.nintendoswitch.com.cn</td>
+    </tr>
+    <tr>
+      <td>dd1</td>
+      <td>dd1.accounts.nintendoswitch.com.cn</td>
+    </tr>
+    <tr>
+      <td>dp1</td>
+      <td>dp1.accounts.nintendoswitch.com.cn</td>
+    </tr>
+    <tr>
+      <td>sd1</td>
+      <td>sd1.accounts.nintendoswitch.com.cn</td>
+    </tr>
+    <tr>
+      <td>sp1</td>
+      <td>sp1.accounts.nintendoswitch.com.cn</td>
+    </tr>
+    <tr>
+      <td>lp1</td>
+      <td>accounts.nintendoswitch.com.cn</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_860042565_h2_2">Request Specification</h2>
+<h6 id="Anchor_860042565_h6_1">HTTP Method/Path</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">HTTP method</th>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <th style="text-align: left;">Path</th>
+      <td>/connect/1.0.0/api/token</td>
+    </tr>
+    <tr>
+      <th style="text-align: left;">encType</th>
+      <td>
+        <p>application/x-www-form-urlencoded</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_860042565_h6_2">Request Parameters</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Authorization</td>
+      <td>Y</td>
+      <td>Requests Basic authentication based on client ID and client secret issued by Nintendo. </td>
+    </tr>
+    <tr>
+      <td>grant_type</td>
+      <td>Y</td>
+      <td>
+        <p>Specifies the format of the token request.</p>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>authorization_code</td>
+              <td>Uses the authorization code.</td>
+            </tr>
+            <tr>
+              <td>refresh_token</td>
+              <td>
+                <p>Uses the refresh token.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="auto-cursor-target">
+          <code>refresh_token</code> and <code>id_token</code> are not included when <code>grant_type</code> is <code>refresh_token</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>redirect_uri</td>
+      <td>N (see note)</td>
+      <td>
+        <p>Specify the redirect URI that was specified in the authorization request.</p>
+        <p>
+          <strong>Note:</strong> Required when <code>grant_type=authorization_code</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>N (see note)</td>
+      <td>
+        <p>Specify the authorization code obtained by the authorization request.</p>
+        <p>
+          <strong>Note:</strong> Required when <code>grant_type=authorization_code</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>refresh_token</td>
+      <td>N (see note)</td>
+      <td>
+        <p>Specify the already obtained refresh token.</p>
+        <p>
+          <strong>Note:</strong> Required when <code>grant_type=refresh_token</code>. </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="margin-left: 15.0px;" id="Anchor_860042565_h3_1">Refreshing Access Tokens</h3>
+<p>When both of the following criteria are met, the accounts for China server returns a refresh token as the response.</p>
+<ul>
+  <li>
+    <code>scope=offline</code> is specified when requesting authorization.</li>
+  <li>
+    <code>grant_type=authorization_code</code> is specified when requesting the token.</li>
+</ul>
+<p>The refresh token does not expire, and it is not reacquired when you act to refresh the access token. To refresh the access token, specify the refresh token that was obtained with the <code>grant_type=authorization_code</code> token request.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The refresh token can become invalidated by the user or by Nintendo. In this case, an <code>invalid_grant</code> error (described later) occurs.</p>
+    <p class="c-mrkdwn__pre">If the refresh token cannot be used, repeat the authentication and authorization sequence to get a new refresh token.</p>
+  </div>
+</div>
+<h2 style="margin-left: 15.0px;" id="Anchor_860042565_h2_3">Response Specification</h2>
+<p>The response is returned in <code>application/json</code> format. If the request succeeds, the following properties are included in the response.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>access_token</td>
+      <td>The access token. </td>
+    </tr>
+    <tr>
+      <td>refresh_token</td>
+      <td>
+        <p>The refresh token.</p>
+        <p>Included when both of the following criteria are met.</p>
+        <ol>
+          <li>
+            <code>scope=offline</code> is authorized.<br class="_mce_tagged_br" /></li>
+          <li>
+            <code>grant_type=authorization_code</code> is specified when requesting the token.</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>id_token</td>
+      <td>
+        <p>The ID token. </p>
+        <p>Included when both of the following criteria are met.</p>
+        <ol>
+          <li>
+            <code>scope=openid</code> is specified when requesting authorization.</li>
+          <li>
+            <code>grant_type=authorization_code</code> is specified when requesting the token.<br /></li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>expires_in</td>
+      <td>
+        <p>Represents the period of validity of <code>access_token</code> and <code>id_token</code>. </p>
+      </td>
+    </tr>
+    <tr>
+      <td>token_type</td>
+      <td>Fixed to <code>Bearer</code>.</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>
+        <p>A list of the user-authorized <code>scope</code> values included among the values specified in the authorization request.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Sample</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>POST /connect/1.0.0/api/token HTTP/1.1
+Host: dd1.accounts.nintendoswitch.com.cn
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic ***
+
+grant_type=authorization_code&amp;redirect_uri=http%3A%2F%2Flocalhost&amp;code=ey...
+&nbsp;
+&nbsp;
+HTTP/1.1 200 OK
+{
+&nbsp;&nbsp;&quot;access_token&quot;: &quot;ey..&quot;,
+&nbsp;&nbsp;&quot;id_token&quot;: &quot;ey...&quot;,
+&nbsp;&nbsp;&quot;refresh_token&quot;: &quot;ey..&quot;,
+&nbsp;&nbsp;&quot;scope&quot;: [
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;openid&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;offline&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;user.birthday&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;user.basic&quot;,
+&nbsp;&nbsp;],
+&nbsp;&nbsp;&quot;token_type&quot;: &quot;Bearer&quot;,
+&nbsp;&nbsp;&quot;expires_in&quot;: 900
+}
+&nbsp;</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p> If the request fails, the following error is returned.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>HTTP/1.1 400 Bad Request
+{
+&nbsp;&nbsp;&quot;error_description&quot;: &quot;The provided grant is expired&quot;,
+&nbsp;&nbsp;&quot;error&quot;: &quot;invalid_grant&quot;
+}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>
+        <table class="wrapped">
+          <tbody>
+            <tr>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>invalid_client</td>
+              <td>Error that occurs if Basic authentication fails for the specified combination of <code>client_id</code> and <code>client_secret</code>.</td>
+            </tr>
+            <tr>
+              <td>unauthorized_client</td>
+              <td>Error when the specified <code>client_id</code> is invalid.</td>
+            </tr>
+            <tr>
+              <td>invalid_grant</td>
+              <td>
+                <p>Error that occurs if the authorization procedure fails. It occurs in the following cases.</p>
+                <ul>
+                  <li>The authorization code is invalid.</li>
+                  <li>The authorization code has expired.</li>
+                  <li>The refresh token is invalid.</li>
+                  <li>The account for China is in an invalid state.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>invalid_request</td>
+              <td>
+                <p>This error is returned when the request is in an invalid format. </p>
+              </td>
+            </tr>
+            <tr>
+              <td>unsupported_grant_type</td>
+              <td>
+                <p>This error is returned when the specified <code>grant_type</code> is invalid.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>
+        <p>Text describing the <code>error</code> item.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.1 NEX General Considerations | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.1 NEX General Considerations -->
+<div class="pagetitle" id="PageId_164355001">4.1 NEX General Considerations</div>
+<div class="text_separate">
+<div>
+  <h1 id="Anchor_164355001_h1_1">Initializing and Logging In</h1>
+  <ul>
+    <li>The NEX library and the other libraries (libraries that the NEX library is dependent on) must be initialized before logging in to the game server.</li>
+    <li>If multiple Nintendo Switch consoles all linked to the same Nintendo Account log in to the game server at the same time, the users on the consoles that logged in first will be disconnected from the server. You do not need to pay special attention to this situation in your application. Handle it in the normal way you would handle a disconnection from the server.</li>
+  </ul>
+  <h1 id="Anchor_164355001_h1_2">Logging in From a Windows Application</h1>
+  <p>If you want to log in to the game server from a Windows application (an application for which NX-x64, NX-Win32, x64, or Win32 has been specified as the build target), do as described below according to the version of NintendoSDK that you are using.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>The login method using the <code>NgsFacade::DebugLoginDirect()</code> function (using a default user name like <code>testuser_1</code> prepared for each game server ahead of time, and a default password that is the same as the access key) was <a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info?articleId=310744258" target="_blank" rel="noopener noreferrer">deprecated in June 2021</a>.</p>
+    </div>
+  </div>
+  <h2 id="Anchor_164355001_h2_1">NintendoSDK 16.x or Higher</h2>
+  <ul>
+    <li>See account Library for the Windows Environment (<a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_1597084757.html" target="_blank" rel="noopener noreferrer">Japanese</a>, <a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_1597084757.html" target="_blank" rel="noopener noreferrer">English</a>) in the NintendoSDK documentation.</li>
+  </ul>
+  <h2 id="Anchor_164355001_h2_2">NintendoSDK 15.x or Lower</h2>
+  <ul>
+    <li>Contact your Nintendo support representative. Nintendo will provide guidance for a special login method. Include the following information.<ul><li style="list-style-type: none;"><ul><li>The version of NintendoSDK that the application is using</li><li>The application's game code (example: HAC-P-ABCDE)</li></ul></li></ul></li>
+  </ul>
+  <h1 id="Anchor_164355001_h1_3">Canceling Asynchronous Processes</h1>
+  <p>Although you can cancel all asynchronous NEX processes, we do not recommend it unless there is a specific reason.</p>
+  <p>In some cases, the processing on the server may have already completed when the asynchronous process is canceled. For example, it is possible for the asynchronous process of creating a matchmaking session to be canceled after that session has already been created on the server. If the matchmaking session was created in a state open to participation, an unmanaged matchmaking session may be created. In general, we recommend not explicitly canceling the asynchronous processes.</p>
+  <h1 id="Anchor_164355001_h1_4">Network Disconnection During Asynchronous Processing</h1>
+  <p>When the connection to the network is lost, NEX cannot continue with normal communication, so you must finalize the <code>nex</code> library. The same is true if the network is disconnected during asynchronous processing.</p>
+  <p>If a network disconnection is detected during asynchronous processing, finalize the <code>nex</code> library. It is acceptable at such times to finalize NEX without first canceling the running asynchronous processes.</p>
+  <h1 id="Anchor_164355001_h1_5">Threads on Which NEX Functions Are Called</h1>
+  <p>If you select a thread mode that is not thread-safe like <code>ThreadModeUnsafeTransportBuffer</code> or <code>ThreadModeUnsafeUser</code>, you must call all NEX functions from the same thread. Call all functions from the same thread regardless of whether they involve communication, and regardless of whether the functions are synchronous or asynchronous. Alternatively, you can use exclusive control as appropriate.</p>
+  <h1 id="Anchor_164355001_h1_6">Working With IDs Issued by Game Servers</h1>
+  <p>The IDs issued by a game server are not unique outside of that game server. Not only are these IDs not unique across different applications, they also are not unique for the same application across game servers in different server environments (such as the development environment, the Lotcheck environment, and the production environment). As a result, you need to be careful when managing these IDs on an independent server.</p>
+  <p>For example, the data IDs in the data store might be the same in both the Lotcheck environment and the production environment, in which case there is a risk of duplication if you manage data based solely on data IDs on your independent server. If you plan to save IDs issued by the game server on an independent server or elsewhere, make sure that you manage that data together with information about the server environment.</p>
+  <h1 id="Anchor_164355001_h1_7">Number of Data Instances That NEX Can Handle</h1>
+  <p>For NEX data store, matchmaking, and ranking data, an upper limit of about 10 million pieces of data is assumed for each use. If the data exceeds these limits, there is a risk that server performance will decline enough to affect the user experience.</p>
+  <p>If you think that your application might generate more than 10 million total pieces of data, contact Nintendo in advance.</p>
+  <h6 id="Anchor_164355001_h6_1">Data Store</h6>
+  <p>The upper limit is 10 million total pieces of data, regardless of whether you are using a storage server. If there are 100,000 unique users, for example, and each user uploads 100 pieces of data, the total becomes 10 million pieces of data.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <ul>
+        <li>For this discussion, the total number of pieces of data includes pieces of data that have been logically deleted but not yet physically deleted. As a result, if the data is within its validity period, the total number of pieces of data on the server is not reduced even if that data has been logically deleted. For this reason, set appropriate validity periods for data so pieces of data that have been logically deleted are then physically deleted.</li>
+        <li>When data is logically deleted, the game server automatically shortens the validity period for that data. Unless the validity period is intentionally extended for the logically deleted data, it will be physically deleted in turn. For more information, see NX NEX Manual &gt; DataStore &gt; Logically and Physically Deleting Data.</li>
+      </ul>
+    </div>
+  </div>
+  <h6 id="Anchor_164355001_h6_2">Matchmaking</h6>
+  <p>Take the following measures so the total number of matchmaking sessions does not increase unnecessarily.</p>
+  <ul>
+    <li>When matchmaking has completed and there is no longer any need to accept new users (for example, when transitioning to P2P communication), call the <code>nn::nex::MatchmakeExtensionClient::CloseParticipation()</code> function and close the matchmaking session.</li>
+    <li>When a matchmaking session is no longer being used, call the <code>nn::nex::MatchMakingClient::UnregisterGathering()</code> function and remove that matchmaking session. Alternatively, leave the matchmaking session.</li>
+  </ul>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>A matchmaking session that is not being used is removed automatically. For this reason, even if you neglect to remove matchmaking sessions, the number is not expected to reach 10 million sessions.</p>
+    </div>
+  </div>
+  <h6 id="Anchor_164355001_h6_3">Ranking (Ranking and Ranking2)</h6>
+  <p>Each user can only keep one score to each category, so assuming there are 100,000 unique users and 100 categories, there would be a total of 10 million scores.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>If periodic resets are enabled for a particular Ranking 2 category, consider the number of past sessions of data that will be saved when you estimate the total number of scores. For more information, see NX NEX Manual &gt; Ranking 2 &gt; Predicted Number of Scores.</p>
+    </div>
+  </div>
+  <h1 id="Anchor_164355001_h1_8">Required Connection Environment for Connecting to the Game Server</h1>
+  <p>The game server's global IP address is not fixed. In addition, a list of game server global IP addresses cannot be provided. Exercise care when connecting from an environment like a company LAN that restricts connection targets. Prepare an environment that does not restrict connection targets.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>Depending on the NEX features, communication may occur with servers other than the game server, such as the storage server for data stores. The global IP addresses for these servers are not fixed.</p>
+    </div>
+  </div>
+  <h1 id="Anchor_164355001_h1_9">Breaking Compatibility and Version Connection Errors</h1>
+  <p>Both the game server and the authentication server check the version of the application when the application connects to the game server. If there is a compatibility break of the kind described in <a href="../Pages/Page_357924270.html">5.4 Patches and Compatibility</a> &gt; Breaking Compatibility Between Versions When Distributing a Patch, and an error occurs when the earlier version tries to connect to the game server, either of the following codes can be returned, depending on the timing.</p>
+  <table class="wrapped">
+    <colgroup>
+      <col />
+      <col />
+    </colgroup>
+    <tbody>
+      <tr>
+        <th>Server Performing the Version Check</th>
+        <th>Error Code</th>
+      </tr>
+      <tr>
+        <td>Authentication Server</td>
+        <td>
+          <p>2124-3001</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Game Server</td>
+        <td>2306-0819</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>In the implementation of your application, consider the possibility that errors could be returned not only by the game server, but also by the authentication server. For more information about debugging, see Nintendo Switch Network Error Simulation Manual.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>In versions 4.4.0 and earlier, the NEX library provides an override of the <code>nn::nex::NgsFacade::Login()</code> function that takes <code>nn::account::UserHandle</code> as an argument. Note that in applications that use this function, the values obtained by the <code>nn::nex::NgsFacade::GetLastLoginNnResult()</code> function include <code>nn::Result</code> instances that come not only via the game server, but also via the authentication server.</p>
+    </div>
+  </div>
+  <h1 id="Anchor_164355001_h1_10">Some NEX Services Cannot Be Provided to Users in Countries and Regions Where Nintendo Switch Online Memberships Are Not Available</h1>
+  <p>A subscription to Nintendo Switch Online is required in order to use some of the NEX services, such as matchmaking.</p>
+  <p>Users in countries and regions where people cannot subscribe to Nintendo Switch Online, such as Taiwan and other places in Asia, cannot use these services.</p>
+  <p>For more information, see Nintendo Switch Online Play Guide &gt; Nintendo Switch Online Support &gt; Policies (<a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/Docs/Guides/Online_Play_Guide/contents/Pages/Page_241540099.html" target="_blank" rel="noopener noreferrer">English</a>, <a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/Docs/Guides/Online_Play_Guide/contents/Pages/Page_241540099.html" target="_blank" rel="noopener noreferrer">Japanese</a>).</p>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

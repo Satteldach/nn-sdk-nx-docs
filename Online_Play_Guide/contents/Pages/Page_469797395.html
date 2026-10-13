@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.7.3 Calling the My Page Applet | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.7.3 Calling the My Page Applet -->
+<div class="pagetitle" id="PageId_469797395">3.7.3 Calling the My Page Applet</div>
+<div class="text_separate">
+<h2 id="Anchor_469797395_h2_1">Friends Features Included in the My Page Applet</h2>
+<p>The My Page applet is a library applet that provides a collection of user-related information and features.<br />It includes the friend list feature for checking the list of friends and adding friends.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/469797388.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p>With the friend list feature, users can do the following. </p>
+<ul>
+  <li>Check the profiles and the presence of friends, set best friends, and delete friends.</li>
+  <li>Send, receive, accept, and delete friend requests.</li>
+  <li>Check the Player History.</li>
+  <li>Check and accept (join) invitations to online play.</li>
+  <li>Change the settings of the Friends feature.</li>
+  <li>Manage the blocked-user list.</li>
+</ul>
+<p>Users can start the My Page applet from the HOME Menu on the Switch at any time. It can even be called while an application is suspended without exiting the application.</p>
+<h2 id="Anchor_469797395_h2_2">Calling From an Application</h2>
+<p>Some of the My Page applet screens can be specified and called from the application. You do not need to close the application to do this, so you can simply return to the application after the user operation has ended.</p>
+<p>The following examples show calls to these screens. The application UIs in these figures are merely examples. In addition, the sequence details have been omitted for the purposes of these descriptions, and the layouts are only provisional. The number of screens that can be called may increase or decrease in the future.  </p>
+<h3 id="Anchor_469797395_h3_1">Friend List Screen</h3>
+<p>Use: Enables the user to check on the presence of all friends. (Friends who are playing the same application are shown preferentially.)</p>
+<p>Calling image:</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/481492834.png" width="1018" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_469797395_h3_2">User Details Screen</h3>
+<p>Use: Enables users to view details about themselves, friends, and others they have played online with, and to perform various operations.</p>
+<p>Image when called player was a friend:<br />The friend can be set or removed as a best friend, deleted, or blocked.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/481492835.png" width="1018" class="embedded-image" />
+  </span>
+</p>
+<p>Image when called player was not a friend: <br />(Friend request can be sent to player; player can be blocked.) </p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/481492836.png" width="1018" class="embedded-image" />
+  </span>
+</p>
+<p>Scenario when the called player is the user:</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/481492838.png" width="1018" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Do not display this information for users who have never played the application (excluding friends). </p>
+    <p>It is not designed for checking details about players matched with via local communication matchmaking. (It can be used if you happen to have an internet connection, but that is a rare case, so do not make that assumption. Also, local communication in the application will be disconnected.)<br />When you want to become friends with such players, call the Screen to Schedule Friend Requests During Local Communication to send a friend request.</p>
+  </div>
+</div>
+<h3 id="Anchor_469797395_h3_3">Send Friend Request Process</h3>
+<p>Use: Enables the user to send a friend request to a player they matched up with for online play.</p>
+<p>Calling image:</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/481492841.png" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>It is not designed for becoming friends with a player matched with over local communication. (It can be used if you happen to have an internet connection, but that is a rare case, so do not make that assumption. Also, local communication in the application will be disconnected.)</p>
+    <p>When local communication is being used, call the Screen to Schedule Friend Requests During Local Communication</p>
+  </div>
+</div>
+<h3 id="Anchor_469797395_h3_4">Screen Listing Ways to Send Friend Requests</h3>
+<p>Use: When you want to encourage players to make friends.<br />(The screen displays ways to send friend requests, including searches from friend codes, local communication, and Player History. There is also a link to open a screen listing friend requests that have been sent and received.)</p>
+<h3 id="Anchor_469797395_h3_5">Screen to Schedule Friend Requests During Local Communication</h3>
+<p>Use: When you want to encourage making friends during Local Play.</p>
+<p>Calling image:<span class="embedded-file-wrapper "><img src="../Attachments/Attach_469797395/481492837.png" width="1353" class="embedded-image" /></span></p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Local communication will be disconnected in the application because local communication by the system and the application cannot co-exist.</p>
+  </div>
+</div>
+<h3 id="Anchor_469797395_h3_6">Screen Listing Received Friend Requests</h3>
+<p>Use: When you want players to view received friend requests and approve, delete, or block them. </p>
+<h3 id="Anchor_469797395_h3_7">Screen for Selecting Friends to Send Invitations for Online Play</h3>
+<p>Use: When you want to select friends to invite for online play from inside the My Page applet.</p>
+<p>Calling image:</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_469797395/672155298.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>In addition to using the My Page applet, you can also design an independent UI in the application for selecting friends to invite for online play. For more information, see <a href="../Pages/Page_522550026.html">3.5 Friend Invitation</a>.</p>
+  </div>
+</div>
+<h3 id="Anchor_469797395_h3_8">Screen for Managing the Blocked-User List</h3>
+<p>Use: When you want players to view their blocked-user lists and remove users from the list.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

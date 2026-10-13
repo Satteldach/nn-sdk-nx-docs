@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4 Vibration Content Production Process | Nintendo Switch HD Rumble Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4 Vibration Content Production Process -->
+<div class="pagetitle" id="PageId_112891030">4 Vibration Content Production Process</div>
+<div class="text_separate">
+<p>This document describes the process that application developers use to produce content that uses the HD rumble feature. There are basically two ways to generate vibrations. The first is to generate vibration values in real time. The second is to begin by generating a <em>vibration binary file</em> and then use that file to play back vibrations when the program runs. This document describes the specific processes that application developers must perform for each method.</p>
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_112891030_h1_1">Generating Vibration Values in Real Time</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_112891030_h2_1">Controlling the Amplitude (Strength) of the Vibrations</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_2">Controlling the Frequency (Fineness) of the Vibrations in Real Time</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_112891030_h1_2">Using a Binary Vibration File</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_112891030_h2_3">Using the Vibration Collection Presets</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_4">Generating Files Using the Vibration Converter</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_5">Generating Files Using the Real-Time Vibration Converter</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_6">Generating Files Based on Parameters</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_7">Playing Back Binary Vibration Files</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_8">Who Creates the Vibration Binary Files?</a>
+      </li>
+      <li>
+        <a href="#Anchor_112891030_h2_9">Designing the Vibrations</a>
+      </li>
+      <ul>
+        <li>
+          <a href="#Anchor_112891030_h3_1">Considering the Role of Vibration</a>
+        </li>
+        <li>
+          <a href="#Anchor_112891030_h3_2">Improving Vibration Sensations</a>
+        </li>
+        <li>
+          <a href="#Anchor_112891030_h3_3">Checking the Sensation</a>
+        </li>
+      </ul>
+    </ul>
+  </ul>
+</p>
+<h1 id="Anchor_112891030_h1_1">Generating Vibration Values in Real Time</h1>
+<p>This section describes how to generate vibration values in real time.<br />For this method, you directly generate values called <em>vibration values</em> when running the program, using the vibration API to control the process.<br />Vibration values represent the state of a vibration in a certain instant, and comprise the following four parameters.</p>
+<ul style="margin-left: 20.0px;">
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>A low-frequency band amplitude value</li>
+      <li>A low-frequency band frequency value</li>
+      <li>A high-frequency band amplitude value</li>
+      <li>A high-frequency band frequency value</li>
+    </ul>
+  </li>
+</ul>
+<p>To describe generating vibration values in another way, it is the successive specification of amplitude and frequency values for both the low and high frequency bands. In the context of the <strong>linear resonant actuator</strong> used in this method, these <strong>low- and high-frequency bands</strong> refer to the resonant frequencies of around 160 Hz and 320 Hz.</p>
+<p>Recall that <a href="../Pages/Page_112891003.html">2 Creating New Effects With Vibrations</a><span style="letter-spacing: 0.0px;"> describes how the linear resonant actuator vibrates more readily at two resonance frequencies. In this case, </span><strong style="letter-spacing: 0.0px;">high frequency</strong><span style="letter-spacing: 0.0px;"> refers to the higher of these two resonant frequencies.</span></p>
+<p>The amplitude and frequency values refer to the strength and the fineness of the vibration. The larger the amplitude, the stronger the vibration. The higher the frequency, the finer the vibration. Setting the amplitude and frequency in detail and in real time in this way enables the expression of sensations that were not possible with the eccentric rotating mass. This method is appropriate for creating comparatively simple vibrations and is an extension of what could be done before.</p>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_112891030_h2_1">Controlling the Amplitude (Strength) of the Vibrations</h2>
+<p>Consider a practical example where a vibration's amplitude is changed in real time.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>...
+amplitudeLow = 1.0f;
+...
+amplitudeLow = 0.0f;
+...
+amplitudeLow = 0.5f;
+...</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>This sample code specifies numeric values for <code>amplitudeLow</code>, or the amplitude for the low-frequency band. In the first row, a value of <code>1.0f</code> is specified. With this setting, the vibration motor begins vibrating at the maximum amplitude near 160 Hz. In the second row, the value <code>0.0f</code> is specified, which is an amplitude of zero, meaning that the vibration ends. In the third row, the value <code>0.5f</code> is specified, so vibration begins at half the maximum amplitude.</p>
+<h2 id="Anchor_112891030_h2_2">Controlling the Frequency (Fineness) of the Vibrations in Real Time</h2>
+<p>The following example controls the frequency, rather than the amplitude, of the vibration. Consider a case where you want to generate heavy and light vibrations.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>...
+amplitudeLow = 1.0f;
+...
+amplitudeLow = 0.0f;
+...
+amplitudeHigh = 1.0f;
+...
+amplitudeHigh = 0.0f;
+...</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Generally speaking, when you generate a vibration in a lower frequency it feels heavy, and when you generate a vibration in a higher frequency it feels light. With the eccentric rotating mass, there was no way to control frequency. With the Switch linear resonant actuator, you can separately specify a low-frequency amplitude and a high-frequency amplitude to generate heavy vibrations and light vibrations.</p>
+<p>
+  <br />
+</p>
+<p>Consider another example, where you want to dynamically change the vibration frequency a little at a time.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>...
+frequencyLow = 140.0f;
+...
+frequencyLow = 150.0f;
+...
+frequencyLow = 160.0f;
+...
+frequencyLow = 170.0f;
+...
+frequencyLow = 180.0f;
+...</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>This effect was also impossible for the eccentric rotating mass. With the Switch linear resonant actuator, however, you can directly change the frequency by setting a series of values for the variable that specifies the frequency. In this example, the value for <code>frequencyLow</code>, the frequency of the low-frequency band, starts at 140 Hz and becomes increasingly finer.</p>
+<p>
+  <br />
+</p>
+<p>For more information about using the API, see the following sample.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Sample HidVibrationBasic: <code>%NINTENDO_SDK_ROOT%\Samples\Sources\Applications\HidVibrationBasic</code></p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>With the Switch linear resonant actuator, vibration values can be set at intervals as short as 5 milliseconds.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The following frequencies can be specified for the Switch linear resonant actuator.</p>
+    <ul>
+      <li>Frequencies in the low-frequency band<br />In the range from 40 Hz to 640 Hz, with the middle of the range at 160 Hz.</li>
+      <li>Frequencies in the high-frequency band<br />In the range from 80 Hz to 1280 Hz, with the middle of the range at 320 Hz.</li>
+    </ul>
+    <p>Frequencies can be set with a resolution of 2^(1/32). In other words, the minimum unit is 1/32 of an octave. To be specific, for frequencies near 320 Hz, you can set values in increments of around 7 Hz, while for frequencies near 160 Hz, you can set values in increments of around 3.5 Hz.</p>
+    <p>The specified vibration values (amplitude and frequency values) are not necessarily sent to the linear resonant actuator as is. Depending on the hardware and communication specification restrictions, the vibration values might be adjusted internally.</p>
+  </div>
+</div>
+<h1 id="Anchor_112891030_h1_2">
+  <br />Using a Binary Vibration File</h1>
+<p>This section describes how to use vibration binary files.</p>
+<p>With this method, the application developer creates a binary file that records a series of vibration values (<em>vibration data</em>) and saves them in advance as a <em>vibration binary file</em> on a computer or other device. Vibrations are then generated when you play this file back when the program runs. The process is similar to loading and playing sound and image data.</p>
+<p>A vibration converter is distributed to application developers along with NintendoSDK NX Add-On. This Windows tool generates vibration binary files from audio data and the Vibration Collection, which is a tool that runs on EDEV and SDEV for previewing the simultaneous playback of vibration and sounds. Application developers can use these samples and tools to create vibration binary files. Developers can use any of the following processes to create them.</p>
+<p>
+  <br />
+</p>
+<ol>
+  <li>Use preset vibration binary files from the Vibration Collection.</li>
+  <li>Use the vibration converter to generate vibration binary files from audio data.</li>
+  <li>Generate vibration binary files based on parameters.</li>
+</ol>
+<h2 id="Anchor_112891030_h2_3">Using the Vibration Collection Presets</h2>
+<p>The simplest way is to choose a favorite vibration binary file from the Vibration Collection and use it as is. The Vibration Collection contains over 80 types of vibration binary files that can be used generically. If an application developer finds a vibration binary file they like in the Vibration Collection, they can use it without making changes. In addition, the Vibration Collection has features for changing factors like amplitude, frequency, and playback speed for the vibration binary files and exporting them. You can use this feature to easily create many different vibration binary files.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891030/391858837.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891030/391858842.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Vibration Collection (VibrationCollection): <code>%NINTENDO_SDK_ROOT%\TargetTools\NX-NXFP2-a64\VibrationCollection\Release\VibrationCollection.nsp</code></p>
+    <p>Switch applications may use the vibration binary files provided by the Vibration Collection, and the vibration binary files generated from changing those files.</p>
+  </div>
+</div>
+<h2 id="Anchor_112891030_h2_4">Generating Files Using the Vibration Converter</h2>
+<p>Another method is to generate vibration binary files from audio data. This method is probably best when creating vibrations to go along with audio.<br />The vibration converter (PC tool) provided to application developers can extract just the components suited to vibration from the original audio data and then convert that to vibration binary files. For more information, see the vibration converter page in NintendoSDK Documents.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Vibration Converter (VibrationConverterConsole): <code>%NINTENDO_SDK_ROOT%\Tools\Hid\VibrationConverterConsole\VibrationConverterConsole.exe</code></p>
+  </div>
+</div>
+<h2 id="Anchor_112891030_h2_5">Generating Files Using the Real-Time Vibration Converter</h2>
+<p>In addition to the vibration converter PC tool, there is a separate vibration converter that runs in real time on the development hardware. Using this tool, you can convert sound data played within an application to vibrations. Note, however, that the amplitude of the vibration value will be nearly 0 if the audio being played does not contain a low-frequency component below 500 Hz. If you want to generate vibrations in these situations, you must perform preprocessing such as shifting the pitch of the sound data.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>HidVibrationRealTimeConverter sample: <code>%NINTENDO_SDK_ROOT%\Samples\Sources\Applications\HidVibrationRealTimeConverter</code></p>
+  </div>
+</div>
+<h2 id="Anchor_112891030_h2_6">Generating Files Based on Parameters</h2>
+<p>The final method generates vibration binary files based on parameters.<br />You can generate various types of vibration waveforms by setting the amplitude strength, frequency, length, and attenuation curve parameters. This system is similar to an audio creation synthesizer. It is useful when you want to design vibrations that modulate in strength or comfortably linger. For more information, see the HidVibrationGenerator sample in the NintendoSDK. You can also export the generated vibration waveform to a vibration binary file.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891030/391858849.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>HidVibrationGenerator sample: <code>%NINTENDO_SDK_ROOT%\Samples\Sources\Applications\HidVibrationGenerator</code></p>
+  </div>
+</div>
+<h2 id="Anchor_112891030_h2_7">Playing Back Binary Vibration Files</h2>
+<p>The following description provides the procedure for actually playing back the vibration binary files you created when running a program. There is not much difference in playing back audio or video data and playing back vibration data. Any vibration binary files you created in advance are stored in ROM when the program runs. The program uses a class called <code>VibrationPlayer</code> to control vibration binary files. Calling the <code>SetVibrationFileAddress</code> function on an instance of <code>VibrationPlayer</code> sets vibration data from the vibration binary file stored in ROM in that class object. After that, you can call the <code>Play</code> function at any time to send vibration data to the linear resonant actuator to start vibration.</p>
+<p>If you coordinate the start of the audio data and the playback of the vibration data, you can create vibration content linked to audio. In addition, an optional feature when playing back vibration data allows you to edit vibrations in real time, such as by changing the amplitude, looping the playback, and changing the playback speed. This feature enables application developers to dynamically create a variety of different sensations from one set of vibration data.</p>
+<p>In addition, you can use the <code>VibrationMixer</code> class to mix the output from multiple <code>VibrationPlayer</code> objects into a single object. And you can use <code>VibrationNodeConnection</code> to freely change the ratio in which the output from a single <code>VibrationPlayer</code> object is sent to the vibration motors in the left and right controllers, for example in a ratio of 1:9 or 5:5. You can use this to implement various controls such as vibrating only the right, only the left, or both controllers, or panning to the left and right.</p>
+<p>
+  <br />
+</p>
+<p>For more information about using the functions, see the following sample.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Sample HidVibrationPlayer: <code>%NINTENDO_SDK_ROOT%\Samples\Sources\Applications\HidVibrationPlayer</code></p>
+  </div>
+</div>
+<h2 id="Anchor_112891030_h2_8">Who Creates the Vibration Binary Files?</h2>
+<p>In the past, vibrations were handled by various people such as developers and planners. Being able to freely control vibration patterns with HD rumble enables more options than before. As a result, there may be concerns about who should handle data generation.</p>
+<p>Just like before, anyone can create vibration binary files if they use the Vibration Collection or define parameters, as described in methods 1 and 3. However, the vibration converter requires the handling of audio data, so if you are using method 2, it would be appropriate for the people involved with sounds to create the vibration binary files. Whether the vibrations created using the vibration converter are good or bad depends on the audio data that serves as the input, so it requires trial and error. We recommend first trying methods 1 and 3, and only using method 2 if you cannot achieve the desired vibrations otherwise.</p>
+<h2 id="Anchor_112891030_h2_9">Designing the Vibrations</h2>
+<p>When using vibrations in an application, attaching vibrations to every event would incur major costs. In addition, increasing the vibration time is not always an effective way to use vibrations. To create a good experience with vibrations, it is important to consider which events will use vibrations and what kinds of vibrations to play, and to check whether the experience of the vibrations feels as intended. This process is called <em>vibration design</em>. Few developers have experience in the area of vibration design, so a simple description follows.</p>
+<h3 id="Anchor_112891030_h3_1">Considering the Role of Vibration</h3>
+<p>The first thing to consider is to classify each event within the application as a vibration trigger or not a vibration trigger.</p>
+<p>In Mario Kart 8 Deluxe, for example, the controller vibrates when you accelerate using items, but not when you accelerate normally. This design makes accelerating using items feel more exhilarating. And the use of vibrations for the idling engine in the scene just before the race starts adds realism to the moment. In Mario Tennis Aces, the use of vibrations to represent the beating heart at important moments like match points evokes a feeling of tension.</p>
+<p>Whether to classify something as a vibration trigger depends strongly on the context. For this reason, it is important to actually create prototypes and experience the vibrations. In implementing prototypes, one way is to add vibrations starting with the critical scenes. But another approach is to try adding vibrations to all sound effects using the real-time vibration converter and carefully selecting which places will have vibrations.</p>
+<p>Although the basic approach is to link vibration playback to audio, in some cases vibrations are not linked to audio. For example, in an action game, it may be more appropriate to play vibrations in response to user operations or character animations. In addition, in a multiplayer situation, vibrations are an effective way to get the attention of specific users.</p>
+<p>People do not use detailed language representing vibration in their everyday lives, so it may feel challenging to classify vibrations and consider their roles. However, the act of feeling happens everyday, so you can determine the advantages and disadvantages if vibrations are actually included in the application.</p>
+<h3 id="Anchor_112891030_h3_2">Improving Vibration Sensations</h3>
+<p>The next step is to adjust the vibrations applied to each vibration trigger event to improve the feel of the vibrations.</p>
+<p>In some cases you might add vibration and it seems fine right away, but in other cases it feels completely wrong. In those cases, adjust settings such as the vibration strength, frequency, length, and playback timing while accounting for the sounds and effects played back at the same time to suit the event. The tendency is to set strong vibrations at the start, so it is effective to lower the intensity by almost unnoticeable amounts. The preset waveforms and editing features of the Vibration Collection are useful for these adjustments.</p>
+<p>In Mario Tennis Aces, for example, there is a vibration when you return a ball using the racket, but the vibration pattern differs depending on whether you return it well. By making the vibration weak and short when you return the ball well and strong and long when you miss, you can represent the impact on the user's arm when they are not able to hit the ball back correctly. You can use vibrations to represent whether the user has grasped the correct timing for returning the ball.</p>
+<h3 id="Anchor_112891030_h3_3">Checking the Sensation</h3>
+<p>Finally, check whether the sensation when experiencing the application is the intended sensation.</p>
+<p>Check from the perspectives of whether the application's difficulty changed by making controls easier to understand through vibration, whether emphasis in the scenario is aligned with the vibrations, and whether repeated vibrations are making their effect less effective. Even if highly amplified vibrations are novel when first experiencing an application, they sometimes become annoying after you've played many times. In those cases, it is preferable to lower the amplitude.</p>
+<p>As stated previously, people do not use detailed language to represent vibration in their everyday lives, so it is difficult to put the effect vibrations have into precise words. In such situations, you can more easily understand the effect of vibrations by playing the application after temporarily turning vibrations off (in the HOME Menu by selecting <strong>System Settings</strong> &gt; <strong>Controllers and Sensors</strong> &gt; <strong>Controller Vibration</strong>), and then playing the application again after turning them back on.</p>
+<p>In some cases, the desired strength of vibration differs for each user who experiences the application. In Super Mario Odyssey, there is an in-application setting that enables users to adjust the vibration strength (Weak, Normal, Strong). By adding a setting like this for people who like a weaker vibration or a stronger vibration, you make the game acceptable to a wide range of users.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

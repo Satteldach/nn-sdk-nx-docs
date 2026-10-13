@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="tocData.js"></script>
+<script type="text/javascript" src="tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="template/css/template.css" />
+<title>Revision History | Nintendo Switch Patch Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- Revision History -->
+<div class="pagetitle" id="GuidelineHistoryLabel">Revision History</div>
+<table class="wrapped relative-table" style="width: 90.1677%;">
+  <colgroup> <col style="width: 3.32329%;" /> <col style="width: 9.54817%;" /> <col style="width: 3.80711%;" /> <col style="width: 83.3214%;" /> </colgroup>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Update Date</th>
+      <th>Category</th>
+      <th>Revisions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3">5.0</td>
+      <td rowspan="3">
+        <p>2021-10-01</p>
+      </td>
+      <td>Additions</td>
+      <td>
+        <ul>
+          <li>
+            <a href="Pages/Page_1118601423.html">2.6 Handling for Initial Applications to Reduce Unnecessary Regions</a> <br /><span style="color: rgb(23,43,77);">Added the method of distributing most of the data as a patch rather than the initial application</span> as a method to reduce the number of unreferenced regions within the initial application.</li>
+          <li>
+            <a href="Pages/Page_1067306963.html">2.7 Application Compaction</a> <br />Added a description of application compaction.</li>
+          <li>
+            <a href="Pages/Page_1116983724.html">3.3 Patch Distribution</a> <br />Added that the developer needs to configure the settings on NCMS for distributing the patch after it has passed Lotcheck.<br />Noted that the timing for patch distribution cannot be separated by region.<br />Noted that you cannot specify certain users or Switch consoles as the distribution targets for the patch.<br />Added settings to configure on NCMS when distributing the patch.<br />Noted that there is a setting you can configure to prevent information leaks for patches distributed during pre-order.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Revised wording that could lead to misunderstandings. Fixed inconsistencies in terminology.</li>
+          <li>
+            <a href="Pages/Page_181906911.html">1 Introduction</a> <br />Changed the recommendation about when to read this document to be starting from when you are planning and developing the application.<br />Deleted &quot;partial file patch&quot; and &quot;most recent patch&quot; from Terminology.<br />Deleted Independent Server Setup Manual from Related Documents.</li>
+          <li>
+            <a href="Pages/Page_181909102.html">2.1 Capabilities of Patches</a> <br />Added Scope of Patching to the sections on the page.<br />Added that you can update almost all of the data by applying a patch.<br />Added information about regions that cannot be reduced in size.<br />Added an Important Information note that downgrading NintendoSDK versions through a patch is prohibited.</li>
+          <li>
+            <a href="Pages/Page_186759613.html">2.1.1 Adding Paid Features</a> <br />Moved the page location from a child page under Switch Patch Features to this page.<br />Added a reference to the Nintendo Switch E-Commerce Guide.<br />Deleted the Adding Features Using Only Downloadable Content section and the Adding Features Using a Patch and Downloadable Content Together section.<br />Added Adding Features Combining a Patch for Supporting Multiplayer and DLC.</li>
+          <li>
+            <a href="Pages/Page_186758838.html">2.2 How Patches Work</a> <br />Changed the page name from Patch Specifications.<br />Added that you can create patches by extracting only the difference in data before and after the application is revised.<br />Added a reference section (about the memory size required for patching).<br />Added an important information section (important information about patch sizes and reference to NintendoSDK Documents).</li>
+          <li>
+            <a href="Pages/Page_181909178.html">2.3 Update Processing via Patches</a> <br />Changed the page title from Updating Patches.<br />Added Downloading and Installing Patches, Updating With Incremental Data, Patches Distributed Through Local Communication, and Minor Fixes for Which the System Does Not Get a Patch.</li>
+          <li>
+            <a href="Pages/Page_193054884.html">2.3.1 Making Patches Mandatory for Applications That Use Network Services</a> <br />Changed the page title from Making Patches Mandatory.<br />Deleted the Update Within 24 Hours section and the Immediate Update section.<br />Added that the application release versions for all users may not match.<br />Added that to prevent users with earlier release versions of the application from using network services, you must make patching mandatory through Nintendo's authentication server.</li>
+          <li>
+            <a href="Pages/Page_181909621.html">2.4 Patch Management and Compatibility</a> <br />Added <a href="Pages/Page_181908153.html">4 Important Information</a> about backward compatibility.</li>
+          <li class="sv-pt-node type_masterpage highlight sv_ti_page_current">
+            <p>
+              <a href="Pages/Page_181909496.html">2.5 On-Card Patch</a> <br />Added a reference to the NintendoSDK Documents about using on-card patches.<br />Added a reference section indicating that you can use application compaction to reduce the patch size of on-card patches.<br />Added an important information section, and added the following two points.</p>
+            <ul>
+              <li class="sv-pt-node type_masterpage highlight sv_ti_page_current">
+                <p>If a patch with a later release version than the on-card patch is released, the application will not be updated incrementally.</p>
+              </li>
+              <li class="sv-pt-node type_masterpage highlight sv_ti_page_current">
+                <p>When the operating frequency set for the initial application differs from the operating frequency set for the on-card patch as described below, the timing when data is loaded may change greatly.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <a href="Pages/Page_187705639.html">3.1 Creating and Debugging Patches</a> <br />Changed the page title from Creating and Debugging Patches.</p>
+          </li>
+          <li>
+            <a href="Pages/Page_193063435.html">3.2 Patch Submission</a> <br />Changed the page title from Patch Registration.<br />Added a reference section and moved the OMAS descriptions there.<br />Added an important information section and moved the important information about using patches to add online features there.</li>
+          <li>
+            <a href="Pages/Page_181908153.html">4 Important Information</a> <br />Changed the page title from Important Considerations for Patching.<br />Added the Changing the Rating section and the Guidelines section.<br />Deleted the child page and consolidated some of the information on the main page.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Deletions</td>
+      <td>
+        <ul>
+          <li>Development Environment</li>
+          <li>Scope of Patching</li>
+          <li>Compatibility Before and After Applying the Patch</li>
+          <li>Changing the Rating</li>
+          <li>Reducing Patch Size</li>
+          <li>On-Card Patch Operating Frequency</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">4.0</td>
+      <td rowspan="2">2017-10-19</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Corrected errors. Revised inappropriate expressions in the translation. Fixed expressions that could lead to misunderstandings.<br />Removed the indication that features would be provided if they already have been.</li>
+          <li>Updating Patches<br />Added information about local distribution of patches.</li>
+          <li>Making Patches Mandatory<br />Revised information about when a token has already been obtained in the Update Within 24 Hours section.</li>
+          <li>On-Card Patch<br />Added a reference to using on-card patches.</li>
+          <li>Important Considerations for Patching<br />Added a reference to the Nintendo Switch Guidelines.</li>
+          <li>Compatibility Before and After Applying the Patch<br />Added information about local distribution of patches. Deleted unnecessary descriptions accordingly.<br />Added a note about communication compatibility for local communication between patched and unpatched versions of an application.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Deletions</td>
+      <td>
+        <ul>
+          <li>Patch Size<br />Deleted because content was identical to information in the Guidelines.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>
+        <p>2017-05-11</p>
+      </td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>General<br />Corrected errors. Revised descriptions. Updated the name of documentation that is referenced to the latest name.</li>
+          <li>Development Environment<br />Added information about unsupported updates.</li>
+          <li>Scope of Patching<br />Modified the description because the save data storage area size and journaling region size can now be expanded. Added titles in the page.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>2017-02-13</td>
+      <td>Changes</td>
+      <td>
+        <ul>
+          <li>Creating and Debugging Patches<br />Made a note of data that must be stored after creating a patch.</li>
+          <li>Patch Registration<br />Made a note that multiple ROMs cannot be uploaded simultaneously.</li>
+          <li>Changing the Rating<br />Added that fixes can only be made with AuthoringEditor.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1.0</td>
+      <td>
+        <p>2016-12-20</p>
+      </td>
+      <td>-</td>
+      <td>Initial version.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

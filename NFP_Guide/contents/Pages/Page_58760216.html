@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.9 Rolling Back the Application-Specific Region | NFP Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.9 Rolling Back the Application-Specific Region -->
+<div class="pagetitle" id="PageId_58760216">6.9 Rolling Back the Application-Specific Region</div>
+<div class="text_separate">
+<p>The NFP library contains a function to back up the data of an amiibo that has been read. If the amiibo the user touched to the touchpoint is damaged, it may be restored from this backup data.</p>
+<p>If this feature is exploited, the application-specific region may be rolled back in an unauthorized manner.</p>
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_58760216_figure001"></a>Figure 6-3 Rolling Back the Application-Specific Region</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_58760216/158499311.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<ol>
+  <li>Get 100pt with device A, and save to amiibo.</li>
+  <li>Exchange 100pt with an item on device A, and save the item in the application save data.</li>
+  <li>Remove the amiibo from the touchpoint while device B is writing to it, damaging the application-specific region.</li>
+  <li>Restore the damaged amiibo data on device A.</li>
+</ol>
+<p>Repeat step 2 to 4, generating infinite items in the save data of device B.</p>
+<p>Note that the data stored in the application-specific region may be copied in this manner.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.7 Application Compaction | Nintendo Switch Patch Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.7 Application Compaction -->
+<div class="pagetitle" id="PageId_1067306963">2.7 Application Compaction</div>
+<div class="text_separate">
+<p>If data in the initial version of the application becomes unusable when a patch is applied, the storage area for that data becomes superfluous. Application compaction is effective in these cases.</p>
+<p>Application compaction enables you to create the application without those areas of the initial version of the application that are no longer referenced. By reducing the application size, you can reduce the size required for installation and the game card write size.</p>
+<p>This page provides an overview of application compaction. For more information, see NintendoSDK Documents &gt; Features &gt; Patches &gt; Application Compaction.</p>
+<h1 id="Anchor_1067306963_h1_1">How to Use</h1>
+<p>You can perform application compaction by specifying options in AuthoringTool, which is used to create patches. An application that has undergone application compaction is called a <em>compacted application</em>.<br />Both the patch and the compacted application are required for the application to run correctly.</p>
+<h1 id="Anchor_1067306963_h1_2">Applying the Patch and Verifying Operations</h1>
+<p>The initial version of the application, if it has been downloaded, is not automatically updated to the compacted application. For this reason, all patches distributed after application compaction must be tested to ensure that they work correctly when applied to the initial version of the application and to the compacted application.<br />For example, assume that an initial release version 0 application was created, and then a release version 1 patch and compacted application were created. In that case, you must ensure that the patch created with release version 2 works correctly when applied to the following applications.</p>
+<ul style="list-style-type: square;">
+  <li>Release version 1 compacted application</li>
+  <li>Release version 0 initial application</li>
+</ul>
+<p>In addition, if there are multiple compacted applications, you must check that all of the compacted application versions work correctly when the patch is applied. This check is required is because compacted applications that have already been downloaded are not automatically updated to the latest compacted application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Even when the user has downloaded the initial application or an earlier compacted application, if they then re-download the application in the Nintendo eShop, they will receive the latest compacted application and patch.<br />You must delete a downloaded application if you want to re-download it. To delete an application, go to the Switch HOME Menu, select <strong>Settings</strong> &gt; <strong>Data Management</strong> &gt; <strong>Software Details</strong>, select the application you want to delete, and then select <strong>Delete Software</strong>.</p>
+  </div>
+</div>
+<h1 id="Anchor_1067306963_h1_3">Submission</h1>
+<p>After specifying options in AuthoringTool to create an NSP file that combines a patch and compacted application, submit the file in Nintendo Developer Portal.<br />The procedure is the same as the procedure for submitting the ROM for a patch. For more information, see <a href="../Pages/Page_193063435.html">3.2 Patch Submission</a>.</p>
+<p>When submitting the file, you also need to submit a waiver request in Nintendo Developer Portal. The request will be accepted if one of the following criteria is met.</p>
+<ul>
+  <li>You plan to create an on-card patch or on-card downloadable content, but the content will not fit within the desired amount of memory on the card unless you perform application compaction.</li>
+  <li>You can reduce the size of the application by 1 GiB or more through application compaction.</li>
+</ul>
+<p>As described in Applying the Patch and Verifying Operations, additional compacted applications increase the number of patch/application combinations for which you must test the patch. To avoid this issue, if you plan to release a patch that would further decrease the size of the application through application compaction in the near future, perform application compaction at that time.<br />For example, when there are plans to release a release version 1 patch and a release version 2 patch, and the size of the application is smaller when the application is compacted with the release version 2 patch compared to its size after applying the release version 1 patch, perform application compaction when submitting release version 2.</p>
+<h1 id="Anchor_1067306963_h1_4">Distribution</h1>
+<p>The compacted application must be distributed simultaneously with the patch. Nintendo will configure distribution for and approve compacted applications. The developer configures patch distribution settings in NCMS. Nintendo then checks and approves the settings. For more information, see <a href="../Pages/Page_1116983724.html">3.3 Patch Distribution</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 Data Specifications | Nintendo Switch BCAT Data Delivery Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 Data Specifications -->
+<div class="pagetitle" id="PageId_209101995">3 Data Specifications</div>
+<div class="text_separate">
+<h1 id="Anchor_209101995_h1_1">Save Destination</h1>
+<p>The distributed data (files and directories) is saved to a dedicated region in the Switch system memory.</p>
+<p>This region is called the <em>data delivery cache storage</em>.</p>
+<p>The data delivery cache storage is created automatically before the application is first run.</p>
+<p>It will not be possible to run the application if the data delivery cache storage cannot be created due to insufficient system memory available on the Switch console.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The BCAT Management Tool has a feature for displaying the use rate of data delivery cache storage, shown as the percentage of data delivery cache storage taken up by data that is currently being delivered. Please refer to this usage rate when adding more data for delivery. A description of this feature will be added to the BCAT Management Tool Usage Manual.</p>
+  </div>
+</div>
+<h2 id="Anchor_209101995_h2_1">Accessing the Save Destination</h2>
+<ul>
+  <li>The application can only read data from the data delivery cache storage it has created.<ul><li>The application cannot read data from the data delivery cache storage created by any other application.</li></ul></li>
+  <li>The application cannot directly write data to the <span style="color: rgb(33,33,33);">data delivery cache storage</span>.</li>
+</ul>
+<h2 id="Anchor_209101995_h2_2">Deleting the Save Destination</h2>
+<p>The data delivery cache storage may be deleted by the following end user operations.</p>
+<ul>
+  <li>HOME Menu &gt; Settings &gt; Data Management &gt; Archive Software</li>
+  <li>HOME Menu &gt; Settings &gt; Data Management &gt; Delete Software</li>
+  <li>HOME Menu &gt; Settings &gt; Console &gt; Initialize Console</li>
+  <li>Initialize Console Without Deleting Save Data (available in Recovery Mode)</li>
+</ul>
+<h1 id="Anchor_209101995_h1_2">Value Specifications</h1>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Subject</th>
+      <th>Maximum Value</th>
+      <th style="text-align: center;">Notes</th>
+    </tr>
+    <tr>
+      <td>Number of data delivery cache storage regions</td>
+      <td>Up to 1.</td>
+      <td>
+        <p>The application only has one data delivery cache storage.</p>
+        <p>It is shared with all user accounts on the Switch system.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Data delivery cache storage size</td>
+      <td>Up to 64 MiB.</td>
+      <td>4 MiB of this memory is allocated to a management region.</td>
+    </tr>
+    <tr>
+      <td>Number of directories</td>
+      <td>Up to 100 directories.</td>
+      <td>
+        <p>Directories cannot be created within other directories.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Directory size (the total size of all files in one directory).</td>
+      <td>Up to 60 MiB.</td>
+      <td>
+        <p>Calculated as the sum of the files in the directory, with each file rounded up to 16 KiB.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Files per directory</td>
+      <td>
+        <p>Up to 100 files.</p>
+      </td>
+      <td>
+        <p>It is possible to create an empty directory without any delivered files.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Total number of files in all directories</td>
+      <td>Up to 2,000 files.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Size of each file</td>
+      <td>
+        <p>Up to 60 MiB.</p>
+      </td>
+      <td>
+        <p>Same as the maximum size for a directory.</p>
+        <p>Empty files (file size 0) cannot be registered on the server.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>For example, you can create three directories that each store 20 files, which are each 1 MiB in size.</p>
+<h1 id="Anchor_209101995_h1_3">File and Directory Name Specifications</h1>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Subject</th>
+      <th>Specifications</th>
+    </tr>
+    <tr>
+      <td>Character Count</td>
+      <td>
+        <ul>
+          <li>Up to 31 characters</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Character Types</td>
+      <td>
+        <div class="content-wrapper">
+          <ul>
+            <li>Uppercase and lowercase alphabetic characters</li>
+            <li>Numbers</li>
+            <li>Underscore</li>
+            <li>Hyphens (Only used in directory names.)</li>
+            <li>Periods (Only used in filenames.)</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Other</td>
+      <td>
+        <ul>
+          <li>Periods cannot be used at the end of filenames.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_209101995_h1_4">Notes</h1>
+<ul>
+  <li>The application can get the digest value of each file in the data delivery cache storage.<ul><li>By storing the digest value in the save data ahead of time, you can detect file updates and notify users.</li></ul></li>
+  <li>As soon as a directory is created with the BCAT Management Tool, it is listed in the application by the <code>nn::bcat::EnumerateDeliveryCacheDirectory()</code> function.<ul><li>The directory is listed even if it is empty.</li></ul></li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

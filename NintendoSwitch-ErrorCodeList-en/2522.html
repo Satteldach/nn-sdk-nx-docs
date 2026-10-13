@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google" value="notranslate" />
+<title>CrashReport.exe [2522-xxxx]</title>
+<link rel="stylesheet" href="ext/css/default.css" /><script src="ext/jquery.min.js"></script>
+<link rel="stylesheet" href="ext/jquery-ui/jquery-ui.min.css" />
+<link rel="stylesheet" href="ext/jquery-ui/theme.css" />
+<script src="ext/jquery-ui/jquery-ui.min.js"></script>
+<script src="ext/jsconf.js"></script>
+<script src="ext/default.js"></script>
+<script>document.write('<style>.jnone{display:none;}</style>');</script>
+</head>
+<body>
+<div class="header_wrap">
+<div class="header">
+<div id="tool_name"><a href="NintendoSwitch-ErrorCodeList-en.html">Error Code Search<br />Nintendo Switch</a></div>
+<div id="headnav" class="none">
+<div class="search">
+<input id="searchcode" class="searchcode" type="text" maxlength="12" placeholder=" -" />
+<input type="button" value="Search" for="searchcode" class="btn_search" />
+</div>
+</div>
+</div>
+</div>
+<div id="body" class="container init1st jnone">
+<div class="sticky_wrap">
+<div class="sticky_left">
+<h1 class="title fixleft">CrashReport.exe [2522-xxxx]</h1>
+</div>
+</div>
+
+
+<div class="content" id="codetable">
+<div id="codeinfo" style="display:none">
+<div class="controls">
+Display Language:
+<select name="lang[name]" id="lang_name"></select>
+</div>
+
+<style>
+	table#codelisttable td,
+	table#codeinfotable tbody tr p { font-family: NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+</style>
+<style>
+	table#codelisttable td:nth-child(20),
+table#codeinfotable tbody tr:nth-child(20) p,
+table#codelisttable td:nth-child(23),
+table#codeinfotable tbody tr:nth-child(23) p,
+table#codelisttable td:nth-child(40),
+table#codeinfotable tbody tr:nth-child(40) p,
+table#codelisttable td:nth-child(43),
+table#codeinfotable tbody tr:nth-child(43) p { font-family: NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+table#codelisttable td:nth-child(21),
+table#codeinfotable tbody tr:nth-child(21) p,
+table#codelisttable td:nth-child(41),
+table#codeinfotable tbody tr:nth-child(41) p { font-family: NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+table#codelisttable td:nth-child(22),
+table#codeinfotable tbody tr:nth-child(22) p,
+table#codelisttable td:nth-child(42),
+table#codeinfotable tbody tr:nth-child(42) p { font-family: NxNintendoFontKo,"nintendo_udsg ko_003",NxNintendoFont,"nintendo_udsg std_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontCnOrg,"nintendo_udsg org_zh-cn_003",NxNintendoFontTw,"nintendo_udjxh-db_zh-tw_003",NxNintendoFontExt,"NintendoExt003 R","メイリオ"; }
+
+</style>
+
+<div id="codeinfobody"></div>
+</div>
+
+<table id="codelisttable" class="margin-bottom-1">
+<thead>
+<tr>
+<th class="di_code tbpre fixleft fixtop">Error Code <span id="exp_codeinfo" class="init1st none" title="Double-clicking an error code cell switches it to only show that error code." alt="">?</span></th>
+<th class="di_f53 tbstr fixtop">Result</th>
+<th class="di_f52 tbstr fixtop">Description</th>
+<th class="di_f57 tbstr fixtop">Solution(for developer)</th>
+<th class="di_f55 tbstr fixtop">How to reproduce</th>
+<th class="di_f51 tbstr fixtop">Comments</th>
+<th class="di_f32 tbstr fixtop">Dialog message USen</th>
+<th class="di_f34 tbstr fixtop">Dialog message USes</th>
+<th class="di_f33 tbstr fixtop">Dialog message USfr</th>
+<th class="di_f121 tbstr fixtop">Dialog message USpt</th>
+<th class="di_f24 tbstr fixtop">Dialog message EUen</th>
+<th class="di_f25 tbstr fixtop">Dialog message EUfr</th>
+<th class="di_f27 tbstr fixtop">Dialog message EUde</th>
+<th class="di_f26 tbstr fixtop">Dialog message EUes</th>
+<th class="di_f28 tbstr fixtop">Dialog message EUit</th>
+<th class="di_f29 tbstr fixtop">Dialog message EUnl</th>
+<th class="di_f30 tbstr fixtop">Dialog message EUpt</th>
+<th class="di_f31 tbstr fixtop">Dialog message EUru</th>
+<th class="di_f23 tbstr fixtop">Dialog message JPja</th>
+<th class="di_f107 tbstr fixtop">Dialog message CNzh (zh-Hans)</th>
+<th class="di_f112 tbstr fixtop">Dialog message TWzh (zh-Hant)</th>
+<th class="di_f115 tbstr fixtop">Dialog message KRko</th>
+<th class="di_f118 tbstr fixtop">Dialog message CNzhT (China)</th>
+<th class="di_f20 tbstr fixtop">Dialog button 0</th>
+<th class="di_f21 tbstr fixtop">Dialog button 1</th>
+<th class="di_f22 tbstr fixtop">Dialog button 2</th>
+<th class="di_f47 tbstr fixtop">Fullscreen message USen</th>
+<th class="di_f49 tbstr fixtop">Fullscreen message USes</th>
+<th class="di_f48 tbstr fixtop">Fullscreen message USfr</th>
+<th class="di_f122 tbstr fixtop">Fullscreen message USpt</th>
+<th class="di_f39 tbstr fixtop">Fullscreen message EUen</th>
+<th class="di_f40 tbstr fixtop">Fullscreen message EUfr</th>
+<th class="di_f42 tbstr fixtop">Fullscreen message EUde</th>
+<th class="di_f41 tbstr fixtop">Fullscreen message EUes</th>
+<th class="di_f43 tbstr fixtop">Fullscreen message EUit</th>
+<th class="di_f44 tbstr fixtop">Fullscreen message EUnl</th>
+<th class="di_f45 tbstr fixtop">Fullscreen message EUpt</th>
+<th class="di_f46 tbstr fixtop">Fullscreen message EUru</th>
+<th class="di_f38 tbstr fixtop">Fullscreen message JPja</th>
+<th class="di_f108 tbstr fixtop">Fullscreen message CNzh (zh-Hans)</th>
+<th class="di_f113 tbstr fixtop">Fullscreen message TWzh (zh-Hant)</th>
+<th class="di_f116 tbstr fixtop">Fullscreen message KRko</th>
+<th class="di_f119 tbstr fixtop">Fullscreen message CNzhT (China)</th>
+<th class="di_f35 tbstr fixtop">Fullscreen button 0</th>
+<th class="di_f36 tbstr fixtop">Fullscreen button 1</th>
+<th class="di_f37 tbstr fixtop">Fullscreen button 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="CODE-2522-0000 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-0000"></a>2522-0000</td>
+<td class="di_f53 tbstr even cellok">Empty Crash Report Management Tool Access Token</td>
+<td class="di_f52 tbstr even cellok">The access token for the crash report management tool is empty.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-0001 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-0001"></a>2522-0001</td>
+<td class="di_f53 tbstr odd cellok">NDID Access Token Expired</td>
+<td class="di_f52 tbstr odd cellok">The NDID access token has expired.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-0002 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-0002"></a>2522-0002</td>
+<td class="di_f53 tbstr even cellok">Invalid NDID Access Token</td>
+<td class="di_f52 tbstr even cellok">The NDID access token is invalid.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-0003 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-0003"></a>2522-0003</td>
+<td class="di_f53 tbstr odd cellok">Invalid Crash Report Management Tool Access Token</td>
+<td class="di_f52 tbstr odd cellok">The access token for the crash report management tool is invalid.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-0004 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-0004"></a>2522-0004</td>
+<td class="di_f53 tbstr even cellok">Not Authorized</td>
+<td class="di_f52 tbstr even cellok">The user associated with this access token does not exist in the crash report management tool.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-0005 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-0005"></a>2522-0005</td>
+<td class="di_f53 tbstr odd cellok">Not Authorized</td>
+<td class="di_f52 tbstr odd cellok">You do not have access privileges for the specified application. Or the specified application does not exist.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-0006 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-0006"></a>2522-0006</td>
+<td class="di_f53 tbstr even cellok">Bad Argument</td>
+<td class="di_f52 tbstr even cellok">Invalid argument.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-0007 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-0007"></a>2522-0007</td>
+<td class="di_f53 tbstr odd cellok">Under Maintenance</td>
+<td class="di_f52 tbstr odd cellok">Some crash report management tool services are currently down for maintenance. Please wait and try again.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-0008 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-0008"></a>2522-0008</td>
+<td class="di_f53 tbstr even cellok">Crash Report Management Tool Access Token Expired</td>
+<td class="di_f52 tbstr even cellok">The access token for the crash report management tool has expired. Issue a new access token.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-0009 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-0009"></a>2522-0009</td>
+<td class="di_f53 tbstr odd cellok">Incorrect Server Environment</td>
+<td class="di_f52 tbstr odd cellok">The access token for the crash report management tool is invalid. The server environment being accessed is different from the server environment that issued the access token. Alternatively, the access token has expired.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-8000 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-8000"></a>2522-8000</td>
+<td class="di_f53 tbstr even cellok">Unsupported API Version</td>
+<td class="di_f52 tbstr even cellok">Attempted access to an unsupported API version. Obtain the new version of the tool.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-8001 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-8001"></a>2522-8001</td>
+<td class="di_f53 tbstr odd cellok">Invalid Parameter</td>
+<td class="di_f52 tbstr odd cellok">The API was accessed using invalid parameters. Obtain the new version of the tool.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-8002 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-8002"></a>2522-8002</td>
+<td class="di_f53 tbstr even cellok">Invalid Header</td>
+<td class="di_f52 tbstr even cellok">API access was performed using an inappropriate http header. Obtain the new version of the tool.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-8003 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-8003"></a>2522-8003</td>
+<td class="di_f53 tbstr odd cellok">Invalid Header</td>
+<td class="di_f52 tbstr odd cellok">API access was performed from a tool version that is no longer supported. Obtain the new version of the tool.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+<tr class="CODE-2522-9998 even">
+<td class="di_code tbpre even cellok fixleft"><a id="2522-9998"></a>2522-9998</td>
+<td class="di_f53 tbstr even cellok">Internal Server Error</td>
+<td class="di_f52 tbstr even cellok">An unknown server error has occurred. Please wait a few minutes and try again. If this does not help, please contact Nintendo.</td>
+<td class="di_f57 tbstr even cellok"></td>
+<td class="di_f55 tbstr even cellok"></td>
+<td class="di_f51 tbstr even cellok"></td>
+<td class="di_f32 tbstr even cellok"></td>
+<td class="di_f34 tbstr even cellok"></td>
+<td class="di_f33 tbstr even cellok"></td>
+<td class="di_f121 tbstr even cellok"></td>
+<td class="di_f24 tbstr even cellok"></td>
+<td class="di_f25 tbstr even cellok"></td>
+<td class="di_f27 tbstr even cellok"></td>
+<td class="di_f26 tbstr even cellok"></td>
+<td class="di_f28 tbstr even cellok"></td>
+<td class="di_f29 tbstr even cellok"></td>
+<td class="di_f30 tbstr even cellok"></td>
+<td class="di_f31 tbstr even cellok"></td>
+<td class="di_f23 tbstr even cellok"></td>
+<td class="di_f107 tbstr even cellok"></td>
+<td class="di_f112 tbstr even cellok"></td>
+<td class="di_f115 tbstr even cellok"></td>
+<td class="di_f118 tbstr even cellok"></td>
+<td class="di_f20 tbstr even cellok"></td>
+<td class="di_f21 tbstr even cellok"></td>
+<td class="di_f22 tbstr even cellok"></td>
+<td class="di_f47 tbstr even cellok"></td>
+<td class="di_f49 tbstr even cellok"></td>
+<td class="di_f48 tbstr even cellok"></td>
+<td class="di_f122 tbstr even cellok"></td>
+<td class="di_f39 tbstr even cellok"></td>
+<td class="di_f40 tbstr even cellok"></td>
+<td class="di_f42 tbstr even cellok"></td>
+<td class="di_f41 tbstr even cellok"></td>
+<td class="di_f43 tbstr even cellok"></td>
+<td class="di_f44 tbstr even cellok"></td>
+<td class="di_f45 tbstr even cellok"></td>
+<td class="di_f46 tbstr even cellok"></td>
+<td class="di_f38 tbstr even cellok"></td>
+<td class="di_f108 tbstr even cellok"></td>
+<td class="di_f113 tbstr even cellok"></td>
+<td class="di_f116 tbstr even cellok"></td>
+<td class="di_f119 tbstr even cellok"></td>
+<td class="di_f35 tbstr even cellok"></td>
+<td class="di_f36 tbstr even cellok"></td>
+<td class="di_f37 tbstr even cellok"></td>
+</tr>
+<tr class="CODE-2522-9999 odd">
+<td class="di_code tbpre odd cellok fixleft"><a id="2522-9999"></a>2522-9999</td>
+<td class="di_f53 tbstr odd cellok">Internal Server Error</td>
+<td class="di_f52 tbstr odd cellok">An unknown server error has occurred. Please wait a few minutes and try again. If this does not help, please contact Nintendo.</td>
+<td class="di_f57 tbstr odd cellok"></td>
+<td class="di_f55 tbstr odd cellok"></td>
+<td class="di_f51 tbstr odd cellok"></td>
+<td class="di_f32 tbstr odd cellok"></td>
+<td class="di_f34 tbstr odd cellok"></td>
+<td class="di_f33 tbstr odd cellok"></td>
+<td class="di_f121 tbstr odd cellok"></td>
+<td class="di_f24 tbstr odd cellok"></td>
+<td class="di_f25 tbstr odd cellok"></td>
+<td class="di_f27 tbstr odd cellok"></td>
+<td class="di_f26 tbstr odd cellok"></td>
+<td class="di_f28 tbstr odd cellok"></td>
+<td class="di_f29 tbstr odd cellok"></td>
+<td class="di_f30 tbstr odd cellok"></td>
+<td class="di_f31 tbstr odd cellok"></td>
+<td class="di_f23 tbstr odd cellok"></td>
+<td class="di_f107 tbstr odd cellok"></td>
+<td class="di_f112 tbstr odd cellok"></td>
+<td class="di_f115 tbstr odd cellok"></td>
+<td class="di_f118 tbstr odd cellok"></td>
+<td class="di_f20 tbstr odd cellok"></td>
+<td class="di_f21 tbstr odd cellok"></td>
+<td class="di_f22 tbstr odd cellok"></td>
+<td class="di_f47 tbstr odd cellok"></td>
+<td class="di_f49 tbstr odd cellok"></td>
+<td class="di_f48 tbstr odd cellok"></td>
+<td class="di_f122 tbstr odd cellok"></td>
+<td class="di_f39 tbstr odd cellok"></td>
+<td class="di_f40 tbstr odd cellok"></td>
+<td class="di_f42 tbstr odd cellok"></td>
+<td class="di_f41 tbstr odd cellok"></td>
+<td class="di_f43 tbstr odd cellok"></td>
+<td class="di_f44 tbstr odd cellok"></td>
+<td class="di_f45 tbstr odd cellok"></td>
+<td class="di_f46 tbstr odd cellok"></td>
+<td class="di_f38 tbstr odd cellok"></td>
+<td class="di_f108 tbstr odd cellok"></td>
+<td class="di_f113 tbstr odd cellok"></td>
+<td class="di_f116 tbstr odd cellok"></td>
+<td class="di_f119 tbstr odd cellok"></td>
+<td class="di_f35 tbstr odd cellok"></td>
+<td class="di_f36 tbstr odd cellok"></td>
+<td class="di_f37 tbstr odd cellok"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footer fixleft"></div>
+</body>
+</html>

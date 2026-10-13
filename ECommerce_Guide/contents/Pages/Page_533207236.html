@@ -1,0 +1,594 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.4.3.2 License Information Reference API (Device-Based Sharing Type) | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.4.3.2 License Information Reference API (Device-Based Sharing Type) -->
+<div class="pagetitle" id="PageId_533207236">7.4.3.2 License Information Reference API (Device-Based Sharing Type)</div>
+<div class="text_separate">
+<h1 id="Anchor_533207236_h1_1">Overview</h1>
+<p>This API references the following licenses for device-based sharing courses.</p>
+<ul>
+  <li>Available licenses</li>
+  <li>Licenses in their validity period (The validity period begins when an available license is activated by the independent server.)</li>
+</ul>
+<p>The API consists of the following functions.</p>
+<ul>
+  <li>Function that specifies a Nintendo Account</li>
+  <li>Function that does not specify a Nintendo Account</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Use the function that does not specify a Nintendo Account to display information for licenses other than the licenses that are currently active to the user. For example, if Nintendo Accounts A and B are linked on the same console, both of the following pieces of information are displayed.</p>
+    <ul>
+      <li>Activated licenses for Nintendo Account A</li>
+      <li>Unactivated licenses for Nintendo Account B</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_533207236_h1_2">Function That Specifies a Nintendo Account</h1>
+<p>This function gets the following license information for the specified course ID.</p>
+<ul>
+  <li>License information for all accounts linked to the requesting Switch<ul><li>However, the accounts with licenses must have that Switch set as their primary console.</li></ul></li>
+  <li>License information for the requesting account, regardless of the requesting Switch<ul><li>By specifying the <code>always_include_self</code> option, described later, the license status can be obtained for an account even if the console is not set as its primary console.</li></ul></li>
+</ul>
+<p>The preceding information is summarized in the following table.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Primary Console Setting Configured?</th>
+      <th>always_include_self Option</th>
+      <th>Has License<br />Nintendo Account A</th>
+      <th>Nintendo Account B (No License)<br /></th>
+    </tr>
+    <tr>
+      <td rowspan="2">A</td>
+      <td>Yes</td>
+      <td>Has license</td>
+      <td>
+        <p>Has license</p>
+      </td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>Has license</td>
+      <td>
+        <p>Has license</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">None</td>
+      <td>Yes</td>
+      <td>Has license</td>
+      <td>No license</td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>No license</td>
+      <td>No license</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_533207236_h2_1">Device-Based Sharing Where Multiple Accounts on the Same System Have the License</h2>
+<p>When multiple Nintendo Accounts have the same Switch console set as the primary console and they all have a license, this API gets the license information for the account that satisfies the following conditions.</p>
+<ul>
+  <li>The account with the longest license (the greatest <code>expiration_datetime</code> value) among those accounts that have started using their license</li>
+  <li>If none of the accounts have started using their licenses, the account with the longest license (the greatest <code>reserved_minutes</code> value)</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about this case, see <a href="../Pages/Page_522485464.html">7.2.3 Sharing Licenses</a>.</p>
+  </div>
+</div>
+<h2 id="Anchor_533207236_h2_2">Using the Same License From Multiple Switch Consoles</h2>
+<p>The <code>always_include_self</code> option enables an account with the license to use that license regardless of the primary console setting. However, it is also possible to get a service on multiple Switch consoles using the same license, as follows.</p>
+<ul>
+  <li>The account that has the license uses the service on a Switch console that is not set as the primary console for that account.</li>
+  <li>Accounts other than the one with the license use the service on the Switch set as the primary console for the account with the license.</li>
+</ul>
+<h2 style="text-decoration: none; text-align: left;" id="Anchor_533207236_h2_3">Request</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>GET /v1/courses/<span class="o">{</span>course_id<span class="o">}</span>/accounts/<span class="o">{</span>nsa_id<span class="o">}</span>/right?edi<span class="o">={</span>edi<span class="o">}</span>
+Authorization: Basic <span class="o">{</span>base64<span class="o">(</span>clientId:clientSecret<span class="o">)}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>course_id</td>
+      <td>Specify the course ID that you want to get license information for.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;aa5e5131d43ba0d4&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>edi</td>
+      <td>Use it to have the Nintendo eShop server uniquely identify user devices. This value can be obtained from the NSA ID token.</td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;b9ba95edb80621793f05efb46df37d37af4571d3548c5aed75bc6e595a57a719&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>always_include_self</td>
+      <td>
+        <p>
+          <code>always_include_self = true</code>: The <code>always_include_self</code> option is enabled.</p>
+        <p>
+          <code>always_include_self = false</code>: The <code>always_include_self</code> option is disabled.</p>
+      </td>
+      <td>boolean</td>
+      <td>query</td>
+      <td>Optional</td>
+      <td>false</td>
+      <td>true</td>
+      <td>For more information, see Using the Same License From Multiple Switch Consoles.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_533207236_h2_4">Response</h2>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="4">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="4">active</td>
+      <td>Whether the license has been activated.</td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: Activated / <code>false</code>: Not activated</td>
+      <td>true</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">nsa_id</td>
+      <td>NSA ID.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">start_datetime</td>
+      <td>License activation time.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1585699200000</td>
+      <td>
+        <br />
+      </td>
+      <td>Only returned when the license has been activated.</td>
+    </tr>
+    <tr>
+      <td colspan="4">expiration_datetime</td>
+      <td>Expiration date of the license.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1588291200000</td>
+      <td>
+        <br />
+      </td>
+      <td>Only returned when the license has been activated.</td>
+    </tr>
+    <tr>
+      <td colspan="4">reserved_minutes</td>
+      <td>Remaining time on licenses not yet used</td>
+      <td>number</td>
+      <td>Minutes</td>
+      <td>600</td>
+      <td>
+        <br />
+      </td>
+      <td>Only returned when the license has not been activated.</td>
+    </tr>
+    <tr>
+      <td colspan="4">auto_billing_applied</td>
+      <td>Whether automatic renewal is ongoing.</td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: Automatic renewal agreement exists / <code>false</code>: No automatic renewal agreement</td>
+      <td>true</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">Temporary.</td>
+      <td>
+        <p>Whether in the grace period.</p>
+      </td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: In the grace period / <code>false</code>: Not in the grace period</td>
+      <td>false</td>
+      <td>Cannot be null</td>
+      <td>For more information, see <a href="../Pages/Page_522483783.html">7.2.1 Automatic Renewal</a>.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_533207236_h3_1">If there is a license and it is in use</h3>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;start_datetime&quot;</span><span class="o">:</span> <span class="mi">1585699200000</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;expiration_datetime&quot;</span><span class="o">:</span> <span class="mi">1588291200000</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;temporary&quot;</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="text-decoration: none; text-align: left;" id="Anchor_533207236_h3_2">If there is a license but it has not begun to be used</h3>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;reserved_minutes&quot;</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;temporary&quot;</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="text-decoration: none; text-align: left;" id="Anchor_533207236_h3_3">If there is no license</h3>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;temporary&quot;</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="text-decoration: none; text-align: left;" id="Anchor_533207236_h2_5">curl Request Samples (dd1 Environment)</h2>
+<p>For simplicity, the <code>k</code> option is used to skip SSL authentication. A CA certificate can be obtained by following the instructions in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://mandom.ws.dd1.ss.nintendo.net/v1/courses/{course_id}/accounts/{nsa_id}/right?edi={edi}&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_533207236_h1_3">Function That Does Not Specify a Nintendo Account</h1>
+<p>This function gets the license information for the specified course ID for all accounts for which the Switch console sending the request is set as the primary console.</p>
+<h2 id="Anchor_533207236_h2_6">Request</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>GET /v1/courses/<span class="o">{</span>course_id<span class="o">}</span>/devices/rights?edi<span class="o">={</span>edi<span class="o">}</span>
+Authorization: Basic <span class="o">{</span>base64<span class="o">(</span>clientId:clientSecret<span class="o">)}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped" style="letter-spacing: 0.0px;">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>course_id</td>
+      <td>Specify the course ID that you want to get license information for.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;aa5e5131d43ba0d4&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>edi</td>
+      <td>Use it to have the Nintendo eShop server uniquely identify user devices. This value can be obtained from the NSA ID token.</td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;b9ba95edb80621793f05efb46df37d37af4571d3548c5aed75bc6e595a57a719&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_533207236_h2_7">Response</h2>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="4">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="4">active</td>
+      <td>Whether the license has been activated.</td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: Activated / <code>false</code>: Not activated</td>
+      <td>true</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">nsa_id</td>
+      <td>NSA ID</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">start_datetime</td>
+      <td>License activation time.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1585699200000</td>
+      <td>
+        <br />
+      </td>
+      <td>Only returned when the license has been activated.</td>
+    </tr>
+    <tr>
+      <td colspan="4">expiration_datetime</td>
+      <td>Expiration date of the license.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1588291200000</td>
+      <td>
+        <br />
+      </td>
+      <td>Only returned when the license has been activated.</td>
+    </tr>
+    <tr>
+      <td colspan="4">reserved_minutes</td>
+      <td>Remaining time on licenses not yet used</td>
+      <td>number</td>
+      <td>Minutes</td>
+      <td>600</td>
+      <td>
+        <br />
+      </td>
+      <td>Only returned when the license has not been activated.</td>
+    </tr>
+    <tr>
+      <td colspan="4">auto_billing_applied</td>
+      <td>Whether automatic renewal is ongoing.</td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: Automatic renewal agreement exists / <code>false</code>: No automatic renewal agreement</td>
+      <td>true</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">Temporary.</td>
+      <td>
+        <p>Whether in the grace period.</p>
+      </td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: In the grace period / <code>false</code>: Not in the grace period</td>
+      <td>false</td>
+      <td>Cannot be null</td>
+      <td>For more information, see <a href="../Pages/Page_522483783.html">7.2.1 Automatic Renewal</a>.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">[</span>
+&nbsp;&nbsp;<span class="p">{</span> <span class="c1">// This account has a license, and the license is currently in use.
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span><span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;start_datetime&quot;</span><span class="o">:</span> <span class="mi">1585699200000</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;expiration_datetime&quot;</span><span class="o">:</span><span class="mi">1588291200000</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;temporary&quot;</span><span class="o">:</span> <span class="kc">false</span>
+&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;<span class="p">{</span> <span class="c1">// This account has a license, but it has not yet been used.
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;123456789abcdef0&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;reserved_minutes&quot;</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;temporary&quot;</span><span class="o">:</span> <span class="kc">false</span>
+&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;<span class="p">{</span> <span class="c1">// Account with expired license.
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;0000123456789abc&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;temporary&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="p">}</span>
+<span class="p">]</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+  <li>License information for accounts included in the response is sorted in the following order.<ol><li>Accounts that have started using a license.<br />When multiple accounts have started using a license, the accounts are listed in order with the account with the largest <code>expiration_datetime</code> value listed first.</li><li>Accounts that have a license but have not yet started using it.<br />When multiple accounts have the same conditions, accounts for which the <code>reserved_minutes</code> values are largest are listed first.</li><li>Accounts with expired licenses.</li></ol></li>
+  <li>Accounts that have never added a license are not listed.<ul><li>Only accounts that started using a license that has expired are listed.</li></ul></li>
+  <li>Unlike the response of <a href="../Pages/Page_533207239.html">7.4.3.3 License Information Reference API (Account Type)</a>, with this API function the <code>nsa_id</code> value is included among the elements even for accounts for which the license has expired.</li>
+  <li>When no accounts are listed for the Switch console that sent the request, an empty array is returned as the response.</li>
+</ul>
+<h2 id="Anchor_533207236_h2_8">curl Request Sample (dd1 Environment)</h2>
+<p>For simplicity, the <code>k</code> option is used to skip SSL authentication. A CA certificate can be obtained by following the instructions in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://mandom.ws.dd1.ss.nintendo.net/v1/courses/{course_id}/devices/rights?edi={edi}&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span> </pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

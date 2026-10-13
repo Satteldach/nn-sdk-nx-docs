@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.2 Assigning Controller Indexes (Required) | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.2 Assigning Controller Indexes (Required) -->
+<div class="pagetitle" id="PageId_99800445">3.2 Assigning Controller Indexes (Required)</div>
+<div class="text_separate">
+<p>Controller indexes are assigned when controllers are connected to the console. Indexes are assigned in order, starting from 1.</p>
+<p>No indexes are assigned to Joy-Con that are attached to the console. Indexes can be used, however, when the application supports that configuration.</p>
+<div class="figure">
+  <a name="AutoAnchor_99800445_figure002"></a>Figure 3-2  Flowchart for Assigning Controller Indexes</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_99800445/300832862.png" width="250" class="embedded-image" />
+  </span> </p>
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If you use the controller support applet, you can simplify the process of setting the number of Joy-Con controllers for each user.</p>
+    <p>A user interface is included to prompt users to reconnect controllers and change grips in conjunction with the play format, grip, and call time specification selected by the application. For more information, see <a href="../Pages/Page_99802852.html">3.6 Controller Support Applet</a>.</p>
+  </div>
+</div>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>There are many different grips for Switch controllers in general and Joy-Con in particular. As a result, a player might use a grip that is not supported by the application.</p>
+    <p>We recommend describing in your application how to use controllers in general and the Joy-Con in particular, and how to configure settings such as the play format and grip.</p>
+  </div>
+</div>
+<h1 id="Anchor_99800445_h1_1">Player LED Illumination</h1>
+<p>The player LED corresponding to the controller index will illuminate when an index has been set to a controller.</p>
+<p>The Joy-Con (R) player LED illuminates for different indexes depending on whether the grip is vertical or horizontal. If the controller grip is vertical, the LEDs light up in order from the top, and if the controller grip is horizontal, the LEDs light up in order from the left. When you configure this setting in conjunction with the Joy-Con grip, the left and right Joy-Con illuminate using the same pattern.</p>
+<div class="table">
+  <a name="AutoAnchor_99800445_table001"></a>Table 3-3 Illumination Pattern of Player LED</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">
+        <p>Controller Indexes</p>
+      </th>
+      <th colspan="2">Player LED</th>
+    </tr>
+    <tr>
+      <th>
+        <p>Pro Controller</p>
+        <p>Joy-Con solo horizontal grip</p>
+      </th>
+      <th>
+        <p>Dual-controller grip</p>
+        <p>Joy-Con solo remote grip</p>
+      </th>
+    </tr>
+    <tr>
+      <td>Controller.1</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615377.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p style="text-align: center;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615369.png" width="24" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.2</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615378.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_99800445/157615370.png" width="24" class="embedded-image" />
+          </span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.3</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615379.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615371.png" width="24" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.4</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615380.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_99800445/157615372.png" width="24" class="embedded-image" />
+          </span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.5</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615381.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615373.png" width="24" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.6</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615382.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615374.png" width="24" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.7</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615383.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615375.png" width="24" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Controller.8</td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper image-center-wrapper">
+            <img src="../Attachments/Attach_99800445/157615384.png" width="72" class="embedded-image image-center" />
+          </span>
+        </div>
+      </td>
+      <td style="text-align: center;">
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615376.png" width="24" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_99800445_h1_2">Assigning Joy-Con Controller Indexes</h1>
+<p>There are two ways to handle the Joy-Con. One style of gameplay involves one player holding both the Joy-Con (R) and Joy-Con (L) in a dual-controller set. The other style involves two players, each holding one side of the Joy-Con in a shared configuration. You can use the <code>hid</code> library to configure whether to handle Joy-Con as a dual-controller set or as one for each controller index.</p>
+<ul>
+  <li>In a dual-controller set configuration, <br />the right and left Joy-Con controllers form a pair. The same index is assigned to both. The player LED illuminates in the same pattern for both right and left controllers.</li>
+</ul>
+<ul>
+  <li>For a single-controller configuration, the right and left Joy-Con controllers are each assigned a different controller index.<br /> The right and left Joy-Con have different indexes when connected. The player LED illumination patterns are also different.</li>
+</ul>
+<p>The following examples demonstrate these differences.</p>
+<h6 id="Anchor_99800445_h6_1">Example: Assigning all controller indexes as dual-controller sets:</h6>
+<ol>
+  <li>
+    <code>Controller.1</code> is assigned to the first Joy-Con (R) to be connected.</li>
+  <li>
+    <code>Controller.2</code> is assigned to the second Joy-Con (R) to be connected.</li>
+  <li>
+    <code>Controller.1</code>  is assigned to the first Joy-Con (L) to be connected. <br />Pairs with the first Joy-Con (R) connected in step 1.</li>
+  <li>
+    <code>Controller.2</code> is assigned to the second Joy-Con (L) to be connected.<br />Pairs with the second Joy-Con (R) connected in step 2.</li>
+</ol>
+<p>
+  <br />
+</p>
+<table class="wrapped">
+  <tbody>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>3</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212016.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p style="text-align: center;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615369.png" width="36" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>1</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212019.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>4</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212016.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p style="text-align: center;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615370.png" width="36" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>2</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212019.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_99800445_h6_2">Example: Assigning all controller indexes as one controller each:</h6>
+<ol>
+  <li>
+    <code>Controller.1</code> is assigned to the first Joy-Con (R) to be connected.</li>
+  <li>
+    <code>Controller.2</code> is assigned to the second Joy-Con (R) to be connected.</li>
+  <li>
+    <code>Controller.3</code> is assigned to the first Joy-Con (L) to be connected. </li>
+  <li>
+    <code>Controller.4</code> is assigned to the second Joy-Con (L) to be connected.</li>
+</ol>
+<p>
+  <br />
+</p>
+<table class="wrapped">
+  <tbody>
+    <tr>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p style="text-align: center;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615369.png" width="36" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>1</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212019.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_99800445/157615370.png" width="36" class="embedded-image" />
+          </span>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>2</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212019.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>3</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212016.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_99800445/157615371.png" width="36" class="embedded-image" />
+          </span>
+        </div>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>4</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212016.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_99800445/157615372.png" width="36" class="embedded-image" />
+          </span>
+        </div>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_99800445_h6_3">Example: Assigning <code>Controller.1</code> to a dual-controller set, and <code>Controller.2</code> and <code>Controller.3</code> to one controller each.</h6>
+<ol>
+  <li>
+    <code>Controller.1</code> is assigned to the first Joy-Con (R) to be connected.</li>
+  <li>
+    <code>Controller.2</code> is assigned to the second Joy-Con (R) to be connected.</li>
+  <li>
+    <code>Controller.1</code>  is assigned to the first Joy-Con (L) to be connected. <br />Pairs with the first Joy-Con (R) connected in step 1.</li>
+  <li>
+    <code>Controller.3</code> is assigned to the first Joy-Con (L) to be connected.</li>
+</ol>
+<p>
+  <br />
+</p>
+<table class="wrapped">
+  <tbody>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>3</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212016.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p style="text-align: center;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615369.png" width="36" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>1</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212019.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <br />
+        </p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p style="text-align: center;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/157615370.png" width="36" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>2</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212019.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>4</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_99800445/215212016.png" width="40" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_99800445/157615371.png" width="36" class="embedded-image" />
+          </span>
+          <p style="text-align: center;"> </p>
+        </div>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

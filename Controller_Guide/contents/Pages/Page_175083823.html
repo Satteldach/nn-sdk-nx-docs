@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.7 Controller Support Under Specific Conditions | Nintendo Switch Controller Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.7 Controller Support Under Specific Conditions -->
+<div class="pagetitle" id="PageId_175083823">3.7 Controller Support Under Specific Conditions</div>
+<div class="text_separate">
+<p>This section includes several examples of controller support under specific conditions. These examples use controller support applets. An application may also offer its own user interface (UI) with the same content, without using a controller support applet.</p>
+<p>The following support features make it easy for the users to understand which controller is available and how to grip it. We particularly recommend using these features when there are numerous players because the combinations of users and controller grip techniques become complicated.</p>
+<h1 id="Anchor_175083823_h1_1">If There Is No Compatible Controller When the Application Starts or Resumes</h1>
+<p>For example, in the following situations, the application has started or resumed, but the controller configuration might not be supported by the application.</p>
+<ul>
+  <li>In handheld mode, tap the touch screen to start the application (or resume play).</li>
+  <li>When the application is started (or play is resumed) using a controller that the application does not support.</li>
+  <li>Although the application requires both a left and right controller, it was started (or resumed) using either a single left or right Joy-Con controller.</li>
+</ul>
+<p>If the controller configuration is not supported when the application starts or resumes, we recommend calling the controller support applet.</p>
+<div class="figure">
+  <a name="AutoAnchor_175083823_figure001"></a>Figure 3-7  Flow When There Is No Compatible Controller When the Application Starts or Resumes</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_175083823/186770417.png" width="450" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_175083823_h1_2">If the Wireless Controller Connection Is Disconnected During Gameplay</h1>
+<p>For example, if the battery loses power and the wireless controller connection is disconnected while the user is playing the application, the application may progress, even though controller operation has been disabled.</p>
+<p>In this case, we recommend calling the controller support applet when the controller that is in use can no longer be detected.</p>
+<div class="figure">
+  <a name="AutoAnchor_175083823_figure002"></a>Figure 3-8  Flow When the Wireless Controller Connection Is Disconnected During Gameplay</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_175083823/186770418.png" width="500" class="embedded-image" />
+  </span>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+<p>However, when changing the play mode, if you call the applet immediately after the controller currently in use is no longer detected, this might cause inconvenience to the user.</p>
+<p>To change between play modes smoothly, we recommend first allocating 5 seconds of wait time (with an additional 5 seconds of wait time if a transition from handheld mode to TV mode is detected) before calling the applet.</p>
+<div class="figure">
+  <a name="AutoAnchor_175083823_figure003"></a>Figure 3-9  Flow for Changing the Play Mode Smoothly</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_175083823/186770420.png" width="700" class="embedded-image" />
+  </span> <br /></p>
+<h1 id="Anchor_175083823_h1_3">If the Controller Grip Is Changed</h1>
+<p>We recommend calling the controller support applet for applications where the supported controller differs for each minigame or requires the user to switch the controller grip during the game.</p>
+<div class="figure">
+  <a name="AutoAnchor_175083823_figure004"></a>Figure 3-10  Flow When the Controller Grip Is Changed</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_175083823/186770419.png" width="600" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When necessary, it is preferable for the application to explain the following before calling the controller support applet, or, more accurately, before changing the play format.</p>
+    <ul>
+      <li>The method for handling controllers is being changed.</li>
+      <li>A controller that was used previously can no longer be used.</li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

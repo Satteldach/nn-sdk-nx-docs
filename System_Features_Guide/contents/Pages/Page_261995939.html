@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.8 Web Applet | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.8 Web Applet -->
+<div class="pagetitle" id="PageId_261995939">4.8 Web Applet</div>
+<div class="text_separate">
+<p>The web applet is a library applet that uses a Web browser equipped with the main HTML5 features and video playback functionality to display webpages specified by the application.</p>
+<div class="figure">
+  <a name="AutoAnchor_261995939_figure001"></a>Figure 4-1  Web Applet Screen Mockup</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_261995939/261995929.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_261995939_h1_1">Overview of the Web Applet</h1>
+<p>The web applet is a web browser for applications.</p>
+<p>The application specifies the webpage to display and starts the web applet.</p>
+<p>Users cannot specify URLs themselves.</p>
+<p>A variety of features have been prepared to give the web applet the look and feel of the application.</p>
+<h1 id="Anchor_261995939_h1_2">Using the Web Applet</h1>
+<h2 id="Anchor_261995939_h2_1">Operation Method</h2>
+<p>The web applet supports two broad methods of operation: using a controller for spacial navigation and moving a pointer, and operations based on touching the screen.</p>
+<p>In spatial navigation, you use the Left Stick and the directional buttons to move the focus among the different elements displayed in the webpage, and you use the A Button to select an element to view.</p>
+<p>With the pointer, you use the Left Stick similar to a mouse to move a cursor, and you use the A Button to select an element to view.</p>
+<p>The user can switch between spatial navigation and the pointer at any time.</p>
+<p>Selecting an element, such as a text box in a webpage, starts the software keyboard.</p>
+<p>For more information, see <a href="../Pages/Page_172887793.html">4.3 Software Keyboard Applet</a>.</p>
+<h3 id="Anchor_261995939_h3_1">USB Keyboard Operations</h3>
+<p>You can connect a generic USB keyboard to the USB terminal of the Nintendo Switch dock and operate the web applet.</p>
+<p>The directional keys on the USB keyboard correspond to the directional buttons on the controller, while the ENTER key corresponds to the A Button and the ESC key corresponds to the B Button.</p>
+<h2 id="Anchor_261995939_h2_2">Specifying the Webpage to Display</h2>
+<p>Unrestrained browsing of internet websites is not the purpose of the web applet, so users are not free to specify URLs.</p>
+<p>The application specifies which webpage to display first, and defines which webpages are viewable.</p>
+<p>If viewable webpages have been correctly specified, an attempt to open other webpages will result in the display of an error page, and further links will not be followed.</p>
+<p>Use this specification so that only the necessary webpages can be viewed.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Web Applet.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>Displaying HTTP pages is prohibited. Only HTTPS pages can be displayed for master submission versions of applications. <br />For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Web Applet &gt; Specifying Accessible URLs.</p>
+  </div>
+</div>
+<h2 id="Anchor_261995939_h2_3">Customizing the Web Applet</h2>
+<p>Customizations can be specified when the applet starts, or specified for a particular webpage.</p>
+<p>Customizations specified when the applet starts, remain in effect until the applet ends.</p>
+<p>Customizations specified for a particular webpage are enabled only when that webpage is being displayed.</p>
+<p>By combining features, the web applet can be customized in just parts of the application.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</p>
+<h2 id="Anchor_261995939_h2_4">Adding Parameters to URLs to Pass Information</h2>
+<p>Information can be passed between the application and the web applet by adding parameters to URLs.</p>
+<p>The URLs that can be used to pass information, are the URLs when the web applet starts and ends.</p>
+<p>The URL when the web applet ends, can pass information to the application using the <em>callback URL</em> feature.</p>
+<p>You can use this mechanism to start the web applet based on the state of the application, and to return information manipulated in the web applet back to the application.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</p>
+<h1 id="Anchor_261995939_h1_3">Notes When Using the Web Applet</h1>
+<h2 id="Anchor_261995939_h2_5">Effect of System Updates</h2>
+<p>The web applet is also subject to updates when the system is updated.</p>
+<p>Due to the characteristics of the browser, the update might change how the same webpage appears and behaves.</p>
+<p>Consider the effects of system updates when using the web applet.</p>
+<h2 id="Anchor_261995939_h2_6">Termination by the System</h2>
+<p>If the user presses the HOME Button, and starts a system application from the HOME Menu while the web applet is running, the system might cause the applet to end.</p>
+<p>For more information, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</p>
+<h2 id="Anchor_261995939_h2_7">No Support for Display of Offline HTML</h2>
+<p>The web applet does not support the display of offline HTML files added to the ROM.</p>
+<p>If you want to display offline HTML, use the Offline Web applet.</p>
+<p>For more information, see <a href="../Pages/Page_115049609.html">4.9 Offline Web Applet</a>.</p>
+<h2 id="Anchor_261995939_h2_8">Restrictions When Creating Content</h2>
+<p>The web applet is not designed as a browser for the unrestricted viewing of publicly available websites. It does not have the following types of features common to standard web browsers.</p>
+<ul>
+  <li>Tabbing</li>
+  <li>Saving bookmarks</li>
+  <li>Search and address input</li>
+</ul>
+<p>In addition, due to restrictions, the following types of features are not available.</p>
+<ul>
+  <li>Inline video playback</li>
+  <li>Flash playback</li>
+  <li>Viewing PDFs</li>
+</ul>
+<p>In addition to these feature limitations, there are also other points to be aware of.</p>
+<ul>
+  <li>The applet might not be able to display webpages that place an extremely high load on rendering or consume a large amount of memory.</li>
+  <li>The content of the webpages must be directly relevant to the application.</li>
+  <li>The content of the webpages must not overstep the rating of the application.</li>
+  <li>The webpages viewable from the application must be continually available.</li>
+  <li>Make sure that the webpages are displayed correctly by the web applet. <br /></li>
+  <li>Display only those webpages that have been sanctioned by the webpage administrator.</li>
+  <li>Make sure that the webpage content complies with the Parental Controls Compliance guidelines.</li>
+  <li>If rules have been set for the website being displayed, adhere to those rules.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>Some websites rules require features for linking to other pages and for displaying ads.</p>
+    <p>Refrain from displaying such websites if adherence to their rules would preclude fulfillment of the other conditions required of the web applet, namely that &quot;The content of the webpages must be directly relevant to the application&quot; and &quot;The content of the webpages must not overstep the rating of the application&quot; and &quot;Display only those webpages that have been sanctioned by the webpage administrator.&quot;</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The webpages officially provided by Nintendo are not designed for display by the web applet. Make sure not to display official Nintendo webpages with the web applet.</p>
+  </div>
+</div>
+<h1 id="Anchor_261995939_h1_4">Specifications</h1>
+<p>The supported formats are presented below.</p>
+<div class="table">
+  <a name="AutoAnchor_261995939_table001"></a>Table 4-1  Web Applet Specifications</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th> Item</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <p>Supported protocols</p>
+      </td>
+      <td>HTTP1.0 / HTTP1.1 / TLS1.2 / TLS1.3</td>
+    </tr>
+    <tr>
+      <td>Supported web standards</td>
+      <td>HTML4.01 / HTML5 / XHTML1.1 / Fullscreen / Gamepad / SVG / WebSocket / Video Subtitle / WOFF / Web Messaging / Server-Sent Events / Web Storage, in part / WebWorker / Web Audio, in part / XMLHttpRequest / Canvas / Video / DOM1-3 / ECMAScript / CSS1 / CSS2.1 / CSS3, in part</td>
+    </tr>
+    <tr>
+      <td>Viewable image formats</td>
+      <td>
+        <p>APNG / BMP / GIF / ICO / JPEG / PNG / SVG / WEBP / Animated WebP</p>
+        <p>
+          <strong>Note:</strong> Some images cannot be displayed.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Plug-Ins</td>
+      <td>
+        <p>Not supported.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+  <li>For more information about support for HTML, CSS, and ECMAScrip, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both &gt; HTML/CSS/ECMAScript Support List.<br class="_mce_tagged_br" /></li>
+  <li>For more information about gamepads, web storage, and Web Audio, see NintendoSDK Documents &gt; Features &gt; Library Applets &gt; Web Applet and Offline Web Applet &gt; Information Common to Both.</li>
+</ul>
+<h2 id="Anchor_261995939_h2_9">Video Format</h2>
+<div class="table">
+  <a name="AutoAnchor_261995939_table002"></a>Table 4-2  Supported Streaming Formats</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Container Format</th>
+      <th>File Type</th>
+      <th>Video codec</th>
+      <th>Audio codec</th>
+    </tr>
+    <tr>
+      <td>MP4</td>
+      <td>.mp4, .m4a, .m4v</td>
+      <td>H.264</td>
+      <td>AAC-LC</td>
+    </tr>
+    <tr>
+      <td>WebM</td>
+      <td>.webm</td>
+      <td>VP8, VP9</td>
+      <td>Vorbis, Opus</td>
+    </tr>
+  </tbody>
+</table>
+<p>For more information about the formats, see NintendoSDK Documents &gt; Features &gt; Codec &gt; movie Library &gt; Authoring Guidelines.<br />The web applet does not support content that meets any of the following conditions.</p>
+<ul>
+  <li>The file type is MKV.</li>
+  <li>The resolution is 1080p.</li>
+</ul>
+<div class="table">
+  <a name="AutoAnchor_261995939_table002"></a>Table 4-2  Supported Streaming Formats</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Container Format</th>
+      <th>File Type</th>
+      <th>Video codec</th>
+      <th>Audio codec</th>
+    </tr>
+    <tr>
+      <td>MPEG2-TS (HLS Live / VOD)</td>
+      <td>.m3u8, .ts</td>
+      <td>H.264</td>
+      <td>AAC-LC</td>
+    </tr>
+  </tbody>
+</table>
+<div class="table">
+  <a name="AutoAnchor_261995939_table004"></a>Table 4-4  Other Features</div>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Subtitling and Closed Captions</td>
+      <td>WebVTT</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

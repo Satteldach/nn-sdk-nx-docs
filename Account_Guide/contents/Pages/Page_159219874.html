@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.2 Nintendo Accounts | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.2 Nintendo Accounts -->
+<div class="pagetitle" id="PageId_159219874">4.2 Nintendo Accounts</div>
+<div class="text_separate">
+<p>A Nintendo Account is an account explicitly created by an individual user that can also be used on PCs and smart devices. By linking the Nintendo Switch with a Nintendo Account, the user can receive services on Switch that are linked to their email address or linked to other devices. </p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Avoid direct use of the term <em>Nintendo Account</em> in your application. If you must use the term (for example to inform users that a Nintendo Account is required), call the Account Management applet. (For more information, see <a href="../Pages/Page_159220253.html">5.1.3 Feature Group 3: Account Management Applet</a>.) This way, any future extensions or changes to Nintendo Accounts and related services can be handled by system updates.</p>
+  </div>
+</div>
+<h2 id="Anchor_159219874_h2_1">Nintendo Account Attributes</h2>
+<p>Nintendo Accounts can store the following data as attributes.</p>
+<table class="wrapped relative-table" style="width: 98.2906%;">
+  <colgroup>
+    <col style="width: 16.4659%;" />
+    <col style="width: 83.5341%;" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Attributes</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Internal ID</td>
+      <td>
+        <p>An ID that is globally unique among Nintendo Accounts within the same environment, and which cannot be changed. For more information about the server environment, see Nintendo Switch Independent Server Setup Manual.</p>
+        <p>Automatically issued by the system when the Nintendo Account is created. It is not displayed to the user.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>User Name</td>
+      <td>The user's name. This setting is required.<br />Users can change this attribute themselves.</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>The user's gender.<br />Users can change this attribute themselves.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Email address</p>
+      </td>
+      <td>
+        <p>The email address registered by the user. This setting is required for general Nintendo Accounts. However, an email address is not registered when a Nintendo Account is created for a child, as described later.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Country of residence</td>
+      <td>
+        <p>The user's country of residence. This setting is required. Under certain conditions, users can change this attribute themselves.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Date of birth</td>
+      <td>
+        <p>The user's date of birth. This setting is required. Although users themselves cannot make changes, changes may be possible under some conditions.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Linked Nintendo Network ID</td>
+      <td>If the account is being linked to a Nintendo Network ID, that information is maintained.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_159219874_h2_2">Using Nintendo Accounts</h2>
+<p>Contact Nintendo if your application will be designed to get Nintendo Account attributes (including those listed previously), or to link the Switch with web services or smart device applications.</p>
+<p>To get Nintendo Account attributes, you must have an independent server. (For more information about independent servers, see Nintendo Switch Independent Server Setup Manual.) Each application must also get user consent to get the attributes.</p>
+<p>For more information about creating Nintendo Accounts in the development environment (the server environment for application development, which differs from the production environment), see NintendoSDK Documents &gt; Guide to Setting Up the Environment.</p>
+<h2 id="Anchor_159219874_h2_3">Relationship Between Nintendo Accounts and Licenses</h2>
+<p>The license information for downloadable applications and downloadable content bought and redeemed on Nintendo eShop is managed at the level of Nintendo Accounts.</p>
+<p>For more information about how these licenses held by Nintendo Accounts are managed and shared on Switch, see the Nintendo Switch E-Commerce Guide.</p>
+<h2 id="Anchor_159219874_h2_4">Handling Users Under 13</h2>
+<p>Children under the age of 13 are not allowed to create their own Nintendo Accounts. A Nintendo Account for a child (a child account) can be created after the child's parent or guardian 18 or older has created their own Nintendo Account and has given their consent for the child to have a Nintendo Account. Children do not need to have an email address because the email address registered to the Nintendo Account of the parent or guardian is used for contact information.</p>
+<p>For applications that use Nintendo Accounts, assume the existence of users under 13 and users without a registered email address and design specifications to avoid problems.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>With the implementation of the EU General Data Protection Regulation (GDPR) in May of 2018, users under the age of 16 in the relevant European countries and areas cannot create their own Nintendo Accounts.</p>
+  </div>
+</div>
+<h2 id="Anchor_159219874_h2_5">Nintendo Account Creation Requirements</h2>
+<p>To create a Nintendo Account, the user must agree to the following conditions. You can provide network services on the Switch based on this assumption.</p>
+<ul>
+  <li>The user must agree to the privacy policies and terms of use stipulated by the network services offered by Nintendo that will be used with the Nintendo Account.</li>
+  <li>The parent or guardian must consent to the collection of personal information about the child, as based on the U.S. law known as the Children's Online Privacy Protection Act (COPPA). </li>
+</ul>
+<h2 id="Anchor_159219874_h2_6">Deleting a Nintendo Account</h2>
+<p>There is a procedure for users to delete their Nintendo Accounts. When a Nintendo Account is deleted, the Switch network service account and other assets and services associated with that account are no longer available. To assist users who have accidentally deleted a Nintendo Account, there is a feature for users to cancel the deletion request if it is done within a certain period of time.</p>
+<h2 id="Anchor_159219874_h2_7">Additional Information: Nintendo Accounts and Nintendo Network IDs</h2>
+<h3 id="Anchor_159219874_h3_1">Differences From Nintendo Network IDs</h3>
+<p>The following table shows the main differences between Nintendo Accounts and Nintendo Network IDs.</p>
+<table class="wrapped" style="margin-left: 24.0px;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner"> Differences</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Nintendo Account</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Nintendo Network ID</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Available scope</td>
+      <td>
+        <p>Switch</p>
+        <p>Game devices sold after the Switch (planned)</p>
+        <p>Official Nintendo website</p>
+        <p>My Nintendo service</p>
+        <p>Smart device applications that work with Nintendo Accounts</p>
+      </td>
+      <td>
+        <p class="_mce_tagged_br">Nintendo 3DS Family</p>
+        <p class="_mce_tagged_br">Wii U</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Changes to country information</td>
+      <td>Possible</td>
+      <td>Not possible</td>
+    </tr>
+    <tr>
+      <td>Sign-ins from external services</td>
+      <td>
+        <p>A feature is provided for signing in with Google and Apple accounts.</p>
+      </td>
+      <td>
+        <p>Not supported</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Email address verification email</td>
+      <td>
+        <p>Required</p>
+        <p>(If the Nintendo Account is associated with an external service when it is created and the email address used for that external service is also used for the Nintendo Account, that email address does not need to be verified again. However, if the Nintendo Account is created in association with a Twitter account or a Nintendo Network ID, an email must be sent to verify the email address.)</p>
+      </td>
+      <td>Optional</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_159219874_h3_2">Linking With a Nintendo Network ID</h3>
+<p>One Nintendo Network ID can be linked to each individual Nintendo Account. To link a Nintendo Account with a Nintendo Network ID, the country and date of birth information that have been registered separately to each must match. The email addresses set with a Nintendo Account and a Nintendo Network ID do not need to match.</p>
+<p>There is an operation for the user to remove the link with the Nintendo Network ID. The link is also removed if the country registered in the Nintendo Account is changed so that they do not match anymore.</p>
+<!--Remove-->
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

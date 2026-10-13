@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.5 FAQ | Nintendo Switch Voice Chat Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.5 FAQ -->
+<div class="pagetitle" id="PageId_347481664">2.5 FAQ</div>
+<div class="text_separate">
+<h1 id="Anchor_347481664_h1_1">I cannot use Matchmaking Voice Chat.</h1>
+<p>If you cannot use the Matchmaking Voice Chat feature, it might be due to one of the factors described in the following table. Check the workarounds in the following table.</p>
+<table class="wrapped relative-table" style="width: 97.7778%;">
+  <colgroup>
+    <col style="width: 29.5695%;" />
+    <col style="width: 53.29%;" />
+    <col style="width: 17.1405%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Cause</th>
+      <th>Description and Workaround</th>
+      <th>References</th>
+    </tr>
+    <tr>
+      <td>You are not subscribed to the Switch Online service.</td>
+      <td>
+        <p>
+          <span class="sv-ti-done" />Matchmaking Voice Chat is designed to check for a subscription to Switch Online in the following instances.</p>
+        <ul>
+          <li>When functions are called that generate Matchmaking Voice Chat communications.</li>
+          <li>When the Switch Online app is being used.</li>
+        </ul>
+        <p>
+          <span class="sv-ti-done" />For this reason, users who are not subscribed to Switch Online cannot use Matchmaking Voice Chat.</p>
+        <p>The same rule holds true in the development environment, so use the method described in the Nintendo Switch Online Play Guide to provide Nintendo Switch Online licenses to Nintendo Accounts in the development environment.</p>
+      </td>
+      <td>Nintendo Switch Online Play Guide</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_347481664_h1_2">The Switch Online App for development does not work.</h1>
+<p>The Switch Online app for development may have been updated.<br />Get the latest version of the Nintendo Switch Online App Kit from NDI and install it on your smart device.</p>
+<p>For more information about the Switch Online app for development, see <a href="../Pages/Page_262010661.html">2.3.2 Getting the Switch Online App for Development</a>.</p>
+<h1 id="Anchor_347481664_h1_3">The application icon and name displayed in Switch Online App for Development are incorrect.</h1>
+<p>In the production environment, the application icon and name displayed by the <span class="sv-ti-done"><span class="sv-ti-title-text">Switch Online App</span></span> are acquired from what is registered to Nintendo eShop.</p>
+<p>However, as shown in the following image, the same image and name (Application Name) are used for all applications in the development environment. These images and names cannot be changed in the development environment.</p>
+<table class="wrapped">
+  <colgroup>
+    <col style="width: 246.0px;" />
+    <col style="width: 246.0px;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_347481664/366585423.png" height="400" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_347481664/366585427.png" height="400" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_347481664_h1_4">When I mute a player in Matchmaking Voice Chat, their information is no longer received.</h1>
+<p>When you mute a player in Matchmaking Voice Chat using the Switch Online app, you do not receive status updates from that player's operations. This limitation is due to technical constraints, and is a specification of the current Nintendo Switch Online app.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Muted Player Operation</th>
+      <th>Display to User Who Muted Player on Switch Online App</th>
+    </tr>
+    <tr>
+      <td>Exit Matchmaking Voice Chat</td>
+      <td>
+        <p>The muted player's status continues to be displayed on the screen as active, even if they exit Matchmaking Voice Chat.<br />If you unmute the player, their status is updated to departed.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Turn the Microphone On or Off</td>
+      <td>
+        <p>The muted player's microphone operations are not applied in the app.<br />If you unmute the player, the correct microphone settings are applied in the app.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

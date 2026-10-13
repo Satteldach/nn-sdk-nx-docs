@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.3 Ranking | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.3 Ranking -->
+<div class="pagetitle" id="PageId_164355053">5.3 Ranking</div>
+<div class="text_separate">
+<div>
+  <h1 id="Anchor_164355053_h1_1">Using a Large Number of Ranking Categories</h1>
+  <p>The <code>RankingClient::GetRanking()</code> function only allows you to specify one category at a time. If you are using a large number of categories, this function must be called as many times as there are categories. However, calls to the <code>RankingClient</code> API are limited to a maximum of 30 times in a five-minute period as per the guidelines, and so a maximum of 30 categories can be retrieved in five minutes.</p>
+  <p>To use a large number of ranking categories, you can use <code>RankingClient::GetCachedTopXRanking()</code> to get the cached rankings. This function can get a total of 100 top rankings across multiple categories. For example, if you only need the top five rankings, this function can get the rankings for 20 categories.</p>
+  <div class="note_new">
+    <div class="note_new_left">Note</div>
+    <div class="note_new_right">
+      <p>However, when using cached rankings, it may take up to five minutes after the local user's score is registered before it appears in the rankings. As a result, in some cases the local user's score might not be included in the top rankings if rankings are retrieved immediately after the score is registered.</p>
+      <p>To avoid this issue, use <code>RankingCachedResult::LocalUpdate()</code> to register the local user's score. This step allows the cached rankings retrieved to include the local user's score.</p>
+    </div>
+  </div>
+  <p class="auto-cursor-target">
+    <br />
+  </p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <ul>
+        <li>The guidelines are less strict about the frequency of calls to get cached rankings compared to the other <code>RankingClient</code> functions, so calls can be made at a frequency of 40 times in five minutes. In the case of the Top 5 rankings, you can get 800 categories over the course of five minutes.</li>
+        <li>If the frequency of calls still exceeds the limits in the guidelines even when using cached rankings, consider using <code>Ranking2Client</code>, the Ranking2 functionality.</li>
+      </ul>
+    </div>
+  </div>
+  <h1 id="Anchor_164355053_h1_2">Uploading Dummy Scores to a Ranking Category for Debugging</h1>
+  <p>We strongly recommend preparing <strong>test cases with a large volume of dummy data</strong> ahead of time for debugging the ranking functionality.</p>
+  <p>Some of the NEX ranking functions have a restriction on the number of ranked scores that can be retrieved and might behave differently depending on the total number of ranked scores. In particular, when the range is specified in range ranking mode, these functions will only support offset values of less than 1000. If a larger offset has been specified, calls to these functions will return an error. Uploading dummy data enables you to test different workflows for getting rankings based on the total number of ranked scores.</p>
+  <p>Use NEX Management System 2 (NMAS2) to add dummy data. Select <strong>Ranking</strong> &gt; <strong>Categories</strong>. In the <strong>Score</strong> tab, select <strong>Details</strong> for the category you want to add dummy data to, click <strong>Add Dummy Data</strong>, and add the dummy data.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <ul>
+        <li>We suggest registering at <strong>least at 1500 instances</strong> of dummy data for each category.</li>
+        <li>Uploading dummy data takes a non-negligible amount of time. We recommend starting from a lower number of dummy scores and gradually increasing the number to get the desired number of dummy scores.</li>
+        <li>However, do not upload more than one million dummy scores due to the impact on server load.</li>
+        <li>This approach is the same as the approach for debugging the Ranking2 functionality.</li>
+      </ul>
+    </div>
+  </div>
+  <h1 id="Anchor_164355053_h1_3">Debugging When There Are No Scores in the Rankings</h1>
+  <p>We strongly recommend using <strong>empty test cases (with no scores)</strong> for debugging the ranking functionality.</p>
+  <p>Use NMAS2 to delete the registered scores.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <ul>
+        <li>There are no scores on the production environment server at the point the application goes live in the production environment. For this reason, automatically delete all scores registered during development to emulate the state it will be in at go-live.</li>
+        <li>This approach is the same as the approach for debugging the Ranking2 functionality.</li>
+      </ul>
+    </div>
+  </div>
+  <h1 id="Anchor_164355053_h1_4">Linking With Data Stores</h1>
+  <p>If you want to include information about the user when uploading a score to the rankings, upload that user data to a data store and associate it with the ranked score.</p>
+  <p>To perform this, upload the desired user information to the data store in advance and associate a data ID with that data. Then, when calling the <code>RankingClient::UploadScore()</code> function, set the data store data ID as one of the parameters in the <code>RankingScoreData</code> object. Doing this allows you to download the data associated with that data ID on the data store when the user retrieves the rankings.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info</div>
+    <div class="info_new_right">
+      <p>You can use the same linking method when using the Ranking2 feature instead of Ranking.</p>
+    </div>
+  </div>
+  <p class="auto-cursor-target">
+    <br />
+  </p>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

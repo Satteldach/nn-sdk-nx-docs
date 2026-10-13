@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.4 Use in a Development Environment | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.4 Use in a Development Environment -->
+<div class="pagetitle" id="PageId_255560522">2.4 Use in a Development Environment</div>
+<div class="text_separate">
+<p>This section describes how to use Nintendo Switch Online in an application development environment.</p>
+<p>It also describes how to use a web tool to grant Nintendo Switch Online membership licenses to development environment Nintendo Accounts.</p>
+<h1 id="Anchor_255560522_h1_1">Applying Nintendo Switch Online Policies in the Development Environment</h1>
+<p>The Nintendo Switch Online policies that are set for each application are applied even on the various development environment servers.<br />The application behavior in those environments is exactly as described in <a href="../Pages/Page_241541930.html">2.3 Application-Level Support</a>.<br />The Nintendo Switch Online policy settings are applied in the development environment when the phase on OMAS becomes <strong>In Development</strong>.</p>
+<h1 id="Anchor_255560522_h1_2">Using Nintendo Switch Online in the Development Environment</h1>
+<p>You cannot join Nintendo Switch Online from a Nintendo Switch with a development environment Nintendo Account. If you are in a development environment and use the prescribed method for handling errors that occur when Nintendo Switch Online is unavailable, the subscription guide is displayed just like in the retail environment, but you cannot complete the process of obtaining a membership on your Switch.</p>
+<p>You can grant licenses comparable to a Nintendo Switch Online membership to Nintendo Accounts in the development environment by using the following dedicated web tool.</p>
+<h1 id="Anchor_255560522_h1_3">Nintendo Switch Online Membership Manager</h1>
+<p>The Nintendo Switch Online Membership Manager is a web tool for granting Nintendo Switch Online licenses to Nintendo Accounts in the development environment.<br />You can access the web tool from the following URL. To log in, you need a Nintendo Developer ID.</p>
+<p>
+  <a href="https://nsom.nntt.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">https://nsom.nntt.mng.nintendo.net/</a>
+</p>
+<h4 id="Anchor_255560522_h4_1">Linking a Nintendo Account</h4>
+<p>To configure the settings to grant a Nintendo Switch Online license to a development environment Nintendo Account, you must first link that Nintendo Account to Nintendo Switch Online Membership Manager.</p>
+<p>To link a Nintendo Account, log in to Nintendo Switch Online Membership Manager and click <strong>Link a Nintendo Account</strong>.</p>
+<p>Basic authentication is configured on the login page for Nintendo Accounts in the development environment. Note that <em>development environment</em> in this case refers to the dd1 environment. Use the authentication data for a dd1 environment Nintendo Account.<br />For more information about Nintendo Account authentication in the dd1 environment, see <a href="https://developer.nintendo.com/" target="_blank" rel="noopener noreferrer">Nintendo Developer Portal</a> &gt; Developer Support &gt; Nintendo Switch &gt; Technical Information &gt; Information for Network Titles.</p>
+<p>When the process is completed, the information for the linked Nintendo Account appears on the Nintendo Switch Online Membership Manager page.</p>
+<h4 id="Anchor_255560522_h4_2">Granting Nintendo Switch Online Licenses</h4>
+<p>The information for the linked Nintendo Account shows whether that account has a license for Nintendo Switch Online.</p>
+<p>If <strong>Unavailable</strong> appears in the <strong>Service availability</strong> column, that account does not have a license. To grant a new license to that account, click <strong>Grant</strong> on the right. If <strong>Available</strong> appears in the <strong>Service availability</strong> column, the account has a license. If the account has a license, the expiration date is also shown in the <strong>Service availability</strong> column.</p>
+<p>Licenses granted using Nintendo Switch Online Membership Manager remain valid for a period of one year.</p>
+<h1 id="Anchor_255560522_h1_4">Omitting the Process of Checking for Nintendo Switch Online License in Development Environments</h1>
+<p>You can omit the process of checking for a Nintendo Switch Online license in the development environment by changing the Switch console settings.<br />For more information, see Omitting the Verification of Network Service Account Credentials (for SDK 5.0.0 or later) in NintendoSDK Documents.</p>
+<h4 id="Anchor_255560522_h4_3">NSA ID Tokens When License Verification Is Omitted</h4>
+<p>When the process of Nintendo Switch Online license verification is omitted, information about Nintendo Switch Online licenses is not included in the obtained NSA tokens.<br />Note that NSA ID tokens that do not include information about Nintendo Switch Online licenses are different from the NSA ID tokens obtained when there is no Nintendo Switch Online license.<br />For more information about how applications are affected, see NSA ID Token Status and Availability of Online Features under <a href="../Pages/Page_241541930.html">2.3 Application-Level Support</a>.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>If the application policy is <strong>Some features require membership</strong>, NSA ID tokens can be obtained even if the user does not have a Nintendo Switch Online membership. Those NSA ID tokens will contain information indicating the lack of a license. On the other hand, if you omit the process of checking for a license, the NSA ID tokens will not contain any information about licenses.<br />For more information about NSA ID tokens, see Nintendo Switch Independent Server Setup Manual &gt; Connecting to an Independent Server &gt; NSA ID Token Specifications.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

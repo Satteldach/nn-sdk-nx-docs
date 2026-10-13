@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.6 Guidelines | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.6 Guidelines -->
+<div class="pagetitle" id="PageId_357902096">4.6 Guidelines</div>
+<div class="text_separate">
+<p>The guidelines for implementing NEX are designed mainly to prevent the quality of service from suffering due to excessive load on the game server.</p>
+<p>This section describes the guidelines that require particular attention and introduces recommended methods of implementation.</p>
+<p>For more information, see the Nintendo Switch Guidelines.</p>
+<h1 id="Anchor_357902096_h1_1">Restrictions on Frequency of Calls to NEX API</h1>
+<p>NEX functions that trigger server access can increase the server load if they are called too often, so a restriction has been set on call frequency to prevent this problem from happening.<br />The following examples show some situations where it is easy to call functions too many times.</p>
+<h5 id="Anchor_357902096_h5_1">Ranking</h5>
+<p>The restriction on the frequency of calls to the <code>RankingClient</code> class is stricter than the restrictions on other server service features, so you must be careful starting from the planning stage.</p>
+<p>If you plan to use a lot of categories and move the ranking board while scrolling, chances are high you will call <code>RankingClient</code> too many times. In that case, we recommend using <code>Ranking2Client</code> instead.</p>
+<p>If you are using <code>RankingClient</code>, we recommend getting the ranking data one time after logging in to the game server and then only when the player's own score is updated, and otherwise calling the <code>RankingClient::GetCachedTopXRanking()</code> function to use the cached data.</p>
+<h5 id="Anchor_357902096_h5_2">Data Store</h5>
+<p>If you plan to display lists of data in the application for data searches and the like, we recommend using the metadata for the data shown in the lists.</p>
+<p>The <code>DataStoreClient::GetObject()</code> function, which downloads data that has been uploaded to the storage server, can only download one set of data at a time. If you use this function to get data to display in a list, chances are high you will call the function too often.</p>
+<p>The <code>DataStoreClient::GetMeta()</code> function, which gets metadata, can retrieve up to 100 sets of metadata at a time.<br />One set of metadata has a maximum size of 1024 bytes. If you plan to use metadata to display lists of data, make sure the data can fit within this range.</p>
+<h1 id="Anchor_357902096_h1_2">Prohibition of Implementing Independent Auto-Matchmaking</h1>
+<p>Use <code>MatchmakeExtensionClient::Automatchmake()</code> when implementing automatic matchmaking specifications in the application.</p>
+<p>When the processes of creating, finding, and joining matchmaking sessions are controlled in the application and auto-matchmaking is implemented independently, you might face situations in the production environment where errors occur and matches cannot be made if you have not performed sufficient testing. To realize this kind of auto-matchmaking, you must use a sufficient number of test clients and test the process under a variety of conditions. It is usually difficult to perform adequate testing ahead of time, so the guidelines prohibit implementing your own auto-matchmaking process.</p>
+<p>Auto-matchmaking using the <code>MatchmakeExtensionClient::Automatchmake()</code> function has been adequately tested and is designed so problems are unlikely to occur in the production environment.<br /></p>
+<p>The following kinds of problems can arise when you implement your own auto-matchmaking process.</p>
+<ul>
+  <li>Search results become fixed due to inadequate search criteria, creating sessions where the search targets are not included and matches are not established.</li>
+  <li>If multiple users try to automatically join the same session at the same time, some of the join-in processes might fail and create errors that users cannot handle.</li>
+  <li>If new sessions are not created when candidate sessions are not found as a result of the search, the number of joinable sessions may decrease and lower the overall matchmaking success rate.</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

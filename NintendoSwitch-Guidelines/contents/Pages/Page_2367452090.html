@@ -1,0 +1,1013 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>VR | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- VR -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452090" data-tags="revision-updated-11.0">VR</div>
+<div class="text">
+<p>This chapter covers requirements for application design and development and applies to applications that use the Toy-Con VR Goggles to support VR (Virtual Reality). Developers of applications that use the Toy-Con VR Goggles to support VR must read this chapter. Also note that applications that use the Toy-Con VR Goggles to support VR must comply with <a href="../Pages/Page_2367451968.html#GuidelineDescLabel_2367452044">0172: Getting approval from Nintendo in advance if your application supports Toy-Con</a> and <a href="../Pages/Page_2367451968.html#GuidelineDescLabel_2367452052">0180: Explaining how to attach the Joy-Con strap (for applications that support Toy-Con)</a> in addition to the requirements in this chapter.<br /></p>
+<p>Throughout the rest of this document, gameplay that uses the Toy-Con VR Goggles is called &quot;VR mode.&quot;</p>
+<p>Note that even if your application only uses the Toy-Con VR Goggles to display stereoscopic 3D and does not use them to track the movement of the user's head, your application is still subject to the guidelines in this chapter.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- VR: General -->
+<h1 class="general" id="GuidelineLabel_2367452093" data-tags="revision-updated-11.0">VR: General</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply to all applications that implement a VR mode.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0183: Complying with Parental Controls (VR) -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452096" data-tags="function-ペアレンタルコントロール revision-updated-11.0 revision-updated-20240206 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452096" title="Right-click and copy link to copy a permalink to this guideline">0183: Complying with Parental Controls (VR)</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If the Parental Controls item <strong>VR Mode (3D visuals)</strong> is restricted, you must not allow the user to play in VR mode.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that implement a VR mode
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>One of the Nintendo Switch Parental Controls is <strong>VR Mode (3D visuals)</strong>. If this Parental Controls item is restricted, you must not allow the user to play in VR mode inside your application.</p>
+<p>Nintendo sets the target age range for VR mode to be 7 years of age or older, and we prompt users to refrain from using VR mode if children age 6 or younger are playing the game.</p>
+<p>We provide users with the <strong>VR Mode (3D visuals)</strong> item in Parental Controls as a feature allowing users to prevent children age 6 or younger from using VR mode. Applications that support VR mode must comply with any Parental Controls restrictions on VR mode.</p>
+<p>If parts of your application do not use the Toy-Con VR Goggles, then you are free to allow users to play those parts even when <strong>VR Mode (3D visuals)</strong> is restricted.<br />For example, it is not a problem to offer a mode that has the same gameplay as your VR mode, but which can be played without using the Toy-Con VR Goggles.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Users can temporarily lift Parental Controls restrictions. If the user temporarily lifts the Parental Controls restriction on VR mode, in some cases the restriction may go into effect again at some point during gameplay. In this case, there is no problem as long as your application correctly handles the VR mode exit notification that you receive from the system.</p>
+  </div>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK VRGogglesKit Documents (NintendoSDK SevenKit Documents)</em> (<strong>Note:</strong> This is part of the SevenKit package, a private package you need to request permission to use.)<br /><ul><li><em>VR Application Implementation Guide</em></li><li><em>NintendoSDK API Reference for Seven Kit [NX]</em><ul><li>ptcl</li><li><code>pl::BeginVrMode()</code></li></ul></li></ul></li>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>You must perform both Test Method A and Test Method B below.<br />(These test methods are independent of each other. For example, if you need to repeatedly test this guideline in order to reproduce a bug, you can do so by repeating just Test Method B by itself, instead of performing both test methods every time.)</p>
+<p>
+  <br />
+</p>
+<p>
+  <strong>Test Method A:</strong>
+</p>
+<ol>
+  <li>In Parental Controls, set <strong>VR Mode (3D visuals)</strong> to <strong>Restricted</strong>.</li>
+  <li>Start the application and attempt to play in VR mode.</li>
+</ol>
+<p>
+  <br />
+</p>
+<p>
+  <strong>Test Method B:</strong>
+</p>
+<ol>
+  <li>In Parental Controls, set <strong>VR Mode (3D visuals)</strong> to <strong>Restricted</strong>.</li>
+  <li>On the HOME Menu, temporarily lift Parental Controls restrictions.</li>
+  <li>Start the application and begin playing in VR mode.</li>
+  <li>While playing in VR mode, short-press the POWER Button on the system to put the system into Sleep Mode.</li>
+  <li>Press the POWER Button again to wake the system from Sleep Mode.</li>
+  <li>Follow the on-screen instructions and resume the application.</li>
+  <li>Attempt to begin playing in VR mode.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>In <strong>Test Method A</strong> step 2, the user cannot play in VR mode.</li>
+  <li>In <strong>Test Method B</strong> step 6, the application has exited VR mode.</li>
+  <li>In <strong>Test Method B</strong> step 7, the user cannot play in VR mode.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452096_0" data-tag="function-ペアレンタルコントロール">
+<label for="tagfilter_2367452096_0">
+<span class="function-tag" title="Parental Controls" data-tag="function-ペアレンタルコントロール">Parental Controls</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452096_1" data-tag="function-toycon">
+<label for="tagfilter_2367452096_1">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452096_2" data-tag="function-vr">
+<label for="tagfilter_2367452096_2">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452096_3" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452096_3">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452096_4" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452096_4">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0184: Prohibited motions of Toy-Con VR Goggles -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452100" data-tags="revision-updated-11.0 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452100" title="Right-click and copy link to copy a permalink to this guideline">0184: Prohibited motions of Toy-Con VR Goggles</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Do not require or prompt users to perform any of the prohibited motions listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that implement a VR mode</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The following motions are potentially unsafe. Applications therefore must not require or prompt users to perform any of these motions within the application.</p>
+<table class="fixed-table wrapped" data-mce-resize="false">
+  <tbody>
+    <tr>
+      <th>Prohibited operation</th>
+      <th>Why is this prohibited?</th>
+      <th>Illustration</th>
+    </tr>
+    <tr>
+      <td>Having the user themselves move to a different location while holding the Toy-Con VR Goggles to their face</td>
+      <td>Wearing the Toy-Con VR Goggles over the face blocks the user's view of their surroundings, and the user may hit nearby people or objects and get injured.</td>
+      <td>
+        <p>
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_2367452100/2367452102.jpg" width="100" height="70" class="embedded-image" />
+          </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Having the user release both hands from the Toy-Con VR Goggles</td>
+      <td>Doing so would require the user to modify the Toy-Con VR Goggles, or adopt an unstable posture that may result in the user dropping the system.</td>
+      <td>
+        <p>
+          <span class="embedded-file-wrapper ">
+            <img src="../Attachments/Attach_2367452100/2367452101.jpg" width="100" class="embedded-image" />
+          </span>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Application Safety Improvement Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play through, from beginning to end, all application modes that use the Toy-Con VR Goggles.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not require or prompt users to perform any of the prohibited motions listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452100_0" data-tag="function-toycon">
+<label for="tagfilter_2367452100_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452100_1" data-tag="function-vr">
+<label for="tagfilter_2367452100_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452100_2" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452100_2">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0185: Explanation cautioning users about their surroundings and motion sickness -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452104" data-tags="revision-updated-11.0 function-振り回し function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452104" title="Right-click and copy link to copy a permalink to this guideline">0185: Explanation cautioning users about their surroundings and motion sickness</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must caution users about their surroundings and motion sickness.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that implement a VR mode</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>To promote a fun and safe experience, if your application uses the Toy-Con VR Goggles, you are required to caution the user.</p>
+  <ul>
+    <li>Nintendo recommends using one of the caution screens provided by Nintendo when cautioning the user about their surroundings and motion sickness, but you are also allowed to create your own explanation screen and incorporate it somewhere in your application's overall explanation of how to play, as long as your screen provides the same explanation.<br /><br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_2367452104/2367452105.png" width="350" class="embedded-image" /></span></li>
+  </ul>
+  <ul>
+    <li>You must display the caution screen every time your application starts.</li>
+    <li>You must display the caution at some point before the user actually uses the Toy-Con VR Goggles in your application.</li>
+    <li>Display this message either in the language currently set in your application or in the language currently set in system settings.</li>
+  </ul>
+  <p>If you create your own screen, you must include the following standardized text set by Nintendo.</p>
+  <table class="fixed-table wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <td>
+          <p>The following information should be checked by an adult:</p>
+          <ul>
+            <li>When using the Toy-Con VR Goggles...<ul><li>Be mindful of your surroundings and other people.</li><li>Only play while seated.</li><li>Make sure to take regular breaks.</li></ul></li>
+            <li>Restrict the use of VR mode for children 6 and under.<br /><strong>Note</strong>: You can set age-based software restrictions by using the Nintendo Switch Parental Controls smart device app or from System Settings &gt; Parental Controls on the HOME Menu.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>For details, see the <em>Nintendo Switch Toy-Con Application Planning Guide</em>.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start the application and progress to a scene where the user performs operations with the Toy-Con VR Goggles.</li>
+  <li>If the application supports multiple languages, perform step 1 for all supported languages.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>The application displays at least one of the following at some point before the user actually operates the Toy-Con VR Goggles.<ul><li>The caution screen provided by Nintendo.</li><li>An application-specific caution screen that includes the standardized text shown in the Backgrounder.</li></ul></li>
+  <li>The application displays the above screen at least once per application startup.</li>
+  <li>The application displays the above screen either in the language currently set within the application or in the language currently set in system settings.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452104_0" data-tag="function-振り回し">
+<label for="tagfilter_2367452104_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452104_1" data-tag="function-toycon">
+<label for="tagfilter_2367452104_1">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452104_2" data-tag="function-vr">
+<label for="tagfilter_2367452104_2">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452104_3" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452104_3">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0186: Displaying message that prompts the user to take a break -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452113" data-tags="revision-updated-11.0 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452113" title="Right-click and copy link to copy a permalink to this guideline">0186: Displaying message that prompts the user to take a break</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must periodically prompt the user to take a break.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that implement a VR mode
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If your application implements a VR mode, while in VR mode your application must periodically prompt the user to take a break.</p>
+  <p>Use the following standardized text set by Nintendo as your message. But it is acceptable to reword this text as long as your explanation covers all the information provided in Nintendo&rsquo;s standardized text.</p>
+  <table class="fixed-table wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <td>Would you like to take a break?</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>You must display this message within 30 minutes of starting the game in VR mode, and you must continue displaying the message at intervals of no longer than 30 minutes.</p>
+  <ul>
+    <li>Handling applications that are composed of multiple minigames<ul><li>If your application is designed to remain in VR mode even while displaying screens between minigames (such as menu screens), then your application must maintain a timer for displaying break messages.</li></ul></li>
+  </ul>
+  <!--figure001-->
+  <div class="figure">
+    <a name="AutoAnchor_2367452113_figure001"></a>Figure 1 Applications designed to remain in VR mode even while displaying screens between minigames</div>
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_2367452113/2367452116.png" width="650" class="embedded-image" />
+    </span>
+  </p>
+  <ul>
+    <li>If your application is designed to exit VR mode when displaying screens between minigames (such as menu screens), then it is acceptable to reset the timer for displaying break messages each time your application exits VR mode between minigames.<br />Likewise, it is acceptable to assume that when the application or user exits VR mode, the user is taking a break from VR mode.</li>
+  </ul>
+  <!--figure002-->
+  <div class="figure">
+    <a name="AutoAnchor_2367452113_figure002"></a>Figure 2 Applications designed to exit VR mode when displaying screens between minigames</div>
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_2367452113/2367452117.png" width="650" class="embedded-image" />
+    </span>
+  </p>
+  <p>If your application is designed in such a way that it cannot display the message within 30 minutes of starting the game in VR mode, contact Nintendo.<br />When contacting Nintendo, include the following information.</p>
+  <ul>
+    <li>An overview of your game.</li>
+    <li>The timing at which your game displays messages that prompt the user to take a break.</li>
+    <li>ROM data that Nintendo can use to check the issue that you are contacting Nintendo about.<br />This does not have to be your finished full retail ROM, but the issue that you are contacting Nintendo about must be exactly the same in this ROM as in the full retail ROM that you plan to release.</li>
+  </ul>
+  <p>Specifications like the following are prohibited. Do not design your application this way.</p>
+  <ul>
+    <li>Game is started in VR mode. Game displays the message once after the game is started. Game then never displays the message again.</li>
+  </ul>
+  <!--figure003-->
+  <div class="figure">
+    <a name="AutoAnchor_2367452113_figure003"></a>Figure 3 Example of unacceptable implementation (application that displays break message only once)</div>
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_2367452113/2367452115.png" width="650" class="embedded-image" />
+    </span>
+  </p>
+  <p>Display this message either in the language currently set in your application or in the language currently set in system settings.</p>
+  <p>For details, see the <em>Toy-Con Application Planning Guide</em>.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start VR mode.</li>
+  <li>Play while staying in VR mode (see <strong>Note</strong>), and continue playing until the message is displayed.<br /><strong>Note:</strong> For example, if your application exits VR mode after the user clears the game, intentionally do not clear the game.</li>
+  <li>Close the message displayed in step 2, then resume gameplay.</li>
+  <li>Repeat steps 2 and 3 several times.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if at least one of the following conditions is met in step 2.</p>
+<ul>
+  <li>The application is designed in such a way that the user cannot play in VR mode for longer than 30 minutes after starting or resuming play in VR mode (see <strong>Note</strong>).<br /><strong>Note:</strong> For example, there is a time limit in the game, and VR mode always ends within 30 minutes.</li>
+  <li>Within 30 minutes after the user starts or resumes play in VR mode, the application displays a message prompting the user to take a break, such as the message in the Backgrounder.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452113_0" data-tag="function-toycon">
+<label for="tagfilter_2367452113_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452113_1" data-tag="function-vr">
+<label for="tagfilter_2367452113_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452113_2" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452113_2">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0187: Countermeasures against motion sickness -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452123" data-tags="revision-updated-11.0 revision-updated-20240206 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452123" title="Right-click and copy link to copy a permalink to this guideline">0187: Countermeasures against motion sickness</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+You must design your application in such a way that it does not easily cause motion sickness.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that implement a VR mode
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Depending on the person, users may exhibit symptoms similar to motion sickness when experiencing VR.<br />Other guidelines such as <a href="../Pages/Page_2367452090.html#GuidelineDescLabel_2367452104">0185: Explanation cautioning users about their surroundings and motion sickness</a> and <a href="../Pages/Page_2367452090.html#GuidelineDescLabel_2367452113">0186: Displaying message that prompts the user to take a break</a> require you to prompt users to take a break, but you must also design and implement your application in such a way that it does not easily cause the user to feel motion sickness even after long play sessions.</p>
+<p>For more information about strategies to design applications that do not easily cause motion sickness, see the documents in the References.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+      <li>
+        <em>NintendoSDK VRGogglesKit Documents (NintendoSDK SevenKit Documents)</em> (<strong>Note:</strong> This is part of the SevenKit package, a private package you need to request permission to use.)<br /><ul><li><em>VR Application Implementation Guide</em></li></ul></li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play the application in VR mode for several minutes.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+The majority of general users do not feel motion sickness after playing the application in VR mode for several minutes.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452123_0" data-tag="function-toycon">
+<label for="tagfilter_2367452123_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452123_1" data-tag="function-vr">
+<label for="tagfilter_2367452123_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452123_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452123_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452123_3" data-tag="revision-updated-11.0">
+<label for="tagfilter_2367452123_3">
+<span class="revision-tag" title="Updated v11.0" data-tag="revision-updated-11.0">Updated v11.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0201: Prohibition of incorrect stereoscopic display -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452126" data-tags="revision-updated-15.0 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452126" title="Right-click and copy link to copy a permalink to this guideline">0201: Prohibition of incorrect stereoscopic display</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not display incorrect stereoscopic images.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that implement a VR mode
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If any of the following cases apply:</p>
+<ul>
+  <li>On either the right or left-eye image, there is an object that does not appear on the other image; however, the object is reasonably considered to be out of the field of view of one camera.</li>
+  <li>There is difference between the images due to the difference of the angles from which the object is viewed.</li>
+  <li>Images appear different due to physically possible reflection.</li>
+  <li>Images are vertically shifted due to physically possible reflection on curved surfaces or refraction.</li>
+  <li>Patterns or objects scaled down without applying anti-aliasing appear differently on the left and right-eye images when viewed on a per-pixel level.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>By implementing VR mode, it is possible to intentionally display the following types of images. However, these images may not achieve a correct stereoscopic 3D effect, or may cause the user to feel uncomfortable even if they achieve a stereoscopic effect.</p>
+<p>To avoid displaying incorrect stereoscopic images in applications that implement VR mode, it is prohibited for your application to display any images similar to the following.</p>
+<ul>
+  <li>
+    <strong>Images that are processed differently for the left and right eyes for some purpose other than stereoscopic depth</strong>
+    <br />Examples include adding different patterns, using images of different sizes or ones that are shifted vertically relative to each other, and applying different effects to the images for the left and right eyes. This includes using completely unrelated images as the left and right images.</li>
+  <li>
+    <strong>Images with inverted stereoscopic depth (swapping the left and right images)</strong>
+    <br />An image's depth appears to be inverted when the images for the left and right eyes are reversed. In other words, this occurs when the image for the left eye is shown to the right eye and vice versa.</li>
+  <li>
+    <strong>Images that are not synchronized between the left and right eyes</strong>
+    <br />Images that fall under this category include those where the timelines of the right-eye and left-eye images are out of sync, or that don't update for each eye simultaneously; for example, updating for the right eye on odd frames and for the left eye on even frames. If the left and right images are not synchronized, this has the unfortunate consequence of displaying completely different images to the user's left and right eye during scene transitions. Likewise, whenever an on-screen object moves up or down, its position gets vertically out of sync between the left and right images.</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Toy-Con Application Planning Guide</em>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play through, from beginning to end, all application modes that use the Toy-Con VR Goggles.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>There is no difference between the left-eye and right-eye images in characteristics such as the colors, shapes, size and pattern of an object.</li>
+  <li>There is no vertical shift between the left-eye and right-eye images.</li>
+  <li>The same effects are used on the left-eye and right-eye images.</li>
+  <li>Two completely different images are not displayed for the left-eye and right-eye images.</li>
+  <li>The depth of the stereoscopic image is not inverted.</li>
+  <li>The left-eye and right-eye images are updated simultaneously.</li>
+  <li>There is no temporal difference between the left-eye and right-eye images.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452126_0" data-tag="function-toycon">
+<label for="tagfilter_2367452126_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452126_1" data-tag="function-vr">
+<label for="tagfilter_2367452126_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452126_2" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367452126_2">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0205: Notifying the system when the user starts playing in VR mode -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452128" data-tags="revision-updated-20240206 revision-updated-18.0 function-vr function-toycon" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452128" title="Right-click and copy link to copy a permalink to this guideline">0205: Notifying the system when the user starts playing in VR mode</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must notify the operating system when entering VR mode.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that implement a VR mode
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that implement a VR mode display stereoscopic 3D while in VR mode, and the user views the screen through the Toy-Con VR Goggles.<br />If the user presses the HOME Button in these circumstances and the system transitions directly to the HOME Menu and displays a screen that does not support stereoscopic 3D, then users still wearing the Toy-Con VR Goggles may experience discomfort.<br />To avoid discomfort to users playing in VR mode, your application must notify the system in advance to ensure that the system displays one of the following screens (VR curtains) when exiting stereoscopic display.</p>
+  <table class="wrapped" data-mce-resize="false">
+    <tbody>
+      <tr>
+        <th>VR curtain A</th>
+        <th>VR curtain B</th>
+      </tr>
+      <tr>
+        <td>
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452128/2367452131.png" width="350" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+        <td>
+          <div class="content-wrapper">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_2367452128/2367452132.png" width="350" class="embedded-image" />
+            </span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>Instructions to give the system<ul><li>In advance, call the function that notifies the system that your application is entering VR mode.</li></ul></li>
+    <li> Display timing<ul><li>The system automatically displays the VR curtain every time the user exits stereoscopic display.</li></ul></li>
+    <li>Display language<ul><li>The system determines the appropriate language and displays it.</li></ul></li>
+    <li>Other<ul><li>There are two types of VR curtains. The system decides which type to use, based on whether the user is able to return to the application.</li></ul></li>
+  </ul>
+  <p>For details, see the <em>Toy-Con Application Planning Guide</em> and the <em>NintendoSDK VRGogglesKit Documents</em>.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Toy-Con Application Planning Guide</em>
+      </li>
+      <li>
+        <em>NintendoSDK VRGogglesKit Documents (NintendoSDK SevenKit Documents)</em> (<strong>Note:</strong> This is part of the SevenKit package, a private package you need to request permission to use.) <ul><li><em>VR Application Implementation Guide</em></li><li>Features &gt; <a href="../Pages/Page_2367451833.html#Anchor_2367451833_PLLibrary">PL Library</a> &gt; About VR Mode</li></ul></li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Start the application and enter VR mode.</li>
+  <li>While in VR mode, press the HOME Button and confirm that the VR curtain is displayed.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>During step 2, the VR curtain is displayed.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452128_0" data-tag="function-toycon">
+<label for="tagfilter_2367452128_0">
+<span class="function-tag" title="Toy-Con" data-tag="function-toycon">Toy-Con</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452128_1" data-tag="function-vr">
+<label for="tagfilter_2367452128_1">
+<span class="function-tag" title="VR" data-tag="function-vr">VR</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452128_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452128_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452128_3" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367452128_3">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

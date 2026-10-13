@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Save Data Report Usage Example | Nintendo Switch Save Data Report Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Save Data Report Usage Example -->
+<div class="pagetitle" id="PageId_962058376">5 Save Data Report Usage Example</div>
+<div class="text_separate">
+<h1 id="Anchor_962058376_h1_1">Usage Example</h1>
+<p>Save Data Report is expected to be used to collect or restore save data as part of responding to inquiries from users.</p>
+<p>For this reason, this document uses a basic example, involving collaboration between the following two parties at the development company, to demonstrate operations.</p>
+<ul>
+  <li>User support representative who receives inquiries from the user</li>
+  <li>Developer who investigates and repairs the collected data</li>
+</ul>
+<h2 id="Anchor_962058376_h2_1">When Data Is Collected</h2>
+<p>
+  <img src="../Attachments/Attach_962058376/1193891797.png" width="599"></img>
+</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th style="text-align: left;">
+        <p>Number</p>
+      </th>
+      <th style="text-align: left;">
+        <p>Person</p>
+      </th>
+      <th style="text-align: left;">
+        <p>Operation</p>
+      </th>
+      <th style="text-align: left;">
+        <p>Details</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left;">1</td>
+      <td style="text-align: left;">User</td>
+      <td style="text-align: left;">Make an inquiry about the application</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>Make an inquiry about the application to the user support representative.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">2</td>
+      <td style="text-align: left;">User support representative</td>
+      <td style="text-align: left;">Allow upload</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>In the web tool, specify the application and the serial number of the user's Switch, and allow save data to be uploaded.<ul><li>See <a href="../Pages/Page_1038563994.html">6.1.1 Allowing Uploads</a>.</li></ul></li>
+          <li>Tell the user how to upload their save data.<ul><li>See <a href="../Pages/Page_966866706.html">8 Using the Nintendo Switch</a>.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">3</td>
+      <td style="text-align: left;">User</td>
+      <td style="text-align: left;">Upload save data</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>Upload save data to the Save Data Report server.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">4</td>
+      <td style="text-align: left;">User support representative</td>
+      <td style="text-align: left;">Contact the developer</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>Notify the developer of the contents of the inquiry and the report number displayed in the web tool.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">5</td>
+      <td style="text-align: left;">Developer</td>
+      <td style="text-align: left;">Get save data</td>
+      <td style="text-align: left;">
+        <ul>
+          <li>In the web tool, use the report number to get the save data uploaded by the user.<ul><li>See <a href="../Pages/Page_1037744471.html">6.2.1 Downloading Save Data Uploaded by the User</a>.</li></ul></li>
+          <li>Extract the obtained save data (NSRAR file), and investigate the data and conduct repairs on a PC or the development hardware.<ul><li>See <a href="../Pages/Page_966866646.html">7 Using NsrarConverter</a>.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_962058376_h2_2">Restoring Repaired Save Data</h2>
+<p>
+  <img src="../Attachments/Attach_962058376/1193891801.png" width="599"></img>
+</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <p style="text-align: left;">Number</p>
+      </th>
+      <th style="text-align: left;">
+        <p>Person</p>
+      </th>
+      <th style="text-align: left;">
+        <p>Operation</p>
+      </th>
+      <th style="text-align: left;">
+        <p>Details</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Developer</td>
+      <td>Submit repaired save data</td>
+      <td>
+        <ul>
+          <li>Convert the repaired save data to the format (NSRAR file) in which it can be submitted to Save Data Report.<ul><li>See <a href="../Pages/Page_966866646.html">7 Using NsrarConverter</a>.</li></ul></li>
+          <li>Submit the repaired save data to the web tool.<ul><li>See <a href="../Pages/Page_1037744508.html">6.2.2 Uploading, Downloading, and Deleting Repaired Save Data</a>.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Developer</td>
+      <td>Contact the user support representative</td>
+      <td>
+        <ul>
+          <li>Notify the user support representative of the report number of the repaired save data.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>User support representative</td>
+      <td>Allow download</td>
+      <td>
+        <ul>
+          <li>Allow the repaired save data to be downloaded from the web tool.<ul><li>See <a href="../Pages/Page_1038563975.html">6.1.2 Allowing Downloads</a>.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>User support representative</td>
+      <td>Notify the user</td>
+      <td>
+        <ul>
+          <li>Notify the user that repairs are complete, and ask them to download the repaired save data.</li>
+          <li>Tell the user how to download the save data.<ul><li>See <a href="../Pages/Page_966866706.html">8 Using the Nintendo Switch</a>.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>User</td>
+      <td>Download save data</td>
+      <td>
+        <ul>
+          <li>Input commands on the Switch to download the repaired save data from the Save Data Report server.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_962058376_h1_2">Other Use Cases</h1>
+<p>For internal use only, you can use Save Data Report for purposes like the following example.</p>
+<ul>
+  <li>Download save data that advances progression in a game to a Switch console owned by the publisher and use it for an event or promotion.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Do not collect a user's save data for any purposes other than investigations or repairs.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

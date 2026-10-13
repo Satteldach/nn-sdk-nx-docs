@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5 Setting Up NintendoSDK | Nintendo Switch ADEV Quick Start</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5 Setting Up NintendoSDK -->
+<div class="pagetitle" id="PageId_1137766851">5 Setting Up NintendoSDK</div>
+<div class="text_separate">
+<p>The NintendoSDK is obtained from the Nintendo server using NDI. NDI downloads the NintendoSDK from the Nintendo server, and then extracts and installs the necessary files.</p>
+<h1 id="Anchor_1137766851_h1_1">Installing the NintendoSDK Package</h1>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You must have Windows Administrator rights to use NDI.</p>
+  </div>
+</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Step</th>
+      <th>Operation</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Start NDI and select <strong>Dev Environments</strong> &gt; <strong>Add Environment</strong> &gt; <strong>Create My Own</strong> &gt; <strong>Install to Disk</strong>.</p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766869.png" width="360" class="embedded-image" />
+            </span> &rarr; <span class="embedded-file-wrapper "><img src="../Attachments/Attach_1137766851/1137766870.png" width="360" class="embedded-image" /></span> &rarr; <span class="embedded-file-wrapper "><img src="../Attachments/Attach_1137766851/1137766871.png" width="360" class="embedded-image" /></span></p>
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <div class="content-wrapper">
+          <p>In the <strong>Connect to Nintendo Server</strong> dialog box, enter the following information.</p>
+          <ul>
+            <li>
+              <strong>Server</strong>: Select <strong>Nintendo Developer Portal</strong>.</li>
+            <li>
+              <strong>Nintendo Developer ID</strong>: Enter the NDID you use when logging in to the Nintendo Developer Portal.</li>
+          </ul>
+          <p>Now click <strong>Connect</strong> to open the <strong>Web Credentials</strong> dialog box. Enter your password and log in.</p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766866.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>NDI communicates with the Nintendo Developer Portal because the packages it handles are based on Nintendo Developer Portal permissions.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Select the <strong>Platform</strong> and <strong>Tool Set</strong> as shown in the following image, and then click <strong>Next</strong>.</p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766862.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Select the version of the SDK to install and then click <strong>Next</strong>.</p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766859.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Enter the path to the directory where the environment will be created, the name of the directory (environment name), and click <strong>Next</strong>.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>The NintendoSDK is installed in this directory.</p>
+              <p>To install multiple versions or installation package types of the NintendoSDK, you can create multiple directories.</p>
+            </div>
+          </div>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>
+                <strong>False Positives From Antivirus Software</strong>
+              </p>
+              <p>When installing various NintendoSDK packages, NintendoSDK files can be detected incorrectly as viruses by antivirus software.<br />When such false positives occur, exclude the NintendoSDK install destination folder from the virus scan, and try installing again.</p>
+            </div>
+          </div>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766865.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Select the bundle of packages that best matches your needs and click <strong>Next</strong>.</p>
+          <p>If you select <strong>Go to Detailed Package Management Instead</strong> at the bottom of the screen, you can instead choose which packages to install.</p>
+          <p>
+            <br />
+          </p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766858.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Check the type and version of the package to be installed. If there are no issues, click <strong>Install</strong>. Download and installation begins.</p>
+          <p>
+            <br />
+          </p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766854.png" width="360" class="embedded-image" />
+            </span>&rarr;<span class="embedded-file-wrapper "><img src="../Attachments/Attach_1137766851/1137766855.png" width="360" class="embedded-image" /></span></p>
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <div class="content-wrapper">
+          <p>USB driver installation is sometimes verified during NintendoSDK installation.</p>
+          <p>Install the USB driver at this time because it will be used in features that will be added in future releases.</p>
+          <p>
+            <br />
+          </p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766878.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <div class="content-wrapper">
+          <p>On the final screen of the NintendoSDK installation, click <strong>Finish</strong>.</p>
+          <p>
+            <br />
+          </p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766877.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+          <p>Click <strong>OK</strong> to start the NintendoSDK management screen that allows options in the installed environment to be listed.<br />The NintendoSDK management screen is used in later procedures, so leave it running.</p>
+          <p style="margin-left: 60.0px;">
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_1137766851/1137766875.png" width="500" class="embedded-image" />
+            </span>
+          </p>
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

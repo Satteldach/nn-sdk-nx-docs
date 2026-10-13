@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.1 Interrupt Screens | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.1 Interrupt Screens -->
+<div class="pagetitle" id="PageId_107331069">7.1 Interrupt Screens</div>
+<div class="text_separate">
+<p>This appendix introduces screens that can be displayed when the system interrupts an application. Refer to this documentation as necessary.</p>
+<h1 id="Anchor_107331069_h1_1">Features</h1>
+<p>This feature can interrupt the screen that is currently running to display a system-provided screen.</p>
+<p>While an interrupt screen is being displayed, game processing is the same as if paused by a short press of the HOME Button to return to the HOME Menu during the game.</p>
+<p>(Even if an application disables the HOME Button, there are cases where pausing may occur due to the occurrence of an interrupt screen.)</p>
+<p>If other interrupt screens are triggered while one interrupt screen is being displayed, they are queued and displayed in order of priority. </p>
+<h1 id="Anchor_107331069_h1_2">Interrupt Screen Items</h1>
+<p>Interrupt screen items include the following.</p>
+<div class="table">
+  <a name="AutoAnchor_107331069_table001"></a>Table 7-1  List of Interrupt Screens</div>
+<table class="wrapped" style="margin-left: 31.0px;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>
+        <p>Name</p>
+      </th>
+      <th>Triggers</th>
+      <th>After Transition</th>
+      <th>Short Press of HOME Button</th>
+    </tr>
+    <tr>
+      <td>
+        <p>1</p>
+      </td>
+      <td>Very low battery level<br />(LowBattery)</td>
+      <td>When the battery level is very low.<br /></td>
+      <td>Sleep.</td>
+      <td rowspan="4">Disabled.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Console running hot<br />(HighTemperature)</td>
+      <td>When the console is running hot.<br /></td>
+      <td>Sleep.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>3</p>
+      </td>
+      <td>microSD card removed<br />(NoSD)</td>
+      <td>
+        <p>When the microSD card was removed.</p>
+      </td>
+      <td>Shutdown.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Play timer forced break dialog<br />(NoGameTime)</td>
+      <td>
+        <p>When a play timer is set in forced break mode, after the remaining time has reached 0.</p>
+      </td>
+      <td>Sleep or Simplified Authentication. (Back to original screen after success.)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <p>AC power source malfunction</p>
+        <p>(BadPowerSupply)</p>
+      </td>
+      <td>
+        <p>When switching from handheld mode to TV mode and connecting to the dock while the AC power is insufficient.</p>
+      </td>
+      <td>Back to original screen.</td>
+      <td rowspan="16">Enabled.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <p>microSD card insertion:</p>
+        <p>Erase important data<br />(InsertSDCleanup)</p>
+      </td>
+      <td rowspan="6">
+        <p>When an applicable microSD card is inserted.<br />(Display differs depending on conditions.)</p>
+      </td>
+      <td>
+        <p>Back to original screen or restart.</p>
+        <p>If SD card clean-up has failed.</p>
+        <p>microSD card insertion: Transition to InsertSDFsCorrupted (file system corrupted).</p>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <p>microSD card insertion:</p>
+        <p>System update confirmation</p>
+        <p>(InsertSDInsertRenew)</p>
+      </td>
+      <td>
+        <p>Back to original screen or system settings.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <p>microSD card insertion:</p>
+        <p>File system corrupted</p>
+        <p>(InsertSDFsCorrupted)</p>
+      </td>
+      <td>
+        <p>Back to original screen.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <p>microSD card insertion:</p>
+        <p>Database corrupted</p>
+        <p>(InsertSDDbCorrupted)</p>
+      </td>
+      <td>
+        <p>Back to original screen or restart.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>
+        <p>microSD card insertion:</p>
+        <p>Reboot confirmation</p>
+        <p>(InsertSDInsertReboot)</p>
+      </td>
+      <td>
+        <p>Back to original screen or restart.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>
+        <p>microSD card insertion:</p>
+        <p>Read error</p>
+        <p>(InsertSDError)</p>
+      </td>
+      <td>
+        <p>Back to original screen or error viewer (and back to original screen after this closes).</p>
+      </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>
+        <p>Game Card removed</p>
+        <p>(ExtractRomCard)</p>
+      </td>
+      <td>When a Game Card was removed while playing the game on the Card.</td>
+      <td>Back to original screen or HOME Menu (when card-based application starts).</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Game Ends Abnormally<br />(GameException)</td>
+      <td>
+        <p>When a game ends abnormally.</p>
+      </td>
+      <td>Back to original screen or HOME Menu (when application starts).</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>
+        <p>Joy-Con detached when airplane mode is enabled</p>
+        <p>(JoyConBluetoothOff)</p>
+      </td>
+      <td>
+        <p>When the <span style="color: rgb(55,55,55);">Joy-Con</span> is detached when airplane mode is enabled.</p>
+      </td>
+      <td>Back to original screen.</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Problem reading game card<p>(GameCardAccessFailure)</p></td>
+      <td>When an error occurs while reading a game card.</td>
+      <td>Back to original screen.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>
+        <p>Start simplified authentication if <strong>(+) Start as a Guardian</strong> is selected at the entrance.</p>
+        <p>(AuthFromEnt)</p>
+      </td>
+      <td>When <strong>(+) Start as a Guardian</strong> is selected at the entrance.</td>
+      <td>
+        <span style="color: rgb(55,55,55);">HOME Menu.</span>
+      </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>HDCP authentication failed</td>
+      <td>When the user attempts to start HDCP compatible software with a display that does not support HDCP.</td>
+      <td>Previous screen or HOME Menu.</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Timeout when playing on a console other than the primary console</td>
+      <td>
+        <p>When a user is playing on a console other than their primary console, and remains in an offline or similar state for a certain period of time.</p>
+      </td>
+      <td>Previous screen or HOME Menu.</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Game Trial period ends</td>
+      <td>When a Game Trial period ends while the user is playing the game</td>
+      <td>
+        <span style="color: rgb(55,55,55);">HOME Menu or Nintendo eShop</span>
+      </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>
+        <p>Failed to start due to not having required downloadable content</p>
+      </td>
+      <td>When a user tries to start software without the downloadable content that is set as required to play it</td>
+      <td>HOME Menu</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_107331069_h1_3">Interrupt Screen Priority</h1>
+<div class="table">
+  <a name="AutoAnchor_107331069_table002"></a>Table 7-2 Priority of Interrupt Screens</div>
+<table class="wrapped" style="margin-left: 31.0px;">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <p>Priority</p>
+      </th>
+      <th>Item Name</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Very low battery level</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Console running hot</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>microSD card removed</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Display error for AC power source malfunction</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <span style="color: rgb(55,55,55);">Joy-Con</span> is detached when wireless is set to off</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <strong>(+) Start as a Guardian</strong> is selected at the entrance, starting the process of simplified authentication</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Game timer: Forced break mode</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>microSD card insertion (erase important data)</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>microSD card insertion (confirm system update)</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>microSD card insertion (file system corrupted) </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>microSD card inserted (database corrupted) </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>microSD card inserted (restart confirmation) </td>
+    </tr>
+    <tr>
+      <td>13 </td>
+      <td>microSD card inserted (read error)</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Game card removed while running</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>A running application ends abnormally, or it fails to start due to not having required downloadable content</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Problem reading the game card</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td> HDCP authentication failed</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Timeout when playing on a console other than the primary console, or a Game Trial period ends</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<div>
+  <br />
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

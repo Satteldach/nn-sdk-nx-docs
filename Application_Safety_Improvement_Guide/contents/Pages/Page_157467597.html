@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.4 Joy-Con Strap Usage Screen Explanation | Nintendo Switch Application Safety Improvement Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.4 Joy-Con Strap Usage Screen Explanation -->
+<div class="pagetitle" id="PageId_157467597">3.4 Joy-Con Strap Usage Screen Explanation</div>
+<div class="text_separate">
+<p>If instructing the user to attach the Joy-Con strap is either required or recommended for your application, follow the requirements below when you prompt the user to use the strap.</p>
+<h2 id="Anchor_157467597_h2_1">Joy-Con Strap Usage Screen Provided by Nintendo</h2>
+<p>Nintendo provides the following Joy-Con Strap Usage screens.</p>
+<ul>
+  <li>App-embedded version<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_157467597/3085524934.png" width="350" class="embedded-image" /></span><br /><br /><ul><li>Display the following Joy-Con Strap Usage screen for applications that intentionally require players to take their hands off the Joy-Con controllers with the Joy-Con straps attached during play.<br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_157467597/3085524931.png" width="350" class="embedded-image" /></span><br /></li></ul></li>
+  <li>Controller support applet version (the applet provides a function that the application calls to display the screen)<br /><a href="../Attachments/Attach_157467597/3085524935.mp4"><span class="embedded-file-wrapper "><img src="../Attachments/Attach_157467597/3085524936.png" width="350" class="embedded-image" /></span></a><br /><br /></li>
+  <li>For more information about implementing the Joy-Con Strap Usage screen (controller support applet version), see the following documentation.<ul><li>NintendoSDK Documents<ul><li>NintendoSDK API Reference<ul><li>void nn::hid::ShowControllerStrapGuide ( ) </li></ul></li></ul></li></ul></li>
+</ul>
+<h3 id="Anchor_157467597_h3_1">Display Timing</h3>
+<p>Display every time the application runs, showing it at a time when it is appropriate to inform the user (for example, immediately after the application starts or immediately before the application enters a mode where motion controls are possible).</p>
+<p>It is not enough to display this only the very first time the application is started and then never display it again when the application is run.</p>
+<p>The user must be shown this explanation. It is not sufficient to display this screen only inside a settings dialog box or other menu that the user must deliberately select to see the screen.</p>
+<h3 id="Anchor_157467597_h3_2">Duration of Display</h3>
+<p>There is no specific requirement for how long to display this screen, provided it is shown long enough for the user to read and understand its content.</p>
+<p>We recommend displaying the screen for five seconds, but it is acceptable to allow the user to proceed with a button press.</p>
+<h3 id="Anchor_157467597_h3_3">Supported Languages</h3>
+<p>The Joy-Con Strap Usage screen is provided in the following languages. Use the languages that are needed to match your application's specifications.</p>
+<ul>
+  <li>Asian languages<ul><li>Japanese, Traditional Chinese, Simplified Chinese, and Korean</li></ul></li>
+  <li>Western languages<ul><li>English, German, French, Spanish, Italian, Dutch, European Portuguese, Brazilian Portuguese, and Russian</li></ul></li>
+</ul>
+<p>The cautionary text screen in each language is attached to this document. For more information, see <a href="../Pages/Page_175833093.html">6 File List</a>.</p>
+<h2 id="Anchor_157467597_h2_2">Creating Your Own Joy-Con Strap Usage Screen</h2>
+<p>We recommend using the Joy-Con Strap Usage screen provided by Nintendo, but you can also create your own customized strap usage screen as part of the operating instructions for your application.</p>
+<p>If you create a customized screen, make sure that you include the information included in Nintendo's Joy-Con Strap Usage screen.</p>
+<h3 id="Anchor_157467597_h3_4">Illustrations</h3>
+<p>We recommend using the following illustrations, but you can also create and use your own illustrations as long as they include equivalent content.</p>
+<p>It is also acceptable to use a product photo.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_157467597/3085524942.png" width="200" class="embedded-image" />
+  </span>
+  <strong>Note:</strong> This illustration depicts the right Joy-Con controller.</p>
+<p>
+  <br />
+</p>
+<p>If your application's design makes it more appropriate to display an illustration depicting the use of both controllers, we recommend using the provided illustration that shows both the right Joy-Con and the left Joy-Con being held in the user's hands. However, you are free to create and use your own artwork as long as it includes equivalent content.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_157467597/3085524943.png" width="350" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_157467597_h3_5">Text</h3>
+<p>You must include both of the following standardized texts set by Nintendo. However, you can reword the text as long as the meaning is preserved.</p>
+<ul>
+  <li>
+    <p>Standardized text about using the strap</p>
+    <table class="wrapped">
+      <colgroup> <col /> </colgroup>
+      <tbody>
+        <tr>
+          <td>
+            <p>When you play with a Joy-Con controller, <br />attach the strap as shown. </p>
+            <p>Hold the Joy-Con controller securely and do not let go of it.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>
+        <p class="auto-cursor-target">Include the text for applications that intentionally require players to take their hands off the Joy-Con controllers with the Joy-Con straps attached during play.<br /></p>
+        <table class="table">
+          <colgroup>
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <td scope="col">
+                <p>When you play with a Joy-Con controller, <br />attach the strap as shown. </p>
+                <p>Hold the Joy-Con controller securely and <br />do not let go of it unless otherwise instructed.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--Remove - p.auto-cursor-target-->
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Standardized text for cautioning users about their surroundings</p>
+    <table class="wrapped">
+      <colgroup> <col /> </colgroup>
+      <tbody>
+        <tr>
+          <td>Be aware of your surroundings.<br />Allow adequate room around you during game play.</td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Remove - p.auto-cursor-target-->
+  </li>
+</ul>
+<p>The standardized text in each language is attached to this document. For more information, see <a href="../Pages/Page_175833093.html">6 File List</a>.</p>
+<h3 id="Anchor_157467597_h3_6">Display Timing</h3>
+<h4 id="Anchor_157467597_h4_1">Explanation about using the strap</h4>
+<p>Display every time the application runs, showing it at a time when it is appropriate to inform the user (for example, immediately after the application starts or immediately before the application enters a mode where motion controls are possible).</p>
+<p>It is not enough to display this only the very first time the application is started and then never display it again when the application is run.</p>
+<p>The user must be shown this explanation. It is not sufficient to display this screen only inside a settings dialog box or other menu that the user must deliberately select to see the screen.</p>
+<h4 id="Anchor_157467597_h4_2">Explanation cautioning users about their surroundings</h4>
+<p>Display every time the application runs, showing it at a time when it is appropriate to inform the user (for example, immediately after the application starts or immediately before the application enters a mode where motion controls are possible).</p>
+<p>It is not enough to display this only the very first time the application is started and then never display it again when the application is run.</p>
+<p>The user must be shown this explanation. It is not sufficient to display this screen only inside a settings dialog box or other menu that the user must deliberately select to see the screen.</p>
+<p>It is acceptable to display this on the same screen with the explanation about using the strap.</p>
+<h3 id="Anchor_157467597_h3_7">Duration of Display</h3>
+<h4 id="Anchor_157467597_h4_3">Explanation about using the strap</h4>
+<p>There is no specific requirement for how long to display this screen, provided it is shown long enough for the user to read and understand its content.</p>
+<p>We recommend displaying the screen for 5 seconds, but it is acceptable to allow the user to proceed with a button press.</p>
+<h4 id="Anchor_157467597_h4_4">Explanation cautioning users about their surroundings</h4>
+<p>There is no specific requirement for how long to display this screen, provided it is shown long enough for the user to read and understand its content.</p>
+<p>We recommend displaying the screen for 5 seconds, but it is acceptable to allow the user to proceed with a button press.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

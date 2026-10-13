@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.2 Application Features | Nintendo Switch Overview</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.2 Application Features -->
+<div class="pagetitle" id="PageId_162946821">2.2 Application Features</div>
+<div class="text_separate">
+<h1 id="Anchor_162946821_h1_1">Application Forms</h1>
+<p>Switch applications can be sold in two configurations: as card products and as downloadable products. The developer decides which form to create the application in, or whether to create both forms.</p>
+<p>Applications sold as downloadable products are distributed by Nintendo eShop, the online marketplace operated by Nintendo. Users go there to get the downloadable version of the application. In addition to applications, Nintendo eShop can also distribute other products, including downloadable content sold as additions to games. For more information, see <a href="../Pages/Page_159226689.html">8 E-Commerce</a>.<br />For more information about the locations where content is saved, see NintendoSDK Documents &gt; Features &gt; Content Save Locations.</p>
+<h2 id="Anchor_162946821_h2_1">Updating the Application</h2>
+<p>Switch applications can be updated by installing patches.</p>
+<p>If you offer your application as both a card product and a downloadable product, you can update both configurations with a single, common, patch.</p>
+<p>A Switch patch is akin to a partial patch that makes revisions to only certain parts of a file, and it has several restrictions. Note that some of the restrictions must be supported when the initial version of the application is created. For more information, see NintendoSDK Documents &gt; Features &gt; Patches.</p>
+<p>Switch systems receive notifications when patches are distributed. A Switch console that has received a notification proceeds to get information about the distributed patches and to download any necessary patch. The downloaded patch is installed when the application is started. Once a patch has been installed, the application will not be able to start without that version or a later version of the patch.</p>
+<h2 id="Anchor_162946821_h2_2">Multi-Program Applications</h2>
+<p>A multi-program application is an application that is a collection of programs. The individual programs can be developed independently, which is advantageous, but the downside of a multi-program application is that the process of switching between programs takes as much time as the normal application startup process. <br />For more information, see NintendoSDK Documents &gt; Features &gt; Multi-Program Applications.</p>
+<h2 id="Anchor_162946821_h2_3">Mechanisms Unique to Game Card Applications</h2>
+<h4 id="Anchor_162946821_h4_1">Multi-Application Cards</h4>
+<p>Using a mechanism called the <em>multi-application card</em> mechanism enables you to write multiple applications to a single card. For more information, see NintendoSDK Documents &gt; Features &gt; NX Development Card &gt; Multi-Application Cards.</p>
+<h4 id="Anchor_162946821_h4_2">On-Card Patches and On-Card Downloadable Content</h4>
+<p>Patches and downloadable content that are available for download on Nintendo eShop can also be sold bundled with the application on a card. This provides a way to give even users who play offline access to the latest patched version of the application or any content subsequently added to the application. These mechanisms are referred to as <em>on-card patches</em> and <em>on-card downloadable content</em>.<br />You need to pay attention to card capacity if you are using these mechanisms because the card must be large enough to hold both the original application and the patch or downloadable content. If card size is an issue, refer to Nintendo Switch Patch Guide &gt; Application Compaction.</p>
+<p>For more information about on-card patches, see Nintendo Switch Patch Guide &gt; Switch Patch Features &gt; On-Card Patch.<br />For more information about on-card downloadable content, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library &gt; On-Card Downloadable Content.</p>
+<h1 id="Anchor_162946821_h1_2">Features for Saving Application Data</h1>
+<p>The following features are available for applications to save data.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>There are several requests you must submit in advance to use these features for saving application data.<br />Read the information presented below, and if there is any possibility you will use any of these save features, review the cited documents and submit your requests as soon as possible.</p>
+  </div>
+</div>
+<h2 id="Anchor_162946821_h2_4">Save Data</h2>
+<p>This feature is for storing application data and making it persistent. Data is saved to system memory. Applications can use the <code>fs</code> library to freely create files and directories in the save data, and read or write data.</p>
+<p>There is a fixed upper limit on the amount of save data that an application can use. Contact Nintendo if it becomes clear that you cannot avoid exceeding this upper limit and will need more space.<br />For more information about save data, see NintendoSDK Documents &gt; Features &gt; Basic Features &gt; fs Library &gt; Manual &gt; Features &gt; Save Data &gt; Save Data (NX Add-On) &gt; Save Data Settings.</p>
+<h2 id="Anchor_162946821_h2_5">Temporary Storage</h2>
+<p>The temporary storage feature provides a work area for the application to save temporary files. The content saved to the temporary storage is not persistent, and is deleted when the application terminates. This feature is available starting with NintendoSDK NX Add-On 3.1.0.</p>
+<p>You must submit a request to Nintendo to use temporary storage. For a description of temporary storage functionality and for more information about what is needed to submit a request, see NintendoSDK Documents &gt; Features &gt; Basic Features &gt; fs Library &gt; Manual &gt; Features &gt; Temporary Storage.</p>
+<h2 id="Anchor_162946821_h2_6">Cache Storage</h2>
+<p>The cache storage feature provides an area for the application to store data that can be regenerated and re-obtained. The content saved to the cache storage may be easily deleted or replaced at any time due to user operations, such as data management, deleting software, or replacing the SD card. This feature is available starting with NintendoSDK NX Add-On 3.1.0.</p>
+<p>You must submit a request to Nintendo to use cache storage. For a description of cache storage functionality and for more information about what is needed to submit a request, see NintendoSDK Documents &gt; Features &gt; Basic Features &gt; fs Library &gt; Manual &gt; Features &gt; Cache Storage.</p>
+<h1 id="Anchor_162946821_h1_3">Performance Configurations Available to the Application</h1>
+<p>On Nintendo Switch, different performance configurations are available to the application (in terms of CPU, GPU, and memory clock rates) depending on the play mode. (See the following table.)</p>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_162946821_table001"></a>Table 2-1 Correspondence Between Play Mode and Performance Configurations</div>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th rowspan="2">Play Modes Where Performance Configuration Is Available</th>
+      <th colspan="3">Performance Configuration</th>
+    </tr>
+    <tr>
+      <th>CPU Clock Rate</th>
+      <th>GPU Clock Rate</th>
+      <th>Memory Clock Rate</th>
+    </tr>
+    <tr>
+      <td>TV mode/tabletop mode/handheld mode</td>
+      <td style="text-align: right;">1020.0 MHz</td>
+      <td style="text-align: right;">307.2 MHz</td>
+      <td style="text-align: right;">1331.2 MHz</td>
+    </tr>
+    <tr>
+      <td>TV mode/tabletop mode/handheld mode</td>
+      <td style="text-align: right;">1020.0 MHz</td>
+      <td style="text-align: right;">384.0 MHz</td>
+      <td style="text-align: right;">1331.2 MHz</td>
+    </tr>
+    <tr>
+      <td>TV mode</td>
+      <td style="text-align: right;">1020.0 MHz</td>
+      <td style="text-align: right;">768.0 MHz</td>
+      <td style="text-align: right;">1600.0 MHz</td>
+    </tr>
+  </tbody>
+</table>
+<p>For each play mode, you can select which supported performance configuration to use. The assumption is that performance will be configured with a GPU clock rate of 307.2 MHz and a memory clock rate of 1331.2 MHz when the Switch console is operating in tabletop mode or handheld mode. In principal, you must develop your applications so that they can operate under these conditions. However, it is acceptable to use a higher-performance configuration with a GPU clock of 384.0 MHz in some scenes where greater processing power is required. Note, however, that the following issues may arise more readily in scenes requiring this higher-performance configuration.</p>
+<ul>
+  <li>The cooling fan will spin faster, distracting the user with unwanted vibrations and noise.</li>
+  <li>The battery will drain faster and not last as long.</li>
+</ul>
+<p>The Switch battery may not last as long as envisioned by Nintendo if you require a high-performance configuration in the majority of scenes in your application. (For more information about battery life, see the description of the battery pack component in <a href="../Pages/Page_95689155.html">3.1 Switch System Hardware Configuration</a>.) Consider one of the following procedures to handle this situation when it occurs.</p>
+<ol>
+  <li>Reduce the volume of calculations when using a high-performance configuration.</li>
+  <li>Implement a separate mode in the application that restrains battery consumption.</li>
+</ol>
+<p>In the second instance, you can provide users with the option to select a performance for play that is based on the currently remaining battery capacity. This can be obtained by preparing a configuration that gets the most out of performance, and a configuration that prolongs battery life.</p>
+<p>For more information about the performance configurations available to the application and how to set them, see NintendoSDK Documents &gt; Features &gt; Basic Features &gt; oe Library &gt; Manual &gt; Features &gt; Selecting Performance Configurations. For more information about gauging power consumption, see NintendoSDK Documents &gt; Features &gt; Features for Development &gt; pcm Library.</p>
+<h1 id="Anchor_162946821_h1_4">Switch Applications for China</h1>
+<p>There is a special Switch system for China, and it differs in some ways from the Switch systems for other regions.</p>
+<ul>
+  <li>Nintendo Switch systems for the China region and Nintendo Switch system applications for China (applications for the China region) will only be available for sale in China.</li>
+  <li>The ROMs for applications for the China region must be created separately from the ROMs for the Nintendo Switch system applications that are not for China (applications for other regions).</li>
+  <li>Game cards for China are not ensured to run if inserted into Nintendo Switch systems for other regions, and game cards for other regions are not ensured to run on Nintendo Switch systems for China.</li>
+</ul>
+<p>The following specifications are different for Nintendo Switch systems for the China region.</p>
+<ul>
+  <li>Nintendo eShop<ul><li>You can only access Nintendo eShop designated for China from Nintendo Switch systems for the China region.</li></ul></li>
+  <li>Network Environment<ul><li>The NEX server (the game server provided by Nintendo) used by applications for the China region resides domestically within China.</li><li>Applications for the China region and applications for other regions may not share the same NEX server.</li><li>NPLN servers are not available to applications for China.</li><li>Applications for the China region and applications for other regions can communicate with each other by using independent servers.</li><li>Contact Nintendo if you plan to use Pia for internet communication.</li></ul></li>
+  <li>Local Communication<ul><li>If supported by the application, local communication is possible between Nintendo Switch systems for the China region and Nintendo Switch systems for other regions.</li></ul></li>
+  <li>Account System<ul><li>A separate account system, different from the Nintendo Account system, will be used in China.</li></ul></li>
+  <li>Nintendo Switch Online<ul><li>Not provided in China.</li></ul></li>
+  <li>Health and Safety Warning Message<ul><li>When an application for China starts, the Health and Safety warning message is displayed automatically.</li><li>Because the application screen is not displayed while the Health and Safety warning message is being shown, you must make sure that license logos and other important items that need to be shown are not hidden.</li></ul></li>
+</ul>
+<p> <br /></p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2.5 Design 5: Select One Account Before the Application Starts | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2.5 Design 5: Select One Account Before the Application Starts -->
+<div class="pagetitle" id="PageId_159222300">5.2.5 Design 5: Select One Account Before the Application Starts</div>
+<div class="text_separate">
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>This design is an option provided with porting to the Switch in mind, such as for applications released on multiple platforms.<br />To improve the user experience on the Switch platform, we recommend using Design 1 or Design 2 instead of Design 5. For more information, see Reasons for Not Recommending Design 5.</p>
+  </div>
+</div>
+<p>This design uses the option to select a user account in the HOME Menu before starting the application.</p>
+<h6 id="Anchor_159222300_h6_1">Advantages</h6>
+<ul>
+  <li>There is no need to consider sequences specific to the Switch account system.<ul><li>In terms of implementing the application, the behavior is the same as it would be for the Wii U or for other ordinary account systems in that the application is started with a user account in a selected state.</li></ul></li>
+</ul>
+<h6 id="Anchor_159222300_h6_2">Notes</h6>
+<ul>
+  <li>If you select this design, you must still call the function to put the preselected user account in the logged-in state when the application is started.<ul><li>For more information, see the reference for the account library in the SDK documentation.</li></ul></li>
+  <li>For applications that include specifications for multiple users playing simultaneously, there is no way to specify users other than the first. For this reason, additional users are treated as guests.<ul><li>This design is suitable if users after the first user only perform light support operations and the additional users are clearly identified as guests. (Their save data is not retained.)</li><li>You can also add a sequence to the application to allow users to select user accounts for the other users separately at the beginning of scenes where more than one person is playing. (Also see Design 3-3.)</li></ul></li>
+</ul>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_159222300/163772746.png" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_159222300_h3_1">Reasons for Not Recommending Design 5</h3>
+<p>The Switch is assumed to be used sequentially by multiple users. Prioritize a design where multiple users can play games comfortably without taking a lot of time or effort when switching users.</p>
+<p>For example, the HOME Menu enables features that do not need to identify users to be used without first selecting a user, which means the user account does not need to be selected again when a different user performs operations.</p>
+<p>Similar to the HOME Menu, also prioritize comfortable operation when switching users in applications.<br />For example, if you enable switching between user accounts within the application, the application does not need to be restarted when switching users, which eliminates the load times for processes such as restarting and reconnecting to the network. As a result, you can satisfy users who want to use the application as soon as possible.</p>
+<p>Design 5 requires users to exit the application and restart when switching users.<br />This requirement adds extra effort for the user, and makes them wait longer than necessary. When considering an application that uses Design 5, you can change it to Design 1 (see <a href="../Pages/Page_159222266.html">5.2.1 Design 1: Select One Account After the Application Starts</a>) to reduce this extra effort and wait time.</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

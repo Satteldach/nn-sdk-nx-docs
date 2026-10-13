@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.1 User Account Attributes | Nintendo Switch Account Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.1 User Account Attributes -->
+<div class="pagetitle" id="PageId_159219751">3.1 User Account Attributes</div>
+<div class="text_separate">
+<p>User accounts can store the following data as attributes.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Internal ID</td>
+      <td>
+        <p>An internal ID to identify user accounts on the Switch system. <strong>Its value never changes, ensuring uniqueness on the Switch system</strong>. Handle the value as one that is not globally unique. It is not displayed to the user. Use this ID as the key when applications identify or specify user accounts.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Nickname</td>
+      <td>
+        <div class="content-wrapper">
+          <p>A name set by the user that <strong>the user can change at any time.</strong> This nickname can be used as the name the application sometimes shows to other people, such as during online play.</p>
+          <ul>
+            <li>
+              <p>The supported character encoding is UTF-8.</p>
+            </li>
+            <li>Up to 10 characters can be input.</li>
+            <li>It is never an empty string.</li>
+            <li>The symbols @, %, and \ cannot be used.</li>
+            <li>Each space is counted as a character.</li>
+            <li>Strings consisting only of spaces cannot be entered.</li>
+            <li>Up to five numbers can be entered as characters.</li>
+            <li>A profanity check is conducted when the name is entered. Names that include profanity cannot be set. (For this reason, there is no attribute that indicates a profanity flag for Mii.)</li>
+            <li>For a list of the characters that can be used, see <a href="../Pages/Page_159233502.html">6 Appendix: Characters That Can Be Entered for User Account Nicknames</a>.</li>
+          </ul>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>Profanity filtering for the language set in the system is applied to check nicknames for profanities.<br />This check is performed only when confirming and saving nicknames. Nicknames that have been set can continue to be used when the profanity filter applied is changed, in addition to when there are changes to the system language or updates to the profanity filter itself.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Profile image</td>
+      <td>
+        <p>An icon set by the user that <strong>the user can change at any time</strong>. The icon is selected from among the set of character images provided by Nintendo, or from Mii characters. This user icon can be used as the icon that the application sometimes displays to other people, such as during online play. The following image format is used.</p>
+        <ul>
+          <li>Pixel size: 256 &times; 256<br />Icons available via the internet are provided in 64 &times; 64 and 128 &times; 128 sizes.</li>
+          <li>Binary size: Maximum 128 KB (128 &times; 1024 bytes)</li>
+          <li>Format: JPEG</li>
+        </ul>
+        <p>While the icon itself is designed to use the entire rectangular area, there are no trimming rules when using the icon for games. A circular area can be cut out, or the corners rounded. It can be used according to the design of the application.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Information associated with network service accounts</td>
+      <td>
+        <div class="content-wrapper">
+          <p>This information indicates whether the user account is linked with a network service account. Linking to a network service account may be changed later.</p>
+          <div class="info_new">
+            <div class="info_new_left">Info</div>
+            <div class="info_new_right">
+              <p>In version 6.0.0 and later of the Switch system, users cannot clear that link by themselves. Unlinking can be done for repair or customer support.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>In addition, the following information is managed separately for each Switch console.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Information</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>The listed order of user accounts</td>
+      <td>The order at the time the user account list is obtained is managed as perpetuated information. This same order is used by the HOME Menu and other system features to display the list. Users <strong>can edit the list order from the Settings menu at any time</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_159219751_h2_1">Note About Getting Attribute Information</h2>
+<p>
+  <strong>The internal ID</strong> is the only type of attribute information in the user account that <strong>must exist and cannot be changed.</strong> Handle other types of attribute information assuming that they may be modified or deleted. For example, if save data is managed using the nickname and list order as keys, the save data may no longer be correctly accessed when these are changed. For more information about save data, see Nintendo Switch Online Play Guide.</p>
+<p>User nicknames, profile images, and list order of user accounts can be changed at any time, even while the application is running. Nevertheless, <strong>the application is not required to immediately indicate the changes</strong> even if this information is displayed within the application.</p>
+<h2 id="Anchor_159219751_h2_2">Note About Displaying Nicknames</h2>
+<p>To display nicknames in the application, we recommend supporting the display of characters described in <a href="../Pages/Page_159233502.html">6 Appendix: Characters That Can Be Entered for User Account Nicknames</a>. Even if a nickname contains characters that cannot be displayed by the application, handle it in a way that the display is not corrupted or the application is prevented from proceeding&mdash;for example, by using a substitute character. The range of characters available for nickname input may be extended in the future. Handle all unrecognized characters in the same way. Do not hide characters that the application cannot display, or replace them with blank spaces. The reason is that the nickname might accidentally end up looking like a profane word if characters were simply left out.</p>
+<p>The Switch DevMenu will provide a feature for setting nicknames in the development and testing environments using characters other than those listed in <a href="../Pages/Page_159233502.html">6 Appendix: Characters That Can Be Entered for User Account Nicknames</a>. For the specific strings that can be set, see the DevMenu manual.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The Switch system features can display all characters included in the system fonts and replace those characters not included in the system fonts with the alternate character &quot;□&quot; (the white square, Unicode 25A1). The list of characters included in the system fonts can be found in the Nintendo Switch System Features Guide under Shared Data &gt; System Fonts.</p>
+  </div>
+</div>
+<h2 id="Anchor_159219751_h2_3">Reference: User Accounts and Mii Characters</h2>
+<p>Unlike the Wii U, the Switch does not require the configuration of Mii settings. This serves the following purposes.</p>
+<ul>
+  <li>Reduces the effort needed to create a user account.<br />It is easy for a user to create a user account when they want to.</li>
+  <li>Improves the degree of freedom in selecting a user profile.<br />For the profile image, image assets other than Mii characters can be set (but not free-form images).</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

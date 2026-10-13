@@ -1,0 +1,869 @@
+﻿@charset "UTF-8";
+/*
+ * ガイドライン項目
+ */
+table.guidelines {
+  width: 100%;
+  table-layout: fixed;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #aaaaaa;
+  margin: 24px 0px 0px 0px;
+}
+table.guidelines th, table.guidelines td {
+  margin: 0px;
+  padding: 4px 8px;
+  border-color: #aaaaaa;
+}
+table.guidelines tr.header th {
+  font-weight: bold;
+  text-align: center;
+  color: #3d3d3d;
+  background-color: #d3d3d3;
+}
+table.guidelines tr.header th.id {
+  width: 140px;
+  min-width: 140px;
+  max-width: 140px;
+}
+
+table.guideline-item {
+  width: 100%;
+  margin: 0px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border-collapse: separate;
+  border-spacing: 0px;
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  border-color: #7fceed;
+}
+table.guideline-item th, table.guideline-item td {
+  vertical-align: top;
+  white-space: normal;
+  word-wrap: break-word;
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: #7fceed;
+}
+table.guideline-item th {
+  text-align: left;
+  padding: 7px 8px;
+}
+table.guideline-item th.guidelineparam-header {
+  width: 134px;
+  min-width: 134px;
+  max-width: 134px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ebf7fc;
+}
+table.guideline-item th.guidelineparam-spacer {
+  width: 6px;
+  min-width: 6px;
+  max-width: 6px;
+  padding: 0px;
+  background-color: #7fceed;
+}
+table.guideline-item td {
+  text-align: left;
+  padding: 7px 15px;
+  background-color: #ffffff;
+}
+table.guideline-item td.guidelineparam-item {
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: #7fceed;
+}
+table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext p {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext p:first-child {
+  margin-top: 0px;
+}
+table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext h1:first-child, table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext h2:first-child, table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext h3:first-child, table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext h4:first-child, table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext h5:first-child, table.guideline-item td.guidelineparam-item div.guidelineparam-itemtext h6:first-child {
+  margin-top: 0px;
+}
+table.guideline-item td.guidelineparam-item table.table, table.guideline-item td.guidelineparam-item table.wrapped {
+  width: 95%;
+}
+table.guideline-item td.guidelineparam-item table.table tr th, table.guideline-item td.guidelineparam-item table.wrapped tr th {
+  border: 1px solid #b0b0b0;
+  background-color: #eeeeee;
+}
+table.guideline-item td.guidelineparam-item table.table tr td, table.guideline-item td.guidelineparam-item table.wrapped tr td {
+  border: 1px solid #b0b0b0;
+  background-color: #ffffff;
+}
+table.guideline-item td.guidelineparam-item table.fixed-table {
+  table-layout: fixed;
+  width: auto;
+}
+table.guideline-item:not(.guideline-expand) tbody.guideline-hidden {
+  display: none;
+}
+table.guideline-item tbody.guideline-item tr:hover {
+  cursor: pointer;
+}
+table.guideline-item tbody.guideline-item tr:hover th, table.guideline-item tbody.guideline-item tr:hover td {
+  background-color: #c2eafc;
+  border-color: #7fceed;
+}
+table.guideline-item tbody.guideline-item tr:hover th.guidelineparam-spacer {
+  background-color: #7fceed;
+}
+table.guideline-item tbody.guideline-item td {
+  background-color: #ffffff;
+}
+table.guideline-item tbody.guideline-item td div.guideline-icon {
+  display: inline-block;
+  background-image: url("../../img/icon_folder_close.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+table.guideline-item tbody.guideline-item td div.guideline-icon.search-result-in-param {
+  background-image: url("../../img/icon_folder_close_hit.png");
+}
+table.guideline-item tbody.guideline-item td div.guideline-title {
+  font-weight: bold;
+}
+table.guideline-item tbody.guideline-item td div.guideline-title > a {
+  color: #212121;
+}
+table.guideline-item tbody.guideline-item td div.guideline-title ~ div.guidelineparam-itemtext {
+  margin-left: 16px;
+}
+table.guideline-item tbody.guideline-item td div.guideline-title ~ div.guidelineparam-itemtext > p {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+table.guideline-item tbody.guideline-item td div.guideline-title ~ div.guidelineparam-itemtext > p:first-child {
+  margin-top: 0px;
+}
+table.guideline-item tbody.guideline-item td div.guideline-title-picker {
+  display: inline-block;
+  background-image: url("icon_titlepicker.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 18px 18px;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+table.guideline-item tbody.guideline-backgrounder tr th.guidelineparam-header:not(.guidelineparam-spacer):hover, table.guideline-item tbody.guideline-testsection tr th.guidelineparam-header:not(.guidelineparam-spacer):hover, table.guideline-item tbody.guideline-changelogsection tr th.guidelineparam-header:not(.guidelineparam-spacer):hover {
+  cursor: pointer;
+}
+table.guideline-item tbody.guideline-backgrounder tr:first-child th.guidelineparam-header:before, table.guideline-item tbody.guideline-testsection tr:first-child th.guidelineparam-header:before, table.guideline-item tbody.guideline-changelogsection tr:first-child th.guidelineparam-header:before {
+  content: " ";
+  display: inline-block;
+  background-image: url("../../img/icon_folder_open.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden tr:not(:first-child), table.guideline-item tbody.guideline-testsection.guideline-hidden tr:not(:first-child), table.guideline-item tbody.guideline-changelogsection.guideline-hidden tr:not(:first-child) {
+  display: none;
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden tr td.guidelineparam-item, table.guideline-item tbody.guideline-testsection.guideline-hidden tr td.guidelineparam-item, table.guideline-item tbody.guideline-changelogsection.guideline-hidden tr td.guidelineparam-item {
+  cursor: pointer;
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden tr td.guidelineparam-item:lang(ja)::after, table.guideline-item tbody.guideline-testsection.guideline-hidden tr td.guidelineparam-item:lang(ja)::after, table.guideline-item tbody.guideline-changelogsection.guideline-hidden tr td.guidelineparam-item:lang(ja)::after {
+  content: "（←クリックで開きます）";
+  opacity: 0.5;
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden tr td.guidelineparam-item:lang(en)::after, table.guideline-item tbody.guideline-testsection.guideline-hidden tr td.guidelineparam-item:lang(en)::after, table.guideline-item tbody.guideline-changelogsection.guideline-hidden tr td.guidelineparam-item:lang(en)::after {
+  content: "(←Click to expand)";
+  opacity: 0.5;
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden tr td.guidelineparam-item *, table.guideline-item tbody.guideline-testsection.guideline-hidden tr td.guidelineparam-item *, table.guideline-item tbody.guideline-changelogsection.guideline-hidden tr td.guidelineparam-item * {
+  display: none;
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden tr:first-child th.guidelineparam-header:before, table.guideline-item tbody.guideline-testsection.guideline-hidden tr:first-child th.guidelineparam-header:before, table.guideline-item tbody.guideline-changelogsection.guideline-hidden tr:first-child th.guidelineparam-header:before {
+  background-image: url("../../img/icon_folder_close.png");
+}
+table.guideline-item tbody.guideline-backgrounder.guideline-hidden.search-result-in-param tr:first-child th.guidelineparam-header:before, table.guideline-item tbody.guideline-testsection.guideline-hidden.search-result-in-param tr:first-child th.guidelineparam-header:before, table.guideline-item tbody.guideline-changelogsection.guideline-hidden.search-result-in-param tr:first-child th.guidelineparam-header:before {
+  background-image: url("../../img/icon_folder_close_hit.png");
+}
+table.guideline-item tbody.guideline-dummy th, table.guideline-item tbody.guideline-dummy td {
+  padding: 0px 0px;
+  background-color: #ffffff;
+}
+table.guideline-item.guideline-expand th, table.guideline-item.guideline-expand td {
+  border-color: #7fceed;
+}
+table.guideline-item.guideline-expand th.guidelineparam-header {
+  background-color: #ebf7fc;
+}
+table.guideline-item.guideline-expand th.guidelineparam-spacer {
+  background-color: #7fceed;
+}
+table.guideline-item.guideline-expand td {
+  background-color: #ffffff;
+}
+table.guideline-item.guideline-expand td.guidelineparam-item {
+  border-color: #7fceed;
+}
+table.guideline-item.guideline-expand tbody.guideline-item td {
+  background-color: #c2eafc;
+}
+table.guideline-item.guideline-expand tbody.guideline-item div.guideline-icon {
+  background-image: url("../../img/icon_folder_open.png");
+}
+table.guideline-item.guideline-expand tbody.guideline-item div.guideline-icon.search-result-in-param {
+  background-image: url("../../img/icon_folder_open.png");
+}
+table.guideline-item.guideline-highlighted {
+  border-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted th, table.guideline-item.guideline-highlighted td {
+  border-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted th.guidelineparam-header {
+  background-color: #fff7b0;
+}
+table.guideline-item.guideline-highlighted th.guidelineparam-spacer {
+  background-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted td {
+  background-color: #ffffff;
+}
+table.guideline-item.guideline-highlighted td.guidelineparam-item {
+  border-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted tbody.guideline-item tr:hover {
+  cursor: pointer;
+}
+table.guideline-item.guideline-highlighted tbody.guideline-item tr:hover th, table.guideline-item.guideline-highlighted tbody.guideline-item tr:hover td {
+  background-color: #fcdd62;
+  border-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted tbody.guideline-item tr:hover th.guidelineparam-spacer {
+  background-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted tbody.guideline-item td {
+  background-color: #ffffff;
+}
+table.guideline-item.guideline-highlighted tbody.guideline-backgrounder tr:first-child th.guidelineparam-header:before, table.guideline-item.guideline-highlighted tbody.guideline-testsection tr:first-child th.guidelineparam-header:before, table.guideline-item.guideline-highlighted tbody.guideline-changelogsection tr:first-child th.guidelineparam-header:before {
+  background-image: url("../../img/icon_folder_open_tag.png");
+}
+table.guideline-item.guideline-highlighted tbody.guideline-backgrounder.guideline-hidden tr:first-child th.guidelineparam-header:before, table.guideline-item.guideline-highlighted tbody.guideline-testsection.guideline-hidden tr:first-child th.guidelineparam-header:before, table.guideline-item.guideline-highlighted tbody.guideline-changelogsection.guideline-hidden tr:first-child th.guidelineparam-header:before {
+  background-image: url("../../img/icon_folder_close_tag.png");
+}
+table.guideline-item.guideline-highlighted tbody.guideline-backgrounder.guideline-hidden.search-result-in-param tr:first-child th.guidelineparam-header:before, table.guideline-item.guideline-highlighted tbody.guideline-testsection.guideline-hidden.search-result-in-param tr:first-child th.guidelineparam-header:before, table.guideline-item.guideline-highlighted tbody.guideline-changelogsection.guideline-hidden.search-result-in-param tr:first-child th.guidelineparam-header:before {
+  background-image: url("../../img/icon_folder_close_hit.png");
+}
+table.guideline-item.guideline-highlighted:not(.guideline-expand) tbody.guideline-item td div.guideline-icon:not(.search-result-in-param) {
+  background-image: url("../../img/icon_folder_close_tag.png");
+}
+table.guideline-item.guideline-highlighted.guideline-expand th, table.guideline-item.guideline-highlighted.guideline-expand td {
+  border-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted.guideline-expand th.guidelineparam-header {
+  background-color: #fff7b0;
+}
+table.guideline-item.guideline-highlighted.guideline-expand th.guidelineparam-spacer {
+  background-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted.guideline-expand td {
+  background-color: #ffffff;
+}
+table.guideline-item.guideline-highlighted.guideline-expand td.guidelineparam-item {
+  border-color: #ffbd2f;
+}
+table.guideline-item.guideline-highlighted.guideline-expand td div.guideline-icon {
+  background-image: url("../../img/icon_folder_open_tag.png");
+}
+table.guideline-item.guideline-highlighted.guideline-expand td div.guideline-icon.search-result-in-param {
+  background-image: url("../../img/icon_folder_open_tag.png");
+}
+table.guideline-item.guideline-highlighted.guideline-expand tbody.guideline-item td {
+  background-color: #fcdd62;
+}
+table.guideline-item.guideline-disabled {
+  background-color: #cfcfcf !important;
+  border-color: #cfcfcf !important;
+}
+table.guideline-item.guideline-disabled th.guidelineparam-spacer {
+  background-color: #cfcfcf !important;
+  border-color: #cfcfcf !important;
+}
+table.guideline-item.guideline-disabled th.guidelineparam-header {
+  background-color: #e4e4e4 !important;
+  border-color: #cfcfcf !important;
+}
+table.guideline-item.guideline-disabled td.guidelineparam-item {
+  background-color: #efefef !important;
+  border-color: #cfcfcf !important;
+}
+table.guideline-item.guideline-disabled tbody.guideline-item td {
+  background-color: #cfcfcf !important;
+  border-color: #cfcfcf !important;
+}
+table.guideline-item.guideline-disabled span.reader-tag,
+table.guideline-item.guideline-disabled span.function-tag {
+  border-color: #efefef !important;
+}
+table.guideline-item.guideline-hidden {
+  display: none;
+}
+table.guideline-item .layout-noborder {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+div.pagetitle.guideline-disabled {
+  opacity: 0.5;
+}
+
+h1.guideline-disabled {
+  opacity: 0.5;
+}
+
+div.text.guideline-disabled {
+  opacity: 0.5;
+}
+
+#contents_tree span {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: transparent;
+}
+
+#contents_tree span.guideline-highlighted {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #ffbd2f;
+}
+
+div.pagetitle.guideline-highlighted {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #ffbd2f;
+}
+
+h1.guideline-highlighted {
+  border-bottom-color: #ffbd2f;
+}
+
+h2.guideline-highlighted {
+  border-bottom-color: #ffbd2f;
+}
+
+h3.guideline-highlighted {
+  border-bottom-color: #ffbd2f;
+}
+
+h4.guideline-highlighted {
+  border-bottom-color: #ffbd2f;
+}
+
+h5.guideline-highlighted {
+  border-bottom-color: #ffbd2f;
+}
+
+h6.guideline-highlighted {
+  border-bottom-color: #ffbd2f;
+}
+
+table.guideline-item tbody.guideline-changelogsection div.changelog {
+  margin-top: 0px;
+}
+
+/*
+ * タグ表示
+ */
+div#printControllerTitle {
+  color: #2091ef;
+}
+
+input#printControllerButton {
+  background-image: none !important;
+  width: auto;
+}
+input#printControllerButton.printControllerOpened {
+  background-image: none !important;
+  background-color: #eeeeee;
+}
+
+div.tag-filter-reset-base {
+  margin-top: 8px;
+  text-align: left;
+}
+
+#tag-filter-reset {
+  cursor: pointer;
+  margin-top: 8px;
+  text-align: left;
+}
+
+span.reader-tag {
+  font-size: 12px;
+  display: inline-block;
+  min-width: 80px;
+  padding: 4px 8px;
+  margin: 0px 2px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-radius: 100px;
+  text-align: center;
+  /*
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  */
+  background-color: #c2eafc;
+}
+span.reader-tag:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+span.reader-tag:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+input[type="checkbox"].filter-reader-button {
+  display: none;
+}
+input[type="checkbox"].filter-reader-button + label span {
+  background-color: #c2eafc;
+  border-color: #c2eafc;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+input[type="checkbox"].filter-reader-button + label span.reader-tag:hover {
+  cursor: pointer;
+}
+input[type="checkbox"].filter-reader-button:checked + label span {
+  background-color: #ffbd2f;
+  border-color: #ffbd2f;
+}
+
+span.function-tag {
+  font-size: 12px;
+  display: inline-block;
+  min-width: 80px;
+  padding: 4px 8px;
+  margin: 0px 2px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-radius: 100px;
+  text-align: center;
+  /*
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  */
+  background-color: #c2eafc;
+}
+span.function-tag:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+span.function-tag:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+input[type="checkbox"].filter-function-button {
+  display: none;
+}
+input[type="checkbox"].filter-function-button + label span {
+  background-color: #c2eafc;
+  border-color: #c2eafc;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+input[type="checkbox"].filter-function-button + label span.function-tag:hover {
+  cursor: pointer;
+}
+input[type="checkbox"].filter-function-button:checked + label span {
+  background-color: #ffbd2f;
+  border-color: #ffbd2f;
+}
+
+span.revision-tag {
+  font-size: 12px;
+  display: inline-block;
+  min-width: 80px;
+  padding: 4px 8px;
+  margin: 0px 2px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-radius: 100px;
+  text-align: center;
+  /*
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  */
+  background-color: #c2eafc;
+}
+span.revision-tag:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+span.revision-tag:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+input[type="checkbox"].filter-revision-button {
+  display: none;
+}
+input[type="checkbox"].filter-revision-button + label span {
+  background-color: #c2eafc;
+  border-color: #c2eafc;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+input[type="checkbox"].filter-revision-button + label span.revision-tag:hover {
+  cursor: pointer;
+}
+input[type="checkbox"].filter-revision-button:checked + label span {
+  background-color: #ffbd2f;
+  border-color: #ffbd2f;
+}
+
+INPUT#printControllerButton {
+  background-image: url("filter_closed.png");
+  background-size: 30px 30px;
+}
+INPUT#printControllerButton.printControllerOpened {
+  background-image: url("filter_opened.png");
+}
+
+div.guideline-filter-title {
+  font-size: 1.4em;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin-bottom: 4px;
+}
+
+div.guideline-filter-component {
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin-bottom: 4px;
+}
+
+div.guideline-filter-list {
+  border-style: dashed;
+  border-width: 1px 0 !important;
+  max-height: 108px;
+  overflow-y: auto;
+  padding: 4px;
+}
+div.guideline-filter-list span.section-tag,
+div.guideline-filter-list span.reader-tag,
+div.guideline-filter-list span.function-tag,
+div.guideline-filter-list span.revision-tag {
+  border-color: #d9d9d9;
+  margin-bottom: 4px;
+}
+
+/*
+ * フローティングメニュー
+ */
+div#guideline-floatingmenu {
+  z-index: 9999;
+  width: 100%;
+  background-color: transparent;
+  border-style: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 0px;
+  padding: 0px;
+}
+
+div#guideline-floatingmenu-base.focused {
+  opacity: 1.0;
+}
+div#guideline-floatingmenu-base.focused div {
+  display: inline-block;
+}
+
+div#guideline-floatingmenu-left {
+  float: left;
+  display: none;
+}
+
+div#guideline-floatingmenu-right {
+  float: right;
+  display: none;
+}
+
+div#guideline-floatermenu {
+  text-align: left;
+  float: right;
+  display: none;
+  position: fixed;
+  right: 4px;
+  top: 4px;
+  background-color: #eeeeee;
+  border-style: solid;
+  border-color: #eeeeee;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 9999;
+}
+div#guideline-floatermenu div#guideline-section-filter-pane {
+  margin-left: 8px;
+}
+div#guideline-floatermenu.focused {
+  display: inline-block;
+}
+div#guideline-floatermenu span.reader-tag,
+div#guideline-floatermenu span.function-tag {
+  border-color: #eeeeee;
+  margin-bottom: 4px;
+}
+div#guideline-floatermenu input[type="checkbox"].filter-section-button {
+  display: none;
+}
+div#guideline-floatermenu input[type="checkbox"].filter-section-button + label::before {
+  content: " ";
+  display: inline-block;
+  background-image: url("../../img/icon_folder_close.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+div#guideline-floatermenu input[type="checkbox"].filter-section-button:checked + label::before {
+  background-image: url("../../img/icon_folder_open.png");
+}
+div#guideline-floatermenu input.guideline-allopen-button {
+  width: 100%;
+  min-width: 100px;
+}
+div#guideline-floatermenu input[type="checkbox"].guideline-openclose-button {
+  display: none;
+}
+div#guideline-floatermenu input[type="checkbox"].guideline-openclose-button + label {
+  font-weight: bold;
+}
+div#guideline-floatermenu input[type="checkbox"].guideline-openclose-button + label::before {
+  content: " ";
+  display: inline-block;
+  background-image: url("../../img/icon_folder_close.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+div#guideline-floatermenu input[type="checkbox"].guideline-openclose-button:checked + label::before {
+  background-image: url("../../img/icon_folder_open.png");
+}
+
+/*
+ * 設定画面
+ */
+span.initialopen-button {
+  font-size: 12px;
+  display: inline-block;
+  min-width: 80px;
+  padding: 4px 8px;
+  margin: 0px 2px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-radius: 100px;
+  text-align: center;
+  /*
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  */
+  background-color: #7fcced;
+}
+span.initialopen-button:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+span.initialopen-button:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+span.initialopen-button:hover {
+  border-color: #7fcced;
+}
+
+input[type="radio"].initialopen-button {
+  display: none;
+}
+input[type="radio"].initialopen-button + label span {
+  background-color: #d3d3d3;
+}
+input[type="radio"].initialopen-button:checked + label span {
+  background-color: #7fcced;
+}
+
+input[type="button"].export-config-button {
+  min-width: 200px;
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+}
+input[type="button"].export-config-button:hover {
+  border-color: #666666;
+}
+
+a#exportGuidelineConfig:hover {
+  text-decoration: none;
+}
+
+div.import-config-button {
+  background-color: #eeeeee;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  color: #222222;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 1px 3px 16px 0;
+  overflow: hidden;
+  text-align: center;
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  line-height: 30px;
+}
+div.import-config-button:hover {
+  border-color: #666666;
+}
+div.import-config-button div {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 14px;
+  width: 202px;
+  min-width: 202px;
+  max-width: 202px;
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  overflow: hidden;
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+}
+div.import-config-button input[type="file"][name="importConfig"] {
+  font-size: 110px;
+  text-align: right;
+  width: 202px;
+  min-width: 202px;
+  max-width: 202px;
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px none;
+}
+
+div.import-config-dropzone {
+  /* IEのみ、widthが明示的に指定されていないとドロップできない */
+  width: 100%;
+  max-width: 600px;
+  border-width: 4px;
+  border-style: dashed;
+  border-color: #d3d3d3;
+  padding: 8px;
+  text-align: center;
+  font-size: 16px;
+}
+div.import-config-dropzone.dragover {
+  border-color: #7fcced;
+  background-color: #ccffff;
+}
+
+input[type="button"].export-items-button {
+  min-width: 200px;
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+}
+input[type="button"].export-items-button:hover {
+  border-color: #666666;
+}
+
+a#exportGuideline:hover {
+  text-decoration: none;
+}
+
+/*
+ * 検索結果
+ */
+span.search_highlight {
+  background-color: #deff00 !important;
+}
+
+img.search_highlight {
+  border-color: #deff00 !important;
+  background-color: #deff00 !important;
+}
+
+div#searchbox_mini {
+  text-align: left !important;
+  margin-left: 16px;
+}
+
+input.searchbox_mini_text {
+  width: 70%;
+  margin-bottom: 6px;
+}
+
+p.search_result_title {
+  background-color: #e3e3e3;
+}
+
+div.search_result_line {
+  margin-bottom: 24px;
+}
+div.search_result_line table.guidelines {
+  margin-top: 4px;
+}
+div.search_result_line table.guideline-item {
+  margin-top: 0px;
+}
+
+div#printControllerTitle {
+  margin-top: 7px;
+}
+
+/*
+ * ガイドライン特有の上書き設定
+ */
+body:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+body:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+div.body_content:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+div.body_content:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+div#rootPane:lang(ja) {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "Lato", sans-serif !important;
+}
+div#rootPane:lang(en) {
+  font-family: "Lato", "Helvetica Neue", Verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+/*# sourceMappingURL=template.css.map */

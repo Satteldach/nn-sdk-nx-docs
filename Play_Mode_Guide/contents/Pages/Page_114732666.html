@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2 Using Features That Vary by Play Mode</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2 Using Features That Vary by Play Mode -->
+<div class="pagetitle" id="PageId_114732666">6.2 Using Features That Vary by Play Mode</div>
+<div class="text_separate">
+<p>In addition to the performance differences, the various play modes also differ in the following ways.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Functionality and Characteristics</th>
+      <th>TV Mode</th>
+      <th>Tabletop Mode</th>
+      <th>Handheld Mode</th>
+    </tr>
+    <tr>
+      <th>Touch Panel</th>
+      <td>Unavailable</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <th>Accelerometer and Gyroscope in the Controller</th>
+      <td>Available</td>
+      <td>Available</td>
+      <td>Unavailable</td>
+    </tr>
+    <tr>
+      <th>IR Motion Camera</th>
+      <td>Available</td>
+      <td>Available</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <th>Screen Size</th>
+      <td>Generally assumed to be at least 40 inches</td>
+      <td>6.2 inch</td>
+      <td>6.2 inch</td>
+    </tr>
+    <tr>
+      <th>Screen is flat on the floor or table</th>
+      <td>Generally difficult</td>
+      <td>Easy</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>Players</th>
+      <td>Supports multiplayer</td>
+      <td>Supports multiplayer</td>
+      <td>Primarily single player</td>
+    </tr>
+  </tbody>
+</table>
+<p>This section describes the measures to take when a functionality used by the application cannot be used in some play modes.</p>
+<h1 id="Anchor_114732666_h1_1">Touch Panel</h1>
+<p>In TV mode, the screen display and touch panel input of the Switch console are forcibly turned off.</p>
+<p>Although there are no issues if this is used with the intention of having the touch panel assist the controllers, if operations on the touch panel are required to make progress in the application, the user playing in TV mode will be forced to switch play modes.<br />Therefore, even for applications that use the touch panel as a main input device (where touch panel operations are an enjoyable element of gameplay), consider using some alternative form of controls, which will enable users to continue playing in TV mode.</p>
+<p>Treat applications that can only be controlled using the touch panel, without supporting wireless controllers, as applications (or states) that only support handheld mode.</p>
+<h5 id="Anchor_114732666_h5_1">Examples of Alternatives</h5>
+<ul>
+  <li>Command input using controller buttons or sticks</li>
+  <li>Pointing operations that use controller sensors (accelerometer and gyroscope)</li>
+</ul>
+<div class="figure">
+  <a name="AutoAnchor_114732666_figure004"></a>Figure 6-1  Pointing operations</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732666/349841129.png" width="300" class="embedded-image" />
+  </span>
+</p>
+<p>Reference Document: NintendoSDK Documents &gt; Sample Backgrounder &gt; Human Input Device Library Samples &gt; Getting the State of SixAxisSensor Using Npad Sample.</p>
+<h1 id="Anchor_114732666_h1_2">Accelerometer and Gyroscope in the Controller</h1>
+<h4 id="Anchor_114732666_h4_1">Getting the centers of gravity for two Joy-Con controllers</h4>
+<p>When getting the centers of gravity for two Joy-Con controllers for usage similar to gyro aiming, it is possible to have the same specifications when attaching Joy-Con controllers to the classic-grip accessory as when attaching Joy-Con controllers to the console. It is possible to play in all three play modes.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732666_figure001"></a>Figure 6-2  Classic-Grip Accessory Mounted or Console Mounted</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732666/161436937.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<h4 id="Anchor_114732666_h4_2">Using two Joy-Con controllers independently</h4>
+<p>Although it is possible to obtain the accelerometer and gyroscope values for the Joy-Con even in handheld mode, the Joy-Con are attached to the console when in handheld mode, so it is not possible to obtain the respective sensor values for the two Joy-Con controllers.<br />Therefore, as shown in the following, it is difficult to play applications that involve moving the two Joy-Con in different directions for handheld mode.</p>
+<div class="figure">
+  <a name="AutoAnchor_114732666_figure002"></a>Figure 6-3  When Moving Left and Right Controllers Independently, and When They Are Attached to the Console</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732666/161436951.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<p>For applications where the main operation method involves moving the two Joy-Con independently, consider alternative controls that allow users to continue playing even when in handheld mode. For example, replacing the respective Joy-Con sensor input with input from the right and left analog sticks or buttons, or with touch panel operations.</p>
+<p>If the application specifications are such that it is difficult to implement alternative controls, and they require accelerometer and gyroscope values respectively from the two Joy-Con controllers, set the application (or state) to not support handheld mode.</p>
+<h1 id="Anchor_114732666_h1_3">IR Motion Camera</h1>
+<p>The IR Motion Camera can be used in any mode.</p>
+<p>However, from the viewpoint of providing the same gaming experience, in some cases, user experience may be much less satisfactory in handheld mode, due to the need to hold the console in one hand, or the difficulty of using the IR Motion Camera while viewing the console screen.</p>
+<p>Depending on the specifications of the application, there may be no issue, but it would be user-friendly to prepare an alternative method.</p>
+<p>As a result, consider preparing alternative methods to the handheld mode IR Motion Camera when supporting gameplay in places such as a moving train, where there are limited locations to place the console.</p>
+<h1 id="Anchor_114732666_h1_4">Specifications Calling for Specific Screen Sizes</h1>
+<p>Specifications that call for using a large-screen TV will work in TV mode but can cause problems in tabletop mode/handheld mode.</p>
+<ul>
+  <li>In some cases, the UI text on the screen, including parameters and character names, will become unreadable at the screen size used in tabletop mode/handheld mode.<ul><li>Workarounds for this situation include limiting the display of UI text in tabletop mode/handheld mode, and maintaining a type size that remains legible even on the console screen.</li><li>A more user-friendly approach would be to implement a user-triggered feature that, for example, could switch display via the touch panel to make all the UI visible at any time.</li><li>Alternatively, to avoid such cases, we recommend checking the console screen each time there is detailed expression.</li></ul></li>
+</ul>
+<h1 id="Anchor_114732666_h1_5">Specifications for Playing Opposite Other Players</h1>
+<p>As noted in <a href="../Pages/Page_114732642.html">3 Three Play Modes</a>, applications that call for playing opposite other players, with the console laid flat, would be possible for the tabletop mode if there is a flat surface on which to place the console. It would be difficult, however, for TV mode, because you cannot place a TV flat on a floor or table.</p>
+<p>It is likely that in many cases, although basic policy requirements can be met in terms of also working in TV mode and enabling the application to proceed, it would effectively be impossible to provide a similar game experience with the same UI displayed on the TV in TV mode.</p>
+<p>A possible workaround is to rotate the UI based on the direction from which each of the two users views the TV, as follows (also adjust the aspect ratio of each UI).</p>
+<div class="figure">
+  <a name="AutoAnchor_114732666_figure003"></a>Figure 6-4  UI of Players Facing Each Other to the UI of Television Display</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_114732666/161437078.png" width="800" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<h1 id="Anchor_114732666_h1_6">Multiplayer Play With One System</h1>
+<p>The situation where multiple users each hold a controller and engage in multiplayer play on one Nintendo Switch system is possible for TV mode and tabletop mode but not for handheld mode, due to its nature.</p>
+<p>It would be obvious to the user that multiplayer mode is not possible in handheld mode.</p>
+<p>For this reason, the situation where multiple players are playing using multiple controllers is one of the criteria that does not support handheld mode.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>A successful handheld mode implementation of this type would not be prohibited.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

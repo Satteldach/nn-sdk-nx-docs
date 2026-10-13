@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4 Sending Play Reports | Nintendo Switch Play Report Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4 Sending Play Reports -->
+<div class="pagetitle" id="PageId_165743636">4 Sending Play Reports</div>
+<div class="text_separate">
+<h1 id="Anchor_165743636_h1_1">Structure of Report Data</h1>
+<p>The application uses the Play Report library to save Play Report data (report data) to the Switch console.</p>
+<p>Report data is collected and managed in units called <em>events</em>.</p>
+<p>The report data is sent automatically by the Switch system to the server. The system is responsible for the timing of when report data is sent to the server. However, the application can request that the system send the report data immediately.</p>
+<!--Remove-->
+<div class="selectable_public">
+  <p>The report data that is sent to the server is temporarily accumulated in online data storage (Amazon S3). You can get the access key to this data storage with the Play Report web tool. Analyze the report data by importing it to the analysis tool that was prepared independently for each application.</p>
+</div>
+<p>The application specifies an event ID and creates an event.</p>
+<p>Say you have an action game and want to aggregate data for events where the player is defeated by an enemy. For this event, you might register &quot;the x-coordinate of the player's location&quot; and &quot;the ID representing the enemy type&quot; as a key-value pair.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The following limitations apply for the number of application-defined key-value pairs that can be added to a single event.</p>
+    <ul>
+      <li>The maximum size for key-value pairs is 16 KiB.<ul><li>If the application tries to add a key-value pair that would result in this size being exceeded, the attempt will fail and an error will be returned.</li></ul></li>
+      <li>The maximum number of root level keys is 100.<ul><li>If the type of a value is a structure or array, the number of keys will be counted as 1, regardless of the number of elements in the structure or array.</li></ul></li>
+    </ul>
+    <p>The API Reference documentation for NintendoSDK 18.x.x and earlier states that the number of key-value pairs is limited to 100 pairs. However, even if your application has used one of these versions of the SDK, the preceding limitations will be applied.</p>
+  </div>
+</div>
+<h2 id="Anchor_165743636_h2_1">Event and Key Specifications</h2>
+<table class="wrapped relative-table" style="width: 52.5144%;">
+  <colgroup> <col style="width: 9.59119%;" /> <col style="width: 90.4088%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Event</th>
+      <td>
+        <ul>
+          <li>The event ID can have a maximum of 31 characters.</li>
+          <li>The event ID can include any of the following characters: 0-9, a-z, and _ (the underscore symbol).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Key</th>
+      <td>
+        <div class="content-wrapper">
+          <!--Remove - p.auto-cursor-target-->
+          <!--Remove-->
+          <!--Remove - p.auto-cursor-target-->
+          <div class="selectable_public">
+            <ul style="margin-left: 20.0px;">
+              <li>Names can have a maximum of 63 characters.</li>
+              <li>The characters that can be used for the name are 0-9, a-z, A-Z, and _ (the underscore symbol).<ul style="margin-left: 20.0px;"><li>Numbers cannot be used at the beginning of names.</li></ul></li>
+            </ul>
+          </div>
+          <!--Remove - p.auto-cursor-target-->
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_165743636_h2_2">Aggregating Partitioned Events</h2>
+<p>If there is data that you want to aggregate but must partition into multiple events (for example, event A and event B), consider the possibility that only one or the other event might get saved to the server because there is a size limit to the key-value pairs and a limit on the number of root level keys.</p>
+<p>The following example shows how to deal with this issue.</p>
+<ol>
+  <li>Create a key, X, in both events that is associated with both A and B.</li>
+  <li>Aggregate only the data for A and B events that have matching values for key X and are saved in the server as a set.</li>
+</ol>
+<h1 id="Anchor_165743636_h1_2">Saving Report Data</h1>
+<p>The application saves report data to the Switch system by repeating the three-step process of creating an event, registering one or more key-value pairs for that event, and saving the event.</p>
+<p>
+  <img src="../Attachments/Attach_165743636/274172760.png"></img>
+</p>
+<h1 id="Anchor_165743636_h1_3">Setting Nintendo Accounts for Sending Play Reports</h1>
+<p>There are specific conditions for saving and sending report data. Details about these conditions are described in a later section on this page (see Conditions for Saving and Sending Report Data). This section describes the Nintendo Account settings for these conditions.</p>
+<h2 id="Anchor_165743636_h2_3">Usage Information</h2>
+<p>Due to legal requirements to protect personal information, report data cannot be sent to the server from users who do not allow usage information to be sent.</p>
+<p>Depending on the country or region that has been set for the Nintendo Account, users might be able to configure the <strong>Usage information</strong> options in their Nintendo Account settings and choose whether to allow information to be sent. For some countries and regions, these settings cannot be changed (the options are not displayed).</p>
+<p>In <strong>Usage information</strong>, the user can set whether to allow or not allow data to be collected and processed for each of the following two separate purposes.</p>
+<ul>
+  <li>To help improve Nintendo products and services</li>
+  <li>To provide news and information tailored to you</li>
+</ul>
+<p>Play reports are sent if <strong>To help improve Nintendo products and services</strong> is set to <strong>Allow</strong>. It does not matter whether <strong>To provide news and information tailored to you</strong> is set to <strong>Allow</strong>.</p>
+<!--Remove-->
+<p>
+  <strong style="letter-spacing: 0.0px;">English-Language Screen</strong>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_165743636/766307055.png" height="250" class="embedded-image" />
+  </span> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_165743636/766307053.png" height="250" class="embedded-image" /></span></p>
+<p>
+  <strong>Japanese-Language Screen</strong>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_165743636/766307052.png" height="250" class="embedded-image" />
+  </span> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_165743636/766307054.png" height="250" class="embedded-image" /></span></p>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_165743636_h2_4">Differences Due to Country or Region</h2>
+<p>The following aspects of <strong>Usage information</strong> vary depending on the country or region.</p>
+<ul>
+  <li>The default values that are set for sending usage information for each purpose when the Nintendo Account is created</li>
+  <li>Whether the settings to send usage information can be changed (whether <strong>Usage information</strong> is displayed in the Nintendo Account page)</li>
+</ul>
+<p>The following table shows some of the current settings for Nintendo Accounts. The settings may be changed when the server is updated, so the information is only for reference.</p>
+<table class="relative-table wrapped" style="width: 71.5909%;">
+  <colgroup> <col style="width: 27.7807%;" /> <col style="width: 43.6739%;" /> <col style="width: 28.5454%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <p>Country or Region</p>
+      </th>
+      <th>Send Usage Information Default Setting</th>
+      <th>Can Send Setting Be Changed?</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>Japan</p>
+          <p>China</p>
+        </div>
+      </td>
+      <td>Allow</td>
+      <td>Not possible</td>
+    </tr>
+    <tr>
+      <td>
+        <p>Korea (see Note 1)</p>
+        <p>United States (see Note 2)</p>
+        <p>Canada (see Note 2)</p>
+        <p>Brazil (see Note 2)</p>
+        <p>Most European countries</p>
+        <p>Republic of South Africa</p>
+        <p>Australia</p>
+        <p>New Zealand</p>
+        <p>Taiwan</p>
+      </td>
+      <td>Allow</td>
+      <td>Possible</td>
+    </tr>
+    <tr>
+      <td>Hong Kong</td>
+      <td>Do not allow</td>
+      <td>Possible</td>
+    </tr>
+  </tbody>
+</table>
+<p>Note 1: For Korea, &quot;Can Send Setting Be Changed?&quot; was changed to &quot;Possible&quot; in an update in June 2023.</p>
+<p>Note 2: For the United States, Canada, and Brazil, &quot;Can Send Setting Be Changed?&quot; was changed to &quot;Possible&quot; in an update in February 2023.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>If the entry in the <strong>Send Usage Information Default Setting</strong> column in the table is <strong>Allow</strong>, it means that <strong>Allow</strong> is set by default both for <strong>To help improve Nintendo products and services</strong> and for <strong>To provide news and information tailored to you</strong>. Similarly, <strong>Do not Allow</strong> indicates that the default value for both settings is <strong>Do not Allow</strong>.</li>
+      <li>For China, read &quot;account for China&quot; where it says Nintendo Account.</li>
+    </ul>
+  </div>
+</div>
+<!--Remove-->
+<h1 id="Anchor_165743636_h1_4">Report Data and User Accounts</h1>
+<!--Remove-->
+<div class="selectable_public">
+  <h2 id="Anchor_165743636_h2_5">Saving With a Specified User Account</h2>
+  <p>The application can specify a user account when it saves the report data (when it makes the function call).</p>
+  <p>If user accounts are specified when report data is saved, a scrambled value of the NSA ID is recorded in the report data.</p>
+  <p>Specify the user account if you want to identify the report data individually for each network service account.</p>
+  <h2 id="Anchor_165743636_h2_6">Saving Without Specifying a User Account</h2>
+  <p>Do not specify a user account when you save the report data if you intend to aggregate report data about the application when it is played without selecting a user account.</p>
+  <p>If a user account is not specified, a scrambled value of the NSA ID is not recorded in the report data.</p>
+</div>
+<div>
+  <div class="syntaxhighlighter sh-default nogutter plain">
+    <h1 id="Anchor_165743636_h1_5">Conditions for Saving and Sending Report Data</h1>
+  </div>
+</div>
+<p>There are specific conditions for saving and sending report data.</p>
+<!--Remove-->
+<h6 id="Anchor_165743636_h6_1">Nintendo Account-Related Conditions for Saving</h6>
+<p>Report data is saved to a dedicated region in the Switch system memory. However, under the following conditions, sometimes the data is not saved. Report data that is not saved is not sent to the server.</p>
+<table class="wrapped relative-table" style="width: 91.6834%;">
+  <colgroup> <col style="width: 35.9444%;" /> <col style="width: 64.0556%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Saving With User Account Specified</th>
+      <td>
+        <p>The report data is saved if a Nintendo Account is linked to the user account. This setting is not affected by whether the Nintendo Account allows play reports to be sent.</p>
+        <p>If there is no Nintendo Account linked to the user account, it will not be saved.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Saving Without User Account Specified</th>
+      <td>Always saved.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Even if these conditions are satisfied, the report data might not be saved, for example because of problems with the data.</p>
+<h6 id="Anchor_165743636_h6_2">Nintendo Account-Related Conditions for Sending</h6>
+<p>The report data saved to the dedicated region in Switch system memory is sent to the server by the system. However, under the following conditions, sometimes the save reports are not sent.</p>
+<table class="wrapped relative-table" style="width: 97.8445%;">
+  <colgroup> <col style="width: 33.7008%;" /> <col style="width: 66.2992%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <p>User Account Specified When Saving</p>
+      </th>
+      <td>
+        <p>The report data will be sent if allowed by the Nintendo Account linked to the user account.</p>
+        <p>It is not sent if sending has not been allowed.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>No User Account Specified When Saving</th>
+      <td>The report data is sent if allowed by any Nintendo Account linked to a user account on the console.</td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove-->
+<!--Remove-->
+<!--Remove-->
+<h2 id="Anchor_165743636_h2_7">Conditions for Saving and Sending When User Agreement Check Is Disabled in the Development Environment</h2>
+<p>In the development environment, you can disable the <strong>User Agreement Check</strong> setting using DevMenu.</p>
+<p>For more information about changing the setting, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Play Report Settings (<a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_766280481.html" target="_blank" rel="noopener noreferrer">Japanese</a>, <a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_766280481.html" target="_blank" rel="noopener noreferrer">English</a>).</p>
+<p>When the <strong>User Agreement Check</strong> setting is disabled, the conditions for saving and sending report data change in the following ways.</p>
+<h6 id="Anchor_165743636_h6_3">Saving Report Data With a Specified User Account</h6>
+<p>In this case, the saving and sending of reports depends on the state of the specified user account, as follows.</p>
+<table class="relative-table wrapped" style="width: 90.4641%;">
+  <colgroup>
+    <col style="width: 45.007%;" />
+    <col style="width: 54.993%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>State of the Specified User Account</th>
+      <th>Are Reports Saved and Sent?</th>
+    </tr>
+    <tr>
+      <td>Not linked with either a network service account or a Nintendo Account.</td>
+      <td>Reports are not saved and sent.</td>
+    </tr>
+    <tr>
+      <td>Linked to only a network service account (see note 1).</td>
+      <td>
+        <p>If a Nintendo Account is not required for using network-services (see note 2), reports are saved and sent.</p>
+        <p>Otherwise, reports are not saved and sent.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Linked to both a network service account and a Nintendo Account.</td>
+      <td>
+        <p>Reports are always saved and sent, regardless of whether the linked Nintendo Account allows play reports to be sent.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+  <li>
+    <p>
+      <strong>Note 1:</strong> The state where the user account is only linked with a network service account can occur if the association has been made using the DevMenu feature for managing accounts.<br />For more information, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Managing Accounts.</p>
+  </li>
+  <li>
+    <p>
+      <strong>Note 2:</strong> Refers to the case where the <strong>Accounts</strong> &gt; <strong>Firmware settings</strong> &gt; <strong>Requires Nintendo Account for use of network service</strong> check box in DevMenu has been cleared.<br />For more information, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Managing Accounts.</p>
+  </li>
+</ul>
+<h6 id="Anchor_165743636_h6_4">Saving Report Data Without a Specified User Account</h6>
+<p>In this case, reports are always saved and sent.</p>
+<p>Reports can be sent if the <strong>User Agreement Check</strong> setting has been disabled, even if there are no users accounts on the console that are linked to a Nintendo Account or a network service account.</p>
+<h2 id="Anchor_165743636_h2_8">Saving Reports for a User Account Not Linked to a Nintendo Account in the Development Environment</h2>
+<p>In the development environment, you can save reports for a user account that is not linked to a Nintendo Account by selecting the <strong>Allow to save unlinked user report</strong> option in DevMenu.<br />For more information about this option, see NX Add-On 12.2.0 or later of NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Play Report Settings (<a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_766280481.html" target="_blank" rel="noopener noreferrer">Japanese</a>, <a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_766280481.html" target="_blank" rel="noopener noreferrer">English</a>).<br />This feature is available on development hardware with NintendoSDK SystemUpdater for NX 12.0.0+Build3.0 or later.</p>
+<p>If the <strong>Allow to save unlinked user report</strong> option is selected, play reports are always saved even if the specified user account is in either of the following states.</p>
+<ul>
+  <li>Not linked with either a network service account or a Nintendo Account.<ul><li>The <code>nsa_id</code> system key of the report is empty (the value is null). For more information about system keys, see <a href="../Pages/Page_165750415.html">5 Play Report Web Tool</a>.</li></ul></li>
+  <li>Linked to only a network service account.<ul><li>The value in the <code>nsa_id</code> system key of the report is the target user's network service account internal ID.</li></ul></li>
+</ul>
+<p>Also, you can disable the <strong>User Agreement Check</strong> setting to send these saved reports unconditionally.</p>
+<h1 id="Anchor_165743636_h1_6">Application Development Flow</h1>
+<!--Remove-->
+<div class="selectable_public">
+  <p>The assumed application development flow is as follows.</p>
+  <ol style="margin-left: 20.0px;">
+    <li>Determine the information that needs to be sent and implement the feature for saving play reports in the application.</li>
+    <li>Confirm that the report data is saved to the Switch console as intended, using the DevMenuCommand features to write the report data to a log or save it to a file. If necessary, rework the implementation in your application.<ul><li>For more information about DevMenuCommand, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenuCommand &gt; Play Report Feature.</li></ul></li>
+    <li>Have the Play Report administrator use the web tool to get the access key to the online data storage (Amazon S3). Share this access key with the necessary members and prepare to load data into the analysis tool prepared for each application.</li>
+  </ol>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

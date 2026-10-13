@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.1 Overview | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.1 Overview -->
+<div class="pagetitle" id="PageId_528451459">7.1 Overview</div>
+<div class="text_separate">
+<h1 id="Anchor_528451459_h1_1">Subscription Service Items Overview</h1>
+<p>Subscription service items provide services to users using the following steps.</p>
+<ol>
+  <li>The user purchases a subscription service item in Nintendo eShop.</li>
+  <li>The independent server checks Nintendo eShop to confirm the user license.</li>
+  <li>The independent server provides the service to the user.</li>
+</ol>
+<div class="figure">
+  <a name="AutoAnchor_528451459_figure001"></a>Figure 7-1  Subscription Service Items Overview</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_528451459/831139846.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>You need an independent server to provide subscription service items.</p>
+<h2 id="Anchor_528451459_h2_1">Fixed Term Format and Monthly Format</h2>
+<p>Subscription service items use one of the following formats.</p>
+<ul>
+  <li>Fixed term format<br /><ul><li>Any fixed duration. 1 hour, 30 days, and so on. The minimum unit is 1 minute.</li></ul></li>
+  <li>Monthly format<ul><li>Duration of one calendar month. The minimum unit is 1 month.</li></ul></li>
+</ul>
+<p>There are 31 days in May but 30 days in June, so a fixed term format item set for 30 days and a monthly format item set for 1 month would work as follows.</p>
+<ul>
+  <li>Fixed term format: A 30-day subscription service item is purchased and starts use at 10:00, May 1. The validity period ends at 09:59 on May 31.</li>
+  <li>Monthly format: A one-month subscription service items is purchased and starts use at 10:00, May 1. The validity period ends at 09:59 on June 1.</li>
+</ul>
+<p>The following table summarizes the major differences between the fixed term format and monthly format.</p>
+<table class="relative-table wrapped" style="width: 72.27%;">
+  <colgroup> <col style="width: 10.87%;" /> <col style="width: 18.01%;" /> <col style="width: 28.53%;" /> <col style="width: 42.56%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Availability of Automatically Renewed/Non-Automatically Renewed Purchases</th>
+      <th>Activating the License (Starting the Valid Period)</th>
+    </tr>
+    <tr>
+      <td>Fixed term format</td>
+      <td>Any fixed duration, such as 1 hour or 30 days</td>
+      <td>
+        <p>Both automatically renewed and non-automatically renewed</p>
+      </td>
+      <td>Can be activated at any time from the application.</td>
+    </tr>
+    <tr>
+      <td>Monthly format</td>
+      <td>Duration of one calendar month</td>
+      <td>Automatically renewed only</td>
+      <td>
+        <p>Automatically activated after purchase from Nintendo eShop.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Currently, the monthly format only supports a duration of 1 month. In the future, this feature will support other durations, such as 3 months.</p>
+  </div>
+</div>
+<p>For more information about the monthly format, see <a href="../Pages/Page_844599127.html">7.2.2 Monthly Format</a>.</p>
+<h2 id="Anchor_528451459_h2_2">Activating Fixed Term Format Services</h2>
+<p>The status of the user licenses kept on the Nintendo eShop server are in one of the following three states.</p>
+<ul>
+  <li>No license<br />The subscription service item has not been purchased, or the valid period has ended.</li>
+  <li>Has license<br />The license has been purchased but the validity period has not started.</li>
+  <li>Valid period<br />The license has period during which it is valid. This period is managed by the Nintendo eShop server.</li>
+</ul>
+<p>The basic flow is as follows.</p>
+<ol>
+  <li>When a user purchases a subscription service item in Nintendo eShop, the status changes to &quot;has license.&quot;</li>
+  <li>The independent server sends a request to the Nintendo eShop server to activate the license.</li>
+  <li>When the use of the license begins, the status of the license on the Nintendo eShop server changes to &quot;valid period.&quot;</li>
+  <li>The independent server provides the service, checking the Nintendo eShop server to confirm the validity period.</li>
+  <li>If a user purchases a subscription service item while the status of the license is &quot;valid period,&quot; the validity period for that license will be extended.</li>
+  <li>If the valid period expires, the status of the license reverts to &quot;no license&quot; and the process returns to step 1.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If a user purchases a subscription service item while the status of the license is &quot;has license,&quot; the period for that license will be cumulative. When the independent server begins using that license, the validity period represents the total of all of the licenses.</p>
+  </div>
+</div>
+<p>Subscription service items support the automatic renewal process. For more information, see <a href="../Pages/Page_522483783.html">7.2.1 Automatic Renewal</a>.</p>
+<p>Even with automatic renewal, the user license status is still in one of the preceding states. If an automatic renewal agreement is in effect, the agreement is renewed and the validity period is extended before the period expires. The validity period is extended if the subscription service item is purchased in Nintendo eShop while the renewal agreement is in effect.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>After purchasing a subscription service item in Nintendo eShop, if the purchased license is not used for 150 days, Nintendo will automatically activate that license.</p>
+  </div>
+</div>
+<h1 id="Anchor_528451459_h1_2">Format for Selling Subscription Service Items</h1>
+<p>Subscription service items are sold on the page that lists service tickets in the details for the application in Nintendo eShop.</p>
+<p>The application can use the API for jumping to eShop to land on the page with the list of service tickets, or to land on a specific service item. The purchase process is run in Nintendo eShop.</p>
+<h2 id="Anchor_528451459_h2_3">Sales Unit</h2>
+<p>Subscription services that are offered in Nintendo eShop are called <em>courses</em>. The licenses and validity periods for subscription services are managed separately for each course. Courses are identified by course IDs issued by Nintendo. For more information, see <a href="../Pages/Page_525143415.html">4.1 Usage Request on OMAS</a>.</p>
+<p>In Nintendo eShop, subscription service items are organized into separate pages for each course, and sold as individual items.<br />When adding items from NCMS, first add the course, and then add the items that come under that course. You must configure the following settings for each item.</p>
+<ul>
+  <li>Sales Price</li>
+  <li>Sales Period</li>
+  <li>Granted Licenses</li>
+</ul>
+<div class="figure">
+  <a name="AutoAnchor_528451459_figure002"></a>Figure 7-2  Subscription Service Item Settings</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_528451459/831139847.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>For example, the following settings can be configured.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> </colgroup>
+  <thead>
+    <tr>
+      <th>Course ID</th>
+      <th>Course Name</th>
+      <th>Sales Price</th>
+      <th>
+        <p>Granted License (Displayed Item Name)</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">0123456789abcdef</td>
+      <td rowspan="2">A service that is played with the application connected to the network.</td>
+      <td>100 yen</td>
+      <td>1 hour</td>
+    </tr>
+    <tr>
+      <td>1000 yen</td>
+      <td>24 hours</td>
+    </tr>
+    <tr>
+      <td rowspan="2">9876543210fedcba</td>
+      <td rowspan="2">A service that provides for daily play of the application.</td>
+      <td>300 yen</td>
+      <td>3 days</td>
+    </tr>
+    <tr>
+      <td>3000 yen</td>
+      <td>
+        <p>30 days</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The item names in Nintendo eShop are set based on the licenses that they grant. For example, if an item grants a 30-day license, the item name will be 30 days.</p>
+  </div>
+</div>
+<h2 id="Anchor_528451459_h2_4">Free Trial Flags and Purchase Limits</h2>
+<p>You can set the following two options for service items.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Free Trial Flag</td>
+      <td>
+        <p>Specify <code>on</code> for the item if there will be a free trial.<br />When <code>on</code> is specified, the item is clearly displayed as a free trial in Nintendo eShop.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Purchase Limit</td>
+      <td>Limits the number of times each Nintendo Account can purchase the item (purchasable number).</td>
+    </tr>
+  </tbody>
+</table>
+<p>For example, to prepare a service item that can be used for free only the first time as a promotion, set the free trial flag to <code>on</code> and set the purchase limit to <code>1</code>.</p>
+<p>Configure the options in NCMS. For more information about configuring the setting, see NCMS Manual &gt; Submitting Sales and Promotional Information &gt; Submitting Service Tickets (Switch Only).</p>
+<h3 id="Anchor_528451459_h3_1">Restrictions on the Number of Times a Subscription Service Item Can Be Purchased</h3>
+<p>You can limit the number of times each subscription service item can be purchased by each Nintendo Account. This limit is called the <em>purchase limit</em>. The number of times the item can be purchased while the purchase limit is enabled is called the <em>purchasable number</em>.<br />For example, if you set the purchasable number for a subscription service item to 1, that item can be purchased only once by each Nintendo Account.</p>
+<p>The purchase limit settings are configured on NCMS. For more information about configuring the setting, see NCMS Manual &gt; Submitting Sales and Promotional Information &gt; Submitting Service Tickets (Switch Only).<br />The maximum purchasable number that can be configured is 20. The presence of a purchase limit and the purchasable number can be changed even after a subscription service item goes on sale.</p>
+<h4 id="Anchor_528451459_h4_1">Important Information When Setting Purchase Limits</h4>
+<p>Note the following information when setting purchase limits.</p>
+<ul>
+  <li>The number of purchases is counted only while a purchase limit is set. The purchases are not counted if the purchase limit is disabled.</li>
+  <li>The configured purchase limit cannot be reset. For this reason, if you want to reset the number of purchases for a subscription service item that has already been released and then set a new purchase limit, you must create a new subscription service item.</li>
+  <li>The purchase limit does not apply when you use the following methods to obtain a subscription service item. You can obtain the item even if a purchase limit has been set and the purchasable number has reached the maximum. Even if you obtain the item, it will not be counted toward the number of purchases.<br /><ul><li>Using a download code</li><li>Using a privilege grant</li></ul></li>
+</ul>
+<h2 id="Anchor_528451459_h2_5">Maximum Service Period</h2>
+<p>The maximum service period is the maximum period that a user can own the item. A maximum service period is set individually for each course. Users cannot possess licenses and validity periods that exceed this maximum service period. The following restrictions apply.</p>
+<ul>
+  <li>Items cannot be selected in Nintendo eShop if the maximum service period is exceeded.</li>
+  <li>An error occurs if the maximum service period is exceeded while using a download code.</li>
+  <li>The call to the <a href="../Pages/Page_471905172.html">7.4.3.5 Add License API</a> fails and generates an error if the maximum service period is exceeded.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If you only sell items that add licenses of the same length as the maximum service period, users who have purchased that item cannot purchase the item again until the validity period for the item has expired. Pay careful attention to the maximum validity period and the number of days you offer licenses for.</p>
+  </div>
+</div>
+<p>Use OMAS to set the maximum service period for each course.</p>
+<h2 id="Anchor_528451459_h2_6">Sharing Courses With Multiple Applications</h2>
+<p>You can sell subscription service items with the same course ID in multiple applications.<br />License information is managed for each user by the course ID, which allows sharing the license information between applications.</p>
+<h1 id="Anchor_528451459_h1_3">Compensation Support</h1>
+<p>After a license for a subscription service item has begun being used, the period of use cannot be paused. As a result, if problems occur with the application or independent server, there may be a period when users cannot use the service even though they have the license to do so.<br />If this happens, Nintendo will not compensate users with additional licenses. If you want to compensate users, support the process independently for each application.</p>
+<h2 id="Anchor_528451459_h2_7">Granting License as Compensation</h2>
+<p>There is an API for adding licenses that you can use when incidents occur and you want to extend the expiration date managed in Nintendo eShop. For more information about this API, see <a href="../Pages/Page_471905172.html">7.4.3.5 Add License API</a>.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>Do not use the API for adding licenses for any purpose other than providing compensation.</li>
+      <li>For uses such as first-time-free promotions, use the service item options. For more information, see Free Trial Flags and Purchase Limits.</li>
+      <li>You cannot use the add license API for monthly format items.</li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

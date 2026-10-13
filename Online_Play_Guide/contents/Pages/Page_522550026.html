@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.5 Friend Invitation | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.5 Friend Invitation -->
+<div class="pagetitle" id="PageId_522550026">3.5 Friend Invitation</div>
+<div class="text_separate">
+<p>The friend invitation feature is a mechanism by which users invite friends to play over the internet. Invitations can even be sent to friends who are offline.<br />For a user to use the friend invitation feature, you must first implement the application in a way that supports the feature.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The friend invitation feature is provided in NintendoSDK NX Add-On 9.3.0 and later. Portions of the feature are also provided in NintendoSDK NX Add-On 9.2.0.</p>
+    <p>For more information about support by the application, see <a href="../Pages/Page_552448766.html">3.7.5 Supporting the Friend Invitation Feature</a>.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The friend invitation feature is supported in Switch consoles for China starting in system version 10.x.x or later.</p>
+    <p>To use the friend invitation feature in the development environment, use a version of the NintendoSDK firmware that corresponds to NX Add-On 10.x.x and can be used to submit master ROMs.</p>
+  </div>
+</div>
+<h2 id="Anchor_522550026_h2_1">Planning</h2>
+<p>System features like User Page and overlay notifications use the expressions &quot;Send invitation&quot; and &quot;Join&quot; in the context of inviting friends to play. In planning, consider designs that use the friend invitation feature within the scope of these expressions.</p>
+<h2 id="Anchor_522550026_h2_2">Procedure From Inviting to Joining</h2>
+<p>The following steps show that the procedure starts with one user sending an invitation to a friend, and ends with the friend who received the invitation joining the first user in online play.</p>
+<ol>
+  <li>The user who makes the invitation begins online play.</li>
+  <li>This user sends an online play invitation to a friend.</li>
+  <li>The other user receives this invitation.</li>
+  <li>The user who received the invitation checks the invitation in their User Page and joins.</li>
+  <li>The user who received the invitation joins the user who made the invitation in the application.</li>
+</ol>
+<h2 id="Anchor_522550026_h2_3">Inviting Friends</h2>
+<p>You can invite friends from inside the application. Invitations are made using the <code>friends</code> library API.</p>
+<p>Invitations must contain the following parameters.</p>
+<ul>
+  <li>Information needed for joining</li>
+  <li>Friends to invite</li>
+  <li>An invitation message</li>
+</ul>
+<p>For more information about each of these parameters, see the following sections.</p>
+<h3 id="Anchor_522550026_h3_1">Information Needed for Joining</h3>
+<p>In the friend invitation feature, the user who is making the invitation sends the information required for joining in online play, and the user who receives the invitation uses that information to join.</p>
+<p>For NPLN, set this parameter to the game session ID of the matchmaking session, for example. The user who receives the invitation joins the online play session of the user who made the invitation based on this received information.</p>
+<p>If you have prepared your own matchmaking feature using an independent server, you can provide the same experience to users by including in this parameter information that specifies which matchmaking session to join.</p>
+<h3 id="Anchor_522550026_h3_2">Friends to Invite</h3>
+<p>You can use either of the following methods to choose which friends to invite.</p>
+<ul>
+  <li>Use the My Page applet.<ul><li>In this method, you call the My Page applet and choose which friends to invite from inside the applet.</li><li>You can specify in the application how many friends to invite. (The maximum is 16 friends.)</li><li>For more information, see <a href="../Pages/Page_469797395.html">3.7.3 Calling the My Page Applet</a>.</li></ul></li>
+  <li>Prepare your own UI in the application.<ul><li>In this method, you implement your own UI in the application to display the list of friends and select who to invite.</li><li>The invitations are sent by the My Page applet. The list of friends to invite that was selected inside the application is specified in the <code>friends</code> library API for sending invitations.</li></ul></li>
+</ul>
+<p>The invitations can be sent even to friends who do not have the application for which the invitation is being made, and to friends that are offline at the time of the invitation.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>When using your own UI for friend invitation, the friend invitation does not reach the user if you select a user who is not a friend and send a friend invitation to the user (in system version 9.1.0 and later).</p>
+  </div>
+</div>
+<h3 id="Anchor_522550026_h3_3">Invitation Message</h3>
+<p>This message is attached to the invitation. Users who receive the invitation can check this message in their User Page.</p>
+<p> <span class="embedded-file-wrapper "><img src="../Attachments/Attach_522550026/688038366.png" height="250" class="embedded-image" /></span> <br /></p>
+<p>The application must prepare this message in advance. This invitation message must be configured in every language supported by the application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>When sending the invitation, the application registers an invitation message in each language.<br />Out of the registered invitation messages, the application displays the invitation message that has the highest priority according to the system language to the side that has received the invitation.<br />For more information about system languages and UI language priorities, see Nintendo Switch System Feature Guide &gt; Appendix &gt; How UI Languages Work.</p>
+    <p>To give an example, if the invitation message has been registered in French and German in the application and the invitation is sent to a user whose system language is Japanese, the message will be displayed to that user in French.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>Do not allow users to enter their own text created as user-generated content in these invitation messages.</p>
+  </div>
+</div>
+<h2 id="Anchor_522550026_h2_4">
+  <br />Receiving Invitations</h2>
+<h3 id="Anchor_522550026_h3_4">Checking Invitations</h3>
+<p>Users who receive an invitation can check what the invitation is about in the following places.</p>
+<h4 id="Anchor_522550026_h4_1">Invitation List in the User Page</h4>
+<p>Users can look on their User Page to see a list of the invitations that have been sent to them.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522550026/672155670.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>By opening the details for an invitation in the User Page and selecting <strong>Join</strong>, the user accepts the invitation and joins online play.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522550026/672155674.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>In the development environment, when an invitation is displayed in the User Page for an application that is not installed on the development hardware, the icon and the name for that application are not displayed correctly. This issue is a result of the design of the development environment.</p>
+  </div>
+</div>
+<h4 id="Anchor_522550026_h4_2">Overlay Notifications</h4>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522550026/672155668.png" height="88" class="embedded-image" />
+  </span>
+</p>
+<p>When the user logs in to (opens) their account, notification is provided of the number of invitations that have been sent to that user.</p>
+<p>When an invitation comes to a user on the Switch system, notification of that invitation is made if either of the following conditions are satisfied.</p>
+<ul>
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>The account of the user receiving the invitation is logged in (open) in any running application.<br />(This condition is satisfied if the user is logged in (open) in any application, and not just the application for which the invitation has been made.)</li>
+      <li>No user account is logged in (open).<br />(This includes situations where no application is running. If multiple users have invitations, they are all notified.)</li>
+    </ul>
+  </li>
+</ul>
+<h3 id="Anchor_522550026_h3_5">Joining Through Invitation</h3>
+<p>Joining through invitation takes place via the User Page. To join, the user opens the details for the invitation on the User Page and selects <strong>Join</strong>.<br />The behavior at this point differs depending on the status of the Switch and the account that received the invitation.</p>
+<p>In the following table, &quot;the application that is the subject of the invitation&quot; can sometimes refer to multiple applications. For more information, see Sharing Invitations Among Multiple Applications, described later.</p>
+<table class="relative-table wrapped" style="width: 89.7667%;">
+  <colgroup> <col style="width: 47.5231%;" /> <col style="width: 52.4769%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Status of Switch and Account (for multiple applications, the AND condition applies)</th>
+      <th>Behavior</th>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li>The user account does not have the application that is the subject of the invitation.<br />(The rest of the following items assume that the user has the application that is the subject of the invitation.)</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>The user is guided to the product page on Nintendo eShop.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li>No application is running on this Switch.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>The application that is the subject of the invitation is started, and the application is notified of the invitation information.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li>Another application that is not the subject of the invitation is running on this Switch.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>A dialog box is displayed to confirm whether it is okay to end the currently running application.</li>
+          <li>If the currently running application has ended, the application that is the subject of the invitation is started, and the application is notified of the invitation information.  </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          <li>The application that is the subject of the invitation is running on this Switch.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>The behavior varies depending on the application's metadata (the NMETA file).</li>
+          <li>For more information, see the next section, Joining Through Invitation to a Running Application.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>The processes for joining online play are performed by the application after it has received the information needed for joining.<br />For example, if you have set the NPLN game session ID as the information for the join-in feature, the application handles the process of joining a matchmaking session based on that game session ID.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>In the development environment, you cannot join through an invitation in DevMenu even if you receive a notification. Go to <strong>Debug</strong> &gt; <strong>Initial Boot Menu</strong>, change the setting to <strong>HomeMenu</strong>, then join the invitation from the User Page. If you just want to simulate the situation where an application starts from a friend invitation, use DevMenuCommand with the <code>set-friend-invitation</code> option. For more information, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenuCommand &gt; Friends Feature.</p>
+  </div>
+</div>
+<h3 id="Anchor_522550026_h3_6">Joining Through Invitation to a Running Application</h3>
+<p>If the application that is the subject of the invitation is already running on Switch, the behavior of joining through invitation to online play for that application differs depending on the value that has been set in the NMETA file.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The setting for <code>RuntimeParameterDelivery</code> is available in NintendoSDK NX Add-On 9.2.0 and later. This setting cannot be configured in earlier versions.</p>
+  </div>
+</div>
+<table class="wrapped">
+  <colgroup> <col style="width: 201.0px;" /> <col style="width: 199.0px;" /> <col style="width: 1021.0px;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Value Set</th>
+      <th>Behavior</th>
+    </tr>
+    <tr>
+      <td rowspan="3">RuntimeParameterDelivery</td>
+      <td>Always</td>
+      <td>
+        <ul>
+          <li>Notifications are sent for invitations for the running application.</li>
+          <li>The application must support the friend invitation feature to get notifications of invitations from friends while it is running.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>AlwaysIfUserStateMatched</td>
+      <td>
+        <p>The behavior differs depending on whether the user that is getting the invitation is the only user logged in (open) in the application that is the subject of the invitation.</p>
+        <ul>
+          <li>
+            <strong>If the invited user is the only user logged in (open) in the application</strong> <br /><ul><li>Notifications are sent for invitations for the running application.</li><li>The application must support the friend invitation feature to get notifications of invitations from friends while it is running.</li></ul></li>
+          <li>
+            <strong>If the invited user is not logged in (open) in the application</strong>, <br />or <strong>if some user other than the invited user is also logged in (open) in the application</strong><ul><li>A dialog box is displayed to confirm whether it is okay to end the currently running application.</li><li>If the currently running application has ended, the application that is the subject of the invitation is restarted, and the application is notified of the invitation information.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>OnRestart</td>
+      <td>
+        <ul style="margin-left: 20.0px;">
+          <li>A dialog box is displayed to confirm whether it is okay to end the currently running application.</li>
+          <li>If the currently running application has ended, the application that is the subject of the invitation is restarted, and the application is notified of the invitation information.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If no value has been set for <code>RuntimeParameterDeliver</code> in the NMETA file, it is set automatically to <strong>Always</strong>.</p>
+<p>If it is difficult for the application to get notifications of invitations from friends while running, set this parameter to <strong>OnRestart</strong>.</p>
+<h2 id="Anchor_522550026_h2_5">Sharing Invitations Among Multiple Applications</h2>
+<p>In some cases, such as when the same title is released in different variations, you may want to support joining through invitation even among applications with different application IDs.<br />If you set the same value for the presence group ID in the NMETA files of these different applications, the applications can exchange join-in information.<br />For more information about setting up the presence group ID, see <a href="../Pages/Page_552448766.html">3.7.5 Supporting the Friend Invitation Feature</a>.</p>
+<p>The condition for the application that is the subject of the invitation as described in Joining Through Invitation is that the presence group ID of the application is the same as for the application that sent the invitation.</p>
+<p>If the user has multiple applications with the same presence group ID, a dialog box is displayed prompting the user to choose which application to start when they respond to the invitation and join from their User Page.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>If invitations will be shared among applications that support different languages, we recommend that you register the invitation messages in all of the different supported languages in each application. Support for this functionality is not required.</p>
+    <p>We recommend this functionality because, as described in Invitation Message, the invited user might receive an invitation message in a language that they do not normally use.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

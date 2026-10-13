@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2 Approaches for Supporting the Basic Policies</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2 Approaches for Supporting the Basic Policies -->
+<div class="pagetitle" id="PageId_161306859">5.2 Approaches for Supporting the Basic Policies</div>
+<div class="text_separate">
+<p>This section describes approaches for supporting the following basic policies, in addition to describing when and how to decide not to support them.</p>
+<table class="wrapped">
+  <tbody>
+    <tr>
+      <th>Policy 1</th>
+      <td>The application as a whole supports play in TV mode, tabletop mode, and handheld mode.</td>
+    </tr>
+    <tr>
+      <th>Policy 2</th>
+      <td>Users can switch between modes at any time while the application is running.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_161306859_h1_1">Support for Policy 1</h1>
+<p>There is a difference in performance for the Switch when the system is placed in the Switch dock with the application projected on the TV screen, and when the system is removed from the Switch dock.</p>
+<p>In addition, the touch panel cannot be used unless the game screen is displayed on the console screen.</p>
+<p>With the Switch, various scenarios are either possible or impossible, depending on the play mode.</p>
+<p>When you stop using features that differ from mode to mode and use only features that are supported in all modes, you can easily offer support without making the user strongly aware of the basic policies.</p>
+<p>Alternatively, we also want to avoid lowering the value of the application and the Switch platform as a whole, by avoiding functionality that will require adjustments.</p>
+<p>We recommend the following when prioritizing your planning approaches.</p>
+<ol>
+  <li>Consider application specifications that can be fully realized on the Switch without getting caught up in the restrictions that are in place for the basic policies.</li>
+  <li>If those specifications include ways of playing that are impossible in some play modes, consider replacement specifications that would enable users to recognize that they are still playing the same game.</li>
+  <li>If it proves impossible to offer the same experience in every mode, consider releasing a Policy 1 exception title.</li>
+</ol>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>We have few cases, and there is no standard as to which cases are considered not to support policy 1.</p>
+    <p>For this reason, if all or part of the application cannot be played in a particular mode, we may ask you to explain the reason for your decision.</p>
+    <p>If as a result of considering the &quot;alternative specification&quot; the game experience changes, as in step 2, and you are contemplating whether it would be more appropriate to disallow play in that mode, consult Nintendo.</p>
+  </div>
+</div>
+<p>In the future, we plan to post cases that show reasons for deciding not to support the basic policy in our <a href="../Pages/Page_114732670.html">7 Supported Examples</a>. For now, we are considering the following as possible reasons:</p>
+<ul>
+  <li>Applications for sports games where the Joy-Con is detached and swung around.<ul><li>Alternative operations using command inputs were considered, but the experience was diminished when compared to swinging the Joy-Con.</li><li>The game will be promoted as a game in which players swing the Joy-Con around.</li><li>Due to the concept of the application, it should be obvious to the user that the game cannot be played with the Joy-Con attached to the console. For this reason, the application will not support handheld mode.</li></ul></li>
+  <li>Application for drawing pictures using the touch panel.<ul><li>Alternative operations using the analog stick and commands were considered, but it was different from the technique of drawing pictures.</li><li>Due to the concept of the application, the touch panel is indispensable. It should be obvious to the user that the game cannot be played in TV mode. For this reason, the application will not support TV mode.</li></ul></li>
+  <li>Application for a party game in which two or more players hold one Joy-Con each to play.<ul><li>It is not possible to operate with the Joy-Con attached to the console.</li><li>Due to the concept of the application, each player must hold a Joy-Con, and it should be obvious to the user that the game cannot be played in handheld mode. For this reason, the application will not support handheld mode.</li></ul></li>
+</ul>
+<p>The preceding reasons are merely examples and there may be other reasons. However, the fact that the nature of the application makes it obvious to the user that the game cannot be played in a particular mode is an important point when determining whether the application supports the basic policy.</p>
+<h1 id="Anchor_161306859_h1_2">Support for Policy 2</h1>
+<p>If the application supports Policy 1, it can probably support Policy 2, which is the ability to switch between TV mode, tabletop mode, and handheld mode at any time while the application is running.</p>
+<p>Even if some scenes in the application do not support all play modes, consider implementing the following measures to minimize user discomfort when switching between modes.</p>
+<ul>
+  <li>Display a message indicating that the player will be returned to a scene where switching is possible (a scene that supports all play modes), and then return the play to a scene that is convenient for the application.<ul><li>For example, consider an application that allows 4-person play with 4-way split screens only in TV mode. If the system is removed from the Switch dock during 4-person play, a message is displayed that states: &quot;4-person play is a game mode exclusive to TV mode. You will be returned to the player number selection screen.&quot; The player will then be returned to the player number selection screen.</li></ul></li>
+  <li>After displaying a message indicating the need to return to the original play mode, wait until that return occurs.<ul><li>Another case is where various scenes within the game require touch panels and it is difficult to interrupt the scene. If the player switches to TV mode during such a scene, a message is displayed that states: &quot;This game mode is exclusive to tabletop mode and handheld mode. To play on the TV, please finish this game mode first, and then place the system in the Switch dock.&quot; The application will then wait for the system to be detached from the Switch dock.</li></ul></li>
+</ul>
+<p>For more information about alternative approaches for features that are not available in every play mode, see <a href="../Pages/Page_114732666.html">6.2 Using Features That Vary by Play Mode</a>.</p>
+<p>For information about user-facing terms, see Nintendo Switch Terminology.</p>
+<p>Depending on the type of application, however, when a user cannot perform operations while attaching the Joy-Con to the console or the classic-grip accessory, creating a pause in the application may make it user-friendly.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

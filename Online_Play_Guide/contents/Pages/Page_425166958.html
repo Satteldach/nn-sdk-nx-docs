@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.3.1 NEX Error Handling When the Application Policy Is Some Features Require Membership | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.3.1 NEX Error Handling When the Application Policy Is Some Features Require Membership -->
+<div class="pagetitle" id="PageId_425166958">2.3.1 NEX Error Handling When the Application Policy Is Some Features Require Membership</div>
+<div class="text_separate">
+<p>If the application policy for an application that uses NEX is classified as <strong>Some features require membership</strong>, you must implement appropriate handling for the specific NEX errors that occur when the user account does not have a Nintendo Switch Online license.</p>
+<p>When using NintendoSDK 8.1.0 and later, use the <code>nn::err::ShowError()</code> generic error display function for handling. When using a version of NintendoSDK earlier than 8.1.0, use the dedicated <code>nn::err::ShowNetworkServiceError()</code> error display function for handling.</p>
+<h1 id="Anchor_425166958_h1_1">Using NintendoSDK 8.1.0 and Later</h1>
+<h2 id="Anchor_425166958_h2_1">Displaying a Subscription Guide</h2>
+<p>If you are using NintendoSDK 8.1.0 or later and an error occurs because the user does not have a Nintendo Switch Online license, use the <code>nn::err::ShowError()</code> function to display the screen that prompts the user to subscribe to Nintendo Switch Online.</p>
+<p>The application cannot determine from this subscription guidance screen whether the user has purchased a Nintendo Switch Online membership.</p>
+<h2 id="Anchor_425166958_h2_2">Content Displayed in the Subscription Guide</h2>
+<p>The system changes the screen displayed by the <code>nn::err::ShowError()</code> function that prompts the user to subscribe based on the following two conditions.</p>
+<ul>
+  <li>Whether the active users of the application all have Nintendo Switch Online memberships</li>
+  <li>The number of active users (described later) of the application</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>
+      <strong>Conditions for Becoming an Active User of the Application</strong>
+      <br />The user is considered active if all of the following criteria are met.</p>
+    <ul>
+      <li>The user account is Open (logged in) in the application.</li>
+      <li>The user account is linked to a Nintendo Account, and is in an active state.</li>
+    </ul>
+  </div>
+</div>
+<p>It is possible to perform handling using the <code>nn::err::ShowNetworkServiceError</code> dedicated error display function, provided in versions of NintendoSDK earlier than 8.1.0. However, we do not recommend it.</p>
+<h3 id="Anchor_425166958_h3_1">Conditions for Displaying the Subscription Guide</h3>
+<p>The subscription guide is not displayed if all of the active users of the application have Nintendo Switch Online memberships at the time the <code>nn::err::ShowError()</code> function makes this determination. However, the subscription guide is displayed if there are zero active users of the application.</p>
+<p>In addition, the subscription guide is not displayed if the Switch is not connected to the internet, or the system cannot get the Nintendo Switch Online membership status from Nintendo's servers.</p>
+<h3 id="Anchor_425166958_h3_2">Conditions for Displaying a Link to Nintendo eShop in the Subscription Guide</h3>
+<p>If one or more active users of the application have not subscribed to Nintendo Switch Online, the subscription guide screen that is displayed changes depending on how many active users within the application do have memberships.<br />If the application has only one active user, a link to the Nintendo Switch Online subscription page in Nintendo eShop is displayed. If the application has two or more active users, or zero active users, the link to Nintendo eShop is not displayed.</p>
+<h2 id="Anchor_425166958_h2_3">Handling After Displaying the Subscription Guide</h2>
+<p>The Nintendo Switch Online membership status on the NEX server is saved when the user logs in to the NEX server. The membership status is determined based on the NSA ID token information.</p>
+<p>For this reason, if the user subscribes to Nintendo Switch Online from the subscription guide shown by the <code>nn::err::ShowError()</code> function, you must perform the following handling in the application to destroy the previous membership status information.</p>
+<ol>
+  <li>Log out from the NEX server (if already logged in).</li>
+  <li>Get the NSA ID token for the user again.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <ul>
+      <li>This process of logging out again does not violate guideline #0024: Prohibition of unnecessary sign-ins to game servers in the Nintendo Switch Guidelines.</li>
+      <li>If the error that occurs due to a lack of a Nintendo Switch Online license is passed to the <code>nn::err::ShowError()</code> function, the NSA ID token cache is normally destroyed. However, if the Switch is not connected to the internet, or the system could not get the Nintendo Switch Online membership status from Nintendo's servers, the NSA ID token cache is not destroyed.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_425166958_h2_4">Samples</h2>
+<h5 id="Anchor_425166958_h5_1">Using the NEX Library to Access the NEX Server</h5>
+<p>When using the NEX library to access the NEX server, use the following procedure to determine whether the Nintendo Switch Online membership status needs to be updated.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">IsFailure</span><span class="p">())</span>
+<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nn">nn::err::</span><span class="n">ShowError</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span><span class="p">(</span><span class="nn">nn::nex::ResultAuthenticationNetworkServiceLicenseRequired::</span><span class="n">Includes</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1">// Getting the NSA ID token again is required for updating the license state.
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>The <code>result</code> variable used for determination is the <code>nn::Result</code> type, and you can get it using the following functions.</p>
+<ul>
+  <li>To get the result of the login function (<code>nn::nex::NgsFacade::Login()</code>)<ul><li>Use <code>nn::nex::NgsFacade::GetLastLoginNnResult()</code> to get the result.</li></ul></li>
+  <li>To get the results of various asynchronous API functions<ul><li>After using the <code>nn::nex::CallContext::GetOutcome()</code> to get <code>nn::nex::qResult</code>, use <code>nn::nex::qResult::GetNnResult()</code> to convert to <code>nn::Result</code>.</li></ul></li>
+</ul>
+<h5 id="Anchor_425166958_h5_2">Using the Pia Library to Access the NEX Server</h5>
+<p>If you are using the Pia library to access the NEX server, see the PiaSession Advanced sample demo and the PiaFramework Simple sample demo in the Pia library documentation.<br />For PiaUnity, see the PiaShot sample demo.</p>
+<h1 id="Anchor_425166958_h1_2">Using an SDK Earlier Than NintendoSDK 8.1.0</h1>
+<p>When using an SDK earlier than NintendoSDK 8.1.0, the <code>nn::err::ShowError()</code> generic error display function displays a description of the error but does not display the screen prompting users to subscribe to Nintendo Switch Online.<br />For this reason, use the <code>nn::err::ShowNetworkServiceError()</code> dedicated error display function.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>When using an SDK earlier than NintendoSDK 8.1.0, not using the dedicated error display function violates 0163: Implementing Handling for Features Requiring a Nintendo Switch Online Membership. If errors occur under the following conditions, be sure to use the dedicated error-display functions.</p>
+  </div>
+</div>
+<h2 id="Anchor_425166958_h2_5">Packages Containing the Dedicated Error-Display Functions</h2>
+<p>The following functions are used for the error handling described on this page.</p>
+<ul>
+  <li>
+    <code>nn::err::IsNetworkServiceError()</code>
+  </li>
+  <li>
+    <code>nn::err::ShowNetworkServiceError()</code>
+  </li>
+</ul>
+<p>These functions are included in the following versions of NintendoSDK.</p>
+<table class="relative-table wrapped" style="width: 44.6179%;">
+  <colgroup> <col style="width: 31.1808%;" /> <col style="width: 68.8192%;" /> </colgroup>
+  <tbody>
+    <tr>
+      <th>NX Add-On 4.x.x</th>
+      <td>NX Add-On 4.6.0 or later</td>
+    </tr>
+    <tr>
+      <th>NX Add-On 5.x.x</th>
+      <td>NX Add-On 5.6.0 or later</td>
+    </tr>
+    <tr>
+      <th>NX Add-On 6.x.x</th>
+      <td>NX Add-On 6.3.0 or later</td>
+    </tr>
+    <tr>
+      <th>NX Add-On 7.x.x or later</th>
+      <td>All versions</td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>They are deprecated in NX Add-On 8.1.0 and later.</p>
+  </div>
+</div>
+<h2 id="Anchor_425166958_h2_6">Using the Dedicated Error-Display Functions</h2>
+<p>Call <code>nn::err::ShowNetworkServiceError()</code> if the <code>nn::Result::IsFailure()</code> function returns <code>true</code> as the result of an NEX asynchronous process and the <code>nn::err::IsNetworkServiceError()</code> function returns <code>true</code>.</p>
+<p>The user account will be guided to subscribe to Nintendo Switch Online. Make sure that you specify the appropriate <code>nn::account::UserHandle</code> for the argument of the <code>nn::err::ShowNetworkServiceError()</code> function so the user account that was responsible for the executed NEX asynchronous process is the same user account that is prompted to subscribe.</p>
+<p>If only one user account is in the open (logged in) state, you can call the <code>nn::err::ShowNetworkServiceError()</code> function without passing a <code>nn::account::UserHandle</code> value for the argument. If multiple user accounts are in the open (logged in) state, such as when multiple user accounts in the same application are logged in the NEX game server, you must specify <code>nn::account::UserHandle</code>.</p>
+<ul>
+  <li>If <code>nn::account::UserHandle</code> is not specified for the argument:<br />The process transitions to the process for membership purchase by the user account indicated by the user in the open (logged in) state.</li>
+  <li>If <code>nn::account::UserHandle</code> is specified for the argument:<br />The process transitions to the process for membership purchase by the user account indicated by the specified handle.</li>
+</ul>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>If the user purchases a membership inside the process of the <code>nn::err::ShowNetworkServiceError()</code> function, you must get the NSA ID token again to apply the purchased license in the application.<br />The application cannot determine whether the user has purchased a membership inside the process of the <code>nn::err::ShowNetworkServiceError()</code> function.<br />Note that if the <code>nn::err::ShowNetworkServiceError()</code> function is called while logged in to the NEX game server, you must log out from the NEX game server after calling the function.<br />If the user has purchased a membership, the way to enable the license is to get the NSA ID token again after logging out and then logging back in.</p>
+    <p>This process of logging out and logging in again does not violate guideline #0024: Prohibition of unnecessary sign-ins to game servers in the Nintendo Switch Guidelines.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>You do not need to call <code>nn::err::ShowNetworkServiceError()</code> if the <code>nn::err::IsNetworkServiceError()</code> function returns <code>false</code>. Handle the errors as described in each library.</p>
+  </div>
+</div>
+<h2 id="Anchor_425166958_h2_7">Samples</h2>
+<p>The following code samples are examples of error handling when there is only one user account in the open (logged in) state.</p>
+<h5 id="Anchor_425166958_h5_3">Login Functions</h5>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="n">pNgsFacade</span><span class="o">-&gt;</span><span class="n">Login</span><span class="p">(</span><span class="o">&amp;</span><span class="n">oContext</span><span class="p">,</span> <span class="n">gameServerId</span><span class="p">,</span> <span class="n">accessKey</span><span class="p">,</span> <span class="n">nsaId</span><span class="p">,</span> <span class="n">nsaIdToken</span><span class="p">);</span>
+<span class="n">oContext</span><span class="p">.</span><span class="n">Wait</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">oContext</span><span class="p">.</span><span class="n">GetState</span><span class="p">()</span> <span class="o">!=</span> <span class="nn">nn::nex::CallContext::</span><span class="n">CallSuccess</span><span class="p">)</span>
+<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nn">nn::</span><span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">pNgsFacade</span><span class="o">-&gt;</span><span class="n">GetLastLoginNnResult</span><span class="p">();</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">IsFailure</span><span class="p">())</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nn">nn::err::</span><span class="n">IsNetworkServiceError</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nn">nn::err::</span><span class="n">ShowNetworkServiceError</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">else</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1">// Error handling by functions like nn::err::ShowError().
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5 id="Anchor_425166958_h5_4">Various Asynchronous Functions</h5>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="n">pRankingClient</span><span class="o">-&gt;</span><span class="n">GetRanking</span><span class="p">(</span><span class="o">&amp;</span><span class="n">oContext</span><span class="p">,</span> <span class="n">rankingMode</span><span class="p">,</span> <span class="n">rankingCategory</span><span class="p">,</span> <span class="n">orderParam</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rankingResult</span><span class="p">);</span>
+<span class="n">oContext</span><span class="p">.</span><span class="n">Wait</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">oContext</span><span class="p">.</span><span class="n">GetState</span><span class="p">()</span> <span class="o">!=</span> <span class="nn">nn::nex::CallContext::</span><span class="n">CallSuccess</span><span class="p">)</span>
+<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nn">nn::</span><span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">oContext</span><span class="p">.</span><span class="n">GetOutcome</span><span class="p">().</span><span class="n">GetNnResult</span><span class="p">();</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">IsFailure</span><span class="p">())</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nn">nn::err::</span><span class="n">IsNetworkServiceError</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nn">nn::err::</span><span class="n">ShowNetworkServiceError</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1">// Log out, because you need to get the NSA ID token again to update the license status.
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">else</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1">// Error handling by functions like nn::err::ShowError().
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

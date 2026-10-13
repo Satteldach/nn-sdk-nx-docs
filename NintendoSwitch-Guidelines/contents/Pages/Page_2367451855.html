@@ -1,0 +1,3025 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>System features | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- System features -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367451855" data-tags="revision-updated-0.4">System features</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements for application design and development and applies to applications that use mechanisms provided by the system features.</p>
+<p>For more information about the Switch system features, see the <em>System Features Guide</em>.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Graphics -->
+<h1 class="general" id="GuidelineLabel_2367451857" data-tags="revision-updated-3.0">Graphics</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements that apply when rendering graphics.</p>
+<p>If your application displays graphics on the system's screen, also see the <a href="../Pages/Page_2367451914.html#GuidelineLabel_2367451916">Screen</a> subchapter.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0003: Prohibition of supporting 3D televisions -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451859" data-tags="revision-updated-0.3 function-テレビ表示 function-すべてのアプリケーション" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451859" title="Right-click and copy link to copy a permalink to this guideline">0003: Prohibition of supporting 3D televisions</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not display stereoscopic images using the features of 3D televisions.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Do not implement your application to display in 3D on 3D televisions. For example, it is technically possible for your application to use even and odd frames to carry images with different parallax, output this stream to a 3D TV and thereby display it in 3D, but this method is not HDMI-compliant. Do not do this.</p>
+<p>
+  <br />
+</p>
+<p>That said, Nintendo does not set any restrictions on anaglyph 3D as a method of stereoscopic display.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play through all modes of your application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if your application does not display stereoscopic images using the features of 3D televisions.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451859_0" data-tag="function-テレビ表示">
+<label for="tagfilter_2367451859_0">
+<span class="function-tag" title="TV display" data-tag="function-テレビ表示">TV display</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451859_1" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367451859_1">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451859_2" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451859_2">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0004: Avoiding screen burn-in when screen burn-in reduction is disabled -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451861" data-tags="revision-updated-12.0 revision-updated-21.0 revision-updated-1.0 function-画面焼け revision-updated-5.0 function-テレビ表示 revision-updated-3.0 revision-updated-0.3 revision-updated-0.2 revision-updated-2.0 revision-updated-0.4" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451861" title="Right-click and copy link to copy a permalink to this guideline">0004: Avoiding screen burn-in when screen burn-in reduction is disabled</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>If your application disables the screen burn-in reduction feature, ensure that the output image has no parts that are continually displayed in the same location on the TV screen.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Scenes that use the <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe</code> function to disable screen burn-in reduction</li>
+  <li>Scenes that play video in the Offline Web Applet</li>
+  <li>Scenes that use the <code>nn::oe::BeginMediaPlaybackSection</code> function to disable screen burn-in reduction</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="3"></th>
+      <th class="guidelineparam-header" rowspan="3">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451861_h6_1">Exceptions if using <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code>:</h6>
+<ul>
+  <li>The boundary line between the video-rendering area and margins outside of that area when playing non-predetermined video in an inset on the screen (shown in blue on <a href="#AutoAnchor_2367451861_figure001">Figure 1 Boundary line between video-rendering area and margins outside that area</a>)</li>
+  <li>Scenes that use <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code> for 15 minutes or less</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451861_h6_2">Exceptions if playing video in the Offline Web Applet:</h6>
+<ul>
+  <li>Videos with a run time of 15 minutes or less</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451861_h6_3">Exceptions if using <code>nn::oe::BeginMediaPlaybackSection()</code>:</h6>
+<ul>
+  <li>The boundary line between the video-rendering area and margins outside of that area when playing non-predetermined video in an inset on the screen (shown in blue on <a href="#AutoAnchor_2367451861_figure001">Figure 1 Boundary line between video-rendering area and margins outside that area</a>)</li>
+  <li>Scenes that use <code>nn::oe::BeginMediaPlaybackSection()</code> for 15 minutes or less</li>
+</ul>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Switch has a screen burn-in reduction feature that lowers the brightness of the TV output after a certain length of time without user input. However, you can use the <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code> or <code>nn::oe::BeginMediaPlaybackSection()</code> function to disable screen burn-in reduction. Likewise, the screen burn-in reduction feature is automatically disabled while video is playing in the Offline Web Applet. This means that for the duration of video playback, you must avoid screen burn-in by ensuring that the output image has no static parts that are continually displayed in the same location on the TV screen.</p>
+  <p>
+    <br />
+  </p>
+  <p>One way of ensuring that the output image has no static parts is to change what every pixel on the TV is displaying over time. If the center area of the video shows a moving image but other parts (such as logos or text around the edges of the video) are static, those parts can burn into the screen over time. Instead, make sure that every pixel of the image changes over time.</p>
+  <p>If you use either the <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code> or <code>nn::oe::BeginMediaPlaybackSection()</code> function, you must re-enable the screen burn-in reduction feature whenever your application temporarily stops playing the video (such as when the user pauses it or when your application is displaying an error).</p>
+  <p>
+    <br />
+  </p>
+  <p>Note that if your application displays some non-predetermined video on the screen, you do not have to test for screen burn-in of the line on the boundary of the video-rendering area and the margins outside that area. This boundary line is shown in blue on the figure below.</p>
+  <!--figure001-->
+  <div class="figure">
+    <a name="AutoAnchor_2367451861_figure001"></a>Figure 1 Boundary line between video-rendering area and margins outside that area</div>
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_2367451861/2367451862.png" width="300" class="embedded-image" />
+    </span>
+  </p>
+  <p>
+    <br />
+  </p>
+  <p>Likewise, if you are using <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code> or <code>nn::oe::BeginMediaPlaybackSection()</code> for 15 minutes or less or if the video you are playing in the Offline Web Applet has a run time of 15 minutes or less, screen burn-in is unlikely, so you do not need to ensure that the output image has no static parts.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If you know that the duration of time without user input will last fifteen minutes or less, Nintendo strongly recommends that you use the <code>nn::oe::SetUserInactivityDetectionTimeExtended</code> function instead of the <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe</code> function. For details on the differences between each function, see the References.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="note_new">
+    <div class="note_new_left">Note:</div>
+    <div class="note_new_right">
+      <p>Nintendo plans to provide the <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code> function starting in NintendoSDK NX Add-On 3.0.0.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>The online web applet also has a video playback feature that disables screen burn-in reduction. Lotcheck does not test video played this way since the video is not part of your ROM, but if you use the online web applet to play video, you must still ensure that the output image has no static parts.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Basic Features &gt; <a href="../Pages/Page_2367451833.html#Anchor_2367451833_OELibrary">oe Library</a> &gt; Manual &gt; Features &gt; Control Over Idle State Actions</li>
+        </ul>
+      </li>
+      <li>
+        <em>NintendoSDK NX Add-On VodDevelopmentKit Documents</em> (<strong>Note:</strong> This is part of the VodDevelopmentKit package, a private package you need to request permission to use.)<ul><li>NX Add-On VodDevelopmentKit Media Playback Mode</li></ul></li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch System Features Guide</em>
+        <ul>
+          <li>
+            <p>Library Applets &gt; Offline Web Applet</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Enter a scene that uses the <code>nn::oe::SetUserInactivityDetectionTimeExtendedUnsafe()</code> or <code>nn::oe::BeginMediaPlaybackSection()</code> functions, and leave the system idle with no user input.</li>
+  <li>Play a video in the Offline Web Applet.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if the application is designed in such a way that no parts of the output image are continually displayed in the same location on the TV screen in the scenes in steps 1 and 2. </p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The <code>nn::oe::BeginMediaPlaybackSection()</code> function is included in the VodDevelopmentKit package.<br />You must get approval from Nintendo to use VodDevelopmentKit.</p>
+<p>Also see the tips below if you want to check whether the screen burn-in reduction feature is actually disabled in specific scenes.</p>
+<ul>
+  <li>The screen burn-in reduction feature is disabled by default on Switch devkits. To enable screen burn-in reduction, you must go to DevMenu and set <strong>Device</strong> &gt; <strong>Idle Time Detection</strong> to ON.</li>
+  <li>Configure the following settings to trigger screen burn-in reduction after 45 seconds of no user input. (This is the shortest possible time.)</li>
+</ul>
+<table class="wrapped" data-mce-resize="false">
+  <tbody>
+    <tr>
+      <th>System Settings &gt; Sleep Mode &gt; Auto-Sleep (Playing on Console Screen)</th>
+      <td>1min</td>
+    </tr>
+    <tr>
+      <th>Play mode</th>
+      <td>Handheld mode or tabletop mode</td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451861_0" data-tag="function-テレビ表示">
+<label for="tagfilter_2367451861_0">
+<span class="function-tag" title="TV display" data-tag="function-テレビ表示">TV display</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451861_1" data-tag="function-画面焼け">
+<label for="tagfilter_2367451861_1">
+<span class="function-tag" title="Screen burn-in" data-tag="function-画面焼け">Screen burn-in</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_2" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451861_2">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_3" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367451861_3">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_4" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451861_4">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_5" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451861_5">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_6" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451861_6">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_7" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451861_7">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_8" data-tag="revision-updated-0.4">
+<label for="tagfilter_2367451861_8">
+<span class="revision-tag" title="Updated v0.4" data-tag="revision-updated-0.4">Updated v0.4</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_9" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451861_9">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451861_10" data-tag="revision-updated-0.2">
+<label for="tagfilter_2367451861_10">
+<span class="revision-tag" title="Updated v0.2" data-tag="revision-updated-0.2">Updated v0.2</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Capture feature -->
+<h1 class="general" id="GuidelineLabel_2367451866" data-tags="revision-updated-0.4 revision-updated-3.0 revision-updated-5.0 revision-updated-0.3">Capture feature</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers how your application must handle the capture feature. The &quot;capture feature&quot; refers collectively to two features that use the Capture Button built into the Switch system: (1) a feature that captures still images of the application when the user presses the Capture Button, and (2) a feature that captures video footage of the application when the user holds down the Capture Button.</p>
+<p>These captured still images and video footage are saved to system memory or the microSD card. From there they can be viewed in the album or posted to specific external social media or other sites.</p>
+<p>Note that you can disable the capture feature throughout your entire application by configuring specific settings in your NMETA file. To disable the capture of still images, set the <code>Screenshot</code> element in your NMETA file to <code>Deny</code>. To disable the capture of video footage, you can either set the <code>Screenshot</code> element to <code>Deny</code>, or set the <code>VideoCapture</code> element to <code>Disable</code>. For details, see <span>NintendoSDK Documents > Features > Building > Creating Application Images</span>. This subchapter requires you to prohibit screen capture in specific scenes, but if your application disables the capture feature entirely, you do not have to implement the extra processing to prohibit screen capture in those scenes.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0008: Prohibition of capturing content whose rights are retained by a third party -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451868" data-tags="revision-updated-20240206 function-他人が権利を保有するコンテンツ revision-updated-6.0 revision-updated-1.0 function-撮影機能 revision-updated-5.0 revision-updated-0.7 revision-updated-7.0 revision-updated-0.3 revision-updated-14.0 revision-updated-2.0 revision-updated-15.0 revision-updated-21.0 revision-updated-0.6" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451868" title="Right-click and copy link to copy a permalink to this guideline">0008: Prohibition of capturing content whose rights are retained by a third party</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not allow content whose rights are retained by a third party to be included in any still images or video captured by the user.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that contain content whose rights are retained by a third party
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>
+    <p>Applications for which the owner of rights to the content has given permission to include the content in still images and video captured by the user and posted to external social media</p>
+  </li>
+  <li>
+    <p>Applications in which screen capture is disabled</p>
+  </li>
+  <li>
+    <p>UGC</p>
+  </li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Because some applications (such as video-on-demand services or e-book-type services) contain content whose rights are retained by a third party, allowing capture of these applications on Switch could lead to a scene of video or images of a page of a book being posted on external social media or other sites. In these applications, you must prohibit capture during scenes that contain such content to ensure that still images and video captured by the user do not include content whose rights are retained by a third party.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>
+    <br />
+  </p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Basic Features &gt; <a href="../Pages/Page_2367451833.html#Anchor_2367451833_OELibrary">oe Library</a> &gt; Manual &gt; Features &gt; Operating Environment Controls<ul><li>Allowing and Prohibiting the Taking of Screenshots</li><li>Permitting and Blocking Video Captures</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <em>NintendoSDK API Reference</em>
+        <ul>
+          <li>
+            <code>nn::oe::EnableScreenShot()</code>
+          </li>
+          <li>
+            <code>nn::oe::DisableScreenShot()</code>
+          </li>
+          <li>
+            <code>nn::oe::EnableRecording()</code>
+          </li>
+          <li>
+            <code>nn::oe::DisableRecording()</code>
+          </li>
+          <li>
+            <code>nn::oe::MuteRecording()</code>
+          </li>
+          <li>
+            <code>nn::oe::UnmuteRecording()</code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="3"></th>
+      <th class="guidelineparam-header" rowspan="3">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If still image capture and video capture are both prohibited:</strong>
+</p>
+<p>In a scene that contains content whose rights are retained by a third party, press the Capture Button on a supported controller to capture a still image.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If only video capture is prohibited:</strong>
+</p>
+<p>In a scene that contains content whose rights are retained by a third party, press and hold the Capture Button on a supported controller to capture a video.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If video capture is allowed, but recording the accompanying audio is prohibited:</strong>
+</p>
+<p>In a scene that contains content whose rights are retained by a third party, press and hold the Capture Button on a supported controller to capture a video.</p>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="3"></th>
+      <th class="guidelineparam-header" rowspan="3">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If still image capture and video capture are both prohibited:</strong>
+</p>
+<p>Passes if the system displays a message informing the user that capture is not possible, and no still image is saved.</p>
+<p>
+  <strong>Note:</strong> The system displays the message automatically.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If only video capture is prohibited:</strong> </p>
+<p>Passes if the system displays a message informing the user that capture is not possible, and no video is saved.</p>
+<p>
+  <strong>Note:</strong> The system displays the message automatically.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If video capture is allowed, but recording the accompanying audio is prohibited:</strong>
+</p>
+<p>Passes if any of the following behaviors occur, and no audio is saved.</p>
+<ul>
+  <li>The system displays a message informing the user that capture is not possible, and no video is saved.</li>
+  <li>Video is saved, but when the user goes to the album on the HOME Menu and views the video, the system displays a message informing the user that audio has been removed, and no audio is saved.</li>
+</ul>
+<p>
+  <strong>Note:</strong> The system displays the message automatically.</p>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If capture of still images is prohibited, then capture of video is also always prohibited.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451868_0" data-tag="function-撮影機能">
+<label for="tagfilter_2367451868_0">
+<span class="function-tag" title="Capture feature" data-tag="function-撮影機能">Capture feature</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451868_1" data-tag="function-他人が権利を保有するコンテンツ">
+<label for="tagfilter_2367451868_1">
+<span class="function-tag" title="Content whose rights are retained by a third party" data-tag="function-他人が権利を保有するコンテンツ">Content whose rights are retained by a third party</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451868_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_3" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451868_3">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_4" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451868_4">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_5" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451868_5">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_6" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451868_6">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_7" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451868_7">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_8" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451868_8">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_9" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451868_9">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_10" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451868_10">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_11" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367451868_11">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_12" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367451868_12">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451868_13" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451868_13">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0049: Prohibition of screen capture while displaying photographic images or photographic video -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451870" data-tags="revision-updated-20240206 function-irセンサー revision-updated-5.0 revision-updated-1.0 revision-updated-0.7 function-撮影機能 revision-updated-18.0 function-カメラ revision-updated-0.3 function-ugc revision-updated-14.0 revision-updated-2.0 revision-updated-15.0 revision-updated-21.0 revision-updated-0.6" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451870" title="Right-click and copy link to copy a permalink to this guideline">0049: Prohibition of screen capture while displaying photographic images or photographic video</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not allow photographic images to be included in any still images or video captured by the user.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that display photographic images
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Applications in which screen capture is disabled</li>
+  <li>Assets provided by the application developer</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Photographic images may include offensive content that should not be uploaded on social media. This means that during the period while your application displays a photographic image on screen, you must prohibit the capture feature completely. (This requirement applies not only to presses of the Capture Button, but also to any application feature that captures images by directly calling a function that saves screenshots.)</p>
+  <p>For details of what content is categorized as &quot;photographic images,&quot; see &quot;Photographic images and photographic video&quot; in &quot;<a href="../Pages/Page_2367452309.html#GuidelineLabel_2367452311">UGC: General</a>.&quot; Monochrome camera images from the IR Motion Camera also count as photographic images.</p>
+  <p>Also see &quot;<a href="../Pages/Page_2367452309.html#GuidelineDescLabel_2367452317">0076: Prohibition of sending photographic images or photographic video</a>&quot; if your application handles photographic images.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Basic Features &gt; oe Library &gt; Manual &gt; Features &gt; Operating Environment Controls<ul><li>Allowing and Prohibiting the Taking of Screenshots</li><li>Permitting and Blocking Video Captures</li></ul></li>
+          <li>Features &gt; System &gt; album Library &gt; Screenshot Feature</li>
+        </ul>
+      </li>
+      <li>
+        <em>NintendoSDK API Reference</em>
+        <ul>
+          <li>
+            <code>nn::oe::EnableScreenShot()</code>
+          </li>
+          <li>
+            <code>nn::oe::DisableScreenShot()</code>
+          </li>
+          <li>
+            <code>nn::album::SaveScreenshot()</code>
+          </li>
+          <li>
+            <code>nn::album::SaveAndShareScreenshot()</code>
+          </li>
+          <li>Other functions that perform similar kinds of screen capture</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If the user presses the Capture Button:</strong>
+</p>
+<ol>
+  <li>Start the application and display a photographic image.</li>
+  <li>Try to capture a still image by pressing the Capture Button on a supported input device.</li>
+</ol>
+<p>
+  <br />
+</p>
+<p>
+  <strong>If the application implements its own feature to capture images via the album library:</strong>
+</p>
+<ol>
+  <li>Start the application and display a photographic image.</li>
+  <li>Try to capture a still image using the application's own image capture method.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>If the user presses the Capture Button:</strong>
+</p>
+<p>Passes if in step 2, the system displays a message informing the user that still images cannot be captured, and no still image is saved.</p>
+<p>
+  <strong>Note:</strong> The system displays the message automatically.</p>
+<p>
+  <br />
+</p>
+<p>
+  <strong>If the application implements its own feature to capture images via the album library:</strong>
+</p>
+<p>Passes if in step 2, the still image cannot be captured, and no still image is saved.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451870_0" data-tag="function-撮影機能">
+<label for="tagfilter_2367451870_0">
+<span class="function-tag" title="Capture feature" data-tag="function-撮影機能">Capture feature</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451870_1" data-tag="function-ugc">
+<label for="tagfilter_2367451870_1">
+<span class="function-tag" title="UGC" data-tag="function-ugc">UGC</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451870_2" data-tag="function-irセンサー">
+<label for="tagfilter_2367451870_2">
+<span class="function-tag" title="IR Motion Camera" data-tag="function-irセンサー">IR Motion Camera</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451870_3" data-tag="function-カメラ">
+<label for="tagfilter_2367451870_3">
+<span class="function-tag" title="Camera" data-tag="function-カメラ">Camera</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_4" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451870_4">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_5" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451870_5">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_6" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367451870_6">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_7" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451870_7">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_8" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451870_8">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_9" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451870_9">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_10" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451870_10">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_11" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451870_11">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_12" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367451870_12">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_13" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367451870_13">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451870_14" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451870_14">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Displaying errors -->
+<h1 class="general" id="GuidelineLabel_2367451872" data-tags="revision-updated-3.0">Displaying errors</h1>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements related to displaying errors using the error viewer applet.</p>
+<p>For more information about errors that are not displayed in the error viewer applet, see the manuals for the various libraries and the applicable guidelines in other chapters of this document. Guidelines related to error display are tagged with the &quot;Displaying errors&quot; tag, so you can highlight this tag to see all the guidelines related to error display.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0111: Displaying application-specific errors that have error codes -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451874" data-tags="revision-updated-1.1 revision-updated-1.0 revision-updated-3.0 function-エラーハンドリング revision-updated-2.0 function-エラー表示" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451874" title="Right-click and copy link to copy a permalink to this guideline">0111: Displaying application-specific errors that have error codes</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must use the error viewer applet to notify the user of application-specific errors that have error codes.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that display application-specific errors that have error codes
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Application-specific error codes may overlap with some other application's error codes and cause difficulties in customer support. To avoid this, use only the <code>nn::err::ShowApplicationError</code> function to create and display your own application-specific error codes.</p>
+  <p>When you use the <code>nn::err::ShowApplicationError</code> function, it displays an error code with the format below in the error viewer applet.</p>
+  <table class="codeblock">
+    <tbody>
+      <tr>
+        <td class="code">
+          <div class="codeblock"><pre>2-[ApplicationErrorCodeCategory]-[Any number you specify]</pre></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The <code>ApplicationErrorCodeCategory</code> is the error code category configured in the NMETA file that you use to create your application image, and is usually your application's initial code. If your application is part of a series and you want to use the same initial code as your <code>ApplicationErrorCodeCategory</code> throughout the series, go to Nintendo Developer Portal and enter that string in your Application Specifications forms under <strong>Application error codes used</strong>. For information on how to access these forms, see <a href="../Pages/Page_2367452399.html">Additional information</a>.</p>
+  <p>If you simply want to display an error message without an error code, it is not a problem to display that message independently on the application side without using the error viewer applet.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Building &gt; Creating Application Images</li>
+          <li>Features &gt; Building &gt; Creating Application Images &gt; Writing the NMETA File</li>
+          <li>Features &gt; System &gt; err Library</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch Master ROM Submission Procedures</em>
+        <ul>
+          <li>Submitting a Master ROM &gt; Entering Master ROM Information</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Perform an operation that causes the application to display an independently implemented application-specific error code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the error viewer applet starts up and displays the independently implemented error, with an error code.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451874_0" data-tag="function-エラー表示">
+<label for="tagfilter_2367451874_0">
+<span class="function-tag" title="Displaying errors" data-tag="function-エラー表示">Displaying errors</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451874_1" data-tag="function-エラーハンドリング">
+<label for="tagfilter_2367451874_1">
+<span class="function-tag" title="Error handling" data-tag="function-エラーハンドリング">Error handling</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451874_2" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451874_2">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451874_3" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451874_3">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451874_4" data-tag="revision-updated-1.1">
+<label for="tagfilter_2367451874_4">
+<span class="revision-tag" title="Updated v1.1" data-tag="revision-updated-1.1">Updated v1.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451874_5" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451874_5">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0079: Displaying errors using the error viewer applet -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451876" data-tags="revision-updated-3.0 revision-updated-5.0 revision-updated-7.0 revision-updated-17.0 function-パッチ revision-updated-14.0 revision-updated-0.7 revision-updated-20240206 revision-updated-2.0 function-nex function-bcat function-エラーハンドリング revision-updated-16.0 revision-updated-16.1 function-ローカル通信 revision-updated-4.0 revision-updated-6.0 revision-updated-8.0 revision-updated-10.0 function-npln function-エラー表示 revision-updated-21.0 revision-updated-20240325 function-インターネット通信 function-アカウント revision-updated-1.0 revision-updated-3.1" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451876" title="Right-click and copy link to copy a permalink to this guideline">0079: Displaying errors using the error viewer applet</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+When specific libraries return errors, your application must use the error viewer applet to notify the user.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that use any of the following libraries: <a href="../Pages/Page_2367451833.html#Anchor_2367451833_LDNLibrary">LDN</a>, <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NEX">NEX</a>, <a href="../Pages/Page_2367451833.html#Anchor_2367451833_Pia">Pia</a>, <a href="../Pages/Page_2367451833.html#Anchor_2367451833_BCAT">BCAT</a> (BCAT data delivery), or <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NPLN">NPLN</a></p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>When there is no disadvantage to the user even if the error is not displayed, such as in the following examples:</p>
+<ul>
+  <li>When the application automatically retries the operation and completes it without any problems</li>
+  <li>When the application can resolve the error without displaying it to the user</li>
+  <li>During (background) processes that do not involve active user interaction, where the error causes no problems that affect the user's ability to progress further in your application</li>
+  <li>
+    <p>When the <code>nn::nifm::HandleNetworkRequestErrorResult()</code> function is being used to notify users that they are not connected to the network</p>
+  </li>
+  <li>When the application displays a message such as &quot;You were disconnected from the network&quot; after network disconnection</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If one of the following libraries returns an error that must be displayed, the error is likely to affect the user's ability to progress further in your application. Your application must use the error viewer applet to immediately notify the user of such errors.</p>
+  <ul>
+    <li>
+      <p>LDN</p>
+      <p>If using the <code>nn::ldn::Connect</code> function causes your application to receive an error because users are using different versions of local communication, you must use the error viewer applet to notify the user of this error.</p>
+      <div class="info_new">
+        <div class="info_new_left">Info:</div>
+        <div class="info_new_right">
+          <p>If you find out that clients with older versions of local communication are not notifying the user of this error, then use an alternate method to warn the user that they may need to apply a patch to continue to use local communication in your application. Possible alternate methods include displaying a message on the host system or putting this information on your application's website.</p>
+        </div>
+      </div>
+      <!--Remove - p.auto-cursor-target-->
+    </li>
+    <li>NEX</li>
+    <li>
+      <p>Pia</p>
+    </li>
+    <li>BCAT<ul><li>BCAT data delivery</li></ul></li>
+    <li>NPLN</li>
+  </ul>
+  <p>For information on which errors must be displayed, see the API Reference pages or Manuals for the individual libraries listed in the References below.<br />However, if one of these errors occurs during a scene transition, it may be technically difficult for your application to display it immediately. If so, it is acceptable to wait until the scene transition finishes before displaying the error, because in this case the impact to the user from waiting is small.</p>
+  <p>Note that if you use <code>nn::nifm::IsNetworkAvailable()</code> to check network availability and handle a <code>false</code> return value by either (1) displaying a message informing the user that they were disconnected from the network, or (2) by calling <code>nn::nifm::HandleNetworkRequestErrorResult()</code> to notify the user of the error, then you do not need to notify the user about any other errors returned from libraries that use networks.</p>
+  <p>Also note that if your application automatically retries any functions, you must comply with &quot;<a href="../Pages/Page_2367452178.html#GuidelineDescLabel_2367452182">0028: Prohibition of automatic retry</a>&quot; and not implement automatic retries in any situations where they are prohibited.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>For displaying e-commerce-related errors, see the guidelines in the <a href="../Pages/Page_2367452327.html">E-commerce</a> chapter.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>
+    <br />
+  </p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <p>
+          <em>NintendoSDK Documents</em>
+        </p>
+        <ul>
+          <li>Features &gt; System &gt; BCAT Library</li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          <em>NintendoSDK API Reference</em>
+        </p>
+        <ul>
+          <li>LDN</li>
+          <li>BCAT</li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://nmas.tool.n.mng.nintendo.net/" target="_blank" rel="noopener noreferrer">NMAS2</a>
+      </li>
+      <li>
+        <a href="https://dashboard.d.npln.srv.nintendo.net/" target="_blank" rel="noopener noreferrer">NPLN Dashboard</a>
+      </li>
+      <li>
+        <em>NX NEX Manual</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Network Error Simulation Manual</em>
+        <ul>
+          <li>Generating NEX Errors</li>
+        </ul>
+      </li>
+      <li>
+        <em>NPLN Manual</em>
+        <ul>
+          <li>NPLN Programming Manual &gt; Basic Usage of the npln Library &gt; RPC Error Handling</li>
+          <li>NPLN Dashboard Manual &gt; ID Search and Authentication Settings (Auth) &gt; Error Emulation</li>
+        </ul>
+      </li>
+      <li>
+        <em>NintendoSDK Pia Programming Manual</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>Nintendo Switch BCAT Data Delivery Guide</em>
+      </li>
+      <li>
+        <em>BCAT Management Tool Usage Manual</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Patch Guide</em>
+        <ul>
+          <li>Important Considerations for Patching &gt; Compatibility Before and After Applying the Patch</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <p>In the steps below, &quot;devkit&quot; refers to Switch devkits.</p>
+  <h6 id="Anchor_2367451876_h6_1">Common method for NEX, NPLN, and Pia (Internet communication)</h6>
+  <p>If your application uses NEX, Pia, NPLN, or any combination of these three libraries to perform online multiplayer, use the following steps to check that you can trigger errors.</p>
+  <ol>
+    <li>Prepare two devkits, devkit A and devkit B.</li>
+    <li>Connect to the internet and perform online multiplayer between devkit A and devkit B.</li>
+    <li>During communication, use any of the following methods to disconnect devkit A from the network.<br /><ul><li>Unplug the LAN cable from the devkit's USB-LAN adapter.</li><li>Enable Airplane Mode.</li></ul></li>
+  </ol>
+  <p>You must also perform the separate individual tests for <strong>NEX</strong>, <strong>Pia (LAN communication)</strong>, <strong>LDN or Pia (Local communication)</strong>, and <strong>NPLN</strong> below and confirm error display in those tests.</p>
+  <h6 id="Anchor_2367451876_h6_2">NEX</h6>
+  <p>Use the following steps to check that you can trigger all three of the errors <code>2306-0502</code>, <code>2306-0811</code>, and <code>2306-0819</code>.</p>
+  <ol>
+    <li>On NMAS2, go to <strong>Debugging Assistance</strong> &gt; <strong>Error Simulation</strong>, then use the <strong>Create New</strong> menu to configure the following settings.<ul><li><strong>Principal IDs</strong>: The principal ID of the user for whom you want to trigger the error</li><li><strong>Server function name</strong>: <code>Login</code></li><li><strong>Return Code</strong><br /><ul><li>For <code>2306-0502</code>: <code>X06-0502 QERROR(Transport, ConnectionFailure)</code></li><li>For <code>2306-0811</code>: <code>X06-0811 QERROR(Authentication, UnderMaintenance)</code></li><li>For <code>2306-0819</code>: <code>X06-0819 QERROR(Authentication, ApplicationVersionIsOld)</code></li></ul></li></ul></li>
+    <li>Start the application, connect to the network, and progress to a scene where the application connects to a NEX game server.</li>
+  </ol>
+  <h6 id="Anchor_2367451876_h6_3">Pia (LAN communication)</h6>
+  <ol>
+    <li>Prepare two devkits, devkit A and devkit B, with USB-LAN adapters for a wired LAN connection.</li>
+    <li>Perform LAN matchmaking between devkit A and devkit B.</li>
+    <li>While the devkits are communicating, unplug the LAN cable from devkit A's USB-LAN adapter.</li>
+  </ol>
+  <h6 id="Anchor_2367451876_h6_4">LDN or Pia (Local communication)</h6>
+  <p>If your application meets at least one of the following conditions, perform Test Method A and check the error message. If your application does not meet any of the conditions, perform Test Method B.</p>
+  <ul>
+    <li>Does not use Pia, but has updated the local communication version (<code>localCommunicationVersion</code>) configured for LDN</li>
+    <li>Does use Pia, and has updated the application communication version (<code>applicationCommunicationVersion</code>) configured for Pia</li>
+    <li>A Pia update has changed the value of <code>nn::pia::local::LocalSystemCommunicationVersion</code></li>
+  </ul>
+  <p>Test Method A</p>
+  <ol>
+    <li>Prepare the necessary number of devkits required to perform the test. (At least one devkit must run the patched version, at least one devkit must run an earlier version of the application that used a different version of local communication, and the remainder of the devkits can run either version.)</li>
+    <li>Perform local communication with a devkit running the earlier version as the host, and one or more devkits running the patched version as clients.</li>
+    <li>Perform local communication with a devkit running the patched version as the host, and one or more devkits running the earlier version as clients.</li>
+    <li>If your title has multiple versions that meet at least one of the above conditions, perform steps 2 through 3 for all such versions of your title.</li>
+  </ol>
+  <p>
+    <br />
+  </p>
+  <p>Test Method B</p>
+  <ol>
+    <li>Check the source code.</li>
+  </ol>
+  <h6 id="Anchor_2367451876_h6_5">BCAT</h6>
+  <p>BCAT data delivery</p>
+  <ul>
+    <li>
+      <strong>If an active user operation immediately syncs the data:</strong>
+      <ul>
+        <li>Pattern A:<ol><li><p>In DevMenu, go to <strong>Accounts</strong> &gt; [any user account] &gt; <strong>Unregister NSA</strong> and unlink the Nintendo Account from the user account.</p></li><li><p>Repeat step 1 for all user accounts that exist on the devkit.</p></li><li>Using a user account that is not linked to a Nintendo Account, start the application and perform an immediate sync.</li></ol></li>
+        <li>Pattern B: <ol><li>Sign in to the BCAT management tool.</li><li>Search for the application in <strong>Data Delivery</strong>.</li><li>On <strong>Application Details</strong> select the <strong>Edit</strong> button.</li><li>Change the <strong>Service Status</strong> to <code>expired</code>, then click <strong>Update Application</strong>.</li><li>Wait roughly ten minutes.</li><li>Link a Nintendo Account to any user account on the devkit.</li><li><p>Using a user account that is linked to a Nintendo Account, start the application and perform an immediate sync.</p></li></ol><div class="info_new"><div class="info_new_left">Info:</div><div class="info_new_right"><p>After finishing the test, use the BCAT management tool to return the application's <strong>Service Status</strong> to <code>in_service</code>.</p></div></div><!--Remove - p.auto-cursor-target--></li>
+      </ul>
+    </li>
+    <li>
+      <strong>If an active user operation mounts the data delivery cache storage:</strong> <ol><li><p>In DevMenu, go to <strong>Accounts</strong> &gt; [any user account] &gt; <strong>Unregister NSA</strong> and unlink the Nintendo Account from the user account.</p></li><li><p>Repeat step 1 for all user accounts that exist on the devkit.</p></li><li>Using a user account that is not linked to a Nintendo Account, start the application and mount the data delivery cache storage.</li></ol></li>
+  </ul>
+  <h6 id="Anchor_2367451876_h6_6">NPLN</h6>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>You can look up an NPLN user ID by proceeding to a scene where NPLN is used within your application and then going to NPLN Dashboard &gt; <strong>Auth</strong> &gt; <strong>ID Search</strong> and entering the user's NSA ID.</p>
+    </div>
+  </div>
+  <p>
+    <br />
+  </p>
+  <ol>
+    <li>On the NPLN Dashboard, select the tenant for the application you are testing, and then open the <strong>Auth</strong> &gt; <strong>Error Emulation</strong> menu.</li>
+    <li>Enable error emulation using the following settings.<ul><li>RPC Pattern: <code>**</code></li><li>Error Code: <code>Unavailable(14)</code></li><li>Detail Code: <code>UNAVAILABLE_UNDER_MAINTENANCE (1)</code></li><li>Error Rate (%): <code>100</code></li><li>Targeted Users: Set this as the NPLN user ID of the user triggering the error.</li><li>Duration Before Expiration (Hours): Set this so that error emulation is enabled while you are performing the test.</li><li>Enabled/Disabled: <code>Enabled</code></li></ul></li>
+    <li>Start the application, connect to the network, and progress to a scene where the application calls a function that involves NPLN server communication.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451876_h6_7">Common method for NEX, NPLN, and Pia (Internet communication)</h6>
+<p>Passes if the application starts up the error viewer applet on devkit A and displays an appropriate NEX, NPLN, or Pia error.</p>
+<h6 id="Anchor_2367451876_h6_8">NEX</h6>
+<p>Passes if, in step 2, the application uses the error viewer applet to display the error codes and error messages for each of the three errors <code>2306-0502</code>, <code>2306-0811</code>, and <code>2306-0819</code>.</p>
+<h6 id="Anchor_2367451876_h6_9">Pia (LAN communication)</h6>
+<p>Passes if the application starts up the error viewer applet on devkit A and displays the following error code.</p>
+<ul>
+  <li>For Pia5: <code>2618-0006</code></li>
+  <li>For Pia6: <code>2318-1400</code></li>
+</ul>
+<h6 id="Anchor_2367451876_h6_10">LDN or Pia (Local communication)</h6>
+<p>Passes if the application fulfills the Pass/Fail Determination of the Test Method you performed.</p>
+<ul>
+  <li>Test Method A<br />Passes if all of the following conditions are met.<ul><li>In step 2, the application cannot perform wireless communication, and the error viewer applet starts up on the client side and displays one of the following errors.<ul><li><code>2203-0114</code></li><li><code>2618-0312</code></li><li><code>2318-0312</code></li></ul></li><li>In step 3, the application cannot perform wireless communication, and the error viewer applet starts up on the client side and displays one of the following errors. Alternatively, passes if the user is notified via an alternate method that they may need to apply a patch to continue to use local communication in the application. Possible alternate methods include displaying a message on the host system instead of the client system, or putting a notification on the application's website.<ul><li><code>2203-0113</code></li><li><code>2618-0311</code></li><li><code>2318-0311</code></li></ul></li></ul></li>
+</ul>
+<ul>
+  <li>Test Method B<br />Passes if error display will be handled appropriately in future when users perform local communication with newer or patched versions of the application in which any of the following values are different. (For the specific errors, see the Pass/Fail Determination for Test Method A.)<br /><ul><li>Local communication version (<code>localCommunicationVersion</code>)</li><li>Application communication version (<code>applicationCommunicationVersion</code>) </li><li>Value of <code>nn::pia::local::LocalSystemCommunicationVersion</code></li></ul></li>
+</ul>
+<h6 id="Anchor_2367451876_h6_11">BCAT</h6>
+<p>BCAT data delivery</p>
+<ul>
+  <li>
+    <strong>If an active user operation immediately syncs the data:</strong>
+    <br />Passes if all of the following conditions are met.<ul><li>In step 3 of Pattern A, the error viewer applet starts up and displays error <code>2122-0031</code>.</li><li>In step 7 of Pattern B, the error viewer applet starts up and displays error <code>2122-0041</code>.</li></ul></li>
+</ul>
+<ul>
+  <li>
+    <strong>If an active user operation mounts the data delivery cache storage:</strong> <br />Passes if in step 3, the error viewer applet starts up and displays error <code>2122-0031</code>.</li>
+</ul>
+<h6 id="Anchor_2367451876_h6_12">NPLN</h6>
+<p>Passes if the application starts up the error viewer applet and displays error <code>2321-4993</code>.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451876_h6_13">BCAT</h6>
+<p>BCAT data delivery</p>
+<p>If your application immediately syncs the data and also mounts the data delivery cache storage as part of the same continuous sequence of operations, there is no method to check whether your application is properly displaying errors when mounting the storage. In this case, perform only the &ldquo;If an active user operation immediately syncs the data&rdquo; branch of the Test Method. To check error handling when mounting the data delivery cache storage, check the source code.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_0" data-tag="function-エラー表示">
+<label for="tagfilter_2367451876_0">
+<span class="function-tag" title="Displaying errors" data-tag="function-エラー表示">Displaying errors</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_1" data-tag="function-nex">
+<label for="tagfilter_2367451876_1">
+<span class="function-tag" title="NEX" data-tag="function-nex">NEX</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_2" data-tag="function-インターネット通信">
+<label for="tagfilter_2367451876_2">
+<span class="function-tag" title="Internet communication" data-tag="function-インターネット通信">Internet communication</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_3" data-tag="function-パッチ">
+<label for="tagfilter_2367451876_3">
+<span class="function-tag" title="Patches" data-tag="function-パッチ">Patches</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_4" data-tag="function-bcat">
+<label for="tagfilter_2367451876_4">
+<span class="function-tag" title="BCAT" data-tag="function-bcat">BCAT</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_5" data-tag="function-ローカル通信">
+<label for="tagfilter_2367451876_5">
+<span class="function-tag" title="Local communication" data-tag="function-ローカル通信">Local communication</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_6" data-tag="function-エラーハンドリング">
+<label for="tagfilter_2367451876_6">
+<span class="function-tag" title="Error handling" data-tag="function-エラーハンドリング">Error handling</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_7" data-tag="function-アカウント">
+<label for="tagfilter_2367451876_7">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451876_8" data-tag="function-npln">
+<label for="tagfilter_2367451876_8">
+<span class="function-tag" title="NPLN" data-tag="function-npln">NPLN</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_9" data-tag="revision-updated-20240325">
+<label for="tagfilter_2367451876_9">
+<span class="revision-tag" title="Updated v20240325" data-tag="revision-updated-20240325">Updated v20240325</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_10" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451876_10">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_11" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451876_11">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_12" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451876_12">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_13" data-tag="revision-updated-16.1">
+<label for="tagfilter_2367451876_13">
+<span class="revision-tag" title="Updated v16.1" data-tag="revision-updated-16.1">Updated v16.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_14" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367451876_14">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_15" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451876_15">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_16" data-tag="revision-updated-10.0">
+<label for="tagfilter_2367451876_16">
+<span class="revision-tag" title="Updated v10.0" data-tag="revision-updated-10.0">Updated v10.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_17" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451876_17">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_18" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451876_18">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_19" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451876_19">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_20" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451876_20">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_21" data-tag="revision-updated-4.0">
+<label for="tagfilter_2367451876_21">
+<span class="revision-tag" title="Updated v4.0" data-tag="revision-updated-4.0">Updated v4.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_22" data-tag="revision-updated-3.1">
+<label for="tagfilter_2367451876_22">
+<span class="revision-tag" title="Updated v3.1" data-tag="revision-updated-3.1">Updated v3.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_23" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451876_23">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_24" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451876_24">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_25" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367451876_25">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451876_26" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367451876_26">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240325
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Changed the Pia5 error code in the Pia (LAN communication) Pass/Fail Determination from &quot;2618-0008&quot; to &quot;2618-0006.&quot;</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- EC applet -->
+<h1 class="general" id="GuidelineLabel_2367451878" data-tags="revision-updated-16.0">EC applet</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers how your application must handle the <a href="../Pages/Page_2367451833.html#Anchor_2367451833_ecapplet">ec applet</a>.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0203: Prohibition of allowing high CPU load to interfere with ec applet performance -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451880" data-tags="function-nintendoswitchonline revision-updated-21.0 revision-updated-16.0 revision-updated-20240206 revision-updated-17.0 function-eコマース" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451880" title="Right-click and copy link to copy a permalink to this guideline">0203: Prohibition of allowing high CPU load to interfere with ec applet performance</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must operate correctly even when jumping to Nintendo eShop.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <p>Applications that meet any of the following conditions:</p>
+  <ul>
+    <li>Use the ec library to jump to Nintendo eShop</li>
+    <li>Have a Nintendo Switch Online Policy in OMAS of &quot;Some features require membership&quot; or &quot;All features require membership&quot;</li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <p>If the user jumps to Nintendo eShop while your application is using more than a certain amount of CPU, the ec applet may slow down significantly. To prevent this, make sure you implement your application so it does not put heavy loads on the CPU at times when the user jumps to Nintendo eShop.</p>
+  <p>The ec test applet available in the development environment has a feature to display a warning when the CPU load exceeds a certain level. Use the ec test applet to jump to Nintendo eShop and make sure that the following warning does not appear.<br /><code>&quot;Warning: application background tasks are too heavy.&quot;</code><br /><br /></p>
+  <div>
+    <!--Remove - p.auto-cursor-target-->
+    <div class="info_new">
+      <div class="info_new_left">Info:</div>
+      <div class="info_new_right">
+        <p>The ec test applet was formerly referred to as the &quot;dummy EC applet.&quot;</p>
+      </div>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Library Applets &gt; EC Applet</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>In DevMenu, go to <strong>Shop</strong> &gt; <strong>Valid Shop</strong> and change this setting to <strong>Test Shop</strong>.</li>
+  <li>Start the application, and jump to Nintendo eShop. (This includes jumps to Nintendo eShop performed when the user is prompted to subscribe to Nintendo Switch Online.)</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if in step 2, the ec test applet does not display &quot;Warning: application background tasks are too heavy.&quot;
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451880_0" data-tag="function-eコマース">
+<label for="tagfilter_2367451880_0">
+<span class="function-tag" title="E-commerce" data-tag="function-eコマース">E-commerce</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451880_1" data-tag="function-nintendoswitchonline">
+<label for="tagfilter_2367451880_1">
+<span class="function-tag" title="Nintendo Switch Online" data-tag="function-nintendoswitchonline">Nintendo Switch Online</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451880_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451880_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451880_3" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451880_3">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451880_4" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367451880_4">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451880_5" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367451880_5">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Auto-sleep feature -->
+<h1 class="general" id="GuidelineLabel_2367451882" data-tags="revision-updated-2.0">Auto-sleep feature</h1>
+<div class="text">
+<p>This subchapter covers how your application must handle the auto-sleep feature.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0130: Prohibition of using nn::oe::ReportUserIsActive function outside of the scenes or triggers you specified when you got Nintendo approval in advance -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451884" data-tags="function-自動スリープ revision-updated-6.0 function-事前承認が必要 revision-updated-20240206 revision-updated-2.0 function-使用許可制api revision-updated-20240325" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451884" title="Right-click and copy link to copy a permalink to this guideline">0130: Prohibition of using nn::oe::ReportUserIsActive function outside of the scenes or triggers you specified when you got Nintendo approval in advance</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must use the <code>nn::oe::ReportUserIsActive</code> function only for the scenes and/or triggers you specified when you got approval to use this function from Nintendo in advance.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the <code>nn::oe::ReportUserIsActive</code> function
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>On Switch, the screen burn-in reduction feature activates after a set period of time has passed with no controller input. After that, the system automatically enters sleep mode. Calling the restricted function <code>nn::oe::ReportUserIsActive</code> resets the system's timer for time elapsed with no user input, and delays activation of the screen burn-in reduction feature.</p>
+  <p>Repeatedly calling the <code>nn::oe::ReportUserIsActive</code> function is equivalent to disabling the auto-sleep feature without the user's consent. To ensure that the auto-sleep feature behaves in the way that the user has configured it to behave, your application must not use <code>nn::oe::ReportUserIsActive</code> in any scenes outside of the scenes or triggers you specified when you got Nintendo approval in advance.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If you specified a trigger such as &quot;the user pressing a button on a special accessory&quot; when you got approval to use the <code>nn::oe::ReportUserIsActive</code> function from Nintendo in advance, your application must not call this function unless user input on the special accessory is actually occurring. In other words, every call must be actively triggered by user input. It is not acceptable to simply call <code>nn::oe::ReportUserIsActive</code> automatically in every frame of the scene.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Basic Features &gt; oe Library &gt; Manual &gt; Features &gt; Control Over Idle State Actions</li>
+        </ul>
+      </li>
+      <li>
+        <em>System Features Guide</em>
+        <ul>
+          <li>System Application &gt; System Settings</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Progress in the application to a scene other than the scenes or triggers you specified when you got approval to use the <code>nn::oe::ReportUserIsActive</code> function from Nintendo in advance.</li>
+  <li>Give the system no user input until the screen burn-in reduction feature activates.</li>
+  <li>If connecting a special accessory is required for the scenes or triggers you specified when you got approval to use the <code>nn::oe::ReportUserIsActive</code> function from Nintendo in advance:<ol><li>Progress in the application to a scene you specified when you got approval from Nintendo in advance.</li><li>Connect the special accessory.</li><li>Give the system no user input until the screen burn-in reduction feature activates.</li></ol></li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Passes if, in step 2, the screen burn-in reduction feature activates and the screen dims.</li>
+  <li>Passes if, in step 3-c, the screen burn-in reduction feature activates and the screen dims.</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>The screen burn-in reduction feature is disabled by default on Switch devkits. To enable the screen burn-in reduction feature when testing on Switch devkits, you must go to DevMenu and set <strong>Device</strong> &gt; <strong>Idle Time Detection</strong> to ON.</li>
+  <li>For the shortest possible test times, use the following settings for the Switch devkits you test with. With these settings steps 2 and 3-c require just 45 seconds of no user input.</li>
+</ul>
+<table class="fixed-table wrapped" data-mce-resize="false">
+  <tbody>
+    <tr>
+      <th>System Settings &gt; Sleep Mode &gt; Auto-Sleep (Playing on Console Screen)</th>
+      <td>1min</td>
+    </tr>
+    <tr>
+      <th>Play mode</th>
+      <td>Handheld mode or tabletop mode</td>
+    </tr>
+  </tbody>
+</table>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451884_0" data-tag="function-使用許可制api">
+<label for="tagfilter_2367451884_0">
+<span class="function-tag" title="Restricted API functions" data-tag="function-使用許可制api">Restricted API functions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451884_1" data-tag="function-自動スリープ">
+<label for="tagfilter_2367451884_1">
+<span class="function-tag" title="Auto-sleep" data-tag="function-自動スリープ">Auto-sleep</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451884_2" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367451884_2">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451884_3" data-tag="revision-updated-20240325">
+<label for="tagfilter_2367451884_3">
+<span class="revision-tag" title="Updated v20240325" data-tag="revision-updated-20240325">Updated v20240325</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451884_4" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451884_4">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451884_5" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451884_5">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451884_6" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451884_6">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240325
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Added <code>nn::oe::ReportUserIsActive</code> function name to Test Method steps 1 and 3.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0158: Prohibition of allowing the user to temporarily disable auto-sleep outside of the scenes or uses you specified when you got approval from Nintendo in advance -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451886" data-tags="function-自動スリープ revision-updated-6.0 function-事前承認が必要 revision-updated-20240206 function-使用許可制api" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451886" title="Right-click and copy link to copy a permalink to this guideline">0158: Prohibition of allowing the user to temporarily disable auto-sleep outside of the scenes or uses you specified when you got approval from Nintendo in advance</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must not allow the user to temporarily disable auto-sleep outside of the scenes or uses you specified when you got approval to use this feature from Nintendo in advance.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the <code>nn::oe::BeginAutoSleepDisabledSection()</code> function to disable auto-sleep
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The auto-sleep disable feature allows users to temporarily prevent auto-sleep in scenes where the user may prefer the system to continue running for an extended period of time, even though the user is not operating the system. (For example, a music playback mode.) Disabling auto-sleep only affects auto-sleep, and using this feature is intended to be optional and decided by the user. It is prohibited to allow the user to temporarily disable auto-sleep outside of the scenes or uses you specified when you got approval to use this feature from Nintendo in advance.</p>
+<p>In addition, you must meet the following requirements when allowing the user to temporarily disable auto-sleep.</p>
+<ul>
+  <li>Your application must not disable auto-sleep unless the user explicitly consents or actively selects to do so</li>
+  <li>Your application must not recommend that the user disable auto-sleep, and must not actively prompt the user to use any features that disable auto-sleep</li>
+  <li>Your application must not include specifications that require auto-sleep to be disabled</li>
+  <li>Your application must provide a means for the user to re-enable auto-sleep after they disable it</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <br />
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Basic Features &gt; oe Library &gt; Manual &gt; Features &gt; Control Over Idle State Actions</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Progress in the application to a scene you specified when you got approval from Nintendo in advance.</li>
+  <li>Test the following:<ol><li>The behavior of the application when auto-sleep stays enabled.</li><li>The method of toggling auto-sleep between enabled and disabled.</li></ol></li>
+  <li>Disable auto-sleep in one of the scenes approved by Nintendo in advance, and then leave the system idle in a scene that was not specified when getting approval.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>In step 2-a, the user can still progress in the application with auto-sleep enabled.</li>
+  <li>In step 2-b, the user can use explicit user operations to toggle between enabled and disabled. </li>
+  <li>In step 3, auto-sleep activates and puts the system into sleep mode.</li>
+  <li>In addition to the above, the application does not include any implementations of this feature that differ from those the developer specified when requesting permission to use this feature.</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Auto-sleep is disabled by default on Switch devkits. To enable auto-sleep when testing on Switch devkits, you must go to DevMenu and set <strong>Device</strong> &gt; <strong>Idle Time Detection</strong> to ON.</li>
+  <li>You can change the time it takes for auto-sleep to activate by going to System Settings &gt; <strong>Sleep Mode</strong>.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451886_0" data-tag="function-使用許可制api">
+<label for="tagfilter_2367451886_0">
+<span class="function-tag" title="Restricted API functions" data-tag="function-使用許可制api">Restricted API functions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451886_1" data-tag="function-自動スリープ">
+<label for="tagfilter_2367451886_1">
+<span class="function-tag" title="Auto-sleep" data-tag="function-自動スリープ">Auto-sleep</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451886_2" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367451886_2">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451886_3" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451886_3">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451886_4" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451886_4">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Crash reports -->
+<h1 class="general" id="GuidelineLabel_2367451888" data-tags="revision-updated-6.0 revision-updated-5.1 revision-updated-5.2">Crash reports</h1>
+<div class="text">
+<p>This subchapter covers how your application must handle the use of crash reports. A &quot;crash report&quot; is a collection of stack traces and register values that describe an application's state when it crashed due to an unexpected error. If you have enabled crash reports for your application, then when your application crashes, the system generates a crash report and sends it to Nintendo's crash report server. As an application developer, you can use the crash report acquisition tool included in the NintendoSDK to get the crash reports that your users opted in to share with you. For details, see <span>NintendoSDK Documents > Features > System > Crash Reports</span>.</p>
+<p>
+  <br />
+</p>
+<p>The system provides users the ability to opt in and opt out of sharing crash reports with you. As the application developers, you can only get the crash reports that users opted in to share with you.</p>
+<p>
+  <br />
+</p>
+<p>Note that you can disable crash report generation for your entire application by configuring specific settings in your NMETA file. This subchapter requires you to disable crash reports in specific scenes, but if your application disables crash reports entirely, you do not have to implement the extra processing to disable crash reports in those scenes.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+<!--Remove-->
+<p>
+  <br />
+</p>
+
+<!-- 0154: Disabling crash reports during scenes where users input credit card information -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451890" data-tags="revision-updated-6.0 function-クラッシュレポート revision-updated-20240206 revision-updated-5.1 revision-updated-5.2" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451890" title="Right-click and copy link to copy a permalink to this guideline">0154: Disabling crash reports during scenes where users input credit card information</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must disable the generation of crash reports in all scenes where your application instructs the user to input credit card information.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>Applications that meet all of the following conditions:</p>
+      <ul>
+        <li>Applications using NintendoSDK NX Add-On 4.x or later.</li>
+        <li>Applications that have users input credit card information.</li>
+      </ul>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ul>
+  <li>Applications in which the feature to generate crash reports is set to <code>OFF</code> in the NMETA file.</li>
+  <li>Applications that instruct users to input credit card information only within the ec applet or web applet.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>If your application crashes during a scene where the user inputs credit card information, the credit card information that the user filled in on the input form may be included in the crash report. To prevent this, you must use the <code>nn::oe::DisableCrashReport</code> function to disable crash reports in scenes where your application instructs the user to input credit card information.</p>
+  <p>All scenes within your application where the user can input credit card information are subject to this guideline, even if your application does not save the credit card information. This is because crash reports generated during these input scenes may include the credit card information.</p>
+  <p>Note, however, that information that users input in the ec applet or web applet is not included in crash reports. If your application instructs users to input credit card information only inside the ec applet or web applet, you are not subject to this guideline.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>
+        <em>Credit card information</em> refers to the credit card number, cardholder's name, expiration date, security code, and other such information written on a credit card.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <div>
+    <!--Remove - p.auto-cursor-target-->
+    <div class="info_new">
+      <div class="info_new_left">Info:</div>
+      <div class="info_new_right">
+        <p>If your application uses NintendoSDK NX Add-On 3.6.0 or later in the 3.x series, the <code>nn::oe::DisableCrashReport</code> function is not provided. For how to handle that case, see <a href="../Pages/Page_2367451855.html#GuidelineDescLabel_2367451892">0155: Prohibition of generating crash reports in applications where users input credit card information</a>.</p>
+      </div>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>
+    <br />
+  </p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <br />
+        <ul>
+          <li>Features &gt; System &gt; Crash Reports</li>
+          <li>Features &gt; Building &gt; Creating Application Images &gt; Writing the NMETA File &gt; NMETA Files for Applications &gt; Application Settings &gt; Crash Reports</li>
+        </ul>
+      </li>
+      <li>
+        <em>NintendoSDK API Reference</em>
+        <ul>
+          <li>
+            <code>nn::oe::EnableCrashReport()</code>
+          </li>
+          <li>
+            <code>nn::oe::DisableCrashReport()</code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<!--Remove - p.auto-cursor-target-->
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <ul>
+      <li>Note that this test cannot be performed under Prod Mode (the mode a devkit operates under when it has been initialized by <code>InitializeSdev</code> or <code>InitializeEdev</code> to a firmware version that has the string &quot;+ Prod&quot; in its description).</li>
+      <li>Note that the devkit must boot to the DevMenu in order to perform this test.</li>
+    </ul>
+  </div>
+</div>
+<ol>
+  <li>Configure the <strong>Initial Boot Menu</strong> of your devkit to <strong>DevMenu</strong>.</li>
+  <li>In a scene where the application instructs the user to input credit card information, press the HOME Button and transition to the DevMenu.</li>
+  <li>On the DevMenu, go to <strong>Error</strong> and check the <strong>Application Crash Report</strong>.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if in step 3, &quot;(Temporarily Disabled)&quot; is displayed for <strong>Application Crash Report</strong>.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451890_0" data-tag="function-クラッシュレポート">
+<label for="tagfilter_2367451890_0">
+<span class="function-tag" title="Crash reports" data-tag="function-クラッシュレポート">Crash reports</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451890_1" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451890_1">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451890_2" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451890_2">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451890_3" data-tag="revision-updated-5.2">
+<label for="tagfilter_2367451890_3">
+<span class="revision-tag" title="Updated v5.2" data-tag="revision-updated-5.2">Updated v5.2</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451890_4" data-tag="revision-updated-5.1">
+<label for="tagfilter_2367451890_4">
+<span class="revision-tag" title="Updated v5.1" data-tag="revision-updated-5.1">Updated v5.1</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0155: Prohibition of generating crash reports in applications where users input credit card information -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451892" data-tags="revision-updated-6.0 function-クラッシュレポート revision-updated-5.2" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451892" title="Right-click and copy link to copy a permalink to this guideline">0155: Prohibition of generating crash reports in applications where users input credit card information</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Applications that have users input credit card information must disable the generation of crash reports.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that meet all of the following conditions:</p>
+<ul>
+  <li>Applications that use NintendoSDK NX Add-On 3.6.0 or later in the 3.x series.</li>
+  <li>Applications that have users input credit card information.</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that instruct users to input credit card information only within the ec applet or web applet.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If your application crashes during a scene where the user inputs credit card information, the credit card information that the user filled in on the input form may be included in the crash report. To prevent this, applications that instruct the user to input credit card information must not generate crash reports. Specifically, in your NMETA file you must set the <code>CrashReport</code> field to <code>Deny</code>.</p>
+<p>Note, however, that information that users input in the ec applet or web applet is not included in crash reports. If your application instructs users to input credit card information only inside the ec applet or web applet, you are not subject to this guideline.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>
+      <em>Credit card information</em> refers to the credit card number, cardholder's name, expiration date, security code, and other such information written on a credit card.</p>
+  </div>
+</div>
+<!--Remove - p.auto-cursor-target-->
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>If your application uses NintendoSDK NX Add-On 4.x or later, see <a href="../Pages/Page_2367451855.html#GuidelineDescLabel_2367451890">0154: Disabling crash reports during scenes where users input credit card information</a>.</p>
+  </div>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <br />
+        <ul>
+          <li>Features &gt; System &gt; Crash Reports</li>
+          <li>Features &gt; Building &gt; Creating Application Images &gt; Writing the NMETA File</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Load the NSP file in AuthoringEditor, then check the settings in <strong>Features</strong> &gt; <strong>Crash Reports</strong>.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the setting is set to <code>Deny</code>.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451892_0" data-tag="function-クラッシュレポート">
+<label for="tagfilter_2367451892_0">
+<span class="function-tag" title="Crash reports" data-tag="function-クラッシュレポート">Crash reports</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451892_1" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451892_1">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451892_2" data-tag="revision-updated-5.2">
+<label for="tagfilter_2367451892_2">
+<span class="revision-tag" title="Updated v5.2" data-tag="revision-updated-5.2">Updated v5.2</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0159: Prohibition of recording personal information in your application’s dying message -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451894" data-tags="function-個人情報 revision-updated-6.0 function-クラッシュレポート revision-updated-20240206" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451894" title="Right-click and copy link to copy a permalink to this guideline">0159: Prohibition of recording personal information in your application’s dying message</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not include personal information in its dying message.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that use a dying message</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that do not handle personal information
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The &quot;dying message&quot; is binary data that is part of your application's crash reports. You can customize what information is included in the dying message. It's useful to record information to aid you in analyzing what issues cause your application to crash.</p>
+  <p>You must not include personal information in a dying message.</p>
+  <p>For the definition of personal information, see <a href="../Pages/Page_2367452178.html#GuidelineLabel_2367452205">Privacy and data protection</a>.</p>
+  <p>Note that for this guideline the user's IP address and MAC address are always considered to be personal information.</p>
+  <div>
+    <!--Remove - p.auto-cursor-target-->
+    <div class="info_new">
+      <div class="info_new_left">Info:</div>
+      <div class="info_new_right">
+        <p>The dying message feature is available in NintendoSDK NX Add-On 5.3.0 and later.</p>
+      </div>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <br />
+        <ul>
+          <li>Features &gt; System &gt; Crash Reports</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Check the source code.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not include personal information in its dying message.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451894_0" data-tag="function-個人情報">
+<label for="tagfilter_2367451894_0">
+<span class="function-tag" title="Personal information" data-tag="function-個人情報">Personal information</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451894_1" data-tag="function-クラッシュレポート">
+<label for="tagfilter_2367451894_1">
+<span class="function-tag" title="Crash reports" data-tag="function-クラッシュレポート">Crash reports</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451894_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367451894_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451894_3" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451894_3">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Play data -->
+<h1 class="general" id="GuidelineLabel_2367451896" data-tags="revision-updated-7.0">Play data</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers how your application must handle its usage of the play data for all the applications that have been started on the same system. The play data is metadata that the system records for each application. It includes the number of times that application has been started by the user accounts that have played it, how long they played it, and other information. For more information, see <span>NintendoSDK Documents > Features > System > pdm Library</span>.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0165: Prohibition of accessing the play data of applications not released by your publisher -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451898" data-tags="revision-updated-7.0 function-プレイ情報" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451898" title="Right-click and copy link to copy a permalink to this guideline">0165: Prohibition of accessing the play data of applications not released by your publisher</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not access the play data of applications that are not released by your publisher.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+In NintendoSDK NX Add-On 5.0.0 and later, it is possible for applications to access the play data of other applications. Your application must not access the play data of applications that are not released by your publisher. You are free to access the play data of applications released by your publisher, but if you would like to access the play data of applications released by a different publisher, you must contact Nintendo.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Building &gt; Creating Application Images &gt; Writing the NMETA File &gt; Play Data Retrieval Permissions</li>
+          <li>Features &gt; System &gt; pdm Library</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+In AuthoringEditor's <strong>Details</strong> &gt; <strong>Play Logs</strong> section, go to <strong>Play logs queryable Application ID</strong> to check the list of application IDs that your application gets play data from.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in AuthoringEditor's <strong>Details</strong> &gt; <strong>Play Logs</strong> section, the <strong>Play logs queryable Application ID</strong> field specifies only application IDs from applications released by your publisher.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451898_0" data-tag="function-プレイ情報">
+<label for="tagfilter_2367451898_0">
+<span class="function-tag" title="Play data" data-tag="function-プレイ情報">Play data</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451898_1" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451898_1">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0195: Getting Nintendo approval in advance to set the play data visibility setting (PlayLogPolicy) to Closed -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451900" data-tags="revision-updated-14.0 function-事前承認が必要 function-プレイ情報" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451900" title="Right-click and copy link to copy a permalink to this guideline">0195: Getting Nintendo approval in advance to set the play data visibility setting (PlayLogPolicy) to Closed</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+You must get Nintendo approval in advance to set the play data visibility setting (<code>PlayLogPolicy</code>) to <code>Closed</code>.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that set the play data visibility setting (<code>PlayLogPolicy</code>) to <code>Closed</code>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The play data visibility setting (<code>PlayLogPolicy</code>) is a parameter in your application's NMETA file that controls whether users on other systems can see whether the local user is playing or has played your application.</p>
+  <div>
+    <p>This setting is available in NX Add-On 10.0.0 and later.</p>
+  </div>
+  <p>For more information about the play data visibility setting (<code>PlayLogPolicy</code>), see the documentation listed in the References.</p>
+  <p>If you set <code>PlayLogPolicy</code> to <code>Closed</code> in your application's NMETA file, then unlike typical applications, other users are no longer able to see when local users are playing your application. This feature is intended for use with applications that are in closed beta testing, or for which you have some other reason to not share this data.</p>
+  <p>Because it could confuse users if typical applications behave this way, you must contact Nintendo in advance, explain your reason for setting the play data visibility setting (<code>PlayLogPolicy</code>) to <code>Closed</code>, and get special approval from Nintendo to use this feature. (For example, if your reason is to perform closed testing, share that reason with Nintendo.)</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+<div class="selectable_packagedoc">
+  <ul>
+    <li>NintendoSDK Documents<ul><li>Features &gt; Building &gt; Creating Application Images &gt; Writing the NMETA File<ul><li>Public Settings for Play Reports</li></ul></li></ul></li>
+  </ul>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the application's approvals on Nintendo Developer Portal &gt; <strong>My Products</strong> &gt; [product name] &gt; <strong>Approvals</strong>.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the request for permission to set the play data visibility setting (<code>PlayLogPolicy</code>) to <code>Closed</code> has been approved.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451900_0" data-tag="function-プレイ情報">
+<label for="tagfilter_2367451900_0">
+<span class="function-tag" title="Play data" data-tag="function-プレイ情報">Play data</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451900_1" data-tag="function-事前承認が必要">
+<label for="tagfilter_2367451900_1">
+<span class="function-tag" title="Must get approval in advance" data-tag="function-事前承認が必要">Must get approval in advance</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451900_2" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451900_2">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- System ticks -->
+<h1 class="general" id="GuidelineLabel_2367451904" data-tags="revision-updated-7.0">System ticks</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers how your application must handle the use of system ticks. System ticks are a way of measuring time that is dependent on the system clock.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0166: Prohibitions when using system ticks in calculations -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451906" data-tags="function-システムチック revision-updated-21.0 revision-updated-7.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451906" title="Right-click and copy link to copy a permalink to this guideline">0166: Prohibitions when using system ticks in calculations</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Do not convert the system time in ticks to a smaller or lower-precision type for use in comparison operations or similar calculations.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the <code>nn::os::Tick</code> class, POSIX, the <code>nn::time</code> library or any other form of system ticks
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>It is not a problem to get a <code>tick</code> object <span style="color: rgb(0,51,102);">with <code>nn::os::GetSystemTick()</code></span>, and then call <code>tick.GetInt64Value()</code> on it to get the raw value for the system time in ticks as an <code>int64_t</code> type. However, you must not convert this value to <code>float</code>, <code>int32_t</code>, or any other smaller or lower-precision type for use in performing equality or magnitude comparisons. <span style="color: rgb(0,51,102);">The same applies to tick values you get using <code>nn::time</code>, C, POSIX, or C++.</span></p>
+<p>Switch systems are not restarted frequently, and the system ticks continue counting while the system is in sleep mode, so system tick values may get extremely large.<br />If you convert the system time in ticks to a smaller or lower-precision type than <code>int64_t</code>, you may lose part of the data that represents the original system tick value. This causes comparison operations and similar calculations to give incorrect results. As a result, your application may become unable to start, or may experience extreme processing slowdown or other symptoms.</p>
+<p>The following list contains some examples of classes and functions that may also use system ticks.</p>
+<ul>
+  <li>nn::time::StandardSteadyClock</li>
+  <li>nn::time::StandardUserSystemClock</li>
+  <li>nn::time::AdjustableUserSystemClock</li>
+  <li>nn::time::StandardNetworkSystemClock</li>
+  <li>nn::time::AdjustableNetworkSystemClock</li>
+  <li>clock_gettime</li>
+  <li>timespec_get</li>
+  <li>time</li>
+  <li>gettimeofday</li>
+  <li>std::chrono::system_clock</li>
+  <li>std::chrono::steady_clock</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>
+    <br />
+  </p>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+<div class="selectable_packagedoc">
+  <ul>
+    <li>
+      <em>NintendoSDK Documents</em>
+      <ul>
+        <li>Features &gt; Basic Features &gt; <a href="../Pages/Page_2367451833.html#Anchor_2367451833_OSLibrary">os Library</a> &gt; Manual &gt; Features &gt; Time Management &gt; Using the Time Management Features</li>
+        <li>Features &gt; Basic Features &gt; os Library &gt; Manual &gt; Classes &gt; Tick Class</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>From DevMenu, go to <strong>Debug</strong> and set a value in <strong>Initial Tick Value</strong>.</li>
+  <li>Restart the system.</li>
+  <li>Start the application and play through all modes from beginning to end.</li>
+  <li>Repeat steps 1 through 3 for all settings of <strong>Initial Tick Value</strong> other than <strong>Custom</strong>.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application starts and operates without problems in step 3.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>For simplicity, this test procedure asks testers to test with all settings except <strong>Custom</strong>, but it is not a problem if you also test with <strong>Custom</strong> settings as necessary.</p>
+<p>Whether these bugs occur depends on how your application is implemented. Test all preset settings for <strong>Initial Tick Value</strong>, starting with the smallest values and going up to the largest.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451906_0" data-tag="function-システムチック">
+<label for="tagfilter_2367451906_0">
+<span class="function-tag" title="System ticks" data-tag="function-システムチック">System ticks</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451906_1" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451906_1">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451906_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451906_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Alarms -->
+<h1 class="general" id="GuidelineLabel_2367451908" data-tags="revision-updated-13.1 revision-updated-20240206">Alarms</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers how your application must handle alarms. The alarm feature sends a notification to the user at a time and date specified by the application. For more information, see <em>Nintendo Switch System Features Guide</em> &gt; <strong>Other Features</strong> &gt; <strong>Alarms</strong>, or see the <em>NintendoSDK AlarmNotificationKit Documents</em>. (<strong>Note:</strong> This is part of the AlarmNotificationKit package, a private package you need to request permission to use.)</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0193: Adding alarms -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451910" data-tags="revision-updated-13.1 function-アラーム revision-updated-15.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451910" title="Right-click and copy link to copy a permalink to this guideline">0193: Adding alarms</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must get user consent to add alarms, and must add them only in accordance with the user's wishes.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use alarms
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>It is prohibited to add alarms against the user's wishes or without the user's consent.<br />Your application must provide a UI for adding alarms that is in compliance with at least one of the following conditions.</p>
+<ul>
+  <li>The user adds each individual alarm separately by selecting its day of the week and its time<ul><li>Because the user sets the time of the alarm in order to add it, there is no need to get additional user consent.</li></ul></li>
+  <li>The application adds each individual alarm separately by suggesting its day of the week and its time, and gets user consent separately for each alarm</li>
+  <li>The application adds multiple alarms by suggesting multiple days of the week and/or multiple times, but gets user consent separately for each individual alarm<ul><li>Take for example a UI sequence where the application suggests to the user &quot;Would you like to set an alarm for 7:00 PM on every Monday and Tuesday?&quot; and offers the options &quot;Yes&quot; and &quot;No.&quot; These options for user consent violate this guideline because the user cannot give their consent separately for each day of the week.<br />Instead, implement a UI sequence that allows the user to consent separately to each alarm. In the example above (&quot;Would you like to set an alarm for 7:00 PM on every Monday and Tuesday?&quot;), one way for the application to pass this guideline is to offer all four of the following options: &quot;Add alarms for all suggested days,&quot; &quot;Add alarm for Monday only,&quot; &quot;Add alarm for Tuesday only,&quot; and &quot;Do not add any alarms.&quot;</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+</div>
+<div class="selectable_packagedoc">
+  <ul>
+    <li>
+      <em>Nintendo Switch System Features Guide</em>
+      <ul>
+        <li>Other Features &gt; Alarms</li>
+      </ul>
+    </li>
+    <li>
+      <em>NintendoSDK AlarmNotificationKit Documents</em> (<strong>Note:</strong> This is part of the AlarmNotificationKit package, a private package you need to request permission to use.)</li>
+  </ul>
+</div>
+<!--Remove - p.auto-cursor-target-->
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>Within the application, go to a scene where the user can add an alarm.</li>
+    <li>From within the application, check how the application adds alarms, and add an alarm.</li>
+    <li>
+      <p>Go to <strong>Home Menu</strong> &gt; <strong>System Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Alarm Notifications</strong> &gt; <strong>Check/Delete Alarms</strong> and check the alarm you added.</p>
+    </li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Passes if all of the following conditions are met.</p>
+  <ul>
+    <li>In step 2, the alarm is added in compliance with at least one of the following conditions.<ul><li>The user adds each individual alarm separately by selecting its day of the week and its time</li><li>The application adds each individual alarm separately by suggesting its day of the week and its time, and gets user consent separately for each alarm</li><li>The application adds multiple alarms by suggesting multiple days of the week and/or multiple times, but gets user consent separately for each individual alarm</li></ul></li>
+    <li>In step 3, the contents of the alarm you added in steps 1 and 2 are reflected properly.</li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451910_0" data-tag="function-アラーム">
+<label for="tagfilter_2367451910_0">
+<span class="function-tag" title="Alarms" data-tag="function-アラーム">Alarms</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451910_1" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367451910_1">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451910_2" data-tag="revision-updated-13.1">
+<label for="tagfilter_2367451910_2">
+<span class="revision-tag" title="Updated v13.1" data-tag="revision-updated-13.1">Updated v13.1</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0194: Deleting alarms -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451912" data-tags="revision-updated-13.1 function-アラーム" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451912" title="Right-click and copy link to copy a permalink to this guideline">0194: Deleting alarms</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must implement a UI that allows users to delete their alarms.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use alarms
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Users can delete alarms by going to <strong>System Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Alarm Notifications</strong>.</p>
+<p>However, to prevent user confusion, applications that use alarms must also provide a UI that allows users to delete alarms from within the application.<br />It is acceptable to allow users to delete alarms on a per-alarm basis by deleting individual alarm settings (<code>nn::notification::AlarmSetting</code>). This is how users delete alarms in system settings.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch System Features Guide</em>
+        <ul>
+          <li>Other Features &gt; Alarms</li>
+        </ul>
+      </li>
+      <li>
+        <em>NintendoSDK AlarmNotificationKit Documents</em> (<strong>Note:</strong> This is part of the AlarmNotificationKit package, a private package you need to request permission to use.)</li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>Within the application, go to a scene where the user can delete an alarm.</li>
+    <li>From within the application, delete an alarm.</li>
+    <li>Go to <strong>Home Menu</strong> &gt; <strong>System Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Alarm Notifications</strong> &gt; <strong>Check/Delete Alarms</strong> and check the alarms shown there.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Passes if all of the following conditions are met.</p>
+  <ul>
+    <li>In step 2, it is possible to delete an existing alarm.</li>
+    <li>In step 3, the alarm you deleted in step 2 is no longer present.</li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451912_0" data-tag="function-アラーム">
+<label for="tagfilter_2367451912_0">
+<span class="function-tag" title="Alarms" data-tag="function-アラーム">Alarms</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451912_1" data-tag="revision-updated-13.1">
+<label for="tagfilter_2367451912_1">
+<span class="revision-tag" title="Updated v13.1" data-tag="revision-updated-13.1">Updated v13.1</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

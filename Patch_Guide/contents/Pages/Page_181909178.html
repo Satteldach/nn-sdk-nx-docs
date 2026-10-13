@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.3 Update Processing via Patches | Nintendo Switch Patch Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.3 Update Processing via Patches -->
+<div class="pagetitle" id="PageId_181909178">2.3 Update Processing via Patches</div>
+<div class="text_separate">
+<h1 id="Anchor_181909178_h1_1">Downloading and Installing Patches</h1>
+<p>The system performs the full sequence of processes for installing the patch. It is not possible to get patches from the application.</p>
+<p>When a patch is released, Nintendo's servers notify the Switch console. A Switch console that has received a notification proceeds to get information about the patches and to download any necessary patch.<br />In addition, if a user newly downloads the application, the patch is also downloaded at the same time.</p>
+<p>When downloading a patch, there must be enough space in either system memory or a microSD card to save the data. In addition, the size of the patch being downloaded differs depending on which if any patches the user has already obtained for the application. For more information, see NintendoSDK Documents &gt; Features &gt; Patches &gt; FAQ.</p>
+<p>If the patch has finished downloading, it will be installed when the application is started.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>Even when you have already distributed a patch, there are cases where users may start the application without applying the patch.<br />For example, even after a patch has been downloaded, if the user removes the microSD card before starting the application, the application would be started without the patch applied.</p>
+    <p>For that reason, Nintendo provides a feature for requiring the patch for applications that use an independent server or NEX/NPLN game server. For more information, see <a href="../Pages/Page_193054884.html">2.3.1 Making Patches Mandatory for Applications That Use Network Services</a>.</p>
+  </div>
+</div>
+<h1 id="Anchor_181909178_h1_2">Updating With Incremental Data</h1>
+<p>When there is already a patch on the Switch, the data downloaded to update to the latest patch will not be the entirety of the new patch, but rather the content incremented from the patch that was already obtained. However, incremental data may not be used to update in the following kinds of cases.</p>
+<ul>
+  <li>The Disable Download flag was set in NCMS for the immediately preceding patch.<br />For more information, see <a href="../Pages/Page_1116983724.html">3.3 Patch Distribution</a>.</li>
+  <li>When updating the on-card patch.<br />For more information, see <a href="../Pages/Page_181909496.html">2.5 On-Card Patch</a>.</li>
+</ul>
+<p>For more information about incremental data, see NintendoSDK Documents &gt; Features &gt; Patches &gt; FAQ &gt; How Do I Find the Size of a Data Download When Getting a Patch? &gt; When Getting the Latest Patch of a Patch That Has Already Been Received.</p>
+<h1 id="Anchor_181909178_h1_3">Patches Distributed Through Local Communication</h1>
+<p>Patches can be distributed using local communication between Switch consoles running system version 4.0.0 and later. For an overview of this feature, see the Nintendo Switch Overview &gt; Communication Features &gt; Local Patch Distribution.</p>
+<h1 id="Anchor_181909178_h1_4">Minor Fixes for Which the System Does Not Get a Patch</h1>
+<p>For minor fixes that do not require notifying the user, you can configure settings to not have the Switch system obtain the patch when it receives a notification. For more information about this setting, see <a href="../Pages/Page_1116983724.html">3.3 Patch Distribution</a> &gt; Settings &gt; Update Notification Flag.<br />If the Switch system does not get the patch automatically, the user can use one of the following methods to obtain the patch.</p>
+<ul>
+  <li>Re-download the application</li>
+  <li>Run <strong>Software Update</strong> from the HOME Menu</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

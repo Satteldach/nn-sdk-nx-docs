@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6 Checking Lotcheck Progress | Nintendo Switch Lotcheck Procedures</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6 Checking Lotcheck Progress -->
+<div class="pagetitle" id="PageId_378367008">6 Checking Lotcheck Progress</div>
+<div class="text_separate">
+<p>After submitting to Lotcheck, you can verify the Lotcheck progress from the <strong>Releases</strong> tab for each product.</p>
+<h5 id="Anchor_378367008_h5_1">Associated NDP Pages</h5>
+<p>NDP &gt; MY PRODUCTS &gt; target_product &gt; Releases tab<br /><br /><span class="embedded-file-wrapper "><img src="../Attachments/Attach_378367008/381555360.png" width="473" height="250" class="embedded-image" /></span></p>
+<p>
+  <br />
+  <strong>Note:</strong> The status is also displayed on the Release Info page on the Release Dashboard.</p>
+<h1 id="Anchor_378367008_h1_1">Status Changes Before and After Submitting to Lotcheck</h1>
+<table class="wrapped relative-table">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>NDP Status (Japanese)</th>
+      <th> NDP Status (English)</th>
+      <th>Situation</th>
+      <th> Notes</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->開発中<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->In Development<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>Has not yet been submitted to Lotcheck.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->ロットチェックへ提出中<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Submitting to Lotcheck<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>The software has been submitted to Lotcheck and the ROM submission is being processed. The ROM is being checked for errors.</td>
+      <td>The status of OMAS submissions is also checked at the same time. The process is suspended if inconsistencies with the NDP information are detected.<br />In this case, see Important! Statuses Where Problems May Occur later on this page.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->ロットチェックへ提出済み<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Submitted to Lotcheck<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>The ROM was submitted without any issues and is waiting for the Lotcheck department to accept it.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->検査開始待ち<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->In Queue<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>The ROM was accepted by the Lotcheck department without any issues and is awaiting testing.</td>
+      <td>
+        <p>After issues for the information entered in Features, Test Scenarios, and Age Rating are fixed by the developer and they click the <strong>Submit Edited Information</strong> button, the status reverts to this status from <strong>In Testing</strong>.<br />If the Lotcheck department then confirms the fixed content, the status transitions to <strong>In Testing</strong> again.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->検査中<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->In Testing<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>Testing has started.</td>
+      <td>
+        <p>This status is displayed until the <strong>Lotcheck Issues</strong> in NDP have been handled by the developer, even after testing is complete. After handling, the status transitions to the judgment status based on the content of the issues.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->ロットチェック合格<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Passed Lotcheck<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>The software has passed Lotcheck.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->キャンセル処理待ち<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Pending Cancellation<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <p>The developer has clicked the <strong>Cancel Submission</strong> button, and Nintendo is verifying the situation.<br /><strong>Note:</strong> The submission is not canceled immediately when the button is clicked, but may require some time.</p>
+      </td>
+      <td>
+        <p>If the <strong>Cancel Submission</strong> button is clicked when the submission version is in <strong>Submitted to Lotcheck</strong> status, the version is canceled immediately.<br />When the status is <strong>In Queue</strong> or <strong>In Testing</strong>, the submission is not canceled immediately, and this status is displayed.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_378367008_h1_2">Sub-Statuses Displayed Under the Status (Status of the Previous Submission Version)</h1>
+<table class="relative-table wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Sub-Status (Japanese)</th>
+      <th>Sub-Status (English)</th>
+      <th>Situation</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Previous: キャンセルされたロットチェック提出<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Previous: Cancelled Lotcheck Submission<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>Lotcheck was canceled for the previous submission version.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Previous: ロットチェック不合格<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Previous: Failed Lotcheck<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>Lotcheck failed for the previous submission version.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Previous: Suspended<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Previous: Suspended<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>Lotcheck was suspended for the previous submission version.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_378367008_h1_3">Statuses Where Problems May Occur</h1>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>If one of the following statuses is displayed, an NDP error may have occurred or handling may have been omitted.<br />Contact NDP licensing if none of the following apply and the issue cannot be resolved. (Reference: <a href="../Pages/Page_378367013.html">9 Contacts for Inquiries Before, During, and After Lotcheck Testing</a>)</p>
+  </div>
+</div>
+<table class="wrapped relative-table" style="width: 97.36%;">
+  <colgroup>
+    <col style="width: 12.85%;" />
+    <col style="width: 12.5%;" />
+    <col style="width: 74.64%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>
+        <p>NDP Status (Japanese)</p>
+      </th>
+      <th>
+        <p>NDP Status (English)</p>
+      </th>
+      <th>Situation</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->ロットチェックへ提出中<!--translations-ignore-inline end--></p>
+          <p>
+            <br />
+          </p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->Submitting to Lotcheck<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <p>
+          <strong>If this status persists unchanged for a long period of time,</strong> an error may have occurred in NDP.</p>
+        <p>For more information about handling errors, see 11 in the <a href="../Pages/Page_378367014.html">10 FAQ/NDP Errors</a> table.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->検査中<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>
+            <!--translations-ignore-inline begin-->In Testing<!--translations-ignore-inline end--></p>
+        </div>
+      </td>
+      <td>
+        <p>
+          <strong>If the status remains unchanged for six business days or more,</strong> it may be under consideration in a thread on the developer side.<br />An issue was reported by the Lotcheck Department in Lotcheck Issues, but the developer did not notice it and did not respond to the thread or handle the issue.</p>
+        <p>Check the Issues section on the Release Dashboard.</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="content-wrapper">
+          <p>Statuses not described on this page</p>
+        </div>
+      </td>
+      <td>
+        <p>The Lotcheck submission processing may have failed on NDP.</p>
+        <p>Contact NDP Licensing immediately.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

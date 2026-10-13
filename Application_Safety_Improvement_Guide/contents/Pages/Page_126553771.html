@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.3 Examples of Application Designs That Take Safety Into Account | Nintendo Switch Application Safety Improvement Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.3 Examples of Application Designs That Take Safety Into Account -->
+<div class="pagetitle" id="PageId_126553771">3.3 Examples of Application Designs That Take Safety Into Account</div>
+<div class="text_separate">
+<p>We recommend that any application played by moving the system or Joy-Con controllers include measures to promote a fun and safe experience. These measures can be implemented in various ways, including the application's controls and rules. See the following examples.</p>
+<h2 id="Anchor_126553771_h2_1">Applications That Are Played by Moving the Joy-Con Controllers</h2>
+<h3 id="Anchor_126553771_h3_1">Swinging motion with Joy-Con controllers</h3>
+<p>Operations that involve large swinging motions of the Joy-Con controllers, such as pantomimes of throwing a ball, can be made safer by having the user hold one or more buttons down until they have finished swinging the controller. The following are some examples of how safe operations can be encouraged.</p>
+<ul>
+  <li>Have the user hold down a button whenever swinging a Joy-Con controller.</li>
+  <li>Have the user press two or more buttons before swinging the Joy-Con controller, and continue to hold down one button while swinging the controller.</li>
+</ul>
+<h3 id="Anchor_126553771_h3_2">Have the user hold down a button whenever swinging a Joy-Con controller</h3>
+<p>Holding down a button while swinging the Joy-Con controller makes the user grasp the controller more firmly.</p>
+<h3 id="Anchor_126553771_h3_3">Have the user press two or more buttons before swinging the Joy-Con controller, and continue to hold down one button while swinging the controller</h3>
+<p>Holding down at least one button while swinging the Joy-Con controller helps to maintain a firm grasp on the controller.</p>
+<p>You need to consider which button or combination of buttons can be released naturally while swinging the controller.</p>
+<p>
+  <br />
+</p>
+<p>For Joy-Con (R), we recommend the following specifications.</p>
+<ul>
+  <li>Example specification 1:<ul><li>Before swinging the Joy-Con: Hold down the R Button and the ZR Button.<br />When swinging the Joy-Con: Continue to hold down either the R or ZR Button.</li></ul></li>
+  <li>Example specification 2:<ul><li>Before swinging the Joy-Con: Use the thumb to hold down either the A, B, X, or Y Button, and use the index finger to hold down either the R or ZR Button.<br />When swinging the Joy-Con: Release either the A, B, X, or Y Button, and continue to hold down either the R or ZR Button.</li></ul></li>
+</ul>
+<p>When swinging a Joy-Con, one button must remain pressed throughout the duration of a swing even when using additional buttons on the Joy-Con for gameplay controls.</p>
+<h3 id="Anchor_126553771_h3_4">Describe the proper way to hold the Joy-Con controllers in advance</h3>
+<p>If users do not know the correct way to operate the Joy-Con controllers, they could swing them around unnecessarily.</p>
+<p>We recommend describing how to hold the Joy-Con controllers in advance and allowing the user to access this description again as necessary. This helps to encourage safe and comfortable use of the Joy-Con controllers.</p>
+<p>It is also effective to prompt users so that they naturally hold the controllers as intended. For example, having users press the ZL and ZR Buttons at the same time to start the game creates a state where users are naturally holding both controllers with their fingers on the ZL and ZR Buttons.</p>
+<h3 id="Anchor_126553771_h3_5">
+  <a name="Anchor_126553771_Adjustthesensitivity"></a>Adjust the sensitivity of the controls so the application responds without excessive user motions</h3>
+<p>Sensors of the same kind can have individual differences, and each user has a different range of motion.</p>
+<p>Set the thresholds for recognizing motion controls to value ranges wide enough that users can accomplish the intended in-game actions without needing to use forceful or rapid motions. Doing this can deter excessive motions and avoid tiring the users.</p>
+<h3 id="Anchor_126553771_h3_6">Add application rules to discourage the user from vigorous motions</h3>
+<p>Having actions fail when more force than necessary is detected can deter excessive swinging, prompt user awareness of the appropriate level of force and motion to use, and avoid tiring the users.</p>
+<p>As an example, one possible way of implementing this might be using a meter to display the level of force for in-game actions like a golf swing or throwing a ball, and having the meter needle go off the scale and the ball fly in a strange direction if force above a specified level is detected.</p>
+<h3 id="Anchor_126553771_h3_7">Display messages or images urging users to be careful of people and things around them</h3>
+<p>See <a href="../Pages/Page_973342548.html">3.2 Caution About Surroundings</a>.</p>
+<h3 id="Anchor_126553771_h3_8">Make users take breaks as appropriate</h3>
+<p>Users who continue playing a game over a long period of time may become less aware of their surroundings, and more aggressive in their movements, contributing to user fatigue.</p>
+<p>It is important to set single rounds of play to short periods of time and create appropriate pauses as the game proceeds to ensure that users take proper breaks.</p>
+<p>You can also monitor play time and display a message asking users if they want to take a break.</p>
+<h3 id="Anchor_126553771_h3_9">Display a user health message</h3>
+<p>Applications that involve moving the entire body, such as fitness applications (see note), might not be appropriate for all users, depending on the condition of their health.<br /><strong>Note:</strong> Fitness applications are applications intended for maintaining or encouraging a healthy lifestyle.</p>
+<p>This message is displayed before gameplay starts.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li>Make sure to stretch properly before play. Gameplay requires varying amounts of physical activity.</li>
+          <li>Consult a doctor before playing if:<ul><li style="list-style-type: none; background-image: none;"><ul><li>You are or may be pregnant.</li><li>You have heart, respiratory, back, joint, or other orthopedic conditions.</li><li>You have high blood pressure.</li><li>You have difficulty with physical exercise or you have been instructed to restrict physical activity.</li></ul></li><li>If you experience excessive fatigue, shortness of breath, chest tightness, dizziness, discomfort, or pain while playing, STOP USE IMMEDIATELY and consult a doctor.</li><li>Keep your activity within reasonable limits and avoid excessive exertion.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>This is just one example of the cautionary text.</p>
+<p>Developers should determine which cautions are necessary and which are unnecessary based on their application's specifications.</p>
+<p>Cautionary text in each language is attached to this document. For more information, see <a href="../Pages/Page_175833093.html">6 File List</a>.</p>
+<h3 id="Anchor_126553771_h3_10">Take vibrations and noise into account in your design</h3>
+<p>If users play an application that requires them to move their whole bodies in an apartment building, it might be bothersome to residents downstairs. The following measures can be taken to prevent vibration and noise.</p>
+<ul>
+  <li>Make it so that the application also responds to quieter movements like bending and stretching.</li>
+  <li>Adopt a mode that limits games that require physical movement.</li>
+</ul>
+<h3 id="Anchor_126553771_h3_11">Handling of specifications that require playing without holding the Joy-Con controllers</h3>
+<p>If your game requires play without holding the Joy-Con controllers, such as playing with the Joy-Con controllers hanging down while wearing the Joy-Con strap, or starting the game with the Joy-Con controllers placed on a desk or the floor, take care to prevent any situations that might be unsafe. Specifically, the following are examples of the kinds of steps that you could take.</p>
+<ul>
+  <li>Before play starts, explain how to play and caution users.</li>
+  <li>
+    <a href="#Anchor_126553771_Adjustthesensitivity">Adjust the sensitivity of the controls so the application responds without excessive user motions.</a>
+  </li>
+</ul>
+<h2 id="Anchor_126553771_h2_2">Applications Played by Moving the System and Controllers</h2>
+<p>
+  <strong>Note:</strong> In this description the word <em>controller</em> refers to the Joy-Con grip, the Joy-Con charging grip, and the Nintendo Switch Pro Controller.</p>
+<h3 id="Anchor_126553771_h3_12">Describe the proper way to hold the system in advance</h3>
+<p>We recommend describing how to hold the system and controllers in advance and allowing the user to access this description again as necessary. This helps to encourage safe and comfortable use of the system.</p>
+<h3 id="Anchor_126553771_h3_13">Adjust the sensitivity of the controls so that the application responds without users having to use excessive motions</h3>
+<p>Sensors of the same kind can have individual differences, and each user has a different range of motion.</p>
+<p>Set the thresholds for recognizing motion controls to value ranges wide enough that users can accomplish the intended in-game actions without needing to use forceful or rapid motions. Doing this can deter excessive motions and avoid tiring the users.</p>
+<h3 id="Anchor_126553771_h3_14">Add application rules to discourage the user from vigorous motions</h3>
+<p>Having actions fail when more force than necessary is detected can deter excessive swinging, prompt user awareness of the appropriate level of force and motion to use, and avoid tiring the users.</p>
+<p>As an example, one possible way of implementing this might be using a meter to display the level of force for in-game actions like a golf swing or throwing a ball, and having the meter needle go off the scale and the ball fly in a strange direction if force above a specified level is detected.</p>
+<h3 id="Anchor_126553771_h3_15">Display messages or images urging users to be careful of people and things around them</h3>
+<p>See <a href="../Pages/Page_973342548.html">3.2 Caution About Surroundings</a>.</p>
+<h3 id="Anchor_126553771_h3_16">Display a user health message</h3>
+<p>Applications that involve moving the entire body, such as fitness applications (see note), might not be appropriate for all users, depending on the condition of their health.<br /><strong>Note:</strong> Fitness applications are applications intended for maintaining or encouraging a healthy lifestyle.</p>
+<p>This message is displayed before the game starts.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li>Make sure to stretch properly before play. Gameplay requires varying amounts of physical activity.</li>
+          <li>Consult a doctor before playing if:<ul><li style="list-style-type: none; background-image: none;"><ul><li>You are or may be pregnant.</li><li>You have heart, respiratory, back, joint, or other orthopedic conditions.</li><li>You have high blood pressure.</li><li>You have difficulty with physical exercise or you have been instructed to restrict physical activity.</li></ul></li><li>If you experience excessive fatigue, shortness of breath, chest tightness, dizziness, discomfort, or pain while playing, STOP USE IMMEDIATELY and consult a doctor.</li><li>Keep your activity within reasonable limits and avoid excessive exertion.</li></ul></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>This is just one example of the cautionary text.</p>
+<p>Developers should determine which cautions are necessary and which are unnecessary based on their application's specifications.</p>
+<p>Cautionary text in each language is attached to this document. For more information, see <a href="../Pages/Page_175833093.html">6 File List</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

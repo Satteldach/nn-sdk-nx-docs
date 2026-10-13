@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="contents/template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="contents/template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="contents/tocData.js"></script>
+<script type="text/javascript" src="contents/tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="contents/template/css/template.css" />
+<title>Nintendo Switch Event Exhibition Guide | Nintendo Switch Event Exhibition Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,forceNoIndex=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="contents/template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Nintendo Switch Event Exhibition Guide -->
+<div class="pagetitle" id="PageId_718571365">Nintendo Switch Event Exhibition Guide</div>
+<div class="text_separate">
+<p>
+  <ul class="macro_toc">
+    <li>
+      <a href="#Anchor_718571365_h1_1">Introduction</a>
+    </li>
+    <li>
+      <a href="#Anchor_718571365_h1_2">Equipment Used</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_718571365_h2_1">Hardware</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_2">Software</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_718571365_h1_3">Notes for Event Operation</a>
+    </li>
+    <ul>
+      <li>
+        <a href="#Anchor_718571365_h2_3">Ensuring the Safety of Attendees</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_4">Exhibition Method</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_5">Hardware Management</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_6">Handling of Specifications Different From Retail Products</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_7">Controller Signal Interference</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_8">Signal Interference in Local Communication</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_9">Malfunctions of the IR Motion Camera</a>
+      </li>
+      <li>
+        <a href="#Anchor_718571365_h2_10">Screen Brightness</a>
+      </li>
+    </ul>
+    <li>
+      <a href="#Anchor_718571365_h1_4">Attachment: Checklist</a>
+    </li>
+    <li>
+      <a href="#Anchor_718571365_h1_5">Revision History</a>
+    </li>
+  </ul>
+</p>
+<h1 id="Anchor_718571365_h1_1">Introduction</h1>
+<p>This document describes the requirements and recommendations for using development tools such as EDEV Kits at demo events for end users.<br />When creating applications for exhibition, comply with the Nintendo Switch Guidelines, which is available online.</p>
+<p>If you are uncertain about how to handle an issue, contact the Nintendo Technical Support Department.</p>
+<h1 id="Anchor_718571365_h1_2">Equipment Used</h1>
+<h2 id="Anchor_718571365_h2_1">Hardware</h2>
+<h3 id="Anchor_718571365_h3_1">Development Hardware That Can Be Used</h3>
+<p>The only development hardware systems that can be used for events are EDEV, HDEV, and ADEV. SDEV cannot be used.</p>
+<p>For equipment other than the system itself, such as Joy-Con controllers, the Nintendo Switch dock, the AC adapter, the Pro Controller, and HDMI cables, a version equivalent to the commercial version is included for all accessories other than the Pro Controller. Use these accessories.<br />Use a commercially available Pro Controller.</p>
+<h3 id="Anchor_718571365_h3_2">Development Hardware That Cannot Be Used</h3>
+<p>Some of the earlier EDEV Kits contain black Joy-Con controllers that are different from the production version. Do not use the black Joy-Con at events for the general public.</p>
+<div class="figure">
+  <a name="AutoAnchor_718571365_figure001"></a>Figure 1 Joy-Con</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="contents/Attachments/Attach_718571365/718571370.JPG" width="400" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_718571365_h2_2">Software</h2>
+<h3 id="Anchor_718571365_h3_3">SDK and Firmware Used</h3>
+<p>Use the SDK described as acceptable for master submissions and the firmware versions that require testing, described in Technical Information &gt; Master ROM Submission Information (<a href="https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/master-submission-information">https://developer.nintendo.com/group/development/g1kr9vj6/tech-info/master-submission-information</a>) on the Nintendo Developer Portal.</p>
+<h3 id="Anchor_718571365_h3_4">Testing</h3>
+<p>The ROM data for exhibition at events does not need to be submitted for Lotcheck.<br />Use the same firmware you would use at your actual event to test the operations from either the exhibition mode or the HOME Menu.</p>
+<h3 id="Anchor_718571365_h3_5">Installation Target</h3>
+<p>To prevent theft, avoid starting software from a game card or microSD card, and start it from the system memory instead.</p>
+<h1 id="Anchor_718571365_h1_3">Notes for Event Operation</h1>
+<p>This section describes the requirements and other important information to consider for event operation.</p>
+<h2 id="Anchor_718571365_h2_3">Ensuring the Safety of Attendees</h2>
+<p>When exhibiting applications that use the accelerometer and gyroscope to detect movement, make sure to provide Joy-Con wrist straps. In addition, increase the safety of players by leaving sufficient distance between players and other attendees or equipment.</p>
+<h2 id="Anchor_718571365_h2_4">Exhibition Method</h2>
+<p>To prevent any operational problems at demo events, make sure to fully test the specifications and exhibition method of an application prior to the event.<br />For example, if you want users to try both TV mode and handheld mode, consider an exhibition method where users can touch the console.</p>
+<h2 id="Anchor_718571365_h2_5">Hardware Management</h2>
+<ul>
+  <li>Manage hardware carefully during exhibitions.</li>
+  <li>For exhibitions that span multiple days, transfer and store the equipment in a locked location each day after the exhibition period for that day ends.</li>
+</ul>
+<h2 id="Anchor_718571365_h2_6">Handling of Specifications Different From Retail Products</h2>
+<h3 id="Anchor_718571365_h3_6">Photographing Development Hardware</h3>
+<p>Do not allow users to take photos of the back of development hardware (EDEV, HDEV, and ADEV).</p>
+<h3 id="Anchor_718571365_h3_7">Showing Screens Other Than the Game Screen</h3>
+<p>At the exhibition venue, do not allow attendees to view or operate screens other than the game screen, particularly <strong>developer features such as DevMenu</strong>.</p>
+<p>Either use the exhibition mode feature designed for events, or delete DevMenuApplication if you are using the HOME Menu.<br />We recommend using exhibition mode if there is no need to switch applications.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When handling issues via DevMenu, remove the system from the dock and perform operations in handheld mode so video is not displayed on the TV.</p>
+  </div>
+</div>
+<h4 id="Anchor_718571365_h4_1">User Accounts</h4>
+<p>The icon for a user account created via DevMenu cannot be selected when user accounts are displayed with the HOME Menu. For this reason, create accounts intended for events from the HOME Menu.</p>
+<div class="figure">
+  <a name="AutoAnchor_718571365_figure002"></a>Figure 2  User Icon Created via DevMenu (Use Prohibited)</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="contents/Attachments/Attach_718571365/748095195.png" height="83" class="embedded-image" />
+  </span>
+</p>
+<h4 id="Anchor_718571365_h4_2">Exhibition Mode</h4>
+<p>DevMenu includes an exhibition mode to support various features that are necessary at events. In exhibition mode, the functionality of the system changes as follows.</p>
+<ul>
+  <li>The HOME Button is disabled and the system does not transition to DevMenu.</li>
+  <li>Although images are saved when the Capture Button is pressed, the overlay notification is not displayed.</li>
+  <li>When the system is turned on, the specified application starts automatically from DevMenu.</li>
+  <li>When resuming from sleep mode, the application resumes without displaying DevMenu.</li>
+</ul>
+<p>In addition, you can use the following convenient features for exhibition events.</p>
+<ul>
+  <li>Play timer feature to automatically close an application after a specified amount of time.</li>
+  <li>Feature to use save data you prepared specifically to be a starting point for the application.</li>
+</ul>
+<p>For more information about exhibition mode, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Exhibition Features.<br />Japanese: <a style="letter-spacing: 0.0px;" href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_522465110.html">https://developer.nintendo.com/html/online-docs/g1kr9vj6-ja/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_522465110.html</a><br />English: <a href="https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_522465110.html" style="letter-spacing: 0.0px;">https://developer.nintendo.com/html/online-docs/g1kr9vj6-en/Packages/SDK/NintendoSDK/Documents/Package/contents/Pages/Page_522465110.html</a></p>
+<h5 id="Anchor_718571365_h5_1">Enabling Exhibition Mode</h5>
+<ol>
+  <li>From DevMenu, select <strong>Debug</strong>.</li>
+  <li>In <strong>Launch Mode Settings</strong>, change <strong>Exhibition Mode</strong> to <strong>Enabled</strong>.</li>
+  <li>The &quot;Reboot device to reflect changes&quot; message is displayed. Tap the POWER Button at the upper right to restart the system.</li>
+</ol>
+<p>When first enabling exhibition mode, restart DevMenu because the application to start automatically has not been configured. You must select the application to start.</p>
+<p>
+  <br />
+</p>
+<h5 id="Anchor_718571365_h5_2">Selecting the Application to Start</h5>
+<ol>
+  <li>Go to <strong>Application</strong>, and press the Y Button to select the application to start automatically.</li>
+  <li>The application that was set starts automatically after restarting the system.</li>
+</ol>
+<p>You can only set the automatic startup application in DevMenu with exhibition mode enabled. You cannot set this option when exhibition mode is disabled, and you cannot start it from the DevMenu application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If the application prompts you to select a user at startup, you must create a user account in advance.<br />Create a user account from the HOME Menu. (As described previously, do not use user accounts created with DevMenu.)</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If the application set to start automatically is deleted, application startup fails when the system is turned on, and continues to try to restart. In this case, open DevMenu as described below in Starting DevMenu in Exhibition Mode, and change the application that is automatically started.</p>
+  </div>
+</div>
+<h5 id="Anchor_718571365_h5_3">Disabling Exhibition Mode</h5>
+<ol>
+  <li>From DevMenu, select <strong>Debug</strong>.</li>
+  <li>In <strong>Launch Mode Settings</strong>, change <strong>Exhibition Mode</strong> to <strong>Disabled</strong>.</li>
+  <li>The &quot;Reboot device to reflect changes&quot; message is displayed. Tap the POWER Button at the upper right to restart the system.</li>
+</ol>
+<h5 id="Anchor_718571365_h5_4">Starting DevMenu in Exhibition Mode</h5>
+<p>With the Joy-Con controllers attached to the console, repeatedly press ZL + R + Down simultaneously immediately after starting the system to transition to DevMenu.<br /><strong>Note:</strong> The Down Button (<span class="embedded-file-wrapper "><img src="contents/Attachments/Attach_718571365/718571385.png" width="18" class="embedded-image" /></span>) is the button pointing downwards when the left Joy-Con is attached to the console.</p>
+<h4 id="Anchor_718571365_h4_3">HOME Menu</h4>
+<h5 id="Anchor_718571365_h5_5">Switching to the HOME Menu</h5>
+<p>If you set <strong>Initial Boot Menu</strong> to <strong>Home Menu</strong>, the screen at startup changes to the HOME Menu.</p>
+<ol>
+  <li>From DevMenu, select <strong>Debug</strong>.</li>
+  <li>In <strong>Launch Mode Settings</strong>, set <strong>Initial Boot Menu</strong> to <strong>Home Menu</strong>.</li>
+  <li>The &quot;Reboot device to reflect changes&quot; message is displayed. Tap the POWER Button at the upper right to restart the system.</li>
+</ol>
+<h5 id="Anchor_718571365_h5_6">Deleting the DevMenu Application</h5>
+<p>To prevent the DevMenuApp icon from displaying on the HOME Menu, delete the DevMenuApp icon using the following procedure.</p>
+<ol>
+  <li>From the HOME Menu, go to <strong>DevMenu Application</strong> and press the + Button.</li>
+  <li>From <strong>Data Management</strong>, select <strong>Delete Software</strong>.</li>
+  <li>In the dialog box that appears, select <strong>Delete</strong>.</li>
+</ol>
+<h5 id="Anchor_718571365_h5_7">Starting DevMenu From the HOME Menu With the DevMenu Application Deleted</h5>
+<p>You can start DevMenu from the HOME Menu with the DevMenu Application deleted.</p>
+<ol>
+  <li>Check that all applications have been closed.</li>
+  <li>At the lower right of the HOME Menu, select the sleep icon.</li>
+  <li>While the screen indicating that the console is about to enter sleep mode is displayed, press the L or R stick simultaneously with the + or - Button.<br />If pressing the buttons simultaneously is difficult, first press and hold the L or R Stick, and then press the + or - Button (or do the reverse).</li>
+  <li>DevMenu starts.</li>
+</ol>
+<p>To return to the HOME Menu, use the Power Button at the upper right to restart the console.</p>
+<h5 id="Anchor_718571365_h5_8">Reusing the DevMenu Application</h5>
+<p>This section describes how to make the DevMenu Application available again after deleting it from the HOME Menu.</p>
+<h6 id="Anchor_718571365_h6_1">Installing NSP Files</h6>
+<p>This method reinstalls the DevMenu Application while keeping the other installed applications as is.</p>
+<p>For more information, see Installing and Running Applications in the Nintendo Switch EDEV Usage Manual, the Nintendo Switch HDEV Usage Manual, or the Nintendo Switch ADEV Usage Manual.<br />A PC or a microSD card containing the NSP file is required.</p>
+<p>The DevMenu Application NSP file is located in <code>NintendoSDK\TargetTools\NX-NXFP2-a64\DevMenuApp\Release</code>.</p>
+<h6 id="Anchor_718571365_h6_2">Running Initialize EDEV (or Initialize HDEV or Initialize ADEV)</h6>
+<p>If you run the Initialize EDEV process to initialize the development hardware, the DevMenu application will be installed again. Note that installed applications will be deleted.</p>
+<p>For more information, see Nintendo Switch EDEV Usage Manual &gt; EDEV Operations &gt; Initializing the EDEV, Nintendo Switch HDEV Usage Manual &gt; HDEV Operations &gt; Initializing the HDEV, or Nintendo Switch ADEV Usage Manual &gt; ADEV Operations &gt; Initializing the ADEV.<br />A PC is required.</p>
+<h2 id="Anchor_718571365_h2_7">Controller Signal Interference</h2>
+<p>When using wireless controllers such as the Joy-Con, there can be interference from Wi-Fi spots and other wireless devices placed in the venue. Issues can occur, such as difficulty connecting the controller, input not being applied in the game, or disconnecting from the console.<br />You can use the following methods to alleviate these issues.</p>
+<ul>
+  <li>Move the console and controllers closer together.<br />The most effective way to resolve interference with surrounding equipment is to move the devices that need to communicate closer together. We recommend having the console and controller within two meters of each other, and within one meter if possible.</li>
+  <li>When multiple Switch consoles are used in the exhibition, make sure there is sufficient space between them.<br />As an estimate, consider making the distance between consoles greater than the distance between a console and its controllers. We recommend leaving a distance of at least one meter between consoles.</li>
+  <li>Connect the minimum number of required controllers. <br />The risk of wireless interference increases with each controller connected wirelessly to the same console. Connections are relatively stable if you limit the number of controllers connected wirelessly to 4 or fewer.</li>
+  <li>Move the consoles farther away from signal sources.<br />If there are many people in the exhibition hall, there can be interference with signals from wireless devices carried by attendees. You might be able to alleviate this problem by moving the console farther away from crowded locations such as the lines where guests are waiting to play the game.</li>
+  <li>Connect Pro Controllers with wired connections.<br />Pro Controllers can transmit data via the USB charging cable.<br />Conversely, even if you attach Joy-Con controllers to the Joy-Con charging grip and connect the grip to the console via a USB cable, data is not transmitted through the wired connection.</li>
+</ul>
+<h3 id="Anchor_718571365_h3_8">Connecting Pro Controllers via Wired Connection</h3>
+<ol>
+  <li>Use a USB charging cable to connect the Pro Controller to a Nintendo Switch dock that is connected with an AC adapter.</li>
+  <li>From the HOME Menu:<ol><li>Select <strong>System Settings</strong>.</li><li>Select <strong>Controllers and Sensors</strong> &gt; <strong>Pro Controller Wired Communication</strong>, and use the confirm button to switch the option from <strong>OFF</strong> to <strong>ON</strong>.</li></ol></li>
+  <li>From DevMenu:<ol><li>Select <strong>Controller</strong>.</li><li>Select the <strong>Enable Pro Controller USB Communication</strong> check box.</li></ol></li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>NFC features are unavailable while using a wired connection. When using NFC features such as reading amiibo, disconnect the USB charging cable and use wireless communication.</p>
+  </div>
+</div>
+<h2 id="Anchor_718571365_h2_8">Signal Interference in Local Communication</h2>
+<p>When using local communication, signal interference from Wi-Fi spots and other wireless devices can occur, just as with wireless controllers. Signal interference can cause issues such as difficulty connecting, operations on one device being difficult to apply on another device, or disconnecting.<br />You can use the following methods to alleviate these issues.</p>
+<ul>
+  <li>Move the consoles closer together.<br />Move the consoles participating in local communication closer together.</li>
+  <li>Use handheld mode.<br />Local communication also interferes with wireless controllers, so using the controllers attached to the console in handheld mode might reduce interference.</li>
+  <li>Move the consoles farther away from signal sources.<br />Similar to the solution for wireless controller signal interference, you might be able to alleviate the problems by moving the consoles away from crowded areas such as the lines where guests are waiting to play the game.</li>
+</ul>
+<h2 id="Anchor_718571365_h2_9">Malfunctions of the IR Motion Camera</h2>
+<p>When exhibiting applications that use the IR Motion Camera on the right Joy-Con, the device might be affected by lighting equipment in the exhibition hall due to the characteristics of infrared hardware, and it might not operate correctly.<br />Consider countermeasures such as instructing users to face the bottom of the right Joy-Con towards an area without light sources, such as a wall. (Confirm this solution before the exhibition.)</p>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_718571365_h2_10">Screen Brightness</h2>
+<p>In general, turn the brightness all the way up and turn off <strong>Auto-Brightness</strong>. Make adjustments depending on the surrounding environment at the event.</p>
+<p>Be careful when <strong>Auto-Brightness</strong> is on, because the screen might become dark when the console is held at certain angles. For ADEV, the light sensor is located at the top of the console.</p>
+<div style="page-break-after: always;">
+  <br />
+</div>
+<h1 id="Anchor_718571365_h1_4">Attachment: Checklist</h1>
+<p>
+  <strong>Note:</strong> This checklist does not need to be submitted to Nintendo. Use it when needed for verification.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Number</th>
+      <th>Verification Item</th>
+      <th>Confirmed</th>
+    </tr>
+    <tr>
+      <th colspan="3">Hardware Preparation</th>
+    </tr>
+    <tr>
+      <td style="text-align: center;">1</td>
+      <td>
+        <p>The hardware used is EDEV, HDEV, or ADEV. (SDEV is not used.)</p>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">2</td>
+      <td>A commercially available Pro Controller is used.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">3</td>
+      <td>No black Joy-Con is used.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th colspan="3">Software Preparation</th>
+    </tr>
+    <tr>
+      <td style="text-align: center;">4</td>
+      <td>The SDK version used is specified as valid for master submission, and the firmware version is the version required for testing.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">5</td>
+      <td>The firmware for testing is the same as for the event, and operation is verified via exhibition mode or the HOME Menu.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">6</td>
+      <td>The application is installed to the system NAND.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <th colspan="3">Operation</th>
+    </tr>
+    <tr>
+      <td style="text-align: center;">7</td>
+      <td>Applications that require significant movement are placed at an appropriate distance so that attendees can play safely.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">8</td>
+      <td>There is a locked area for managing hardware, ROM cards, and other equipment.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">9</td>
+      <td>Exhibition mode or the HOME Menu is used to prevent screens other than the game screen from being displayed.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">10</td>
+      <td>If the HOME Menu is used, the DevMenu application has been deleted.</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="page-break-after: always;">
+  <br />
+</div>
+<h1 id="Anchor_718571365_h1_5">Revision History</h1>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Version</th>
+      <th>Date</th>
+      <th>Overview</th>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>2021-12-16</td>
+      <td>Added descriptions for ADEV.</td>
+    </tr>
+    <tr>
+      <td>1.0</td>
+      <td>2020-12-17</td>
+      <td>Initial version.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr />
+<div class="copyright_op">&copy; 2020-2021 Nintendo. All rights reserved. <br />
+All company and product names in this document are the trademarks or registered trademarks of their respective companies.</div>
+<br />
+<table class="confidential_op">
+<thead>
+<tr><th>Nintendo Confidential</th></tr>
+</thead>
+<tbody>
+<tr><td>
+The content of this document is highly confidential and should be handled accordingly.<br />
+The contents of this document cannot be duplicated, copied, reprinted, transferred, distributed, or loaned, in whole or in part, without the prior approval of Nintendo. <br /> 
+<br />
+This document contains confidential and proprietary information of Nintendo, and is protected under confidentiality agreements as well as the intellectual property laws of the United States and of other countries.<br />
+No part of this document may be released, distributed, transmitted, or reproduced in any form, including by any electronic or mechanical means and by including within information storage and retrieval systems, without written permission from Nintendo.
+</td></tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

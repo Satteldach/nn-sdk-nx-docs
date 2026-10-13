@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>10.2 Samples of Network Service Account ID Token Verification Processes | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 10.2 Samples of Network Service Account ID Token Verification Processes -->
+<div class="pagetitle" id="PageId_187704482">10.2 Samples of Network Service Account ID Token Verification Processes</div>
+<div class="text_separate">
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Also added the process for breaking compatibility with previous versions as an option, even though it is a process independent from token verification. For more information, see the Compatibility With Earlier Versions of Applications section under <a href="../Pages/Page_115344118.html">8 Independent Server Development</a>.</p>
+  </div>
+</div>
+<h2 id="Anchor_187704482_h2_1">Ruby</h2>
+<p style="margin-left: 1.0em;">ruby 2.3.x</p>
+<p style="margin-left: 1.0em;">OpenSSL 1.0.1e</p>
+<p style="margin-left: 1.0em;">json (1.8.3)</p>
+<p>jwt (1.5.4)</p>
+<p style="margin-left: 1.0em;">
+  <br />
+</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="gutter">1<br />
+2<br />
+3<br />
+4<br />
+5<br />
+6<br />
+7<br />
+8<br />
+9<br />
+10<br />
+11<br />
+12<br />
+13<br />
+14<br />
+15<br />
+16<br />
+17<br />
+18<br />
+19<br />
+20<br />
+21<br />
+22<br />
+23<br />
+24<br />
+25<br />
+26<br />
+27<br />
+28<br />
+29<br />
+30<br />
+31<br />
+32<br />
+33<br />
+34<br />
+35<br />
+36<br />
+37<br />
+38<br />
+39<br />
+40<br />
+41<br />
+42<br />
+43<br />
+44<br />
+45<br />
+46<br />
+47<br />
+48<br />
+49<br />
+50<br />
+51<br />
+52<br />
+53<br />
+54<br />
+55<br />
+56<br />
+57<br />
+58<br />
+59<br />
+60<br />
+61<br />
+62<br />
+63<br />
+64<br />
+65</td>
+      <td class="code">
+        <div class="codeblock"><pre>require 'json'
+require 'openssl'
+require 'base64'
+require 'jwt'
+&nbsp;
+ISSUER='https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com'
+JWKS_URI='https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com/1.0.0/certificates'
+APPLICATION_ID='0123456789012345'
+ALGORITHM='RS256'
+REQUIRED_VERSION=0 # Option
+&nbsp;
+&nbsp;
+def get_jwks(jwks_uri)
+&nbsp;&nbsp;`curl -k -X GET #{jwks_uri} 2&gt; /dev/null`
+end
+&nbsp;
+&nbsp;
+def public_key(jwks_uri, kid)
+&nbsp;&nbsp;jwks = get_jwks(jwks_uri)
+&nbsp;&nbsp;keys = JSON.parse( jwks )['keys']
+&nbsp;&nbsp;jwk  = keys.find{ |k| k['kid'] == kid } || &quot;{}&quot;
+&nbsp;&nbsp;OpenSSL::X509::Certificate.new(Base64.strict_decode64(jwk['x5c'][0])).public_key
+end
+&nbsp;
+&nbsp;
+def main
+&nbsp;&nbsp;id_token = ARGV[0]
+&nbsp;&nbsp;# 1. It is JWT format.
+&nbsp;&nbsp;&nbsp;_, unverified_header = JWT.decode(id_token, nil, false, { verify_expiration: false })
+&nbsp;
+&nbsp;&nbsp;# 2. The alg specified in the JOSE Header is RS256.
+&nbsp;&nbsp;raise &quot;Invalid alg: #{unverified_header['alg']}&quot; unless unverified_header['alg'] == ALGORITHM
+&nbsp;
+&nbsp;&nbsp;# 3-1. The jku URI matches the endpoint URI of the key public endpoint that was registered in advance.
+&nbsp;&nbsp;raise &quot;Invalid jku: #{unverified_header['jku']}&quot; unless JWKS_URI === unverified_header['jku']
+&nbsp;
+&nbsp;&nbsp;# 3-2. JWS signature verification is successful with the key or certificate corresponding to the kid specified in the JWS Header.
+&nbsp;&nbsp;key = public_key(unverified_header['jku'], unverified_header['kid'])
+&nbsp;&nbsp;payload, header = JWT.decode(id_token, key, true, { algorithm: ALGORITHM,  verify_expiration: false })
+&nbsp;
+&nbsp;&nbsp;# 4. The iss matches the Issuer registered in advance.
+&nbsp;&nbsp;raise &quot;Invalid iss: #{payload['iss']}&quot; unless payload['iss'] == ISSUER
+&nbsp;
+&nbsp;&nbsp;# 5. The iat is before the current time.
+&nbsp;&nbsp;raise 'iat is not the past time' unless Time.now.to_i &gt;= payload['iat']
+&nbsp;
+&nbsp;&nbsp;# 6. The exp is after the current time.
+&nbsp;&nbsp;raise 'This token is already expired' unless Time.now.to_i &lt; payload['exp']
+&nbsp;
+&nbsp;&nbsp;# 7. The nintendo.ai value and the Application ID that accepts connection match.
+&nbsp;&nbsp;raise &quot;Invalid Application : #{payload['nintendo']['ai']}&quot; unless payload['nintendo']['ai'] == APPLICATION_ID
+&nbsp;
+&nbsp;&nbsp;# Option. Equal to or greater than the application version for which the nintendo.av value permits connections (option).
+&nbsp;&nbsp;# Independent judgment is required if you want to restrict connections from earlier versions of the application immediately after a patch is released.
+&nbsp;&nbsp;raise &quot;Invalid Version: #{payload['nintendo']['av']}&quot; unless payload['nintendo']['av'].to_i &gt;= REQUIRED_VERSION
+
+&nbsp;&nbsp;puts &quot;=== ID Token ===&quot;
+&nbsp;&nbsp;puts &quot;token   : #{id_token}&quot;
+&nbsp;&nbsp;puts &quot;jku     : #{header['jku']}&quot;
+&nbsp;&nbsp;puts &quot;kid     : #{header['kid']}&quot;
+&nbsp;&nbsp;puts &quot;=== Decoded Token ===&quot;
+&nbsp;&nbsp;puts &quot;header  : #{header}&quot;
+&nbsp;&nbsp;puts &quot;payload : #{payload}&quot;
+end
+main</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_187704482_h2_2">Perl</h2>
+<p>perl v5.16.3</p>
+<p>Carp (1.26)</p>
+<p>JSON::XS (3.02)</p>
+<p>JSON::WebToken (0.10)</p>
+<p>Crypt::OpenSSL::RSA (0.28)</p>
+<p>Crypt::OpenSSL::Bignum (0.06)</p>
+<p>MIME::Base64 (3.13)</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="gutter">1<br />
+2<br />
+3<br />
+4<br />
+5<br />
+6<br />
+7<br />
+8<br />
+9<br />
+10<br />
+11<br />
+12<br />
+13<br />
+14<br />
+15<br />
+16<br />
+17<br />
+18<br />
+19<br />
+20<br />
+21<br />
+22<br />
+23<br />
+24<br />
+25<br />
+26<br />
+27<br />
+28<br />
+29<br />
+30<br />
+31<br />
+32<br />
+33<br />
+34<br />
+35<br />
+36<br />
+37<br />
+38<br />
+39<br />
+40<br />
+41<br />
+42<br />
+43<br />
+44<br />
+45<br />
+46<br />
+47<br />
+48<br />
+49<br />
+50<br />
+51<br />
+52<br />
+53<br />
+54<br />
+55<br />
+56<br />
+57<br />
+58<br />
+59<br />
+60<br />
+61<br />
+62<br />
+63<br />
+64<br />
+65<br />
+66<br />
+67<br />
+68<br />
+69<br />
+70<br />
+71<br />
+72<br />
+73<br />
+74<br />
+75<br />
+76<br />
+77<br />
+78<br />
+79<br />
+80<br />
+81<br />
+82<br />
+83<br />
+84<br />
+85<br />
+86<br />
+87<br />
+88<br />
+89<br />
+90<br />
+91<br />
+92<br />
+93<br />
+94</td>
+      <td class="code">
+        <div class="codeblock"><pre>#!/usr/bin/env perl
+<span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="n">Carp</span><span class="p">;</span>
+<span class="k">use</span> <span class="n"></span><span class="nn">JSON::</span><span class="n">XS</span> <span class="sx">qw/decode_json/</span><span class="p">;</span>
+<span class="k">use</span> <span class="n"></span><span class="nn">JSON::</span><span class="n">WebToken</span> <span class="sx">qw/decode_jwt/</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="n"></span><span class="nn">Crypt::OpenSSL::</span><span class="n">RSA</span><span class="p">;</span>
+<span class="k">use</span> <span class="n"></span><span class="nn">Crypt::OpenSSL::</span><span class="n">Bignum</span><span class="p">;</span>
+<span class="k">use</span> <span class="n"></span><span class="nn">MIME::</span><span class="n">Base64</span> <span class="sx">qw/decode_base64url/</span><span class="p">;</span>
+
+<span class="k">our</span> <span class="nv">$ISSUER</span>           <span class="o">=</span> <span class="s">'https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com'</span><span class="p">;</span>
+<span class="k">our</span> <span class="nv">$JWKS_URI</span>         <span class="o">=</span> <span class="s">'https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.baas.nintendo.com/1.0.0/certificates'</span><span class="p">;</span>
+<span class="k">our</span> <span class="nv">$APPLICATION_ID</span> <span class="o">=</span> <span class="s">'0123456789012345'</span><span class="p">;</span>
+<span class="k">our</span> <span class="nv">$ALGORITHM</span>      <span class="o">=</span> <span class="s">'RS256'</span><span class="p">;</span>
+<span class="k">our</span> <span class="nv">$REQUIRED_VERSION</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1"># Option</span>
+
+<span class="k">sub </span><span class="nf">get_jwks</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$jwks_uri</span> <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> <span class="sb">`curl -k -X GET $jwks_uri 2&gt; /dev/null`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">sub </span><span class="nf">public_key</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="p">(</span><span class="nv">$jwks_uri</span><span class="p">,</span> <span class="nv">$kid</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@_</span><span class="p">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$jwks</span> <span class="o">=</span> <span class="n">get_jwks</span><span class="p">(</span><span class="nv">$jwks_uri</span><span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$keys</span> <span class="o">=</span> <span class="n">decode_json</span><span class="p">(</span><span class="nv">$jwks</span><span class="p">)</span><span class="o">-&gt;</span><span class="p">{</span><span class="nb">keys</span><span class="p">};</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="p">(</span><span class="nv">$jwk</span><span class="p">)</span> <span class="o">=</span> <span class="nb">grep</span> <span class="p">{</span> <span class="nv">$_</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">kid</span><span class="p">}</span> <span class="ow">eq</span> <span class="nv">$kid</span> <span class="p">}</span> <span class="nv">@$keys</span><span class="p">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$rsa</span> <span class="o">=</span> <span class="n"></span><span class="nn">Crypt::OpenSSL::</span><span class="n">RSA</span><span class="o">-&gt;</span><span class="n">new_key_from_parameters</span><span class="p">(</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n"></span><span class="nn">Crypt::OpenSSL::</span><span class="n">Bignum</span><span class="o">-&gt;</span><span class="n">new_from_bin</span><span class="p">(</span><span class="n">decode_base64url</span><span class="p">(</span><span class="nv">$jwk</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">n</span><span class="p">})),</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n"></span><span class="nn">Crypt::OpenSSL::</span><span class="n">Bignum</span><span class="o">-&gt;</span><span class="n">new_from_bin</span><span class="p">(</span><span class="n">decode_base64url</span><span class="p">(</span><span class="nv">$jwk</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">e</span><span class="p">})),</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> <span class="nv">$rsa</span><span class="o">-&gt;</span><span class="n">get_public_key_x509_string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">main</span><span class="p">(</span><span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+<span class="k">sub </span><span class="nf">main</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$id_token</span> <span class="o">=</span> <span class="nb">shift</span><span class="p">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$jwt_claims</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="nb">eval</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nv">$jwt_claims</span> <span class="o">=</span> <span class="n">decode_jwt</span> <span class="p">(</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nv">$id_token</span><span class="p">,</span> <span class="k">sub </span><span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="p">(</span><span class="nv">$header</span><span class="p">,</span> <span class="nv">$claims</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@_</span><span class="p">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># The alg specified in the JOSE Header must be RS256.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nv">$header</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">alg</span><span class="p">}</span> <span class="ow">ne</span> <span class="nv">$ALGORITHM</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Unsupported alg (%s)&quot;</span><span class="p">,</span> <span class="nv">$header</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">alg</span><span class="p">}</span> <span class="o">||</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># The jku URI matches the endpoint URI of the key public endpoint that was registered in advance.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nv">$header</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">jku</span><span class="p">}</span> <span class="o">!~</span> <span class="sr">/$JWKS_URI/</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Not acceptable jku (jku: %s)&quot;</span><span class="p">,</span> <span class="nv">$header</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">jku</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># The iss value matches the preregistered ISSUER.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">iss</span><span class="p">}</span> <span class="ow">ne</span> <span class="nv">$ISSUER</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Not acceptable iss (iss: %s)&quot;</span><span class="p">,</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">iss</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">my</span> <span class="nv">$current_time</span> <span class="o">=</span> <span class="nb">time</span><span class="p">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># The value of iat is a value before the current time.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nb">exists</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">iat</span><span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">iat</span><span class="p">}</span> <span class="o">&gt;=</span> <span class="nv">$current_time</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Invalid iat (iat: %s)&quot;</span><span class="p">,</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">iat</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># The value of exp is after the current time.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nb">exists</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="nb">exp</span><span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="nb">exp</span><span class="p">}</span> <span class="o">&lt;</span> <span class="nv">$current_time</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Expired JWT (exp: %s)&quot;</span><span class="p">,</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="nb">exp</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># The value of nintendo.ai matches the Application ID to allow a connection.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">nintendo</span><span class="p">}</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">ai</span><span class="p">}</span> <span class="ow">ne</span> <span class="nv">$APPLICATION_ID</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Not acceptable application_id (nintendo.ai: %s)&quot;</span><span class="p">,</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">nintendo</span><span class="p">}</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">ai</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># Option. Equal to or greater than the application version for which the nintendo.av value permits connections (option).</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c1"># Independent judgment is required if you want to restrict connections from earlier versions of the application immediately after a patch is released.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">nintendo</span><span class="p">}</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">av</span><span class="p">}</span> <span class="o">&lt;</span> <span class="nv">$REQUIRED_VERSION</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n">croak</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;Not acceptable application_version (nintendo.av: %s)&quot;</span><span class="p">,</span> <span class="nv">$claims</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">nintendo</span><span class="p">}</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">av</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> <span class="n">public_key</span><span class="p">(</span><span class="nv">$header</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">jku</span><span class="p">},</span> <span class="nv">$header</span><span class="o">-&gt;</span><span class="p">{</span><span class="n">kid</span><span class="p">});</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">);</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">};</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> <span class="p">(</span><span class="k">my</span> <span class="nv">$e</span> <span class="o">=</span> <span class="vg">$@</span><span class="p">)</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nb">warn</span> <span class="nv">$e</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span><span class="p">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> <span class="nv">$jwt_claims</span><span class="p">;</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

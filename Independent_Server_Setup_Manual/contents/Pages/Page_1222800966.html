@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.7.5 API for getting the history for canceling user authorization | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.7.5 API for getting the history for canceling user authorization -->
+<div class="pagetitle" id="PageId_1222800966">4.7.5 API for getting the history for canceling user authorization</div>
+<div class="text_separate">
+<h2 id="Anchor_1222800966_h2_1">Request Specification</h2>
+<h6 id="Anchor_1222800966_h6_1">HTTP Method/Path</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">HTTP method</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th style="text-align: left;">Path</th>
+      <td>/api/1.0.0/unauthorized_histories/{client_id}</td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_1222800966_h6_2">Request Parameters</h6>
+<table class="wrapped relative-table" style="width: 86.1237%;">
+  <colgroup>
+    <col style="width: 16.6836%;" />
+    <col style="width: 6.3979%;" />
+    <col style="width: 7.61394%;" />
+    <col style="width: 69.3046%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Specification Method</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Authorization</td>
+      <td>header</td>
+      <td>Yes</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The <code>Bearer</code> access token (<code>grant_type</code>=<code>client_credentials</code>).<br /><code>unauthorizedHistory:anyUsers</code> must be allowed as a <code>scope</code> value.<br />With the <code>unauthorizedHistory:anyUsers</code> scope, permission is granted across the board to all clients, so there is no need to submit a usage request.</p>
+          <!--Remove-->
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>client_id</td>
+      <td>path</td>
+      <td>Yes</td>
+      <td>The target client ID.</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>query</td>
+      <td>No</td>
+      <td>
+        <p>Specifies the maximum number of items to get per page. The default is 50. The maximum is 1000.<br />If <code>cursor</code> is specified, this parameter will be ignored. When <code>cursor</code> is specified, the <code>count</code> value specified in the first request is inherited.<br /></p>
+      </td>
+    </tr>
+    <tr>
+      <td>cursor</td>
+      <td>query</td>
+      <td>No</td>
+      <td>
+        <p>Parameter when performing pagination.<br />If there are more responses than the number specified by <code>count</code>, the <code>nextCursor</code> value included in the response is specified and pagination is performed.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>filter.unauthorizedAt.$gte</p>
+      </td>
+      <td>query</td>
+      <td>
+        <p>Y (see note)</p>
+      </td>
+      <td>
+        <p>Specifies the time in UNIX timestamp format. Gets the authorization cancellation events that occurred at or after this specified time.<br />Only events after December 1, 2021 can be obtained for the history.</p>
+        <p>
+          <strong>Note:</strong> Unnecessary if <code>cursor</code> is specified.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>filter.unauthorizedAt.$lt</p>
+      </td>
+      <td>query</td>
+      <td>Y (see note)</td>
+      <td>
+        <p>Specifies the time in UNIX timestamp format. Gets the authorization cancellation events that occurred before this specified time.</p>
+        <p>
+          <strong>Note:</strong> Unnecessary if <code>cursor</code> is specified.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 style="margin-left: 15.0px;" id="Anchor_1222800966_h2_2">Response Specification</h2>
+<p>The response is returned in <code>application/json</code> format. If the request succeeds, the following properties are returned in the response.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td>array</td>
+      <td>
+        <div class="content-wrapper">
+          <p>An array that includes the following objects.</p>
+          <table class="wrapped" data-mce-resize="false">
+            <tbody>
+              <tr>
+                <th>Item</th>
+                <th> Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>userId</td>
+                <td>string</td>
+                <td>
+                  <div class="content-wrapper">
+                    <p>Represents the Nintendo Account identifier.</p>
+                  </div>
+                  <div class="note_new">
+                    <div class="note_new_left">Note</div>
+                    <div class="note_new_right">
+                      <p>There are two types of Nintendo Account identifiers, as listed below, and the identifier that can be obtained differs depending on when the link with the Nintendo Account started. For more information, see <a href="../Pages/Page_1222798523.html">4.6 Migration From NAID to PPID</a>.</p>
+                      <ul>
+                        <li>NAID: An ID that is unique across all clients. (A 16-digit alphanumeric with lowercase letters.)</li>
+                        <li>PPID: An ID that is different for every client. (A 28-digit alphanumeric with uppercase letters.)</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="auto-cursor-target">
+                    <br />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>clientId</td>
+                <td>string</td>
+                <td>
+                  <p>Represents the client ID.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>scope</td>
+                <td>array</td>
+                <td>
+                  <div class="content-wrapper">
+                    <p>An array of <code>scope</code> for which authorization was canceled.</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="color: rgb(23,43,77);">unauthorizedAt</span>
+                </td>
+                <td>number</td>
+                <td>
+                  <div class="content-wrapper">
+                    <p>The time at which the user canceled authorization.<br />The format is a UNIX timestamp.</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>itemsPerPage</td>
+      <td>number</td>
+      <td>Indicates the number of elements in the <code>items</code> array included in the response.</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>number</td>
+      <td>Indicates the <code>count</code> value specified when the request was made.</td>
+    </tr>
+    <tr>
+      <td>nextCursor</td>
+      <td>string</td>
+      <td>
+        <p>The parameter for performing pagination.<br />If there is not another page, this parameter is not included in the response. This provides a way to determine whether there is another page.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Sample</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nx">GET</span> <span class="o">/</span><span class="nx">api</span><span class="o">/</span><span class="mf">1.0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="nx">unauthorized_histories</span><span class="o">/</span><span class="nx">d7182b68b11e2bee</span><span class="o">?</span><span class="nx">filter</span><span class="p">.</span><span class="nx">unauthorizedAt</span><span class="p">.</span><span class="nx">$gte</span><span class="o">=</span><span class="mi">1638316800</span><span class="o">&amp;</span><span class="nx">filter</span><span class="p">.</span><span class="nx">unauthorizedAt</span><span class="p">.</span><span class="nx">$lt</span><span class="o">=</span><span class="mi">1638489599</span><span class="o">&amp;</span><span class="nx">count</span><span class="o">=</span><span class="mi">100</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="nx">Host</span><span class="o">:</span> <span class="nx">e97b8a9d672e4ce4845ec6947cd66ef6</span><span class="o">-</span><span class="nx">sb</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">nintendo</span><span class="p">.</span><span class="nx">com</span>
+<span class="nx">Authorization</span><span class="o">:</span> <span class="nx">Bearer</span> <span class="nx">ey</span><span class="p">...</span>
+&nbsp;
+<span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span> <span class="nx">charset</span><span class="o">=</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;userId&quot;</span><span class="o">:</span> <span class="s2">&quot;a46015678ad8302e&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;clientId&quot;</span><span class="o">:</span> <span class="s2">&quot;d7182b68b11e2bee&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;openid&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">],</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;unauthorizedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;1638316801&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">...</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">],</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;itemsPerPage&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nextCursor&quot;</span><span class="o">:</span> <span class="s2">&quot;ey..&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">100</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nx">GET</span> <span class="o">/</span><span class="nx">api</span><span class="o">/</span><span class="mf">1.0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="nx">unauthorized_histories</span><span class="o">/</span><span class="nx">d7182b68b11e2bee</span><span class="o">?</span><span class="nx">cursor</span><span class="o">=</span><span class="nx">ey</span><span class="p">..</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="nx">Host</span><span class="o">:</span> <span class="nx">e97b8a9d672e4ce4845ec6947cd66ef6</span><span class="o">-</span><span class="nx">sb</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">nintendo</span><span class="p">.</span><span class="nx">com</span>
+<span class="nx">Authorization</span><span class="o">:</span> <span class="nx">Bearer</span> <span class="nx">ey</span><span class="p">...</span>
+&nbsp;
+<span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span> <span class="nx">charset</span><span class="o">=</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;userId&quot;</span><span class="o">:</span> <span class="s2">&quot;a46015678ad8302e&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;clientId&quot;</span><span class="o">:</span> <span class="s2">&quot;d7182b68b11e2bee&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="p">[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;openid&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">],</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;unauthorizedAt&quot;</span><span class="o">:</span> <span class="s2">&quot;1638489590&quot;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">...</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">],</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;itemsPerPage&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nextCursor&quot;</span><span class="o">:</span> <span class="s2">&quot;ey..&quot;</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the request fails, the following error is returned.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>The HTTP status code.</td>
+    </tr>
+    <tr>
+      <td>errorCode</td>
+      <td>
+        <p class="auto-cursor-target">
+          <br />
+        </p>
+        <table class="wrapped" data-mce-resize="false">
+          <tbody>
+            <tr>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>invalid_token</td>
+              <td>Error that occurs if the access token is invalid or has expired.</td>
+            </tr>
+            <tr>
+              <td>insufficient_scope</td>
+              <td>Error that occurs if an attempt is made to do something for which permission has not been granted.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="auto-cursor-target">
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>detail</td>
+      <td>
+        <p>Text describing the content of <code>errorCode</code>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

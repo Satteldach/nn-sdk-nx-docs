@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.3 Preventing users from seeing inappropriate UGC</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="border: 4px double black; margin: 4px; padding: 2px; font-weight: bold; background-color: #FFFFCC;">
+<p>Some features in this documentation are unavailable because JavaScript is not enabled in your browser. The table of contents is available only if JavaScript is enabled. Enable JavaScript and reload this page.</p>
+</div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.3 Preventing users from seeing inappropriate UGC -->
+<div class="pagetitle" id="PageId_124921531">4.3 Preventing users from seeing inappropriate UGC</div>
+<div class="text_separate">
+<p>In some released applications, UGC that users have found offensive or that server administrators have judged to be inappropriate is hidden so that users can no longer see it. This section presents the following two example methods to accomplish this.</p>
+<ul>
+  <li>
+    <a href="#Anchor_124921531_BlackList">Preventing exchange of UGC with offensive users</a>
+  </li>
+  <li>
+    <a href="#Anchor_124921531_UGCRemoval">Establishing a system to take down UGC</a>
+  </li>
+</ul>
+<p>If your application emphasizes communication between users, Nintendo recommends implementing both of these methods because such applications are especially susceptible to unintended outcomes when users communicate.</p>
+<h1 id="Anchor_124921531_h1_1">What to do</h1>
+<p>
+  <a name="Anchor_124921531_BlackList"></a>
+</p>
+<h2 id="Anchor_124921531_h2_1">Preventing exchange of UGC with offensive users</h2>
+<p>If the user receives UGC multiple times from the same offensive user because UGC exchange between them occurs multiple times, it may significantly impair that user's experience and lead to that user filing a complaint. For this reason, Nintendo recommends incorporating a mechanism into your application that allows users to prevent further UGC exchange with offensive users, for example by blocking those users. Released applications use various different approaches to implement features that let users control what UGC they receive. One approach is to no longer matchmake with specified users; another approach is to completely disable receipt of UGC from all users. Different applications use whatever approach is best suited to their design.</p>
+<p>★ See <a href="#Anchor_124921531_BlackList_ex">Examples of preventing exchange of UGC with offensive users</a> for how some released applications have handled this.</p>
+<p>
+  <a name="Anchor_124921531_UGCRemoval"></a>
+</p>
+<h2 id="Anchor_124921531_h2_2">Establishing a system to take down UGC</h2>
+<p>If your application publishes UGC on a server, Nintendo recommends establishing a system to respond to user requests to take down UGC. Some released applications make it easy for users to contact the publisher by providing an in-application feature for users to report inappropriate UGC, and some design this feature in a way that allows that particular UGC to be easily found again via information included in the report.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If your application saves UGC in the Nintendo Switch system's save data, it's more difficult to prevent that UGC from being published again, because it can't be deleted from the save data in the same way that it can be taken down from a server. If you're in this situation, where you can receive user contacts about UGC but it's difficult for you to actually delete that UGC in response, implement a handling method that prevents users from continuing to <em>see</em> that inappropriate UGC. See <a href="#Anchor_124921531_BlackList">Preventing exchange of UGC with offensive users</a> for ideas. Note that in some cases&mdash;particularly if your application allows <em>redistribution</em> of UGC that cannot be deleted by server-side operations&mdash;further handling may be needed to prevent that UGC from spreading unchecked. In these cases it is best to restrict redistribution, as described in <a href="../Pages/Page_124921526.html">4.2 Preventing users from spreading inappropriate UGC</a>.</p>
+  </div>
+</div>
+<p>If your application provides an in-application feature for users to report UGC, you can make it easy for users to specify the exact UGC they want to report by displaying an ID for the UGC or linking it to some other information that could be used to identify it again.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If your application publishes UGC on NEX data stores, consider offering a way to identify individual UGC data files by displaying some sort of data ID in whatever way best suits the design of your application. For more information, see the explanation about displaying data IDs in the <em>NEX Manual</em>.</p>
+  </div>
+</div>
+<p>★ See <a href="#Anchor_124921531_UGCRemoval_ex">Examples of systems to take down UGC</a> for how some released applications have handled this.</p>
+<h1 id="Anchor_124921531_h1_2">Examples of this handling</h1>
+<p>
+  <a name="Anchor_124921531_BlackList_ex"></a>
+</p>
+<h2 id="Anchor_124921531_h2_3">Examples of preventing exchange of UGC with offensive users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description of example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Types of UGC</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>
+          <em>Animal Crossing: Happy Home Designer</em> for Nintendo 3DS</p>
+        <p>An inappropriate creation</p>
+        <p>
+          <img src="../Attachments/Attach_124921531/125184532.bmp" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>When users view an inappropriate creation, they can blacklist the creator of that UGC.</p>
+        <p>UGC created by blacklisted users no longer appear in the pool of browsable creations within this application.</p>
+      </td>
+      <td>Maps and images made by combining preset parts</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Wii Sports Club</em> for Wii U</p>
+        <p>Miiverse display settings</p>
+        <p>
+          <img src="../Attachments/Attach_124921531/125184531.jpg" width="500" />
+        </p>
+      </td>
+      <td>If users are offended by a Miiverse post shown inside this application, they can turn off display of all Miiverse posts.</td>
+      <td>Text, images</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Devil's Third</em> for Wii U</p>
+        <p>Another player's profile screen</p>
+        <p>
+          <img src="../Attachments/Attach_124921531/163765211.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>The user can go to another player's profile screen, and from there, register that other player to this application's independent blacklist. In this example the other player is named &quot;tendo&quot;. The user is no longer able to exchange chat or email with blacklisted players.</p>
+        <p>But since this application's blacklist is separate from the blocked-user list built into the Wii U console, in other applications it is still possible for the user to encounter players they have blacklisted here.</p>
+      </td>
+      <td>
+        <p>Text chat, text</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <a name="Anchor_124921531_UGCRemoval_ex"></a>
+</p>
+<h2 id="Anchor_124921531_h2_4">Examples of systems to take down UGC</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="tablesorter-header-inner">Example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Description of example</div>
+      </th>
+      <th>
+        <div class="tablesorter-header-inner">Types of UGC</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>Super Mario Maker for Wii U</p>
+        <p>Flow of reporting inappropriate UGC from the course selection screen</p>
+        <p>
+          <img src="../Attachments/Attach_124921531/163765213.png" width="500" />
+        </p>
+      </td>
+      <td>
+        <p>This flowchart shows how a user would report an offensive course (stage) to the admins.</p>
+        <ol>
+          <li>The user selects <strong>Report</strong> on the course selection screen.</li>
+          <li>The user enters their reason for reporting the course.</li>
+          <li>The application reconfirms that it is acceptable to send the report.</li>
+          <li>The report is sent.</li>
+        </ol>
+        <p>If the admins agree that the report is valid, they delete the reported course.</p>
+      </td>
+      <td>Stages made by combining preset parts</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

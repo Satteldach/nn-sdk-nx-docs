@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.2.1 Options | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.2.1 Options -->
+<div class="pagetitle" id="PageId_107331498">2.2.1 Options</div>
+<div class="text_separate">
+<div class="figure">
+  <a name="AutoAnchor_107331498_figure001"></a>Figure 2-1  Option Menu Screen Mockup</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_107331498/242598110.png" width="444" height="249" class="embedded-image" />
+  </span>
+</p>
+<p>You have options to perform the following operations and check the following information for the application selected in the HOME Menu.</p>
+<h1 id="Anchor_107331498_h1_1">Software Information</h1>
+<h5 id="Anchor_107331498_h5_1">Nintendo eShop</h5>
+<p>Nintendo eShop starts and displays the page for the selected application.</p>
+<p>  <br />  </p>
+<p> The following three items are collectively referred to as &quot;Software Legal Information.&quot; </p>
+<h5 id="Anchor_107331498_h5_2">Support Information</h5>
+<p>Information about publisher and contact details. The information for Japan/North America/Europe and Australia/Hong Kong, Taiwan, and Korea is displayed in different orders depending on the region set in the system settings. </p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>On Switch consoles for the China region, only information for China is shown.</p>
+  </div>
+</div>
+<h5 id="Anchor_107331498_h5_3">Important Information</h5>
+<p>Written text such as anti-piracy measures. The same information is displayed no matter which region has been set in the system settings.</p>
+<h5 id="Anchor_107331498_h5_4">Intellectual Property Notices</h5>
+<p>Notes about copyright information. The same information is displayed no matter which region has been set in the system settings.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>When the required entries are entered into the Software Legal Information System (SLIM) <a class="external-link" href="https://slim.mng.nintendo.net/slim/" rel="noopener noreferrer" target="_blank">https://slim.mng.nintendo.net/slim/</a> on the Nintendo Developer Portal, a ZIP file with Support Information, Important Information, and Intellectual Property Notices will be exported. Attach this ZIP file to the ROM using AuthoringEditor or by directly adding it to the NMETA file. It is required for all applications. For more information about implementing this feature, see Nintendo SDK Documents &gt; Features &gt; Building &gt; Creating Application Images, or the documentation for AuthoringEditor.</p>
+  </div>
+</div>
+<h1 id="Anchor_107331498_h1_2">Software Update</h1>
+<p>Updates the application to the latest state. In practical terms, it downloads and applies anything like patch data that is later than the application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>You can now match application versions with nearby people (close Switch systems). This works for system versions 4.0.0 and later. Updates are performed using local communication.</p>
+  </div>
+</div>
+<h1 id="Anchor_107331498_h1_3">Data Management</h1>
+<h5 id="Anchor_107331498_h5_5">Transfer Your Save Data</h5>
+<p>Jumps to the feature for transferring save data. For more information about this feature, see <a href="../Pages/Page_95701204.html">3.6 System Settings</a>.</p>
+<h5 id="Anchor_107331498_h5_6">Archive Software</h5>
+<p>The application is removed, but its icon will remain in the HOME Menu. Because that icon remains, it is easy to re-download the application. Options are also available. Save data is not deleted. You can delete the save data using <strong>Data Management</strong> &gt; <strong>Manage Save Data / Screenshots and Videos</strong>. For more information about Data Management and Manage Save Data &gt; Screenshots and Videos, see <a href="../Pages/Page_95701204.html">3.6 System Settings</a>.</p>
+<h5 id="Anchor_107331498_h5_7">Delete Software</h5>
+<p>Deletes the application. Save data is not deleted. You can delete the save data using <strong>Data Management</strong> &gt; <strong>Manage Save Data / Screenshots and Videos</strong>. Unlike the Archive Software option, this operation also deletes the icon from the HOME Menu.</p>
+<h1 id="Anchor_107331498_h1_4">Save Data Cloud</h1>
+<p>A Nintendo Switch Online service for tasks like automatically backing up save data to a server and downloading the save data to a different console.<br />The options menu has a feature for checking the backup and download status of the save data for each user of the application. You can also transition from here to the screens for downloading and uploading save data. For more information about the transition destinations, see <a href="../Pages/Page_95701204.html">3.6 System Settings</a>.</p>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <ul>
+      <li>Save Data Cloud does not work in the development environment.</li>
+      <li>The Options menu name of the feature for online backup of save data was changed to Save Data Cloud backup in system version 8.0.0.</li>
+    </ul>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The Save Data Cloud feature cannot be used on Switch consoles for the China region.</p>
+  </div>
+</div>
+<h1 id="Anchor_107331498_h1_5">My Nintendo Rewards Program</h1>
+<p>You can receive an amount of Gold Points equivalent to the amount spent on a retail version product. To receive points, a Nintendo Account is required. For downloadable versions of applications, gold points are assigned automatically when purchasing the application from the shop. You do not need to do anything else. For more information about My Nintendo and Gold Points, see Nintendo&rsquo;s official website.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>The My Nintendo Rewards Program cannot be used on Switch consoles for the China region.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

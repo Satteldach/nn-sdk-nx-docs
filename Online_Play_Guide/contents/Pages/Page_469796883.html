@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.3 Friend Presence | Nintendo Switch Online Play Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.3 Friend Presence -->
+<div class="pagetitle" id="PageId_469796883">3.3 Friend Presence</div>
+<div class="text_separate">
+<p>The friend presence feature uses the internet to show the status of friends in real time, such as the status of the application they are playing. This feature is intended to show what applications friends are playing so the user himself or herself can also decide to play.</p>
+<h2 id="Anchor_469796883_h2_1">Information Stored in Friend Presence</h2>
+<p>Applications can get and use the following information. </p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Presence status</td>
+      <td>This status is one of the three states described in the next section.</td>
+    </tr>
+    <tr>
+      <td>Application being played</td>
+      <td>Information about the title of the application the user is playing. Presence can be shared even where the application versions differ or the title is part of a series.</td>
+    </tr>
+    <tr>
+      <td>Application-specific region</td>
+      <td>
+        <p>
+          <strong>Using <code>nn::friends::UserPresence::SetAppValue</code> to set the application-specific region is prohibited.</strong>
+        </p>
+        <p>
+          <strong>It can be used only for the purpose of maintaining compatibility, such as when rebuilding an already released application with the latest version of the SDK.</strong>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span style="color: rgb(85,85,85);">Game mode description</span>
+      </td>
+      <td>This text describes what the user is doing in the application. Any text can be set for the application (for example: &quot;Playing stage 1&quot;) and it is shown on the User Page.</td>
+    </tr>
+    <tr>
+      <td>Time of last play </td>
+      <td>The last time the user was online or playing online.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="Anchor_469796883_h3_1">Presence Status</h3>
+<p>The presence status can be any of the following.</p>
+<table class="wrapped" style="margin-left: 24.0px;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <p>Status</p>
+      </th>
+      <th>
+        <p>Description</p>
+      </th>
+      <th>
+        <p>How It Is Displayed to Users</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Offline</td>
+      <td>
+        <ul>
+          <li>The Switch is not connected to the internet.</li>
+          <li class="_mce_tagged_br">The Switch is connected to the internet, but one of the following states apply.<ul><li class="_mce_tagged_br">Cannot communicate with the friend server due to that server being down, for example.</li><li><p class="_mce_tagged_br">The application is not started.</p></li><li><p class="_mce_tagged_br">The user account is in the signed out state in the application.</p></li><li><p class="_mce_tagged_br">The user account is in the signed in state in the application, but presence is set to private.</p></li></ul></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Appears as private.</li>
+          <li>Displayed as &quot;Offline.&quot;</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Online</td>
+      <td>
+        <ul>
+          <li>The Switch can communicate with the friend server, and both of the following states apply.<ul><li>The user account is in the signed in state in the application.</li><li>The start of online play has not been declared by the application or the middleware.</li></ul></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Appears as active.</li>
+          <li>Displayed as &quot;Online.&quot;</li>
+          <li>Displayed as &quot;Playing XX.&quot;</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Online Play</td>
+      <td>
+        <ul>
+          <li>The Switch can communicate with the friend server, and both of the following states apply.<ul><li>The user account is in the signed in state in the application.</li><li>The start of online play has been declared by the application or the middleware.</li></ul></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>The same as Online.</li>
+          <li>Unique expression in the application.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>Note that even when the Switch can communicate with the friend server, simply starting the application does not result in the online state. The specific user account must be in the signed-in state in the application.</p>
+  </div>
+</div>
+<h3 id="Anchor_469796883_h3_2">Change Policy to Online Play State</h3>
+<p>The transitions to Offline status and Online status happen based on whether the user account is signed in or signed out (Open or Close) and on the network connection state.</p>
+<p>On the other hand, the transition to Online Play status (<code>nn::friends::PresenceStatus::PresenceStatus_OnlinePlay</code>) happens when the application explicitly calls the API. For more information, see the API Reference for the <code>friends</code> library.</p>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>There are restrictions on the frequency of calls to the API for changing the status to Online Play status. For more information, see Nintendo Switch Guidelines &gt; Accounts &gt; Friends &gt; 0156: Restrictions on frequency of calls to FRIENDS library API.</p>
+  </div>
+</div>
+<p>Because you can use the <code>friends</code> library to get the presence status of friends, the application has a way to determine whether a friend is in Online Play status. As a result, you can implement features inside the application like preferentially showing friends that are currently playing online.</p>
+<p>The Online Play status indicates that a person is playing online, but the application is not required to change the status to Online Play for users who have started online gameplay. Transition the status based on the needs of the application.<br /></p>
+<p>
+  <br />
+</p>
+<h2 id="Anchor_469796883_h2_2">Presence Privacy Settings</h2>
+<p>Users can set their presence to private or restrict the scope of public visibility if they do not want friends to know that they are playing online in real time. For more information about in-application support, see <a href="../Pages/Page_469797412.html">3.7.4 Notes When Supporting the Friends Features</a> &gt; <a href="../Pages/Page_469797412.html#Anchor_469797412_title062">Applying Presence Privacy Settings in Friend Matching</a>.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.6 Handling for Initial Applications to Reduce Unnecessary Regions | Nintendo Switch Patch Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.6 Handling for Initial Applications to Reduce Unnecessary Regions -->
+<div class="pagetitle" id="PageId_1118601423">2.6 Handling for Initial Applications to Reduce Unnecessary Regions</div>
+<div class="text_separate">
+<p>If data in the initial version of the application is no longer referenced when a patch is applied, the storage area for that data becomes superfluous. Whenever possible, avoid creating superfluous regions that are not referenced so as to free up storage space.</p>
+<p>One method to reduce superfluous regions is to distribute most of your data through patches, instead of through the initial application. In particular, there will be no superfluous regions if the initial application merely contains a message that tells the user that update data is required.</p>
+<p>This method is particularly effective for downloadable applications that periodically issue patches. If you are considering using this method, consult with Nintendo in advance.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>If there is an unavoidable reason for not making the initial application smaller, you can also use application compaction to later remove areas of the initial application that are no longer being referenced. For more information, see <a href="../Pages/Page_1067306963.html">2.7 Application Compaction</a>.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>For applications that support pre-orders, data will be distributed to users prior to the release date, so there is the risk of patch information being leaked. In particular, be careful if the patch contains all of the content. You can configure secure distribution settings to prevent this type of information leakage. For more information, see <a href="../Pages/Page_1116983724.html">3.3 Patch Distribution</a> &gt; Important Information for Distributing Patches for Applications That Support Pre-Orders.</p>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

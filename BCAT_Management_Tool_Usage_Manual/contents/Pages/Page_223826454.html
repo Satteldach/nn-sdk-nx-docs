@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2 Test Delivery of Data | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2 Test Delivery of Data -->
+<div class="pagetitle" id="PageId_223826454">5.2 Test Delivery of Data</div>
+<div class="text_separate">
+<h1 id="Anchor_223826454_h1_1">Test Delivery of Data</h1>
+<p>This section describes the procedure for test delivery of data for applications that support BCAT data delivery to Switch consoles.</p>
+<h2 id="Anchor_223826454_h2_1">Step 1: System Settings</h2>
+<p>Refer to <a href="../Pages/Page_205850121.html">5.3 Configuring the System for Test Delivery</a> and configure the Switch system settings.</p>
+<h2 id="Anchor_223826454_h2_2">Step 2: Adding Delivery Targets</h2>
+<p>Refer to <a href="../Pages/Page_203561453.html">5.4 Adding Test Delivery Targets</a> and add the following information to the BCAT Management Tool.</p>
+<ul>
+  <li>The Nintendo Account or the account for China</li>
+  <li>The Switch system serial number</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The specified information for the Nintendo Account or the account for China is used to notify the Switch system about the start of file delivery and to trigger background synchronization.</p>
+    <p>If the application has immediate synchronization, an account other than the Nintendo Account or the account for China added in this step can also receive the test delivery data. In that case, there is no need to add a Nintendo Account or an account for China.</p>
+  </div>
+</div>
+<h2 id="Anchor_223826454_h2_3">Step 3: Adding Data</h2>
+<p>See <a href="../Pages/Page_203432594.html">4 Data Delivery</a> and add data to the BCAT Management Tool.</p>
+<p>
+  <span style="color: rgb(55,55,55);">In test delivery, files that are not currently being delivered can be set for delivery. As a result, for example, pre-delivery review is not necessary.</span>
+</p>
+<h2 id="Anchor_223826454_h2_4">Step 4: Registering IP Addresses</h2>
+<p>See <a href="../Pages/Page_314465287.html">2.8 Restricting IP Addresses</a> and register the Switch system&rsquo;s global IP address in the BCAT Management Tool.</p>
+<h2 id="Anchor_223826454_h2_5">Step 5: Delivery</h2>
+<p>Perform the following operations.</p>
+<ol>
+  <li>In the BCAT Management Tool menu, select <strong>Test Delivery</strong> &gt; <strong>Manage Test Delivery</strong>.</li>
+  <li>Select <strong>Create Test Delivery List</strong>.</li>
+  <li>Follow the instructions on the screen and select a file for test delivery.</li>
+  <li>Follow the instructions on the screen and select a delivery target (a Nintendo Account or an account for China, and a Switch system serial number).<br /></li>
+  <li>Operate the Switch console that will be the delivery target and connect it to the internet. Turn on the power, wake up the console, and unlock the screen.<br /></li>
+  <li>Return to the BCAT Management Tool, and select <strong>Save and Deliver</strong> to start test delivery.</li>
+</ol>
+<h1 id="Anchor_223826454_h1_2">Stopping Test Delivery of Data</h1>
+<p>This section describes the steps for stopping test delivery of data.</p>
+<ol>
+  <li>Refer to <a href="../Pages/Page_205850121.html">5.3 Configuring the System for Test Delivery</a> and delete the test delivery settings from the Switch console.</li>
+  <li>In the BCAT Management Tool menu, select <strong>Test Delivery</strong> &gt; <strong>Manage Test Delivery</strong>.</li>
+  <li>Click the <strong>Delete</strong> button for the list that used test delivery.</li>
+</ol>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

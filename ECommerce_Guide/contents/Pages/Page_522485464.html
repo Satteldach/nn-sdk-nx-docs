@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.2.3 Sharing Licenses | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.2.3 Sharing Licenses -->
+<div class="pagetitle" id="PageId_522485464">7.2.3 Sharing Licenses</div>
+<div class="text_separate">
+<p>License information for subscription service items is linked to the Nintendo Account of the user who purchased the items to facilitate management of that license information.<br />The following two methods are available for sharing license information for Nintendo Accounts.</p>
+<ul>
+  <li>Device-based sharing</li>
+  <li>Account-based sharing</li>
+</ul>
+<h1 id="Anchor_522485464_h1_1">Setting the Scope of License Sharing</h1>
+<p>Using OMAS, you can select whether to provide subscription service items under the device-based sharing model or under the account-based sharing model for each course ID.</p>
+<h1 id="Anchor_522485464_h1_2">Device-Based Sharing</h1>
+<p>Device-based sharing shares the license (validity period) with other Nintendo Accounts on the Switch system. However, the following conditions must be met to share the license on the device.</p>
+<ul>
+  <li>The Switch system is set as the primary console of the Nintendo Account that owns the active license.</li>
+  <li>Other accounts on the device have their user accounts linked to their Nintendo Account.</li>
+</ul>
+<div class="figure">
+  <a name="AutoAnchor_522485464_figure001"></a>Figure 7-4  Device-Based Sharing</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522485464/831139815.png" height="400" class="embedded-image" />
+  </span>
+</p>
+<p>When implementing the application, you can choose whether the Nintendo Account with the validity period can use the service on consoles that are not the primary console (the part indicated by a triangle in the diagram).</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>If a Nintendo Account with an active subscription is on a Switch that is no longer a primary console, the subscription is no longer available on that console. Only one Nintendo Switch can be registered as a primary console. Unregistering does not automatically transfer primary console status to a different Switch.</p>
+  </div>
+</div>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about primary consoles, see <a href="../Pages/Page_483854071.html">9.2 Relationship Between Nintendo Accounts and Licenses</a>.</p>
+  </div>
+</div>
+<h2 id="Anchor_522485464_h2_1">Multiple Accounts With Licenses on the Same System</h2>
+<p>If a device-based shared license already exists on a Switch system, other Nintendo Accounts claiming that Switch as its primary console cannot activate another license (because there is already one available). The API for starting to use a license returns an error.</p>
+<p>If multiple device-based shared licenses exist due to linking a Nintendo Account with an active license, the license reference API will return information associated with the license that has the longer validity period. However, consumption of the subscription duration continues for the license with the shorter validity period.</p>
+<p>This specification applies to activation of licenses. Purchasing licenses is not affected by the status of Nintendo Accounts.</p>
+<h1 id="Anchor_522485464_h1_3">Account-Based Model</h1>
+<p>In the account-based model, licenses are not shared with other Nintendo Accounts and only the licenses for your own Nintendo Account are referenced.</p>
+<p>With the account-based model, licenses are also available on Switch consoles that are not the primary console.</p>
+<div class="figure">
+  <a name="AutoAnchor_522485464_figure002"></a>Figure 7-5  Account-Based Sharing Concept Diagram</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_522485464/831139814.png" height="400" class="embedded-image" />
+  </span>
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

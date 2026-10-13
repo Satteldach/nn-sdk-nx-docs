@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.6 Friend Presence | Nintendo Switch NEX Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.6 Friend Presence -->
+<div class="pagetitle" id="PageId_1119052243">5.6 Friend Presence</div>
+<div class="text_separate">
+<p>The term &quot;friend presence privacy&quot; used on this page is a term specific to the Nintendo SDK <code>friends</code> library. On the Nintendo Switch family of consoles, this setting for changing the presence privacy is shown in the HOME Menu as <strong>Display online status to:</strong> in the Friend Settings.</p>
+<h1 id="Anchor_1119052243_h1_1">
+  <span class="sv-ti-title-text">If a friend changes their presence privacy setting while playing the application, NEX might not always be able to track changes in friend presence status.</span>
+</h1>
+<p>When debugging the application, note the following specification about the presence status of friends.</p>
+<p>The presence status can be checked using certain functions and certain notification events, but an outdated status might be referenced in the case of the following combinations of targets and conditions.</p>
+<h2 id="Anchor_1119052243_h2_1">Target</h2>
+<ul>
+  <li>SubscriberClient::GetUserStatuses()</li>
+  <li>SubscriberClient::GetFriendUserStatuses(const qVector&lt;PrincipalID&gt;&amp;, qVector&lt;SubscriberUserStatusInfo&gt;*)</li>
+  <li>SubscriberClient::UpdateUserStatus() (Only when <code>true</code> is specified for the third argument, <code><em>isNotify</em></code>.)</li>
+  <li>MatchmakeExtensionClient::GetFriendNotificationData()</li>
+  <li>MatchmakeExtensionClient::UpdateNotificationData()</li>
+  <li>NotificationEvents::NotificationEvents<br /><ul><li>GameNotificationType1 to GameNotificationType8</li><li>GameNotificationLogout</li><li>UserStatusUpdatedEvent</li></ul></li>
+</ul>
+<h2 id="Anchor_1119052243_h2_2">Condition</h2>
+<h3 id="Anchor_1119052243_h3_1">When Using the Subscriber Feature</h3>
+<p>If both of the following conditions are met:</p>
+<ul>
+  <li>The friend changes their presence privacy setting while playing the application.</li>
+  <li>The feature for caching friend status is enabled (the <code>SubscriberClient::EnableFriendUserStatusesCache()</code> function has been called).</li>
+</ul>
+<h3 id="Anchor_1119052243_h3_2">When Using the Matchmaking and Notification Event Features</h3>
+<p>If the following condition is met:</p>
+<ul>
+  <li>The friend changes their presence privacy setting while playing the application.</li>
+</ul>
+<h2 id="Anchor_1119052243_h2_3">Examples</h2>
+<p>These examples are based on the following situation.</p>
+<ul>
+  <li>User A and user B are friends.</li>
+  <li>User B is trying to get the presence status of user A.</li>
+</ul>
+<h5 id="Anchor_1119052243_h5_1">Case 1</h5>
+<p>User A starts playing the application with their presence privacy set to <strong>public</strong>, but then changes it to <strong>private</strong> while playing.</p>
+<ul>
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>User B will continue to see the status for user A that was shared while user A's presence privacy setting was set to <strong>public</strong>.</li>
+      <li>The status of user A subsequent to changing the presence privacy setting to <strong>private</strong> is not shared with user B. Moreover, the outdated status continues to be shared even after user A has signed out of the NEX game server. (The status does not get deleted.)</li>
+    </ul>
+  </li>
+</ul>
+<h5 id="Anchor_1119052243_h5_2">Case 2</h5>
+<p>User A starts playing the application with their presence privacy set to <strong>private</strong>, but then changes it to <strong>public</strong> while playing.</p>
+<ul>
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>The presence status of user A will continue to not be shared with user B.</li>
+      <li>However, when user A updates their status (changing from online to offline, or vice versa), that new status will be shared with user B.</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="Anchor_1119052243_h2_4">Notes</h2>
+<ul>
+  <li>In the context of this page, setting the presence privacy to <strong>public</strong> refers to one of the following situations.<ul><li>User A has selected <strong>All Friends</strong> for <strong>Display online status to:</strong></li><li>User A has selected <strong>Best Friends</strong> for <strong>Display online status to:</strong>, and user B is a best friend of user A.</li></ul></li>
+  <li>In the context of this page, setting the presence privacy to <strong>private</strong> refers to one of the following situations.<br /><ul><li>User A has selected <strong>No One</strong> for <strong>Display online status to:</strong>.</li><li>User A has selected <strong>Best Friends</strong> for <strong>Display online status to:</strong>, but user B is not a best friend of user A.</li><li>User A has deleted user B from their friend list.</li></ul></li>
+</ul>
+<!--Remove-->
+<h2 id="Anchor_1119052243_h2_5">Workaround</h2>
+<p>Use the following workarounds to get the presence status, taking the setting for presence privacy into account.</p>
+<ul>
+  <li>Disable status caching and use the NEX library to check the status as needed, without depending on NEX library notification events.</li>
+  <li>Compare the status as checked using the NEX library with the status checked using the <code>friends</code> library.</li>
+</ul>
+<p>In either case, be careful to comply with the guideline that restricts the frequency of function calls.</p>
+<!--Remove-->
+<p class="auto-cursor-target">
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

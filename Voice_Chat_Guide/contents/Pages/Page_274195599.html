@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.2 Conditions for Joining the Same Room | Nintendo Switch Voice Chat Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.2 Conditions for Joining the Same Room -->
+<div class="pagetitle" id="PageId_274195599">2.2 Conditions for Joining the Same Room</div>
+<div class="text_separate">
+<h1 id="Anchor_274195599_h1_1">When Using NEX or NPLN</h1>
+<p>The matchmaking mechanism in NEX and NPLN only allows matching between users connected to the same game server. For this reason, Matchmaking Voice Chat cannot take place between applications connected to different game servers.</p>
+<p>As a rule, one NEX game server is assigned for the same title (the applications that all have the same top four digits in their initial codes). If you want to use the same NEX game server for multiple titles, contact Nintendo. In principle, dividing a title among multiple NEX game servers is not supported.</p>
+<p>When using an NPLN game server (tenant), an application developer can freely add or change applications that can connect to the game server. For more information, see the NPLN Manual.</p>
+<h1 id="Anchor_274195599_h1_2">Conditions for Joining a Room</h1>
+<p>All of the following conditions must be satisfied for users to join together in the same <em>room</em> for voice chatting with the Matchmaking Voice Chat feature.</p>
+<ol>
+  <li>The users joining the same room are all using titles that belong to the same title group.</li>
+  <li>The users joining the same room are all using voice chat with the same session ID specified in the title.</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Users can join the same room as long as they have the same session ID, even if the game modes differ. However, if you set it to a different game mode according to the type of matchmaking, it becomes easier for Nintendo to investigate when some kind of problem has occurred. Basically, make sure that you set the game mode when using NEX.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_274195599/1968824633.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_274195599_h2_1">Using Titles That Belong to the Same Title Group</h2>
+<p>Users who are using titles that belong to different title groups cannot join the same room.<br />The Voice Chat server manages applications in units of title groups.</p>
+<p>For more information about the conditions for titles to belong to the same title group, see <a href="../Pages/Page_497214620.html">2.3.1 Development Environment Server Settings for Matchmaking Voice Chat</a>.</p>
+<h2 id="Anchor_274195599_h2_2">Specifying the Same Session ID</h2>
+<p>Matchmaking Voice Chat rooms are prepared based on the session ID specified by the application. Users with the same specified session ID can join the same room.</p>
+<p>If you are using the NEX matchmaking feature, specify the gathering ID for the session ID. If you are using the NPLN matchmaking feature, specify the game session ID.</p>
+<p>If you are preparing a custom matchmaking setup on an independent server, specify an ID that will be shared by all users who join the same room.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

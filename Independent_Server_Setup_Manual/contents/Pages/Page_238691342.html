@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.7.4 Account API | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.7.4 Account API -->
+<div class="pagetitle" id="PageId_238691342">4.7.4 Account API</div>
+<div class="text_separate">
+<h2 id="Anchor_238691342_h2_1">Request Specification</h2>
+<h6 id="Anchor_238691342_h6_1">HTTP Method/Path</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">HTTP method</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th style="text-align: left;">Path</th>
+      <td>/2.0.0/users/me</td>
+    </tr>
+  </tbody>
+</table>
+<h6 id="Anchor_238691342_h6_2">Request Parameters</h6>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Item</th>
+      <th>Specification Method</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Authorization</td>
+      <td>header</td>
+      <td>Y</td>
+      <td>
+        <p>Bearer access token.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_238691342_h2_2">Response Specification</h2>
+<p>The response is returned in <code>application/json</code> format. If the request succeeds, the following properties are returned in the response.</p>
+<table class="wrapped relative-table" style="width: 93.541%;">
+  <colgroup>
+    <col style="width: 7.07317%;" />
+    <col style="width: 4.7904%;" />
+    <col style="width: 17.8036%;" />
+    <col style="width: 70.3328%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th> Type</th>
+      <th>Required Permission</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>-</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Represents the Nintendo Account identifier.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>There are two types of Nintendo Account identifiers, as listed below. The identifier that can be obtained will differ, depending on when the link with the Nintendo Account started. For more information, see <a href="../Pages/Page_1222798523.html">4.6 Migration From NAID to PPID</a>.</p>
+              <ul>
+                <li>NAID: An ID that is unique across all clients. (A 16-digit alphanumeric with lowercase letters.)</li>
+                <li>PPID: An ID that is different for every client. (A 28-digit alphanumeric with uppercase letters.)</li>
+              </ul>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>string</td>
+      <td>
+        <p>user.basic </p>
+        <p>user.country</p>
+      </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The user's country of residence. The format is ISO 3166-1 alpha-2. </p>
+          <p>The countries where a Nintendo Account can be registered may increase in the future as the service expands. Implement your independent server to operate without problems even if more countries can be set for this property in the future.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>New scope requests are not being accepted for the scope of <code>user.basic</code>.</p>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>language</td>
+      <td>string</td>
+      <td>user.basic </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The language used by the user.<br />Indicated by the <code>Locale</code> value (a hyphenated value comprising the language code, represented in IS 639-1, connected by a hyphen (-) to the country code, represented in ISO 3166-1 alpha-2). </p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>New scope requests are not being accepted for the scope of <code>user.basic</code>.</p>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>timezone</td>
+      <td>object</td>
+      <td>user.basic </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The user's time zone. It includes the following information.</p>
+          <ul>
+            <li>id: Expressed as a string like &quot;Asia/Tokyo.&quot;</li>
+            <li>name: Expressed as a string like &quot;Asia/Tokyo.&quot;</li>
+            <li>utcOffsetSeconds: Value that indicates the UTC offset in seconds.</li>
+            <li>
+              <p>utcOffset: Value that indicates the UTC offset.</p>
+            </li>
+          </ul>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>New scope requests are not being accepted for the scope of <code>user.basic</code>.</p>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>string</td>
+      <td>user.basic </td>
+      <td>
+        <div class="content-wrapper">
+          <p>The user's gender.</p>
+          <ul>
+            <li>unknown (Not registered)</li>
+            <li>male</li>
+            <li>female</li>
+          </ul>
+        </div>
+        <div class="note_new">
+          <div class="note_new_left">Note</div>
+          <div class="note_new_right">
+            <p>New scope requests are not being accepted for the scope of <code>user.basic</code>.</p>
+          </div>
+        </div>
+        <p class="auto-cursor-target">
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>birthday</td>
+      <td>string</td>
+      <td>user.birthday</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The user's date of birth. The format is YYYY-MM-DD.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>New scope requests are not being accepted for the scope of <code>user.birthday</code>.</p>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>string</td>
+      <td>user.email</td>
+      <td>
+        <p>
+          <span style="letter-spacing: 0.0px;">The user's email address. </span>
+        </p>
+        <div class="content-wrapper">
+          <p>If the target Nintendo Account is a child account, you cannot obtain an email address. For more information about child accounts, see the Account Guide.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>New scope requests are not being accepted for <code>user.email</code>.</p>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>links</td>
+      <td>object</td>
+      <td>user.links.nintendoNetwork.id</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Contains the information about the linked Nintendo Network ID.</p>
+          <ul>
+            <li>
+              <p>
+                <code>id</code>: The internal ID (principal ID) of the Nintendo Network ID.</p>
+              <p>
+                <br />
+              </p>
+            </li>
+            <li>
+              <code>createdAt</code>: The date and time when the Nintendo Network ID was linked to the Nintendo ID (<span style="color: rgb(23,43,77);">UNIX timestamp)</span>.</li>
+          </ul>
+          <table class="codeblock">
+            <tbody>
+              <tr>
+                <td class="code">
+                  <div class="codeblock"><pre>&nbsp;&nbsp;&quot;links&quot;: {
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;nintendoNetwork&quot;: {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;: &quot;1799873081&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;createdAt&quot;: 1476857705
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}</pre></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <span style="color: inherit;">If the user has not linked a Nintendo Network ID, an empty object will be returned even if authorization was acquired.</span>
+          </p>
+          <table class="codeblock">
+            <tbody>
+              <tr>
+                <td class="code">
+                  <div class="codeblock"><pre>&quot;links&quot;: {}</pre></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>New scope requests are not being accepted for <code>user.links.nintendoNetwork.id</code>.</p>
+            </div>
+          </div>
+          <p class="auto-cursor-target">
+            <br />
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Sample</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="nx">GET</span> <span class="o">/</span><span class="mf">2.0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="nx">users</span><span class="o">/</span><span class="nx">me</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="nx">Host</span><span class="o">:</span> <span class="nx">e97b8a9d672e4ce4845ec6947cd66ef6</span><span class="o">-</span><span class="nx">sb</span><span class="o">-</span><span class="nx">api</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">nintendo</span><span class="p">.</span><span class="nx">com</span>
+<span class="nx">Authorization</span><span class="o">:</span> <span class="nx">Bearer</span> <span class="nx">ey</span><span class="p">...</span>
+&nbsp;
+<span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="nx">OK</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span> <span class="nx">charset</span><span class="o">=</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span>
+<span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;fdfdc610f849726e&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;birthday&quot;</span><span class="o">:</span> <span class="s2">&quot;1984-10-03&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;country&quot;</span><span class="o">:</span> <span class="s2">&quot;JP&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;test+0001@example.com&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;language&quot;</span><span class="o">:</span> <span class="s2">&quot;ja-JP&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;nintendoNetwork&quot;</span><span class="o">:</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1799873081&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;createdAt&quot;</span><span class="o">:</span> <span class="mi">1476857705</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span>
+&nbsp;&nbsp;<span class="p">},</span>
+&nbsp;&nbsp;<span class="s2">&quot;timezone&quot;</span><span class="o">:</span> <span class="p">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;utcOffsetSeconds&quot;</span><span class="o">:</span> <span class="mi">32400</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;utcOffset&quot;</span><span class="o">:</span> <span class="s2">&quot;+09:00&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Asia/Tokyo&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Asia/Tokyo&quot;</span>
+&nbsp;&nbsp;<span class="p">}</span>
+<span class="p">}</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>If the request fails, the following error is returned.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: left;">Item</th>
+      <th style="text-align: left;">Description</th>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>The HTTP status code.</td>
+    </tr>
+    <tr>
+      <td>errorCode</td>
+      <td>
+        <p class="auto-cursor-target">
+          <br />
+        </p>
+        <table class="wrapped" data-mce-resize="false">
+          <tbody>
+            <tr>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>invalid_token</td>
+              <td>Error that occurs if the access token is invalid or has expired.</td>
+            </tr>
+            <tr>
+              <td>insufficient_scope</td>
+              <td>Error that occurs if an attempt is made to do something for which permission has not been granted.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="auto-cursor-target">
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>detail</td>
+      <td>
+        <p>Text describing the content of <code>errorCode</code>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

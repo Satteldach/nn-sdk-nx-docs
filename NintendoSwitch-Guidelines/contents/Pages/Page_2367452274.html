@@ -1,0 +1,1338 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Accounts | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Accounts -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452274" data-tags="revision-updated-5.0">Accounts</div>
+<div class="text">
+<p>This chapter covers requirements related to accounts.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Accounts: General -->
+<h1 class="general" id="GuidelineLabel_2367452276" data-tags="revision-updated-5.0">Accounts: General</h1>
+<div class="text">
+<p>This subchapter covers general requirements for accounts.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0153: Updating the user account state to reflect whether the user is playing your application -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452278" data-tags="revision-updated-6.0 revision-updated-14.0 revision-updated-13.0 revision-updated-8.0 revision-updated-7.0 revision-updated-5.0 function-アカウント" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452278" title="Right-click and copy link to copy a permalink to this guideline">0153: Updating the user account state to reflect whether the user is playing your application</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+For the duration that a given user is playing your application, you must keep their user account in the <code>Open</code> (signed-in) state. Likewise, for the duration that a given user is not playing your application, you must keep their user account in the <code>Close</code> (signed-off) state.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use user accounts
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>In general, applications can associate individual periods of gameplay with specific users. (For example, if the user starts a play session by selecting save data to continue, you can assume the same specific user is playing during that entire session.)  During these periods of gameplay, your application must set the user account of the currently-playing user to <code>Open</code> (signed-in) state. If multiple users are playing, you must set all participating users' user accounts to <code>Open</code> (signed-in) state. Likewise, when a specific user stops playing&mdash;for example, when they back out of that user account to a scene before user account selection&mdash;you must set their user account to <code>Close</code> (signed-off) state.</p>
+  <p>You must set the user accounts of users not playing your application to <code>Close</code> (signed-off), not <code>Open</code> (signed-in). But in applications where players take turns or alternate control of gameplay&mdash;for example, in a turn-based board game&mdash;you do not need to set non-active user accounts to <code>Close</code> (signed-off) while those users are waiting for their turns.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <ul>
+        <li>You must not set unqualified user accounts to <code>Open</code> (signed-in). For more information about unqualified user accounts, see &quot;<a href="../Pages/Page_2367452274.html#GuidelineDescLabel_2367452286">0176: Prohibition of setting unqualified user accounts to Open state</a>.&quot;</li>
+        <li>The user must explicitly confirm which users are playing your application. For more information about selecting user accounts, see &quot;<a href="../Pages/Page_2367452274.html#GuidelineDescLabel_2367452280">0199: Prohibition of automatically identifying the users playing your application</a>.&quot;</li>
+      </ul>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <ul>
+        <li>Note that this test cannot be performed under Prod Mode (the mode a devkit operates under when it has been initialized by <code>InitializeSdev</code> or <code>InitializeEdev</code> to a firmware version that has the string &quot;+ Prod&quot; in its description).</li>
+        <li>Note that the devkit must boot to the DevMenu in order to perform this test.</li>
+        <li>Use firmware version NintendoSDK Firmware for NX 5.0.0-3 (NX Add-on 5.3.0) or later to perform this test.</li>
+      </ul>
+    </div>
+  </div>
+  <ol>
+    <li>Register two or more user accounts on a Switch devkit.</li>
+    <li>Start DevMenu, go to <strong>Debug &gt; Initial Boot Menu</strong> and change this setting to <strong>DevMenu</strong>, then restart the Switch devkit.</li>
+    <li>On DevMenu, go to <strong>Application</strong> and start the application you are testing, then proceed to the scene where you select a user account (or other information associated with a user account such as save data). Select the user account (or other information) you are using for this test.</li>
+    <li>Play through all modes of your application from beginning to end.</li>
+    <li>Transition to a scene in the application where the same user stops playing or is no longer playing the application. If no scene within the application fits this description, press the HOME Button and close the application.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">Passes if all of the following conditions are met.<ul><li>At some point before the tester starts using the user account (or other information associated with a user account such as save data) in step 4, only the message <strong>User Opened &quot;<em>nickname of user account selected in step 3</em>&quot;</strong> is displayed in the upper left of the screen.</li><li>While the tester is playing the application in step 4, no unnecessary <strong>User Opened</strong> or <strong>User Closed</strong> messages are displayed in the upper left of the screen.</li><li>In step 5, only the message <strong>User Closed &quot;<em>nickname of user account selected in step 3</em>&quot;</strong> is displayed in the upper left of the screen.</li></ul><div class="note_new"><div class="note_new_left">Note:</div><div class="note_new_right"><p>Unnecessary <strong>User Opened</strong> and <strong>User Closed</strong> messages occur when an application changes a user account to the <strong>Open</strong> (signed-in) state while that user is not playing the application, or when an application changes a user account to the <strong>Closed</strong> (signed-off) state while that user is still playing the application.</p></div></div><!--Remove - p.auto-cursor-target--></div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452278_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452278_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452278_1" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452278_1">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452278_2" data-tag="revision-updated-13.0">
+<label for="tagfilter_2367452278_2">
+<span class="revision-tag" title="Updated v13.0" data-tag="revision-updated-13.0">Updated v13.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452278_3" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452278_3">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452278_4" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452278_4">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452278_5" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452278_5">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452278_6" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367452278_6">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0199: Prohibition of automatically identifying the users playing your application -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452280" data-tags="revision-updated-14.0 revision-updated-15.0 function-アカウント" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452280" title="Right-click and copy link to copy a permalink to this guideline">0199: Prohibition of automatically identifying the users playing your application</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not automatically identify the users who are playing, without associated user operations.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that identify the users who are playing and set those user accounts to the <code>Open</code> (signed-in) state
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Switch systems are expected to be shared between and used by multiple users. If your application automatically identifies the users who are playing without associated user operations, you might accidentally use the data of a user who is not actually playing. To avoid this, your application must use user operations to identify the user who is playing.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <ul>
+        <li>If your application is designed to have the user select an account from the HOME Menu before application startup, your application must set that selected user account to the <code>Open</code> (signed-in) state. In this case, there is no need to require a user operation inside the application to reconfirm which user started the game.</li>
+        <li>If the <code>isSkipEnabled</code> variable in <code>nn::account::UserSelectionSettings</code> is set to <code>true</code>, then the account management applet may skip its user selection step when <strong>Skip Selection Screen</strong> is enabled in system settings. It is not a problem if user selection is skipped in this situation. Note that the <strong>Skip Selection Screen</strong> option is not visible in system settings if more than one account is registered on the Nintendo Switch system.</li>
+      </ul>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <ol>
+    <li>Prepare a Switch devkit that has only one user account.</li>
+    <li>Start DevMenu, go to <strong>Accounts</strong> &gt; <strong>Firmware settings</strong> and deselect <strong>Skip user account selection if possible</strong>. Then go to <strong>Debug</strong> &gt; <strong>Initial Boot Menu</strong>, change this setting to <strong>DevMenu</strong>, and restart the Switch devkit.</li>
+    <li>In DevMenu, go to <strong>Application</strong> and start the application you are testing. Select the user account you left on the devkit in step 1, and play the application.</li>
+    <li>Close the application. In DevMenu, select <strong>Accounts</strong> &gt; <strong>+ Add a user account</strong> and add a user account.</li>
+    <li>In DevMenu, go to <strong>Application</strong> and start the application you are testing. Select the user account you created in step 4, and play the application.</li>
+  </ol>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If your application requires a linked Nintendo Account at startup (if &quot;<code>RequiredWithNetworkServiceAccountAvailable</code>&quot; is set for <code>StartupUserAccount</code> in the application's NMETA file), then the user account that you select in steps 3 and 5 must already have a Nintendo Account linked to it in advance.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if all of the following conditions are met.<ul>
+  <li>In step 3, the application uses user operations to identify the user account that is playing, and only the message <strong>User Opened &quot;<em>nickname of user account left on the devkit in step 1</em>&quot;</strong> is displayed in the upper left of the screen.</li>
+  <li>In step 5, the application uses user operations to identify the user account that is playing, and only the message <strong>User Opened &quot;<em>nickname of user account created in step 4</em>&quot;</strong> is displayed in the upper left of the screen.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452280_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452280_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452280_1" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367452280_1">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452280_2" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367452280_2">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0168: Prohibition of requesting NSA ID tokens in applications that do not need to get NSA ID tokens -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452282" data-tags="revision-updated-8.0 revision-updated-7.0 function-アカウント" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452282" title="Right-click and copy link to copy a permalink to this guideline">0168: Prohibition of requesting NSA ID tokens in applications that do not need to get NSA ID tokens</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Applications that do not need to get <a href="../Pages/Page_2367451833.html#Anchor_2367451833_NSA">NSA</a> ID tokens must not request NSA ID tokens.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that do not need to get NSA ID tokens
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>If you have not filled out requests to use NEX or independent servers on OMAS, then your application cannot get NSA ID tokens.</p>
+<p>If such an application attempts to get an NSA ID token by calling <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code>, it triggers an unnecessary access to the authentication server.</p>
+<p>To avoid burdening the authentication server, applications that do not need to get NSA ID tokens are prohibited from calling <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code>.</p>
+<p>You must take special care if you are taking code from an old application that used network features and reusing it in a new application that does not have network features. It is acceptable for your application to retain a function call to <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code> in its source code as long as the logic of your program prevents this function from ever being called.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the source code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not call <code>nn::account::EnsureNetworkServiceAccountIdTokenCacheAsync()</code>.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452282_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452282_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452282_1" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452282_1">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452282_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452282_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0169: Prohibition of using the sorting order of user accounts for any purpose other than displaying them in a list -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452284" data-tags="revision-updated-7.0 function-アカウント" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452284" title="Right-click and copy link to copy a permalink to this guideline">0169: Prohibition of using the sorting order of user accounts for any purpose other than displaying them in a list</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not use the sorting order of user accounts (either their list order or the order in which they have been selected in the past) for any purpose other than displaying the list of user accounts within the application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use user accounts
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>It is prohibited to use the sorting order of user accounts for any purpose other than displaying a list of user accounts within your application. It is prohibited to handle some user accounts differently from others based on their sorting order.<br />Sorting order includes the following orderings:</p>
+<ul>
+  <li>The list order of user accounts on the upper left of the HOME Menu<br /><ul><li>You can get this sorting order from most <code>nn::account</code> functions that return a list of user accounts, such as <code>nn::account::ListAllUsers</code>.</li></ul></li>
+  <li>The selection order (the most recently selected user account)<ul><li>You can get this from <code>nn::account::GetLastOpenedUser()</code>, the <code>nn::account</code> function that returns the last-selected user account.</li></ul></li>
+</ul>
+<p>The sorting order is defined to allow users to easily select the user accounts that they use most often.<br />It goes against this defined purpose of the sorting order to prioritize specific user accounts over others based on their order, or to deliberately handle some user accounts differently from others in order to give them different user experiences. Doing so is also prohibited because it can lead to problems like the following:</p>
+<ul>
+  <li>Users may mistakenly believe that this behavior with the user account configuration is standard for all applications.</li>
+  <li>If a user account that the user does not want to use is given special handling, it disregards the user's intentions.</li>
+</ul>
+<p>The following are some examples of prohibited specifications:</p>
+<ul>
+  <li>Automatically selecting the first user account (the one displayed farthest left on the HOME Menu).</li>
+  <li>Automatically selecting the most recently selected user account.</li>
+  <li>Automatically using the first user account's information or save data.</li>
+  <li>Automatically giving the first user account a separate or special 'lead' role in an application with asymmetrical multiplayer (competitive play where some players have advantages or different status from the others), where the rest of the players have 'follower' or 'normal participant' roles.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the source code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not use the list order of user accounts for any purpose other than displaying the list of user accounts within the application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452284_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452284_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452284_1" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367452284_1">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0176: Prohibition of setting unqualified user accounts to Open state -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452286" data-tags="revision-updated-20.0 revision-updated-21.0 revision-updated-19.1 revision-updated-8.0 revision-updated-15.0 function-アカウント revision-updated-9.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452286" title="Right-click and copy link to copy a permalink to this guideline">0176: Prohibition of setting unqualified user accounts to Open state</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not use <code>nn::account::OpenUser()</code> to set unqualified user accounts to the <code>Open</code> (signed-in) state.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>Applications that use NintendoSDK NX Add-on 6.x or later and also call <code>nn::account::OpenUser()</code></p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications with <strong>UserAccountSwitchLock</strong> set to <strong>Enable</strong> in their NMETA file</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <br />
+  <div>
+    <p>In firmware that supports NintendoSDK NX Add-On 6.x or later, the licenses for downloadable applications and downloadable content allow these types of content to be played on systems other than the &quot;primary console&quot; (formerly also called the &quot;active console&quot;).</p>
+  </div>
+  <p>Only users who have a license for the application can play it on Switch systems other than the primary console. All other users on those systems are restricted (Unqualified) users and are prohibited from playing the application. If your application sets an unqualified user to the <code>Open</code> (signed-in) state using <code>nn::account::OpenUser()</code>, the system forces your application to close. Because of this, you must not set an unqualified user account to the <code>Open</code> (signed-in) state.</p>
+  <div>
+    <p>Firmware that supports NintendoSDK NX Add-On 13.2.0 and later supports relaxation of user account restrictions.</p>
+  </div>
+  <p>Relaxation of user account restrictions can promote user accounts that were Unqualified at application startup to Qualified while your application is running. If a previously-unqualified user account has been promoted to qualified status, and your application uses <code>nn::account::OpenUser()</code> to set this user account to the <code>Open</code> (signed-in) state, the system does not force your application to close. Therefore, it is not a problem to set promoted user accounts to the <code>Open</code> (signed-in) state.</p>
+  <p>The <code>nn::account::ListAllUsers()</code> function lists all users (including unqualified users), so you must be careful when using this function in your application. To list only qualified users, use <code>nn::account::ListQualifiedUsers()</code>.</p>
+  <p>Likewise, you must be careful if your application sets <code>nn::account::UserSelectionSettings::isUnqualifiedUserSelectable</code> to <code>true</code> and then calls the account management applet, because the user may select an unqualified user account. In scenes where your application lets users select which user account to set to the <code>Open</code> (signed-in) state, you must either set <code>isUnqualifiedUserSelectable</code> to <code>false</code> before calling the account management applet, or&mdash;if the user selects an unqualified user account&mdash;wait until that user account is promoted to qualified before setting it to the <code>Open</code> (signed-in) state. If an unqualified user account is not promoted, you must not set it to the <code>Open</code> (signed-in) state.<br />In cases where your application lets the user select an unqualified user account, but then cannot set that user account to <code>Open</code> (signed-in) state because it is not promoted, you must not allow the user to play with that un-Opened user account. Allowing the user to play with an un-Opened account violates &quot;<a href="../Pages/Page_2367452274.html#GuidelineDescLabel_2367452278">0153: Updating the user account state to reflect whether the user is playing your application</a>.&quot;</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>You can specify an NMETA file option to ensure that only user accounts that were selected before application startup can be set to the Open (signed-in) state. Applications that have this option enabled are not subject to this guideline.</p>
+      <div>
+        <p>This option is available in NintendoSDK NX Add-On 6.4.0 and later.</p>
+      </div>
+      <!--Remove - p.auto-cursor-target-->
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch E-Commerce Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>NintendoSDK Documents</li>
+      <li style="list-style-type: none;">
+        <ul>
+          <li>
+            <p>Features &gt; System &gt; account Library &gt; User Account</p>
+          </li>
+          <li>Features &gt; System &gt; aoc Library &gt; Policy Setting for Changes to Available Content</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<!--Remove - p.auto-cursor-target-->
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div>
+    <!--Remove - p.auto-cursor-target-->
+    <div class="info_new">
+      <div class="info_new_left">Info:</div>
+      <div class="info_new_right">
+        <p>You must use a devkit running Firmware for NX 16.0.0-4.0 or later to perform this Test Method.</p>
+      </div>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+  <ol>
+    <li>Create at least two user accounts, and link at least one of them to a Nintendo Account.</li>
+    <li>Start DevMenu, go to <strong>Debug</strong> &gt; <strong>Initial Boot Menu</strong> and change this setting to <strong>DevMenu</strong>, then restart the system.</li>
+    <li>In DevMenu, go to the <strong>Application</strong> tab and hover your cursor over the application you are testing.</li>
+    <li>Press the + Button or &minus; Button.</li>
+    <li>Select or tap <strong>Unqualified User</strong>.</li>
+    <li>Choose a user account to set to Qualified (one of the user accounts linked to a Nintendo Account in step 1) and set <strong>Force Unqualified For Debug</strong> to <strong>Disabled</strong> for that user account.</li>
+    <li>Choose a user account to set to Unqualified (any user account other than the one set to <strong>Disabled</strong> in step 6) and set <strong>Force Unqualified For Debug</strong> to <strong>Enabled</strong> for that user account.</li>
+    <li>Press the B Button or select <strong>Back</strong> to return to the application selection screen.</li>
+    <li>In DevMenu, go to <strong>Application</strong> and select the application you selected in step 3. When asked which user account to use, select the user account that you set to <strong>Disabled</strong> in step 6. (This will make the selected account the only qualified user account.)</li>
+    <li>Check all scenes that call <code>nn::account::OpenUser()</code>. (If the application asks you to select a user account, try selecting the user account you set to <strong>Enabled</strong> in step 7.)</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Passes if, in step 10, all scenes you check meet the following condition.</p>
+  <ul>
+    <li> The system does not force your application to close.</li>
+  </ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452286_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452286_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452286_1" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367452286_1">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452286_2" data-tag="revision-updated-20.0">
+<label for="tagfilter_2367452286_2">
+<span class="revision-tag" title="Updated v20.0" data-tag="revision-updated-20.0">Updated v20.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452286_3" data-tag="revision-updated-19.1">
+<label for="tagfilter_2367452286_3">
+<span class="revision-tag" title="Updated v19.1" data-tag="revision-updated-19.1">Updated v19.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452286_4" data-tag="revision-updated-15.0">
+<label for="tagfilter_2367452286_4">
+<span class="revision-tag" title="Updated v15.0" data-tag="revision-updated-15.0">Updated v15.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452286_5" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367452286_5">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452286_6" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452286_6">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0208: Prohibition of using Nintendo Account-related terms -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452288" data-tags="function-違反件数が多い revision-updated-18.0 function-アカウント revision-updated-19.0 revision-updated-20240325" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452288" title="Right-click and copy link to copy a permalink to this guideline">0208: Prohibition of using Nintendo Account-related terms</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+You must not use Nintendo Account-related terms within your application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>All applications</p>
+  <div>
+    <p>(Includes applications for China)</p>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Any of the following</p>
+<ul>
+  <li>System features</li>
+  <li>Applications whose &quot;Nintendo Account Linking (OAuth)&quot; status on OMAS is set to &quot;Approved&quot;</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>You must not use the following Nintendo Account-related terms within your application.</p>
+  <ul>
+    <li>Nintendo Account</li>
+    <li>child account</li>
+    <li>sign in / sign out<br />(when referring to authentication using a Nintendo Account)</li>
+    <li>create<br />(when referring to creating a Nintendo Account)</li>
+    <li>link<br />(when referring to associating a Nintendo Account with a user account)</li>
+  </ul>
+  <p>The reason for this requirement is that the framework and terminology of Nintendo Accounts and related services may change in future. You must not use these terms within your application itself. Instead, use the applets provided by the system features as needed.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>These terms are used within the Switch system features, but it is prohibited to use them within applications.<br />The following are some examples of implementations that violate this guideline, along with corresponding ways of complying with the guideline.</p>
+      <ul>
+        <li>
+          <strong>If your application displays Nintendo Accounts as an account service that players can use within the application:</strong>
+        </li>
+      </ul>
+      <table class="wrapped" style="margin-left: 40.0px;" data-mce-resize="false">
+        <colgroup> <col /> <col /> </colgroup>
+        <tbody style="margin-left: 40.0px;">
+          <tr style="margin-left: 40.0px;">
+            <th style="margin-left: 40.0px;">Implementation that violates this guideline</th>
+            <th style="margin-left: 40.0px;">How to comply</th>
+          </tr>
+          <tr style="margin-left: 40.0px;">
+            <td style="margin-left: 120.0px;">
+              <p>Displaying a button labeled &quot;Sign in with Nintendo Account&quot;<br />(Selecting the button launches the account management applet)</p>
+            </td>
+            <td style="margin-left: 40.0px;">
+              <ul>
+                <li>Changing the button label to text that is more generic, such as &quot;Play online&quot;</li>
+                <li>Removing the button, and instead launching the account management applet automatically</li>
+              </ul>
+            </td>
+          </tr>
+          <tr style="margin-left: 40.0px;">
+            <td style="margin-left: 40.0px;">
+              <p>In applications that offer multiple account services, displaying a button labeled &quot;Nintendo Account&quot; as one of the options that the player can choose<br /><br /><br />(Selecting the button launches the account management applet)</p>
+            </td>
+            <td style="margin-left: 40.0px;">
+              <ul>
+                <li>Changing the button label to simply &quot;Nintendo&quot;</li>
+                <li>Removing the button, and instead (if necessary) launching the account management applet automatically</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          <strong>When the user cancels out of the account management applet:</strong>
+        </li>
+      </ul>
+      <table class="wrapped" style="margin-left: 40.0px;" data-mce-resize="false">
+        <colgroup> <col /> <col /> </colgroup>
+        <tbody style="margin-left: 40.0px;">
+          <tr style="margin-left: 40.0px;">
+            <th style="margin-left: 40.0px;">Implementation that violates this guideline</th>
+            <th>How to comply</th>
+          </tr>
+          <tr>
+            <td>Displaying an independent error message that includes prohibited terms such as &quot;You must link a Nintendo Account to play online.&quot;<br /></td>
+            <td>
+              <ul>
+                <li>Displaying no independent error message if the user cancels out of the account management applet (because the account management applet provides all necessary handling for Nintendo Accounts)<br /></li>
+                <li>Changing the error message to text that is more generic, such as &quot;This will disable online play.&quot;</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--Remove - p.auto-cursor-target-->
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Terminology</em>
+      </li>
+      <li>
+        <p>
+          <em>Nintendo Switch Account Guide</em>
+        </p>
+        <ul>
+          <li>
+            <p>Network Service Accounts, Nintendo Accounts, and Accounts for China &gt; Network Service Account</p>
+          </li>
+          <li>
+            <p>Network Service Accounts, Nintendo Accounts, and Accounts for China &gt; Nintendo Accounts</p>
+          </li>
+          <li>
+            <p>Network Service Accounts, Nintendo Accounts, and Accounts for China &gt; Account Link Status</p>
+          </li>
+          <li>Network Service Accounts, Nintendo Accounts, and Accounts for China &gt; Accounts for China</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play through all modes of the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application does not use the prohibited Nintendo Account-related terms listed in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452288_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452288_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452288_1" data-tag="function-違反件数が多い">
+<label for="tagfilter_2367452288_1">
+<span class="function-tag" title="Most-failed guidelines" data-tag="function-違反件数が多い">Most-failed guidelines</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452288_2" data-tag="revision-updated-20240325">
+<label for="tagfilter_2367452288_2">
+<span class="revision-tag" title="Updated v20240325" data-tag="revision-updated-20240325">Updated v20240325</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452288_3" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452288_3">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452288_4" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367452288_4">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240325
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Added &quot;Applications whose 'Links with Nintendo Accounts' status on OMAS is set to 'Approved'&quot; to the Exceptions.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0209: Prohibition of using deprecated scope values to link external services with Nintendo Accounts -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452290" data-tags="revision-updated-20.0 revision-updated-18.0 function-アカウント revision-updated-19.0 function-ニンテンドーアカウントの認可リクエスト" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452290" title="Right-click and copy link to copy a permalink to this guideline">0209: Prohibition of using deprecated scope values to link external services with Nintendo Accounts</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not get any deprecated scope of permissions (any deprecated values of <code>scope</code>) from Nintendo Accounts when linking Nintendo Accounts with external services.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that link external services with Nintendo Accounts</p>
+  <div class="expand-container" id="expander-2367452290-1">
+    <div class="expand-control" id="expander-control-2367452290-1">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">How to tell if your application is subject to this guideline</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367452290-1">
+      <p>Your application is subject to this guideline if it displays an authorization page similar to the following when your application links Nintendo Accounts to external services.</p>
+      <p>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_2367452290/2367452291.png" height="250" class="embedded-image" />
+        </span>
+      </p>
+      <div class="info_new">
+        <div class="info_new_left">Info:</div>
+        <div class="info_new_right">
+          <p>Note that this guideline is referring to linking with Nintendo Accounts, not network service accounts. See the <em>Nintendo Switch Account Guide</em> for more information about the differences between these two types of accounts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that were approved to use the now-deprecated <code>scope</code> values before the end of 2021
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The following <code>scope</code> values are no longer available when linking external services with Nintendo Accounts.</p>
+  <ul>
+    <li>
+      <code>user.birthday</code>
+    </li>
+    <li>
+      <code>user.email</code>
+    </li>
+    <li>
+      <code>user.basic</code>
+    </li>
+    <li>
+      <code>user.links.nintendoNetwork.id</code>
+    </li>
+  </ul>
+  <p>New applications are prohibited from using these <code>scope</code> values.<br />If you have an existing application that was approved by Nintendo to use any of these scope values before the end of 2021, and if stopping use of these scope values would cause problems in your application, you are allowed to continue to use them under the Exception to this guideline.<br />Note that if you have a request to use any of these <code>scope</code> values that was approved by Nintendo before the end of 2021 (approved clients), and you add a new application to that request, the new application would technically be able to use the approved <code>scope</code> values. However, it is not allowed for your new application to use the now-deprecated <code>scope</code> values.<br />This guideline also applies to localized versions and sequels of existing applications. If you want to use any of these deprecated <code>scope</code> values in a localized version or a sequel, contact Nintendo.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Independent Server Setup Manual</em>
+        <ul>
+          <li>Linking With Nintendo Accounts &gt; Usage Requests</li>
+        </ul>
+      </li>
+      <li>
+        <em>Nintendo Switch Account Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>If the Nintendo Account you are using for this test has already authorized an external service to receive its information, you must revoke that authorization before performing this test.</p>
+      <p>Open the <a href="https://e97b8a9d672e4ce4845ec6947cd66ef6-sb.accounts.nintendo.com/" target="_blank" rel="noopener noreferrer">development environment Nintendo Account page</a>, go to <strong>Other settings</strong> &gt; <strong>Services authorized to receive this account's information</strong> &gt; <strong>Edit</strong>, and revoke the authorization used by the application you are testing.</p>
+    </div>
+  </div>
+  <ol>
+    <li>Start the application.</li>
+    <li>Proceed to the scene where the authorization request is displayed.</li>
+  </ol>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if, in step 2, none of the following items are included in the list of information to be shared with the external service.</p>
+<ul>
+  <li>Date of birth</li>
+  <li>E-mail address</li>
+  <li>Basic profile</li>
+  <li>Nintendo Network ID</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452290_0" data-tag="function-アカウント">
+<label for="tagfilter_2367452290_0">
+<span class="function-tag" title="Accounts" data-tag="function-アカウント">Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452290_1" data-tag="function-ニンテンドーアカウントの認可リクエスト">
+<label for="tagfilter_2367452290_1">
+<span class="function-tag" title="Authorization requests for Nintendo Accounts" data-tag="function-ニンテンドーアカウントの認可リクエスト">Authorization requests for Nintendo Accounts</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452290_2" data-tag="revision-updated-20.0">
+<label for="tagfilter_2367452290_2">
+<span class="revision-tag" title="Updated v20.0" data-tag="revision-updated-20.0">Updated v20.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452290_3" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367452290_3">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452290_4" data-tag="revision-updated-18.0">
+<label for="tagfilter_2367452290_4">
+<span class="revision-tag" title="Updated v18.0" data-tag="revision-updated-18.0">Updated v18.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Friends -->
+<h1 class="general" id="GuidelineLabel_2367452293" data-tags="revision-updated-5.2">Friends</h1>
+<div class="text">
+<p>This subchapter covers requirements related to friends.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0156: Restrictions on frequency of calls to friends library API -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452295" data-tags="revision-updated-8.0 function-フレンドライブラリ revision-updated-5.2 revision-updated-9.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452295" title="Right-click and copy link to copy a permalink to this guideline">0156: Restrictions on frequency of calls to friends library API</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+When your application calls API functions that trigger server access, you must not call them more often than the limits set by the list in the Backgrounder.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that get profiles or that update presence status on the friend server using the friends library functions in the Backgrounder
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Operations that users are relatively unlikely to perform
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>It is prohibited to exceed the call frequency limits for the API functions listed below. Calling these functions excessively increases the load on the server, and could prevent the server from providing stable network services.<br />Call each of these functions no more often than the limit set for that function.</p>
+<ul>
+  <li>
+    <strong>Updating friend presence:</strong>
+    <ul>
+      <li>Targeted functions<ul><li>nn::friends::DeclareOpenOnlinePlaySession()</li><li>nn::friends::DeclareCloseOnlinePlaySession()</li><li>nn::friends::UserPresence::Commit()</li></ul></li>
+      <li>Limits<ul><li>Prohibited to call without a corresponding user operation</li><li>Calls that result from a corresponding user operation are allowed up to once per five minutes</li></ul></li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <strong>Getting profiles:</strong>
+    <ul>
+      <li>Targeted functions<ul><li>nn::friends::GetProfileList()</li></ul></li>
+      <li>Limits<ul><li>Prohibited to call without a corresponding user operation</li><li>Calls that result from a corresponding user operation are allowed up to ten times per minute</li></ul></li>
+    </ul>
+  </li>
+</ul>
+<p>However, if users are relatively unlikely to perform the operations that call these functions, it is acceptable to have operations that call these functions in excess of these prescribed limits.<br />Examples of operations that users are relatively unlikely to perform:</p>
+<ul>
+  <li>Instead of pressing the A Button to proceed normally through a sequence, the user cancels out of the sequence and starts over.</li>
+  <li>The user repeatedly joins and leaves a specific mode.</li>
+  <li>The user repeatedly connects and disconnects from the network.</li>
+  <li>The user repeatedly closes and restarts the application.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="2"></th>
+      <th class="guidelineparam-header" rowspan="2">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>Updating friend presence:</strong>
+</p>
+<ul>
+  <li>Check the source code.</li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<strong>Getting profiles:</strong><ul>
+  <li>Check the source code.</li>
+</ul>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer" rowspan="2"></th>
+      <th class="guidelineparam-header" rowspan="2">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<strong>Updating friend presence:</strong><ul>
+  <li>Passes if calls to the targeted functions meet all of the following conditions.<ul><li>The application does not call these functions without a corresponding user operation.</li><li>The application calls these functions no more often than once per five minutes as a result of a corresponding user operation.</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+    <tr>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<strong>Getting profiles:</strong><ul>
+  <li>Passes if calls to the targeted functions meet all of the following conditions.<ul><li>The application does not call these functions without a corresponding user operation.</li><li>The application calls these functions no more often than ten times per minute as a result of a corresponding user operation.</li></ul></li>
+</ul>
+      </div></td>
+    </tr>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452295_0" data-tag="function-フレンドライブラリ">
+<label for="tagfilter_2367452295_0">
+<span class="function-tag" title="friends library" data-tag="function-フレンドライブラリ">friends library</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452295_1" data-tag="revision-updated-9.0">
+<label for="tagfilter_2367452295_1">
+<span class="revision-tag" title="Updated v9.0" data-tag="revision-updated-9.0">Updated v9.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452295_2" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367452295_2">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452295_3" data-tag="revision-updated-5.2">
+<label for="tagfilter_2367452295_3">
+<span class="revision-tag" title="Updated v5.2" data-tag="revision-updated-5.2">Updated v5.2</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0188: Prohibition of including UGC in friend invitation messages -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452297" data-tags="revision-updated-12.0 function-ugc function-フレンドライブラリ" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452297" title="Right-click and copy link to copy a permalink to this guideline">0188: Prohibition of including UGC in friend invitation messages</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not include UGC in invitation messages sent as part of the friend invitation feature.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the friend invitation feature
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Users who receive an invitation can check the text of the invitation message on their User Page.</p>
+<p>Invitation messages are not designed for the purpose of exchanging UGC. Therefore, your application must use preset text for these messages, and must not include UGC.</p>
+<p>As long as the message does not include UGC, it is acceptable to dynamically generate the message text from preset parts, such as mode name, number of participants, or other descriptors for the game session that the user is being invited to.</p>
+<p>For definitions of UGC, see <a href="../Pages/Page_2367452309.html#GuidelineLabel_2367452311">UGC: General</a>. Likewise, see the <em>Nintendo Switch Online Play Guide</em> for details about the friend invitation feature.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch UGC Guide</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Online Play Guide</em>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare two Switch devkits, Switch devkit A and Switch devkit B.</li>
+  <li>On devkit A, enter a mode that supports friend invitations, and then send an invitation to a network service account on devkit B.</li>
+  <li>On devkit B, go to the User Page and check the content of the invitation sent in step 2.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in step 3, the invitation message on the User Page contains no UGC.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452297_0" data-tag="function-フレンドライブラリ">
+<label for="tagfilter_2367452297_0">
+<span class="function-tag" title="friends library" data-tag="function-フレンドライブラリ">friends library</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452297_1" data-tag="function-ugc">
+<label for="tagfilter_2367452297_1">
+<span class="function-tag" title="UGC" data-tag="function-ugc">UGC</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452297_2" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452297_2">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.1 Application Details | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.1 Application Details -->
+<div class="pagetitle" id="PageId_235540518">4.1 Application Details</div>
+<div class="text_separate">
+<h1 id="Anchor_235540518_h1_1">Application Details</h1>
+<p>In addition to the settings for each data item, settings for each application that supports data delivery are also handled in the BCAT Management Tool.<br />Settings for each application are performed in the <strong>Application Details</strong> menu. The Manager role is required for operating that menu.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_235540518/1171674328.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h2 id="Anchor_235540518_h2_1">Special Item Descriptions</h2>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Setting</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Data Delivery Cache Storage Size</td>
+      <td>
+        <p>The value last obtained from OMAS is displayed in the BCAT Management Tool. </p>
+        <p>
+          <span style="color: rgb(55,55,55);">For more information about getting values from OMAS, see Initial Setup in </span>
+          <a href="../Pages/Page_203432594.html">4 Data Delivery</a>
+          <span style="color: rgb(55,55,55);">.</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Passphrase</td>
+      <td>
+        <p>The value to set in the <code>BcatPassphrase</code> element of the application's NMETA file is displayed.</p>
+        <p>Share this value only with application developers and debugging parties.</p>
+        <p>
+          <span style="color: rgb(55,55,55);">This value cannot be changed.</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Run a Pre-Delivery Review</td>
+      <td>
+        <p>
+          <span style="color: rgb(55,55,55);">The value that controls running the pre-delivery review.</span>
+        </p>
+        <ul>
+          <li>
+            <span style="color: rgb(55,55,55);">true</span>
+            <ul>
+              <li>
+                <span style="color: rgb(55,55,55);">Run pre-delivery review.</span>
+              </li>
+              <li>
+                <p>Specify this value for a double-check by users with both the Editor and Reviewer roles.</p>
+                <br />
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span style="color: rgb(55,55,55);">false</span>
+            <ul>
+              <li>Do not run pre-delivery review.</li>
+              <li>Only specify this value if entrusting the work to users with the Editor role.</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Required Application Version</td>
+      <td>
+        <div class="content-wrapper">
+          <p>The <span style="color: rgb(55,55,55);">value</span> for restricting connections from applications that are out of date.</p>
+          <p>The default value is <code>0</code>.</p>
+          <p>To deliver data only to systems with the latest application patch applied, specify the same value as the release version of that application patch.</p>
+          <p>Both immediate and background synchronization fail in applications with release versions that do not match that value. Also, if the error that occurs during immediate synchronization (for example, an <code>nn::Result</code> corresponding to error code 2122-0032) is passed to the error viewer applet, a message prompting update of the application is displayed.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>If this value is accidentally changed before the application patch is being delivered, it will confuse the application users, who will not know how to resolve the issue.</p>
+              <p>
+                <strong>Be careful when changing this value.</strong>
+              </p>
+            </div>
+          </div>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Even if this value is changed, the change is not immediately applied on the Switch. Changes are applied to the Switch at either of the following times.</p>
+              <ul>
+                <li>When background synchronization is performed as a result of starting (or ending) delivery of the next binary after the value is changed</li>
+                <li>When there is immediate synchronization of the application approximately and at least <span style="color: rgb(55,55,55);">ten minutes</span> after the value is changed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Service Status</td>
+      <td>
+        <div class="content-wrapper">
+          <p>This value is for notifying Switch systems of the service status.</p>
+          <p>The default value is <code>in_service</code>.</p>
+          <ul>
+            <li>
+              <span style="color: rgb(55,55,55);">in_service</span>
+              <ul>
+                <li>Set when data delivery service for the application is being provided.</li>
+              </ul>
+            </li>
+            <li>expired<ul><li>Set when data delivery service for the <span style="color: rgb(55,55,55);">application has ended.</span></li><li>Both immediate and background synchronization fail when settings have expired. Also, if the error that occurs <span style="color: rgb(55,55,55);">during immediate synchronization</span> (for example, <span style="color: rgb(50,50,50);"><code>nn::Result</code> corresponding to error code 2122-0041</span>) is passed to the error viewer applet, a message indicating that the service has expired is displayed.</li></ul></li>
+          </ul>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>Even if this value is changed, the change is not immediately applied on the Switch. Changes are applied to the Switch at either of the following times.</p>
+              <ul>
+                <li>When background synchronization is performed as a result of starting (or ending) delivery of the next binary after the value is changed</li>
+                <li>When there is immediate synchronization of the application approximately and at least <span style="color: rgb(55,55,55);">ten minutes</span> after the value is changed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

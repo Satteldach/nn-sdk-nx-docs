@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2.1 Flow From Development to Operation | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2.1 Flow From Development to Operation -->
+<div class="pagetitle" id="PageId_115067985">2.1 Flow From Development to Operation</div>
+<div class="text_separate">
+<p>This chapter describes the processes for developing and operating an independent server. In general, these processes advance in order through the following phases.</p>
+<ol>
+  <li>Planning</li>
+  <li>Usage requests</li>
+  <li>Development</li>
+  <li>Lotcheck (final testing at Nintendo)</li>
+  <li>Go live</li>
+  <li>Maintenance</li>
+  <li>Developing and distributing patches</li>
+  <li>End of service</li>
+</ol>
+<h1 id="Anchor_115067985_h1_1">Planning</h1>
+<p>There are basically two methods for providing network services for applications on the Nintendo platform.</p>
+<p>Select the method to adopt based on the details of your plan.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Only use the server provided by Nintendo</th>
+      <td>
+        <p>This method makes use of the following services provided by Nintendo. If you will be using only these services, you do not need to configure an independent server.</p>
+        <ul>
+          <li>NPLN</li>
+          <li>NEX (For new products, the use of this service has basically ended.)</li>
+          <li>BCAT</li>
+          <li>Patch</li>
+          <li>Downloadable Content</li>
+          <li>User Save Data Controlled Consumable Service Items</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th> Configure an independent server</th>
+      <td>This method is suitable when you want to provide network services that would be difficult to realize with NEX or NPLN, and when you want to operate services yourself.<br />In addition, you must configure an independent server to use the following service provided by Nintendo.<br /><ul><li>Subscription Service Items</li><li>Consumable Service Items Using the Independent Server Controlled Method</li></ul></td>
+    </tr>
+  </tbody>
+</table>
+<p class="auto-cursor-target">
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>When implementing the matchmaking feature uniquely using Switch friends, see the Nintendo Switch Account Guide.</p>
+    <p>For links to an overview of the network services available from Nintendo and to the documentation that includes more detailed information, see the Nintendo Switch Overview.</p>
+  </div>
+</div>
+<h1 id="Anchor_115067985_h1_2">Usage Requests</h1>
+<p>For an application to use an independent server, it must access the Nintendo authentication server and get a <strong>network service account ID token</strong> (NSA ID token). The NSA ID token is obtained by calling the API provided in the NintendoSDK. For more information, see <a href="../Pages/Page_115067964.html">3 Connecting to an Independent Server</a>.</p>
+<p>To issue NSA ID tokens, information about the application must be registered on the Nintendo authentication server. To register the information, submit a usage request on OMAS (the Online Title Management System). The information will be registered when the request is approved.</p>
+<p>To set up the independent server, submit the request on OMAS as follows. For more information, see the OMAS Help.</p>
+<ul>
+  <li>In <strong>Application Overview</strong>, set <strong>Communication With Independent Server (Yes/No)</strong> to <strong>Yes</strong>.</li>
+  <li>If you will be using socket communication or HTTP communication for communication with the independent server, fill out the request item for <strong>Use Socket or HTTP Communication</strong>.</li>
+</ul>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For applications for China, submit the request in OMAS so that the application does not require Nintendo Switch Online membership. For more information, see <a href="../Pages/Page_300840794.html">3.3 Nintendo Switch Online Support</a>.</p>
+  </div>
+</div>
+<h1 id="Anchor_115067985_h1_3">Development</h1>
+<p>If you are configuring an independent server, read the sections in the following list and develop your application accordingly.</p>
+<ul>
+  <li>
+    <a href="../Pages/Page_115067964.html">3 Connecting to an Independent Server</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_115067988.html">6 Server Environments</a>
+  </li>
+  <li>
+    <a href="../Pages/Page_115344118.html">8 Independent Server Development</a>
+  </li>
+</ul>
+<p>Additionally, when an application supports an independent server, the application and independent server must be implemented according to guidelines. If the guidelines are not supported, it may fail in the Lotcheck stage (described later). For that reason, when you first start development, see items like Communication features, <span class="sv-ti-done"><span class="sv-ti-title-text">Accounts</span></span>, and <span class="sv-ti-done"><span class="sv-ti-title-text">Nintendo Switch Online</span></span> in the <span class="sv-ti-done"><span class="sv-ti-title-text">Nintendo Switch Guidelines</span></span>.</p>
+<p>When supporting service items, see the following documentation.</p>
+<ul>
+  <li>Nintendo Switch E-Commerce Guide<br />This documentation also describes how to use the service item feature.<br />A <em>service item</em> is a selling method that grants the purchaser the right to use a service or item for a specific term, either a fixed period of time or a fixed number of times. With the independent server controlled method, independent server support is necessary to implement subscription service items and consumable service items.</li>
+</ul>
+<h1 id="Anchor_115067985_h1_4">Lotcheck (Final Testing at Nintendo)</h1>
+<p>Before an application can be released, it must pass through final testing process called Lotcheck at Nintendo.</p>
+<p>For applications that communicate with an independent server, the process includes testing whether the application can communicate appropriately with the independent server and whether the provided services conform to the guidelines.</p>
+<p>You must prepare an independent server environment that can be tested by Nintendo. See <a href="../Pages/Page_115067988.html">6 Server Environments</a> and <a href="../Pages/Page_115344146.html">7 Lotcheck</a>.</p>
+<h1 id="Anchor_115067985_h1_5">Go Live</h1>
+<p>Users will begin accessing the independent server after an application goes on sale and reaches the hands of consumers.</p>
+<p>If the application's release date differs from the date when services will begin on the independent server, we recommend displaying a message in the application that conveys that fact to users.</p>
+<p>In addition, testing occurs within Nintendo before any platform firmware updates are sent to regular users. With the consent of the developer, Nintendo may access the production environment independent server as a part of that testing to ensure that there are no compatibility issues with released applications.</p>
+<p>Basically speaking, this option means connecting in the same environment (in terms of equipment and Nintendo server environment) used by general users. In other words, the independent server does not need to do anything special to support this option.</p>
+<h1 id="Anchor_115067985_h1_6">Independent Server Maintenance</h1>
+<p>To access an independent server from an application, you must get an NSA ID token from the Nintendo authentication server. As a result, users cannot use services provided by independent servers while the Nintendo authentication server is down for maintenance. In addition, to use the service item feature, you must link the independent server to Nintendo eShop.</p>
+<p>To increase the availability of your game, time the maintenance of the independent server to coincide with the periodic maintenance of the Nintendo authentication server and Nintendo eShop.</p>
+<p>The periodic maintenance of the Nintendo authentication server and Nintendo eShop takes place on Tuesdays between the hours of 05:00 and 11:00, Japan Standard Time. Note that server maintenance is not necessarily conducted even during this time. Sometimes maintenance will occur outside of the regular maintenance window. For more information about the actual maintenance status, see the Nintendo support site for developers.</p>
+<p>Note that if you plan to maintain the independent server along with the release of an application patch, there are restrictions on when patches can be distributed. When considering the timing of maintenance, see Distributing Patches later in this document.</p>
+<h1 id="Anchor_115067985_h1_7">Developing Patches</h1>
+<p>You can update an application that has already been released to the market by developing and distributing a patch.</p>
+<p>Patches, just like applications, are developed in the development environment, subjected to Lotcheck testing, and then distributed in the production environment.</p>
+<p>Note that for patch development, the independent server that the patched application runs on must be available in the development environment. Because the independent server that has been prepared for the product environment cannot be used for patch development in some cases, we recommend that you allow for patch development by preparing separate versions of the independent server for the product environment and the development environment in advance.</p>
+<h1 id="Anchor_115067985_h1_8">Distributing Patches</h1>
+<p>Application patches are distributed via Nintendo eShop, so they cannot be distributed while Nintendo eShop is down for maintenance. When considering the timing of maintenance, avoid times when Nintendo eShop is down for maintenance.</p>
+<p>If you plan an update that would make it impossible for the application to access the independent server if it did not install the patch, we recommend that you do not maintain the independent server along with releasing the patch while Nintendo eShop is down for maintenance. As previously mentioned, patches cannot be distributed while maintaining Nintendo eShop. As a result, even if you want to distribute a patch during the maintenance window of Nintendo eShop, there will be situations where you cannot start distribution as desired. You run the risk of service outage when using an independent server <span style="color: rgb(33,33,33);">for the duration between an independent server update and the distribution of the application update data</span> if the update data download is delayed when you end up updating the independent server on the assumption that the update data will be available at the desired time.</p>
+<h1 id="Anchor_115067985_h1_9">End of Service</h1>
+<p>You must submit an end-of-service report <span style="color: rgb(51,51,51);">to OMAS before ending a service</span>.</p>
+<p>By establishing an end time for the service and applying it in the Nintendo authentication server, an error will be returned to the application when it is going through Nintendo's authentication process, using the authentication server, before connecting to the independent server.</p>
+<p>The same will be true for future Switch network services: after the end time for a service has been reached, an error will be returned to the application during the Nintendo authentication process (using the authentication server), and access to the independent server will stop.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1350 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Hardware | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Hardware -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367451914" data-tags="">Hardware</div>
+<div class="text">
+<p>This chapter covers requirements for application design and development that are related to hardware specifications.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Screen -->
+<h1 class="general" id="GuidelineLabel_2367451916" data-tags="revision-updated-3.0">Screen</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements that apply when displaying graphics on the system screen.</p>
+<p>Also see the <a href="../Pages/Page_2367451855.html#GuidelineLabel_2367451857">Graphics</a> chapter for overall requirements that apply to graphics.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0133: Handling afterimages and flicker -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451918" data-tags="revision-updated-6.0 function-画面焼け revision-updated-3.0 revision-updated-20240325" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451918" title="Right-click and copy link to copy a permalink to this guideline">0133: Handling afterimages and flicker</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Your application must not allow afterimages or flicker to develop on the LCD screen of the system as a result of repeated changes in hue at the exact same interval.</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that display images on the LCD screen of the system</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <div class="fl-horizontally">
+    <!--Remove - p.auto-cursor-target-->
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+    <div>
+      <p>Generally speaking, if the exact same change in RGB values is cycled to the same pixel of an LCD screen over and over again within a short period of time, the screen tends to develop flickering or afterimages resembling screen burn-in. If your application repeatedly displays a change in hue over and over in a short period of time, you must implement this display effect in a way that avoids causing afterimages or flickering.</p>
+    </div>
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <p>The following image, where a white bar alternates between horizontal and vertical once per frame, is an example of a repeated short-term change in hue that is likely to cause afterimages or flickering. (Click to display the image.)</p>
+  <div class="expand-container" id="expander-2367451918-1">
+    <div class="expand-control" id="expander-control-2367451918-1">
+      <span class="expand-control-icon collapsed-icon"> </span>
+      <span class="expand-control-text">Example of a white bar alternating every frame between horizontal and vertical</span>
+    </div>
+    <div class="expand-content expand-hidden" id="expander-content-2367451918-1">
+      <!--figure001-->
+      <div class="figure">
+        <a name="AutoAnchor_2367451918_figure001"></a>Figure 1 Example of a white bar alternating every frame between horizontal and vertical</div>
+      <p>
+        <span class="embedded-file-wrapper ">
+          <img src="../Attachments/Attach_2367451918/2367451920.gif" class="embedded-image" />
+        </span>
+      </p>
+    </div>
+  </div>
+  <p>In a display effect like this, the pixels in the pink sections of the figure showing &quot;<a href="#AutoAnchor_2367451918_figure002">Figure 2 Locations where flicker develops</a>&quot; alternate between white and black every frame. This repeated alternation back and forth causes flickering to develop in these pixels.</p>
+  <!--figure002-->
+  <div class="figure">
+    <a name="AutoAnchor_2367451918_figure002"></a>Figure 2 Locations where flicker develops</div>
+  <p>
+    <span class="embedded-file-wrapper ">
+      <img src="../Attachments/Attach_2367451918/2367451919.png" width="100" class="embedded-image" />
+    </span>
+  </p>
+  <p>Alternating between two hues on every odd frame, as in the above example, is likely to trigger afterimages and flickering. Looping an animation whose length is an even number of frames is also likely to cause afterimages or flickering. See the References for details.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Notes &gt; NX Add-On-Specific Information &gt; Important Implementation Information (NX Add-On) &gt; Important Information About TV Output and the LCD Screen</li>
+          <li>If the <em>NintendoSDK Documents</em> you are using was packaged with an SDK prior to NX Add-On 3.0.0 or 1.4.0:<br />Troubleshooting &gt; Troubleshooting (NX Add-On)</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Check the source code.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if the application does not cause afterimages or flicker to develop on the LCD screen of the system.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The conditions that cause afterimages and flicker to develop are different for different applications, because they depend on the application's design. This means it is not possible to provide a common Test Method that works for all applications, but for your reference here is one possible example of how to check for afterimages or flickering.</p>
+<ol>
+  <li>Play the application in either handheld mode or tabletop mode, concentrating on the scenes or locations that show indications of flickering.</li>
+  <li>After playing, return to the HOME Menu, confirm that the theme is set to basic black, and check whether flickering is still visible.</li>
+</ol>
+<p>Setting the background to a dark color while the LCD screen is receiving power makes it easier to see whether afterimages or flicker have developed. (It is not possible to see flicker when displaying a completely black image.)</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451918_0" data-tag="function-画面焼け">
+<label for="tagfilter_2367451918_0">
+<span class="function-tag" title="Screen burn-in" data-tag="function-画面焼け">Screen burn-in</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451918_1" data-tag="revision-updated-20240325">
+<label for="tagfilter_2367451918_1">
+<span class="revision-tag" title="Updated v20240325" data-tag="revision-updated-20240325">Updated v20240325</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451918_2" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451918_2">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451918_3" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451918_3">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="changelog">
+<ul>
+<li class="changelog_row" data-changelog-common="1">Version 20240325
+<ul class="changelog_root">
+<li class="changelog_type" data-changelog-common="1">Changes<ul class="changelog_type">
+<li class="changelog">Revised the wording of the Guideline Item.</li>
+</ul></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Accelerometer -->
+<h1 class="general" id="GuidelineLabel_2367451922" data-tags="">Accelerometer</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply when using the accelerometer.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0006: Taking at-rest noise into account -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451924" data-tags="revision-updated-14.0 revision-updated-0.3 function-加速度センサー" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451924" title="Right-click and copy link to copy a permalink to this guideline">0006: Taking at-rest noise into account</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If you use accelerometer output values, take into account the possibility that these values include up to &plusmn;0.02 G of at-rest noise, and ensure that this amount of error in the output values does not prevent users from progressing in your application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the accelerometer.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Accelerometer output values can be inaccurate by up to &plusmn;0.02 G due to noise in the sensor itself, called at-rest noise. Due to individual hardware differences between sensors, some sensors may continually report values containing up to &plusmn;0.02 G of error. This means that if your application must detect when the sensor is at rest, but you assume that even small changes in values indicate motion, then your application may never successfully detect that the sensor is &quot;at rest&quot; no matter how long the user waits. This in turn could prevent the user from progressing in your application.</p>
+  <p>To ensure that the user is able to progress, implement your application to accommodate error of up to &plusmn;0.02 G in the accelerometer output values.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Aside from at-rest noise, the operation of other devices such as the vibration motor and fans may also affect the accelerometer output values.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Input Device &gt; <a href="../Pages/Page_2367451833.html#Anchor_2367451833_HIDLibrary">hid Library</a> &gt; Manual &gt; Features &gt; SixAxisSensor<ul><li>Important Information for the Six-Axis Sensor</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check the source code.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the player can progress in your application without issues in scenes where the accelerometer is used, even in the presence of at-rest noise.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451924_0" data-tag="function-加速度センサー">
+<label for="tagfilter_2367451924_0">
+<span class="function-tag" title="Accelerometer" data-tag="function-加速度センサー">Accelerometer</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451924_1" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451924_1">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451924_2" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451924_2">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0042: Taking zero-point drift into account -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451926" data-tags="revision-updated-0.4 revision-updated-14.0 revision-updated-6.0 revision-updated-5.0 revision-updated-0.3 function-加速度センサー revision-updated-0.7" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451926" title="Right-click and copy link to copy a permalink to this guideline">0042: Taking zero-point drift into account</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must take into account the possibility of up to &plusmn;0.13 G of error in the accelerometer values it takes as input, and ensure that this amount of error in the values does not prevent users from progressing in your application.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the accelerometer.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The zero-point of the accelerometer may accumulate a drift of up to &plusmn;0.13 G over time.</p>
+<p>For this reason, you must ensure that your application can handle even a zero-point drift of &plusmn;0.13 G without problems when determining that the accelerometer is at rest, or when using very small changes in acceleration. The following are some ways of handling this.</p>
+<ul>
+  <li>Avoid implementations that require acceleration to reach a specific threshold value before the user can progress to the next scene.</li>
+  <li>Set a timeout when determining whether the accelerometer is at rest. This prevents your application from getting blocked by the at-rest determination.</li>
+  <li>When you use very small changes in acceleration, take into account the possibility that 0.13 G of drift may occur.</li>
+</ul>
+<p>If your application calculates relative angles based on accelerometer values, note that this accelerometer error causes drift in the calculated angles as well.</p>
+<p>For example, in contrast to the theoretical gravitational acceleration <code>(x,y,z) = (0,0,1)</code>, an accelerometer experiencing &plusmn;0.13 G of error could yield the values <code>(x,y,z) = (0.13,0.13,0.87)</code>. Under these conditions the angles calculated by your application would drift by roughly 12&deg;.</p>
+<p>You must design your application to accommodate this potential level of drift.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Controller Management<ul><li>Changing the Gyroscope and Accelerometer Settings</li></ul></li>
+          <li>
+            <p>Features &gt; Input Device &gt; hid Library &gt; Manual &gt; Features &gt; SixAxisSensor</p>
+            <ul>
+              <li>Important Information for the Six-Axis Sensor</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>Note:</strong> Perform this test with all accelerometer-equipped controllers that the application supports.</p>
+<ol>
+  <li>Launch the DevMenu. Under <strong>Controller</strong>, configure the following settings for each LED pattern required for your test.<ol><li>For <strong>Accelerometer</strong>, set <strong>Resting Point</strong> to <strong>Min</strong>.</li><li>For <strong>Accelerometer</strong>, set <strong>Sensitivity</strong> to <strong>0</strong>.</li></ol></li>
+  <li>Reconnect the controllers.</li>
+  <li>Press the HOME Button to exit the DevMenu, then start the application.</li>
+  <li>Play through, from beginning to end, all scenes that use the accelerometer.</li>
+  <li>Launch the DevMenu again. Under <strong>Controller</strong>, configure the following settings for each LED pattern required for your test. <ol><li>For <strong>Accelerometer</strong>, set <strong>Resting Point</strong> to <strong>Max</strong>.</li><li>For <strong>Accelerometer</strong>, set <strong>Sensitivity</strong> to <strong>0</strong>.</li></ol></li>
+  <li>Reconnect the controllers.</li>
+  <li>Press the HOME Button to exit the DevMenu, then start the application.</li>
+  <li>Play through, from beginning to end, all scenes that use the accelerometer.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if, in steps 4 and 8, the user can progress in the application without problems.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+ Reference information when using the DevMenu<ul>
+  <li>The settings you configured go into effect after you select <strong>Apply Changes</strong> and reconnect the controllers.</li>
+  <li>Restarting the system returns these settings to their default values.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451926_0" data-tag="function-加速度センサー">
+<label for="tagfilter_2367451926_0">
+<span class="function-tag" title="Accelerometer" data-tag="function-加速度センサー">Accelerometer</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451926_1" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451926_1">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451926_2" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451926_2">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451926_3" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451926_3">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451926_4" data-tag="revision-updated-0.7">
+<label for="tagfilter_2367451926_4">
+<span class="revision-tag" title="Updated v0.7" data-tag="revision-updated-0.7">Updated v0.7</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451926_5" data-tag="revision-updated-0.4">
+<label for="tagfilter_2367451926_5">
+<span class="revision-tag" title="Updated v0.4" data-tag="revision-updated-0.4">Updated v0.4</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451926_6" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451926_6">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Gyroscope -->
+<h1 class="general" id="GuidelineLabel_2367451928" data-tags="">Gyroscope</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply when using the gyroscope.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0010: Taking at-rest noise into account -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451930" data-tags="revision-updated-0.4 revision-updated-14.0 revision-updated-0.3 function-ジャイロセンサー" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451930" title="Right-click and copy link to copy a permalink to this guideline">0010: Taking at-rest noise into account</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+If you use gyroscope output values, take into account the possibility that these values include up to &plusmn;1.8 dps of at-rest noise, and ensure that this amount of error in the output values does not prevent users from progressing in your application.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the gyroscope.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The angular velocity output values yielded by the gyroscope can be inaccurate by up to &plusmn;1.8 dps due to noise in the sensor itself, called at-rest noise. This means that if your application must detect small changes in angular velocity in order for the user to progress, then the error of up to &plusmn;1.8 dps in the gyroscope output values could prevent your application from successfully detecting those small changes. This in turn could prevent the user from progressing in your application.</p>
+  <p>To ensure that the user is able to progress, implement your application to accommodate error of up to &plusmn;1.8 dps in the gyroscope output values.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Aside from at-rest noise, the operation of other devices such as the vibration motor and fans may also affect the gyroscope output values.</p>
+      <p>Also note that the gyroscope at-rest noise may increase while the IR Motion Camera is in use.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Input Device &gt; hid Library &gt; Manual &gt; Features &gt; SixAxisSensor<ul><li>Important Information for the Six-Axis Sensor</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Check the source code.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the user can progress in your application without problems in scenes where the gyroscope is used, even in the presence of at-rest noise.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451930_0" data-tag="function-ジャイロセンサー">
+<label for="tagfilter_2367451930_0">
+<span class="function-tag" title="Gyroscope" data-tag="function-ジャイロセンサー">Gyroscope</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451930_1" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451930_1">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451930_2" data-tag="revision-updated-0.4">
+<label for="tagfilter_2367451930_2">
+<span class="revision-tag" title="Updated v0.4" data-tag="revision-updated-0.4">Updated v0.4</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451930_3" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451930_3">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0044: Taking sensitivity drift into account -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451932" data-tags="revision-updated-0.4 revision-updated-14.0 revision-updated-6.0 revision-updated-5.0 function-ジャイロセンサー" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451932" title="Right-click and copy link to copy a permalink to this guideline">0044: Taking sensitivity drift into account</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must accommodate error of up to &plusmn;8% in both the angular velocity measured by the gyroscope and the angles calculated from that angular velocity, and ensure that this amount of error in the values does not prevent users from progressing in your application.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use the gyroscope.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Due to variation between individual gyroscopes, deterioration of the gyroscope, or changes in temperature or humidity, the values that the gyroscope provides may contain a margin of error of up to &plusmn;8%. You must design your application to accommodate this error.</p>
+<p>Likewise, the fact that the angular velocity contains error means that the angles (the orientation in space) you calculate from the angular velocity also contain up to &plusmn;8% error. For example, if the angular velocity the gyroscope obtains is off by +8%, the value the gyroscope obtains when rotated 90&deg; would become (90&deg; &times; 1.08) = 97.2&deg;. This drift in angle is cumulative for continued use of the gyroscope. You must design your application in such a way that it operates normally even with this level of drift.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Controlling the Development Hardware &gt; DevMenu &gt; Controller Management<ul><li>Changing the Gyroscope and Accelerometer Settings</li></ul></li>
+          <li>Features &gt; Input Device &gt; hid Library &gt; Manual &gt; Features &gt; SixAxisSensor<ul><li>Important Information for the Six-Axis Sensor</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>
+  <strong>Note:</strong> Perform this test with all gyroscope-equipped controllers that the application supports.</p>
+<ol>
+  <li>Launch the DevMenu. Under <strong>Controller</strong>, configure the following settings for each LED pattern required for your test.<ol><li>For <strong>Gyroscope</strong>, set <strong>Resting Point</strong> to <strong>0</strong>.</li><li>For <strong>Gyroscope</strong>, set <strong>Sensitivity</strong> to <strong>Min</strong>.</li></ol></li>
+  <li>Reconnect the controllers.</li>
+  <li>Press the HOME Button to exit the DevMenu, then start the application.</li>
+  <li>Play through, from beginning to end, all scenes that use the gyroscope.</li>
+  <li>Launch the DevMenu again. Under <strong>Controller</strong>, configure the following settings for each LED pattern required for your test.<ol><li>For <strong>Gyroscope</strong>, set <strong>Resting Point</strong> to <strong>0</strong>.</li><li>For <strong>Gyroscope</strong>, set <strong>Sensitivity</strong> to <strong>Max</strong>.</li></ol></li>
+  <li>Reconnect the controllers.</li>
+  <li>Press the HOME Button to exit the DevMenu, then start the application.</li>
+  <li>Play through, from beginning to end, all scenes that use the gyroscope.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if, in steps 4 and 8, the user can progress in the application without problems.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Reference information when using the DevMenu<ul>
+  <li>The settings you configured go into effect after you select <strong>Apply Changes</strong> and reconnect the controllers.</li>
+  <li>Restarting the system returns these settings to their default values.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451932_0" data-tag="function-ジャイロセンサー">
+<label for="tagfilter_2367451932_0">
+<span class="function-tag" title="Gyroscope" data-tag="function-ジャイロセンサー">Gyroscope</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451932_1" data-tag="revision-updated-14.0">
+<label for="tagfilter_2367451932_1">
+<span class="revision-tag" title="Updated v14.0" data-tag="revision-updated-14.0">Updated v14.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451932_2" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451932_2">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451932_3" data-tag="revision-updated-5.0">
+<label for="tagfilter_2367451932_3">
+<span class="revision-tag" title="Updated v5.0" data-tag="revision-updated-5.0">Updated v5.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451932_4" data-tag="revision-updated-0.4">
+<label for="tagfilter_2367451932_4">
+<span class="revision-tag" title="Updated v0.4" data-tag="revision-updated-0.4">Updated v0.4</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Attaching and detaching devices -->
+<h1 class="general" id="GuidelineLabel_2367451934" data-tags="revision-updated-0.3">Attaching and detaching devices</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply when your application detects that a device has been attached or detached.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0050: Prohibition of specifications that give the user reason to dock/undock the system -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451936" data-tags="function-デバイスの着脱 revision-updated-3.0 revision-updated-0.3 revision-updated-0.6 revision-updated-2.0 function-すべてのアプリケーション" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451936" title="Right-click and copy link to copy a permalink to this guideline">0050: Prohibition of specifications that give the user reason to dock/undock the system</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not give the user reasons to increase the number of times the system has been docked and undocked.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The system has an electrical connection to the dock. Repeatedly docking and undocking the system causes wear and tear on these contacts. Because of these constraints on their mechanical durability, your application must not incorporate any gameplay element that gives the user reason to increase the number of times the system has been docked and undocked.</p>
+<h6 id="Anchor_2367451936_h6_1">Unacceptable examples:</h6>
+<ul>
+  <li>Resetting damage or fatigue accumulated by the player character every time the system is docked</li>
+  <li>Treating the act of docking or undocking the system as a gameplay operation and asking the user to perform it repeatedly</li>
+</ul>
+<h6 id="Anchor_2367451936_h6_2">Acceptable examples:</h6>
+<ul>
+  <li>Suggesting that the user dock the system and use the TV screen to play because you recommend playing a specific minigame in TV mode</li>
+  <li>Suggesting that the user dock the system and use the TV screen to play because the system's remaining battery life is getting low</li>
+  <li>Playing a sound, auto-saving, or pausing when the system is docked or undocked</li>
+  <li>Displaying a message prompting the user to undock the system in a scene that uses the touch screen</li>
+</ul>
+<p>The situations listed above are only a few examples. This is not a comprehensive list of all applicable cases.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play through the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>The application does not frequently display messages or play audio prompting the user to dock or undock the system.</li>
+  <li>The application does not tie an incentive to docking or undocking the system that would give the user reason to repeatedly dock or undock the system.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451936_0" data-tag="function-デバイスの着脱">
+<label for="tagfilter_2367451936_0">
+<span class="function-tag" title="Attaching and detaching devices" data-tag="function-デバイスの着脱">Attaching and detaching devices</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451936_1" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367451936_1">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451936_2" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451936_2">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451936_3" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451936_3">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451936_4" data-tag="revision-updated-0.6">
+<label for="tagfilter_2367451936_4">
+<span class="revision-tag" title="Updated v0.6" data-tag="revision-updated-0.6">Updated v0.6</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451936_5" data-tag="revision-updated-0.3">
+<label for="tagfilter_2367451936_5">
+<span class="revision-tag" title="Updated v0.3" data-tag="revision-updated-0.3">Updated v0.3</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0094: Prohibition of specifications that give the user reason to attach/detach the Joy-Con controllers -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451938" data-tags="function-デバイスの着脱 revision-updated-3.0 revision-updated-0.8 revision-updated-2.0 function-すべてのアプリケーション" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451938" title="Right-click and copy link to copy a permalink to this guideline">0094: Prohibition of specifications that give the user reason to attach/detach the Joy-Con controllers</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must not give the user reasons to increase the number of times the Joy-Con controllers have been attached and detached from the system.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>The Joy-Con controllers have an electrical connection to the system. Repeatedly attaching and detaching them causes wear and tear on these contacts. Because of these constraints on their mechanical durability, your application must not incorporate any gameplay element that gives the user reason to increase the number of times the Joy-Con controllers have been attached and detached.</p>
+  <h6 id="Anchor_2367451938_h6_1">Unacceptable examples:</h6>
+  <ul>
+    <li>Treating the act of attaching or detaching the Joy-Con controllers as a gameplay operation and asking the user to perform it repeatedly</li>
+  </ul>
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div>
+    <ul>
+      <li>Using the act of detaching and reattaching a Joy-Con as a &quot;reload ammunition&quot; operation in your application</li>
+    </ul>
+  </div>
+  <h6 id="Anchor_2367451938_h6_2">Acceptable examples:</h6>
+  <ul>
+    <li>Playing a sound, auto-saving, or pausing when the user attaches or detaches the Joy-Con controllers</li>
+    <li>Displaying a message instructing users how to hold the Joy-Con controllers after detaching them from the system</li>
+  </ul>
+  <p>The situations listed above are only a few examples. This is not a comprehensive list of all applicable cases.</p>
+  <p>Note that this guideline is not intended to restrict the messaging or instructions you use to show the user how to hold the Joy-Con controllers when playing your game.</p>
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Play through the application from beginning to end.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if all of the following conditions are met.</p>
+<ul>
+  <li>The application does not frequently display messages or play audio prompting the user to attach or detach the Joy-Con controllers.</li>
+  <li>The application does not tie an incentive to attaching or detaching the Joy-Con controllers that would give the user reason to repeatedly attach or detach the Joy-Con controllers from the system.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451938_0" data-tag="function-デバイスの着脱">
+<label for="tagfilter_2367451938_0">
+<span class="function-tag" title="Attaching and detaching devices" data-tag="function-デバイスの着脱">Attaching and detaching devices</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451938_1" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367451938_1">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451938_2" data-tag="revision-updated-3.0">
+<label for="tagfilter_2367451938_2">
+<span class="revision-tag" title="Updated v3.0" data-tag="revision-updated-3.0">Updated v3.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451938_3" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367451938_3">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451938_4" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367451938_4">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Microphone -->
+<h1 class="general" id="GuidelineLabel_2367451940" data-tags="revision-updated-6.0">Microphone</h1>
+<div class="text">
+<p>This subchapter covers requirements that apply when using a microphone.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0138: Supporting the Nintendo USB microphone and Nintendo USB wireless microphone -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451942" data-tags="revision-updated-6.0 revision-updated-8.0 revision-updated-7.0 function-マイク revision-updated-19.0" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451942" title="Right-click and copy link to copy a permalink to this guideline">0138: Supporting the Nintendo USB microphone and Nintendo USB wireless microphone</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must support both the Nintendo USB microphone and wireless microphone.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that use USB microphones</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use audio input features only for voice chat
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Applications that use a USB microphone must support both the Nintendo USB microphone and the Nintendo USB wireless microphone. However, the Nintendo USB wireless microphone is sold exclusively in Japan. If Japan is not part of the regions in which you are releasing your application, you do not need to support the Nintendo USB wireless microphone.</p>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>The Nintendo USB microphone and Nintendo USB wireless microphone have the same specifications as the Wii U microphone and Wii U wireless microphone respectively.<br />That means that if your application supports the Wii U microphone and Wii U wireless microphone, it also supports the Nintendo USB microphone and Nintendo USB wireless microphone.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <br />
+        <ul>
+          <li>Features &gt; Audio &gt; AUDIO Library &gt; Manual &gt; Features</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451942_h6_1">If Japan is part of the regions in which you are releasing your application:</h6>
+<p>Go to a scene in the application that uses a USB microphone, and use both the Nintendo USB microphone and the Nintendo USB wireless microphone.</p>
+<h6 id="Anchor_2367451942_h6_2">If Japan is not part of the regions in which you are releasing your application:</h6>
+<p>Go to a scene in the application that uses a USB microphone, and use the Nintendo USB microphone.</p>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2367451942_h6_3">If Japan is part of the regions in which you are releasing your application:</h6>
+<p>Passes if both the Nintendo USB microphone and the Nintendo USB wireless microphone function without problems.</p>
+<h6 id="Anchor_2367451942_h6_4">If Japan is not part of the regions in which you are releasing your application:</h6>
+<p>Passes if the Nintendo USB microphone functions without problems.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451942_0" data-tag="function-マイク">
+<label for="tagfilter_2367451942_0">
+<span class="function-tag" title="Microphone" data-tag="function-マイク">Microphone</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451942_1" data-tag="revision-updated-19.0">
+<label for="tagfilter_2367451942_1">
+<span class="revision-tag" title="Updated v19.0" data-tag="revision-updated-19.0">Updated v19.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451942_2" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451942_2">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451942_3" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451942_3">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451942_4" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451942_4">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0139: Implementing in a way that does not depend on specific characteristics of any supported microphone -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451944" data-tags="revision-updated-21.0 revision-updated-6.0 revision-updated-7.0 function-マイク" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451944" title="Right-click and copy link to copy a permalink to this guideline">0139: Implementing in a way that does not depend on specific characteristics of any supported microphone</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application's functionality must not depend on the characteristics of any specific microphone it supports.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use microphones
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <p>The characteristics of microphones differ depending on the model, and there may be variation between microphones of the same model. When you are coding your application, you must ensure that it is not dependent on specific characteristics of any of the microphones it supports.</p>
+  <p>Examples of unacceptable implementations:</p>
+  <ul>
+    <li>Application does not allow the user to proceed unless it receives high-pitched input that cannot be detected by the Nintendo USB wireless microphone</li>
+  </ul>
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>For details on the specific characteristics of the Nintendo USB microphone and Nintendo USB wireless microphone, see <span>NintendoSDK Documents > Features > Audio > audio Library > Manual > Features > Audio Input > Information About Using Microphone Input Features</span>.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>NintendoSDK Documents</em>
+        <ul>
+          <li>Features &gt; Audio &gt; audio Library &gt; Manual &gt; Features &gt; Audio Input &gt; Information About Using Microphone Input Features<ul><li>Common to All Platforms &gt; Notes About the Characteristics of the Microphone</li></ul></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>In a scene that uses a microphone, use all types of microphones listed below that the application supports.</p>
+  <ul>
+    <li>Nintendo USB microphone</li>
+    <li>Nintendo USB wireless microphone (see <strong>Note 1</strong>)</li>
+    <li>Headset (see <strong>Note 2</strong>)</li>
+  </ul>
+  <p>
+    <strong>Note 1:</strong> If the Nintendo USB wireless microphone is not available for sale in the regions where you are releasing your application, use any Nintendo-licensed USB wireless microphone. If no Nintendo-licensed USB wireless microphones are available for sale, you are not required to perform this test with a USB wireless microphone.</p>
+  <p>
+    <strong>Note 2:</strong> Nintendo recommends using any commercially-available headset with a boom microphone.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Passes if the application's behavior does not depend on the specific characteristics of any supported microphone.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451944_0" data-tag="function-マイク">
+<label for="tagfilter_2367451944_0">
+<span class="function-tag" title="Microphone" data-tag="function-マイク">Microphone</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451944_1" data-tag="revision-updated-21.0">
+<label for="tagfilter_2367451944_1">
+<span class="revision-tag" title="Updated v21.0" data-tag="revision-updated-21.0">Updated v21.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451944_2" data-tag="revision-updated-7.0">
+<label for="tagfilter_2367451944_2">
+<span class="revision-tag" title="Updated v7.0" data-tag="revision-updated-7.0">Updated v7.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451944_3" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451944_3">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0162: Prohibition of implementing features that save microphone input audio -->
+<table class="guideline-item" id="GuidelineDescLabel_2367451946" data-tags="revision-updated-6.0 revision-updated-8.0 function-マイク" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367451946" title="Right-click and copy link to copy a permalink to this guideline">0162: Prohibition of implementing features that save microphone input audio</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+<p>Your application must not implement a feature that saves microphone input audio.</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that use microphone input
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Exceptions</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Applications that save microphone input audio using only the system-side Switch video capture feature
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Your application must not independently implement a feature that saves microphone input audio.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+In a scene where the user can use the microphone, check whether there is a feature that saves microphone input audio.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if there is no feature that saves microphone input audio.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367451946_0" data-tag="function-マイク">
+<label for="tagfilter_2367451946_0">
+<span class="function-tag" title="Microphone" data-tag="function-マイク">Microphone</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451946_1" data-tag="revision-updated-8.0">
+<label for="tagfilter_2367451946_1">
+<span class="revision-tag" title="Updated v8.0" data-tag="revision-updated-8.0">Updated v8.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367451946_2" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367451946_2">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

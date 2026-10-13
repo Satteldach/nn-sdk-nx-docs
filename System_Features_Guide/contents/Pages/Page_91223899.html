@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>6.2 System Fonts | Nintendo Switch System Features Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 6.2 System Fonts -->
+<div class="pagetitle" id="PageId_91223899">6.2 System Fonts</div>
+<div class="text_separate">
+<p>Describes Switch system font specifications and notes.</p>
+<h1 id="Anchor_91223899_h1_1">Font File Format</h1>
+<p>The provided system fonts are now scalable fonts. They use a BFTTF data format that is specific to the Switch. The system fonts do not include bitmap fonts.</p>
+<h6 id="Anchor_91223899_h6_1">Scalable Font</h6>
+<p>A scalable font is a font format that can be enlarged and reduced without loss of quality.<br />Scalable fonts only contain an outline of each character. When the characters are drawn, the system generates character image data (bitmap) from the outline information. Because outline information is more compact than image data (the difference is particularly pronounced for large character sizes), a greater variety of characters can be displayed with less memory. For example, it is a valid format when characters to be displayed cannot be predicted ahead of time, such as names of accounts and Mii characters. It also allows you to create the optimum bitmap for the size of character being displayed, ensuring that the characters appear sharp instead of blurry.</p>
+<h6 id="Anchor_91223899_h6_2">BFTTF</h6>
+<p>This font uses a data format that was created specifically for the Switch. It cannot be installed on a PC.</p>
+<h6 id="Anchor_91223899_h6_3">Bitmap Font</h6>
+<p>In this font format, character image data (bitmap) of a specific size is created in advance (pre-drawn) and images of the required characters are extracted for use. This format is widely used in game development and was provided with NintendoWare for systems such as the 3DS and Wii U. The Switch no longer provides system fonts in the bitmap format, but such fonts can be created by converting a BFTTF font. To convert a BFTTF font, use the FontConverter tool included with the font library.</p>
+<h1 id="Anchor_91223899_h1_2">Font Types</h1>
+<p>The system fonts are as follows.</p>
+<p>UD Shingo R is the base for Japanese, North American, European, Hangul, and Simplified Chinese characters. AR UD Jingxi Gothic DB is the base for Traditional Chinese characters.</p>
+<h2 id="Anchor_91223899_h2_1">Japan/North America/Europe</h2>
+<p>This font mainly includes characters of languages for Japan, Europe and North America.  </p>
+<ul>
+  <li>Font name: nintendo_udsg-r_std_003</li>
+  <li>7768 characters</li>
+  <li>Example glyph with the maximum width: Single-byte W (U+0057)</li>
+</ul>
+<h2 id="Anchor_91223899_h2_2">For Hangul </h2>
+<p>This font mainly includes characters for languages that use Hangul.</p>
+<ul>
+  <li>Font name: nintendo_udsg-r_ko_003</li>
+  <li>17,708 characters</li>
+  <li>Example glyph with the maximum width: Single-byte W (U+0057)</li>
+</ul>
+<h2 id="Anchor_91223899_h2_3">Simplified Chinese</h2>
+<p style="margin-left: 1.2em;">This font mainly includes characters for languages that use simplified Chinese. </p>
+<ul>
+  <li>Font names: nintendo_udsg-r_org_zh-cn_003 and nintendo_udsg-r_ext_zh-cn_003<ul><li>According to the font data specifications, combines a standard font and a supplemental font. <br />Use the NintendoSDK features to set the priorities for the fonts to load. <br /> <strong>The priority of the supplemental font is greater than the priority of the standard font.</strong> </li><li>Standard font: <code>nintendo_udsg-r_org_zh-cn_003</code>  <br /></li><li>Supplemental font: nintendo_udsg-r_ext_zh-cn_003 (This font has far fewer characters than the standard font. Characters not in this font are taken from the standard font.)</li></ul></li>
+  <li>29,136 characters</li>
+  <li>Example glyph with the maximum width: Single-byte W (U+0057)</li>
+</ul>
+<h2 id="Anchor_91223899_h2_4">Traditional Chinese</h2>
+<p>This font mainly includes characters for languages that use traditional Chinese. </p>
+<ul>
+  <li>Font name: nintendo_udjxh-db_zh-tw_003</li>
+  <li>14,551 characters</li>
+  <li>Example glyph with the maximum width: LATIN CAPITAL LIGATURE OE (U+0152)</li>
+</ul>
+<h2 id="Anchor_91223899_h2_5">Nintendo Extended Characters</h2>
+<p>This font is an outline font of encoded pictograms made within Nintendo that is intended for use as a system feature font.</p>
+<ul>
+  <li>Font names: <code>nintendo_ext_003</code>, which includes the extended characters for the Nintendo 3DS and the Wii U, and <code>nintendo_ext_LE_003</code>, which does not.</li>
+  <li>Example glyph with the maximum width: A Button (U+E0A0)<br /><strong>Note:</strong> Excluding U+E06C through U+E0C9, the width of Nintendo extended characters is the same as the double-byte width for all Japanese, North American, and European fonts.</li>
+</ul>
+<h1 id="Anchor_91223899_h1_3">Supported Languages</h1>
+<p>For Japan/North America/Europe, Hangul, simplified Chinese and traditional Chinese, there are ranges of shared encoded characters (common) and not-shared encoded characters (only). <br />The supported languages for each scope are as follows. </p>
+<ul style="margin-left: 1.8em;">
+  <li>Common encoded characters (common): characters included in and shared by 4 fonts. ASCII, European and North American characters, kana characters, and generic symbols.</li>
+  <li>Uncommon encoded characters (only): characters that are unique to the individual fonts. Chinese characters for Asian languages. Separated within Unicode specifications.</li>
+</ul>
+<div class="table">
+  <a name="AutoAnchor_91223899_table001"></a>Table 6-1  Conditions for Common Encoded Characters and Uncommon Encoded Characters for Supported Languages.</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Common/Uncommon</th>
+      <th>Standard/Font</th>
+      <th>Of the supported languages, the languages, standards, and symbols that are considered to be included in the Switch (it does not mean that they will be included in system languages)</th>
+    </tr>
+    <tr>
+      <th rowspan="12">
+        <p>
+          <br />
+        </p>
+        <p>
+          <br />
+        </p>
+        <p>
+          <br />
+        </p>
+        <p>
+          <br />
+        </p>
+        <p>
+          <br />
+        </p>
+        <p>
+          <br />
+        </p>
+        <p>common</p>
+      </th>
+      <td>ISO8859-1</td>
+      <td>Danish, Dutch (part), English, Finnish (part), <br />French (part), German, Icelandic, Irish, <br />Italian, Norwegian, Portuguese, Spanish, Swedish</td>
+    </tr>
+    <tr>
+      <td>ISO8859-2</td>
+      <td>Dutch, Czech, Slovakian, Slovenian, Hungarian</td>
+    </tr>
+    <tr>
+      <td>ISO8859-3</td>
+      <td>Turkish, Maltese</td>
+    </tr>
+    <tr>
+      <td>ISO8859-4</td>
+      <td>Estonian, Latvian, Lithuanian, Sami languages</td>
+    </tr>
+    <tr>
+      <td>ISO8859-5</td>
+      <td>Bulgarian, Russian, Ukrainian (part)</td>
+    </tr>
+    <tr>
+      <td>ISO8859-7</td>
+      <td>Modern Greek</td>
+    </tr>
+    <tr>
+      <td>ISO8859-13</td>
+      <td>U+201C (Characters)</td>
+    </tr>
+    <tr>
+      <td>ISO8859-14</td>
+      <td>Welsh (4 characters)</td>
+    </tr>
+    <tr>
+      <td>ISO8859-15</td>
+      <td>French, Finnish and Estonian (complete)</td>
+    </tr>
+    <tr>
+      <td>ISO8859-16</td>
+      <td>Hungarian, Italian, Polish, Romanian, Slovenian, Finnish, French, German, Irish Gaelic (new orthography) (complete)<br /></td>
+    </tr>
+    <tr>
+      <td>WGL4</td>
+      <td>Not included in ISO8859-*, but the standard that covers characters used in supported languages.</td>
+    </tr>
+    <tr>
+      <td>Symbols not included in the preceding standard.</td>
+      <td>
+        <p>Symbols not included in the preceding standard that can be used for Mii names in the 3DS and Wii U and for ordinary use.</p>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2">only std (for Japan/North America/Europe)</th>
+      <td>JIS X0201</td>
+      <td>Japanese: JIS standard. Alphabet, numbers, katakana</td>
+    </tr>
+    <tr>
+      <td>JIS X0208</td>
+      <td>Japanese: JIS standard. Level 1 kanji, level 2 kanji</td>
+    </tr>
+    <tr>
+      <th rowspan="2">only zh-cn (simplified Chinese characters)</th>
+      <td>GB 2312</td>
+      <td>Simplified Chinese characters: Chinese national standard.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>GB 18030-2022</p>
+      </td>
+      <td>Simplified Chinese characters: Chinese national standard.</td>
+    </tr>
+    <tr>
+      <th rowspan="2">only zh-tw (traditional Chinese characters)</th>
+      <td>Big5</td>
+      <td>Traditional Chinese characters: Taiwanese standard. Alphabet, numbers, symbols, kanji</td>
+    </tr>
+    <tr>
+      <td>CP950</td>
+      <td>Traditional Chinese characters: code page 950. Slightly extended from Big5.</td>
+    </tr>
+    <tr>
+      <th rowspan="2">only ko (Hangul)</th>
+      <td>KSX1001</td>
+      <td>Korean: Korean standard. Alphabet, number, kana, kanji, Hangul (2350 characters).<br />Including Hangul Compatibility Jamo 94</td>
+    </tr>
+    <tr>
+      <td>Hangul part of KSC5601</td>
+      <td>Korean: Korean standard. All Hangul characters encoded (11172 characters)</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The system fonts include characters that may not be displayed correctly, that is characters not included in NintendoWare data (xlor and xllt). Although it is possible to display these characters, it does not mean that the correct glyphs are included.</p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The following characters are not included in the system fonts in firmware versions earlier than NintendoSDK Firmware for NX 5.0.0.</p>
+    <ul>
+      <li>U+1E9E: &quot;LATIN CAPITAL LETTER SHARP S&quot;</li>
+      <li>U+2011: &quot;NON-BREAKING HYPHEN&quot;</li>
+      <li>U+2060: &quot;WORD JOINER&quot;</li>
+    </ul>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The character widths for the following characters have been reduced in NintendoSDK Firmware for NX 6.0.0 and later.</p>
+    <p>For Japan/North America/Europe</p>
+    <ul>
+      <li>U+1E9E: ẞ</li>
+    </ul>
+    <p>For Simplified Chinese</p>
+    <ul>
+      <li>U+00B7: &middot;</li>
+      <li>U+00E9: &eacute;</li>
+      <li>U+1E3F: ḿ</li>
+      <li>U+1E9E: ẞ</li>
+    </ul>
+    <p>For Hangul</p>
+    <ul>
+      <li>U+00B7: &middot;</li>
+      <li>U+00BF: &iquest;</li>
+      <li>U+00D0: &ETH;</li>
+      <li>U+00D8: &Oslash;</li>
+      <li>U+00DE: &THORN;</li>
+      <li>U+00DF: &szlig;</li>
+      <li>U+00E6: &aelig;</li>
+      <li>U+00F8: &oslash;</li>
+      <li>U+0111: đ</li>
+      <li>U+0149: ŉ</li>
+      <li>U+02C7: ˇ</li>
+      <li>U+02D8: ˘</li>
+      <li>U+02D9: ˙</li>
+      <li>U+02DA: ˚</li>
+      <li>U+02DB: ˛</li>
+      <li>U+02DC: &tilde;</li>
+      <li>U+02DD: ˝</li>
+      <li>U+0401: Ё</li>
+      <li>U+1E9E: ẞ</li>
+    </ul>
+    <p>In addition, the shape of numerous Hangul characters containing ㅓ, ㅔ, ㅕ, and ㅖ have been changed to increase readability in the Hangul font. Character width is not affected by changing the character shape.</p>
+    <p>Example: U+AD88</p>
+    <p>
+      <span class="embedded-file-wrapper ">
+        <img src="../Attachments/Attach_91223899/373508129.png" alt="DoNotOpenViewer" title="DoNotOpenViewer" class="embedded-image" />
+      </span>
+    </p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>The glyphs for the following characters were changed in NintendoSDK Firmware for NX 11.0.0. Character width is not affected by changing the character shape.</p>
+    <p>Nintendo extended characters: U+E0C0 through U+E0C5, and U+E100 through U+E105</p>
+    <p>Example: U+E0C3</p>
+    <p>
+      <span class="embedded-file-wrapper ">
+        <img src="../Attachments/Attach_91223899/956671241.png" height="36" class="embedded-image" />
+      </span>
+    </p>
+  </div>
+</div>
+<div class="note_new">
+  <div class="note_new_left">Note:</div>
+  <div class="note_new_right">
+    <p>In NintendoSDK Firmware for NX 16.1.0, the standard font for Simplified Chinese has been changed to match the Chinese national standard, GB18030-2022. Existing applications are not affected.</p>
+  </div>
+</div>
+<p>
+  <br />
+</p>
+<h1 id="Anchor_91223899_h1_4">Supplemental Information</h1>
+<ul>
+  <li>There is no variation in weight and typeface in regard to memory.</li>
+  <li>The fonts can be made italic or bold with the rendering engine.</li>
+  <li>There is no support for pictograms.</li>
+  <li>The system fonts do not contain pair kerning information.</li>
+  <li> Alternate characters are not specified for applications to use with the system fonts. In the system features, U+25A1 (white square) is specified as an alternate character.     <br /> </li>
+  <li> Copyright notices are not necessary when you use the system fonts in applications.</li>
+  <li>When Traditional Chinese is set as the language in system settings, applications prioritize using a font for Traditional Chinese characters. However, the Traditional Chinese font is limited to the following ranges so the glyphs for alphanumeric characters match Japanese, US, and European fonts.<br /><ul><li>U+02B0 through U+02FF</li><li>U+2002 through U+2003</li><li>U+2574 through U+2574</li><li>U+2641 through U+2641</li><li>U+2E00 through U+303F</li><li>U+3100 through U+32FF</li><li>U+3400 through U+9FFF</li><li>U+F001 through U+F002</li><li>U+F900 through U+FAFF</li></ul></li>
+</ul>
+<h1 id="Anchor_91223899_h1_5">Associated Data  </h1>
+<p>The package for this documentation includes materials for Encoded Characters for System Fonts (Only Within the Assured Display Range), and materials for Differences From Wii U System Fonts (Only Within the Assured Display Range).</p>
+<div class="table">
+  <a name="AutoAnchor_91223899_table002"></a>Table 6-2  Encoded Characters for System Fonts</div>
+<table class="wrapped" style="margin-left: 1.5em;">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Category</th>
+      <th>File</th>
+      <th>Comments</th>
+    </tr>
+    <tr>
+      <td>For Japan/North America/Europe</td>
+      <td>
+        <a href="../Attachments/Attach_91223899/nintendo_udsg-r_std_003.xlsx">nintendo_udsg-r_std_003.xlsx</a>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>For Hangul</td>
+      <td>
+        <p>
+          <a href="../Attachments/Attach_91223899/nintendo_udsg-r_ko_003.xlsx">nintendo_udsg-r_ko_003.xlsx</a>
+        </p>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>For Simplified Chinese</td>
+      <td>
+        <p>
+          <a href="../Attachments/Attach_91223899/nintendo_udsg-r_org_ext_zh-cn_003.xlsx">nintendo_udsg-r_org_ext_zh-cn_003.xlsx</a>
+        </p>
+      </td>
+      <td>
+        <p>In the system features, standard fonts and supplemental fonts are used in combination.<br />Characters that appear in red within the standard fonts appear preferentially using characters from the supplemental fonts.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>For Traditional Chinese</td>
+      <td>
+        <p>
+          <a href="../Attachments/Attach_91223899/nintendo_udjxh-db_zh-tw_003.xlsx">nintendo_udjxh-db_zh-tw_003.xlsx</a> </p>
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>For Nintendo Extended Characters</td>
+      <td>
+        <p>-</p>
+      </td>
+      <td>
+        <p>A separate list compiling the purposes, warnings and notes for each glyph is provided.</p>
+        <p>See <a href="../Pages/Page_186061060.html">7.2 Descriptions and Warnings for Nintendo Extended Characters</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info:</div>
+  <div class="info_new_right">
+    <p>System font data (BFTTF) and NintendoWare data (XLOR and XLLT) are stored in the NintendoWare NX Add-On package. For more information, see Dealing With Installed NX Fonts in NintendoSDK Documents.</p>
+  </div>
+</div>
+<div class="table">
+  <a name="AutoAnchor_91223899_table003"></a>Table 6-3  Differences From Wii U System Fonts</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Document Names</th>
+      <th>File (Link)</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Differences in Glyphs of System Fonts Between Nintendo Switch and Wii U</td>
+      <td>
+        <a href="../Attachments/Attach_91223899/char_diff_list-en.html" target="_blank" rel="noopener noreferrer">char_diff_list-en.html</a>
+      </td>
+      <td>
+        <p> This document compiles the glyphs that differ between the Switch and Wii U system fonts. </p>
+        <p>It encompasses Japanese, North American, European, Hangul, Simplified Chinese, and Traditional Chinese.   </p>
+        <p>A separate list about Nintendo extended characters is provided.</p>
+        <p>See <a href="../Pages/Page_186061060.html">7.2 Descriptions and Warnings for Nintendo Extended Characters</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Character List for Nintendo Switch and Wii U System Fonts</td>
+      <td>
+        <a href="../Attachments/Attach_91223899/font_diff_list-en.html" target="_blank" rel="noopener noreferrer">font_diff_list-en.html</a>
+      </td>
+      <td>
+        <p>These documents list characters for Switch only, and those for Wii U only.</p>
+        <p>There are lists compiled respectively for Japanese/North American/European, Hangul, Simplified Chinese, and Traditional Chinese characters.</p>
+        <p>A separate list about Nintendo extended characters is provided.</p>
+        <p>See <a href="../Pages/Page_186061060.html">7.2 Descriptions and Warnings for Nintendo Extended Characters</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+<p>
+  <br />
+</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

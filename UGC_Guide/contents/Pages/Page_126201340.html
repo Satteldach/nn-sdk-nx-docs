@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3 What is handled by Nintendo Switch features and what applications must handle</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="border: 4px double black; margin: 4px; padding: 2px; font-weight: bold; background-color: #FFFFCC;">
+<p>Some features in this documentation are unavailable because JavaScript is not enabled in your browser. The table of contents is available only if JavaScript is enabled. Enable JavaScript and reload this page.</p>
+</div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3 What is handled by Nintendo Switch features and what applications must handle -->
+<div class="pagetitle" id="PageId_126201340">3 What is handled by Nintendo Switch features and what applications must handle</div>
+<div class="text_separate">
+<p>
+  <img src="../Attachments/Attach_126201340/165432744.png" width="500" />
+</p>
+<p>UGC is appealing because users can freely create it. The downside of that appeal is the fact that it may contain personal information, content that infringes on the rights of others, and content that offends other users; and these can lead to unintended outcomes. Users &mdash; especially younger users, who may be unused to handling information or may have undeveloped network literacy skills &mdash; may exchange UGC for purposes that you, the application developers, do not intend. To prevent that kind of UGC exchange, Nintendo plans to provide Nintendo Switch users with countermeasures on both the system side and the application side. These countermeasures include restricting the use of sensitive UGC, and having the parent or guardian control younger users' exchange of UGC. See below for details. It is your application's responsibility to implement the restrictions in <a href="#Anchor_126201340_SupportedByApplication">Application-side support</a>.</p>
+<!--Remove-->
+<p>
+  <a name="Anchor_126201340_SupportedBySystem"></a>
+</p>
+<h1 id="Anchor_126201340_h1_1">System-side support</h1>
+<p>On Nintendo Switch, users younger than age 13 are considered &quot;children.&quot; Nintendo Switch has features that the parent or guardian (a user age 18 or above) can use to restrict the following two types of communication, and thereby prevent children from exchanging sensitive UGC without parental permission.</p>
+<ul>
+  <li>Internet communication inside applications (via &quot;Restrictions on getting a Nintendo Account&quot;)</li>
+  <li>&quot;Communicating with Others&quot; (via &quot;Restrictions applied by parental controls&quot;)</li>
+</ul>
+<h2 id="Anchor_126201340_h2_1">Restrictions on getting a Nintendo Account</h2>
+<p>The user must have a Nintendo Account in order to use internet communication features in Nintendo Switch applications. In other words, because the parent or guardian must consent to the creation of child-directed Nintendo Accounts on Nintendo Switch, by withholding consent they can prevent the child from using internet communication and from exchanging UGC via internet communication.</p>
+<p>See the <em>Account Guide</em> for details of the account framework.</p>
+<h2 id="Anchor_126201340_h2_2">Restrictions applied by parental controls</h2>
+<p>On Nintendo Switch, &quot;sensitive UGC&quot; is defined as UGC exchanged via <em>communicating with others</em>. Nintendo Switch provides a parental controls item restricting the exchange of this kind of UGC. If this parental control is turned on for one or more applications, it prevents users playing that Nintendo Switch system from communicating with others inside those targeted applications, even if the users have Nintendo Accounts. Because the &quot;Communicating with Others&quot; parental controls item can be set separately for each individual application, it becomes possible for users to apply very fine-grained handling. For example, if they want to allow the exchange of profile cards in app A but disable the exchange of drawings in app B, they can.</p>
+<p>For these restrictions to be truly useful, it is your responsibility to implement the following support on the application side.</p>
+<!--Remove-->
+<p>
+  <a name="Anchor_126201340_SupportedByApplication"></a>
+</p>
+<h1 id="Anchor_126201340_h1_2">Application-side support</h1>
+<p>To prevent children from exchanging sensitive UGC, your application must restrict the following three things.</p>
+<ul>
+  <li>Communicating with others (only if the parental controls item &quot;Communicating with Others&quot; is enabled)</li>
+  <li>Exchange of <em>photos and video</em></li>
+  <li>Entering profanity in <em>text-based names</em> exchanged with other users</li>
+</ul>
+<h2 id="Anchor_126201340_h2_3">Restricting &quot;Communicating with Others&quot;</h2>
+<p>The parental controls item &quot;Communicating with Others&quot; can be set separately for each individual application. If this item is restricted for your application, you must not allow the user to freely communicate with others inside your application.</p>
+<p>
+  <em>Communicating with others</em> means that users are able to exchange UGC with each other using Nintendo Switch communication features. &quot;Communicating with Others&quot; is not limited to chat and direct messages; it also includes features such as those where users can make their hand-drawn illustrations public on a server and comment on others' illustrations, or features where users can publish the short comment in their profile to others. If your application handles UGC that may, in effect, be used by users to have a conversation with one another, you must apply this parental controls restriction to this UGC regardless of how frequently users can exchange this UGC in your application. Refer to the examples from released applications in <a href="#AutoAnchor_126201340_table001">Table 3-1 Examples of &quot;Communicating with Others&quot;</a> to determine whether the UGC exchanged in your application allows users to have a conversation with one another.</p>
+<!--table001-->
+<div class="table">
+  <a name="AutoAnchor_126201340_table001"></a>Table 3-1 Examples of &quot;Communicating with Others&quot;</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Application name</th>
+      <th>Types of UGC exchanged</th>
+      <th>Method of exchange</th>
+    </tr>
+    <tr>
+      <td class="highlight-blue" colspan="3">
+        <p>UGC that assumes two-way communication (chat, direct messages, etc)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <em>StreetPass Mii Plaza</em> for Nintendo 3DS</td>
+      <td rowspan="4">Text</td>
+      <td>Sends messages via StreetPass. Users are also able to send personalized messages to anyone they have met via StreetPass at least once before.</td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <em>Devil's Third</em> for Wii U</td>
+      <td>Users send and receive long-text emails with their friends via internet communication.</td>
+    </tr>
+    <tr>
+      <td>Users engage in short-text chat in the matchmaking lobby during internet communication.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Tomodachi Life</em> for Nintendo 3DS</td>
+      <td>This application uses StreetPass to send and receive Mii characters which carry messages to other users. Users reply to these messages via SpotPass by handing their own messages to the Mii characters they receive.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Mario Kart 8</em> for Wii U</td>
+      <td>Text, images</td>
+      <td>Users post gameplay videos on Miiverse, then inside this application they receive comments on the videos via internet communication.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Super Smash Bros. for Wii U</em>
+      </td>
+      <td>Audio</td>
+      <td>Users can voice chat with their friends during internet communication.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Swapnote</em> (NOA) / <em>Nintendo Letter Box</em> (NOE) for Nintendo 3DS</td>
+      <td>Images, photos, audio</td>
+      <td>Sends and receives swapnotes to/from the user's friends. The swapnotes may contain hand-drawn illustrations, handwritten text, photos, and audio.</td>
+    </tr>
+    <tr>
+      <td class="highlight-blue" colspan="3">
+        <p>UGC that is sent or published as one-way communication (illustrations posted on a server, short comments in profiles, etc)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <em>Animal Crossing: New Leaf</em> for Nintendo 3DS</td>
+      <td rowspan="4">Text</td>
+      <td>Users can freely enter a short comment in their Town Pass Card (profile card). This application sends the user's Town Pass Card to peers via internet communication or local communication. Users can change their short comment and send the new comment as many times as they wish.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Mario Kart 8</em> for Wii U</td>
+      <td>Descriptions of user-held tournaments are published on the Internet.</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <em>Super Smash Bros. for Wii U</em>
+        </p>
+        <p>
+          <em>Super Smash Bros. for Nintendo 3DS</em>
+        </p>
+      </td>
+      <td>Users send their profiles (which contain short comments) during online matches over internet communication. Users can view their opponents' profiles after the match. Users can change their short comment as many times as they wish.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Wagamama Fashion: Girls Mode Yokubari Sengen! Tokimeki Up!</em> for Nintendo 3DS (a Japan-only entry in the <em>Style Savvy</em> (NOA) / <em>Nintendo presents: New Style Boutique</em> (NOE) series)</td>
+      <td>Users can post a comment publicly on a server; the comment appears as a message from the shop owner. Users can change their message as many times as they wish.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Animal Crossing: New Leaf</em> for Nintendo 3DS</td>
+      <td>Images</td>
+      <td>Sends user-created designs (hand-drawn illustrations) to peers via internet communication or local communication. Users can change their designs and send the updated ones as many times as they wish. It is also possible to send multiple designs at once.</td>
+    </tr>
+    <tr>
+      <td>Super Mario Maker for Wii U</td>
+      <td>Other (stages made by combining preset parts)</td>
+      <td>Users make stages by combining preset parts and post them to Miiverse. Users also receive other users' stages via internet communication.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Freakyforms: Your Creations, Alive!</em> for Nintendo 3DS</td>
+      <td>Other (characters made by combining preset parts)</td>
+      <td>Users send and receive formees (characters created by combining multiple parts and colors) via StreetPass.</td>
+    </tr>
+    <tr>
+      <td>
+        <em>Flipnote Studio 3D</em> for Nintendo 3DS</td>
+      <td>Video, animation, audio</td>
+      <td>Uses local communication to send and receive flipnotes (flipbook animations) which may contain photos, hand-drawn illustrations, handwritten text, and audio. These flipnotes can also be sent and received via internet communication (except in the US and EU versions) as long as they do not contain photos or video.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>In the future, Nintendo plans to add real-world examples of applications that comply with the Nintendo Switch parental controls.</p>
+  </div>
+</div>
+<p>You must decide what method of restricting communication features best suits your application's design. For example, you could disable the entire mode that includes the communication feature or replace the feature with one that does not allow users to communicate freely.</p>
+<p>The following are not considered subject to the &quot;Communicating with Others&quot; restriction.</p>
+<ul>
+  <li>Exchange of <a href="../Pages/Page_164713870.html#Anchor_164713870_name">text-based names</a><br /><ul><li>This refers to exchanging the names of players, characters, items, or anything else that can be named by the user.</li><li>This is not considered &quot;Communicating with Others&quot; because it would be difficult for users to use these to have a conversation.</li></ul></li>
+  <li>Exchange of Mii characters<ul><li>This refers to exchanging characters created in the Mii applet.</li><li>Since the system features implement the concepts mentioned in &quot;<a href="../Pages/Page_124921518.html">Recommended handling in line with the design of your application</a>,&quot; your application does not need to implement anything to handle this.</li></ul></li>
+  <li>Exchange of <a href="../Pages/Page_164713870.html#Anchor_164713870_careless_ugc">UGC with low freedom of expression</a><br /><ul><li>This refers to exchanging UGC such as avatars that the user creates by choosing the colors and shapes of prepositioned parts, or account IDs that are not easily changeable.</li><li>This is not considered &quot;Communicating with Others&quot; because it would be difficult for users to use these to have a conversation.</li></ul></li>
+</ul>
+<p>If the game experience of your application includes users communicating with each another via UGC, you must respect the intentions of the parents or guardians who set up parental controls, and carefully evaluate what specifications will allow both the children and the parents or guardians to play your application with peace of mind.</p>
+<h2 id="Anchor_126201340_h2_4">Restricting the exchange of photos and video</h2>
+<p>Because photos and video are UGC with especially high freedom of expression and users can easily create problematic content, you must not allow users to use their Nintendo Switch system to exchange photos or video. Exchanging photos or video created on an Nintendo Switch system is prohibited, no matter whether it is via internet communication, local communication, or any other communication method.</p>
+<p>
+  <a name="Anchor_126201340_NGWordCheck"></a>
+</p>
+<h2 id="Anchor_126201340_h2_5">Restricting the display of profanity in text-based names exchanged with other users</h2>
+<p>Text-based names are not restricted by parental controls. Text-based names are not affected by parental controls because if parental controls could restrict users from seeing their peers' names, then turning on that parental control would extremely severely limit what users can do even if they have a Nintendo Account. Instead, it is the responsibility of your application to filter against the lists of profane words provided by Nintendo and ensure that no profanity is displayed in text-based names. See <a href="../Pages/Page_165024779.html#Anchor_165024779_NGWord_ex">Examples of checking text for profanity</a> for examples of how some released applications handle profanity after detecting it.</p>
+<h1 id="Anchor_126201340_h1_3">Parent/guardian settings and corresponding features available to children</h1>
+<p>This section explains what features are available to children depending on how the parent or guardian chooses to set up the Nintendo Account and the parental controls. As mentioned in <a href="#Anchor_126201340_SupportedBySystem">System-side support</a>, parents and guardians are able to prevent their children from getting a Nintendo Account, and are also able to use parental controls to prevent their children from communicating with others. The tables below show the configurations of parent/guardian settings and their corresponding effect on the features available to children.</p>
+<!--table003-->
+<div class="table">
+  <a name="AutoAnchor_126201340_table003"></a>Table 3-2 Parent/guardian settings and features available to children</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Configuration of parent/guardian settings</th>
+      <th>Local communication</th>
+      <th>Internet communication</th>
+      <th>
+        <p>Exchange of below types of UGC:</p>
+        <ul>
+          <li>Text-based names</li>
+          <li>Mii characters</li>
+          <li>UGC with low freedom of expression</li>
+        </ul>
+      </th>
+      <th>Communicating with Others</th>
+      <th>Exchange of photos and video</th>
+    </tr>
+    <tr>
+      <td>
+        <img src="../Attachments/Attach_126201340/210743125.png" width="45" />
+        <img src="../Attachments/Attach_126201340/210743128.png" width="65" />
+      </td>
+      <td class="highlight-green">Allowed</td>
+      <td>Not allowed</td>
+      <td>
+        <p>Not allowed via internet communication</p>
+        <p>Allowed over local communication (See <strong>Note</strong>)</p>
+      </td>
+      <td>
+        <p>Not allowed</p>
+      </td>
+      <td rowspan="4">Not allowed</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <img src="../Attachments/Attach_126201340/210743125.png" width="45" />
+          <img src="../Attachments/Attach_126201340/210743127.png" width="60" />
+        </p>
+      </td>
+      <td class="highlight-green">Allowed</td>
+      <td>Not allowed</td>
+      <td>
+        <p>Not allowed via internet communication</p>
+        <p>Allowed over local communication (See <strong>Note</strong>)</p>
+      </td>
+      <td>
+        <p>Not allowed via internet communication</p>
+        <p>Allowed over local communication (See Note)</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <img src="../Attachments/Attach_126201340/210743126.png" width="60" />
+          <img src="../Attachments/Attach_126201340/210743128.png" width="65" />
+        </p>
+      </td>
+      <td class="highlight-green">Allowed</td>
+      <td class="highlight-green">Allowed</td>
+      <td class="highlight-green">Allowed</td>
+      <td>Not allowed</td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <img src="../Attachments/Attach_126201340/210743126.png" width="60" />
+          <img src="../Attachments/Attach_126201340/210743127.png" width="60" />
+        </p>
+      </td>
+      <td class="highlight-green">Allowed</td>
+      <td class="highlight-green">Allowed</td>
+      <td class="highlight-green">Allowed</td>
+      <td class="highlight-green">Allowed</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Note:</strong> Users in the <img src="../Attachments/Attach_126201340/210743125.png" width="45" /> category cannot perform internet communication, and therefore cannot exchange UGC via internet communication. But these users <em>can</em> exchange UGC via local communication.</p>
+<p />
+<p>Below are definitions of the terms used for the configurations of parent/guardian settings.</p>
+<!--table002-->
+<div class="table">
+  <a name="AutoAnchor_126201340_table002"></a>Table 3-3 Terms used in descriptions of parent/guardian settings</div>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Term</th>
+      <th>Meaning</th>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <img src="../Attachments/Attach_126201340/210743125.png" width="45" />
+      </td>
+      <td>The user account used by a child is not linked to a Nintendo Account</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <img src="../Attachments/Attach_126201340/210743126.png" width="60" />
+      </td>
+      <td>The user account used by a child is linked to a Nintendo Account</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <img src="../Attachments/Attach_126201340/210743127.png" width="60" />
+      </td>
+      <td>&quot;Communicating with Others&quot; is not restricted in parental controls</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <img src="../Attachments/Attach_126201340/210743128.png" width="65" />
+      </td>
+      <td>&quot;Communicating with Others&quot; is restricted in parental controls</td>
+    </tr>
+  </tbody>
+</table>
+<p>Note that even users who are not children are restricted from exchanging UGC if they have not gotten their own Nintendo Account or if &quot;Communicating with Others&quot; is restricted in their parental controls.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

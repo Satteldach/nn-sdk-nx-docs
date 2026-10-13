@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7.4.3.4 API for Starting to Use the License | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7.4.3.4 API for Starting to Use the License -->
+<div class="pagetitle" id="PageId_471905171">7.4.3.4 API for Starting to Use the License</div>
+<div class="text_separate">
+<h1 id="Anchor_471905171_h1_1">Overview</h1>
+<p>This API starts using a license that has not yet been used. It can only be used for subscription service items in the fixed term format.</p>
+<h1 id="Anchor_471905171_h1_2">Device-Based Sharing Type Requests</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>POST /v1/courses/{course_id}/accounts/{nsa_id}/right?edi={edi}
+Authorization: Basic {base64(clientId:clientSecret)}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>course_id</td>
+      <td>Specify the course ID that you want to start using the license for.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;aa5e5131d43ba0d4&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>edi</td>
+      <td>Use it to have the Nintendo eShop server uniquely identify user devices. This value can be obtained from the NSA ID token.</td>
+      <td>string</td>
+      <td>query</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;b9ba95edb80621793f05efb46df37d37af4571d3548c5aed75bc6e595a57a719&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>When the course ID specified by the parameter is the ID for a <strong>device-based sharing type</strong> course, the use of the license begins for accounts other than the one specified in the API request if all of the following conditions are met.</p>
+<ul>
+  <li>Account <em>A</em> specified by the <code><em>nsa_id</em></code> parameter does not have a license on that console (regardless of whether the use of the license has begun).</li>
+  <li>Besides account <em>A</em>, there is also account <em>B</em> on the console specified by the <code><em>edi</em></code> parameter.</li>
+  <li>The console specified by the <code><em>edi</em></code> parameter is set as the primary console for account <em>B</em>.</li>
+  <li>Account B has a license that it has not started using.</li>
+</ul>
+<p>In this case, the license held by account B that it has not started using becomes activated.</p>
+<h1 id="Anchor_471905171_h1_3">Account-Based Requests</h1>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>POST /v1/courses/{course_id}/accounts/{nsa_id}/right
+Authorization: Basic {base64(clientId:clientSecret)}</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Parameter Type</th>
+      <th>
+        <p>Required/</p>
+        <p>Optional</p>
+      </th>
+      <th>Default<br />(Optional is the only default)</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>course_id</td>
+      <td>Specify the course ID that you want to start using the license for.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;aa5e5131d43ba0d4&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>nsa_id</td>
+      <td>Specify the internal ID (string) of the network service account in the NSA ID token as is, including the leading 0.</td>
+      <td>string</td>
+      <td>path</td>
+      <td>Required</td>
+      <td>
+        <br />
+      </td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_471905171_h1_4">Response</h1>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th colspan="4">Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Null Values Allowed?</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td colspan="4">active</td>
+      <td>Whether the license has been activated.</td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: Activated / <code>false</code>: Not activated</td>
+      <td>true</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">nsa_id</td>
+      <td>NSA ID.</td>
+      <td>string</td>
+      <td>Text</td>
+      <td>&quot;0123456789abcdef&quot;</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">start_datetime</td>
+      <td>License activation time.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1585699200000</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">expiration_datetime</td>
+      <td>Expiration date of the license.</td>
+      <td>number</td>
+      <td>Epoch milliseconds</td>
+      <td>1588291200000</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">auto_billing_applied</td>
+      <td>Whether automatic renewal is ongoing.</td>
+      <td>boolean</td>
+      <td>
+        <code>true</code>: Automatic renewal agreement exists / <code>false</code>: No automatic renewal agreement</td>
+      <td>true</td>
+      <td>Cannot be null</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_471905171_h2_1">If there is a license to start the service</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre><span class="p">{</span>
+&nbsp;&nbsp;<span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;nsa_id&quot;</span><span class="o">:</span> <span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;start_datetime&quot;</span><span class="o">:</span> <span class="mi">1585699200000</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;expiration_datetime&quot;</span><span class="o">:</span> <span class="mi">1588291200000</span><span class="p">,</span>
+&nbsp;&nbsp;<span class="s2">&quot;auto_billing_applied&quot;</span> <span class="o">:</span> <span class="kc">true</span></pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_471905171_h2_2">If there is no license to start the service</h2>
+<p>The HTTP status code 4XX will be returned.</p>
+<h1 id="Anchor_471905171_h1_5">Supplemental Information</h1>
+<p>If Error 1230 is returned, the system may not have the privileges required to call this API.</p>
+<p>If you are using a device-based sharing type, make sure that the system used to make the request is registered as the primary console in the user&rsquo;s Nintendo Account. You can check the primary console on Nintendo eShop.</p>
+<p>In the production environment, always use the API for checking whether a license is available before making a call to the API for starting to use that license.</p>
+<h1 id="Anchor_471905171_h1_6">curl Request Samples (dd1 Environment)</h1>
+<p>For simplicity, the <code>k</code> option is used to skip SSL authentication. A CA certificate can be obtained by following the instructions in <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a>.</p>
+<h2 id="Anchor_471905171_h2_3">Device-Based Sharing Type Sample</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://mandom.ws.dd1.ss.nintendo.net/v1/courses/{course_id}/accounts/{nsa_id}/right?edi={edi}&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span> <span class="se">\
+</span>-X POST</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="Anchor_471905171_h2_4">Account Type Sample</h2>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>curl -k <span class="se">\
+</span><span class="s2">&quot;https://mandom.ws.dd1.ss.nintendo.net/v1/courses/{course_id}/accounts/{nsa_id}/right&quot;</span> <span class="se">\
+</span>--basic --user <span class="o">{</span>clientId<span class="o">}</span>:<span class="o">{</span>clientSecret<span class="o">}</span> <span class="se">\
+</span>-X POST</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

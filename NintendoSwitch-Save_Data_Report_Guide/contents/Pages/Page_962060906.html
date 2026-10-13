@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4 Advance Preparations for Using Save Data Report | Nintendo Switch Save Data Report Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4 Advance Preparations for Using Save Data Report -->
+<div class="pagetitle" id="PageId_962060906">4 Advance Preparations for Using Save Data Report</div>
+<div class="text_separate">
+<h1 id="Anchor_962060906_h1_1">Web Tool Settings</h1>
+<h2 id="Anchor_962060906_h2_1">Registering Applications</h2>
+<p>This process registers applications that are supported by Save Data Report. </p>
+<p>If a person with a Nintendo Developer ID (NDID) that has the Nintendo Developer Portal role of Company Admin signs in to the web tool, all released applications associated with that person's organization are registered to the Save Data Report feature.</p>
+<p>If a new application is released after the Save Data Report feature has begun being used, an NDID with the Company Admin role can sign in to the web tool at that time to add that application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Registration takes several minutes. You can see the registered application if you wait a while and then sign in again.</p>
+  </div>
+</div>
+<h2 id="Anchor_962060906_h2_2">Setting Web Tool Users and Roles</h2>
+<p>You can set the NDIDs and roles that can use the web tool. These settings are required for each application.</p>
+<p>Immediately after an application has been registered, only NDIDs with the Company Admin role in the Nintendo Developer Portal are granted the Save Data Report Company Administrator role for that application.</p>
+<p>Web tool users with the Company Administrator role can add other web tool users as needed.</p>
+<p>For more information about operations, see <a href="../Pages/Page_962067867.html">6.3 Managing Web Tool User Roles</a>.</p>
+<p>
+  <br />
+</p>
+<p>The following operations are available to each role.</p>
+<table class="wrapped">
+  <colgroup> <col /> <col /> <col /> <col /><col /> <col /> <col /> <col /> <col /> </colgroup>
+  <tbody>
+    <tr>
+      <th>Available Action</th>
+      <th>Company Administrator</th>
+      <th>Manager</th>
+      <th>Developer</th>
+      <th>Debugger</th>
+      <th>Operation Manager</th>
+      <th>Operator</th>
+      <th>Viewer</th>
+      <th>No Role</th>
+    </tr>
+    <tr>
+      <td>Add web tool users<br />Grant/remove roles</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <p>✓ (see Note 1)</p>
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Upload/download save data</p>
+      </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓ (see Note 2)</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Change upload unit</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Allow users to upload/download save data</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>
+        <br />
+      </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>
+        <br />
+      </td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>View each screen in the web tool</p>
+      </td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>
+        <br />
+      </td>
+    </tr>
+    <tr>
+      <td>Sign in to the web tool</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Note 1:</strong> Users with the Operation Manager role can only grant and remove permissions for the Operator and Viewer roles.</p>
+<p>
+  <strong>Note 2:</strong> The Debugger role can only download save data.</p>
+<p>
+  <br />
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>Even after the Company Admin role has been rescinded for an NDID on the Nintendo Developer Portal, that user continues to have the Company Administrator role in the Save Data Report feature. Delete or change the role of other web tool users with the Company Administrator role as needed.</p>
+  </div>
+</div>
+<h2 id="Anchor_962060906_h2_3">Setting Upload Units</h2>
+<p>You can select whether the save data is uploaded for only the user doing the uploading, or for all of the users on that user's Switch console.</p>
+<p>For more information about operations, see <a href="../Pages/Page_962067873.html">6.4 Change Upload Unit</a>.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>When the upload unit is set to <strong>All Accounts</strong>, save data for all users on the Switch is also downloaded when downloading save data.</p>
+  </div>
+</div>
+<h1 id="Anchor_962060906_h1_2">Getting NsrarConverter</h1>
+<p>The web tool handles save data in the form of NSRAR files.</p>
+<p>You need the NsrarConverter tool to convert NSRAR files to save data that can be imported to the development hardware, and to convert save data exported from the development hardware to NSRAR files.</p>
+<p>Get SaveDataReportServiceKit for NX from the Nintendo Dev Interface (NDI). NsrarConverter is in the following path.</p>
+<p>
+  <br />
+</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>NintendoSDK\Tools\CommandLineTools\NsrarConverter</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

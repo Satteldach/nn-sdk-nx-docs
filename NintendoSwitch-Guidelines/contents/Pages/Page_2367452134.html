@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<script type="text/javascript" src="../template/guideline/js/guideline.js"></script>
+<script type="text/javascript" src="../guidelineSetting.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/guideline/css/template.css" />
+<title>Play modes | Nintendo Switch Guidelines</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes,autoindextab=fold">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+
+<!-- Play modes -->
+<div class="pagetitle" id="GuidelineSectionLabel_2367452134" data-tags="revision-updated-0.8">Play modes</div>
+<div class="text">
+<!--Remove-->
+<p>This chapter covers requirements for application design and development that arise from the differences between the three play modes, and applies to all applications.</p>
+<p>This chapter assumes that you have read the <em>Play Mode Guide</em>, which contains detailed descriptions of the play modes. Nintendo strongly recommends reading the <em>Play Mode Guide</em> prior to continuing with this chapter.</p>
+<!--Remove-->
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- Supported play modes -->
+<h1 class="general" id="GuidelineLabel_2367452136" data-tags="revision-updated-12.0 revision-updated-6.0 revision-updated-3.0 revision-updated-0.8">Supported play modes</h1>
+<div class="text">
+<!--Remove-->
+<p>Switch systems support three play modes: TV mode, tabletop mode, and handheld mode.</p>
+<div>
+  <p>Nintendo Switch Lite supports only handheld mode, but if the user has Joy-Con controllers or other controllers that allow wireless connection (sold separately), the user can use Nintendo Switch Lite to play applications that support tabletop mode.</p>
+</div>
+<p>When your application supports a given play mode, it means that users can play through the entirety of your application's core content using only that play mode. For example, &quot;an application that supports TV mode&quot; is an application designed so that users can play through its core content from beginning to end without being asked to switch to tabletop mode or handheld mode.</p>
+<!--figure001-->
+<div class="figure">
+  <a name="AutoAnchor_2367452136_figure001"></a>Figure 1 Example of supporting a play mode (here, an example of supporting TV mode)</div>
+<p>
+  <img src="../Attachments/Attach_2367452136/2687192345.png" width="781"></img>
+</p>
+<p>Depending on how your application is designed, it may be difficult to define what its &quot;core content&quot; consists of. For example, if your application is a minigame collection, its individual minigames might support different play modes. If you are creating an application like this and having difficulty determining which supported play mode to direct users to use when playing the game as a whole, contact Nintendo.</p>
+<p>The <em>Play Mode Guide</em> gives real-life examples of application designs and the play modes they support as a reference for developers who are deciding which play modes to support in their application. Please refer to that resource for more information.</p>
+<!--Remove-->
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0101: Supporting at least one play mode -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452144" data-tags="revision-updated-1.1 function-デバイスの着脱 revision-updated-1.0 revision-updated-6.0 revision-updated-0.8 revision-updated-2.0 function-すべてのアプリケーション function-プレイモード切り替え" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452144" title="Right-click and copy link to copy a permalink to this guideline">0101: Supporting at least one play mode</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+The core content of your application must support at least one play mode.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Your application must support at least one of the three play modes available for Switch. In other words, users must be able to play through the entirety of your application's core content using only that play mode.</p>
+  <p>See each play mode's subchapter in <a href="../Pages/Page_2367452134.html">Play modes</a> for specific points to keep in mind when supporting each different play mode in your application.</p>
+  <p>
+    <br />
+  </p>
+  <p>Note that if your application includes any of the following specifications, then it requires the use of <em>more than one</em> play mode, and therefore does not support <em>any</em> single play mode. These examples violate this guideline.</p>
+  <ul>
+    <li>Requiring the user to dock <em>and</em> undock the system as an essential element of playing the core content of your application<ul><li>If you require the user to dock the system, they cannot continue playing in tabletop or handheld mode. Likewise, if you require the user to undock the system, they cannot continue playing in TV mode. If you require both of these in your application, then it means that no matter what play mode the user started in, you are absolutely requiring them to switch play modes at some point during the core content of your application. As a result, the user is unable to play through the entire core content using just a single play mode.</li></ul></li>
+  </ul>
+  <!--figure001-->
+  <div class="figure">
+    <a name="AutoAnchor_2367452144_figure001"></a>Figure 1 Unacceptable example of requiring the user to dock and undock the system</div>
+  <p>
+    <img src="../Attachments/Attach_2367452144/2687192365.png" width="781"></img>
+  </p>
+  <ul>
+    <li>Requiring the user to attach <em>and</em> detach the Joy-Con controllers from the system as an essential element of playing the core content of your application<ul><li><p>If you require the user to attach the Joy-Con controllers, they cannot continue playing in TV mode or tabletop mode unless they have extra Joy-Con controllers or other wireless controllers. Likewise, if you require the user to detach the Joy-Con controllers, they cannot continue playing in handheld mode. This inconveniences users who are in a setting where they are only able to play in handheld mode. If you require both of these in your application, then it means that no matter what play mode the user started in, you are absolutely requiring them to switch play modes at some point during the core content of your application. As a result, the user is unable to play through the entire core content using just a single play mode.</p></li></ul></li>
+  </ul>
+  <!--figure002-->
+  <div class="figure">
+    <a name="AutoAnchor_2367452144_figure002"></a>Figure 2 Unacceptable example of requiring the user to attach and detach the Joy-Con controllers</div>
+  <p>
+    <img src="../Attachments/Attach_2367452144/2687192409.png" width="781"></img>
+  </p>
+  <p>
+    <br />
+  </p>
+  <p>You must enter which play modes your application supports on your Application Specifications forms on Nintendo Developer Portal. For information on how to access these forms, see &quot;<a href="../Pages/Page_2367452399.html">Additional information</a>.&quot;</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Play Mode Guide</em>
+      </li>
+      <li>
+        <em>Nintendo Switch Master ROM Submission Procedures</em>
+        <ul>
+          <li>Submitting a Master ROM &gt; Entering Master ROM Information</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Check which play modes have been entered for the application under <strong>Features</strong> &gt; <strong>Play Modes</strong> on Nintendo Developer Portal.
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if the application supports at least one play mode.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452144_0" data-tag="function-デバイスの着脱">
+<label for="tagfilter_2367452144_0">
+<span class="function-tag" title="Attaching and detaching devices" data-tag="function-デバイスの着脱">Attaching and detaching devices</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452144_1" data-tag="function-プレイモード切り替え">
+<label for="tagfilter_2367452144_1">
+<span class="function-tag" title="Changing between play modes" data-tag="function-プレイモード切り替え">Changing between play modes</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452144_2" data-tag="function-すべてのアプリケーション">
+<label for="tagfilter_2367452144_2">
+<span class="function-tag" title="All applications" data-tag="function-すべてのアプリケーション">All applications</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452144_3" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452144_3">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452144_4" data-tag="revision-updated-2.0">
+<label for="tagfilter_2367452144_4">
+<span class="revision-tag" title="Updated v2.0" data-tag="revision-updated-2.0">Updated v2.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452144_5" data-tag="revision-updated-1.1">
+<label for="tagfilter_2367452144_5">
+<span class="revision-tag" title="Updated v1.1" data-tag="revision-updated-1.1">Updated v1.1</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452144_6" data-tag="revision-updated-1.0">
+<label for="tagfilter_2367452144_6">
+<span class="revision-tag" title="Updated v1.0" data-tag="revision-updated-1.0">Updated v1.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452144_7" data-tag="revision-updated-0.8">
+<label for="tagfilter_2367452144_7">
+<span class="revision-tag" title="Updated v0.8" data-tag="revision-updated-0.8">Updated v0.8</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 0219: Prohibition of forcing the user to change play modes -->
+<table class="guideline-item" id="GuidelineDescLabel_2632950244" data-tags="function-デバイスの着脱 function-振り回し revision-updated-20240206 function-ジャイロセンサー function-加速度センサー function-タッチスクリーン function-プレイモード切り替え" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2632950244" title="Right-click and copy link to copy a permalink to this guideline">0219: Prohibition of forcing the user to change play modes</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+You must not require the user to change play modes in order to progress in the core content for your application's supported play modes.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+All applications
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>Switch provides three play modes with the following characteristics.</p>
+  <div class="table">
+    <a name="AutoAnchor_2632950244_table001"></a>Table 1 Characteristics of each play mode</div>
+  <table class="wrapped" data-mce-resize="false">
+    <colgroup> <col /> <col /> <col /> </colgroup>
+    <tbody>
+      <tr>
+        <th>Play mode</th>
+        <th>Disabled input methods</th>
+        <th>Operations that change the play mode</th>
+      </tr>
+      <tr>
+        <td>TV mode</td>
+        <td>
+          <ul>
+            <li>Input from the touch screen</li>
+            <li>Input from Joy-Con controllers attached to the system</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Undocking the system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Tabletop mode</td>
+        <td>
+          <br />
+        </td>
+        <td>
+          <ul>
+            <li>Attaching Joy-Con controllers to the system</li>
+            <li>Docking the system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Handheld mode</td>
+        <td>
+          <br />
+        </td>
+        <td>
+          <ul>
+            <li>Detaching Joy-Con controllers from the system</li>
+            <li>Docking the system</li>
+            <li>Using additional wireless controllers</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If your application requires the user to use &quot;disabled input methods&quot; or &quot;operations that change the play mode&quot; in order to progress in your application's core content, then it is impossible for the user to complete the core content of your game in that play mode.</p>
+  <p>To ensure that users can complete the core content of your application without leaving your supported play modes, you must not require users to perform the following operations in order to progress in your core content.</p>
+  <div class="table">
+    <a name="AutoAnchor_2632950244_table002"></a>Table 2 Play modes and corresponding operations your application must not require in order to progress</div>
+  <table class="wrapped" data-mce-resize="false">
+    <colgroup> <col /> <col /> </colgroup>
+    <tbody>
+      <tr>
+        <th>Supported play mode</th>
+        <th>Operations your application must not require in order to progress</th>
+      </tr>
+      <tr>
+        <td>TV mode</td>
+        <td>
+          <ul>
+            <li>Touch screen operations</li>
+            <li>Attaching Joy-Con controllers to the system</li>
+            <li>Undocking the system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Tabletop mode</td>
+        <td>
+          <ul>
+            <li>Attaching Joy-Con controllers to the system</li>
+            <li>Docking the system</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Handheld mode</td>
+        <td>
+          <ul>
+            <li>Detaching Joy-Con controllers from the system</li>
+            <li>Docking the system</li>
+            <li>Using additional wireless controllers</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!--Remove - p.auto-cursor-target-->
+  <div class="info_new">
+    <div class="info_new_left">Info:</div>
+    <div class="info_new_right">
+      <p>Boost mode is a high-performance mode that is not available in tabletop or handheld mode.</p>
+      <p>If your application supports tabletop mode or handheld mode, be aware that users must be able to progress in your application without boost mode.</p>
+    </div>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Play Mode Guide</em>
+        <ul>
+          <li>Three Play Modes</li>
+          <li>Supporting Each Play Mode &gt; Using Features That Vary by Play Mode</li>
+          <li>Supporting Each Play Mode &gt; Information for Users of Supported Play Modes and Definitions of Those Modes</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <!--Remove - p.auto-cursor-target-->
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Perform the following tests for all supported modes.</p>
+<h6 id="Anchor_2632950244_h6_1">Applications that support TV mode</h6>
+<ol>
+  <li>Put a Switch devkit in TV mode.</li>
+  <li>Play through the application's core content that supports TV mode from beginning to end.</li>
+</ol>
+<h6 id="Anchor_2632950244_h6_2">Applications that support tabletop mode</h6>
+<ol>
+  <li>Put a Switch devkit in tabletop mode.</li>
+  <li>Play through the application's core content that supports tabletop mode from beginning to end.</li>
+</ol>
+<h6 id="Anchor_2632950244_h6_3">Applications that support handheld mode</h6>
+<ol>
+  <li>Put a Switch devkit in handheld mode.</li>
+  <li>Play through the application's core content that supports handheld mode from beginning to end.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<h6 id="Anchor_2632950244_h6_4">Applications that support TV mode</h6>
+<p>Passes if in step 2, the application does not require the following operations as an essential element of playing its core content in TV mode.</p>
+<ul>
+  <li>Touch screen operations</li>
+  <li>Attaching Joy-Con controllers to the system</li>
+  <li>Undocking the system</li>
+</ul>
+<h6 id="Anchor_2632950244_h6_5">Applications that support tabletop mode</h6>
+<p>Passes if in step 2, the application does not require the following operations as an essential element of playing its core content in tabletop mode.</p>
+<ul>
+  <li>Attaching Joy-Con controllers to the system</li>
+  <li>Docking the system</li>
+</ul>
+<h6 id="Anchor_2632950244_h6_6">Applications that support handheld mode</h6>
+<p>Passes if in step 2, the application does not require the following operations as an essential element of playing its core content in handheld mode.</p>
+<ul>
+  <li>Detaching Joy-Con controllers from the system</li>
+  <li>Docking the system</li>
+  <li>Using additional wireless controllers</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2632950244_0" data-tag="function-振り回し">
+<label for="tagfilter_2632950244_0">
+<span class="function-tag" title="Swinging motions" data-tag="function-振り回し">Swinging motions</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2632950244_1" data-tag="function-タッチスクリーン">
+<label for="tagfilter_2632950244_1">
+<span class="function-tag" title="Touch screen" data-tag="function-タッチスクリーン">Touch screen</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2632950244_2" data-tag="function-加速度センサー">
+<label for="tagfilter_2632950244_2">
+<span class="function-tag" title="Accelerometer" data-tag="function-加速度センサー">Accelerometer</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2632950244_3" data-tag="function-ジャイロセンサー">
+<label for="tagfilter_2632950244_3">
+<span class="function-tag" title="Gyroscope" data-tag="function-ジャイロセンサー">Gyroscope</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2632950244_4" data-tag="function-デバイスの着脱">
+<label for="tagfilter_2632950244_4">
+<span class="function-tag" title="Attaching and detaching devices" data-tag="function-デバイスの着脱">Attaching and detaching devices</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2632950244_5" data-tag="function-プレイモード切り替え">
+<label for="tagfilter_2632950244_5">
+<span class="function-tag" title="Changing between play modes" data-tag="function-プレイモード切り替え">Changing between play modes</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2632950244_6" data-tag="revision-updated-20240206">
+<label for="tagfilter_2632950244_6">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Tabletop mode -->
+<h1 class="general" id="GuidelineLabel_2367452160" data-tags="revision-updated-0.8">Tabletop mode</h1>
+<div class="text">
+<!--Remove-->
+<p>This subchapter covers requirements for application design and development and applies to applications that support tabletop mode.</p>
+<p>If you consider your application to have multiple separate core content experiences, make sure to explain which specific core content experiences support tabletop mode in your Lotcheck submission documentation.</p>
+<!--Remove-->
+<!--Remove - div.fl-changelog-->
+
+<!-- 0160: Supporting wireless controllers when Joy-Con controllers are attached to the system -->
+<table class="guideline-item" id="GuidelineDescLabel_2367452168" data-tags="revision-updated-6.0 revision-updated-12.0 function-違反件数が多い revision-updated-16.0 revision-updated-20240206 revision-updated-17.0 function-プレイモード切り替え" data-collapsed="true">
+  <tbody class="guideline-item">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <td colspan="2">
+        <div class="guideline-title"><table class="layout-noborder"><tr><td class="layout-noborder"><div class="guideline-icon"></div></td><td class="layout-noborder"><a href="#GuidelineDescLabel_2367452168" title="Right-click and copy link to copy a permalink to this guideline">0160: Supporting wireless controllers when Joy-Con controllers are attached to the system</a></td></tr></table></div>
+        <div class="guidelineparam-itemtext">
+Your application must allow the user to use wireless controllers even when the Joy-Con controllers are attached to the system.
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-fixed guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Software to Be Tested</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>Applications that support tabletop mode</p>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-backgrounder guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Backgrounder</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <p>When the user undocks the system and plays in tabletop mode, one or both Joy-Con controllers may still be attached to the system.</p>
+  <p>Applications that support tabletop mode must support all features of supported wireless controllers, even when Joy-Con controllers are attached to the system.<br />If your application requires the user to detach the Joy-Con controllers from the system in order to play a specific mode, but the user is already playing with wireless controllers and does not detach the Joy-Con controllers, then you must ensure that your application remains operable and gives the user some way out of the situation (either progressing forward or backing out), so that the user does not get stuck.</p>
+  <div>
+    <p>Note that on Nintendo Switch Lite systems, the controllers are part of the system itself and cannot be detached. However, by connecting wireless controllers, Nintendo Switch Lite users can still play applications that support tabletop mode.</p>
+    <p>If your application is designed in such a way that it becomes inoperable until the user detaches the Joy-Con controllers from the system, then your application cannot be played on Nintendo Switch Lite systems. You must comply with the rules above to ensure that your application can be played by Nintendo Switch Lite users.</p>
+  </div>
+  <h6 id="Anchor_2367452168_h6_1">Example methods of implementing support</h6>
+  <ul>
+    <li>Implement an in-game mechanism for switching between wireless controllers and attached Joy-Con controllers<ul><li>If your application is single-player only: Use the single-player only mode of the controller support applet</li><li>Implement application-specific handling, without using the controller support applet</li></ul></li>
+    <li>Accept input from both wireless controllers and attached Joy-Con controllers</li>
+  </ul>
+  <p>See the <em>NintendoSDK API Reference</em> &gt; <strong>Sample Descriptions</strong> &gt; <strong>Human Input Device Library Samples</strong> &gt; <strong>Calling the Controller Support Applet</strong> for more information on methods of supporting wireless controllers.</p>
+</div>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">References</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<div class="content-wrapper">
+  <!--Remove - p.auto-cursor-target-->
+  <!--Remove-->
+  <!--Remove - p.auto-cursor-target-->
+  <div class="selectable_packagedoc">
+    <ul>
+      <li>
+        <em>Nintendo Switch Controller Guide</em>
+        <ul>
+          <li>Application Controller Support</li>
+        </ul>
+      </li>
+    </ul>
+    <!--Remove-->
+    <ul>
+      <li>
+        <em>NintendoSDK API Reference</em>
+        <ul>
+          <li>Sample Descriptions &gt; Human Input Device Library Samples &gt; Calling the Controller Support Applet</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!--Remove - p.auto-cursor-target-->
+</div>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-testsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Test Method</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<ol>
+  <li>Prepare one Switch devkit and two sets of left and right Joy-Con controllers (Joy-Con set A and Joy-Con set B).<br /><strong>Note:</strong> If your application supports multiplayer, prepare the necessary number of controllers.</li>
+  <li>Set up tabletop mode by attaching Joy-Con set A to the Switch devkit and wirelessly connecting Joy-Con set B, then start the game using Joy-Con set B.</li>
+  <li>Play through all scenes of the application that support tabletop mode.</li>
+</ol>
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Pass/Fail Determination</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+Passes if, in step 3, you are able to play in tabletop mode using all wirelessly-connected controllers, and you can use all features of the supported wireless controllers (except for vibration, which is not required).
+      </div></td>
+    </tr>
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tips</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<p>The unacceptable examples below are some typical ways in which applications violate this guideline. Your application must allow users to play with wirelessly-connected controllers.<br />Note that the vibration feature is not essential for gameplay, so it is acceptable to not support it.</p>
+<ul>
+  <li>Unresponsive buttons or sticks on wirelessly-connected controllers.</li>
+  <li>Unresponsive motion controls on wirelessly-connected controllers.</li>
+</ul>
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-tagsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Tags</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452168_0" data-tag="function-プレイモード切り替え">
+<label for="tagfilter_2367452168_0">
+<span class="function-tag" title="Changing between play modes" data-tag="function-プレイモード切り替え">Changing between play modes</span>
+</label>
+
+<input type="checkbox" class="filter-function-button" id="tagfilter_2367452168_1" data-tag="function-違反件数が多い">
+<label for="tagfilter_2367452168_1">
+<span class="function-tag" title="Most-failed guidelines" data-tag="function-違反件数が多い">Most-failed guidelines</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452168_2" data-tag="revision-updated-20240206">
+<label for="tagfilter_2367452168_2">
+<span class="revision-tag" title="Updated v20240206" data-tag="revision-updated-20240206">Updated v20240206</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452168_3" data-tag="revision-updated-17.0">
+<label for="tagfilter_2367452168_3">
+<span class="revision-tag" title="Updated v17.0" data-tag="revision-updated-17.0">Updated v17.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452168_4" data-tag="revision-updated-16.0">
+<label for="tagfilter_2367452168_4">
+<span class="revision-tag" title="Updated v16.0" data-tag="revision-updated-16.0">Updated v16.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452168_5" data-tag="revision-updated-12.0">
+<label for="tagfilter_2367452168_5">
+<span class="revision-tag" title="Updated v12.0" data-tag="revision-updated-12.0">Updated v12.0</span>
+</label>
+
+<input type="checkbox" class="filter-revision-button" id="tagfilter_2367452168_6" data-tag="revision-updated-6.0">
+<label for="tagfilter_2367452168_6">
+<span class="revision-tag" title="Updated v6.0" data-tag="revision-updated-6.0">Updated v6.0</span>
+</label>
+
+      </div></td>
+    </tr>
+  </tbody>
+  <tbody class="guideline-changelogsection guideline-hidden">
+    <tr>
+      <th class="guidelineparam-spacer"></th>
+      <th class="guidelineparam-header">Revision History</th>
+      <td class="guidelineparam-item"><div class="guidelineparam-itemtext">
+      </div></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<script>
+GuidelineN.enableFloatingMenu = true;
+</script>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

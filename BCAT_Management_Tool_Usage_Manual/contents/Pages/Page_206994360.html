@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>3.2 Related Products | Nintendo Switch BCAT Management Tool Usage Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 3.2 Related Products -->
+<div class="pagetitle" id="PageId_206994360">3.2 Related Products</div>
+<div class="text_separate">
+<h1 id="Anchor_206994360_h1_1">Related Products</h1>
+<p>You can post links to Nintendo eShop products in news items. This feature is called Related Products.</p>
+<p>A maximum of 10 related products can be posted in a single news item. </p>
+<h2 id="Anchor_206994360_h2_1">Posting Related Products</h2>
+<p>The following image shows an example post with related products for the Switch system.</p>
+<p>
+  <br />
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_206994360/260318103.png" width="440" class="embedded-image" />
+  </span>
+</p>
+<h1 id="Anchor_206994360_h1_2">Related Products That Can Be Posted</h1>
+<p>The following three criteria must be met when posting a product as a related product.</p>
+<h2 id="Anchor_206994360_h2_2">1. Approval</h2>
+<p>Approval from Nintendo in NCMS is required before posting a product as a related product.</p>
+<p>Products that have not been approved do not appear as related product candidates in the BCAT Management Tool.</p>
+<h2 id="Anchor_206994360_h2_3">2. Delivery Country</h2>
+<p>When posting products as related products, all related products must be delivered in all countries that receive the news item.</p>
+<p>For example, we assume that the News items are being delivered to CA (Canada) and to MX (Mexico).</p>
+<p>Additionally, we assume that Product-1 and Product-2 will be sold as shown in the following table.</p>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Delivery Country</th>
+      <th>Product-1</th>
+      <th>Product-2</th>
+    </tr>
+    <tr>
+      <th>CA</th>
+      <td class="highlight-green">Sell.</td>
+      <td class="highlight-green">Sell.</td>
+    </tr>
+    <tr>
+      <th>MX</th>
+      <td class="highlight-green">Sell.</td>
+      <td class="highlight-red">Do not sell.</td>
+    </tr>
+  </tbody>
+</table>
+<p>In this case, only Product-1 can be posted as a related product.</p>
+<p>Because Product-2 is not sold in MX, it cannot be posted as a related product.</p>
+<p>Product-2 appears as a candidate in the BCAT Management Tool and can be selected, but the news item cannot be saved if it is selected.</p>
+<p>Complete either of the following steps to post Product-2.</p>
+<ul>
+  <li>Change the BCAT Management Tool settings, and do not deliver to MX.</li>
+  <li>Change the settings in NCMS, and sell Product-2 to MX.</li>
+</ul>
+<h2 id="Anchor_206994360_h2_4">3. Release Start Date and Time</h2>
+<p>When posting products as related products, the delivery of the news item must start after the product is released on Nintendo eShop.</p>
+<p>The example in the following table is based on two products, sold in two countries, posted as related products.</p>
+<table class="relative-table wrapped" style="width: 67.8107%;">
+  <colgroup>
+    <col style="width: 10.2183%;" />
+    <col style="width: 9.34498%;" />
+    <col style="width: 12.5764%;" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Product</th>
+      <th>Delivery Country</th>
+      <th>Release Start Date and Time Set in NCMS</th>
+    </tr>
+    <tr>
+      <td rowspan="2">Product-1</td>
+      <td>CA</td>
+      <td class="highlight-red">
+        <p>Beginning on 2017-06-01</p>
+      </td>
+    </tr>
+    <tr>
+      <td>US</td>
+      <td class="highlight-green">Beginning on 2017-07-01</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Product-2</td>
+      <td>CA</td>
+      <td class="highlight-blue">Beginning on 2017-08-01</td>
+    </tr>
+    <tr>
+      <td>US</td>
+      <td class="highlight-yellow">Beginning on 2017-09-01</td>
+    </tr>
+  </tbody>
+</table>
+<p>In this case, <strong>we recommend starting news delivery on or after 2017-09-01, the date when all related products have been released in all delivery countries</strong>.</p>
+<p>Even if a product has not yet been released on Nintendo eShop, it is displayed as a related product candidate in the BCAT Management Tool. However, <strong>with the following exceptions</strong>, you cannot save a News items with these kinds of products selected.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <p>This section describes <strong>exceptions</strong>.</p>
+    <p>Due to system constraints in the BCAT Management Tool, in the case described previously, <strong>you can start news delivery on or after 2017-08-01, when all related products have been released in either country</strong>.</p>
+    <p>For example, in this case, if you select Product-2 from News prior to 2017-09-01 and transition to Nintendo eShop using a US Nintendo Account, an error occurs because the product has not been released yet. Keep that in mind.</p>
+    <p>
+      <strong>When posting related products</strong>, we recommend using Nintendo Accounts for all countries to which news will be delivered, and confirming that you can transition to Nintendo eShop from the news items delivered during testing.</p>
+    <table class="relative-table wrapped" style="width: 90.1654%;">
+      <colgroup>
+        <col style="width: 8.4058%;" />
+        <col style="width: 8.50242%;" />
+        <col style="width: 18.4541%;" />
+        <col style="width: 22.5121%;" />
+        <col style="width: 21.256%;" />
+        <col style="width: 20.8696%;" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th>Product</th>
+          <th>Delivery Country</th>
+          <th>Release Start Date and Time Set in NCMS<br /></th>
+          <th>
+            <p>Release Start Date and Time Handled by the BCAT Management Tool<br /></p>
+            <p>(Date and time when the products are initially released in any country.)</p>
+          </th>
+          <th>
+            <p>Delivery Start Date and Time for News That Can Be Set<br /></p>
+            <p>(Latest date and time among the release start dates and times handled by the BCAT Management Tool.)</p>
+          </th>
+          <th>Delivery Start Date and Time for News to Recommend<br /></th>
+        </tr>
+        <tr>
+          <td rowspan="2">Product-1</td>
+          <td>CA</td>
+          <td class="highlight-red">
+            <p>Beginning on 2017-06-01</p>
+          </td>
+          <td class="highlight-red" rowspan="2">Beginning on 2017-06-01</td>
+          <td class="highlight-blue" rowspan="4">Beginning on 2017-08-01</td>
+          <td class="highlight-yellow" rowspan="4">Beginning on 2017-09-01</td>
+        </tr>
+        <tr>
+          <td>US</td>
+          <td class="highlight-green">Beginning on 2017-07-01</td>
+        </tr>
+        <tr>
+          <td rowspan="2">Product-2</td>
+          <td>CA</td>
+          <td class="highlight-blue">Beginning on 2017-08-01</td>
+          <td class="highlight-blue" rowspan="2">Beginning on 2017-08-01</td>
+        </tr>
+        <tr>
+          <td>US</td>
+          <td class="highlight-yellow">Beginning on 2017-09-01</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="auto-cursor-target">
+      <br />
+    </p>
+  </div>
+</div>
+<h1 id="Anchor_206994360_h1_3">Differences From Link</h1>
+<p>
+  <a href="../Pages/Page_216924680.html">3.1 Link</a> is a feature that allows for more freedom, compared to Related Products.</p>
+<p>Although a maximum of 10 related products can be posted in a single news item, only one link can be posted in each news item.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

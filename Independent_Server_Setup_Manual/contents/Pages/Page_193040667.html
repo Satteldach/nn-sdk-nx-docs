@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>9 Independent Server Operation | Nintendo Switch Independent Server Setup Manual</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 9 Independent Server Operation -->
+<div class="pagetitle" id="PageId_193040667">9 Independent Server Operation</div>
+<div class="text_separate">
+<h1 id="Anchor_193040667_h1_1">User Support</h1>
+<div class="WordSection1">
+  <p>When managing accounts on an independent server, handle user support in either of the following ways so accounts can be identified on the independent server when users make inquiries.</p>
+</div>
+<ol>
+  <li>Use the number for customer support that can be checked on the Switch system.<br />You can only use this method if the independent server associates users with network service accounts.</li>
+  <li>Prepare a unique user identifier and display it inside the application.</li>
+</ol>
+<h2 id="Anchor_193040667_h2_1">Using the Number for Customer Support That Can Be Checked in the Switch System</h2>
+<h3 id="Anchor_193040667_h3_1">About Support Numbers</h3>
+<p>The number for customer support (the support number) is an identification number that has an interchangeable, one-to-one relationship with the network service account ID (NSA ID).</p>
+<p>The support number is a 21-digit number, with groups of four digits separated by hyphens. (Example: 0710-7470-7068-7643-0078-6)<br />The first 20 digits represent the internal ID of the network service account, and the final digit separated by a hyphen is the check digit.</p>
+<p>The method for converting the support number to the NSA ID is described later on this page in Converting Support Numbers to Network Service Account Internal IDs.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>You can calculate the support number from the NSA ID, but the support number must not be displayed inside the application.</p>
+    <p>The support number is meant only for referencing the user on the Switch system.</p>
+  </div>
+</div>
+<h3 id="Anchor_193040667_h3_2">Viewing the Support Number on the Switch System</h3>
+<p>To check the support number, go to the HOME Menu and select <strong>Settings</strong> &gt; <strong>User</strong> &gt; <span style="color: rgb(29,28,29);">(if multiple users have been registered, select one)</span> &gt; <strong>Number for Customer Support</strong>.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>In system version 9.0.0 or later, the location where <strong>Number for Customer Support</strong> is displayed was changed to be shown below <strong>User Support</strong>.</p>
+  </div>
+</div>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_193040667/683547595.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_193040667/683547594.png" height="250" class="embedded-image" />
+  </span>
+</p>
+<h3 id="Anchor_193040667_h3_3">Converting Support Numbers to Network Service Account Internal IDs</h3>
+<p>The network service account included in the support number is expressed as a decimal number. It is possible to compare this with the network service account's internal ID, which is obtainable from the NSA ID token, by converting the decimal number to a hexadecimal value.</p>
+<p>For example, if the support number is <code>0710-7470-7068-7643-0078-6</code>, <code>07107470706876430078</code> is converted to <code>62a2cef36edd36fe</code>, which is the network service account's internal ID.</p>
+<p>The check digit is generated from the first 20 digits of the support number using the modulus 10, weight 3 algorithm. To be specific, it is calculated using the following method.</p>
+<ol>
+  <li>Assuming the <em>rightmost</em> position is odd, extract the odd number positions.<ol><li>Reading from the right, replace the even number positions in <code>0710-7470-7068-7643-0078</code> with <code>X</code>.<br />X7X0-X4X0-X0X8-X6X3-X0X8</li><li>Remove the hyphens (-) and <code>X</code>s from the string in <code>a</code>.<br />7040086308</li></ol></li>
+  <li>Again assuming the <em>rightmost</em> position is odd, extract the even number positions.<ol><li>Reading from the right, replace the odd number positions in <code>0710-7470-7068-7643-0078</code> with <code>X</code>.<br />0X1X-7X7X-7X6X-7X4X-0X7X</li><li>Remove the hyphens (-) and <code>X</code>s from the string in <code>a</code>.<br />0177767407</li></ol></li>
+  <li>Add up the odd position values requested in step 1, and multiply it by 3.<br />(7 + 0 + 4 + 0 + 0 + 8 + 6 + 3 + 0 + 8) * 3 = 108</li>
+  <li>Add up the even position values requested in step 2.<br />(0 + 1 + 7 + 7 + 7 + 6 + 7 + 4 + 0 + 7) = 46</li>
+  <li>Add up the values from steps 3 and 4.<br />108 + 46 = 154</li>
+  <li>Get the remainder after dividing the result from step 5 by 10, and subtract that remainder value from 10. (However, it is zero if the calculation result is 10.)<br />10 - (154 mod 10) = 6</li>
+</ol>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>The Ban Management System (BMAS) provided by Nintendo can also be used to convert the support number to a network service account internal ID. For more information about BMAS, see Nintendo Switch Online Play Guide.</p>
+  </div>
+</div>
+<h2 id="Anchor_193040667_h2_2">Preparing an Unique User Identifier for Display Inside the Application</h2>
+<p>If your independent server uses identifiers other than the network service account internal IDs to manage users, consider providing your own unique user identifiers that can be used for support.</p>
+<p>If you prepare your own unique identifiers, you must use the application to display those identifiers.</p>
+<h1 id="Anchor_193040667_h1_2">Supporting Bans (Measure for Stopping Use of Network Services)</h1>
+<p>The measure of stopping users from using network services is called a ban. For more information about bans, see <em>Nintendo Switch Online Play Guide</em>.</p>
+<p>Banned users cannot get NSA ID tokens, so they cannot access independent servers either.<br />If you design your application so that the settings about the services provided by an independent server only can be changed from inside the application, remember that banned users cannot change those settings.<br />One way to deal with this limitation is to establish some avenue outside of the application for making contact. By using the previously mentioned support number, you can identify the network service account internal ID of the inquirer.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

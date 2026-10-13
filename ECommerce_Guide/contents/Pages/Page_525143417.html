@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>4.3 Lotcheck | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 4.3 Lotcheck -->
+<div class="pagetitle" id="PageId_525143417">4.3 Lotcheck</div>
+<div class="text_separate">
+<p>To distribute an application that has completed development, you must submit the master ROM to Nintendo and it must pass Lotcheck. This page describes information to note when submitting a master ROM to Lotcheck for applications with e-commerce features.</p>
+<p>For more information about creating and submitting a master ROM, see Nintendo Switch Master ROM Submission Procedures. For more information about Lotcheck, see Nintendo Switch Lotcheck Procedures. Nintendo Switch Master ROM Submission Procedures contains descriptions of not just master ROMs for applications, but also master ROMs for downloadable content.</p>
+<p>For more information about building master ROMs for downloadable content, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library &gt; Creating Downloadable Content.</p>
+<p>If you are using an independent server, you must configure the settings for the independent server for use in the Lotcheck environment. For more information, see the Nintendo Switch Independent Server Setup Manual. For more information about configuring independent servers for use in the Lotcheck environment, see <a href="../Pages/Page_491448834.html">9.1 Using Independent Servers</a> &gt; Independent Server Environment.</p>
+<h1 id="Anchor_525143417_h1_1">Lotcheck for Downloadable Content</h1>
+<p>For applications that support downloadable content, a master ROM of the downloadable content must also be submitted to Lotcheck. If downloadable content is still in development, submit preliminary content to Lotcheck. Downloadable content submitted in the preliminary state can later be replaced with the same version.</p>
+<h2 id="Anchor_525143417_h2_1">Preparation</h2>
+<p>To distribute content in the production environment, the content you created in the development environment must first pass Nintendo Lotcheck. You create submission files using Authoring Tool, combining content and metadata at the same time.</p>
+<p>If the content metadata contains tags, be careful not to enter duplicate tag values in the submission files. If there are duplicates, an error will occur at submission time. For more information about tags, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library.</p>
+<p>Multiple submission files cannot be submitted to Lotcheck at the same time. You cannot submit the next submission files to Lotcheck until the files from the previous submission have either passed or failed Lotcheck.</p>
+<p>If you are using feature for getting information within applications, you must configure NCMS settings in the Lotcheck environment. For more information, see NCMS Settings for Lotcheck later on this page.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>Multiple submission files cannot be submitted to Lotcheck at the same time. Submit the second submission file after the first one passes.</li>
+      <li>You cannot update only the tags. To update the tags, update the version of the content.</li>
+    </ul>
+  </div>
+</div>
+<h2 id="Anchor_525143417_h2_2">Submission</h2>
+<p>From the Nintendo Developer Portal, submit the master ROM of the downloadable content.</p>
+<h2 id="Anchor_525143417_h2_3">Updating</h2>
+<p>A version can be set for each piece of content. If you are updating content that has already passed Lotcheck, you must resubmit the updated content with a later version than the previous submission.</p>
+<div class="note_new">
+  <div class="note_new_left">Note</div>
+  <div class="note_new_right">
+    <ul>
+      <li>When updating downloadable content, the submission files do not need to include content that has not been updated from the previous submission. Package and submit only the updated content.<br />For example, if your build system unexpectedly makes changes to content that has not actually been updated, submitting the resulting package causes the downloadable content to be unnecessarily updated in the production environment. This increases the size of distributed data and results in higher loads on the Nintendo eShop server. For this reason, avoid unnecessary updates of downloadable content.</li>
+      <li>Because these processes are complicated, you must be especially careful when submitting or updating downloadable content to be included in season passes. For more information, see <a href="../Pages/Page_522483324.html">5.4 Season Pass</a>.</li>
+    </ul>
+  </div>
+</div>
+<h1 id="Anchor_525143417_h1_2">NCMS Settings for Lotcheck</h1>
+<p>NCMS settings must be configured in the Lotcheck environment for each product that uses the feature for getting information within applications. Nintendo copies NCMS settings from the development environment (dd1) to the Lotcheck environment (sd1/sp1) to perform Lotcheck for these features. For this reason, NCMS settings in the development environment must be configured before submitting to Lotcheck. For more information about NCMS settings for the development environment, see <a href="../Pages/Page_471905430.html">4.2.1 NCMS Settings for Development</a>.</p>
+<p>Also note the following.</p>
+<ul>
+  <li>Add sales information for all sales regions that will have an actual production environment release.<ul><li>Lotcheck will incorporate dd1 titles for all sales regions to which the product will be released.</li></ul></li>
+  <li>For dd1 title applications, service items, and downloadable content, use the Process Completed status in NCMS.<ul><li>Any status other than Process Completed indicates that incorporation into the Lotcheck environment will fail.</li><li>The status can be changed after Lotcheck is complete.</li></ul></li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

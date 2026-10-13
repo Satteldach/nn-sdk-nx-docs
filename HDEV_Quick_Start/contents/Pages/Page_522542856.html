@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>7 Installing Applications | Nintendo Switch HDEV Quick Start</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 7 Installing Applications -->
+<div class="pagetitle" id="PageId_522542856">7 Installing Applications</div>
+<div class="text_separate">
+<h1 id="Anchor_522542856_h1_1">Installing Applications via microSD Card</h1>
+<p>You can install an application by saving its NSP file on a microSD card, and then inserting the card into the development hardware.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information about creating NSP files, see NintendoSDK Documents &gt; Features &gt; Building &gt; Creating Application Images.</p>
+  </div>
+</div>
+<table class="wrapped">
+  <colgroup>
+    <col />
+    <col />
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Procedure</th>
+      <th>Operation</th>
+    </tr>
+    <tr>
+      <td style="text-align: center;">1</td>
+      <td>
+        <div class="content-wrapper">
+          <p>Save the NSP file on the microSD card.</p>
+          <div class="note_new">
+            <div class="note_new_left">Note</div>
+            <div class="note_new_right">
+              <p>If the NSP file is larger than 4 GB, the file cannot be saved unless you use a 64 GB or larger microSD card.<br />When using a microSD card of 32 GB or less, save the file as described in the section following this table.</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">2</td>
+      <td>Insert the microSD card into the HDEV.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">3</td>
+      <td>
+        <div class="content-wrapper">
+          <p>In DevMenu, in <strong>Application</strong>, select <strong>Install from SD</strong>.</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_522542856/538598455.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">4</td>
+      <td>
+        <div class="content-wrapper">
+          <p>To install an individual application, select the appropriate NSP.</p>
+          <p>To install all NSP files, select <strong>Install All</strong>.</p>
+          <p>
+            <span class="embedded-file-wrapper ">
+              <img src="../Attachments/Attach_522542856/538598456.png" height="250" class="embedded-image" />
+            </span>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>For more information, see NintendoSDK Documents &gt; Features &gt; Controlling the Development Hardware &gt; DevMenu.</p>
+  </div>
+</div>
+<h2 id="Anchor_522542856_h2_1">Saving a 4 GB or Larger NSP File to a 32 GB or Smaller microSD Card</h2>
+<p>Perform the following procedure.</p>
+<table class="wrapped">
+  <tbody>
+    <tr>
+      <th>Procedure</th>
+      <th>Operation</th>
+    </tr>
+    <tr>
+      <td style="text-align: center;">1</td>
+      <td>
+        <p>Copy the <code>\Tools\DivideNsp\DivideNsp.ps1</code> and <code>\Tools\DivideNsp\DivideNsp.bat</code> files from the directory where NintendoSDK is installed to the directory in the microSD card where you want to place the NSP file.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">2</td>
+      <td>Drag the NSP file you want to save to the <code>DivideNsp.bat</code> file that was copied to the microSD card.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">3</td>
+      <td>This process is complete after a directory with the same name as the NSP file that you want to save is created.</td>
+    </tr>
+  </tbody>
+</table>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <ul>
+      <li>If a directory with the same name as the NSP file that you are trying to save already exists, the error message &quot;&quot;***.nsp&quot; cannot be created because a directory with the same name already exists.&quot; will be displayed. <br />In this case, either delete the applicable files in advance or change the placement location to a different directory and perform the procedure again.</li>
+      <li>You can get the same results by using this process to save an NSP file and directory with the same name in a different location than the SD card and then copying that data to any directory on the microSD card.</li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

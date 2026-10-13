@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google" value="notranslate" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>2 Creating New Effects With Vibrations | Nintendo Switch HD Rumble Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 2 Creating New Effects With Vibrations -->
+<div class="pagetitle" id="PageId_112891003">2 Creating New Effects With Vibrations</div>
+<div class="text_separate">
+<p>The <span style="letter-spacing: 0.0px;">Nintendo Switch&trade; (Switch)</span> incorporates a <em>linear resonant actuator</em> as a vibration motor. Because this vibration motor offers quick responses and can freely control vibration patterns, it can create a wide range of effects. Also, because both the right and left Joy-Con have linear resonant actuators, a completely new <em>stereo vibration effect</em> is possible. When applications make effective use of the linear resonant actuator, they can offer users new experiences.</p>
+<h1 id="Anchor_112891003_h1_1">Issues With the Earlier Eccentric Rotating Mass</h1>
+<p>Controllers like the Wii Remote, the Wii U GamePad, and the Wii U PRO Controller used an <em>eccentric rotating mass</em> as their vibration motor. The eccentric rotating mass used the rotation of a weight within the motor to generate vibrations. It was based on the principle that the center of gravity for the weight was off the center of the rotation axis, so every time it spun it would generate a vibration. This method was good at creating larger vibrations, but it took time for the motor to begin to spin after you supplied it with voltage. And the motor would continue to spin for a little while after the power stopped. As a result, the following issues occurred when creating applications.</p>
+<ul style="margin-left: 20.0px;">
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>Response was slow.<ul><li>It took a little while to get going.</li><li>Vibrations lingered.</li></ul></li>
+      <li>The range of effects was narrow.</li>
+    </ul>
+    <ul>
+      <li style="list-style-type: none; background-image: none;">
+        <ul>
+          <li>It is easy for patterns to become monotonous because the only controls were start and stop.</li>
+          <li>It was not possible to separately control the strength (amplitude) and fineness (frequency) of the vibration.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p>Because of these characteristics, it was difficult to create vibrations with the intended strength at the intended times in games. You were basically limited to using vibrations in scenarios where a relatively large effect was needed, such as an explosion or a collision.</p>
+<h1 id="Anchor_112891003_h1_2"> Effects Enabled by the Linear Resonant Actuator on the Nintendo Switch</h1>
+<p>The linear resonant actuator uses the linear movement of a weight to generate vibrations. When voltage is applied in the positive direction, the weight moves in that direction. Apply voltage in the negative direction, and the weight moves in the opposite direction. Because of this excellent responsiveness and its ability to sensitively respond to changes in voltage, you can change the waveform of the supplied voltage to change the vibration pattern.</p>
+<p>
+  <br />
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891003/113969714.png" width="300" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891003/113969715.png" width="300" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891003/113969712.png" width="300" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891003/113969713.png" width="300" class="embedded-image" />
+  </span>
+</p>
+<p>
+  <br />
+</p>
+<p>The linear resonant actuator vibrates more easily at some frequencies (known as <em>resonant frequencies</em>). The linear resonant actuators in Switch have two resonant frequencies: a lower frequency and a higher frequency. As a result, you can produce a wide range of frequencies and generate different sensations. In other words, you can now do what was not possible with a conventional vibration motor: <strong>create vibrations at the intended times with the intended strength (amplitude) and the intended fineness (frequency)</strong>.</p>
+<p>These characteristics improve gaming experiences in the following situations.</p>
+<ul style="margin-left: 20.0px;">
+  <li style="list-style-type: none; background-image: none;">
+    <ul>
+      <li>Sensitive responses to user input make the operations easy and pleasant.</li>
+      <li>Synchronizing vibrations with video and audio offers scenarios with more realism and intensity.</li>
+      <li>You can use vibration effects as a standalone feature to produce new effects.</li>
+    </ul>
+  </li>
+</ul>
+<p>For example, if you use vibration in response to an input operation using the various sensors built into the Switch, users can immediately realize that their actions were recognized. The use of vibration effects to express a character's footsteps or heartbeats can increase the user&rsquo;s sense of oneness with the character. Using vibrations to represent invisible or off-screen enemies can provoke new levels of peripheral and haptic awareness.</p>
+<p>The Switch linear resonant actuator not only expands on existing vibration functionality, it enables the effective use of vibrations in scenarios where they had never been used before.</p>
+<h1 id="Anchor_112891003_h1_3">Effects Enabled by Multiple Linear Resonant Actuators</h1>
+<p> The linear resonant actuators are installed in the base of the right and left controllers.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891003/215188196.png" height="250" class="embedded-image" />
+  </span>   <span class="embedded-file-wrapper "><img src="../Attachments/Attach_112891003/215188197.png" height="250" class="embedded-image" /></span></p>
+<p>
+  <br />
+</p>
+<p>When the right and left controllers are used simultaneously, entirely new <em>stereo vibration effects</em> are possible.</p>
+<p>For example, if you produce different vibration stimuli in the right and left linear resonant actuators, such as during events that change the audio position using multiple speakers, you can produce the sensation that something is actually moving in your hands. In addition, by changing the amplitude and frequency based on the vibration source and direction and distance of the listener in a 3D space, you can indicate the direction from which an enemy is approaching when it is sneaking up from behind.</p>
+<p>The HidVibrationRollingBall sample included in the NintendoSDK is an interactive demo for experiencing the stereo effects of vibration. When you manipulate the ball in the screen, the vibrations provide a sense of the weight and the location of the ball.</p>
+<p>
+  <span class="embedded-file-wrapper ">
+    <img src="../Attachments/Attach_112891003/113969717.png" width="500" class="embedded-image" />
+  </span>
+</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>HidVibrationRollingBall sample: <code>%NINTENDO_SDK_ROOT%\Samples\Sources\Applications\HidVibrationRollingBall</code></p>
+  </div>
+</div>
+<h1 id="Anchor_112891003_h1_4">Supporting Switch Lite (Which Does Not Have HD Rumble)</h1>
+<p>Switch Lite does not incorporate a linear resonant actuator. However, Switch applications that use HD rumble still operate on Switch Lite, just without the vibrations.<br />The NintendoSDK vibration API does not return an error based on whether the hardware vibration feature is available. For this reason, application developers do not need to design special implementations for Switch Lite, and can continue to develop applications as if the vibration feature were available.</p>
+<p>However, because Switch Lite does not incorporate a linear resonant actuator, users cannot get the full experience of applications that use HD rumble. For applications that heavily use HD rumble or for which the user experience would be diminished without vibrations, we recommend indicating on the physical package and in the Nintendo eShop description that HD rumble can be enjoyed with a separately sold Joy-Con or Pro Controller.</p>
+<p>For more information, see <a href="../Pages/Page_112891040.html">5 Appendix</a> &gt; FAQ &gt; Are there any considerations when creating applications that use the vibration feature?.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

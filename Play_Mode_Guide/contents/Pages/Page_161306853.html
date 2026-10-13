@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.1 Basic Policies</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.1 Basic Policies -->
+<div class="pagetitle" id="PageId_161306853">5.1 Basic Policies</div>
+<div class="text_separate">
+<p>Switch applications have the two following basic policies.</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Policy 1</th>
+      <td>The application as a whole supports play in TV mode, tabletop mode, and handheld mode.</td>
+    </tr>
+    <tr>
+      <th>Policy 2</th>
+      <td>Users can switch between modes at any time while the application is running.</td>
+    </tr>
+  </tbody>
+</table>
+<p>If the application supports both of these two policies, the user can realize the play modes introduced in <a href="../Pages/Page_114732642.html">3 Three Play Modes</a> and switch between them as shown in <a href="../Pages/Page_126564972.html">4 Changing Play Modes</a>.</p>
+<p>Although these are our basic policies, we understand that there may be cases where it is necessary to devise some technical or strategic modifications, or where it may be difficult to support the basic policies.</p>
+<p>When we accumulate actual examples of how to address these situations, how to work around difficulties, and criteria for deciding not to support a policy, we plan to add them to this document.</p>
+<p>The following sections describe these policies.</p>
+<h2 id="Anchor_161306853_h2_1">Policy 1: The Application as a Whole Supports Play in TV Mode, Tabletop Mode, and Handheld Mode</h2>
+<p>The first policy is that the player must be able to play the application in all three modes introduced in <a href="../Pages/Page_114732642.html">3 Three Play Modes</a>.</p>
+<p>Playing the application all the way through is defined as the ability of the user to play an application, in all of the provided scenes, in all of the play modes.</p>
+<p>A sizable percentage of Switch users have fixed play modes, such as &quot;I only play games at home with TV projection&quot; or &quot;I only play games on the train during my commute.&quot;</p>
+<p>If the application supports this policy, all users can fully enjoy the application, whatever their play mode, and you can expand the number of target users.</p>
+<p>For this reason, the following specifications cannot be said to fulfill this policy of &quot;all users can fully enjoy the game, whatever their play mode.&quot;</p>
+<ul>
+  <li>The application generally proceeds via gameplay on the TV. As a result, users can only play some of the minigames in handheld mode and cannot advance.</li>
+  <li>The application requires using the touch panel to create some type of content, which can then be shared with others. As a result, users can receive content during TV mode but cannot create it.</li>
+  <li>Radically different games are offered depending on the mode, such as 3D games in TV mode and 2D games in tabletop mode and handheld mode.</li>
+</ul>
+<p>This policy, however, is not intended to require identical specifications for all play modes.</p>
+<p>The right modifications will likely be needed for each play mode, including omitting screen effects to absorb performance differences among play modes, and using the touch panel to enable more convenient operations in handheld mode.</p>
+<p>As a result of these modifications, accurately defining the degree to which you can determine that you are playing the same application will vary depending on the application. However, the basic approach is based on whether the user perceives that they are playing the same game.</p>
+<h2 id="Anchor_161306853_h2_2">Policy 2: Users Can Switch Between Modes at Any Time While the Application Is Running</h2>
+<p>This second policy ensures the ability to switch among the different play modes at any point during the application.</p>
+<p>The Switch is positioned as a gaming device that allows the player to switch play modes and immediately continue playing the rest of the application. The policy is defined as &quot;being able to continue playing after switching between modes.&quot;</p>
+<p>Unlike Policy 1, this policy will not be described to users before purchase, but because Switch is touted as a game machine where you can change play modes during gameplay, if the application does not support it, it may be perceived by the user as a malfunction.</p>
+<p>If there is going to be a scene in part of the application where play cannot be smoothly continued after switching modes, Policy 2 will be deemed supported if something is devised to minimize user discomfort when switching modes.</p>
+<ul>
+  <li>When gameplay is not possible in a specific mode.</li>
+  <li>When specifications such as the number of playable users changes based on play modes.</li>
+  <li>At other times when it is technically difficult to switch instantaneously.</li>
+</ul>
+<p>We are currently investigating the time needed for switching, particularly with the large degree of dependence on switching from console to the other modes for changing the screen output destination.</p>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>

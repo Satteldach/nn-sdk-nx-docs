@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript" src="../template/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../template/js/common/manualLib.js"></script>
+<script type="text/javascript" src="../tocData.js"></script>
+<script type="text/javascript" src="../tocDataApi.js"></script>
+<link rel="stylesheet" type="text/css" href="../template/css/template.css" />
+<title>5.2 Using in Applications | Nintendo Switch E-Commerce Guide</title>
+</head>
+<body data-reassemble="autoindex=no,forceNoLabel=yes">
+<div id="autoindex_content">
+<div class="body_content">
+<noscript>
+<div style="text-align: center;"><img src="../template/img/noscript.svg" /></div>
+</noscript>
+<div class="page_navigation_top">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+</table>
+</div>
+<div class="breadcrumb"></div>
+
+<!-- 5.2 Using in Applications -->
+<div class="pagetitle" id="PageId_522483327">5.2 Using in Applications</div>
+<div class="text_separate">
+<h1 id="Anchor_522483327_h1_1">Downloading Downloadable Content</h1>
+<p>Downloadable content must be downloaded for the user to use it inside the application. View the HOME Menu to see whether there is content still being downloaded and installed.</p>
+<p>If the application is running, the downloadable content does not become immediately available by default when it has completed downloading. The same is true for downloadable content purchased via the ec applet. Instead, the downloaded downloadable content becomes available after the application has been restarted. The same holds when the content for sale contains no data but rather serves as a flag indicating possession to unlock certain features inside the application.</p>
+<div class="info_new">
+  <div class="info_new_left">Info</div>
+  <div class="info_new_right">
+    <p>To determine whether the user owns the downloadable content, you must check whether the downloadable content can be mounted using <code>nn::fs::MountAddOnContent()</code>.</p>
+  </div>
+</div>
+<h2 id="Anchor_522483327_h2_1">Using Downloadable Content Downloaded When the Application Is Running</h2>
+<p>An optional feature allows downloadable content that was downloaded while the application was running to be used without closing the application. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; AOC Library.</p>
+<h1 id="Anchor_522483327_h1_2">Deleting and Redownloading Content</h1>
+<p>Users delete downloaded content data using the system settings. Content cannot be deleted alone. All content and patches linked to the application are deleted together. For downloadable software, the downloadable software itself is also deleted.</p>
+<p>Content is re-downloaded through Nintendo eShop. Nothing needs to be implemented in the application.</p>
+<h1 id="Anchor_522483327_h1_3">Updating Downloadable Content</h1>
+<p>The system does not automatically update the downloadable content. To perform an update, the user must go to the HOME Menu, select the icon for the application, and select the update button. That said, if a patch and downloadable content are distributed at the same time, the downloadable content will be updated automatically.</p>
+<p>If the version of downloadable content currently installed in the application is not allowed, you can prompt users to update the downloadable content by calling <code>nn::err::ShowUnacceptableAddOnContentVersionError()</code>. When you perform an update, the application restarts and then the updated content is downloaded and installed.</p>
+<h1 id="Anchor_522483327_h1_4">Required Application Release Version</h1>
+<p>You can set a required version for an application that would be needed to use content. You can do this for each content item on the Nintendo Switch. This version is called a <em>required application release version</em>. When a required application release version has been set, versions of the application that do not satisfy that version requirement cannot access the downloadable content.</p>
+<p>For example, suppose you have content A and content B, and the former requires application release version 1, while the latter requires release version 2. Also suppose that the user has downloaded both A and B. If only the patch for version 1 has been installed in the application, when the user starts that application it can only reference content A, and not B. By installing the patch for version 2, the application can reference both A and B.</p>
+<p>If the application is started in a state that does not satisfy the required application release version, the HOME Menu prompts the user to update the application.</p>
+<h2 id="Anchor_522483327_h2_2">Advantages</h2>
+<p>Setting the required application release version offers the following advantages.</p>
+<ul>
+  <li>You do not have to consider the compatibility of earlier versions of applications and new downloadable content.<ul><li>Restricting the application version that can run when specific content is installed reduces the combinations of applications that require debugging and versions of downloadable content.</li></ul></li>
+  <li>When a patch is required for using content, the application does not need to inform users of the patch.<br /><ul><li>If a required application release version is configured for content, the system ensures that users with that content installed must apply a patch of the same version or later than that required application release version.</li></ul></li>
+</ul>
+<h1 id="Anchor_522483327_h1_5">Nintendo Switch Systems and Accounts That Can Use Licenses</h1>
+<p>For more information about sharing licenses for downloadable content, see <a href="../Pages/Page_483854071.html">9.2 Relationship Between Nintendo Accounts and Licenses</a>.</p>
+<h1 id="Anchor_522483327_h1_6">Considerations When Associating Downloadable Content With Save Data</h1>
+<p>When developing applications that support downloadable content, consider the possibility that downloadable content that was available at one time may become unavailable in the future.</p>
+<div class="expand-container" id="expander-522483327-1">
+  <div class="expand-control" id="expander-control-522483327-1">
+    <span class="expand-control-icon collapsed-icon"> </span>
+    <span class="expand-control-text">Show specific examples of such cases.</span>
+  </div>
+  <div class="expand-content expand-hidden" id="expander-content-522483327-1">
+    <p>The following examples are specific cases where downloadable content becomes unavailable.</p>
+    <p>
+      <strong>Example 1: Cases Where the License to the Downloadable Content Can No Longer Be Used, but the Application Remains Usable<br /></strong>
+    </p>
+    <p>The license for downloadable content is associated with the Nintendo Account that made the purchase (see <a href="../Pages/Page_483854071.html">9.2 Relationship Between Nintendo Accounts and Licenses</a>), so the downloadable content will become unusable on Switch if any of the following operations are performed on the Nintendo Account that possesses that license.</p>
+    <ul>
+      <li>The Nintendo Account linked to the user account on the Switch system is deleted.</li>
+      <li>The primary console registered for the Nintendo Account, linked to the user account on the Switch system, is set to a different Switch system.</li>
+    </ul>
+    <p>Even if the downloadable content can no longer be used due to one of these operations, the application itself can still be used if either of the following conditions apply.</p>
+    <ul>
+      <li>The user possesses the card version of the application.</li>
+      <li>A console, on which the download software is owned by a different Nintendo Account, is set as the primary console.</li>
+    </ul>
+    <p>
+      <strong>Example 2: Cases Where the Storage Location of the Downloadable Content Becomes Inaccessible</strong>
+    </p>
+    <p>Downloadable software and downloadable content are saved to either system memory or a microSD card. The download data is preferentially saved to a microSD card, but if a card is not inserted or lacks sufficient space, the data will be saved to system memory instead.</p>
+    <p>If the user has the card version of the application or if the downloadable software has been saved to system memory, there may be cases where downloadable content becomes unavailable because it has been saved to an microSD card and that card has been removed.</p>
+    <p>
+      <strong>Example 3: Cases Using the Save Data Cloud Backup Service Offered With Switch Online to Move the Save Data to a System Where the Downloadable Content Has Not Been Installed</strong>
+    </p>
+    <p>When using the Save Data Cloud Backup service offered by Switch Online, users might back up the save data on the system where they originally installed and used the downloadable content, and then download that same save data to a different system where the downloadable content has not been installed.</p>
+  </div>
+</div>
+<p>As a result, there may be cases where save data created in the presence of downloadable content may be loaded at a later time after that downloadable content is no longer available. In such cases, to ensure that save data on the application side is consistent, we recommend specifications that allow save data to be loaded even when downloadable content can no longer be used. Because the handling of save data depends on how the application is implemented, there are no restrictions against specifications that prevent loading data when in a state where downloadable content cannot be used.</p>
+<h2 id="Anchor_522483327_h2_3">Instructing Users When Content Cannot Be Found</h2>
+<p>Call the <code>nn::aoc::ShowAddOnContentLostError()</code> function to inform the user that the downloadable content is not available. A message like the following is displayed. For more information, see <code>nn::aoc::ShowAddOnContentLostError()</code> in the NintendoSDK API Reference.</p>
+<table class="codeblock">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codeblock"><pre>Cannot find the downloadable content that you have been playing with.
+Re-download the downloadable content from Nintendo eShop.
+You can purchase it from Nintendo eShop if you have not done so already.</pre></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="Anchor_522483327_h1_7">Requiring Certain Downloadable Content to Start the Application</h1>
+<p>If you set information about required downloadable content in the application's metadata, you can prevent the application from starting without that content. For example, consider the case where the application is just the base program and is not sold individually, but only in combination with either the Story A downloadable content or the Story B downloadable content. In this case, you can set the application so it cannot even start without Story A or Story B. For more information, see NintendoSDK Documents &gt; Features &gt; System &gt; aoc Library &gt; Features for Downloadable Content Provided Outside the aoc Library.</p>
+<ul>
+  <li>Application plus downloadable content (Story A)</li>
+  <li>Application plus downloadable content (Story B)</li>
+</ul>
+</div>
+<div class="breadcrumb_bottom"></div>
+<div class="page_navigation">
+<table class="page_navi_root">
+<tr>
+<td class="page_navi_left"></td>
+<td class="page_navi_right"></td>
+</tr>
+<tr><td colspan="2" class="page_navi_bottom"></td></tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<hr />
+<p>CONFIDENTIAL</p>
+</div>
+</div>
+</body>
+</html>
